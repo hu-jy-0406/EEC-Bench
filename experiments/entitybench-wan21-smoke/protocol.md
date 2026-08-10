@@ -73,3 +73,11 @@ Wan2.1 EntityBench baseline.
 5. Existing ShotPilot files, checkpoints, datasets, and Slurm jobs remain
    unchanged.
 
+## Post-registration resource amendment (2026-08-10)
+
+The user clarified after registration that this smoke run must not request a
+new GPU allocation. The earlier "new Slurm allocation" resource clause is
+superseded: inspect only allocations owned by `guangyi.chen`, launch through
+`srun --jobid=<existing allocation> --overlap` only after the selected GPU has
+no resident compute process, and use the shared `vace` environment read-only.
+Job `132639` was cancelled before any MP4 completed and fully released.
