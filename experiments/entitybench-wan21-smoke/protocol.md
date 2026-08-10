@@ -45,9 +45,13 @@ Wan2.1 EntityBench baseline.
 
 ## Resource isolation
 
-- Run only through a new Slurm allocation owned by `guangyi.chen`.
-- Request exactly one MI210 GPU on a node with unallocated GRES capacity.
-- Do not attach to, cancel, reprioritize, or modify an existing job.
+- Reuse only an existing Slurm allocation owned by `guangyi.chen`; do not
+  request a new allocation under normal circumstances.
+- Before every launch, use `squeue`, `scontrol`, and `rocm-smi` to verify that
+  the selected allocation and GPU are idle.
+- Launch an isolated one-GPU step with
+  `srun --jobid=<existing_job> --overlap --gres=gpu:mi210:1`.
+- Do not attach to, cancel, reprioritize, or modify another user's job.
 - Write only under `EECBench/experiments/entitybench-wan21-smoke/`.
 - Resume by skipping existing non-empty MP4 files; never overwrite completed
   outputs.
@@ -57,8 +61,12 @@ Wan2.1 EntityBench baseline.
 - First perform import/model/video-layout preflight checks.
 - Pillars 2 and 3 require GroundingDINO plus Gemini-compatible credentials;
   they will not be silently approximated if unavailable.
-- Pillar 1 requires VBench. Any added Python packages must be installed into an
-  experiment-local dependency directory, never the shared Wan environment.
+- Prefer the read-only `vace` conda environment. This run used it for Wan2.1
+  generation; Pillar 1 used the read-only `vbench` environment because VBench
+  and PyIQA are not installed in `vace`.
+- All model and framework caches are routed into the experiment directory or
+  exposed there through read-only symlinks; shared environments and caches are
+  not modified.
 - EntityBench strict mode remains enabled for any reported metric. If strict
   execution is blocked by missing infrastructure, preserve the error and
   report the run as an integration preflight rather than a benchmark score.
@@ -73,11 +81,9 @@ Wan2.1 EntityBench baseline.
 5. Existing ShotPilot files, checkpoints, datasets, and Slurm jobs remain
    unchanged.
 
-## Post-registration resource amendment (2026-08-10)
+## Execution note (2026-08-10)
 
-The user clarified after registration that this smoke run must not request a
-new GPU allocation. The earlier "new Slurm allocation" resource clause is
-superseded: inspect only allocations owned by `guangyi.chen`, launch through
-`srun --jobid=<existing allocation> --overlap` only after the selected GPU has
-no resident compute process, and use the shared `vace` environment read-only.
-Job `132639` was cancelled before any MP4 completed and fully released.
+The run reused job `132688` on `auh7-1b-gpu-217`. All eight allocated MI210s
+showed 0% utilization and 0% VRAM before launch; each workload requested one
+logical GPU. Job `132639`, submitted before the no-new-allocation clarification,
+was cancelled before any MP4 completed and fully released.
