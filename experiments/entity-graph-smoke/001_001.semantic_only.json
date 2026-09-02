@@ -1,0 +1,510 @@
+{
+  "schema_version": "0.1",
+  "video_id": "easy_smoke_episode",
+  "shot_id": "001_001",
+  "shot_metadata": {
+    "source_video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/entitybench-wan21-complete-20260825/generated/000020ca-f66b-3542-8ad1-5c3172105f7b__run15__i0_j19__T240/001_001.mp4",
+    "num_frames": 81,
+    "fps": 16.0,
+    "duration_sec": 5.0625,
+    "reference_frame_ids": [
+      0,
+      16,
+      32,
+      48,
+      64,
+      80
+    ]
+  },
+  "extraction_metadata": {
+    "vlm_provider": "codex_cli",
+    "codex_cli_version": "codex-cli 0.151.0",
+    "codex_model": "configured_default",
+    "codex_token_usage": {
+      "input_tokens": 24566,
+      "cached_input_tokens": 19200,
+      "output_tokens": 1073,
+      "total_tokens": 25639
+    },
+    "vlm_prompt_version": "shot_entity_graph_v0.1",
+    "semantic_confidence_note": "uncalibrated model self-report",
+    "grounding_model": "GroundingDINO SwinT OGC",
+    "grounding_device": "cuda",
+    "box_threshold": 0.25,
+    "text_threshold": 0.2,
+    "n_grounding_calls": 22
+  },
+  "entities": [
+    {
+      "id": "e1",
+      "name": "man",
+      "attributes": [
+        {
+          "name": "age_group",
+          "value": "adult",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "hair",
+          "value": "black slicked-back",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "facial_hair",
+          "value": "black mustache",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "clothing",
+          "value": "black high-collared jacket",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "posture",
+          "value": "seated",
+          "confidence": 0.9,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ],
+      "grounding": {
+        "query": "man black mustache adult black slicked-back",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.039663,
+              0.004167,
+              0.991587,
+              0.99375
+            ],
+            "score": 0.517135
+          },
+          {
+            "frame_id": 16,
+            "bbox_xyxy_normalized": [
+              0.042067,
+              0.002083,
+              0.801683,
+              0.995833
+            ],
+            "score": 0.499937
+          },
+          {
+            "frame_id": 32,
+            "bbox_xyxy_normalized": [
+              0.05649,
+              0.004167,
+              0.789663,
+              0.995833
+            ],
+            "score": 0.504754
+          },
+          {
+            "frame_id": 48,
+            "bbox_xyxy_normalized": [
+              0.052885,
+              0.004167,
+              0.794471,
+              0.995833
+            ],
+            "score": 0.499938
+          },
+          {
+            "frame_id": 64,
+            "bbox_xyxy_normalized": [
+              0.054087,
+              0.002083,
+              0.795673,
+              0.995833
+            ],
+            "score": 0.516805
+          },
+          {
+            "frame_id": 80,
+            "bbox_xyxy_normalized": [
+              0.055288,
+              0.002083,
+              0.796875,
+              0.995833
+            ],
+            "score": 0.516571
+          }
+        ]
+      }
+    },
+    {
+      "id": "e2",
+      "name": "eyeglasses",
+      "attributes": [
+        {
+          "name": "frame_shape",
+          "value": "round",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "frame_color",
+          "value": "gold",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ],
+      "grounding": {
+        "query": "eyeglasses round gold",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.348558,
+              0.247917,
+              0.658654,
+              0.475
+            ],
+            "score": 0.684706
+          },
+          {
+            "frame_id": 16,
+            "bbox_xyxy_normalized": [
+              0.328125,
+              0.20625,
+              0.623798,
+              0.433333
+            ],
+            "score": 0.679087
+          },
+          {
+            "frame_id": 32,
+            "bbox_xyxy_normalized": [
+              0.362981,
+              0.189583,
+              0.671875,
+              0.397917
+            ],
+            "score": 0.677931
+          },
+          {
+            "frame_id": 48,
+            "bbox_xyxy_normalized": [
+              0.390625,
+              0.208333,
+              0.698317,
+              0.427083
+            ],
+            "score": 0.677426
+          },
+          {
+            "frame_id": 64,
+            "bbox_xyxy_normalized": [
+              0.414663,
+              0.222917,
+              0.711538,
+              0.4375
+            ],
+            "score": 0.665413
+          },
+          {
+            "frame_id": 80,
+            "bbox_xyxy_normalized": [
+              0.376202,
+              0.185417,
+              0.659856,
+              0.414583
+            ],
+            "score": 0.683731
+          }
+        ]
+      }
+    },
+    {
+      "id": "e3",
+      "name": "teacup",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "blue and white",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "material",
+          "value": "ceramic",
+          "confidence": 0.91,
+          "evidence_frame_ids": [
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        32,
+        48,
+        64,
+        80
+      ],
+      "grounding": {
+        "query": "teacup blue and white ceramic",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 32,
+            "bbox_xyxy_normalized": [
+              0.05649,
+              0.004167,
+              0.792067,
+              0.991667
+            ],
+            "score": 0.408507
+          },
+          {
+            "frame_id": 48,
+            "bbox_xyxy_normalized": [
+              0.393029,
+              0.820833,
+              0.573317,
+              0.99375
+            ],
+            "score": 0.597759
+          },
+          {
+            "frame_id": 64,
+            "bbox_xyxy_normalized": [
+              0.34375,
+              0.808333,
+              0.524038,
+              0.99375
+            ],
+            "score": 0.601507
+          },
+          {
+            "frame_id": 80,
+            "bbox_xyxy_normalized": [
+              0.335337,
+              0.804167,
+              0.514423,
+              0.989583
+            ],
+            "score": 0.611271
+          }
+        ]
+      }
+    },
+    {
+      "id": "e4",
+      "name": "wooden cabinet",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "brown",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.96,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ],
+      "grounding": {
+        "query": "wooden cabinet brown",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.885817,
+              0.30625,
+              0.997596,
+              0.977083
+            ],
+            "score": 0.754245
+          },
+          {
+            "frame_id": 16,
+            "bbox_xyxy_normalized": [
+              0.893029,
+              0.304167,
+              0.997596,
+              0.99375
+            ],
+            "score": 0.72431
+          },
+          {
+            "frame_id": 32,
+            "bbox_xyxy_normalized": [
+              0.894231,
+              0.304167,
+              0.997596,
+              0.99375
+            ],
+            "score": 0.733448
+          },
+          {
+            "frame_id": 48,
+            "bbox_xyxy_normalized": [
+              0.894231,
+              0.304167,
+              0.997596,
+              0.99375
+            ],
+            "score": 0.728818
+          },
+          {
+            "frame_id": 64,
+            "bbox_xyxy_normalized": [
+              0.894231,
+              0.304167,
+              0.997596,
+              0.99375
+            ],
+            "score": 0.730101
+          },
+          {
+            "frame_id": 80,
+            "bbox_xyxy_normalized": [
+              0.894231,
+              0.304167,
+              0.997596,
+              0.99375
+            ],
+            "score": 0.731417
+          }
+        ]
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "subject_id": "e1",
+      "object_id": "e2",
+      "predicate": "wearing",
+      "temporal_extent": {
+        "start_frame": 0,
+        "end_frame_exclusive": 81,
+        "precision": "shot"
+      },
+      "confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    {
+      "id": "r2",
+      "subject_id": "e1",
+      "object_id": "e3",
+      "predicate": "holding",
+      "temporal_extent": {
+        "start_frame": 32,
+        "end_frame_exclusive": 81,
+        "precision": "segment"
+      },
+      "confidence": 0.98,
+      "evidence_frame_ids": [
+        32,
+        48,
+        64,
+        80
+      ]
+    }
+  ],
+  "warnings": [
+    "The teacup is not visible in the first two sampled frames, so the exact time when the man began holding it is uncertain."
+  ]
+}

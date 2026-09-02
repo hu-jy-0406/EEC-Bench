@@ -1,0 +1,15 @@
+EEC-Bench episode entity-graph extraction
+status: running
+start_utc: 2026-09-01T18:57:14Z
+command: /vast/users/guangyi.chen/anaconda3/envs/vace/bin/python /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/extract_episode_entity_graphs.py experiments/study --device cuda
+experiment_dir: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study
+shots_dir: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/shots
+shot_count: 3
+
+[episode summary]
+end_utc: 2026-09-01T18:57:14Z
+status: failed
+completed_shots: 0
+total_runtime_seconds: 0.003940
+total_codex_token_usage: input_tokens=unavailable, cached_input_tokens=unavailable, output_tokens=unavailable, total_tokens=unavailable
+error: Output already exists for this shot: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot1, /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/grounding_results/study_shot1. Use --overwrite to replace it.

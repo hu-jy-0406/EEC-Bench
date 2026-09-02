@@ -59,8 +59,10 @@ Wan2.1 EntityBench baseline.
 ## Evaluation policy
 
 - First perform import/model/video-layout preflight checks.
-- Pillars 2 and 3 require GroundingDINO plus Gemini-compatible credentials;
-  they will not be silently approximated if unavailable.
+- Pillars 2 and 3 use GroundingDINO, CLIP, DINOv2, and Gemini. Before Gemini
+  credentials are available, `--non_vlm_only` may run only the API-free
+  grounding, presence, cross-shot DINOv2, transition, and gap-decay paths.
+  Gemini-derived values remain absent and the manifest labels the run.
 - Prefer the read-only `vace` conda environment. This run used it for Wan2.1
   generation; Pillar 1 used the read-only `vbench` environment because VBench
   and PyIQA are not installed in `vace`.
@@ -87,3 +89,18 @@ The run reused job `132688` on `auh7-1b-gpu-217`. All eight allocated MI210s
 showed 0% utilization and 0% VRAM before launch; each workload requested one
 logical GPU. Job `132639`, submitted before the no-new-allocation clarification,
 was cancelled before any MP4 completed and fully released.
+
+## API-free Pillar 2/3 execution note (2026-08-25)
+
+The API-free evaluation reused physical GPU 5 in existing job `151620` on
+`auh7-1b-gpu-208`. The GPU was checked repeatedly for 0% utilization, 0% VRAM,
+and no KFD-resident process immediately before each launch. When another task
+temporarily occupied it, evaluation paused rather than overlapping; it resumed
+only after the process exited and repeated checks again showed the card idle.
+
+The read-only `vace` environment contains Transformers 5.5.4 and a
+GroundingDINO build without the NVIDIA `_C` extension. The evaluator therefore
+uses process-local compatibility for the removed BERT helpers/signature and
+`GDINO_MSDA_BACKEND=pytorch`, GroundingDINO's bundled PyTorch multi-scale
+deformable-attention implementation. Checkpoints are pinned under the
+experiment cache and their paths/backend are recorded in the manifest.

@@ -72,12 +72,34 @@ pip install diffusers==0.36.0 transformers tqdm openai imageio imageio-ffmpeg
 pip install groundingdino-py vbench pyiqa
 ```
 
-Pillar 2 / Pillar 3 LLM scoring uses an Azure-OpenAI-compatible endpoint:
+The canonical Pillar 2 / Pillar 3 judge is `gemini-2.5-pro`. A Google AI
+Studio key can use Google's OpenAI-compatible endpoint directly:
 
 ```bash
-export AZURE_OPENAI_ENDPOINT="https://<your-resource>.openai.azure.com/"
-export GEMINI_API_KEYS="key1,key2,key3"     # comma-separated, rotated round-robin
+export GEMINI_OPENAI_BASE_URL="https://generativelanguage.googleapis.com/v1beta/openai/"
+export GEMINI_API_KEYS="key1,key2,key3"     # comma-separated, rotated
 ```
+
+An existing Azure-compatible gateway remains supported by setting
+`AZURE_OPENAI_ENDPOINT` instead of `GEMINI_OPENAI_BASE_URL`.
+
+For the lower-cost Qwen judge, store a Model Studio key outside the repository
+and use the provided loader:
+
+```bash
+source scripts/qwen_env.sh
+```
+See `docs/qwen-setup.md` for key creation, endpoint validation, pricing, and
+the required cross-judge comparability warning.
+
+To validate the API-free parts of Pillars 2 and 3 before configuring Gemini,
+pass `--pillars 2,3 --non_vlm_only`. This strictly runs shared grounding,
+presence, DINOv2 cross-shot/transition metrics, and gap decay; Gemini-derived
+metrics are omitted and the mode is recorded in `run_manifest.json`.
+On AMD/ROCm nodes where GroundingDINO's NVIDIA `_C` extension is unavailable,
+set `GDINO_MSDA_BACKEND=pytorch` to use GroundingDINO's bundled PyTorch
+multi-scale deformable-attention implementation; the selected backend is
+recorded in the manifest.
 
 ## Run
 

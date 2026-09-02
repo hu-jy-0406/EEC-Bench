@@ -1,0 +1,69 @@
+{
+  "story_name": "pilot_rehearsal_folder",
+  "story_overview": "Jon prepares a small music rehearsal room, carries a black music folder into the corridor, then revisits the room and brings in a red scarf. The room arrangement otherwise remains unchanged.",
+  "scenes": [
+    {
+      "scene_num": 1,
+      "location_name": "The Rehearsal Room",
+      "video_prompts": [
+        "In the same small music rehearsal room, a wide entrance view shows Jon, a man in a navy sweater, standing near the center of the room.",
+        "From the piano side of the same room, a reverse view shows Jon closing a black music folder on a stand.",
+        "A low close view frames Jon's hand lifting the black folder from the stand; only nearby objects are visible.",
+        "A medium side view shows Jon carrying the black folder through the door into the corridor."
+      ],
+      "cut": [true, false, false, false],
+      "action_descriptions": [
+        "A wide entrance view establishes Jon and the rehearsal room.",
+        "A reverse view shows Jon closing a black music folder.",
+        "A close view shows Jon lifting the folder from a stand.",
+        "Jon carries the folder out into the corridor."
+      ]
+    },
+    {
+      "scene_num": 2,
+      "location_name": "The Corridor",
+      "video_prompts": [
+        "In the quiet corridor outside the rehearsal room, Jon walks away carrying the black music folder. The camera sees only the corridor and doorway."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "Jon walks through the corridor carrying the black folder."
+      ]
+    },
+    {
+      "scene_num": 3,
+      "location_name": "The Rehearsal Room",
+      "video_prompts": [
+        "The same wide entrance view returns to the rehearsal room. The black folder is absent, Jon is empty-handed, and the other room arrangement remains as before.",
+        "From behind the central stand, Jon returns carrying a red scarf and lays it across an empty chair.",
+        "A tight side view shows the red scarf resting across the chair while Jon steps away; only part of the room is visible."
+      ],
+      "cut": [true, false, false],
+      "action_descriptions": [
+        "The rehearsal room is revisited after the black folder has been removed.",
+        "Jon brings in a red scarf and lays it across a chair.",
+        "A close view confirms the scarf remains on the chair."
+      ]
+    }
+  ],
+  "_pilot_design": {
+    "difficulty": "medium",
+    "legal_changes": [
+      "black music folder: on stand -> held by Jon -> absent from the revisited room",
+      "red scarf: absent -> held by Jon -> resting across a chair"
+    ],
+    "stable_relation_candidates": [
+      "Select distinctive recurring room fixtures from the two wide views and the piano-side reverse view.",
+      "Good candidates include piano-bench, stand-floor, chair-wall, and instrument-case-wall relations when the generated output supports them.",
+      "Do not infer that a music stand or chair is absent from a tight crop."
+    ],
+    "candidate_injections": [
+      "Make the black folder reappear on its stand in the revisit.",
+      "Move the red scarf from the chair to a stand without an action.",
+      "Remove the piano bench or a distinctive instrument case in the revisit wide view.",
+      "Change the physical ordering of two persistent stands while keeping the camera viewpoint fixed."
+    ],
+    "primary_overlap_pairs": ["1:1 <-> 3:1", "1:2 <-> 3:2", "3:2 <-> 3:3"],
+    "partial_view_shots": ["1:3", "2:1", "3:3"]
+  }
+}

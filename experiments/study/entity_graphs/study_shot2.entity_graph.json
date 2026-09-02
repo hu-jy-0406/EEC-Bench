@@ -1,0 +1,832 @@
+{
+  "schema_version": "0.1",
+  "video_id": "study",
+  "shot_id": "study_shot2",
+  "shot_metadata": {
+    "source_video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/shots/study_shot2.mp4",
+    "num_frames": 117,
+    "fps": 24.04,
+    "duration_sec": 4.8668885191347755,
+    "reference_frame_ids": [
+      0,
+      23,
+      46,
+      70,
+      93,
+      116
+    ]
+  },
+  "extraction_metadata": {
+    "vlm_provider": "codex_cli",
+    "codex_cli_version": "codex-cli 0.151.0",
+    "codex_model": "configured_default",
+    "codex_token_usage": {
+      "input_tokens": 24820,
+      "cached_input_tokens": 0,
+      "output_tokens": 1687,
+      "total_tokens": 26507
+    },
+    "vlm_prompt_version": "shot_entity_graph_v0.1",
+    "semantic_confidence_note": "uncalibrated model self-report",
+    "grounding_model": "GroundingDINO SwinT OGC",
+    "grounding_device": "cuda",
+    "box_threshold": 0.25,
+    "text_threshold": 0.2,
+    "grounding_selector": "entitybench_clip_quality_v1_per_frame",
+    "n_grounding_calls": 23
+  },
+  "entities": [
+    {
+      "id": "e1",
+      "name": "woman",
+      "attributes": [
+        {
+          "name": "action",
+          "value": "walking",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "orientation",
+          "value": "facing away",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "hair",
+          "value": "dark bun",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "clothing",
+          "value": "gray sweater",
+          "confidence": 0.96,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "clothing",
+          "value": "blue jeans",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93,
+        116
+      ],
+      "grounding": {
+        "query": "woman facing away walking dark bun",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.265258,
+              0.029167,
+              0.632629,
+              0.991667
+            ],
+            "score": 0.77004
+          },
+          {
+            "frame_id": 23,
+            "bbox_xyxy_normalized": [
+              0.366197,
+              0.0875,
+              0.61385,
+              0.991667
+            ],
+            "score": 0.801322
+          },
+          {
+            "frame_id": 46,
+            "bbox_xyxy_normalized": [
+              0.392019,
+              0.1125,
+              0.591549,
+              0.991667
+            ],
+            "score": 0.80356
+          },
+          {
+            "frame_id": 70,
+            "bbox_xyxy_normalized": [
+              0.407277,
+              0.1375,
+              0.57277,
+              0.991667
+            ],
+            "score": 0.793798
+          },
+          {
+            "frame_id": 93,
+            "bbox_xyxy_normalized": [
+              0.423709,
+              0.160417,
+              0.565728,
+              0.914583
+            ],
+            "score": 0.808994
+          },
+          {
+            "frame_id": 116,
+            "bbox_xyxy_normalized": [
+              0.428404,
+              0.183333,
+              0.551643,
+              0.822917
+            ],
+            "score": 0.819272
+          }
+        ]
+      },
+      "reference_grounding": [
+        {
+          "frame_id": 0,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000000.jpg",
+          "bbox_xyxy_normalized": [
+            0.265258,
+            0.029167,
+            0.632629,
+            0.991667
+          ],
+          "score": 0.77004
+        },
+        {
+          "frame_id": 23,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000023.jpg",
+          "bbox_xyxy_normalized": [
+            0.366197,
+            0.0875,
+            0.61385,
+            0.991667
+          ],
+          "score": 0.801322
+        },
+        {
+          "frame_id": 46,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000046.jpg",
+          "bbox_xyxy_normalized": [
+            0.392019,
+            0.1125,
+            0.591549,
+            0.991667
+          ],
+          "score": 0.80356
+        },
+        {
+          "frame_id": 70,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000070.jpg",
+          "bbox_xyxy_normalized": [
+            0.407277,
+            0.1375,
+            0.57277,
+            0.991667
+          ],
+          "score": 0.793798
+        },
+        {
+          "frame_id": 93,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000093.jpg",
+          "bbox_xyxy_normalized": [
+            0.423709,
+            0.160417,
+            0.565728,
+            0.914583
+          ],
+          "score": 0.808994
+        },
+        {
+          "frame_id": 116,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000116.jpg",
+          "bbox_xyxy_normalized": [
+            0.428404,
+            0.183333,
+            0.551643,
+            0.822917
+          ],
+          "score": 0.819272
+        }
+      ]
+    },
+    {
+      "id": "e2",
+      "name": "rectangular folder",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "red and white",
+          "confidence": 0.92,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93
+          ]
+        },
+        {
+          "name": "state",
+          "value": "partially occluded",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93
+          ]
+        }
+      ],
+      "entity_confidence": 0.88,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93
+      ],
+      "grounding": {
+        "query": "rectangular folder partially occluded red and white",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.267606,
+              0.029167,
+              0.631455,
+              0.991667
+            ],
+            "score": 0.253332
+          },
+          {
+            "frame_id": 23,
+            "bbox_xyxy_normalized": [
+              0.366197,
+              0.395833,
+              0.431925,
+              0.5625
+            ],
+            "score": 0.668782
+          },
+          {
+            "frame_id": 46,
+            "bbox_xyxy_normalized": [
+              0.393192,
+              0.364583,
+              0.444836,
+              0.497917
+            ],
+            "score": 0.567426
+          },
+          {
+            "frame_id": 70,
+            "bbox_xyxy_normalized": [
+              0.406103,
+              0.345833,
+              0.450704,
+              0.458333
+            ],
+            "score": 0.36958
+          },
+          {
+            "frame_id": 93,
+            "bbox_xyxy_normalized": [
+              0.383803,
+              0.102083,
+              0.406103,
+              0.247917
+            ],
+            "score": 0.25512
+          }
+        ]
+      },
+      "reference_grounding": [
+        {
+          "frame_id": 0,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000000.jpg",
+          "bbox_xyxy_normalized": [
+            0.267606,
+            0.029167,
+            0.631455,
+            0.991667
+          ],
+          "score": 0.253332
+        },
+        {
+          "frame_id": 23,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000023.jpg",
+          "bbox_xyxy_normalized": [
+            0.366197,
+            0.395833,
+            0.431925,
+            0.5625
+          ],
+          "score": 0.668782
+        },
+        {
+          "frame_id": 46,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000046.jpg",
+          "bbox_xyxy_normalized": [
+            0.393192,
+            0.364583,
+            0.444836,
+            0.497917
+          ],
+          "score": 0.567426
+        },
+        {
+          "frame_id": 70,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000070.jpg",
+          "bbox_xyxy_normalized": [
+            0.406103,
+            0.345833,
+            0.450704,
+            0.458333
+          ],
+          "score": 0.36958
+        },
+        {
+          "frame_id": 93,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000093.jpg",
+          "bbox_xyxy_normalized": [
+            0.383803,
+            0.102083,
+            0.406103,
+            0.247917
+          ],
+          "score": 0.25512
+        }
+      ]
+    },
+    {
+      "id": "e3",
+      "name": "hallway",
+      "attributes": [
+        {
+          "name": "shape",
+          "value": "long and narrow",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "floor",
+          "value": "wooden",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "lighting",
+          "value": "dim",
+          "confidence": 0.94,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93,
+        116
+      ],
+      "grounding": {
+        "query": "hallway wooden long and narrow dim",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.266432,
+              0.027083,
+              0.632629,
+              0.99375
+            ],
+            "score": 0.284081
+          },
+          {
+            "frame_id": 23,
+            "bbox_xyxy_normalized": [
+              0.365023,
+              0.089583,
+              0.61385,
+              0.99375
+            ],
+            "score": 0.303881
+          },
+          {
+            "frame_id": 46,
+            "bbox_xyxy_normalized": [
+              0.339202,
+              0.610417,
+              0.692488,
+              0.995833
+            ],
+            "score": 0.254926
+          },
+          {
+            "frame_id": 70,
+            "bbox_xyxy_normalized": [
+              0.339202,
+              0.65625,
+              0.666667,
+              0.995833
+            ],
+            "score": 0.280953
+          },
+          {
+            "frame_id": 93,
+            "bbox_xyxy_normalized": [
+              0.369718,
+              0.691667,
+              0.661972,
+              0.995833
+            ],
+            "score": 0.257848
+          },
+          {
+            "frame_id": 116,
+            "bbox_xyxy_normalized": [
+              0.376761,
+              0.729167,
+              0.679577,
+              0.995833
+            ],
+            "score": 0.254756
+          }
+        ]
+      },
+      "reference_grounding": [
+        {
+          "frame_id": 0,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000000.jpg",
+          "bbox_xyxy_normalized": [
+            0.266432,
+            0.027083,
+            0.632629,
+            0.99375
+          ],
+          "score": 0.284081
+        },
+        {
+          "frame_id": 23,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000023.jpg",
+          "bbox_xyxy_normalized": [
+            0.365023,
+            0.089583,
+            0.61385,
+            0.99375
+          ],
+          "score": 0.303881
+        },
+        {
+          "frame_id": 46,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000046.jpg",
+          "bbox_xyxy_normalized": [
+            0.339202,
+            0.610417,
+            0.692488,
+            0.995833
+          ],
+          "score": 0.254926
+        },
+        {
+          "frame_id": 70,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000070.jpg",
+          "bbox_xyxy_normalized": [
+            0.339202,
+            0.65625,
+            0.666667,
+            0.995833
+          ],
+          "score": 0.280953
+        },
+        {
+          "frame_id": 93,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000093.jpg",
+          "bbox_xyxy_normalized": [
+            0.369718,
+            0.691667,
+            0.661972,
+            0.995833
+          ],
+          "score": 0.257848
+        },
+        {
+          "frame_id": 116,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000116.jpg",
+          "bbox_xyxy_normalized": [
+            0.376761,
+            0.729167,
+            0.679577,
+            0.995833
+          ],
+          "score": 0.254756
+        }
+      ]
+    },
+    {
+      "id": "e4",
+      "name": "doorway",
+      "attributes": [
+        {
+          "name": "state",
+          "value": "open",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        },
+        {
+          "name": "location",
+          "value": "end of hallway",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            23,
+            46,
+            70,
+            93,
+            116
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93,
+        116
+      ],
+      "grounding": {
+        "query": "doorway open end of hallway",
+        "status": "grounded",
+        "boxes": [
+          {
+            "frame_id": 0,
+            "bbox_xyxy_normalized": [
+              0.258216,
+              0.004167,
+              0.618545,
+              0.991667
+            ],
+            "score": 0.351261
+          },
+          {
+            "frame_id": 23,
+            "bbox_xyxy_normalized": [
+              0.311033,
+              0.004167,
+              0.617371,
+              0.99375
+            ],
+            "score": 0.264259
+          },
+          {
+            "frame_id": 46,
+            "bbox_xyxy_normalized": [
+              0.410798,
+              0.077083,
+              0.591549,
+              0.989583
+            ],
+            "score": 0.315434
+          },
+          {
+            "frame_id": 70,
+            "bbox_xyxy_normalized": [
+              0.406103,
+              0.05,
+              0.599765,
+              0.989583
+            ],
+            "score": 0.270066
+          },
+          {
+            "frame_id": 93,
+            "bbox_xyxy_normalized": [
+              0.375587,
+              0.010417,
+              0.666667,
+              0.991667
+            ],
+            "score": 0.342369
+          },
+          {
+            "frame_id": 116,
+            "bbox_xyxy_normalized": [
+              0.394366,
+              0.035417,
+              0.610329,
+              0.747917
+            ],
+            "score": 0.367763
+          }
+        ]
+      },
+      "reference_grounding": [
+        {
+          "frame_id": 0,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000000.jpg",
+          "bbox_xyxy_normalized": [
+            0.258216,
+            0.004167,
+            0.618545,
+            0.991667
+          ],
+          "score": 0.351261
+        },
+        {
+          "frame_id": 23,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000023.jpg",
+          "bbox_xyxy_normalized": [
+            0.311033,
+            0.004167,
+            0.617371,
+            0.99375
+          ],
+          "score": 0.264259
+        },
+        {
+          "frame_id": 46,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000046.jpg",
+          "bbox_xyxy_normalized": [
+            0.410798,
+            0.077083,
+            0.591549,
+            0.989583
+          ],
+          "score": 0.315434
+        },
+        {
+          "frame_id": 70,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000070.jpg",
+          "bbox_xyxy_normalized": [
+            0.406103,
+            0.05,
+            0.599765,
+            0.989583
+          ],
+          "score": 0.270066
+        },
+        {
+          "frame_id": 93,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000093.jpg",
+          "bbox_xyxy_normalized": [
+            0.375587,
+            0.010417,
+            0.666667,
+            0.991667
+          ],
+          "score": 0.342369
+        },
+        {
+          "frame_id": 116,
+          "reference_frame_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study/reference_frames/study_shot2/frame_000116.jpg",
+          "bbox_xyxy_normalized": [
+            0.394366,
+            0.035417,
+            0.610329,
+            0.747917
+          ],
+          "score": 0.367763
+        }
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "subject_id": "e1",
+      "object_id": "e2",
+      "predicate": "holding",
+      "temporal_extent": {
+        "start_frame": 0,
+        "end_frame_exclusive": 117,
+        "precision": "shot"
+      },
+      "confidence": 0.94,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93
+      ]
+    },
+    {
+      "id": "r2",
+      "subject_id": "e1",
+      "object_id": "e3",
+      "predicate": "inside",
+      "temporal_extent": {
+        "start_frame": 0,
+        "end_frame_exclusive": 117,
+        "precision": "shot"
+      },
+      "confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93,
+        116
+      ]
+    },
+    {
+      "id": "r3",
+      "subject_id": "e1",
+      "object_id": "e4",
+      "predicate": "approaching",
+      "temporal_extent": {
+        "start_frame": 0,
+        "end_frame_exclusive": 117,
+        "precision": "shot"
+      },
+      "confidence": 0.97,
+      "evidence_frame_ids": [
+        0,
+        23,
+        46,
+        70,
+        93,
+        116
+      ]
+    }
+  ],
+  "warnings": [
+    "The held item's exact type is visually uncertain; it is described generically as a rectangular folder."
+  ]
+}

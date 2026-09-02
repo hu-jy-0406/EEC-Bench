@@ -1,0 +1,69 @@
+{
+  "story_name": "pilot_cafe_sugar_jar",
+  "story_overview": "Mina prepares a small cafe before opening, moves a white sugar jar into the pantry, then revisits the cafe and brings a folded newspaper to a window table. Other furnishings remain unchanged.",
+  "scenes": [
+    {
+      "scene_num": 1,
+      "location_name": "The Corner Cafe",
+      "video_prompts": [
+        "Before opening time in the same small corner cafe, a wide entrance view shows Mina, a barista in a blue apron, standing behind the counter.",
+        "A closer customer-side view of the same cafe shows Mina sliding a white sugar jar toward the end of the counter.",
+        "From behind the counter, a reverse view shows Mina picking up the white sugar jar, with the cafe entrance visible across the room.",
+        "A tight view follows the sugar jar in Mina's hands as she walks through the pantry door; most tables are outside the frame."
+      ],
+      "cut": [true, false, false, false],
+      "action_descriptions": [
+        "A wide entrance view establishes Mina and the cafe.",
+        "Mina slides a white sugar jar along the counter.",
+        "A reverse view shows Mina picking up the sugar jar.",
+        "Mina carries the sugar jar out through the pantry door."
+      ]
+    },
+    {
+      "scene_num": 2,
+      "location_name": "The Cafe Pantry",
+      "video_prompts": [
+        "Inside the small cafe pantry, a medium side view shows Mina placing the white sugar jar on a shelf. Only part of the pantry is visible."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "Mina places the sugar jar on a pantry shelf."
+      ]
+    },
+    {
+      "scene_num": 3,
+      "location_name": "The Corner Cafe",
+      "video_prompts": [
+        "The same wide entrance view returns to the cafe. The sugar jar is absent from the counter, Mina is empty-handed, and the remaining layout is unchanged.",
+        "From the window side of the same cafe, Mina enters carrying a folded newspaper and places it on an empty table by the window.",
+        "A close view shows the folded newspaper resting on the window table, while the counter is only partly visible in the background."
+      ],
+      "cut": [true, false, false],
+      "action_descriptions": [
+        "The cafe is revisited after the sugar jar has been removed.",
+        "Mina brings in a newspaper and places it on a window table.",
+        "A close view confirms the newspaper remains on the window table."
+      ]
+    }
+  ],
+  "_pilot_design": {
+    "difficulty": "easy_to_medium",
+    "legal_changes": [
+      "white sugar jar: on counter -> held by Mina -> on pantry shelf and absent from cafe counter",
+      "folded newspaper: absent -> held by Mina -> on window table"
+    ],
+    "stable_relation_candidates": [
+      "Select distinctive automatically generated cafe fixtures that recur in both wide or reverse views.",
+      "Good candidates include counter-stool, table-chair, menu-wall, plant-window, and cup-counter relations when visually unambiguous.",
+      "Do not force identity matches among several identical cups or chairs."
+    ],
+    "candidate_injections": [
+      "Restore the sugar jar to the cafe counter after it was put in the pantry.",
+      "Move the newspaper from the window table to a different visible surface without an action.",
+      "Remove one distinctive stool or wall object in the revisit wide shot.",
+      "Duplicate a distinctive cup or plant while leaving all other content untouched."
+    ],
+    "primary_overlap_pairs": ["1:1 <-> 3:1", "1:2 <-> 1:3", "3:2 <-> 3:3"],
+    "partial_view_shots": ["1:4", "2:1", "3:3"]
+  }
+}

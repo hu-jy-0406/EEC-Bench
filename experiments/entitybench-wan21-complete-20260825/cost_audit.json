@@ -1,0 +1,34 @@
+{
+  "date_utc": "2026-08-25",
+  "formal_run": {
+    "model": "gemini-3.1-pro-preview",
+    "logical_calls": 61,
+    "successful_calls": 61,
+    "prompt_tokens": 87259,
+    "visible_completion_tokens": 4292,
+    "inferred_thinking_tokens": 25443,
+    "billable_output_tokens": 29735,
+    "total_tokens": 116994,
+    "input_usd_per_million": 2.0,
+    "output_including_thinking_usd_per_million": 12.0,
+    "corrected_list_cost_usd": 0.531338,
+    "raw_manifest_pre_fix_list_cost_usd": 0.226022
+  },
+  "interrupted_debug_runs": {
+    "successful_responses": 41,
+    "known_prompt_tokens": 51388,
+    "known_visible_completion_tokens": 2622,
+    "known_tokens_lower_bound": 54010,
+    "known_list_cost_lower_bound_usd": 0.13424,
+    "thinking_tokens": null,
+    "note": "Processes were cancelled before manifests persisted per-response total tokens."
+  },
+  "combined_including_debug": {
+    "known_tokens_lower_bound": 171004,
+    "known_list_cost_lower_bound_usd": 0.665578,
+    "exact_total": null,
+    "note": "Formal usage is exact; all-debug exact total is unrecoverable because interrupted responses did not log total/thinking tokens."
+  },
+  "formula": "cost = prompt_tokens * 2e-6 + max(completion_tokens, total_tokens - prompt_tokens) * 12e-6",
+  "pricing_source": "https://ai.google.dev/gemini-api/docs/pricing"
+}

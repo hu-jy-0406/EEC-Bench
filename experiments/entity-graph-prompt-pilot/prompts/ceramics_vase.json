@@ -1,0 +1,69 @@
+{
+  "story_name": "pilot_ceramics_vase",
+  "story_overview": "Eli works in a ceramics studio, carries a finished white vase into the storeroom, then revisits the studio and brings in a shallow wooden tray. The studio otherwise keeps the same arrangement.",
+  "scenes": [
+    {
+      "scene_num": 1,
+      "location_name": "The Ceramics Studio",
+      "video_prompts": [
+        "In the same daylight ceramics studio, a wide doorway view shows Eli, a man in a gray work shirt, standing beside the central worktable.",
+        "From the kiln side of the same studio, a medium reverse view shows Eli inspecting a finished white vase on the worktable.",
+        "A low close view across the worktable shows Eli placing both hands around the white vase; only nearby tools are visible.",
+        "A side view shows Eli carrying the white vase out through the storeroom door, leaving the worktable behind."
+      ],
+      "cut": [true, false, false, false],
+      "action_descriptions": [
+        "A wide view establishes Eli and the ceramics studio.",
+        "A reverse view shows Eli inspecting a white vase.",
+        "A close view shows Eli grasping the vase.",
+        "Eli carries the vase out of the studio."
+      ]
+    },
+    {
+      "scene_num": 2,
+      "location_name": "The Studio Storeroom",
+      "video_prompts": [
+        "In the compact storeroom beside the studio, Eli places the finished white vase on an open shelf. The frame shows only Eli and part of the shelving."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "Eli places the white vase on a storeroom shelf."
+      ]
+    },
+    {
+      "scene_num": 3,
+      "location_name": "The Ceramics Studio",
+      "video_prompts": [
+        "The same wide doorway view returns to the ceramics studio. The white vase is gone from the worktable, Eli is empty-handed, and the rest of the studio remains as before.",
+        "From the opposite side of the same worktable, Eli returns carrying a shallow wooden tray and sets it on the cleared spot.",
+        "A close view shows the wooden tray resting on the worktable as Eli steps away; the far side of the studio is outside the frame."
+      ],
+      "cut": [true, false, false],
+      "action_descriptions": [
+        "The ceramics studio is revisited after the vase has been removed.",
+        "Eli brings in a wooden tray and sets it on the worktable.",
+        "A close view confirms the tray remains on the worktable."
+      ]
+    }
+  ],
+  "_pilot_design": {
+    "difficulty": "medium",
+    "legal_changes": [
+      "white vase: on studio worktable -> held by Eli -> on storeroom shelf and absent from studio",
+      "wooden tray: absent -> held by Eli -> on studio worktable"
+    ],
+    "stable_relation_candidates": [
+      "Select distinctive fixed studio entities recurring across the doorway and reverse views.",
+      "Prefer kiln-wall, wheel-stool, shelf-wall, and tool-worktable relations over matching similar pots.",
+      "Mark same-looking pots as ambiguous unless texture or position gives strong identity evidence."
+    ],
+    "candidate_injections": [
+      "Put the white vase back on the studio worktable after the storeroom shot.",
+      "Make the wooden tray disappear from the final close view.",
+      "Move a distinctive tool from the worktable to a shelf without any action.",
+      "Delete or duplicate the most distinctive automatically generated vessel in a wide revisit."
+    ],
+    "primary_overlap_pairs": ["1:1 <-> 3:1", "1:2 <-> 3:2", "3:2 <-> 3:3"],
+    "partial_view_shots": ["1:3", "2:1", "3:3"]
+  }
+}

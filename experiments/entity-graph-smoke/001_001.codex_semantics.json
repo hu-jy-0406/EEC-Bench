@@ -1,0 +1,231 @@
+{
+  "entities": [
+    {
+      "id": "e1",
+      "name": "man",
+      "attributes": [
+        {
+          "name": "age_group",
+          "value": "adult",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "hair",
+          "value": "black slicked-back",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "facial_hair",
+          "value": "black mustache",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "clothing",
+          "value": "black high-collared jacket",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "posture",
+          "value": "seated",
+          "confidence": 0.9,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    {
+      "id": "e2",
+      "name": "eyeglasses",
+      "attributes": [
+        {
+          "name": "frame_shape",
+          "value": "round",
+          "confidence": 0.98,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "frame_color",
+          "value": "gold",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    {
+      "id": "e3",
+      "name": "teacup",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "blue and white",
+          "confidence": 0.99,
+          "evidence_frame_ids": [
+            32,
+            48,
+            64,
+            80
+          ]
+        },
+        {
+          "name": "material",
+          "value": "ceramic",
+          "confidence": 0.91,
+          "evidence_frame_ids": [
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.99,
+      "evidence_frame_ids": [
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    {
+      "id": "e4",
+      "name": "wooden cabinet",
+      "attributes": [
+        {
+          "name": "color",
+          "value": "brown",
+          "confidence": 0.97,
+          "evidence_frame_ids": [
+            0,
+            16,
+            32,
+            48,
+            64,
+            80
+          ]
+        }
+      ],
+      "entity_confidence": 0.96,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "subject_id": "e1",
+      "object_id": "e2",
+      "predicate": "wearing",
+      "temporal_extent": {
+        "start_frame": 0,
+        "end_frame_exclusive": 81,
+        "precision": "shot"
+      },
+      "confidence": 0.99,
+      "evidence_frame_ids": [
+        0,
+        16,
+        32,
+        48,
+        64,
+        80
+      ]
+    },
+    {
+      "id": "r2",
+      "subject_id": "e1",
+      "object_id": "e3",
+      "predicate": "holding",
+      "temporal_extent": {
+        "start_frame": 32,
+        "end_frame_exclusive": 81,
+        "precision": "segment"
+      },
+      "confidence": 0.98,
+      "evidence_frame_ids": [
+        32,
+        48,
+        64,
+        80
+      ]
+    }
+  ],
+  "warnings": [
+    "The teacup is not visible in the first two sampled frames, so the exact time when the man began holding it is uncertain."
+  ]
+}

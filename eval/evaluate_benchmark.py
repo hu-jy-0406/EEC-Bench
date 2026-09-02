@@ -104,6 +104,14 @@ class StrictModeError(RuntimeError):
 # (--strict, default ON), CLI cannot override these. The values are
 # embedded in the run manifest so two runs can be byte-checked for
 # comparability.
+_DEFAULT_VLM_MODEL = (
+    os.environ.get("EECBENCH_VLM_MODEL", "gemini-2.5-pro").strip()
+    or "gemini-2.5-pro"
+)
+
+_DEFAULT_VLM_REASONING_EFFORT = (
+    os.environ.get("EECBENCH_VLM_REASONING_EFFORT", "").strip() or None
+)
 BENCHMARK_CONFIG = {
     # Pillar 2 grounding
     "gdino_box_threshold": 0.25,
@@ -121,11 +129,12 @@ BENCHMARK_CONFIG = {
     # VLM judge — all use gemini-2.5-pro for the canonical benchmark
     # (pro is more reliable than flash; the benchmark must use one model
     # consistently across entity / scene / style / action).
-    "vlm_model_entity": "gemini-2.5-pro",
-    "vlm_model_scene": "gemini-2.5-pro",
-    "vlm_model_style": "gemini-2.5-pro",
-    "vlm_model_action": "gemini-2.5-pro",
-    "vlm_model_intra_fidelity": "gemini-2.5-pro",
+    "vlm_model_entity": _DEFAULT_VLM_MODEL,
+    "vlm_model_scene": _DEFAULT_VLM_MODEL,
+    "vlm_model_style": _DEFAULT_VLM_MODEL,
+    "vlm_model_action": _DEFAULT_VLM_MODEL,
+    "vlm_model_intra_fidelity": _DEFAULT_VLM_MODEL,
+    "vlm_reasoning_effort": _DEFAULT_VLM_REASONING_EFFORT,
     # Pillar 2 cross-shot VLM-Judge — N-at-once scoring.
     # Gemini-2.5-pro reliably handles up to ~16 images per call. For
     # entities that recur in more than 16 shots (rare; mostly the hard
@@ -171,6 +180,9 @@ def build_run_manifest(method_name: str, config: Dict[str, Any]) -> Dict[str, An
         "platform": platform.platform(),
         "libraries": {},
         "model_checkpoints": {},
+        "groundingdino_msda_backend": os.environ.get(
+            "GDINO_MSDA_BACKEND", "auto"
+        ),
     }
 
     # Library versions
@@ -185,6 +197,7 @@ def build_run_manifest(method_name: str, config: Dict[str, Any]) -> Dict[str, An
     # Model checkpoint fingerprints (path + size + first-1MB sha256)
     checkpoint_env_vars = [
         "GDINO_CONFIG", "GDINO_WEIGHTS",
+        "GDINO_TEXT_ENCODER_PATH",
         "DINO_MODEL_PATH", "CLIP_MODEL_PATH",
         "VBENCH_CACHE_DIR",
     ]
@@ -384,6 +397,7 @@ class EpisodeResult:
     # Detail
     per_entity_scores: Dict[str, Dict[str, float]] = field(default_factory=dict)
     gap_decay_data: List[Dict[str, float]] = field(default_factory=list)
+    timings: Dict[str, float] = field(default_factory=dict)
 
     def __getattr__(self, name):
         # Backward-compat shim: r.cs_face → r.metrics["cs_face"].value or None
@@ -607,13 +621,143 @@ def _download(url: str, dest: Path) -> Path:
     return dest
 
 
+def _configure_miopen_cache() -> Path:
+    """Ensure MIOpen has a writable node-local user/kernel database."""
+    configured = (
+        os.environ.get("MIOPEN_USER_DB_PATH", "").strip()
+        or os.environ.get("MIOPEN_CUSTOM_CACHE_DIR", "").strip()
+    )
+    cache_dir = (
+        Path(configured).expanduser()
+        if configured
+        else Path("/tmp") / f"eecbench-miopen-{os.getuid()}"
+    )
+    cache_dir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    if not cache_dir.is_dir() or not os.access(cache_dir, os.W_OK | os.X_OK):
+        raise PermissionError(f"MIOpen cache directory is not writable: {cache_dir}")
+
+    # These must be defined before importing torch/GroundingDINO. Respect an
+    # explicit caller override, but make the ordinary interactive command safe.
+    os.environ.setdefault("MIOPEN_USER_DB_PATH", str(cache_dir))
+    os.environ.setdefault("MIOPEN_CUSTOM_CACHE_DIR", str(cache_dir))
+    logger.info(f"[Eval] MIOpen cache directory: {cache_dir}")
+    return cache_dir
+
+
+def _configure_groundingdino_compat():
+    """Apply process-local GroundingDINO compatibility before model build.
+
+    GroundingDINO's BERT wrapper still calls helpers removed or changed in
+    Transformers 5.x. Its CUDA-extension availability check also treats ROCm
+    as CUDA, even though the bundled extension is NVIDIA-only. Configure both
+    compatibility paths regardless of whether the caller supplied a pinned
+    ``GDINO_TEXT_ENCODER_PATH`` so the normal evaluator command works without
+    shell-specific exports.
+    """
+    import inspect
+    import torch
+    from groundingdino.models.GroundingDINO import ms_deform_attn
+    from transformers import BertModel
+
+    requested_backend = os.environ.get(
+        "GDINO_MSDA_BACKEND", "auto"
+    ).strip().lower()
+    if requested_backend not in {"auto", "pytorch"}:
+        raise ValueError(
+            "GDINO_MSDA_BACKEND must be 'auto' or 'pytorch', "
+            f"got {requested_backend!r}"
+        )
+
+    is_rocm = bool(getattr(torch.version, "hip", None))
+    effective_backend = (
+        "pytorch"
+        if requested_backend == "pytorch" or (
+            requested_backend == "auto" and is_rocm
+        )
+        else "extension"
+    )
+    if effective_backend == "pytorch":
+        # ROCm reports through torch.cuda.is_available(), so upstream would
+        # enter the NVIDIA-only extension branch. Reuse GroundingDINO's own
+        # differentiable PyTorch implementation; inference needs no backward.
+        def _pytorch_msda_apply(
+            value, spatial_shapes, level_start_index,
+            sampling_locations, attention_weights, im2col_step,
+        ):
+            return ms_deform_attn.multi_scale_deformable_attn_pytorch(
+                value, spatial_shapes, sampling_locations, attention_weights,
+            )
+
+        ms_deform_attn.MultiScaleDeformableAttnFunction.apply = staticmethod(
+            _pytorch_msda_apply
+        )
+        logger.info(
+            "[Eval] GroundingDINO using PyTorch MSDA backend "
+            f"(requested={requested_backend}, rocm={is_rocm})"
+        )
+
+    if not hasattr(BertModel, "get_head_mask"):
+        # GroundingDINO's BertModelWarper still calls the helper removed in
+        # Transformers 5.x. Its normal inference path passes head_mask=None,
+        # but preserve the historical conversion for completeness.
+        def _get_head_mask(
+            self, head_mask, num_hidden_layers,
+            is_attention_chunked=False,
+        ):
+            if head_mask is None:
+                return [None] * num_hidden_layers
+            if head_mask.dim() == 1:
+                head_mask = head_mask[None, None, :, None, None]
+                head_mask = head_mask.expand(
+                    num_hidden_layers, -1, -1, -1, -1
+                )
+            elif head_mask.dim() == 2:
+                head_mask = head_mask[:, None, :, None, None]
+            if head_mask.dim() != 5:
+                raise ValueError(
+                    "head_mask must have dimension 1, 2, or 5; "
+                    f"got {head_mask.dim()}"
+                )
+            dtype = next(self.parameters()).dtype
+            head_mask = head_mask.to(dtype=dtype)
+            if is_attention_chunked:
+                head_mask = head_mask.unsqueeze(-1)
+            return head_mask
+
+        BertModel.get_head_mask = _get_head_mask
+
+    # Transformers 5.x replaced the historical third positional `device`
+    # parameter with `dtype`. BertModelWarper still passes a torch.device in
+    # that position, so preserve the legacy call convention process-locally.
+    extended_mask_params = list(
+        inspect.signature(BertModel.get_extended_attention_mask).parameters
+    )
+    if len(extended_mask_params) > 3 and extended_mask_params[3] == "dtype":
+        new_get_extended_attention_mask = BertModel.get_extended_attention_mask
+
+        def _compat_get_extended_attention_mask(
+            self, attention_mask, input_shape, device=None, dtype=None,
+        ):
+            return new_get_extended_attention_mask(
+                self, attention_mask, input_shape, dtype=dtype
+            )
+
+        BertModel.get_extended_attention_mask = (
+            _compat_get_extended_attention_mask
+        )
+
+    return torch
+
+
 def get_grounding_dino(device: str = "cuda", strict: bool = True):
     """Load GroundingDINO. Uses $GDINO_CONFIG / $GDINO_WEIGHTS if set,
     otherwise downloads the standard SwinT_OGC weights+config to
     ~/.cache/entitybench/groundingdino/ on first use."""
     if "gdino" not in _MODELS:
         try:
+            _configure_miopen_cache()
             from groundingdino.util.inference import load_model
+            torch = _configure_groundingdino_compat()
             cfg = os.environ.get("GDINO_CONFIG", "").strip()
             wts = os.environ.get("GDINO_WEIGHTS", "").strip()
             if not (cfg and os.path.exists(cfg)):
@@ -626,7 +770,33 @@ def get_grounding_dino(device: str = "cuda", strict: bool = True):
                     _GDINO_WEIGHTS_URL,
                     _DEFAULT_CACHE / "groundingdino" / "groundingdino_swint_ogc.pth",
                 ))
-            model = load_model(cfg, wts, device=device)
+            text_encoder_path = os.environ.get(
+                "GDINO_TEXT_ENCODER_PATH", ""
+            ).strip()
+            if text_encoder_path:
+                if not os.path.isdir(text_encoder_path):
+                    raise FileNotFoundError(
+                        "GDINO_TEXT_ENCODER_PATH is not a directory: "
+                        f"{text_encoder_path}"
+                    )
+                # GroundingDINO's stock config names bert-base-uncased.
+                # Allow a pinned local snapshot so an evaluation node never
+                # needs to reach HuggingFace or a shared mutable cache.
+                from groundingdino.models import build_model
+                from groundingdino.util.misc import clean_state_dict
+                from groundingdino.util.slconfig import SLConfig
+
+                args = SLConfig.fromfile(cfg)
+                args.device = device
+                args.text_encoder_type = text_encoder_path
+                model = build_model(args)
+                checkpoint = torch.load(wts, map_location="cpu")
+                model.load_state_dict(
+                    clean_state_dict(checkpoint["model"]), strict=False
+                )
+                model.eval()
+            else:
+                model = load_model(cfg, wts, device=device)
             _MODELS["gdino"] = (model, device)
             logger.info("[Eval] Loaded GroundingDINO")
         except Exception as e:
@@ -1059,6 +1229,7 @@ def ground_one_entity_in_frame(
     box_threshold: float = 0.25,
     text_threshold: float = 0.20,
     return_all: bool = False,
+    strict: bool = False,
 ) -> List[Dict[str, Any]]:
     """Run GroundingDINO for ONE entity (description as the query).
 
@@ -1092,6 +1263,10 @@ def ground_one_entity_in_frame(
             device=dev,
         )
     except Exception as e:
+        if strict:
+            raise StrictModeError(
+                f"GroundingDINO prediction failed for {entity_name!r}: {e}"
+            ) from e
         logger.warning(f"[Ground] one-entity predict failed for {entity_name!r}: {e}")
         return []
 
@@ -1595,29 +1770,56 @@ class _RotatingLLMClient:
         import queue as _queue
         import threading as _threading
 
-        self._keys = list(api_keys)
+        self._unique_keys = list(api_keys)
+        per_key_concurrency = int(os.environ.get(
+            "EECBENCH_VLM_PER_KEY_CONCURRENCY", "1") or 1)
+        if not 1 <= per_key_concurrency <= 16:
+            raise ValueError("EECBENCH_VLM_PER_KEY_CONCURRENCY must be 1..16")
+        self._per_key_concurrency = per_key_concurrency
+        self._keys = [
+            key for key in self._unique_keys
+            for _ in range(per_key_concurrency)
+        ]
         self._n = len(self._keys)
         self._max_rounds = max_rounds
 
+        generic_base_url = os.environ.get(
+            "EECBENCH_VLM_BASE_URL", ""
+        ).strip()
+        gemini_base_url = os.environ.get("GEMINI_OPENAI_BASE_URL", "").strip()
         endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT", "").strip()
         api_version = os.environ.get(
             "AZURE_OPENAI_API_VERSION", "2023-07-01-preview"
         ).strip()
-        if not endpoint:
+        openai_base_url = generic_base_url or gemini_base_url
+        if not openai_base_url and not endpoint:
             raise StrictModeError(
-                "AZURE_OPENAI_ENDPOINT is not set. Set it to the Azure "
-                "OpenAI–compatible endpoint that serves your VLM "
-                "(e.g. `https://<your-resource>.openai.azure.com/`)."
+                "No VLM endpoint is configured. Set EECBENCH_VLM_BASE_URL "
+                "for an OpenAI-compatible provider, GEMINI_OPENAI_BASE_URL "
+                "for Google AI Studio, or AZURE_OPENAI_ENDPOINT for Azure."
             )
 
         # One client per key — safe to use from any single thread at a time
-        self._clients: List[Any] = [
-            openai.AzureOpenAI(
-                azure_endpoint=endpoint,
-                api_version=api_version,
-                api_key=k,
-            ) for k in self._keys
-        ]
+        if openai_base_url:
+            self._clients = [
+                openai.OpenAI(base_url=openai_base_url, api_key=k)
+                for k in self._keys
+            ]
+            self._backend = (
+                os.environ.get("EECBENCH_VLM_PROVIDER", "").strip()
+                or ("google-gemini-openai-compatible"
+                    if gemini_base_url
+                    else "openai-compatible")
+            )
+        else:
+            self._clients = [
+                openai.AzureOpenAI(
+                    azure_endpoint=endpoint,
+                    api_version=api_version,
+                    api_key=k,
+                ) for k in self._keys
+            ]
+            self._backend = "azure-openai-compatible"
         # Pool: index of an available client. Threads block on get(),
         # use the client, then put() the index back.
         self._pool: "_queue.Queue[int]" = _queue.Queue()
@@ -1634,13 +1836,60 @@ class _RotatingLLMClient:
         # Stats — aggregate across all keys/threads. Updates protected by
         # _stats_lock since several threads += into it.
         self._stats_lock = _threading.Lock()
-        self.stats: Dict[str, int] = {
+        configured_input_price, configured_output_price = (
+            self._list_prices_per_million(_DEFAULT_VLM_MODEL)
+        )
+        self.stats: Dict[str, Any] = {
             "total_calls": 0,
+            "unique_api_keys": len(self._unique_keys),
+            "per_key_concurrency": self._per_key_concurrency,
+            "client_streams": self._n,
+            "call_deadline_seconds": float(os.environ.get(
+                "EECBENCH_VLM_CALL_DEADLINE_SEC", "1800") or 1800),
             "successes": 0,
             "rate_limit_hits": 0,
             "exhausted_after_max_rounds": 0,
             "non_rate_limit_errors": 0,
+            "budget_exhausted": 0,
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "reasoning_tokens": 0,
+            "billable_output_tokens": 0,
+            "total_tokens": 0,
+            "successful_request_seconds": 0.0,
+            "estimated_list_cost_usd": 0.0,
+            "pricing_usd_per_million_tokens": {
+                "configured_model": _DEFAULT_VLM_MODEL,
+                "prompt": configured_input_price,
+                "completion_including_reasoning": configured_output_price,
+            },
+            "by_model": {},
         }
+
+    @staticmethod
+    def _list_prices_per_million(model: str) -> Tuple[float, float]:
+        """Return audited standard prices for supported VLM judges."""
+        input_override = os.environ.get(
+            "EECBENCH_VLM_INPUT_USD_PER_MILLION", ""
+        ).strip()
+        output_override = os.environ.get(
+            "EECBENCH_VLM_OUTPUT_USD_PER_MILLION", ""
+        ).strip()
+        if bool(input_override) != bool(output_override):
+            raise StrictModeError("Both VLM price overrides must be set")
+        if input_override:
+            try:
+                return float(input_override), float(output_override)
+            except ValueError as exc:
+                raise StrictModeError("VLM price overrides must be numeric") from exc
+        normalized = model.removeprefix("models/")
+        if normalized in {"gemini-3.1-pro-preview", "gemini-3-pro-preview"}:
+            return 2.0, 12.0
+        if normalized == "gemini-2.5-pro":
+            return 1.25, 10.0
+        if normalized == "qwen3-vl-flash":
+            return 0.022, 0.215
+        raise StrictModeError(f"No audited list pricing configured for {model!r}")
 
     @staticmethod
     def _is_rate_limit(err_str: str) -> bool:
@@ -1653,6 +1902,52 @@ class _RotatingLLMClient:
     def _bump(self, stat_name: str) -> None:
         with self._stats_lock:
             self.stats[stat_name] = self.stats.get(stat_name, 0) + 1
+
+    def _record_usage(self, model: str, response: Any, elapsed: float) -> None:
+        """Record billable usage returned by the OpenAI-compatible API.
+
+        Gemini's OpenAI layer can omit thinking from ``completion_tokens``
+        while still including it in ``total_tokens``. Use the larger valid
+        output count so hidden thinking is billed exactly once.
+        """
+        usage = getattr(response, "usage", None)
+        prompt_tokens = int(getattr(usage, "prompt_tokens", 0) or 0)
+        completion_tokens = int(getattr(usage, "completion_tokens", 0) or 0)
+        total_tokens = int(
+            getattr(usage, "total_tokens", prompt_tokens + completion_tokens)
+            or (prompt_tokens + completion_tokens)
+        )
+        details = getattr(usage, "completion_tokens_details", None)
+        reported_reasoning = int(getattr(details, "reasoning_tokens", 0) or 0)
+        billable_output_tokens = max(completion_tokens, total_tokens - prompt_tokens)
+        inferred_reasoning = max(0, billable_output_tokens - completion_tokens)
+        reasoning_tokens = max(reported_reasoning, inferred_reasoning)
+        input_price, output_price = self._list_prices_per_million(model)
+        cost = (prompt_tokens * input_price * 1e-6
+                + billable_output_tokens * output_price * 1e-6)
+        with self._stats_lock:
+            self.stats["prompt_tokens"] += prompt_tokens
+            self.stats["completion_tokens"] += completion_tokens
+            self.stats["reasoning_tokens"] += reasoning_tokens
+            self.stats["billable_output_tokens"] += billable_output_tokens
+            self.stats["total_tokens"] += total_tokens
+            self.stats["successful_request_seconds"] += float(elapsed)
+            self.stats["estimated_list_cost_usd"] += float(cost)
+            per_model = self.stats["by_model"].setdefault(model, {
+                "requests": 0, "prompt_tokens": 0,
+                "completion_tokens": 0, "reasoning_tokens": 0,
+                "billable_output_tokens": 0,
+                "total_tokens": 0, "estimated_list_cost_usd": 0.0,
+                "input_usd_per_million": input_price,
+                "output_usd_per_million": output_price,
+            })
+            per_model["requests"] += 1
+            per_model["prompt_tokens"] += prompt_tokens
+            per_model["completion_tokens"] += completion_tokens
+            per_model["reasoning_tokens"] += reasoning_tokens
+            per_model["billable_output_tokens"] += billable_output_tokens
+            per_model["total_tokens"] += total_tokens
+            per_model["estimated_list_cost_usd"] += float(cost)
 
     def call(self, model: str, messages: List[Dict[str, Any]],
              max_tokens: int = 4096) -> str:
@@ -1668,9 +1963,22 @@ class _RotatingLLMClient:
         """
         import time as _time
         self._bump("total_calls")
+        budget_usd = float(os.environ.get("EECBENCH_VLM_BUDGET_USD", "0") or 0)
+        if budget_usd > 0:
+            with self._stats_lock:
+                spent = float(self.stats["estimated_list_cost_usd"])
+            if spent >= budget_usd:
+                self._bump("budget_exhausted")
+                logger.error(
+                    f"[LLM] Run budget exhausted: ${spent:.4f} >= "
+                    f"${budget_usd:.4f}; suppressing further API calls"
+                )
+                return ""
         max_real_attempts = self._n * self._max_rounds
         real_attempts = 0
-        deadline = _time.time() + 180.0  # absolute backstop: 3 minutes
+        deadline_seconds = float(os.environ.get(
+            "EECBENCH_VLM_CALL_DEADLINE_SEC", "1800") or 1800)
+        deadline = _time.time() + deadline_seconds
 
         while real_attempts < max_real_attempts and _time.time() < deadline:
             idx = self._pool.get()
@@ -1689,14 +1997,46 @@ class _RotatingLLMClient:
                     continue  # don't increment real_attempts
 
                 with self._client_locks[idx]:
+                    if budget_usd > 0:
+                        with self._stats_lock:
+                            spent = float(self.stats["estimated_list_cost_usd"])
+                        if spent >= budget_usd:
+                            self._bump("budget_exhausted")
+                            logger.error(
+                                f"[LLM] Run budget exhausted after queue wait: "
+                                f"${spent:.4f} >= ${budget_usd:.4f}"
+                            )
+                            return ""
                     fired = True
                     real_attempts += 1
                     try:
+                        request_started = _time.perf_counter()
+                        request_options: Dict[str, Any] = {}
+                        if _DEFAULT_VLM_REASONING_EFFORT is not None:
+                            request_options["reasoning_effort"] = (
+                                _DEFAULT_VLM_REASONING_EFFORT)
+                        if self._backend == "alibaba-qwen-openai-compatible":
+                            request_options["response_format"] = {
+                                "type": "json_object"
+                            }
+                            request_options["extra_body"] = {"enable_thinking": False}
                         resp = self._clients[idx].chat.completions.create(
                             model=model, messages=messages, max_tokens=max_tokens,
+                            **request_options,
                         )
+                        request_elapsed = _time.perf_counter() - request_started
                         content = resp.choices[0].message.content or ""
+                        self._record_usage(model, resp, request_elapsed)
                         self._bump("successes")
+                        with self._stats_lock:
+                            running_cost = self.stats["estimated_list_cost_usd"]
+                        logger.info(
+                            f"[LLM] usage prompt={getattr(resp.usage, 'prompt_tokens', 0)} "
+                            f"completion={getattr(resp.usage, 'completion_tokens', 0)} "
+                            f"total={getattr(resp.usage, 'total_tokens', 0)} "
+                            f"inferred_reasoning={max(0, getattr(resp.usage, 'total_tokens', 0) - getattr(resp.usage, 'prompt_tokens', 0) - getattr(resp.usage, 'completion_tokens', 0))} "
+                            f"run_cost=${running_cost:.4f}"
+                        )
                         return content.strip()
                     except Exception as e:
                         err = str(e)
@@ -1720,7 +2060,7 @@ class _RotatingLLMClient:
         self._bump("exhausted_after_max_rounds")
         logger.error(
             f"[LLM] Exhausted ({real_attempts} real attempts of "
-            f"{max_real_attempts}, n_keys={self._n}). Returning empty; "
+            f"{max_real_attempts}, client_streams={self._n}). Returning empty; "
             f"caller will record as n_failed."
         )
         return ""
@@ -1737,12 +2077,13 @@ _VLM_CLIENT_LOCK = None
 def _get_rotating_vlm_client() -> "_RotatingVLMClient":
     """Lazily initialize the module-level rotating VLM client.
 
-    Reads GEMINI_API_KEYS (comma-separated) from the environment. Falls
-    back to AZURE_OPENAI_API_KEY (single key) for backward compatibility.
+    Reads EECBENCH_VLM_API_KEYS (comma-separated) from the environment.
+    Falls back to GEMINI_API_KEYS and then AZURE_OPENAI_API_KEY for backward
+    compatibility.
 
     Strict reproducibility note: the NUMBER of keys does not affect
-    results — every call ultimately reaches Gemini through the same
-    gateway. The keys exist purely to spread rate-limit budget. The
+    results — every call ultimately reaches the configured VLM provider.
+    Keys exist purely to spread rate-limit budget. The
     manifest records `n_vlm_keys` so reviewers can see whether a run
     used 1 key or 5; results should match either way (modulo 429-driven
     n_failed counts in the audit).
@@ -1756,7 +2097,9 @@ def _get_rotating_vlm_client() -> "_RotatingVLMClient":
     with _VLM_CLIENT_LOCK:
         if _VLM_CLIENT is not None:
             return _VLM_CLIENT
-        keys_env = os.environ.get("GEMINI_API_KEYS", "").strip()
+        keys_env = os.environ.get("EECBENCH_VLM_API_KEYS", "").strip()
+        if not keys_env:
+            keys_env = os.environ.get("GEMINI_API_KEYS", "").strip()
         keys: List[str] = []
         if keys_env:
             keys = [k.strip() for k in keys_env.split(",") if k.strip()]
@@ -1766,12 +2109,14 @@ def _get_rotating_vlm_client() -> "_RotatingVLMClient":
                 keys = [single]
         if not keys:
             raise StrictModeError(
-                "No VLM API keys configured. Set GEMINI_API_KEYS "
-                "(comma-separated) or AZURE_OPENAI_API_KEY in the environment."
+                "No VLM API keys configured. Set EECBENCH_VLM_API_KEYS "
+                "(preferred), GEMINI_API_KEYS, or AZURE_OPENAI_API_KEY."
             )
         _VLM_CLIENT = _RotatingVLMClient(keys)
         logger.info(
-            f"[VLM] Initialized rotating client with {len(keys)} key(s)"
+            f"[VLM] Initialized rotating client with {len(keys)} unique "
+            f"key(s), {int(os.environ.get('EECBENCH_VLM_PER_KEY_CONCURRENCY', '1') or 1)} "
+            f"stream(s) per key"
         )
         return _VLM_CLIENT
 
@@ -1785,7 +2130,11 @@ def vlm_call_stats() -> Dict[str, int]:
     if _VLM_CLIENT is None:
         return {"total_calls": 0, "successes": 0, "rate_limit_hits": 0,
                 "exhausted_after_max_rounds": 0, "non_rate_limit_errors": 0,
-                "n_keys": 0}
+                "budget_exhausted": 0, "prompt_tokens": 0,
+                "completion_tokens": 0, "reasoning_tokens": 0,
+                "billable_output_tokens": 0,
+                "total_tokens": 0, "successful_request_seconds": 0.0,
+                "estimated_list_cost_usd": 0.0, "n_keys": 0}
     s = dict(_VLM_CLIENT.stats)
     s["n_keys"] = _VLM_CLIENT._n
     return s
@@ -2482,6 +2831,7 @@ def ground_shot_unified(
     device: str,
     grounding_thresholds: Dict[str, float],
     clip_match_threshold: float,
+    strict: bool = True,
 ) -> Dict[str, Any]:
     """Single grounding pass per shot, returns everything downstream needs.
 
@@ -2570,6 +2920,7 @@ def ground_shot_unified(
                 box_threshold=grounding_thresholds["box_threshold"],
                 text_threshold=grounding_thresholds["text_threshold"],
                 return_all=True,  # action annotation may want multiple boxes
+                strict=strict,
             )
             out["n_grounding_calls"] += 1
 
@@ -2579,6 +2930,8 @@ def ground_shot_unified(
                 try:
                     clip_score = compute_clip_text_sim(crop, ent_desc, device)
                 except Exception:
+                    if strict:
+                        raise
                     clip_score = 0.0
                 comp = compute_selection_score(clip_score, crop, frame.shape)
 
@@ -2628,6 +2981,10 @@ def ground_shot_unified(
             try:
                 dino_emb = compute_dino_embedding(best["crop"], device)
             except Exception as e:
+                if strict:
+                    raise StrictModeError(
+                        f"DINOv2 embedding failed for {ent_name!r}: {e}"
+                    ) from e
                 logger.warning(f"[Ground] {shot_key}: dino emb failed for {ent_name}: {e}")
                 dino_emb = None
 
@@ -2958,7 +3315,10 @@ def evaluate_episode(
     vbench_evaluator: Optional["VBenchEvaluator"] = None, work_dir: str = "",
     save_action_grids: bool = False,
     llm_concurrency: int = 5,
+    non_vlm_only: bool = False,
+    strict: bool = True,
 ) -> EpisodeResult:
+    episode_started = time.perf_counter()
 
     episode_dir = os.path.join(results_dir, episode_id)
     if not os.path.isdir(episode_dir):
@@ -3005,6 +3365,7 @@ def evaluate_episode(
     # Pillar 1: VBench (6 dims) — STRICT
     # ================================================================
     if 1 in pillars:
+        phase_started = time.perf_counter()
         logger.info(f"[Eval] {episode_id}: Pillar 1 — VBench ({len(shot_order)} shots)")
         if vbench_evaluator is None:
             raise StrictModeError(
@@ -3044,6 +3405,9 @@ def evaluate_episode(
                 value=float(np.mean(scores)) if scores else None,
                 n_evaluated=n_eval, n_failed=n_fail, n_skipped=n_skip,
             )
+        result.timings["pillar1_vbench_seconds"] = (
+            time.perf_counter() - phase_started
+        )
 
     # ================================================================
     # Shared grounding pass (Pillar 2 + Pillar 3 both consume this).
@@ -3065,6 +3429,7 @@ def evaluate_episode(
     shot_frame_cache: Dict[str, List[np.ndarray]] = {}
 
     if need_grounding:
+        phase_started = time.perf_counter()
         # Preflight: validate the grounding stack BEFORE iterating shots.
         # If either model fails to load, the per-shot grounder would just
         # silently return [] for every entity, producing the (very confusing)
@@ -3158,6 +3523,7 @@ def evaluate_episode(
                 device=device,
                 grounding_thresholds=gthr,
                 clip_match_threshold=clip_match_threshold,
+                strict=strict,
             )
 
         n_total_calls = sum(g["n_grounding_calls"] for g in ground_per_shot.values())
@@ -3192,11 +3558,45 @@ def evaluate_episode(
             )
             logger.error(msg)
 
+        result.timings["shared_grounding_seconds"] = (
+            time.perf_counter() - phase_started
+        )
+
     # Per-shot per-entity fidelity scores — populated by Pillar 3 (if it
     # runs) and consumed by Pillar 2's cross-shot fidelity gate. Empty
     # dict means "no gating applied" (Pillar 2 admits everything).
     # Layout: {(shot_key, entity_name): fidelity_overall in [0,1] or None}
     per_shot_fidelity: Dict[Tuple[str, str], Optional[float]] = {}
+
+    # Explicit API-free mode: preserve the exact grounding/presence
+    # denominator used by Pillar 3, but do not initialize a VLM client or
+    # fabricate fidelity/action values. The manifest records this mode so the
+    # resulting report cannot be confused with a complete Pillar 2/3 run.
+    if non_vlm_only and 3 in pillars:
+        presence_values: Dict[str, List[float]] = defaultdict(list)
+        for sk in shot_order:
+            ground_result = ground_per_shot.get(sk)
+            if not ground_result:
+                continue
+            for etype, metric_name in [
+                ("character", "intra_character_presence"),
+                ("object", "intra_object_presence"),
+                ("location", "intra_location_presence"),
+            ]:
+                typed = [
+                    info for info in ground_result["per_entity"].values()
+                    if info.get("etype") == etype
+                ]
+                if typed:
+                    n_present = sum(
+                        1 for info in typed if info.get("status") == "present"
+                    )
+                    presence_values[metric_name].append(n_present / len(typed))
+        for metric_name, values in presence_values.items():
+            result.metrics[metric_name] = MetricValue(
+                value=float(np.mean(values)) if values else None,
+                n_evaluated=len(values), n_failed=0, n_skipped=0,
+            )
 
     # ================================================================
     # Pillar 3: Intra-shot prompt-following alignment
@@ -3205,7 +3605,8 @@ def evaluate_episode(
     #   - Does the shot depict the action described?   (action)
     # Consumes the shared grounding output (no new GroundingDINO calls).
     # ================================================================
-    if 3 in pillars:
+    if 3 in pillars and not non_vlm_only:
+        phase_started = time.perf_counter()
         logger.info(
             f"[Eval] {episode_id}: Pillar 3 — Intra-shot alignment "
             f"({len(shot_order)} shots)"
@@ -3365,6 +3766,10 @@ def evaluate_episode(
                 n_skipped=bucket["n_skipped"],
             )
 
+        result.timings["pillar3_prompt_alignment_seconds"] = (
+            time.perf_counter() - phase_started
+        )
+
     # ================================================================
     # Pillar 2: Cross-shot consistency
     # Consumes the shared grounding output. The canonical crop saved
@@ -3372,6 +3777,7 @@ def evaluate_episode(
     # cs_object DINOv2 comparison and for VLM-Judge cross-shot.
     # ================================================================
     if 2 in pillars:
+        pillar2_started = time.perf_counter()
         logger.info(f"[Eval] {episode_id}: Pillar 2 — Inter-shot consistency")
 
         # Build the deduped dict from canonical crops. Each (shot, entity)
@@ -3497,6 +3903,21 @@ def evaluate_episode(
             f"{len(tscs_boundary)}/{len(mi2v_pairs)} MI2V pairs "
             f"({n_trans_failed} failed)"
         )
+
+        result.timings["pillar2_local_metrics_seconds"] = (
+            time.perf_counter() - pillar2_started
+        )
+
+        if non_vlm_only:
+            result.gap_decay_data = compute_gap_decay(
+                deduped, shot_order,
+                entity_types=("character", "object"),
+            )
+            logger.info(
+                f"[Eval] {episode_id}: non-VLM mode complete; skipped all "
+                f"Gemini fidelity, action, entity, and scene judges"
+            )
+            return result
 
         # ---- LLM judge: characters and objects (pairwise vs centroid-representative) ----
         # We use anchor-vs-each pairwise judging because Gemini's
@@ -3741,6 +4162,12 @@ def evaluate_episode(
             entity_types=("character", "object"),
         )
 
+        pillar2_total = time.perf_counter() - pillar2_started
+        result.timings["pillar2_cross_shot_total_seconds"] = pillar2_total
+        result.timings["pillar2_gemini_and_gap_seconds"] = max(
+            0.0,
+            pillar2_total - result.timings["pillar2_local_metrics_seconds"],
+        )
     # Clean up VBench scratch
     if work_dir:
         import shutil
@@ -3749,6 +4176,7 @@ def evaluate_episode(
             if os.path.isdir(ep_work):
                 shutil.rmtree(ep_work, ignore_errors=True)
 
+    result.timings["episode_total_seconds"] = time.perf_counter() - episode_started
     return result
 
 
@@ -3932,6 +4360,7 @@ def write_report(report: Dict[str, Any], method_name: str, out_path: str):
         L.append(f"- Timestamp (UTC): {m.get('timestamp_utc')}")
         L.append(f"- Strict: {m.get('strict')} | Allow partial: {m.get('allow_partial')}")
         L.append(f"- Pillars: {m.get('pillars')}")
+        L.append(f"- Non-VLM only: {m.get('non_vlm_only', False)}")
         cfg = m.get("config", {})
         L.append(f"- Config: gdino_box={cfg.get('gdino_box_threshold')}, "
                  f"gdino_text={cfg.get('gdino_text_threshold')}, "
@@ -3969,6 +4398,33 @@ def write_report(report: Dict[str, Any], method_name: str, out_path: str):
         for m in ["cs_face", "cs_object", "cs_transition_boundary"]:
             L.append(_row(m, r.get(m, {})))
         L.append("")
+
+        L.append("### Intra-shot entity presence")
+        L.append("")
+        L.append("| Metric | Mean | Std | Min | Max | Coverage |")
+        L.append("|--------|------|-----|-----|-----|----------|")
+        for m in ["intra_character_presence", "intra_object_presence",
+                  "intra_location_presence"]:
+            L.append(_row(m, r.get(m, {})))
+        L.append("")
+
+        gap_by_type = r.get("gap_decay_curve_by_type", {})
+        if gap_by_type:
+            L.append("### Cross-shot gap decay")
+            L.append("")
+            L.append("| Entity type | Shot gap | Mean similarity | Std | Pairs |")
+            L.append("|-------------|----------|-----------------|-----|-------|")
+            for entity_type, bins in sorted(gap_by_type.items()):
+                for gap, stats in sorted(
+                    bins.items(), key=lambda item: int(item[0])
+                ):
+                    L.append(
+                        f"| {entity_type} | {gap} | "
+                        f"{stats.get('mean_sim', '---')} | "
+                        f"{stats.get('std_sim', '---')} | "
+                        f"{stats.get('n_pairs', 0)} |"
+                    )
+            L.append("")
 
         L.append("### Cross-shot consistency (LLM-judge)")
         L.append("")
@@ -4134,6 +4590,7 @@ def _episode_result_to_json(r: EpisodeResult) -> Dict[str, Any]:
         "per_entity_scores": {k: v for k, v in r.per_entity_scores.items()
                               if isinstance(v, dict)},
         "gap_decay_data": r.gap_decay_data,
+        "timings": r.timings,
     }
 
 
@@ -4167,6 +4624,7 @@ def _episode_result_from_json(eid: str, tier: str, c: Dict[str, Any]) -> Episode
                 r.metrics.setdefault(m, MetricValue.from_json(c[legacy]))
     r.gap_decay_data = c.get("gap_decay_data", [])
     r.per_entity_scores = c.get("per_entity_scores", {})
+    r.timings = c.get("timings", {})
     return r
 
 
@@ -4217,6 +4675,13 @@ def main():
                              "rotating client serializes per-key access so "
                              "this is safe to set up to n_keys; setting it "
                              "higher than n_keys gives no benefit.")
+    parser.add_argument(
+        "--non_vlm_only", action="store_true",
+        help="Run only API-free portions of requested Pillars 2/3: shared "
+             "GroundingDINO+CLIP grounding, presence, DINOv2 cross-shot "
+             "metrics, transition, and gap decay. Gemini-derived metrics "
+             "remain absent and the mode is recorded in the manifest.",
+    )
     args = parser.parse_args()
 
     # VBench snapshots this variable when vbench.utils is first imported.
@@ -4273,11 +4738,14 @@ def main():
     manifest["allow_partial"] = args.allow_partial
     manifest["allow_config_override"] = args.allow_config_override
     manifest["pillars"] = sorted(pillars)
+    manifest["non_vlm_only"] = args.non_vlm_only
     # Record key COUNT only (never the keys themselves). Two runs are
     # comparable regardless of how many keys were used; the count is
     # purely informational so reviewers can see whether 429s were
     # likely (1 key under heavy load) or unlikely (5 keys).
-    keys_env = os.environ.get("GEMINI_API_KEYS", "").strip()
+    keys_env = os.environ.get("EECBENCH_VLM_API_KEYS", "").strip()
+    if not keys_env:
+        keys_env = os.environ.get("GEMINI_API_KEYS", "").strip()
     if keys_env:
         n_keys = len([k for k in keys_env.split(",") if k.strip()])
     elif os.environ.get("AZURE_OPENAI_API_KEY", "").strip():
@@ -4377,6 +4845,7 @@ def main():
     print(f"\nEvaluation: {args.method_name}")
     print(f"  Episodes: {len(episodes)}, Pillars: {pillars}, Device: {args.device}")
     print(f"  Strict: {args.strict}, Allow partial: {args.allow_partial}")
+    print(f"  Non-VLM only: {args.non_vlm_only}")
     print(f"  Manifest: {manifest_path}\n")
 
     # Resolve effective config values once for evaluate_episode
@@ -4422,6 +4891,8 @@ def main():
             vlm_model, n_frames, vbench_evaluator=vbench_eval, work_dir=work_dir,
             save_action_grids=args.save_action_grids,
             llm_concurrency=args.llm_concurrency,
+            non_vlm_only=args.non_vlm_only,
+            strict=args.strict,
         )
         all_results.append(r)
 
@@ -4483,7 +4954,7 @@ def main():
         if vlm_stats["exhausted_after_max_rounds"] > 0:
             print(f"    EXHAUSTED:         {vlm_stats['exhausted_after_max_rounds']}  "
                   f"(all keys 429'd 3x in a row — recorded as n_failed)")
-            print(f"      ↳ consider adding more keys to GEMINI_API_KEYS for next run")
+            print("      ↳ consider adding keys to EECBENCH_VLM_API_KEYS for the next run")
         if vlm_stats["non_rate_limit_errors"] > 0:
             print(f"    other errors:      {vlm_stats['non_rate_limit_errors']}")
     for tier in ["all", "easy", "medium", "hard"]:

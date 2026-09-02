@@ -105,6 +105,8 @@ def build_shard_command(
         cmd_parts.append(f"--vlm_model {args.vlm_model}")
     if args.save_action_grids:
         cmd_parts.append("--save_action_grids")
+    if args.non_vlm_only:
+        cmd_parts.append("--non_vlm_only")
 
     return " ".join(cmd_parts)
 
@@ -220,6 +222,10 @@ def main():
                         help="Concurrent LLM calls per shard "
                              "(default 5, matching n_keys)")
     parser.add_argument("--save_action_grids", action="store_true")
+    parser.add_argument(
+        "--non_vlm_only", action="store_true",
+        help="Forward API-free Pillar 2/3 mode to every evaluation shard",
+    )
     parser.add_argument("--dry_run", action="store_true",
                         help="Print commands without executing")
     parser.add_argument("--shard_id", type=int, default=-1,

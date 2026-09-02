@@ -1,0 +1,35 @@
+[1/5] Sampling 6 reference frames
+[2/5] Loading semantic graph experiments/entity-graph-smoke/001_001.codex_semantics.json
+[3/5] Grounding entities with GroundingDINO
+FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+final text_encoder_type: bert-base-uncased
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2296.26it/s]
+[1mBertModel LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`use_return_dict` is deprecated! Use `return_dict` instead!
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 128, 16, Default, 32, 32, 2, 2, 1, 1, 4, 1, 1, 1>
+UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 64, 128, 16, Default, 32, 32, 1, 2, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, Default, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, Default, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+Params set by AI: DeviceGroupedConvFwdMultipleABD_Xdl_CShuffle<256, 128, 64, 16, OddC, 32, 32, 2, 1, 4, 4, 4, 1, 1, 1>
+UserWarning: Failed to write temporarily kernel cache file! File path was /vast/users/guangyi.chen/.cache/torch/kernels/reduction_prod_archgfx90a:sramecc+:xnack-_nvrtc9.0_ptx_29523_2e0d471c30ba78889fb26419e788b19f721eb854_tmp_964549. This warning will only appear once per process. (Triggered internally at /pytorch/aten/src/ATen/native/hip/jit_utils.cpp:1670.)
+FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+[4/5] Validating and writing the final graph
+Wrote /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/entity-graph-smoke/001_001.temporal_joint_v2.json
+[5/5] Rendering annotated video
+Wrote /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/entity-graph-smoke/001_001.temporal_joint_v2.annotated.mp4 (frames=81, detections=22, interpolated=270)

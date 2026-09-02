@@ -1,0 +1,50 @@
+{
+  "story_name": "pilot_study_notebook_15s_sparse",
+  "story_overview": "A woman takes a red notebook from a quiet study and later returns without it.",
+  "scenes": [
+    {
+      "scene_num": 1,
+      "location_name": "The Study",
+      "video_prompts": [
+        "Wide doorway view of a quiet study. A woman sits at the desk beside a red notebook."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "A woman sits beside a red notebook in the study."
+      ]
+    },
+    {
+      "scene_num": 2,
+      "location_name": "The Hallway",
+      "video_prompts": [
+        "In the hallway, the woman walks away carrying the red notebook."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "The woman carries the notebook away."
+      ]
+    },
+    {
+      "scene_num": 3,
+      "location_name": "The Study",
+      "video_prompts": [
+        "Side view of the same study. The woman returns; the notebook is gone, but the visible desk area is unchanged."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "The woman returns to the study without the notebook."
+      ]
+    }
+  ],
+  "_pilot_design": {
+    "intended_duration_seconds": 15,
+    "intended_shot_duration_seconds": 5,
+    "legal_change": "red notebook: beside woman in study -> carried in hallway -> absent from revisited study",
+    "cross_view_pair": "1:1 <-> 3:1",
+    "candidate_inconsistencies": [
+      "Make the red notebook reappear in shot 3.",
+      "Move or remove one clear desk object that was visible in shot 1.",
+      "Add a duplicate of one distinctive study object in shot 3."
+    ]
+  }
+}

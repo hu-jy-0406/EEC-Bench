@@ -1,0 +1,185 @@
+EEC-Bench episode entity-graph extraction
+status: running
+start_utc: 2026-09-01T19:18:51Z
+command: /vast/users/guangyi.chen/anaconda3/envs/vace/bin/python /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/extract_episode_entity_graphs.py experiments/study_inconsistent --device cuda --overwrite
+experiment_dir: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent
+shots_dir: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/shots
+shot_count: 3
+
+[shot 1/3] inconsistent_study_shot1.mp4
+start_utc: 2026-09-01T19:18:51Z
+command: /vast/users/guangyi.chen/anaconda3/envs/vace/bin/python /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/extract_shot_entity_graph.py /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/shots/inconsistent_study_shot1.mp4 --output /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot1.entity_graph.json --video-id study_inconsistent --shot-id inconsistent_study_shot1 --keep-reference-frames /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsistent_study_shot1 --skip-annotated-video --n-reference-frames 6 --codex-bin codex --codex-timeout-sec 900 --device cuda --box-threshold 0.25 --text-threshold 0.2 --max-query-attributes 3
+stdout:
+final text_encoder_type: bert-base-uncased
+stderr:
+[1/4] Sampling 6 reference frames
+[2/4] Calling Codex CLI for entities and semantic relations
+[3/4] Grounding entities with GroundingDINO
+FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 9340.70it/s]
+[1mBertModel LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 398/398 [00:00<00:00, 68311.70it/s]
+[1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                  | Status     |  | 
+-------------------------------------+------------+--+-
+text_model.embeddings.position_ids   | UNEXPECTED |  | 
+vision_model.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`use_return_dict` is deprecated! Use `return_dict` instead!
+UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+UserWarning: Failed to write temporarily kernel cache file! File path was /vast/users/guangyi.chen/.cache/torch/kernels/reduction_prod_archgfx90a:sramecc+:xnack-_nvrtc9.0_ptx_29523_2e0d471c30ba78889fb26419e788b19f721eb854_tmp_337524. This warning will only appear once per process. (Triggered internally at /pytorch/aten/src/ATen/native/hip/jit_utils.cpp:1670.)
+FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+[4/4] Validating and writing the final graph
+Wrote /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot1.entity_graph.json
+Codex token usage: input=24844, cached_input=19200, output=3945, total=28789
+end_utc: 2026-09-01T19:20:45Z
+runtime_seconds: 114.253775
+codex_token_usage: input_tokens=24844, cached_input_tokens=19200, output_tokens=3945, total_tokens=28789
+graph: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot1.entity_graph.json
+reference_frames: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsistent_study_shot1
+grounding_results: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/grounding_results/inconsistent_study_shot1
+reference_frame_count: 6
+grounding_detection_count: 98
+status: success
+
+[shot 2/3] inconsistent_study_shot2.mp4
+start_utc: 2026-09-01T19:20:45Z
+command: /vast/users/guangyi.chen/anaconda3/envs/vace/bin/python /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/extract_shot_entity_graph.py /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/shots/inconsistent_study_shot2.mp4 --output /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot2.entity_graph.json --video-id study_inconsistent --shot-id inconsistent_study_shot2 --keep-reference-frames /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsistent_study_shot2 --skip-annotated-video --n-reference-frames 6 --codex-bin codex --codex-timeout-sec 900 --device cuda --box-threshold 0.25 --text-threshold 0.2 --max-query-attributes 3
+stdout:
+final text_encoder_type: bert-base-uncased
+stderr:
+[1/4] Sampling 6 reference frames
+[2/4] Calling Codex CLI for entities and semantic relations
+[3/4] Grounding entities with GroundingDINO
+FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 11599.36it/s]
+[1mBertModel LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 398/398 [00:00<00:00, 68645.98it/s]
+[1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                  | Status     |  | 
+-------------------------------------+------------+--+-
+vision_model.embeddings.position_ids | UNEXPECTED |  | 
+text_model.embeddings.position_ids   | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`use_return_dict` is deprecated! Use `return_dict` instead!
+UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+UserWarning: Failed to write temporarily kernel cache file! File path was /vast/users/guangyi.chen/.cache/torch/kernels/reduction_prod_archgfx90a:sramecc+:xnack-_nvrtc9.0_ptx_29523_2e0d471c30ba78889fb26419e788b19f721eb854_tmp_338536. This warning will only appear once per process. (Triggered internally at /pytorch/aten/src/ATen/native/hip/jit_utils.cpp:1670.)
+FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+[4/4] Validating and writing the final graph
+Wrote /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot2.entity_graph.json
+Codex token usage: input=24844, cached_input=0, output=1070, total=25914
+end_utc: 2026-09-01T19:21:54Z
+runtime_seconds: 68.673734
+codex_token_usage: input_tokens=24844, cached_input_tokens=0, output_tokens=1070, total_tokens=25914
+graph: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsistent_study_shot2.entity_graph.json
+reference_frames: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsistent_study_shot2
+grounding_results: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/grounding_results/inconsistent_study_shot2
+reference_frame_count: 6
+grounding_detection_count: 24
+status: success
+
+[shot 3/3] inconsitent_study_shot3.mp4
+start_utc: 2026-09-01T19:21:54Z
+command: /vast/users/guangyi.chen/anaconda3/envs/vace/bin/python /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/extract_shot_entity_graph.py /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/shots/inconsitent_study_shot3.mp4 --output /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsitent_study_shot3.entity_graph.json --video-id study_inconsistent --shot-id inconsitent_study_shot3 --keep-reference-frames /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsitent_study_shot3 --skip-annotated-video --n-reference-frames 6 --codex-bin codex --codex-timeout-sec 900 --device cuda --box-threshold 0.25 --text-threshold 0.2 --max-query-attributes 3
+stdout:
+final text_encoder_type: bert-base-uncased
+stderr:
+[1/4] Sampling 6 reference frames
+[2/4] Calling Codex CLI for entities and semantic relations
+[3/4] Grounding entities with GroundingDINO
+FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+UserWarning: Failed to load custom C++ ops. Running on CPU mode Only!
+UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4314.)
+
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 199/199 [00:00<00:00, 7916.63it/s]
+[1mBertModel LOAD REPORT[0m from: bert-base-uncased
+Key                                        | Status     |  | 
+-------------------------------------------+------------+--+-
+cls.predictions.transform.dense.weight     | UNEXPECTED |  | 
+cls.seq_relationship.weight                | UNEXPECTED |  | 
+cls.predictions.transform.dense.bias       | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  | 
+cls.predictions.bias                       | UNEXPECTED |  | 
+cls.seq_relationship.bias                  | UNEXPECTED |  | 
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+Loading weights:   0%|          | 0/398 [00:00<?, ?it/s]
+Loading weights: 100%|██████████| 398/398 [00:00<00:00, 69080.61it/s]
+[1mCLIPModel LOAD REPORT[0m from: openai/clip-vit-base-patch32
+Key                                  | Status     |  | 
+-------------------------------------+------------+--+-
+text_model.embeddings.position_ids   | UNEXPECTED |  | 
+vision_model.embeddings.position_ids | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+`use_return_dict` is deprecated! Use `return_dict` instead!
+UserWarning: torch.utils.checkpoint: the use_reentrant parameter should be passed explicitly. In version 2.5 we will raise an exception if use_reentrant is not passed. use_reentrant=False is recommended, but if you need to preserve the current default behavior, you can pass use_reentrant=True. Refer to docs for more details on the differences between the two variants.
+UserWarning: None of the inputs have requires_grad=True. Gradients will be None
+UserWarning: Failed to write temporarily kernel cache file! File path was /vast/users/guangyi.chen/.cache/torch/kernels/reduction_prod_archgfx90a:sramecc+:xnack-_nvrtc9.0_ptx_29523_2e0d471c30ba78889fb26419e788b19f721eb854_tmp_339553. This warning will only appear once per process. (Triggered internally at /pytorch/aten/src/ATen/native/hip/jit_utils.cpp:1670.)
+FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+[4/4] Validating and writing the final graph
+Wrote /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsitent_study_shot3.entity_graph.json
+Codex token usage: input=24850, cached_input=0, output=2841, total=27691
+end_utc: 2026-09-01T19:23:32Z
+runtime_seconds: 98.330898
+codex_token_usage: input_tokens=24850, cached_input_tokens=0, output_tokens=2841, total_tokens=27691
+graph: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/entity_graphs/inconsitent_study_shot3.entity_graph.json
+reference_frames: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/reference_frames/inconsitent_study_shot3
+grounding_results: /vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent/grounding_results/inconsitent_study_shot3
+reference_frame_count: 6
+grounding_detection_count: 88
+status: success
+
+[episode summary]
+end_utc: 2026-09-01T19:23:32Z
+status: success
+completed_shots: 3
+total_runtime_seconds: 281.286394
+total_codex_token_usage: input_tokens=74538, cached_input_tokens=19200, output_tokens=7856, total_tokens=82394

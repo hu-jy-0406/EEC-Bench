@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/shot_entity_graph_v0.1.schema.json",
+  "title": "EEC-Bench shot entity graph v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "video_id",
+    "shot_id",
+    "shot_metadata",
+    "extraction_metadata",
+    "entities",
+    "relations",
+    "warnings"
+  ],
+  "properties": {
+    "schema_version": {"const": "0.1"},
+    "video_id": {"type": "string", "minLength": 1},
+    "shot_id": {"type": "string", "minLength": 1},
+    "shot_metadata": {"$ref": "#/$defs/shotMetadata"},
+    "extraction_metadata": {"$ref": "#/$defs/extractionMetadata"},
+    "entities": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/entity"}
+    },
+    "relations": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relation"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "evidenceFrames": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "shotMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_video", "num_frames", "fps", "duration_sec", "reference_frame_ids"
+      ],
+      "properties": {
+        "source_video": {"type": "string", "minLength": 1},
+        "num_frames": {"type": "integer", "minimum": 1},
+        "fps": {"type": "number", "exclusiveMinimum": 0},
+        "duration_sec": {"type": "number", "exclusiveMinimum": 0},
+        "reference_frame_ids": {"$ref": "#/$defs/evidenceFrames"}
+      }
+    },
+    "extractionMetadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "vlm_provider",
+        "codex_cli_version",
+        "codex_model",
+        "codex_token_usage",
+        "vlm_prompt_version",
+        "semantic_confidence_note",
+        "grounding_model",
+        "grounding_device",
+        "box_threshold",
+        "text_threshold",
+        "n_grounding_calls"
+      ],
+      "properties": {
+        "vlm_provider": {"enum": ["codex_cli", "precomputed_json"]},
+        "codex_cli_version": {"type": "string"},
+        "codex_model": {"type": "string"},
+        "codex_token_usage": {
+          "anyOf": [
+            {"$ref": "#/$defs/tokenUsage"},
+            {"type": "null"}
+          ]
+        },
+        "vlm_prompt_version": {"const": "shot_entity_graph_v0.1"},
+        "semantic_confidence_note": {"type": "string"},
+        "grounding_model": {"type": "string"},
+        "grounding_device": {"type": "string"},
+        "box_threshold": {"$ref": "#/$defs/confidence"},
+        "text_threshold": {"$ref": "#/$defs/confidence"},
+        "grounding_selector": {
+          "enum": [
+            "temporal_joint_v1",
+            "temporal_joint_v2",
+            "entitybench_clip_quality_v1_per_frame"
+          ]
+        },
+        "max_entity_box_iou": {"$ref": "#/$defs/confidence"},
+        "max_temporal_area_ratio": {"type": "number", "minimum": 1.0},
+        "max_temporal_center_distance": {"type": "number", "minimum": 0.0},
+        "max_temporal_aspect_ratio": {"type": "number", "minimum": 1.0},
+        "temporal_support_weight": {"type": "number", "exclusiveMinimum": 1.0},
+        "unverified_candidate_min_score": {"$ref": "#/$defs/confidence"},
+        "joint_ambiguity_margin": {"type": "number", "minimum": 0.0},
+        "cross_entity_support_margin": {
+          "type": "number", "minimum": 0.0, "maximum": 1.0
+        },
+        "max_grounding_candidates_per_entity": {
+          "type": "integer", "minimum": 1
+        },
+        "max_joint_search_nodes": {"type": "integer", "minimum": 1},
+        "n_grounding_calls": {"type": "integer", "minimum": 0}
+      }
+    },
+    "tokenUsage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "input_tokens", "cached_input_tokens", "output_tokens", "total_tokens"
+      ],
+      "properties": {
+        "input_tokens": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]
+        },
+        "cached_input_tokens": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]
+        },
+        "output_tokens": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]
+        },
+        "total_tokens": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]
+        }
+      }
+    },
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "confidence", "evidence_frame_ids"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "evidence_frame_ids": {"$ref": "#/$defs/evidenceFrames"}
+      }
+    },
+    "box": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "bbox_xyxy_normalized", "score"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "bbox_xyxy_normalized": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+        },
+        "score": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "grounding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["query", "status", "boxes"],
+      "properties": {
+        "query": {"type": "string", "minLength": 1},
+        "status": {
+          "enum": [
+            "grounded", "partially_grounded", "not_found", "ambiguous", "not_run"
+          ]
+        },
+        "boxes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/box"}
+        }
+      }
+    },
+    "referenceGrounding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id", "reference_frame_path", "bbox_xyxy_normalized", "score"
+      ],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "reference_frame_path": {"type": "string", "minLength": 1},
+        "bbox_xyxy_normalized": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+        },
+        "score": {"$ref": "#/$defs/confidence"}
+      }
+    },
+    "entity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "name", "attributes", "entity_confidence", "evidence_frame_ids",
+        "grounding", "reference_grounding"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^e[1-9][0-9]*$"},
+        "name": {"type": "string", "minLength": 1},
+        "attributes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attribute"}
+        },
+        "entity_confidence": {"$ref": "#/$defs/confidence"},
+        "evidence_frame_ids": {"$ref": "#/$defs/evidenceFrames"},
+        "grounding": {"$ref": "#/$defs/grounding"},
+        "reference_grounding": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/referenceGrounding"}
+        }
+      }
+    },
+    "temporalExtent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["start_frame", "end_frame_exclusive", "precision"],
+      "properties": {
+        "start_frame": {
+          "anyOf": [{"type": "integer", "minimum": 0}, {"type": "null"}]
+        },
+        "end_frame_exclusive": {
+          "anyOf": [{"type": "integer", "minimum": 1}, {"type": "null"}]
+        },
+        "precision": {"enum": ["frame", "segment", "shot", "unknown"]}
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "subject_id", "object_id", "predicate", "temporal_extent",
+        "confidence", "evidence_frame_ids"
+      ],
+      "properties": {
+        "id": {"type": "string", "pattern": "^r[1-9][0-9]*$"},
+        "subject_id": {"type": "string", "pattern": "^e[1-9][0-9]*$"},
+        "object_id": {"type": "string", "pattern": "^e[1-9][0-9]*$"},
+        "predicate": {"type": "string", "minLength": 1},
+        "temporal_extent": {"$ref": "#/$defs/temporalExtent"},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "evidence_frame_ids": {"$ref": "#/$defs/evidenceFrames"}
+      }
+    }
+  }
+}

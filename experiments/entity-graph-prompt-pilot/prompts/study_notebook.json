@@ -1,0 +1,69 @@
+{
+  "story_name": "pilot_study_notebook",
+  "story_overview": "Nora works in a quiet study, carries a red notebook into the hallway, then revisits the study without it and brings in a sealed envelope. Apart from these actions, the room arrangement stays unchanged.",
+  "scenes": [
+    {
+      "scene_num": 1,
+      "location_name": "The Quiet Study",
+      "video_prompts": [
+        "In the same quiet study in late-afternoon light, a wide view from the doorway shows Nora, a woman in a green cardigan, reading at the desk.",
+        "In the same study, an over-the-shoulder view faces the desk as Nora closes a small red notebook. The room remains calm and unchanged.",
+        "From the window side of the same study, Nora reaches for the red notebook. Only the near half of the desk is prominent.",
+        "A tight side view shows Nora lifting the red notebook from the desk and walking out; most of the room falls outside the frame."
+      ],
+      "cut": [true, false, false, false],
+      "action_descriptions": [
+        "A wide doorway view shows Nora reading at the desk.",
+        "An over-the-shoulder view shows Nora closing a red notebook.",
+        "A window-side view shows Nora reaching for the notebook.",
+        "A tight side view shows Nora taking the notebook out of the study."
+      ]
+    },
+    {
+      "scene_num": 2,
+      "location_name": "The Hallway",
+      "video_prompts": [
+        "In the short hallway outside the study, a medium rear view shows Nora walking away while carrying the small red notebook."
+      ],
+      "cut": [true],
+      "action_descriptions": [
+        "Nora walks away through the hallway carrying the red notebook."
+      ]
+    },
+    {
+      "scene_num": 3,
+      "location_name": "The Quiet Study",
+      "video_prompts": [
+        "Back in the same study, the doorway wide view returns. Nora stands empty-handed, the red notebook is no longer on the desk, and the rest of the room remains as before.",
+        "From behind the desk in the same study, a reverse view shows Nora returning with a sealed tan envelope and placing it on the desk.",
+        "A close side view shows the sealed tan envelope resting on the desk while Nora walks away; only a small part of the study is visible."
+      ],
+      "cut": [true, false, false],
+      "action_descriptions": [
+        "The study is revisited after the red notebook has been removed.",
+        "Nora brings in a sealed envelope and places it on the desk.",
+        "A close view confirms the envelope remains on the desk."
+      ]
+    }
+  ],
+  "_pilot_design": {
+    "difficulty": "easy",
+    "legal_changes": [
+      "red notebook: on desk -> held by Nora -> absent from the revisited study",
+      "tan envelope: absent -> held by Nora -> resting on the desk"
+    ],
+    "stable_relation_candidates": [
+      "Choose two to four automatically generated static study objects visible in both doorway-wide shots.",
+      "Prefer support and adjacency relations among the desk, chair, lamp, monitor, books, or wall decoration when the generated output makes them unambiguous.",
+      "Treat objects omitted by a tight crop as unobserved, not absent."
+    ],
+    "candidate_injections": [
+      "Make the red notebook reappear on the desk after Nora removed it.",
+      "Remove the tan envelope from the final close view even though no action removes it.",
+      "Move one persistent desk object to the opposite physical side of another persistent desk object.",
+      "Delete or duplicate one static object that is clearly visible in both wide views."
+    ],
+    "primary_overlap_pairs": ["1:1 <-> 3:1", "1:2 <-> 3:2", "3:2 <-> 3:3"],
+    "partial_view_shots": ["1:3", "1:4", "3:3"]
+  }
+}
