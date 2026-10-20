@@ -1,0 +1,39 @@
+{
+  "status": "running",
+  "device": "cpu",
+  "python": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_2/detector_upgrade_20260910/venv/bin/python",
+  "torch": "2.7.1+rocm6.3",
+  "numpy": "1.26.4",
+  "seed": 0,
+  "threads": 2,
+  "weights_sha256": "e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82",
+  "source_hashes": {
+    "README.md": "aa29228b213276587e50eede541719cecf8be75d9c9fa527a0586e928d29e05e",
+    "export_onnx.py": "05408139ece0a264e107cfb59512c90e4db10ab270c3a0d78cfe078517113762",
+    "generate_class_embedding.py": "c44237a42733ec515d08183232c893058082a63bed92377d26eae482a7c7801f",
+    "infer_anything.py": "5ae80a21df11aeac299f457340e7a5e2b0d68d160c46c812809e15e79b3188e9",
+    "models.py": "f60f3e691c8df692f74f0703935a04f08f00780c55a448e22e1ad0ed48fa2027",
+    "prompt_free.npy": "9760d469869e87f49871063e1857f24747dbae22979f880d577527da7213c371",
+    "prompt_free_vocab.py": "b521ead2f366f6a0d652e5787ab5409e91f3374e60f662a5e0680e3d570c3cfe",
+    "wedetect_unified_app.py": "35530bb9eb9b505039b738e09d4d0ccf99fc7dd8f61f53a3d8dbc5eff2680acf"
+  },
+  "adapter_sha256": "eea9c081352803a8f97179d2884b2442b82bd94b26c657e70def1692d053e56d",
+  "policy": {
+    "objectness": 0.1,
+    "nms_iou": 0.7,
+    "top100": 100,
+    "class_match": 0.4
+  },
+  "groups": {
+    "study0_w852": {
+      "frames": 6,
+      "raw_proposals": 50400,
+      "final_candidates": 88
+    },
+    "study0_w854": {
+      "frames": 6,
+      "raw_proposals": 50400,
+      "final_candidates": 86
+    }
+  }
+}

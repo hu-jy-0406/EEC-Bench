@@ -1,0 +1,54 @@
+{
+  "source_sha256": "e124ff566333309b1c1a667408b8aaabb506f4ae9f224253f9f2d6e200c08fb9",
+  "tokenizer_class": "T5Tokenizer",
+  "truncation_side": "right",
+  "tokenizer_files_sha256": {
+    "tokenizer.json": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+    "tokenizer_config.json": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05"
+  },
+  "count": 400,
+  "over_limit": 383,
+  "longest": {
+    "episode_id": "kaZ87rTNkDA_s00001_n8_clean_v3_alt8",
+    "shot_count": 8,
+    "tokens": 1222,
+    "raw_chars": 5061,
+    "raw_words": 840,
+    "retained_end": 2130,
+    "shot_status": [
+      "full",
+      "full",
+      "partial",
+      "lost",
+      "lost",
+      "lost",
+      "lost",
+      "lost"
+    ],
+    "truncated_tokens": 512
+  },
+  "longest_by_raw_chars": "kaZ87rTNkDA_s00001_n8_clean_v3_alt8",
+  "longest_by_raw_words": "kaZ87rTNkDA_s00001_n8_clean_v3_alt8",
+  "by_shot_count": {
+    "4": {
+      "count": 240,
+      "over_limit": 223,
+      "min_tokens": 455,
+      "max_tokens": 833
+    },
+    "6": {
+      "count": 120,
+      "over_limit": 120,
+      "min_tokens": 572,
+      "max_tokens": 1064
+    },
+    "8": {
+      "count": 40,
+      "over_limit": 40,
+      "min_tokens": 818,
+      "max_tokens": 1222
+    }
+  },
+  "api_cost_usd": 0,
+  "model_calls": 0
+}

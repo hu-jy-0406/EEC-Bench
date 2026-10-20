@@ -1,0 +1,975 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-09-20T19:52:33.752437+00:00",
+  "hostname": "auh7-1b-gpu-196",
+  "status": "pass",
+  "elapsed_seconds": 3.421654010991915,
+  "quota_per_source": 20,
+  "manifest_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/acquisition_manifest.json",
+  "manifest_sha256": "f9a98da4f15a5b1e5b16232edefca8759104f273b202d6305c48364020daa479",
+  "checked_video_count": 40,
+  "checks": {
+    "total_quota": 1,
+    "coordinator_complete": 1,
+    "known_source_labels": 1,
+    "success_only_manifest": 1,
+    "candidate_file_exists": 2,
+    "candidate_seed": 2,
+    "candidate_keys_unique": 2,
+    "deterministic_candidate_order": 2,
+    "candidate_ranks": 2,
+    "raw_metadata_exists": 12,
+    "raw_metadata_sha256": 12,
+    "raw_metadata_bytes": 12,
+    "raw_metadata_sidecar_exists": 12,
+    "raw_metadata_sidecar_matches_candidate_snapshot": 12,
+    "official_metadata_source_url": 12,
+    "raw_metadata_count": 2,
+    "candidate_in_raw_sf20k_rows": 19071,
+    "candidate_in_raw_muss_lists": 43632,
+    "no_duplicate_video_key": 1,
+    "no_duplicate_video_id": 1,
+    "no_duplicate_video_sha256": 1,
+    "candidate_membership": 40,
+    "candidate_fields_unchanged": 320,
+    "video_exists": 40,
+    "video_within_project_pilot": 40,
+    "video_sha256": 40,
+    "video_bytes": 40,
+    "actual_duration_bounds": 40,
+    "resolution_bounds": 40,
+    "whole_original_clip": 40,
+    "ffprobe_evidence_exists": 40,
+    "ffprobe_video_stream": 40,
+    "ffprobe_dimensions_match": 40,
+    "ffprobe_duration_match": 40,
+    "attempt_evidence_exists": 240,
+    "attempt_result_matches_manifest": 40,
+    "source_quota": 2,
+    "reported_success_count": 2,
+    "reported_attempt_count": 2,
+    "attempt_bound": 2,
+    "tool_version_query": 4,
+    "all_tool_versions_frozen": 1,
+    "manifest_unchanged_during_audit": 1
+  },
+  "errors": [],
+  "warnings": [],
+  "source_summaries": {
+    "sf20k": {
+      "successful_videos": 20,
+      "attempts": 36,
+      "duration_seconds": {
+        "count": 20,
+        "sum": 9577.906214,
+        "min": 180.186848,
+        "median": 366.991383,
+        "mean": 478.8953107,
+        "max": 1427.609252
+      },
+      "size_bytes": {
+        "count": 20,
+        "sum": 836265058,
+        "min": 7611873,
+        "median": 31295587.0,
+        "mean": 41813252.9,
+        "max": 153000642
+      },
+      "total_gib": 0.7788325268775225,
+      "total_hours": 2.660529503888889,
+      "upload_year_mix": {
+        "2013": 2,
+        "2019": 3,
+        "2020": 2,
+        "2021": 4,
+        "2022": 5,
+        "2023": 3,
+        "2024": 1
+      },
+      "source_list_year_memberships": {
+        "train.csv": 20
+      },
+      "channels": {
+        "TheCGBros": 3,
+        "Screamfest": 1,
+        "CINTREE FILMS": 1,
+        "CGMeetup": 3,
+        "ALTER": 1,
+        "Short of the Week": 2,
+        "The Social Errors Club": 1,
+        "KYAN": 1,
+        "MTNC Media": 1,
+        "Krauss": 1,
+        "Film Shortage": 1,
+        "DUST": 1,
+        "Erik Engbo": 1,
+        "Nerambokku": 1,
+        "Full Stop Films": 1
+      },
+      "status_counts": {
+        "failed": 8,
+        "rejected": 8,
+        "success": 20
+      },
+      "failure_stage_counts": {
+        "metadata_probe": 5,
+        "video_download": 3,
+        "known_host_filter": 6,
+        "duration_filter": 2
+      },
+      "network_failure_counts": {
+        "http_403": 3
+      },
+      "year_mix_note": "Upload years and source-list membership, not inferred movie release years. A video may appear in multiple raw lists."
+    },
+    "muss": {
+      "successful_videos": 20,
+      "attempts": 34,
+      "duration_seconds": {
+        "count": 20,
+        "sum": 2925.458865,
+        "min": 82.198639,
+        "median": 147.7137415,
+        "mean": 146.27294325,
+        "max": 251.448889
+      },
+      "size_bytes": {
+        "count": 20,
+        "sum": 279109707,
+        "min": 5441325,
+        "median": 12106783.5,
+        "mean": 13955485.35,
+        "max": 35052867
+      },
+      "total_gib": 0.25994117092341185,
+      "total_hours": 0.8126274625000001,
+      "upload_year_mix": {
+        "2011": 3,
+        "2012": 4,
+        "2015": 4,
+        "2016": 2,
+        "2019": 1,
+        "2023": 1,
+        "2024": 1,
+        "2025": 4
+      },
+      "source_list_year_memberships": {
+        "2011.csv": 3,
+        "2012.csv": 4,
+        "2015.csv": 4,
+        "2016.csv": 2,
+        "2019.csv": 1,
+        "2020+.csv": 6
+      },
+      "channels": {
+        "Movieclips": 20
+      },
+      "status_counts": {
+        "failed": 14,
+        "success": 20
+      },
+      "failure_stage_counts": {
+        "metadata_probe": 11,
+        "video_download": 3
+      },
+      "network_failure_counts": {
+        "http_403": 3
+      },
+      "year_mix_note": "Upload years and source-list membership, not inferred movie release years. A video may appear in multiple raw lists."
+    }
+  },
+  "source_metadata": {
+    "sf20k": {
+      "candidate_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/sf20k/candidates.json",
+      "candidate_sha256": "adb1d27c7ef27ec300f4133c0c8e13d7ecbf40eb5e575f83993cae2cdd54c2d0",
+      "candidate_count": 19071,
+      "raw_metadata": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/sf20k/train.csv",
+          "sha256": "99bae96da3d7b2947ffdbce9fd9ff4bfb4b01f79eafc1c56625739f0b5a494df",
+          "source_url": "https://huggingface.co/datasets/rghermi/sf20k/resolve/main/train.csv",
+          "bytes": 49498002,
+          "retrieved_at": "2026-09-20T19:38:45.207165+00:00",
+          "headers": {
+            "ETag": "\"79840d1921094f7d0c4ca70d888ae24b39f1a88d14c667dd23ba25a1f4a9ab45\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        }
+      ]
+    },
+    "muss": {
+      "candidate_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/candidates.json",
+      "candidate_sha256": "a6cc097c27a89815a8cb558fa95ef360330940d152bcac1072adbd60e8f1da33",
+      "candidate_count": 43632,
+      "raw_metadata": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2011.csv",
+          "sha256": "3578663a2849d52055bfeffd64629146553b0dbd15cc75c2e06079f3319b3d07",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2011.csv",
+          "bytes": 102827,
+          "retrieved_at": "2026-09-20T19:38:46.769073+00:00",
+          "headers": {
+            "ETag": "\"f36e34ad7d8797237df26b71135b8b6cfc8f262a804f36ae7cd6afbdffbb7e7f\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2012.csv",
+          "sha256": "026101f2b497f5c93e0172e7bf78b0f27b43ba4e6addbc0d47ff7fd32b164731",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2012.csv",
+          "bytes": 52212,
+          "retrieved_at": "2026-09-20T19:38:47.090786+00:00",
+          "headers": {
+            "ETag": "\"64c82c24e2256582be9c77b4e2a8e4abfbfb5e972adfe1c928fd41b1e6075bbb\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2013.csv",
+          "sha256": "f703c6c19adb5f497da66011b4753ad77cd8beebf1effee61bc5991210a14a07",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2013.csv",
+          "bytes": 15456,
+          "retrieved_at": "2026-09-20T19:38:47.424413+00:00",
+          "headers": {
+            "ETag": "\"dd537aff9f1bf470cb38ffe8a80f06ae555308c6dad5493c38cb88f41950604e\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2014.csv",
+          "sha256": "5b7568c0fa20244b2e5fcd2e8c7bd70b751668eb64c460cf20a259eff12b781e",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2014.csv",
+          "bytes": 20076,
+          "retrieved_at": "2026-09-20T19:38:47.925821+00:00",
+          "headers": {
+            "ETag": "\"6892de208b7946907dd9f12bf0284eb818fe5fb950aa48e7c98857adccc5dccf\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2015.csv",
+          "sha256": "638b7378306428e88da78dcfabbacd5a71ed39649c71d7f9363e16579fda56bc",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2015.csv",
+          "bytes": 42432,
+          "retrieved_at": "2026-09-20T19:38:48.267786+00:00",
+          "headers": {
+            "ETag": "\"811b4d5ba1d0e024ea5fb6c783f938d7c4caa474cfa53169cc30b7e5db5ee75b\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2016.csv",
+          "sha256": "dfe96b75f8f22ddb855059e11cc2c9b689cf073b7b0baf0fa17c49f4ce6429e9",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2016.csv",
+          "bytes": 43476,
+          "retrieved_at": "2026-09-20T19:38:48.585512+00:00",
+          "headers": {
+            "ETag": "\"f6f106b217f7cbbf85f58515db93de4ef5ee398fdd6382e2bc8706f92dc04dfb\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2017.csv",
+          "sha256": "8480b8fa51e831778c7d1429e43eab3ce459028d60f954d82b5eb4f6174c5d70",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2017.csv",
+          "bytes": 65496,
+          "retrieved_at": "2026-09-20T19:38:48.987470+00:00",
+          "headers": {
+            "ETag": "\"fd3cff75f6f0244dac337124ee6807d9fafd4396b3cf39125a07a463aed50617\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2018.csv",
+          "sha256": "284b78910b053d5cbfcf8888d2524dd22f2f86e50d814a8680b7215870055a48",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2018.csv",
+          "bytes": 21408,
+          "retrieved_at": "2026-09-20T19:38:49.427438+00:00",
+          "headers": {
+            "ETag": "\"2d4296c0bad3659d727c11c362e67b9fbeee625c30fecb2fac4f7835760fc86e\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2019.csv",
+          "sha256": "aa8dcd491f8b8ad551bf38a153016d10a1d3e5d55ae87205462801ae0fc30d12",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2019.csv",
+          "bytes": 46380,
+          "retrieved_at": "2026-09-20T19:38:49.946796+00:00",
+          "headers": {
+            "ETag": "\"e11c975d096fbbfc6f0806217ec4a9cd72a14b4098d80e666f9069e1e2751102\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2020.csv",
+          "sha256": "72bb81e12351dec5f3e14600deb41a54400fa5c0075d7959c317a8d7062261bf",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2020.csv",
+          "bytes": 456,
+          "retrieved_at": "2026-09-20T19:38:50.296796+00:00",
+          "headers": {
+            "ETag": "\"a227513353257262a640f921e3487c270bb1f11d9a836cbecad33f59c2104b66\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/metadata/muss/2020+.csv",
+          "sha256": "f17d432b28f02327561cf7c707b55d146662c66af52cd03acf556363a432cb92",
+          "source_url": "https://raw.githubusercontent.com/zhang-haojie/MuSS/main/download/youtube-dl-dump/2020%2B.csv",
+          "bytes": 113375,
+          "retrieved_at": "2026-09-20T19:38:50.627501+00:00",
+          "headers": {
+            "ETag": "\"53f7ea9a31191e82cf02c1384d3344f3e178afa8926ed80cc562c1d1160c3bfa\"",
+            "Last-Modified": null,
+            "X-Repo-Commit": null
+          }
+        }
+      ]
+    }
+  },
+  "videos": [
+    {
+      "video": "muss/UmAVyowgDVE",
+      "sha256": "c8ffe24cf3e0148dea2f94192a51dd108c8035a73e28c484d56f3e3d3ee55784",
+      "bytes": 8544279,
+      "duration_seconds": 161.123265,
+      "evidence_sha256": {
+        "candidate.json": "fa3b84e03d98bc0e517702ad536db68752c73f0562ae61f9f24dada1be312307",
+        "preflight.info.json": "9f866180ca34f6fe61c0c4e47b466be7ebf4bf591d3f678a258050b376b1dc60",
+        "preflight.command.json": "ca45e9f21eb18035dc73f94fc2247167735576ba712f27ec128039cbe170f758",
+        "download.command.json": "ab40858f7b7d4d27bcf39cf60864f4ca1c81c2b203cf313a216c222ce8eeaf45",
+        "ffprobe.command.json": "482f13f5f71460ca043021da5fd7446378b208185b7b7e1fff247b28455298fc",
+        "result.json": "1fe978eb6e88f7c0ac8cb61d04b9121e4b0d79c3a58b2593390f496d112efddd"
+      }
+    },
+    {
+      "video": "muss/9VLcxXz-0w4",
+      "sha256": "5e2ed838f3f69956717fde98fdf9218367e898144b0adf5a353446f261f1b700",
+      "bytes": 17242884,
+      "duration_seconds": 148.58449,
+      "evidence_sha256": {
+        "candidate.json": "6352d951887824e23bfea6985a34909e0e745c7af5ff7bbe121df7ba651e9217",
+        "preflight.info.json": "9eb8834a11e2eca8958b9878d2a4aede0ddf3b67057757c8adf234d1cdee410f",
+        "preflight.command.json": "bfcab79d6860523e72ab87e3e0cc1c3b5805e539b83575c7357c5fde05a340df",
+        "download.command.json": "22dcc96f877904b41361b42d33faa27aea476f3470a74fe42edd29bef0e3a7d9",
+        "ffprobe.command.json": "ce980d0343aec818dfcd3bc90a0aa38ce4c04a65c7d50d4917b8bd6df8147a5d",
+        "result.json": "b65005d4d6cfa625c0260c3aa869cd83dae5c413e44a28dccbb4cd8654f2594c"
+      }
+    },
+    {
+      "video": "muss/NqbWXgVLkvo",
+      "sha256": "7b3ec1a33c5a7e1f6339b375222dd190f8b2675e474d81ef9aa81889613930eb",
+      "bytes": 5441325,
+      "duration_seconds": 155.109297,
+      "evidence_sha256": {
+        "candidate.json": "c09c8f95b3f1289d9c8b519cdf95880ea060a18b40545e402033140b1b35fba0",
+        "preflight.info.json": "37b0eb02023fd8faacd7347836da4ca899221075958b58404d5acb4af6755c10",
+        "preflight.command.json": "2dde11d80b46b3e89af206676ddedb67066b98cf0fe10fc3d37ffaac46c43a35",
+        "download.command.json": "66f84d6c17d21200eebb14c2e384e878d817cc2af7d31cc305753ee78209f2bc",
+        "ffprobe.command.json": "52c070cd24068a58947f0d12fe4afd1906a9fb090caaec7b27ef0a8d05f07cbc",
+        "result.json": "038ca16c244c40122fbcacca7ecf268b5b4674031a43a14a7b0d8c53805d5f32"
+      }
+    },
+    {
+      "video": "muss/4cSZVMEi710",
+      "sha256": "96efdd49f10a1d862157bb7df276a8497b6da69ae1265f317562a98435a42f54",
+      "bytes": 8256386,
+      "duration_seconds": 178.584671,
+      "evidence_sha256": {
+        "candidate.json": "1181ca68a8e71c6392935328f9a2a0a96bd6eb8f9d8f4eb9baae60bac43e5ba8",
+        "preflight.info.json": "23768ef453040d9a1f3954f5e1f4dc5cc276116939756bd19a3884a10155433c",
+        "preflight.command.json": "4f90ea45aebd7cb7724c307d74a95e6f4d82db400a5f36e5b3f6d11d57ccfa49",
+        "download.command.json": "4d3a63e1fa4613d7439ceccc38d349e4bbae15afd14f6679350d1d2c04683184",
+        "ffprobe.command.json": "8973924fa70f99afa1d62842ae30fd2e9160af9e126dd5b7f46a0f2907fa7ae8",
+        "result.json": "fd6edc688f4e52f30f23a1fd2c371ed07e8ca12a00df9a8a6e79ef8ea3c4ec51"
+      }
+    },
+    {
+      "video": "muss/cFS5YHo9G4E",
+      "sha256": "c34cd15e0d969b49a93236b4709b848ea9dea070d7740203c7ffe8bdf768802b",
+      "bytes": 13997208,
+      "duration_seconds": 116.099773,
+      "evidence_sha256": {
+        "candidate.json": "65c455149a48dfc7bb76ed68374b9b8672502d36c35d1bd0e94fae3f87c5dbfe",
+        "preflight.info.json": "aa84493f123a6a14ae089e89575da895e85c619039c2d35119eef804a3895cbc",
+        "preflight.command.json": "360a27c833709ba6caddef3ddc10ae9dcace2bef005c4bf08218ed4018ce0809",
+        "download.command.json": "8a926da513c17099f89408df1e82956e2a85bf802e78ac8fa8d3c0bfc3041676",
+        "ffprobe.command.json": "9f17ad8eec4890367f7586a9fbc7175fe68e866948aaef0ebaee6f2e623d4a5d",
+        "result.json": "67fd089529e5579523a027524fc5ee13ba08be8957d265479a2d3e138cfedfff"
+      }
+    },
+    {
+      "video": "muss/kaZ87rTNkDA",
+      "sha256": "d0f02edb8921bafcef03637b66698a92b5f1e4e949cb55098d222163251f1f86",
+      "bytes": 35052867,
+      "duration_seconds": 156.711474,
+      "evidence_sha256": {
+        "candidate.json": "7df32ac54df56b116d44534e10b4beacbe1c3609db323f0facd73c59e85ca758",
+        "preflight.info.json": "3d1a14ec7ef4e300f2a03a60350fbe2fe7f29dce6ffe870a4a2b915de376def3",
+        "preflight.command.json": "719f78e871e778eb1a33ab1cfc5516444b12cc3a743fcdeda4526752d50cfba1",
+        "download.command.json": "973e441267fbed60467b5c593885cb0d8120bb622ef9bda5b9a87f8064040297",
+        "ffprobe.command.json": "7cc4afa7f5829c65a304852be112b84e5890516aea3ad0a78567f83aadefcab5",
+        "result.json": "8492234818aeb22cc210f2956fed593c8cf508ff8ece5486291c2ee670e2cefe"
+      }
+    },
+    {
+      "video": "muss/IVQ4m_95kJY",
+      "sha256": "5cb74b5a401562045961e584708987110d57122b37deee810a9feded7d204ad7",
+      "bytes": 12308392,
+      "duration_seconds": 140.202086,
+      "evidence_sha256": {
+        "candidate.json": "bcb8660b4eb5f3ee5c1916bf715546eb24bc20ef7592cdeaa77098f6d293a397",
+        "preflight.info.json": "2a353f4ade7c017c2531bbd6f4a6c58a0201ace238cd66b5a57c7cf531af5c51",
+        "preflight.command.json": "d301b0062c24043b502b6ea92883e6ee978fd7f2162cee116ad3853fa65b5fe1",
+        "download.command.json": "ae023c84a503cf3311980f99641559a197f030ff6da71ae08b6d2247c19d3373",
+        "ffprobe.command.json": "a20c4410c927272315c09d9d1bba2ec9c9523357496cd2abe0970b8c08fe19f0",
+        "result.json": "e9b49722a632ca78ee63828887c61d54d4d56d74d75f589d062bf0960df3c079"
+      }
+    },
+    {
+      "video": "muss/TVOIig2xLq8",
+      "sha256": "ad73d6d52fd2bb14f3bf333196ae3285a70fec4aec414ed63e48c6ad9eb67d09",
+      "bytes": 10705960,
+      "duration_seconds": 162.725442,
+      "evidence_sha256": {
+        "candidate.json": "6c92ee305da6d5ea93aa7fbba1f23ba1b2b26df8f972951a5f2d11e4660540f3",
+        "preflight.info.json": "ff84025eba1ae898fb6d700776f2e030a928958e187a90b9281911d7689576cf",
+        "preflight.command.json": "7d593b4299e2f403dfe6ca9a1890d40feee73018a900296e446eea361f67f8af",
+        "download.command.json": "a113ba3135b4f813193d633a20c2ef1664037dda43767fa47be35fc6135dd936",
+        "ffprobe.command.json": "904fa7031e184fed88a8353a0ee5c227d251a3d05c23542042a81c7c5d48f18c",
+        "result.json": "cac72825708d20a666e9b2f81779da85334a07f914a8f42e3b9a5f14ba0a9ebb"
+      }
+    },
+    {
+      "video": "muss/u_4L7Dx1rIg",
+      "sha256": "b15ec419c3e87f92d419598a94933541e7c679a98cc48bc73508a4b4a86aeae7",
+      "bytes": 21348251,
+      "duration_seconds": 128.359909,
+      "evidence_sha256": {
+        "candidate.json": "0e5f51a19a9cd7026756048c7aa7c16a4968bf5977e15d738ff2f9d046e50282",
+        "preflight.info.json": "9d56a0c19b2be81f749fa78af3dd7c26ade8ae23b63caa42fee6b6808a215187",
+        "preflight.command.json": "4c816fb35e1334ed867cddd45d93f918d1ab879620fa449321226bdb36026142",
+        "download.command.json": "ff7c27c89fb57093e41cdf128c62e65433e9f0e72c5a9718b81743d10bf7a550",
+        "ffprobe.command.json": "0709df128a46817a0d068473c19d03b8d22b6fd729fc8db166431656101fb4e0",
+        "result.json": "cb9d9122dd019d6290c947c614cef84c90e16f532e17dcb9320999bd7c7ad47a"
+      }
+    },
+    {
+      "video": "muss/os1gnR5k3S8",
+      "sha256": "6fb26df0b18a1c4cdc8823cfea94f4049e64ba96ec7bd19a1b2d1b9b3a620d61",
+      "bytes": 25744512,
+      "duration_seconds": 147.702132,
+      "evidence_sha256": {
+        "candidate.json": "af198c1b51bdaa5cf0850426eddc893479d7bb55f7f8dba26dfba14d646f6e63",
+        "preflight.info.json": "3a34003b67a505f246115b7063151b6b4dde38fe101180f77caeb809324ad2bb",
+        "preflight.command.json": "784193fe365cac313dc65b92d73a284843d0558c1f141a73e866092276d61953",
+        "download.command.json": "42262051c3b9c5fd1eb0e538bf864c802603773f01ddde7dc8bd26751ada4d7b",
+        "ffprobe.command.json": "878101e90585694d5c21a920717f3624326c23e683ef542a075d981fc4296af2",
+        "result.json": "9a91e772534ce5c0dfb71daddc6c4dde890d21259765add467a89729ff0b6ca3"
+      }
+    },
+    {
+      "video": "muss/d7c4TXqkMso",
+      "sha256": "07eab4277f2e5250a1e866cca117f7cfa2d3ea41f0cd4495d3686800fc73ac34",
+      "bytes": 15930801,
+      "duration_seconds": 147.725351,
+      "evidence_sha256": {
+        "candidate.json": "d645705045753a444b74c76bb04417d3325e627008768ed4c239e2b1c5d6fe91",
+        "preflight.info.json": "4952f05dc3740795a1ab05fc0dd13eae3b1f46acee788b7a65f8ab47af5296bc",
+        "preflight.command.json": "6e19a2473be9a8edc516e56bf488b5afc47ccb81592e33745eb93b21bec7c532",
+        "download.command.json": "38c1ffa4475ed267c6bfb310e65c9ca0661e79015d48f9250ce50dd63cae5d84",
+        "ffprobe.command.json": "a885f3d89c61e208e4ce3794a829e32f1c080e7a7de88ff7b18b35bb18936724",
+        "result.json": "2a01367b79e22181153b4ce358f65da40e10a2a3a276eccd27dcc92f42ea0ff2"
+      }
+    },
+    {
+      "video": "muss/xON-p_ol7R8",
+      "sha256": "934296df663917329580402e42e61f5d0d9529939072170764e07b4d146d4d6b",
+      "bytes": 10796826,
+      "duration_seconds": 122.020862,
+      "evidence_sha256": {
+        "candidate.json": "7b23e19cf5bf3cf9d02f2a3aab51d99c0cfeaca159c89934c020f2f480d53376",
+        "preflight.info.json": "6cbc4c2b61136822155dc6eddce6247fd0ba4dfd77a9356e9bfc407de470a4a5",
+        "preflight.command.json": "bce40d80ef914e93619ede2aa2dcc763be28a8584900543444bdda3dfc226fa7",
+        "download.command.json": "3eb5c8c2e576ed8fdbd1e7ac5ccf0a7b278d214e4e97cef832365e1e1639f1e6",
+        "ffprobe.command.json": "e115ee9de595e43b17c79cc396f81fd5bf41e70d0dab12dd12d826b6de1d0be1",
+        "result.json": "ac7722363f13f6f18f279906a399a91d648558f5fb377845480149b7fbb8c202"
+      }
+    },
+    {
+      "video": "muss/e0qpJCNLViQ",
+      "sha256": "e5cb90deb6b7b83c72535367ae57222ca692fdff5691b4da863763d496d7b3d3",
+      "bytes": 13010607,
+      "duration_seconds": 149.699048,
+      "evidence_sha256": {
+        "candidate.json": "54eb4522a8ed5d063c5c430893c702d8cef25718704783a037487082c1cd8cae",
+        "preflight.info.json": "83e142eb6def42b2fb5f6c26c78a943d1c8e90eff80eb9423f8f878248517d7f",
+        "preflight.command.json": "5b23bb4125a16c0743232b4bcc5ab6716a534092a01405526d7caea8a5d5c357",
+        "download.command.json": "1c9e11c0b3d1a1d278c07b30d269907e9e586e9d75e4793245ea2fb5c11073fd",
+        "ffprobe.command.json": "14a710d1e401299a88c8568fa1bd8a62cbefee7509a64542b75a92d28015c2a3",
+        "result.json": "9c41d03b99b9e9418b7a7cd4c89d85938a588e477fce3343560d314098a57850"
+      }
+    },
+    {
+      "video": "muss/8H9u7P1d87Y",
+      "sha256": "ceede3a6a57b9c07625aa45fc67350172b42ba2e69d0d61bce13566606a015e1",
+      "bytes": 6874984,
+      "duration_seconds": 82.198639,
+      "evidence_sha256": {
+        "candidate.json": "cc515a44611f404d9dd503af89a916d5dc13b7fe35595c709a3e05aae47cddd5",
+        "preflight.info.json": "f98d354316e6d3e05145f574b94740bd91b8194346a431a6a0bac512753adbac",
+        "preflight.command.json": "bc3dccda4ffb20986cc020ff5b8ab0ea0a98ff10a12c19f8f12ae2a5dc4815d2",
+        "download.command.json": "4adfd799851f449eb813c7b21802293c305285e70e986fbc7336b8f6f3466aea",
+        "ffprobe.command.json": "a638d83bc968440a46d4b6b2d35300ca1261aeeb3a82c7276226aa35e2ebbf45",
+        "result.json": "c06db78c4f218926f2b16be88ca63a5bf04e6ebd60a2eb676a23258095838973"
+      }
+    },
+    {
+      "video": "muss/YOcfHxXt_aA",
+      "sha256": "6c5b1e894e4ac5877b94b9f378fc1b3818889a2c3ae07ac206ea76a07f305d7f",
+      "bytes": 24103667,
+      "duration_seconds": 140.689705,
+      "evidence_sha256": {
+        "candidate.json": "1387538d8781d0e7958b6fdde661328401376c50a38307efd6b9c36bd1947212",
+        "preflight.info.json": "cb9333dd3d0b5de75f570f6ab7d39f04471fb1db503428418e312bdaecf590e3",
+        "preflight.command.json": "a90d08e6bb22d1e27d3264dd25f6c4ad8aac5ca183fdb1a49830402537076bb7",
+        "download.command.json": "5a468776cde742fe217ad89851c957902f8eafbb8b477acdee391095913f0039",
+        "ffprobe.command.json": "efaff569760334dc183c2066f767d238fc5c93e72cd185c2ea98d981c028f88e",
+        "result.json": "841ed4c7fc62abfab1ade5f81297a51742313a702021d6f8ca41d2353b43fa76"
+      }
+    },
+    {
+      "video": "muss/_6fzoABYwyk",
+      "sha256": "2f5c7608884dd48e8090b3273063e047e9fc9e53d8241a23e22adcddbb9d74b6",
+      "bytes": 13152527,
+      "duration_seconds": 251.448889,
+      "evidence_sha256": {
+        "candidate.json": "477f01547a872cfffcee3cae77372159211c3827012453e27b8554a401336dc8",
+        "preflight.info.json": "6ecfc60404d1717a2fac955c6279711c6a86754957f98b2e956116e0d65ecd01",
+        "preflight.command.json": "52ef963f9143c07e79eeaf4ad02e8da9fae3a426c02597f5cfcfc359b3a66bf5",
+        "download.command.json": "ab4fcde11a0ff793ed61cb6cfcb172e95c702b510f43cd4bab8ad4a080da12fd",
+        "ffprobe.command.json": "cdeefad5a1f18bb2a610b0b46b5f4fffc859b680e6d9cac688184baa2aecaf89",
+        "result.json": "8111db89a02650eb3f1c67f2f53045ca5aa9b4d59e7b2d4236c55a8ee82ac0c6"
+      }
+    },
+    {
+      "video": "muss/8TM2yB381fc",
+      "sha256": "cd9a92ab4bee21342b11d536c9ceb97a3b22cba397a86be10ed421f40ade85d1",
+      "bytes": 7466380,
+      "duration_seconds": 102.794739,
+      "evidence_sha256": {
+        "candidate.json": "209a4fdf07a4381cc557e0af211cf94d846b1972861ff11c72e321ab435633ba",
+        "preflight.info.json": "eb90ba32b4c6d89d704414093d40a44dab3990a793ad0e7c010ee6cfdbd884fa",
+        "preflight.command.json": "119c5153d4e1bcc807fd16a9f7c4bb8cfd476359f3e016b7d80552174d40616b",
+        "download.command.json": "48139c47d6d003d648d1858fe0bb26c04c4e820374e947b8b1671a7f904190d5",
+        "ffprobe.command.json": "e618fcbe3a88b4cf49f2e759aa779a8d33a7e1c71824cf07cfcc582e28c297b7",
+        "result.json": "161899a022618341ae316efe4f5f70a44a8b522ea8b42daba9e9d3be18e0b465"
+      }
+    },
+    {
+      "video": "muss/5Ipcnz96hE8",
+      "sha256": "c37c8ba77544c91351456991a6a12b23a26dbe321e3c59b4078f6c49425d6817",
+      "bytes": 11905175,
+      "duration_seconds": 134.722177,
+      "evidence_sha256": {
+        "candidate.json": "f94b7ca45d8067b652c03736b1ea25db7d77672f8f0ed4381b4d244ba8da1ec9",
+        "preflight.info.json": "bc4cba1e11fb89c7fbad792f651d8f505c396ec49f584133b6e1afff486f9b95",
+        "preflight.command.json": "0fbc8b46c07afff9b03aeb80bf6fdfad82f84b95bc775634e966d50042470c46",
+        "download.command.json": "d1b3c7196cebcca7993a40a8c3a2590b677c0205a5befde4e2a01cb9295175c1",
+        "ffprobe.command.json": "92e6fec24977d6b8f3b60e9129d1fb7e7fe5dd57db6a38d3fc7c556e2c11440b",
+        "result.json": "d4dfa519f2867e51616736a5e33d688edacc480483b1ec99eda4d6f0ad19ea83"
+      }
+    },
+    {
+      "video": "muss/GQel3Rx9F3s",
+      "sha256": "2f9297fd5e901d49d7cb4a639ee37c260175fd71c7af1c2e56cb7cb9eeae9486",
+      "bytes": 8425048,
+      "duration_seconds": 104.791655,
+      "evidence_sha256": {
+        "candidate.json": "7a98fa082880b46f8d94aa53c3ae8c4943a5daa07aba21ec5583fa7575e9a6f5",
+        "preflight.info.json": "5ceae03faa0a81175bd84aa47972a5c3845ef52190a32bd94cd22f53a81a9d96",
+        "preflight.command.json": "50627c5c0a746b74889aad493bc41c78d45fef169987f9a812d69c7b92d2d79c",
+        "download.command.json": "eb990a259a5735c2080839dbfb1d6fab4d567a746c747823432c784d1c936075",
+        "ffprobe.command.json": "f2cdae4f800dab149fea338e4ca228272d47ae9654e8796c345265ce2e800737",
+        "result.json": "001821172c5ad778aee878f5b370d51d09c072b0f41b38573aa69401a8cec9df"
+      }
+    },
+    {
+      "video": "muss/A-Ckh0slywY",
+      "sha256": "a08db9090508ddd4d8b2372550243ef16d9646e24a44b52ac4fac76b7d64da54",
+      "bytes": 8801628,
+      "duration_seconds": 194.165261,
+      "evidence_sha256": {
+        "candidate.json": "ce30c989c392a83898920aed04c4811f87e4477048e0e8a700064d47d064443f",
+        "preflight.info.json": "dc2eddaae72ad5d56e387b976701267a10d4278f28f5d38df4e2a05e88053ed4",
+        "preflight.command.json": "3b6731c97bf9eef18e9e124279b6c8177c9deb12c73c4c1bc28f1de1b7ffadc8",
+        "download.command.json": "aa7cee706ed5094174dc44858c67b2b677585c55b71daf7eb13015d4e576eea7",
+        "ffprobe.command.json": "2f7718810acad3d9a3e8737ab57cbd750e163e6cfc53d25e59ca463f4518f5d2",
+        "result.json": "ce1ab0b24227c722479d7d686aefcc6db241ca9075bf73d1ffb26be8ed7a7b53"
+      }
+    },
+    {
+      "video": "sf20k/cXJpjWqRWuo",
+      "sha256": "424b498c0d671fa246618b8a8482349c8effa2225257f076a470e74714317522",
+      "bytes": 9944603,
+      "duration_seconds": 278.198277,
+      "evidence_sha256": {
+        "candidate.json": "2f02684389790cc4f7c3c74725a34fcb5f065c615210ef330c74a8c7dfcc85bf",
+        "preflight.info.json": "3385f5cfc9aedf85dfd7e9b1abbb9b6884afc3013a6b9af1097a50fb57050ba8",
+        "preflight.command.json": "0b978ae51acfaf7f80c99ce232b341e9f8eb0c801d1a22717a27e7d0fd639147",
+        "download.command.json": "816cda6a15724d015f2e6802847a30b630aafd81f7ab063e146cb2018d8f1ef5",
+        "ffprobe.command.json": "058408b878d9947ec1a31469704b0e50727e36e0f893bffc08a96e874c5ae1a6",
+        "result.json": "77c460acaf769f150d8650209c99e68fba4ab488158604c07b205e9ff88a7c89"
+      }
+    },
+    {
+      "video": "sf20k/MTYQT6fSzaE",
+      "sha256": "0c3534da89481f33eba9c146d39b31f7f4c3ad3a19d0c2d1634465c85191cd93",
+      "bytes": 73892571,
+      "duration_seconds": 792.984671,
+      "evidence_sha256": {
+        "candidate.json": "c4fb75c2122eba2ce0d693125da9ca0880507d9f7fc0e96f28aa0b508fc8989b",
+        "preflight.info.json": "ffb0969e567690a48f49742acbc918037ee608b32aed8b800be91a847f4c13af",
+        "preflight.command.json": "428fa42c2784c098f4ad0d6d8bda4630ff91505bb07fa82449f5b571c6f2da79",
+        "download.command.json": "a85cc4b3a9659006899a6b6f2677a6b635464bd5e61d13098f138916ef5bb94b",
+        "ffprobe.command.json": "7193a72e506899fc74eae85cf22b6507bd5badbfdacd905703c9f2df25cd7c5c",
+        "result.json": "74247f1c925550f8f2f209f5d839dec794039e33216db2e52db45a3c52677c15"
+      }
+    },
+    {
+      "video": "sf20k/4Y_dh_Lgp-8",
+      "sha256": "a7380c03cae4c5fdfc047c505c68ea77fcb99d4892fb7a37780d2d8e933ccc2b",
+      "bytes": 88973740,
+      "duration_seconds": 1028.388571,
+      "evidence_sha256": {
+        "candidate.json": "5f0005083822dc12917f2e010e585f2bbdb2a3e3060865c9c03156b1d03b8711",
+        "preflight.info.json": "fad8045d81deae16923b4007c22f33e09c96d9184ed10f63eeb22d4f1e64eaf3",
+        "preflight.command.json": "2f8f966c8a07cd8bdc9f883034ffd2d3c0973bd1f55d770db5d37c98acb104f1",
+        "download.command.json": "20574e76450e307bdbf0651fad86df70da3bc03f8d7412aecdb2fb5c0e982ee8",
+        "ffprobe.command.json": "1a6c82776ddbb57a044d2e5527fb6bd32500ef97dd1084c8a7338e99ce44cd82",
+        "result.json": "c3beac9c405d21b64f100d23c691cc9af1040e389dffb0884f14aebde0448901"
+      }
+    },
+    {
+      "video": "sf20k/NidXNBQn4LM",
+      "sha256": "36653a5a1bf7d14ab0296acb2c9858b33a67fb52bd19bfe4faab9f812fb7d533",
+      "bytes": 33573615,
+      "duration_seconds": 191.703946,
+      "evidence_sha256": {
+        "candidate.json": "02e99f04dc35483d6369c7f14c6dc4f2cc5482279017193551617098d5828cf5",
+        "preflight.info.json": "f3ee87dab1ef9f4d481fc39c956e1c76a2f221ec262c85d2d26e10998136a65b",
+        "preflight.command.json": "a11fec4f66bd3802d7aa17c4adf87ba97f47e74f01540065c4a13d33c30d8248",
+        "download.command.json": "f7e3d62b2eb0dd53b1e491ba64c50d08c26ba66abf0b1aee6722574e0493a4a6",
+        "ffprobe.command.json": "7570de94e8c136ba4762a85ba35ab33456aa20b11a3593fa38db6be201e89c9d",
+        "result.json": "22d3151c02c65cadbe978f905bc2371540d7800aea86122b90667cce6ba09931"
+      }
+    },
+    {
+      "video": "sf20k/NjLInOpXWUE",
+      "sha256": "8329863b6b896b6499b5e73bd2f317f6da6870f7d745e81ec6c3c0f73f0f8622",
+      "bytes": 43136252,
+      "duration_seconds": 248.685714,
+      "evidence_sha256": {
+        "candidate.json": "23564b81b2a648345f0654f36aff474122393e1f5d505d977a771946cd936b1b",
+        "preflight.info.json": "83f93752c4bacca63107763917be41082c102e28160e304c2a498b17d6a61633",
+        "preflight.command.json": "7de44e85e5067d20f2a2df5d9ff5dbdaae0fe8f74232eb68bee36e76bdc8d4ef",
+        "download.command.json": "090ca371a133a6f9aaa0ce6d1bc49d728d6eb4d832ff360aa2179c79e9f3d7e7",
+        "ffprobe.command.json": "5487bd227f79b3a293be80e103bf39eefdef4670f307910c2f1c6a90e1d52b4c",
+        "result.json": "a3d9b3b1b34fe9f66b781665995aab20b170c1924429a27f019048ca7dfafb00"
+      }
+    },
+    {
+      "video": "sf20k/KZi7rVwD680",
+      "sha256": "8e3fc96c552a91ab79f747995d0c18e13617d7fc43938e04962a9876df617a50",
+      "bytes": 19886659,
+      "duration_seconds": 609.50059,
+      "evidence_sha256": {
+        "candidate.json": "e6c112d64dfe102b56196e490ec1311bd0e1d4a9ed5668c30a787a1babb5e059",
+        "preflight.info.json": "ae44bbd9d0d137a3dc33de072a20ccea74255d88e97d7b9c5b0b08c85190f478",
+        "preflight.command.json": "494b4a98f9bee9bfbff0106f44a5e5aa07fc858518561a78b0313ee799e1df3a",
+        "download.command.json": "784329ecd0b2678be7e65f76b5d3c6bcd535a476f6b3351827da9b956a0c3169",
+        "ffprobe.command.json": "5d8a9f9693337885558b32a90d313ccdc6318d88f0b8a6ff119ac02cd5d89575",
+        "result.json": "ccf4d1b2a358947a0e3ee778b75cb319a51507bb8f549627c2f36663f8949085"
+      }
+    },
+    {
+      "video": "sf20k/wW6ZQ2Z3XdM",
+      "sha256": "f71b5f7ef7d7c3839484b521ab19f09a12a0ebefcec46fc18c56d35914b27939",
+      "bytes": 153000642,
+      "duration_seconds": 724.787664,
+      "evidence_sha256": {
+        "candidate.json": "4c2e4cee5d63949da35b34b2ace2d630a80f588fa50eb6c67356deeca3423b0d",
+        "preflight.info.json": "700ee266d56d5d5c3429930ad6da52c24203fde8f1ead89fdb806b370883b0b4",
+        "preflight.command.json": "99615c74c940d04328ee3b07ac7c9de449d3b924944da2e8da5ba4e0c2b192cd",
+        "download.command.json": "9f0a505023ad3396e8f5e84675997d94c72e2e1a32f072612390975e05dc725e",
+        "ffprobe.command.json": "22e4adb9de10136a4a0e3f1233cb3f710068a69943c30dc2dc09df8c5d8b54e0",
+        "result.json": "7d3a9a23822e216f03419d837762c396ea7580a63c6b2a9cc6e296213dc91f28"
+      }
+    },
+    {
+      "video": "sf20k/ChxbeG5Rq28",
+      "sha256": "0338b184483b93cab97bc0799bf61568bf203ba437d0368bbbb03dfa1fe96eeb",
+      "bytes": 15826193,
+      "duration_seconds": 300.094694,
+      "evidence_sha256": {
+        "candidate.json": "b03a39ff934b22a24df015be8fbfc3c60375496d4078c23f4bb230d275ed4f93",
+        "preflight.info.json": "530554daab87c06e9154d031c6f0f122235a9016f530cdfa41e8a0aa6db64060",
+        "preflight.command.json": "5f6b27b8c31243f27c161ea8f9988e953feb122753ca5a01274eca3824075027",
+        "download.command.json": "721cdb66ff6d35ef03d4974be8a00fb9f5adae9a12ec401eea61b5362e7e7a05",
+        "ffprobe.command.json": "b0a848b4faa76bdc6a787bf03431b45666e24e06d205ebaf37408700368dee4b",
+        "result.json": "49ad532f09586d311f6d953234a598ab77bc7eb6e23d6c09f24990d021422d17"
+      }
+    },
+    {
+      "video": "sf20k/1m-Gio1HubQ",
+      "sha256": "2b515eda5a476222143351efed8ac6ab7edfd46f1c70b51991bb3b7e12f9fe1e",
+      "bytes": 9405141,
+      "duration_seconds": 324.684626,
+      "evidence_sha256": {
+        "candidate.json": "7bd3a57ca46e0ac62524d0645c8e5cd2d4f6b9e7c8ffede620aa413e684ac2ca",
+        "preflight.info.json": "37b8a012fa3a8465045fcc1e6e0cbd80fa13063d8cbccaabf5c462e936a706e4",
+        "preflight.command.json": "33385bfb13922e6d19358c886d606ee87934aad516ab3ec39b8573cb6d257eca",
+        "download.command.json": "55c86291e9843dffba2067d7a0b718b8a4d3beb9c7867fe3bec3392c8e9ac3dd",
+        "ffprobe.command.json": "3cfd1bb019f4089c26f3c5d5ef88c0ec9179178a6aaf72130fd811add2cf77f0",
+        "result.json": "c7617ac8ecba2f5609545d5aa31d4a385afeae1003d69a74747288710c006812"
+      }
+    },
+    {
+      "video": "sf20k/CywJwOa0cWA",
+      "sha256": "4da27c17028ebf8a539e47ab7e81a3f3c2881606b0837d81f2dd244b5c19e004",
+      "bytes": 34116733,
+      "duration_seconds": 279.405714,
+      "evidence_sha256": {
+        "candidate.json": "7c33441e0e97ede69c8b9766c7068573db171b86e35cad321117f8ed7a82d600",
+        "preflight.info.json": "991760631c10094b44877f3ab69411f34c98796789203e05744410234896bbf2",
+        "preflight.command.json": "f1256489fb9cbea8725e657b7c4d6681f89024b5397b86c3ed9f9bc215b0a131",
+        "download.command.json": "f0ba5709a24132906858695c73b09e9fe6ff06b0323c0c1dfca3469a2454da28",
+        "ffprobe.command.json": "438aecacd95295bb7d944f600c368266dc189f4aa952beb4ac6cca755bc8b9bc",
+        "result.json": "a5e8a9dd84b791c594430a3c5bb87d7b79c157b2eebcd9450209d3abe3597ef9"
+      }
+    },
+    {
+      "video": "sf20k/WItUr-qHHBw",
+      "sha256": "380ce267826b6d8105eb5a8157656006dbe4090dc8ba8c7acb59453922287b0d",
+      "bytes": 26036743,
+      "duration_seconds": 525.955193,
+      "evidence_sha256": {
+        "candidate.json": "160245adb7d5cf71058b2e839607562bd549ecb1d7011d4ec2cc97446e5e4ba6",
+        "preflight.info.json": "b1f327952640b2844cc8e65a5091926c498265fce68e391f0165bf07f73b0a73",
+        "preflight.command.json": "7de6f5096cf70bdca655a45cbd36420c73293224c18cd3b3d1cc3623833ca769",
+        "download.command.json": "b15ec976c6e383bad7ca095e0ad82b8fb0193803eeacf4cd9237b25b5ff44b99",
+        "ffprobe.command.json": "8651eb6a3aab06e415ba67386e477bc4d405705d1f79ff71ec9a130194d548c1",
+        "result.json": "edc23bfdf86f6899f68805cb7b615ec7910d43ea9ef7723b6f0798eb0ee95688"
+      }
+    },
+    {
+      "video": "sf20k/_RWbXkm4JQY",
+      "sha256": "a5c86b62f0800377028833d48eff0802d62d2430aac76cdfe0bbd6a4db3d4a46",
+      "bytes": 37005939,
+      "duration_seconds": 410.877098,
+      "evidence_sha256": {
+        "candidate.json": "268e2e5f3456538e730be040cf5df62f13d40ab84e3ce83a69c821f1cc637112",
+        "preflight.info.json": "e384723a9a7b2b19aa66c590058ea35f472dd6e621d4a949ea49efb855336df4",
+        "preflight.command.json": "43b9f43d4b94d589df5a218403d7e760377ba310e51c1e687dabe39d05daee08",
+        "download.command.json": "9fbb3b896e9675f1fa2164ab0324c07d42079b70ad8c897b6445e3d5974f218e",
+        "ffprobe.command.json": "f14e5e46d517c812752b1ea6d7c1201c9edc23f892d0eae8ec1c10d257130c2e",
+        "result.json": "ce26984710af37d3dc7548aec3535172640477479b9c4fdfa495a45122a15b6b"
+      }
+    },
+    {
+      "video": "sf20k/ZOeJFW-2-CA",
+      "sha256": "ed1e54715b405f802ceea9ac02127d2d61ab5cc7a152dba942e4b6c4351ca45e",
+      "bytes": 39160741,
+      "duration_seconds": 237.052517,
+      "evidence_sha256": {
+        "candidate.json": "06c715695a539c4eb3469da5ec1e84ee51a91a2f3f0e580143871a3bc8ec76cd",
+        "preflight.info.json": "5f8565ffb2709d3cd301011a3fb48b06d20cb1349d53da278924b818fbd9674b",
+        "preflight.command.json": "97a420e1ab6762cb0dd0b8b1e456679e044ac1baeaf5cc665f125cd33bf3afe1",
+        "download.command.json": "3b3f4653f9eed466cd14987f966591056fadc9508955498036ac12278bc27631",
+        "ffprobe.command.json": "35f73b2eea06f7ea42d199bee1403397b0de6893093c9bbca210d99228606475",
+        "result.json": "096749a77c32a4d55f68329c30da21606bbbcbf5d223b38a4c3d13ea54470585"
+      }
+    },
+    {
+      "video": "sf20k/N39I1LM-HGY",
+      "sha256": "7d7f4f91be638d5b0da7fd3ec713a25f67b353de76e822ec8afb8a450e7d5b60",
+      "bytes": 29017559,
+      "duration_seconds": 336.155283,
+      "evidence_sha256": {
+        "candidate.json": "e0336b309bd39a17162abdafc035da3fbb02e0cc337730148e3b1fb56c00c0ba",
+        "preflight.info.json": "32c2f9fe148878973b9b5f4ec92144db899581c940cb641bd7b07722e18969be",
+        "preflight.command.json": "c93badd23a3e89a341b7cd6253e14b0fa9c0dd51e59831588927819b4b792d7d",
+        "download.command.json": "e748e47eaf1b271c5e1d8770f32c3f227dc10f801c94a4a1b8f48800c7d644dc",
+        "ffprobe.command.json": "65e9d5d3be7978bc6c17eb0470a7d2d8993060a089ced28b3be3dc278bc7038d",
+        "result.json": "ae48af1155a3557dea2e4709c91ae794a83cd703e99f1ffc877dc3eaf4d6902b"
+      }
+    },
+    {
+      "video": "sf20k/Dc2ULKEj0tw",
+      "sha256": "a450b4a9d85613280fadf17b398517b05f802cd68ba93f84947437145b00b9c5",
+      "bytes": 23968334,
+      "duration_seconds": 422.626395,
+      "evidence_sha256": {
+        "candidate.json": "172dfbfec3d1b5cbfa0cbfe53962988b83d5eee55bec2b6f379d9b7152702755",
+        "preflight.info.json": "fd89bd5599d1dc5b0714c8ac279659aa1559277e51b73916f1b8acccdc64baf7",
+        "preflight.command.json": "d8555513b0f143f6511741419670c4b2e0cdb85c5937699f02b7658ce7f0391f",
+        "download.command.json": "f527e6f3937cc9ec710683634cc98519518254cfc7d244621febb2b1c836f309",
+        "ffprobe.command.json": "45889d7e8eca745fc264a359cf6450e20568cc90b5415808d2c05e8e475c480e",
+        "result.json": "5de42c5bc2797eddb48b9950c928fd63547824217646dcb67c595f83fadc5ed1"
+      }
+    },
+    {
+      "video": "sf20k/ANieiSkD81A",
+      "sha256": "8d2968c59363f12935524128a3c0f8ebe195ffae477bbcf066aecf1e076585e4",
+      "bytes": 7611873,
+      "duration_seconds": 180.186848,
+      "evidence_sha256": {
+        "candidate.json": "ed176024914a01c81f8227f3411b5e89a3f164f4b1791ade40b5b5dc22f17698",
+        "preflight.info.json": "e2a9048a50ce859c0fcc92224aa3469e1fbaa4bb8a58023ecef5ac84301d9fed",
+        "preflight.command.json": "8a34ffa6c42eb6cc6d671afdfae3c1a0ecd6d1869516b2d9915f7a96b8f73194",
+        "download.command.json": "d11bfd39a63af848a61c194b306daffa87f4458afa3d881b9d7efccc5ae16671",
+        "ffprobe.command.json": "64956755ad4d973ba4ca79e1c73bdd7d7f261e4c8b7fdf86bf509e3af06eaf3a",
+        "result.json": "6c311ac17fc2b1008c139471faa7af8151cff078de28f8bd84b82e0101802381"
+      }
+    },
+    {
+      "video": "sf20k/74S1Iw0gJrA",
+      "sha256": "68a49c4d98afebbfc687fc5854cee3b62c01f8ed6a343669e7097f64572a2405",
+      "bytes": 44163534,
+      "duration_seconds": 1427.609252,
+      "evidence_sha256": {
+        "candidate.json": "3135d1fd194766dd5fd7e05c76bde90353ba130e8f6703f18ca0da45076c0260",
+        "preflight.info.json": "347e89b53a87657687fb4614a994ebd08dc119e0a8795b8bf0e1b505ae80d31d",
+        "preflight.command.json": "8f55602b53369ef6bb295375fd4e9d8ab45dce0e732b0fc94dc5a5a295174115",
+        "download.command.json": "633c8b8b93fb3374ab164d688df242c808799be742f78c43f2d46f4de621427b",
+        "ffprobe.command.json": "0ac82c3e4c3ad6319b19ee4e23b8b2104ccffc6687d60cd1ecb94bf50fb4810d",
+        "result.json": "0885ce103bc6a8a8c266cbf1cb07ab597d41b7a0e1a2ac48be5e6ab589348c62"
+      }
+    },
+    {
+      "video": "sf20k/zGj3trhINZg",
+      "sha256": "98e8104910e008fcbb893cccdaceb56726edda10cdd50d6b8e60b65774bd7144",
+      "bytes": 22285716,
+      "duration_seconds": 397.827483,
+      "evidence_sha256": {
+        "candidate.json": "e48d135431311849d0eb477a97f08f0cf27f63f1f257aa92d47d8cc204b93649",
+        "preflight.info.json": "01084edfbd18928982ac4af848e91fe1d432c7de1bfde6affcab34b6d5421793",
+        "preflight.command.json": "bfcf471370a41bea51e504b8e34672340699f97cb710ca1204d95afeafb370cc",
+        "download.command.json": "971f9d7e643cdd330a48a990b8fca45ec4d4f8949253dd87c90906e4c75ed0a4",
+        "ffprobe.command.json": "be1fc09fa15f2eeefdace1f90e78d0efd9b81c8d4fb3798123bb04c6bd61be4d",
+        "result.json": "c4dc0e95bdaeb444acb668e0847cd57d9673c01dd487b7032fced35e7b28b190"
+      }
+    },
+    {
+      "video": "sf20k/ZWHXexf2iHE",
+      "sha256": "cb213f49330655504cc820add5c0acaee5cca0b8d9a54187e438b76c567f27f2",
+      "bytes": 116137477,
+      "duration_seconds": 628.866032,
+      "evidence_sha256": {
+        "candidate.json": "96add95b7ccf415ea0e1c3e4b13ed3db834eb4a832e325a701e4275310c713ce",
+        "preflight.info.json": "ef96b7029823fe76780bc70d9fde4e6311903c79caa948ddf1e7690957ff3c9a",
+        "preflight.command.json": "ea4261505bd481e589e89d7e9d4d974ad08354ae5f30fc3d4d7c26819f2638ee",
+        "download.command.json": "02617acf7aaff675ef6c6f4d4446cd58dcb280b5b47f213d212a312d877653ab",
+        "ffprobe.command.json": "9754ee883483a580fa792263e44733646798411fb61d288b02168654a1307779",
+        "result.json": "57a86ad9826b3f8cc48d821c8238a8ac1fa1ae9ef6aa312f4807f0280b028174"
+      }
+    },
+    {
+      "video": "sf20k/vIWf8xecx68",
+      "sha256": "dfcae77a9ea2af9dd9032ef15269ff1fa2731a0722e469da7b0cca7bb3a1d7e4",
+      "bytes": 9120993,
+      "duration_seconds": 232.315646,
+      "evidence_sha256": {
+        "candidate.json": "3b3568c93ca898108114f99778c8e2b2cb8a98fb7adf6dfb70c869299d4241f2",
+        "preflight.info.json": "7c174b41e097a769f36ae127f6388a28eb8403af07d6b1ffa9ebc2d30d14922b",
+        "preflight.command.json": "8df8dc1d1257c146d0d610942191ea2f6b29158cfa7fd55989b013476701df8a",
+        "download.command.json": "e97855b1e268612b2fec25b6d6c44d4412f920922f14bdad6a31a71a7cb50b4f",
+        "ffprobe.command.json": "1d65d68c6d463f8e784b98d7969849cf50697421d00e3dd3b1cf9ba9f0c2da7d",
+        "result.json": "da1f57e2491c58e814ad7d7910e1e1dc0cdd591d3dd4317a3ce257124dd7b992"
+      }
+    }
+  ],
+  "tools_at_audit": {
+    "yt-dlp": {
+      "available": true,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/tools/yt-dlp",
+      "sha256": "58162f9bfdc27458ea47bfcb311cf47028f17d8154a8bf7d689861d46399230a",
+      "bytes": 40446224,
+      "version_lines": [
+        "2026.08.19"
+      ],
+      "version_returncode": 0,
+      "resolution_basis": "successful attempt command; bare names resolved on current audit PATH",
+      "successful_attempt_invocations": [
+        "yt-dlp"
+      ]
+    },
+    "deno": {
+      "available": true,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/tools/deno",
+      "sha256": "ce6a052beb97c2b92de67077e3f3924ba7c9661ede0d8dc2f66a116a3c841f21",
+      "bytes": 95830104,
+      "version_lines": [
+        "deno 2.9.7 (stable, release, x86_64-unknown-linux-gnu)",
+        "v8 15.0.245.2-rusty",
+        "typescript 6.0.3"
+      ],
+      "version_returncode": 0,
+      "resolution_basis": "current audit PATH (does not prove historical executable identity)",
+      "successful_attempt_invocations": []
+    },
+    "ffmpeg": {
+      "available": true,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/tools/ffmpeg-n9.0-latest-linux64-lgpl-9.0/bin/ffmpeg",
+      "sha256": "31cc83e730bda6a19c80621a3817f80f6eb5086fa215eab968f83652335fae48",
+      "bytes": 141416264,
+      "version_lines": [
+        "ffmpeg version n9.0.2-3-ga5923073bf-20260920 Copyright (c) 2000-2026 the FFmpeg developers",
+        "built with gcc 16.2.0 (crosstool-NG 1.29.0.7_b1a94f6)",
+        "configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-ffbuild-linux-gnu- --arch=x86_64 --target-os=linux --enable-version3 --disable-debug --enable-iconv --enable-zlib --enable-libxml2 --enable-libsoxr --enable-openssl --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libdav1d --enable-libvorbis --enable-librav1e --enable-librsvg --enable-libxcb --enable-xlib --enable-libpulse --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-opencl --enable-amf --enable-libaom --disable-avisynth --enable-chromaprint --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribb24 --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --disable-librubberband --disable-schannel --enable-sdl2 --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --enable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --disable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs='-lgomp -ldl' --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-ffbuild-linux-gnu-gcc --cxx=x86_64-ffbuild-linux-gnu-g++ --ar=x86_64-ffbuild-linux-gnu-gcc-ar --ranlib=x86_64-ffbuild-linux-gnu-gcc-ranlib --nm=x86_64-ffbuild-linux-gnu-gcc-nm --extra-version=20260920"
+      ],
+      "version_returncode": 0,
+      "resolution_basis": "current audit PATH (does not prove historical executable identity)",
+      "successful_attempt_invocations": []
+    },
+    "ffprobe": {
+      "available": true,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/tools/ffmpeg-n9.0-latest-linux64-lgpl-9.0/bin/ffprobe",
+      "sha256": "d80e4b34fd8bc55e77b86bd4b93fe5a7b715c1c5d04493c5aea0d5cb6e3be2f8",
+      "bytes": 141182728,
+      "version_lines": [
+        "ffprobe version n9.0.2-3-ga5923073bf-20260920 Copyright (c) 2007-2026 the FFmpeg developers",
+        "built with gcc 16.2.0 (crosstool-NG 1.29.0.7_b1a94f6)",
+        "configuration: --prefix=/ffbuild/prefix --pkg-config-flags=--static --pkg-config=pkg-config --cross-prefix=x86_64-ffbuild-linux-gnu- --arch=x86_64 --target-os=linux --enable-version3 --disable-debug --enable-iconv --enable-zlib --enable-libxml2 --enable-libsoxr --enable-openssl --enable-libvmaf --enable-fontconfig --enable-libharfbuzz --enable-libfreetype --enable-libfribidi --enable-vulkan --enable-libdav1d --enable-libvorbis --enable-librav1e --enable-librsvg --enable-libxcb --enable-xlib --enable-libpulse --enable-gmp --enable-lzma --enable-liblcevc-dec --enable-opencl --enable-amf --enable-libaom --disable-avisynth --enable-chromaprint --disable-libdavs2 --disable-libdvdread --disable-libdvdnav --disable-libfdk-aac --enable-ffnvcodec --enable-cuda-llvm --disable-frei0r --enable-libgme --enable-libkvazaar --enable-libaribb24 --enable-libaribcaption --enable-libass --enable-libbluray --enable-libjxl --enable-libmp3lame --enable-libopus --enable-libplacebo --enable-librist --enable-libssh --enable-libtheora --enable-libvpx --enable-libwebp --enable-libzmq --enable-lv2 --enable-libvpl --enable-openal --enable-liboapv --enable-libopencore-amrnb --enable-libopencore-amrwb --enable-libopenh264 --enable-libopenjpeg --enable-libopenmpt --disable-librubberband --disable-schannel --enable-sdl2 --enable-libsnappy --enable-libsrt --enable-libsvtav1 --enable-libtwolame --enable-libuavs3d --enable-libdrm --enable-vaapi --disable-libvidstab --enable-libvvenc --disable-whisper --disable-libx264 --disable-libx265 --disable-libxavs2 --disable-libxvid --enable-libzimg --enable-libzvbi --extra-cflags=-DLIBTWOLAME_STATIC --extra-cxxflags= --extra-libs='-lgomp -ldl' --extra-ldflags=-pthread --extra-ldexeflags= --cc=x86_64-ffbuild-linux-gnu-gcc --cxx=x86_64-ffbuild-linux-gnu-g++ --ar=x86_64-ffbuild-linux-gnu-gcc-ar --ranlib=x86_64-ffbuild-linux-gnu-gcc-ranlib --nm=x86_64-ffbuild-linux-gnu-gcc-nm --extra-version=20260920"
+      ],
+      "version_returncode": 0,
+      "resolution_basis": "successful attempt command; bare names resolved on current audit PATH",
+      "successful_attempt_invocations": [
+        "ffprobe"
+      ]
+    }
+  },
+  "current_code_sha256_at_audit": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/acquisition/acquire_sources.py": "375ff66fc1fa51ba7966411d9dd99f6c3c3df7ab42cbc883d04a887394ee9756",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/acquisition/audit_acquisition.py": "27c8a0b7d46b970ba95fbb9928a78b51e00e1993461406b63e643acc80ec0eaf",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_pilot_20260920/acquisition/probe_media_access.py": "a3a5729ac5869be8c7033c488ab0a13e480d9126a622acb79b07d2196e54158a"
+  },
+  "scope": "Metadata and hash audit only; no re-download, no full decode, no inference or API call.",
+  "provenance_limitations": [
+    "Source IDs, URL records and unchanged original files establish acquisition provenance, not copyright ownership or ground truth.",
+    "Metadata license strings describe upstream records and do not transfer original-video rights.",
+    "Current executable/code hashes are frozen at audit time; historical invocation records are retained separately.",
+    "Movie release years are not inferred from uploader dates or yearly source lists."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "basis": "Standard API list-price equivalent estimate, not actual billed amount; service tier is not recorded in run usage",
+  "model": "gpt-6-astra",
+  "currency": "USD",
+  "rates_per_million": {
+    "uncached_input": 10,
+    "cached_input": 1,
+    "output": 50
+  },
+  "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "verified_date": "2026-09-20",
+  "max_request_input_tokens": 223224,
+  "long_context_threshold": 272000,
+  "cache_write_input_tokens": 0,
+  "runs": [
+    {
+      "study": "study2",
+      "input_tokens": 1298721,
+      "cached_input_tokens": 22656,
+      "output_tokens": 67602,
+      "total_tokens": 1366323,
+      "estimated_standard_api_usd": 16.163406
+    },
+    {
+      "study": "study3",
+      "input_tokens": 1287525,
+      "cached_input_tokens": 15360,
+      "output_tokens": 72194,
+      "total_tokens": 1359719,
+      "estimated_standard_api_usd": 16.34671
+    },
+    {
+      "study": "study4",
+      "input_tokens": 1083848,
+      "cached_input_tokens": 0,
+      "output_tokens": 73119,
+      "total_tokens": 1156967,
+      "estimated_standard_api_usd": 14.49443
+    }
+  ],
+  "total_estimated_standard_api_usd": 47.004546
+}

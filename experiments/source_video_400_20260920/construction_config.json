@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "building",
+  "user_authorized": true,
+  "target_episodes": 400,
+  "shot_count_quotas": {
+    "4": 240,
+    "6": 120,
+    "8": 40
+  },
+  "seconds_per_shot": 5,
+  "target_duration_quotas_seconds": {
+    "20": 240,
+    "30": 120,
+    "40": 40
+  },
+  "source_episode_targets": {
+    "sf20k": 200,
+    "muss": 200
+  },
+  "initial_download_pool_per_source": 120,
+  "max_accepted_per_source_work": 3,
+  "overlapping_accepted_windows": false,
+  "source_plan": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/docs/dataset-construction-400-v1.md",
+  "style_spec": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/docs/source-prompt-style.md",
+  "ad_policy": "Exclude visually identified promotion/endcard/advertisement intervals BEFORE candidate selection; independently recheck all extraction/audit frames. Contaminated/ambiguous windows not deliverable. Preserve raw originals; delivered window clips must stop before excluded content.",
+  "human_review": "400 screened candidates for user selection of 300; do not claim human review completed",
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "api_workers": 8,
+  "seed": 20260920,
+  "api_workers_previous": 6,
+  "api_worker_transition": "Continuous shared8 API slots, single clip collector, reserved source/shot/work/nonoverlap capacity; explicit --streaming.",
+  "runtime_mode": "streaming_v1"
+}

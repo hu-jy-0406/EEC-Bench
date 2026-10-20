@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "studies": [
+    {
+      "study": "study2",
+      "passed": true,
+      "entities": 36,
+      "scored_entities": 34,
+      "unscored_entities": 2,
+      "codex_score": 93.75,
+      "codex_entity_mean": 98.16176470588235,
+      "dino_score": 0.910026200901314,
+      "dino_scored_entities": 34,
+      "unknown_dimensions": 24,
+      "reused_tokens": 217751,
+      "reused_api_equivalent_usd": 1.67023,
+      "audit": {
+        "passed": true,
+        "entities": 36,
+        "appearances_pixel_checked": 240,
+        "original_images": 18,
+        "all_original_v3_prompts_and_schemas_unchanged": true,
+        "no_new_model_calls": true,
+        "raw_scores_and_dino_unchanged": true,
+        "model": "gpt-6-astra",
+        "reasoning": "medium"
+      }
+    },
+    {
+      "study": "study3",
+      "passed": true,
+      "entities": 35,
+      "scored_entities": 33,
+      "unscored_entities": 2,
+      "codex_score": 85.40314479697145,
+      "codex_entity_mean": 95.83333333333333,
+      "dino_score": 0.9116231489986942,
+      "dino_scored_entities": 33,
+      "unknown_dimensions": 27,
+      "reused_tokens": 212127,
+      "reused_api_equivalent_usd": 1.719078,
+      "audit": {
+        "passed": true,
+        "entities": 35,
+        "appearances_pixel_checked": 234,
+        "original_images": 18,
+        "all_original_v3_prompts_and_schemas_unchanged": true,
+        "no_new_model_calls": true,
+        "raw_scores_and_dino_unchanged": true,
+        "model": "gpt-6-astra",
+        "reasoning": "medium"
+      }
+    }
+  ],
+  "new_model_calls": 0,
+  "new_tokens": 0,
+  "new_api_usd": 0,
+  "fresh_frontend_or_gpu_run": false,
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/appearance_integration_20260920/validate.py": "2a09f4c575beca20918c67556e614eda0ae6a0de8859f4c6163f557673d2212d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_appearance_integration.py": "372894c53c5dfb20357d295c99a396a5d681067de8cea45ddd906c21a544ca5f",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal.py": "b978fee10e286381021d5734e72c767c355188d1f27d50b7b1bc9aadb31bba8d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py": "b4b8dc41f2d331a49f249d4e6d86a6d593f40238a06cc45f7e1e357b6739169b"
+  }
+}

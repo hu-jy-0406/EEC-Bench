@@ -1,0 +1,1626 @@
+[
+  {
+    "group_id": "g01",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "确认两次存在；大幅几何错位留待空间阶段。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g01",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p01",
+          "p02",
+          "p07",
+          "p08",
+          "p10"
+        ],
+        "prompt_explanation": "仅红本离开，期间无人重排书房；墙画没有离场要求。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              397,
+              0,
+              498,
+              84
+            ],
+            "observation": "金褐框河岸画仍在墙上。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              260,
+              5,
+              366,
+              91
+            ],
+            "observation": "对应构图及画框仍可见。"
+          }
+        ],
+        "reason": "确认两次存在；大幅几何错位留待空间阶段。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g02",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "两侧存在合理，投影偏移不在本阶段计为空间冲突。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g02",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p02",
+          "p06",
+          "p07",
+          "p10"
+        ],
+        "prompt_explanation": "女人仅携红本外出、空手返回，绿杯应留在室内。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              353,
+              321,
+              433,
+              398
+            ],
+            "observation": "带圆把的深绿杯可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              260,
+              331,
+              318,
+              388
+            ],
+            "observation": "相应绿杯及其后笔筒可见。"
+          }
+        ],
+        "reason": "两侧存在合理，投影偏移不在本阶段计为空间冲突。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g03",
+    "partition": "noncommon_static",
+    "status": "conflict",
+    "cause": "inconsistency",
+    "conflict_kind": "unexplained_missing",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "按同一桌子的边沿、角点和支撑面作区域对应：Shot1远端灯所在桌端在反向观察中转到近侧；Shot3可见桌面及足以暴露灯罩、灯杆的上方区域均为空。不是仅据错误中心投影判缺失；少量桌体下缘裁切不能藏住整盏高灯，且两帧无人遮挡该区。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g03",
+        "partition": "noncommon_static",
+        "cause": "inconsistency",
+        "status": "conflict",
+        "conflict_kind": "unexplained_missing",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p01",
+          "p02",
+          "p04",
+          "p05",
+          "p06",
+          "p07",
+          "p08",
+          "p09",
+          "p10"
+        ],
+        "prompt_explanation": "Shot1只拿走红本；Shot2在走廊放本并空手返回，且无人进入重排书房；Shot3只返回原椅。以上动作均不能移走桌灯。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 0,
+            "region_xyxy": [
+              666,
+              70,
+              787,
+              248
+            ],
+            "observation": "黑罩、弯杆和圆底座完整位于桌子远端。"
+          },
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              666,
+              70,
+              787,
+              248
+            ],
+            "observation": "女人离开后灯仍完整在桌上。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              105,
+              90,
+              780,
+              480
+            ],
+            "observation": "无人，桌面各端及其上方无灯罩、灯杆或底座。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 24,
+            "region_xyxy": [
+              105,
+              90,
+              780,
+              480
+            ],
+            "observation": "女人仍在左后门口；桌面与前景上方再次无灯具。"
+          }
+        ],
+        "reason": "按同一桌子的边沿、角点和支撑面作区域对应：Shot1远端灯所在桌端在反向观察中转到近侧；Shot3可见桌面及足以暴露灯罩、灯杆的上方区域均为空。不是仅据错误中心投影判缺失；少量桌体下缘裁切不能藏住整盏高灯，且两帧无人遮挡该区。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g04",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "同一桌子两次在场合理；不验证其姿态及位置。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g04",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p01",
+          "p02",
+          "p07",
+          "p08",
+          "p10"
+        ],
+        "prompt_explanation": "明确保持同一胡桃木桌及书房，人物行动不要求桌子离场。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              62,
+              209,
+              827,
+              480
+            ],
+            "observation": "桌面、厚边、围板和方腿可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              108,
+              214,
+              777,
+              480
+            ],
+            "observation": "相应桌面、围板及桌腿可见。"
+          }
+        ],
+        "reason": "同一桌子两次在场合理；不验证其姿态及位置。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g05",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "具体支撑书架被边界裁切，不能把错误投影落在植物画上当成对应空区。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g05",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "没有搬走摆框的动作；反向取景裁掉大部分书架陈列区。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              534,
+              0,
+              790,
+              234
+            ],
+            "observation": "小摆框在书架中层右侧。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              0,
+              0,
+              35,
+              352
+            ],
+            "observation": "书架仅剩最左边缘，原中层右侧陈列区未获完整观察。"
+          }
+        ],
+        "reason": "具体支撑书架被边界裁切，不能把错误投影落在植物画上当成对应空区。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g06",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "正面像素支持两侧在场，遮住部分杯身不影响存在确认。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g06",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p02",
+          "p06",
+          "p07",
+          "p10"
+        ],
+        "prompt_explanation": "仅红本离开，笔筒没有离场要求。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              382,
+              275,
+              432,
+              329
+            ],
+            "observation": "浅色筒口和其中书写工具清楚。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              285,
+              293,
+              325,
+              362
+            ],
+            "observation": "绿杯后方浅色笔筒及工具可见。"
+          }
+        ],
+        "reason": "正面像素支持两侧在场，遮住部分杯身不影响存在确认。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g07",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "安装位置、支撑物和原图共同支持连续存在。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g07",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "窗台植物没有被携走的要求，期间无人重排。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              23,
+              155,
+              98,
+              321
+            ],
+            "observation": "窗边垂蔓及暖气片背景。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              738,
+              156,
+              827,
+              314
+            ],
+            "observation": "同一窗台盆栽的叶丛与垂蔓。"
+          }
+        ],
+        "reason": "安装位置、支撑物和原图共同支持连续存在。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g08",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "静态清单缺项不等于物理消失；像素显示裁切书柜片段，按视角解释。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g08",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p01",
+          "p07",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "同一书房反向观察；没有移走高书柜的动作。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              534,
+              0,
+              790,
+              234
+            ],
+            "observation": "深色高书架及下柜可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              0,
+              0,
+              36,
+              355
+            ],
+            "observation": "左缘仍见深色架体、书脊和下柜局部，大部在画外。"
+          }
+        ],
+        "reason": "静态清单缺项不等于物理消失；像素显示裁切书柜片段，按视角解释。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g09",
+    "partition": "unresolved",
+    "status": "unknown",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "可能同一植物，但细节不足，不作存在惩罚。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g09",
+        "partition": "unresolved",
+        "cause": "none",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "连续性要求不能替代裁切植物的实例证据。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              589,
+              39,
+              657,
+              139
+            ],
+            "observation": "书架盆栽可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              0,
+              132,
+              27,
+              198
+            ],
+            "observation": "仅见画面左缘部分叶片和盆体。"
+          }
+        ],
+        "reason": "可能同一植物，但细节不足，不作存在惩罚。",
+        "identity_supported": false,
+        "location_correspondence_supported": false,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g10",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "两侧有正面存在证据；盒长宽差异不是本阶段的存在冲突。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g10",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p01",
+          "p02",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "桌下地毯不随红本离场，期间无重排。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              619,
+              390,
+              852,
+              480
+            ],
+            "observation": "桌腿旁花纹地毯边框可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              26,
+              369,
+              224,
+              480
+            ],
+            "observation": "桌下相应花纹地毯及边框可见。"
+          }
+        ],
+        "reason": "两侧有正面存在证据；盒长宽差异不是本阶段的存在冲突。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g11",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "应当继续在场；是否仍在原位置另行判断。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g11",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p01",
+          "p03",
+          "p07",
+          "p10"
+        ],
+        "prompt_explanation": "故事明确椅子留下，女人返回原椅旁。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              126,
+              180,
+              287,
+              320
+            ],
+            "observation": "空椅宽顶板和竖条清楚。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              539,
+              209,
+              682,
+              342
+            ],
+            "observation": "窗侧相应木椅可见。"
+          }
+        ],
+        "reason": "应当继续在场；是否仍在原位置另行判断。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g12",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "安装上下文与像素均确认两次存在。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g12",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p01",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "固定窗下设施无离场要求。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              30,
+              239,
+              218,
+              412
+            ],
+            "observation": "窗下白色竖肋暖气片。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              713,
+              240,
+              852,
+              408
+            ],
+            "observation": "反向视角仍见窗下相同竖肋。"
+          }
+        ],
+        "reason": "安装上下文与像素均确认两次存在。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g13",
+    "partition": "common_static",
+    "status": "compatible",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": true,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "两侧存在合理，与植物分别保持清单范围。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g13",
+        "partition": "common_static",
+        "cause": "none",
+        "status": "compatible",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": true,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "仅红本外出，窗台盆应继续支撑植物。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              28,
+              194,
+              66,
+              246
+            ],
+            "observation": "叶片间棕色花盆可见。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              768,
+              192,
+              811,
+              232
+            ],
+            "observation": "同一窗台植物下棕盆可见。"
+          }
+        ],
+        "reason": "两侧存在合理，与植物分别保持清单范围。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g14",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "有实际取景裁切证据；不采用落在窗帘上的错误投影判消失。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g14",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "无搬走器皿的动作；反向画面裁去书架内部陈列区。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              649,
+              67,
+              672,
+              93
+            ],
+            "observation": "书架中层小浅色器皿。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              0,
+              0,
+              35,
+              201
+            ],
+            "observation": "仅余书架边缘，器皿所在层内部不可检查。"
+          }
+        ],
+        "reason": "有实际取景裁切证据；不采用落在窗帘上的错误投影判消失。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g15",
+    "partition": "unresolved",
+    "status": "unknown",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "单件与集合范围不兼容，既不合并也不判缺失。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g15",
+        "partition": "unresolved",
+        "cause": "none",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p07"
+        ],
+        "prompt_explanation": "无带走笔的动作，但无法用集合条目确认单支笔身份。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              412,
+              275,
+              426,
+              305
+            ],
+            "observation": "右侧单支深色笔。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              285,
+              293,
+              324,
+              319
+            ],
+            "observation": "多支书写工具的集合。"
+          }
+        ],
+        "reason": "单件与集合范围不兼容，既不合并也不判缺失。",
+        "identity_supported": false,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g16",
+    "partition": "unresolved",
+    "status": "unknown",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "保留可能对应关系，身份不足以评分。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g16",
+        "partition": "unresolved",
+        "cause": "none",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p01",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "无人重排不能直接证明两张相似小桌是同一实例。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              300,
+              190,
+              390,
+              276
+            ],
+            "observation": "窄小桌面、抽屉边及腿部局部。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              268,
+              145,
+              417,
+              232
+            ],
+            "observation": "较宽抽屉桌，承载植物和书叠。"
+          }
+        ],
+        "reason": "保留可能对应关系，身份不足以评分。",
+        "identity_supported": false,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g17",
+    "partition": "unresolved",
+    "status": "unknown",
+    "cause": "none",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "叶丛细节与支撑桌身份均不足，未知不罚。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g17",
+        "partition": "unresolved",
+        "cause": "none",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "植物理应连续，但重复盆栽不能仅由故事确定实例。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              310,
+              160,
+              371,
+              255
+            ],
+            "observation": "小桌上的叶丛及下垂枝条。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              252,
+              112,
+              336,
+              224
+            ],
+            "observation": "抽屉桌上的另一可见垂蔓叶丛。"
+          }
+        ],
+        "reason": "叶丛细节与支撑桌身份均不足，未知不罚。",
+        "identity_supported": false,
+        "location_correspondence_supported": false,
+        "observable_region_supported": true,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g18",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "具体门框与门板说明走廊墙在Shot1不可观测，背向投影仅作辅助。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g18",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p04",
+          "p06",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "反向镜头显露门外走廊；走廊活动不要求挂画出现或消失。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              788,
+              0,
+              852,
+              364
+            ],
+            "observation": "右侧仅门板及边框，没有门外挂画所在走廊视域。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              49,
+              0,
+              128,
+              211
+            ],
+            "observation": "门外走廊墙面及较大挂画清楚。"
+          }
+        ],
+        "reason": "具体门框与门板说明走廊墙在Shot1不可观测，背向投影仅作辅助。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g19",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "墙段取景互补，且投影约x=-299支持画外；不以身份不同单独豁免。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g19",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p07",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "反向观察显露窗另一侧墙段，没有新增挂画的行动。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              0,
+              0,
+              187,
+              239
+            ],
+            "observation": "窗占左缘，窗另一侧墙段在画外。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              580,
+              0,
+              742,
+              238
+            ],
+            "observation": "植物画位于窗帘外侧墙段。"
+          }
+        ],
+        "reason": "墙段取景互补，且投影约x=-299支持画外；不以身份不同单独豁免。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g20",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "门外实际安装区域在Shot1不可见。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g20",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p04",
+          "p06",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "走廊及门侧墙在反向镜头中显露，故事未要求搬动挂画。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              788,
+              0,
+              852,
+              364
+            ],
+            "observation": "门板挡住或排除门外墙面视域。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              99,
+              17,
+              127,
+              80
+            ],
+            "observation": "门外窄墙面上的小挂画。"
+          }
+        ],
+        "reason": "门外实际安装区域在Shot1不可见。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g21",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "有门框遮挡与视域差异支持，不能将室内书柜与其强配。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g21",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p04",
+          "p06",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "走廊本有家具，反向镜头才看入门外；放红本并不意味着矮柜新增。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              788,
+              100,
+              852,
+              364
+            ],
+            "observation": "门板区域，没有门外低柜的可观测位置。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              53,
+              136,
+              126,
+              219
+            ],
+            "observation": "低柜在门框后方走廊内。"
+          }
+        ],
+        "reason": "有门框遮挡与视域差异支持，不能将室内书柜与其强配。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g22",
+    "partition": "noncommon_static",
+    "status": "conflict",
+    "cause": "inconsistency",
+    "conflict_kind": "unexplained_added",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "以同一桌面边界及杯—笔筒组合定位桌面内区，Shot1该可见支撑区域没有蓝白包或突出纸巾；无人末帧也排除红本、手臂遮挡。该判断覆盖桌面区域而非采用约(678,219)的失准点投影，且不依赖检测清单漏项。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g22",
+        "partition": "noncommon_static",
+        "cause": "inconsistency",
+        "status": "conflict",
+        "conflict_kind": "unexplained_added",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p01",
+          "p02",
+          "p04",
+          "p05",
+          "p06",
+          "p07",
+          "p08",
+          "p09",
+          "p10",
+          "p11"
+        ],
+        "prompt_explanation": "Shot1只带走红本；Shot2在走廊留下红本并空手返回，期间无人进入或重排书房；Shot3纸巾包在女人入场前已经在桌上。红本外出及空手回返都不能带来纸巾包。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 0,
+            "region_xyxy": [
+              435,
+              284,
+              679,
+              370
+            ],
+            "observation": "绿杯与笔筒邻近的桌面内区露出木纹，没有纸巾包或突出白纸。"
+          },
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              435,
+              240,
+              680,
+              370
+            ],
+            "observation": "红本已离开，桌面中央及笔筒邻侧无遮挡，仍无纸巾包。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              351,
+              274,
+              410,
+              316
+            ],
+            "observation": "女人尚未入场，蓝白纸巾包及白纸已存在。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 24,
+            "region_xyxy": [
+              351,
+              274,
+              410,
+              316
+            ],
+            "observation": "女人在门口，纸巾包仍清楚位于桌面中央。"
+          }
+        ],
+        "reason": "以同一桌面边界及杯—笔筒组合定位桌面内区，Shot1该可见支撑区域没有蓝白包或突出纸巾；无人末帧也排除红本、手臂遮挡。该判断覆盖桌面区域而非采用约(678,219)的失准点投影，且不依赖检测清单漏项。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": true,
+        "occlusion_excluded": true,
+        "detector_gap_excluded": true,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g23",
+    "partition": "noncommon_static",
+    "status": "unknown",
+    "cause": "inconsistency",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "无可靠对应空区，不能排除不同支撑桌、遮挡或Shot1漏项；不判新增冲突。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g23",
+        "partition": "noncommon_static",
+        "cause": "inconsistency",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p04",
+          "p06",
+          "p07",
+          "p10",
+          "p11"
+        ],
+        "prompt_explanation": "走廊留下的是单本红本，不能解释室内多本书叠；但两侧小桌身份及其完整支撑面尚不明确。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              300,
+              160,
+              390,
+              220
+            ],
+            "observation": "小桌及植物区域较窄，植物遮住部分桌面。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              334,
+              138,
+              379,
+              158
+            ],
+            "observation": "多本横叠书清楚可见。"
+          }
+        ],
+        "reason": "无可靠对应空区，不能排除不同支撑桌、遮挡或Shot1漏项；不判新增冲突。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g24",
+    "partition": "noncommon_static",
+    "status": "exempt",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "实体位于独立门外地面，Shot1没有对应可观测区域。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g24",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "exempt",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p04",
+          "p05",
+          "p06",
+          "p08",
+          "p09"
+        ],
+        "prompt_explanation": "走廊用于人物往返，反向镜头才看见门外地面，并未要求地毯变动。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              794,
+              245,
+              852,
+              418
+            ],
+            "observation": "门板与室内地板可见，门外长毯区域未显露。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              54,
+              195,
+              137,
+              279
+            ],
+            "observation": "门框后走廊长毯与室内地毯分离。"
+          }
+        ],
+        "reason": "实体位于独立门外地面，Shot1没有对应可观测区域。",
+        "identity_supported": true,
+        "location_correspondence_supported": true,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  },
+  {
+    "group_id": "g25",
+    "partition": "noncommon_static",
+    "status": "unknown",
+    "cause": "viewpoint",
+    "conflict_kind": "none",
+    "joint_presence_reasonable": false,
+    "evidence_gates_pass": [
+      true
+    ],
+    "reason": [
+      "可能是叶片遮挡、视角或清单粒度造成单侧记录；支撑植物身份也未确定，不能作确定视角豁免或新增冲突。"
+    ],
+    "reviews": [
+      {
+        "group_id": "g25",
+        "partition": "noncommon_static",
+        "cause": "viewpoint",
+        "status": "unknown",
+        "conflict_kind": "none",
+        "joint_presence_reasonable": false,
+        "prompt_fact_references": [
+          "p02",
+          "p07",
+          "p08"
+        ],
+        "prompt_explanation": "无搬入花盆的动作，但Shot1未单列小桌植物的盆，不等于盆不存在。",
+        "witnesses": [
+          {
+            "shot_id": "shot1",
+            "frame_id": 120,
+            "region_xyxy": [
+              310,
+              160,
+              371,
+              210
+            ],
+            "observation": "叶丛下有局部棕色支撑外观，细节受叶片遮挡。"
+          },
+          {
+            "shot_id": "shot3",
+            "frame_id": 0,
+            "region_xyxy": [
+              285,
+              135,
+              315,
+              159
+            ],
+            "observation": "小桌植物下独立棕盆清楚。"
+          }
+        ],
+        "reason": "可能是叶片遮挡、视角或清单粒度造成单侧记录；支撑植物身份也未确定，不能作确定视角豁免或新增冲突。",
+        "identity_supported": true,
+        "location_correspondence_supported": false,
+        "observable_region_supported": false,
+        "occlusion_excluded": false,
+        "detector_gap_excluded": false,
+        "prompt_review_completed": true
+      }
+    ],
+    "judgment_count": 1
+  }
+]

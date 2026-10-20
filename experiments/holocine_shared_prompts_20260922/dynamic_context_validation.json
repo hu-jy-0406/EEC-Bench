@@ -1,0 +1,129 @@
+{
+  "status": "pass",
+  "device": "cpu",
+  "dtype": "float32",
+  "seed": 1024,
+  "baseline_text_len": 512,
+  "target_text_len": 1519,
+  "tested_context_tokens": [
+    700,
+    1495
+  ],
+  "validation_scope": "Official code with random tiny weights; structural validation only",
+  "not_validated": [
+    "pretrained UMT5 weights",
+    "pretrained 14B diffusion weights",
+    "video generation",
+    "ROCm GPU kernels",
+    "long-prompt generation quality"
+  ],
+  "repo": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/repos/HoloCine",
+  "torch_version": "2.7.1+rocm6.3",
+  "source_files": {
+    "diffsynth/models/wan_video_text_encoder.py": "2c4c5bfd26eab7ab29b10dee1142f2337a351a097d43cdce59e437eb34936626",
+    "diffsynth/models/wan_video_dit.py": "46e88a3e2087268f3d2fba9b17510ede77dbcc9e08ee0f8a50078c15e3b7d82f",
+    "diffsynth/pipelines/wan_video_holocine.py": "746af29fe7594d83f700693ff0943cdc04e217285baf7d084913a180dca3a5e3"
+  },
+  "official_attention_definitions": {
+    "flash_attention": {
+      "start": 76,
+      "end": 129
+    },
+    "RMSNorm": {
+      "start": 347,
+      "end": 358
+    },
+    "AttentionModule": {
+      "start": 361,
+      "end": 373
+    },
+    "CrossAttention": {
+      "start": 402,
+      "end": 443
+    }
+  },
+  "official_inline_mask_body": {
+    "start": 1185,
+    "end": 1241,
+    "ast_sha256": "bbbcbc299b47f600ee533bb8fd75b80e1e11c61ed08b27790e2c72f41c3c7ed4"
+  },
+  "mask_behavior": "Original inclusive slicing and padding policy preserved unchanged",
+  "tests": {
+    "official_t5": {
+      "shapes": [
+        [
+          1,
+          512,
+          32
+        ],
+        [
+          1,
+          1519,
+          32
+        ]
+      ],
+      "bias_target_shape": [
+        1,
+        4,
+        1519,
+        1519
+      ],
+      "bias_prefix_exactly_matches_512": true,
+      "changed_token_index": 1495,
+      "changed_late_token_output_delta": 2.9588370323181152,
+      "changed_late_token_prefix_output_delta": 0.0029518604278564453
+    },
+    "official_window_mask": {
+      "shapes": [
+        [
+          1,
+          1,
+          2,
+          512
+        ],
+        [
+          1,
+          1,
+          4,
+          1519
+        ]
+      ],
+      "prefix_exactly_matches_512": true,
+      "shared_global_visible": true,
+      "token_700_visible_only_to_shot_2": true,
+      "late_token_visible_only_to_shot_3": {
+        "token_index": 1495,
+        "passed": true
+      }
+    },
+    "official_cross_attention": {
+      "shapes": [
+        [
+          1,
+          2,
+          32
+        ],
+        [
+          1,
+          4,
+          32
+        ]
+      ],
+      "late_token_perturbation_per_shot_deltas": {
+        "700": [
+          0.0,
+          0.0,
+          0.0015520751476287842,
+          0.0
+        ],
+        "1495": [
+          0.0,
+          0.0,
+          0.0,
+          0.0009293407201766968
+        ]
+      },
+      "512_context_cannot_consume_tail_vectors": true
+    }
+  }
+}

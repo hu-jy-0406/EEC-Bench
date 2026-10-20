@@ -1,0 +1,59 @@
+{
+  "status": "promoted_after_two_exact_candidate_replays",
+  "selected_runs": [
+    "compact_scope_run01",
+    "compact_scope_run02"
+  ],
+  "baseline": {
+    "shots": [
+      {
+        "shot": "shot1",
+        "input_tokens": 20313,
+        "output_tokens": 1262,
+        "cached_input_tokens": 0,
+        "seconds": 43.788782358169556,
+        "prompt_bytes": 23538,
+        "total_tokens": 21575
+      },
+      {
+        "shot": "shot3",
+        "input_tokens": 21708,
+        "output_tokens": 1209,
+        "cached_input_tokens": 0,
+        "seconds": 43.78706336021423,
+        "prompt_bytes": 26584,
+        "total_tokens": 22917
+      }
+    ],
+    "total_tokens": 44492,
+    "input_tokens": 42021,
+    "output_tokens": 2471,
+    "seconds": 43.797091007232666
+  },
+  "optimized_mean": {
+    "input_tokens": 30768,
+    "output_tokens": 1251,
+    "total_tokens": 32019,
+    "seconds": 32.64338827133179
+  },
+  "reduction_fraction": 0.2803425334891666,
+  "quality": {
+    "shot1_entities": 21,
+    "shot3_entities": 22,
+    "candidate_partitions_equal": true,
+    "rejection_sets_equal": true,
+    "all_derived_observations_equal": true,
+    "canonical_schema_unchanged": true,
+    "box_selection_unchanged": true,
+    "detector_code_unchanged": true,
+    "original_images_unchanged": true,
+    "model": "gpt-6-astra",
+    "reasoning": "medium"
+  },
+  "tests": 15,
+  "skill_validation_passed": true,
+  "optimization_trial_calls": 16,
+  "optimization_trial_tokens": 287003,
+  "cached_input_tokens": 14848,
+  "limitation": "Current Study2 two-shot validation only; not a universal accuracy guarantee. Group-versus-individual deduplication is now explicit, so future datasets containing overlapping collection/member candidates should be regression-tested."
+}

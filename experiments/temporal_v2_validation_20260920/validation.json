@@ -1,0 +1,307 @@
+{
+  "status": "success",
+  "validation_scope": "component replay on frozen detection/geometry/identity/registration; no fresh GPU frontend; Shot2 not replayed",
+  "tests": {
+    "tests": 54,
+    "failures": 0,
+    "errors": 0,
+    "success": true
+  },
+  "adapters": {
+    "success": true,
+    "canonical_shot_ids": [
+      "shot1",
+      "shot3"
+    ],
+    "entity_counts": [
+      20,
+      15
+    ],
+    "original_images": 12,
+    "source_image_hashes_verified": true,
+    "full_default_stages": 22,
+    "direct_payload_has_no_anchors": true,
+    "alias_metadata_not_a_prompt_fact": true
+  },
+  "registration_sources_unchanged": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_codex.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py": true,
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/common.py": true
+  },
+  "historical_inputs_unchanged": true,
+  "expected_short_cup_intervals": [
+    {
+      "start_frame_id": 0,
+      "end_frame_id": 67,
+      "expected": "static",
+      "observed": "stationary",
+      "basis": "prompt",
+      "prompt_fact_references": [
+        "shot3"
+      ],
+      "causal_explanation": "The short cup awaits pickup; the off-screen exchange is already complete.",
+      "visual_evidence": "Cup remains behind and right of the tall mug in the same tabletop position."
+    },
+    {
+      "start_frame_id": 67,
+      "end_frame_id": 134,
+      "expected": "static",
+      "observed": "changed",
+      "basis": "prompt",
+      "prompt_fact_references": [
+        "shot3"
+      ],
+      "causal_explanation": "No manipulation is shown or authorized during her approach; later pickup does not explain this earlier change.",
+      "visual_evidence": "Short cup appears slightly higher and narrower, with its base moving upward several pixels while the tall mug and table remain aligned."
+    },
+    {
+      "start_frame_id": 134,
+      "end_frame_id": 202,
+      "expected": "static",
+      "observed": "stationary",
+      "basis": "continuity",
+      "prompt_fact_references": [
+        "shot3"
+      ],
+      "causal_explanation": "The cup remains supported on the table as her hand reaches its handle; no lift is yet visible.",
+      "visual_evidence": "Rim and handle remain at the tabletop location; her hand obscures the lower cup."
+    },
+    {
+      "start_frame_id": 202,
+      "end_frame_id": 269,
+      "expected": "reasonable_motion",
+      "observed": "changed",
+      "basis": "prompt",
+      "prompt_fact_references": [
+        "shot3"
+      ],
+      "causal_explanation": "This interval brackets the visible grasp and lift of the short cup toward her face.",
+      "visual_evidence": "Cup moves from her hand at the tabletop to her raised hand near her mouth; its former spot is empty."
+    },
+    {
+      "start_frame_id": 269,
+      "end_frame_id": 336,
+      "expected": "reasonable_motion",
+      "observed": "changed",
+      "basis": "prompt",
+      "prompt_fact_references": [
+        "shot3"
+      ],
+      "causal_explanation": "She raises the held short cup to her lips to drink.",
+      "visual_evidence": "Cup shifts upward and right from below her mouth to lip contact."
+    }
+  ],
+  "within": {
+    "shot1": {
+      "presence": {
+        "score": 100.0,
+        "coverage": 0.5789473684210527,
+        "N": 19,
+        "C": 11,
+        "K": 0,
+        "U": 8,
+        "E": 1,
+        "identification_interval": [
+          57.89473684210526,
+          100.0
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 190,
+        "C": 0,
+        "K": 0,
+        "U": 190,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      }
+    },
+    "shot3": {
+      "presence": {
+        "score": 100.0,
+        "coverage": 0.75,
+        "N": 12,
+        "C": 9,
+        "K": 0,
+        "U": 3,
+        "E": 3,
+        "identification_interval": [
+          75.0,
+          100.0
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 91,
+        "C": 0,
+        "K": 0,
+        "U": 91,
+        "E": 14,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      }
+    }
+  },
+  "boundary": {
+    "presence": {
+      "score": 100.0,
+      "coverage": 0.46153846153846156,
+      "N": 13,
+      "C": 6,
+      "K": 0,
+      "U": 7,
+      "E": 11,
+      "identification_interval": [
+        46.15384615384615,
+        100.0
+      ]
+    },
+    "spatial": {
+      "score": 100.0,
+      "coverage": 0.0,
+      "N": 20,
+      "C": 0,
+      "K": 0,
+      "U": 20,
+      "E": 1,
+      "identification_interval": [
+        0.0,
+        100.0
+      ]
+    }
+  },
+  "boundary_frames": [
+    {
+      "shot_id": "shot1",
+      "frame_id": 240
+    },
+    {
+      "shot_id": "shot3",
+      "frame_id": 0
+    }
+  ],
+  "boundary_population": 24,
+  "calls": [
+    {
+      "call": "boundary_local_shot1",
+      "status": "success",
+      "seconds": 64.18602538108826,
+      "input_tokens": 99483,
+      "output_tokens": 1826,
+      "cached_input_tokens": 0,
+      "total_tokens": 101309
+    },
+    {
+      "call": "boundary_local_shot3",
+      "status": "success",
+      "seconds": 57.41214466094971,
+      "input_tokens": 79519,
+      "output_tokens": 1329,
+      "cached_input_tokens": 0,
+      "total_tokens": 80848
+    },
+    {
+      "call": "boundary_review_000",
+      "status": "success",
+      "seconds": 320.6458523273468,
+      "input_tokens": 197128,
+      "output_tokens": 10383,
+      "cached_input_tokens": 0,
+      "total_tokens": 207511
+    },
+    {
+      "call": "expected_motion_shot1",
+      "status": "success",
+      "seconds": 298.0180950164795,
+      "input_tokens": 76775,
+      "output_tokens": 9596,
+      "cached_input_tokens": 0,
+      "total_tokens": 86371
+    },
+    {
+      "call": "expected_motion_shot3",
+      "status": "success",
+      "seconds": 198.47097325325012,
+      "input_tokens": 63129,
+      "output_tokens": 6313,
+      "cached_input_tokens": 0,
+      "total_tokens": 69442
+    },
+    {
+      "call": "within_shot1_000",
+      "status": "success",
+      "seconds": 289.0533194541931,
+      "input_tokens": 102352,
+      "output_tokens": 9359,
+      "cached_input_tokens": 0,
+      "total_tokens": 111711
+    },
+    {
+      "call": "within_shot3_000",
+      "status": "success",
+      "seconds": 381.87044525146484,
+      "input_tokens": 84353,
+      "output_tokens": 12450,
+      "cached_input_tokens": 0,
+      "total_tokens": 96803
+    },
+    {
+      "call": "within_shot3_001",
+      "status": "success",
+      "seconds": 102.78421831130981,
+      "input_tokens": 81543,
+      "output_tokens": 3066,
+      "cached_input_tokens": 0,
+      "total_tokens": 84609
+    }
+  ],
+  "total_tokens": 838604,
+  "elapsed_seconds": 1225.7942578792572,
+  "normative_export_validation": {
+    "success": true,
+    "new_model_calls": 0,
+    "unexpected_actual_motion_keeps_expected_static": true,
+    "unstable_anchor_excluded": true,
+    "all_frame_evidence_retained": true
+  },
+  "cli_validation": {
+    "success": true,
+    "plans": [
+      "v2_fps32",
+      "v2_direct",
+      "legacy"
+    ],
+    "plan_only_did_not_create_case": true
+  },
+  "final_gate_audit": {
+    "success": true,
+    "new_model_calls": 0,
+    "changes": [
+      {
+        "scope": "shot1",
+        "changed_decisions": []
+      },
+      {
+        "scope": "shot3",
+        "changed_decisions": []
+      },
+      {
+        "scope": "boundary",
+        "changed_decisions": []
+      }
+    ],
+    "reason": "revalidate saved canonical judgments against final expected-motion and boundary witness/joint-presence contracts"
+  }
+}

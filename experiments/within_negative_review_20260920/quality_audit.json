@@ -1,0 +1,23 @@
+{
+  "study2": {
+    "known_confirmed_anomalies_preserved": true,
+    "within_no_new_confirmed_anomalies": true,
+    "historical_all_entity_unit_labels_identical": false
+  },
+  "study3": {
+    "known_confirmed_anomalies_preserved": true,
+    "within_no_new_confirmed_anomalies": true,
+    "historical_all_entity_unit_labels_identical": false
+  },
+  "study4": {
+    "known_confirmed_anomalies_preserved": true,
+    "within_no_new_confirmed_anomalies": true,
+    "historical_all_entity_unit_labels_identical": false
+  },
+  "limitations": [
+    "Frozen within test has no confirmed positive anomaly examples; no general recall guarantee.",
+    "Study2 two fixed-input event statuses unknown -> occlusion-exempt.",
+    "Fresh entity populations and cross-shot denominators differ under pre-existing collection clustering.",
+    "Study4 cups are scope-mismatched (one collection vs two singletons), not a reproduced explicit swap exemption."
+  ]
+}

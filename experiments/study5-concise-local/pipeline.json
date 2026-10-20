@@ -1,0 +1,1299 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "global_prompt.md",
+    "sha256": "77a8cfd0726e3f80e460f0a7deedf108d8a299dce2c39e7337ee91408c34bf0e"
+  },
+  "status": "complete",
+  "settings": {
+    "verification": true,
+    "timing": true,
+    "style": "realistic photography",
+    "frame_aspect_ratio": "16:9",
+    "frame_size_px": [
+      1672,
+      940
+    ],
+    "max_attempts_per_image": 5
+  },
+  "assumptions": [
+    "Room has pale walls, light oak flooring, a black-framed window on the far wall, and no other furnishings.",
+    "Table is fixed: 180 cm along x, 90 cm along y. Initial near side is y=-45 cm; far side y=45 cm; right short side x=90 cm. Window is beyond far side. A=(45,15), B=(65,30), C=(0,0) cm on tabletop. Positions are not printed on images.",
+    "Man has short black hair, clean-shaven face, plain grey long-sleeve shirt, dark charcoal trousers and black shoes.",
+    "Wooden cup is handleless warm brown wood; porcelain cup is plain white with one handle and dark tea; tissue pack is soft blue unbranded plastic with a white dispensing opening.",
+    "Tissue pack includes one protruding white tissue; the whole pack including that tissue disappears. Background has incidental fixed wall art.",
+    "Shot 3 accepted camera is near-center with a slight right offset, distinctly more frontal than shot 2; this replaces the initially assumed near-left viewpoint. Source only requires distinct elevated views.",
+    "Scene dimensions standardized to 1672x940, approximately 16:9, following built-in output; only one-pixel dimension repairs applied. Shot 3 uses minimal camera displacement; continuous motion is retained in video prompt."
+  ],
+  "assets": [
+    {
+      "id": "room",
+      "kind": "background",
+      "description": "Daylight room, rectangular wooden table, floor-to-ceiling window overlooking lawn",
+      "source_quotes": [
+        "a rectangular wooden table, and a daylight room with a floor-to-ceiling window overlooking a lawn."
+      ],
+      "invariants": [
+        "Daylight room, rectangular wooden table, floor-to-ceiling window overlooking lawn",
+        "Exactly one physical instance"
+      ],
+      "anchors": [
+        {
+          "id": "room.table",
+          "description": "Fixed rectangular oak table"
+        },
+        {
+          "id": "room.window",
+          "description": "Far-wall floor-to-ceiling window and lawn"
+        },
+        {
+          "id": "room.A",
+          "description": "Table coordinate (45,15) cm"
+        },
+        {
+          "id": "room.B",
+          "description": "Table coordinate (65,30) cm"
+        },
+        {
+          "id": "room.C",
+          "description": "Table center (0,0) cm"
+        }
+      ],
+      "background_mode": "scene",
+      "transparency_reason": null,
+      "image": {
+        "id": "room.image",
+        "path": "assets/backgrounds/room/image.png",
+        "prompt_path": "assets/backgrounds/room/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1672,
+          940
+        ],
+        "reference_images": [],
+        "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+      }
+    },
+    {
+      "id": "man",
+      "kind": "character",
+      "description": "Ordinary adult East Asian man, short black hair, grey shirt, dark trousers, black shoes",
+      "source_quotes": [
+        "an ordinary adult East Asian man in a grey shirt and dark trousers"
+      ],
+      "invariants": [
+        "Ordinary adult East Asian man, short black hair, grey shirt, dark trousers, black shoes",
+        "Exactly one physical instance"
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "man.image",
+        "path": "assets/characters/man/front.png",
+        "prompt_path": "assets/characters/man/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1024,
+          1536
+        ],
+        "reference_images": [],
+        "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+      }
+    },
+    {
+      "id": "tissue_pack",
+      "kind": "object",
+      "description": "One soft blue plastic-wrapped tissue pack",
+      "source_quotes": [
+        "A soft blue plastic-wrapped tissue pack rests at A"
+      ],
+      "invariants": [
+        "One soft blue plastic-wrapped tissue pack",
+        "Exactly one physical instance",
+        "One protruding white tissue"
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "tissue_pack.image",
+        "path": "assets/objects/tissue_pack/front.png",
+        "prompt_path": "assets/objects/tissue_pack/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1254,
+          1254
+        ],
+        "reference_images": [],
+        "sha256": "6e7eb5a96ac0ea0c1874a57f2964ddca8e532b3f8044911bf92756a0dc0defd7"
+      }
+    },
+    {
+      "id": "wooden_cup",
+      "kind": "object",
+      "description": "One empty handleless wooden cup with visible interior",
+      "source_quotes": [
+        "an empty wooden cup rests at B, with its interior visible."
+      ],
+      "invariants": [
+        "One empty handleless wooden cup with visible interior",
+        "Exactly one physical instance"
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "wooden_cup.image",
+        "path": "assets/objects/wooden_cup/front.png",
+        "prompt_path": "assets/objects/wooden_cup/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1254,
+          1254
+        ],
+        "reference_images": [],
+        "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+      }
+    },
+    {
+      "id": "porcelain_cup",
+      "kind": "object",
+      "description": "One white porcelain handled cup containing dark tea",
+      "source_quotes": [
+        "a white porcelain cup containing dark tea appears instantaneously at C."
+      ],
+      "invariants": [
+        "One white porcelain handled cup containing dark tea",
+        "Exactly one physical instance"
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "porcelain_cup.image",
+        "path": "assets/objects/porcelain_cup/front.png",
+        "prompt_path": "assets/objects/porcelain_cup/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1254,
+          1254
+        ],
+        "reference_images": [],
+        "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+      }
+    }
+  ],
+  "shots": [
+    {
+      "id": "shot_1",
+      "duration_seconds": 5,
+      "background_id": "room",
+      "prompt_path": "shot_1/prompt.txt",
+      "action": "Man walks counterclockwise from near long side to right short side without touching anything. At shot time 3 seconds the entire tissue pack disappears instantaneously; wooden cup stays empty at B.",
+      "camera_motion": "Slightly elevated near-side view toward window, drifting gently toward near-right corner; keep tabletop A and B unobstructed.",
+      "invariants": [
+        "Natural motion, no text or watermark",
+        "One continuous shot, no internal cuts",
+        "No sliding, morphing, fading, handling or occlusion to cause sudden changes",
+        "Table and room remain fixed; cup materials and contents follow cup identity"
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_1.first",
+            "path": "shot_1/generation_reference_frames/first.png",
+            "prompt_path": "shot_1/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "assets/backgrounds/room/image.png",
+                "role": "Daylight room, rectangular wooden table, floor-to-ceiling window overlooking lawn",
+                "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Ordinary adult East Asian man, short black hair, grey shirt, dark trousers, black shoes",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/tissue_pack/front.png",
+                "role": "One soft blue plastic-wrapped tissue pack",
+                "sha256": "6e7eb5a96ac0ea0c1874a57f2964ddca8e532b3f8044911bf92756a0dc0defd7"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "One empty handleless wooden cup with visible interior",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              }
+            ],
+            "sha256": "d12e00fceb87ba741666196b6f5026c20677a58d67a6ebe64302fc015b213835"
+          },
+          "camera": "Slightly elevated near-side view toward window, drifting gently toward near-right corner; keep tabletop A and B unobstructed. Opening camera position.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at near long side; watching table, hands away from objects"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "At A"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at B"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "near long side"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.B",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed B"
+            },
+            {
+              "subject": "tissue_pack",
+              "predicate": "on",
+              "object": "room.A",
+              "space": "world",
+              "description": "tissue_pack supported by tabletop at fixed A"
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_1.last",
+            "path": "shot_1/generation_reference_frames/last.png",
+            "prompt_path": "shot_1/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "shot_1/generation_reference_frames/first.png",
+                "role": "Edit target: accepted opening scene, preserve fixed table and cup position",
+                "sha256": "d12e00fceb87ba741666196b6f5026c20677a58d67a6ebe64302fc015b213835"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Man identity and clothes",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "Empty wooden cup identity",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              }
+            ],
+            "sha256": "219bfa0b3d880b800777f0a914338657ba311663e9a52c0c0dbac2339867f9ff"
+          },
+          "camera": "Slightly elevated near-side view toward window, drifting gently toward near-right corner; keep tabletop A and B unobstructed. Ending camera position after gentle motion.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at right short side; watching table, hands away from objects"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at B"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "right short side"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.B",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed B"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "shot_2",
+      "duration_seconds": 5,
+      "background_id": "room",
+      "prompt_path": "shot_2/prompt.txt",
+      "action": "Man continues counterclockwise from right short side to opposite long side without touching anything. At shot time 3 seconds a white porcelain cup containing dark tea appears instantaneously at C.",
+      "camera_motion": "Distinct slightly elevated view from beyond right short side toward table center and left wall, gently tracking toward far-right corner; keep B and C unobstructed.",
+      "invariants": [
+        "Natural motion, no text or watermark",
+        "One continuous shot, no internal cuts",
+        "No sliding, morphing, fading, handling or occlusion to cause sudden changes",
+        "Table and room remain fixed; cup materials and contents follow cup identity"
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_2.first",
+            "path": "shot_2/generation_reference_frames/first.png",
+            "prompt_path": "shot_2/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "assets/backgrounds/room/image.png",
+                "role": "Fixed room and table layout",
+                "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Man identity",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "Empty wooden cup identity",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              },
+              {
+                "path": "shot_1/generation_reference_frames/last.png",
+                "role": "Previous ending world state: man at right end, empty cup at B",
+                "sha256": "219bfa0b3d880b800777f0a914338657ba311663e9a52c0c0dbac2339867f9ff"
+              }
+            ],
+            "sha256": "99d863f6badbf108314cebbe39067c23d9f40dcc2b08ce92ead6e8dd1b40e715"
+          },
+          "camera": "Distinct slightly elevated view from beyond right short side toward table center and left wall, gently tracking toward far-right corner; keep B and C unobstructed. Opening camera position.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at right short side; watching table, hands away from objects"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at B"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "right short side"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.B",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed B"
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_2.last",
+            "path": "shot_2/generation_reference_frames/last.png",
+            "prompt_path": "shot_2/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "shot_2/generation_reference_frames/first.png",
+                "role": "Edit target: shot 2 opening and fixed wooden cup location",
+                "sha256": "99d863f6badbf108314cebbe39067c23d9f40dcc2b08ce92ead6e8dd1b40e715"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Man identity",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/porcelain_cup/front.png",
+                "role": "White porcelain cup containing dark tea",
+                "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "Empty wooden cup",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              }
+            ],
+            "sha256": "b45727d743834536cc69f333062b676263c2d77c63bdc3d247a903ffd4f621a5"
+          },
+          "camera": "Distinct slightly elevated view from beyond right short side toward table center and left wall, gently tracking toward far-right corner; keep B and C unobstructed. Ending camera position after gentle motion.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at opposite long side within reach of B and C; watching table, hands away from objects"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at B"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "At C containing dark tea"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "opposite long side within reach of B and C"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.B",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed B"
+            },
+            {
+              "subject": "porcelain_cup",
+              "predicate": "on",
+              "object": "room.C",
+              "space": "world",
+              "description": "porcelain_cup supported by tabletop at fixed C"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "shot_3",
+      "duration_seconds": 5,
+      "background_id": "room",
+      "prompt_path": "shot_3/prompt.txt",
+      "action": "During first second man turns head toward window then back. At shot time 2 seconds the cups exchange positions instantaneously with hands away: empty wooden cup to C, tea-filled porcelain cup to B. Only afterward he picks up porcelain cup from B and drinks, ending with it at his lips.",
+      "camera_motion": "Gentle continuous elevated near-center camera movement with minimal endpoint displacement, retaining B and C.",
+      "invariants": [
+        "Natural motion, no text or watermark",
+        "One continuous shot, no internal cuts",
+        "No sliding, morphing, fading, handling or occlusion to cause sudden changes",
+        "Table and room remain fixed; cup materials and contents follow cup identity"
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_3.first",
+            "path": "shot_3/generation_reference_frames/first.png",
+            "prompt_path": "shot_3/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "assets/backgrounds/room/image.png",
+                "role": "Fixed room table window layout",
+                "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Man identity",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "Empty wood cup identity",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              },
+              {
+                "path": "assets/objects/porcelain_cup/front.png",
+                "role": "Porcelain cup containing dark tea identity",
+                "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+              },
+              {
+                "path": "shot_2/generation_reference_frames/last.png",
+                "role": "Previous ending world state; preserve positions through camera cut",
+                "sha256": "b45727d743834536cc69f333062b676263c2d77c63bdc3d247a903ffd4f621a5"
+              }
+            ],
+            "sha256": "2b08464f90bdaf3c620048d9f1d7d269ee07a6f338fdad10f04776fc5860e18e"
+          },
+          "camera": "Gentle continuous elevated near-center camera movement with minimal endpoint displacement, retaining B and C.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at opposite long side within reach of B and C; watching table, hands away from objects"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at B"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "At C containing dark tea"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "opposite long side within reach of B and C"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.B",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed B"
+            },
+            {
+              "subject": "porcelain_cup",
+              "predicate": "on",
+              "object": "room.C",
+              "space": "world",
+              "description": "porcelain_cup supported by tabletop at fixed C"
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_3.last",
+            "path": "shot_3/generation_reference_frames/last.png",
+            "prompt_path": "shot_3/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              940
+            ],
+            "reference_images": [
+              {
+                "path": "shot_3/generation_reference_frames/first.png",
+                "role": "Edit target: opening scene and fixed C/B positions",
+                "sha256": "2b08464f90bdaf3c620048d9f1d7d269ee07a6f338fdad10f04776fc5860e18e"
+              },
+              {
+                "path": "assets/characters/man/front.png",
+                "role": "Man identity and clothes",
+                "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+              },
+              {
+                "path": "assets/objects/wooden_cup/front.png",
+                "role": "Empty wood cup identity",
+                "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+              },
+              {
+                "path": "assets/objects/porcelain_cup/front.png",
+                "role": "Porcelain tea cup identity",
+                "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+              }
+            ],
+            "sha256": "5c7b5feb1c313d2833a8d1f68e1e412ca9726374a39d21b3e0264c1826db2772"
+          },
+          "camera": "Gentle continuous elevated near-center camera movement with minimal endpoint displacement, retaining B and C.",
+          "entities": [
+            {
+              "asset_id": "man",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at opposite long side; holding porcelain cup at lips"
+            },
+            {
+              "asset_id": "tissue_pack",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Absent"
+            },
+            {
+              "asset_id": "wooden_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty at C"
+            },
+            {
+              "asset_id": "porcelain_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "At lips after pickup from B; drinking dark tea"
+            }
+          ],
+          "relations": [
+            {
+              "subject": "man",
+              "predicate": "beside",
+              "object": "room.table",
+              "space": "world",
+              "description": "opposite long side"
+            },
+            {
+              "subject": "wooden_cup",
+              "predicate": "on",
+              "object": "room.C",
+              "space": "world",
+              "description": "wooden_cup supported by tabletop at fixed C"
+            },
+            {
+              "subject": "man",
+              "predicate": "holding",
+              "object": "porcelain_cup",
+              "space": "world",
+              "description": "Right hand holds porcelain cup at lips after pickup from B"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "changes": [
+    {
+      "from": "shot_1.first",
+      "to": "shot_1.last",
+      "entity_ids": [
+        "tissue_pack"
+      ],
+      "kind": "intentional_discontinuity",
+      "description": "At exactly 3 seconds into this shot, the entire tissue pack disappears instantaneously from the unobstructed tabletop.",
+      "source_quote": "At exactly 3 seconds into this shot, the entire tissue pack disappears instantaneously from the unobstructed tabletop."
+    },
+    {
+      "from": "shot_1.first",
+      "to": "shot_1.last",
+      "entity_ids": [
+        "man"
+      ],
+      "kind": "action",
+      "description": "Man walks counterclockwise from near long side to right short side without touching anything. At shot time 3 seconds the entire tissue pack disappears instantaneously; wooden cup stays empty at B.",
+      "source_quote": " 0\u20135 seconds: The man stands at the near long side, looking at the table. A soft blue plastic-wrapped tissue pack rests at A, and an empty wooden cup rests at B, with its interior visible. He walks counterclockwise to the right short side while keeping his attention on the table and touching nothing. At exactly 3 seconds into this shot, the entire tissue pack disappears instantaneously from the unobstructed tabletop. The wooden cup stays empty at B. End with the man at the short side and the tissue pack absent."
+    },
+    {
+      "from": "shot_1.first",
+      "to": "shot_1.last",
+      "entity_ids": [
+        "room"
+      ],
+      "kind": "camera",
+      "description": "Slightly elevated near-side view toward window, drifting gently toward near-right corner; keep tabletop A and B unobstructed.",
+      "source_quote": "Use three distinct, slightly elevated camera views with gentle continuous camera movement within each shot."
+    },
+    {
+      "from": "shot_2.first",
+      "to": "shot_2.last",
+      "entity_ids": [
+        "porcelain_cup"
+      ],
+      "kind": "intentional_discontinuity",
+      "description": "At exactly 3 seconds into this shot (8 seconds overall), a white porcelain cup containing dark tea appears instantaneously at C.",
+      "source_quote": "At exactly 3 seconds into this shot (8 seconds overall), a white porcelain cup containing dark tea appears instantaneously at C."
+    },
+    {
+      "from": "shot_2.first",
+      "to": "shot_2.last",
+      "entity_ids": [
+        "man"
+      ],
+      "kind": "action",
+      "description": "Man continues counterclockwise from right short side to opposite long side without touching anything. At shot time 3 seconds a white porcelain cup containing dark tea appears instantaneously at C.",
+      "source_quote": " 5\u201310 seconds: Begin with the man at the right short side, the empty wooden cup at B, no tissue pack, and C empty. He continues counterclockwise to the opposite long side, watching the table without touching it. At exactly 3 seconds into this shot (8 seconds overall), a white porcelain cup containing dark tea appears instantaneously at C. The wooden cup remains empty at B. End with both cups visible and the man at the opposite long side, within reach of B and C."
+    },
+    {
+      "from": "shot_2.first",
+      "to": "shot_2.last",
+      "entity_ids": [
+        "room"
+      ],
+      "kind": "camera",
+      "description": "Distinct slightly elevated view from beyond right short side toward table center and left wall, gently tracking toward far-right corner; keep B and C unobstructed.",
+      "source_quote": "Use three distinct, slightly elevated camera views with gentle continuous camera movement within each shot."
+    },
+    {
+      "from": "shot_1.last",
+      "to": "shot_2.first",
+      "entity_ids": [
+        "room",
+        "man",
+        "tissue_pack",
+        "wooden_cup",
+        "porcelain_cup"
+      ],
+      "kind": "camera",
+      "description": "Cut to distinct camera viewpoint; all world states preserved.",
+      "source_quote": "Match each shot's opening object state to the preceding shot's ending state; introduce no changes at cuts."
+    },
+    {
+      "from": "shot_3.first",
+      "to": "shot_3.last",
+      "entity_ids": [
+        "wooden_cup",
+        "porcelain_cup"
+      ],
+      "kind": "intentional_discontinuity",
+      "description": "At exactly 2 seconds into this shot (12 seconds overall), the two cups instantaneously exchange positions: the empty wooden cup moves to C, and the tea-filled porcelain cup moves to B.",
+      "source_quote": "At exactly 2 seconds into this shot (12 seconds overall), the two cups instantaneously exchange positions: the empty wooden cup moves to C, and the tea-filled porcelain cup moves to B."
+    },
+    {
+      "from": "shot_3.first",
+      "to": "shot_3.last",
+      "entity_ids": [
+        "man"
+      ],
+      "kind": "action",
+      "description": "During first second man turns head toward window then back. At shot time 2 seconds the cups exchange positions instantaneously with hands away: empty wooden cup to C, tea-filled porcelain cup to B. Only afterward he picks up porcelain cup from B and drinks, ending with it at his lips.",
+      "source_quote": " 10\u201315 seconds: Begin with the man at the opposite long side, the window and lawn behind him, the empty wooden cup at B, and the tea-filled porcelain cup at C. During the first second, he briefly turns his head toward the window and back to the table; keep the camera on him and the tabletop. At exactly 2 seconds into this shot (12 seconds overall), the two cups instantaneously exchange positions: the empty wooden cup moves to C, and the tea-filled porcelain cup moves to B. Show both cups clearly at the instant of exchange, with his hands away from them. Only after the exchange, during seconds 2\u20135 of this shot, he picks up the porcelain cup from B and drinks its tea. End with the porcelain cup at his lips and the empty wooden cup on the table at C. The tissue pack remains absent."
+    },
+    {
+      "from": "shot_3.first",
+      "to": "shot_3.last",
+      "entity_ids": [
+        "room"
+      ],
+      "kind": "camera",
+      "description": "Gentle continuous elevated near-center camera movement with minimal endpoint displacement, retaining B and C.",
+      "source_quote": "Use three distinct, slightly elevated camera views with gentle continuous camera movement within each shot."
+    },
+    {
+      "from": "shot_2.last",
+      "to": "shot_3.first",
+      "entity_ids": [
+        "room",
+        "man",
+        "tissue_pack",
+        "wooden_cup",
+        "porcelain_cup"
+      ],
+      "kind": "camera",
+      "description": "Cut to distinct camera viewpoint; all world states preserved.",
+      "source_quote": "Match each shot's opening object state to the preceding shot's ending state; introduce no changes at cuts."
+    }
+  ],
+  "reviews": [
+    {
+      "image_id": "room.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "One bare rectangular wood table in daylight room; black-framed floor-to-ceiling window and lawn visible. No independent assets baked in. Minor wall art is a fixed incidental feature.",
+      "candidate_path": "reviews/room.image/attempt_01.png",
+      "candidate_sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615",
+      "prompt_path": "reviews/room.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "One bare rectangular wood table in daylight room; black-framed floor-to-ceiling window and lawn visible. No independent assets baked in. Minor wall art is a fixed incidental feature."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). Imperceptible resize from (1672, 941) to [1672, 940]"
+        }
+      ],
+      "correction": "Imperceptible resize from (1672, 941) to [1672, 940]"
+    },
+    {
+      "image_id": "man.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Single adult East Asian man, grey long-sleeve button shirt, charcoal trousers and black shoes. Entire head-to-toe figure and both empty hands visible against opaque neutral backdrop.",
+      "candidate_path": "reviews/man.image/attempt_01.png",
+      "candidate_sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f",
+      "prompt_path": "reviews/man.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Single adult East Asian man, grey long-sleeve button shirt, charcoal trousers and black shoes. Entire head-to-toe figure and both empty hands visible against opaque neutral backdrop."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1024, 1536). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "tissue_pack.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "One soft pale blue unbranded plastic tissue pack, broad front and opening visible, one protruding white tissue; opaque grey backdrop.",
+      "candidate_path": "reviews/tissue_pack.image/attempt_01.png",
+      "candidate_sha256": "6e7eb5a96ac0ea0c1874a57f2964ddca8e532b3f8044911bf92756a0dc0defd7",
+      "prompt_path": "reviews/tissue_pack.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "One soft pale blue unbranded plastic tissue pack, broad front and opening visible, one protruding white tissue; opaque grey backdrop."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1254, 1254). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "wooden_cup.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Exactly one rounded handleless brown wooden cup, front side and visibly dry empty wooden interior. Square opaque neutral-background image.",
+      "candidate_path": "reviews/wooden_cup.image/attempt_01.png",
+      "candidate_sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67",
+      "prompt_path": "reviews/wooden_cup.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Exactly one rounded handleless brown wooden cup, front side and visibly dry empty wooden interior. Square opaque neutral-background image."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1254, 1254). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "porcelain_cup.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "One plain white porcelain cup with one handle and clearly visible dark amber-brown tea, isolated on opaque grey backdrop.",
+      "candidate_path": "reviews/porcelain_cup.image/attempt_01.png",
+      "candidate_sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5",
+      "prompt_path": "reviews/porcelain_cup.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "One plain white porcelain cup with one handle and clearly visible dark amber-brown tea, isolated on opaque grey backdrop."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1254, 1254). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_1.first",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Man stands at near long side looking down, hands away. One blue pack with white tissue at upper-right A; one wooden cup farther right and slightly deeper at B, empty wooden interior visible. C empty, porcelain absent. Room and identities match library; required tabletop unobstructed.",
+      "candidate_path": "reviews/shot_1.first/attempt_01.png",
+      "candidate_sha256": "d12e00fceb87ba741666196b6f5026c20677a58d67a6ebe64302fc015b213835",
+      "prompt_path": "reviews/shot_1.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/room/image.png",
+          "role": "Daylight room, rectangular wooden table, floor-to-ceiling window overlooking lawn",
+          "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Ordinary adult East Asian man, short black hair, grey shirt, dark trousers, black shoes",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/tissue_pack/front.png",
+          "role": "One soft blue plastic-wrapped tissue pack",
+          "sha256": "6e7eb5a96ac0ea0c1874a57f2964ddca8e532b3f8044911bf92756a0dc0defd7"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "One empty handleless wooden cup with visible interior",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Man stands at near long side looking down, hands away. One blue pack with white tissue at upper-right A; one wooden cup farther right and slightly deeper at B, empty wooden interior visible. C empty, porcelain absent. Room and identities match library; required tabletop unobstructed."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). Imperceptible resize from (1672, 941) to [1672, 940]"
+        }
+      ],
+      "correction": "Imperceptible resize from (1672, 941) to [1672, 940]"
+    },
+    {
+      "image_id": "shot_1.last",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Pack and tissue completely absent; one empty wood cup remains near far-right region B. Man now at right short side, profile toward table, hands away. Room, wardrobe and cup consistent; camera shifted right, A and cup unobstructed.",
+      "candidate_path": "reviews/shot_1.last/attempt_01.png",
+      "candidate_sha256": "219bfa0b3d880b800777f0a914338657ba311663e9a52c0c0dbac2339867f9ff",
+      "prompt_path": "reviews/shot_1.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_1/generation_reference_frames/first.png",
+          "role": "Edit target: accepted opening scene, preserve fixed table and cup position",
+          "sha256": "d12e00fceb87ba741666196b6f5026c20677a58d67a6ebe64302fc015b213835"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Man identity and clothes",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "Empty wooden cup identity",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Pack and tissue completely absent; one empty wood cup remains near far-right region B. Man now at right short side, profile toward table, hands away. Room, wardrobe and cup consistent; camera shifted right, A and cup unobstructed."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_2.first",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Distinct diagonal right-end camera; same man at right short side looking at table, hands down. Single empty wooden cup remains right-end/window-side region B. Center bare, both absent objects remain absent. Table and window orientation coherent across cut.",
+      "candidate_path": "reviews/shot_2.first/attempt_01.png",
+      "candidate_sha256": "99d863f6badbf108314cebbe39067c23d9f40dcc2b08ce92ead6e8dd1b40e715",
+      "prompt_path": "reviews/shot_2.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/room/image.png",
+          "role": "Fixed room and table layout",
+          "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Man identity",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "Empty wooden cup identity",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Previous ending world state: man at right end, empty cup at B",
+          "sha256": "219bfa0b3d880b800777f0a914338657ba311663e9a52c0c0dbac2339867f9ff"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Distinct diagonal right-end camera; same man at right short side looking at table, hands down. Single empty wooden cup remains right-end/window-side region B. Center bare, both absent objects remain absent. Table and window orientation coherent across cut."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). Imperceptible resize from (1672, 941) to [1672, 940]"
+        }
+      ],
+      "correction": "Imperceptible resize from (1672, 941) to [1672, 940]"
+    },
+    {
+      "image_id": "shot_2.last",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Man is at opposite long side with window behind, looking down and hands away. One tea-filled white cup now at table center C; empty wooden cup still at B toward original right end. Both interiors visible and objects separated, tissue absent. Identity and room consistent.",
+      "candidate_path": "reviews/shot_2.last/attempt_01.png",
+      "candidate_sha256": "b45727d743834536cc69f333062b676263c2d77c63bdc3d247a903ffd4f621a5",
+      "prompt_path": "reviews/shot_2.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_2/generation_reference_frames/first.png",
+          "role": "Edit target: shot 2 opening and fixed wooden cup location",
+          "sha256": "99d863f6badbf108314cebbe39067c23d9f40dcc2b08ce92ead6e8dd1b40e715"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Man identity",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/porcelain_cup/front.png",
+          "role": "White porcelain cup containing dark tea",
+          "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "Empty wooden cup",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Man is at opposite long side with window behind, looking down and hands away. One tea-filled white cup now at table center C; empty wooden cup still at B toward original right end. Both interiors visible and objects separated, tissue absent. Identity and room consistent."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_3.first",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Distinct more frontal elevated view shows man at far long side with window/lawn behind. Wooden cup empty at right region B, white cup with dark tea centered at C. Hands down away, both cups unobstructed, tissue absent. World states match shot 2 ending; camera is near-center rather than far near-left, a harmless camera-plan variation.",
+      "candidate_path": "reviews/shot_3.first/attempt_01.png",
+      "candidate_sha256": "2b08464f90bdaf3c620048d9f1d7d269ee07a6f338fdad10f04776fc5860e18e",
+      "prompt_path": "reviews/shot_3.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/room/image.png",
+          "role": "Fixed room table window layout",
+          "sha256": "6fa2fb5ccdb462aeed96eb8164f1c383575e41aba0c59024b09cb7798e664615"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Man identity",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "Empty wood cup identity",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        },
+        {
+          "path": "assets/objects/porcelain_cup/front.png",
+          "role": "Porcelain cup containing dark tea identity",
+          "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+        },
+        {
+          "path": "shot_2/generation_reference_frames/last.png",
+          "role": "Previous ending world state; preserve positions through camera cut",
+          "sha256": "b45727d743834536cc69f333062b676263c2d77c63bdc3d247a903ffd4f621a5"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Distinct more frontal elevated view shows man at far long side with window/lawn behind. Wooden cup empty at right region B, white cup with dark tea centered at C. Hands down away, both cups unobstructed, tissue absent. World states match shot 2 ending; camera is near-center rather than far near-left, a harmless camera-plan variation."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). No repair needed."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_3.last",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Man holds single porcelain cup in right hand with rim at lips in drinking pose, left hand down. Empty wooden cup occupies former porcelain position C, B bare, tissue absent. Materials/wardrobe and room preserved. Tea surface naturally hidden by cup at lips; drinking pose and opening reference establish contents continuity. Camera endpoint almost unchanged; prompt retains gentle continuous motion.",
+      "candidate_path": "reviews/shot_3.last/attempt_01.png",
+      "candidate_sha256": "5c7b5feb1c313d2833a8d1f68e1e412ca9726374a39d21b3e0264c1826db2772",
+      "prompt_path": "reviews/shot_3.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_3/generation_reference_frames/first.png",
+          "role": "Edit target: opening scene and fixed C/B positions",
+          "sha256": "2b08464f90bdaf3c620048d9f1d7d269ee07a6f338fdad10f04776fc5860e18e"
+        },
+        {
+          "path": "assets/characters/man/front.png",
+          "role": "Man identity and clothes",
+          "sha256": "ed00005bd7ab6dc0589ad462c59610502c1a5ece61d33d31321aeab95531db9f"
+        },
+        {
+          "path": "assets/objects/wooden_cup/front.png",
+          "role": "Empty wood cup identity",
+          "sha256": "c7fe0f9e57a51c4304fcebe2b5c45d89e34bdea0f9c081bc41aeb56202eb8d67"
+        },
+        {
+          "path": "assets/objects/porcelain_cup/front.png",
+          "role": "Porcelain tea cup identity",
+          "sha256": "3234e4baeaac6a661d568f01317fc35152aa514e7cde2c91b49d702554debad5"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, counts, appearance, framing, contacts and planned state",
+          "result": "pass",
+          "evidence": "Man holds single porcelain cup in right hand with rim at lips in drinking pose, left hand down. Empty wooden cup occupies former porcelain position C, B bare, tissue absent. Materials/wardrobe and room preserved. Tea surface naturally hidden by cup at lips; drinking pose and opening reference establish contents continuity. Camera endpoint almost unchanged; prompt retains gentle continuous motion."
+        },
+        {
+          "requirement": "Saved PNG decodes and dimensions meet plan",
+          "result": "pass",
+          "evidence": "PNG decoded at (1672, 940). Imperceptible resize from (1673, 940) to [1672, 940]"
+        }
+      ],
+      "correction": "Imperceptible resize from (1673, 940) to [1672, 940]"
+    }
+  ],
+  "sequence_review": {
+    "decision": "accept",
+    "notes": "Reopened all six saved PNGs in narrative order. Identities, counts, intended endpoint changes and cross-cut world states are broadly consistent. All exact sudden-event timings are retained in independent prompts. Still references do not render or verify intervening video motion.",
+    "checks": [
+      {
+        "from": "shot_1.first",
+        "to": "shot_1.last",
+        "requirement": "Pack disappears; man reaches right short side; empty wooden cup stays at B.",
+        "result": "pass",
+        "evidence": "Opening has one blue pack at A and empty wooden cup at B; ending has no pack and man at right short edge with wood cup retained. Elevated framing keeps required area visible."
+      },
+      {
+        "from": "shot_1.last",
+        "to": "shot_2.first",
+        "requirement": "No world-state changes at camera cut.",
+        "result": "pass",
+        "evidence": "Both frames show man at right short side, only empty wood cup near original right end, C empty, tissue absent. Diagonal new perspective explains screen-coordinate change."
+      },
+      {
+        "from": "shot_2.first",
+        "to": "shot_2.last",
+        "requirement": "Tea cup appears at C and man reaches opposite long side; B unchanged.",
+        "result": "pass",
+        "evidence": "Ending adds exactly one white cup with visible dark tea at center. Empty wooden cup remains toward original right end; man stands between table and window with hands away."
+      },
+      {
+        "from": "shot_2.last",
+        "to": "shot_3.first",
+        "requirement": "Both cup states and man position persist across new view.",
+        "result": "pass",
+        "evidence": "White tea cup at center, empty wood cup at right-end B; same man at far long side. Window/lawn remain behind him and both cups are visible."
+      },
+      {
+        "from": "shot_3.first",
+        "to": "shot_3.last",
+        "requirement": "Exchange then pickup ending state; no unintended additions.",
+        "result": "pass",
+        "evidence": "Wooden cup now at former white-cup center position C; B bare after pickup; one porcelain cup held naturally at lips. Tissue absent. Cup surface is naturally hidden at lips; source does not require contents visible during drinking. Exact exchange timing, head turn and action order are explicitly specified in video prompt; these temporal events are not independently verifiable from still endpoints."
+      }
+    ]
+  },
+  "blockers": []
+}

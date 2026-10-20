@@ -1,0 +1,82 @@
+{
+  "status": "built_pending_independent_audit",
+  "episodes": 400,
+  "shots": 2000,
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_priority_20260921/generation_queue_400.jsonl": "bd35fa9b814b3cbc88b46731af2d1c61e9cdfdb5d137a8dfbce870aee842aec4",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_prompt_adaptation_20260921/deliverables/generation_queue_400.jsonl": "479568f1410beb5706ab3a6373f618bc91ef24e71c1d40a2745a9a0754896174",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/episode_contracts_20260921/source_revision.json": "19065375c8b6e368fe59ab065c338fa021972564a79fb963336dce929bacf53c",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_prompt_adaptation_20260921/independent_validation.json": "1d7cb6b815026552e32293cf7828353fa93852126bdbdd4d34d87ea23c1b1aaa"
+  },
+  "updated_episode_ids": [
+    "5IykypzJT80_s00027_n6_clean_v2",
+    "8TM2yB381fc_s00037_n4_clean_v2",
+    "jS4vMlzOaTI_s00013_n8_clean_v2"
+  ],
+  "global_updates": [
+    "jS4vMlzOaTI_s00013_n8_clean_v2",
+    "8TM2yB381fc_s00037_n4_clean_v2"
+  ],
+  "shot_updates": [
+    {
+      "episode_id": "5IykypzJT80_s00027_n6_clean_v2",
+      "shot_id": "Shot2"
+    }
+  ],
+  "unchanged_final_shots": 1999,
+  "context_additions": 1644,
+  "shots_with_context_additions": 1084,
+  "current_exact_evidence_references": 1821,
+  "native_scene_occurrences": 959,
+  "all_cut_flags_true": true,
+  "tokenizers": {
+    "Wan2.2-T2V-A14B": {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/models/Wan2.2-T2V-A14B/google/umt5-xxl",
+      "class": "T5TokenizerFast",
+      "fast": true,
+      "files": {
+        "special_tokens_map.json": "7b8a9f5040adb67b5805abdfd42c1f8d0f3d0e711f10726580eb3789cd0ad61d",
+        "spiece.model": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458",
+        "tokenizer.json": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+        "tokenizer_config.json": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05"
+      },
+      "min": 62,
+      "max": 364,
+      "mean": 145.0805,
+      "over_512": 0,
+      "production_ids_equal_untruncated": true
+    },
+    "Wan2.2-I2V-A14B": {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/models/Wan2.2-I2V-A14B/google/umt5-xxl",
+      "class": "T5TokenizerFast",
+      "fast": true,
+      "files": {
+        "special_tokens_map.json": "7b8a9f5040adb67b5805abdfd42c1f8d0f3d0e711f10726580eb3789cd0ad61d",
+        "spiece.model": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458",
+        "tokenizer.json": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+        "tokenizer_config.json": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05"
+      },
+      "min": 62,
+      "max": 364,
+      "mean": 145.0805,
+      "over_512": 0,
+      "production_ids_equal_untruncated": true
+    }
+  },
+  "storymem_wrapper_sha256": "2e7974b8e0f19af5863613d2eff40e90f97919f3d12e72a3ba61e13f60b075e7",
+  "pipeline_sha256": "b3c4c2c0cc2cca6ec74719dc575bc32ab07fe4cc84ecbb7b2a211d85a6bcbcb0",
+  "source_scripts": {
+    "build.py": "1e4fce6a8461b44273ea1b0d3d96893ec939250821f3ff1d976829894b6acbd9",
+    "verify.py": "ed137f6fed809d3af47e91ac677435704f5cdb1c4d217bbc61044428d889fb31"
+  },
+  "cpu_affinity": [
+    60
+  ],
+  "host": "auh7-1b-gpu-306",
+  "seconds": 9.057942484039813,
+  "model_calls": 0,
+  "billable_api_tokens": 0,
+  "api_usd": 0,
+  "gpu_work": false,
+  "generation_started": false
+}

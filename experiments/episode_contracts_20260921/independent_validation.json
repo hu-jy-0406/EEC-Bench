@@ -1,0 +1,39 @@
+{
+  "status": "pass",
+  "counts": {
+    "ambiguity_notes": 63,
+    "episodes": 400,
+    "shots": 2000,
+    "entities": 7425,
+    "claims": 64724,
+    "source_units": 9594,
+    "review_revised": 379,
+    "presence": 13370,
+    "appearance": 28906,
+    "spatial": 15570,
+    "motion": 6878
+  },
+  "checks": [
+    "400 unique source-matched episodes",
+    "2000 byte-exact original prompts",
+    "EntityBench inventory/schedule references",
+    "no extra scene_id",
+    "all claims identical to evaluator adapters",
+    "all canonical validators pass",
+    "actual independent review responses verified",
+    "all subset order/content exact",
+    "no generated/source-video inputs in model requests",
+    "source and queue hashes match current authorized versions",
+    "all calls including failures accounted once"
+  ],
+  "model_calls": 848,
+  "total_tokens": 21231651,
+  "standard_api_equivalent_usd": null,
+  "actual_billed_api_usd": null,
+  "max_call_overlap": 65,
+  "unknown_cost_records": [
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/episode_contracts_20260921/episodes/iBIdL_fqfio_s00095_n6_clean_v2/calls/draft_1/status.json",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/episode_contracts_20260921/episodes/u_4L7Dx1rIg_s00001_n6_clean_v2/calls/draft_2/status.json"
+  ],
+  "independent_human_semantic_validation": false
+}

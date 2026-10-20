@@ -1,0 +1,258 @@
+{
+  "study0": {
+    "scores": {
+      "presence": {
+        "score": 100.0,
+        "coverage": 0.8235294117647058,
+        "N": 17,
+        "C": 14,
+        "K": 0,
+        "U": 3,
+        "E": 0,
+        "identification_interval": [
+          82.3529411764706,
+          100.0
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 91,
+        "C": 0,
+        "K": 0,
+        "U": 91,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      }
+    },
+    "entity_counts": {
+      "shot1": {
+        "static": 16,
+        "moving": 2,
+        "unknown": 0,
+        "entities": 18
+      },
+      "shot3": {
+        "static": 17,
+        "moving": 1,
+        "unknown": 0,
+        "entities": 18
+      }
+    },
+    "presence_conflicts": [],
+    "unknown_groups": [
+      {
+        "group_id": "g12",
+        "reason": [
+          "保留scope_mismatch：材料均可见，但不能确认冻结对象组成严格相同；不判缺失或新增。"
+        ],
+        "identity": {
+          "group_id": "g12",
+          "a_ids": [
+            "shot1/e13"
+          ],
+          "b_ids": [
+            "shot3/e18"
+          ],
+          "identity": "scope_mismatch",
+          "anchor_eligible": false,
+          "identity_evidence": "白色页叠很可能连续存在，但shot1仅保留局部单帧框，shot3框包含更宽的装订边及阅读材料；冻结实体范围不能严格确认一一相同。",
+          "anchor_reason": "范围未统一，不能作为已确认匹配或锚点。"
+        }
+      },
+      {
+        "group_id": "g16",
+        "reason": [
+          "保留scope_mismatch；像素未显示椅毯消失，但冻结实例范围无法严格对应，不依据盒差判冲突。"
+        ],
+        "identity": {
+          "group_id": "g16",
+          "a_ids": [
+            "shot1/e18"
+          ],
+          "b_ids": [
+            "shot3/e11"
+          ],
+          "identity": "scope_mismatch",
+          "anchor_eligible": false,
+          "identity_evidence": "原图支持同一绿色椅及垂毯；shot1冻结轨迹交替框毯和椅体，shot3主要框椅体，无法将冻结对象确认成严格同范围实例。",
+          "anchor_reason": "椅毯范围混用，不能成为身份确认锚点。"
+        }
+      },
+      {
+        "group_id": "g17",
+        "reason": [
+          "单侧库存是缺项，原图直接反驳实物新增或缺失；没有视角或运动导致该差异的证据，保持unknown、cause none。"
+        ],
+        "identity": {
+          "group_id": "g17",
+          "a_ids": [],
+          "b_ids": [
+            "shot3/e16"
+          ],
+          "identity": "unmatched",
+          "anchor_eligible": false,
+          "identity_evidence": "同样的开启面板门在shot1原图也清楚可见，但其冻结库存无门实体，不能新增对应项。",
+          "anchor_reason": "单侧库存项，且门可动。"
+        }
+      }
+    ],
+    "spatial_conflicts": [],
+    "population": 14,
+    "pairs": 91,
+    "negative_proposals": 0,
+    "support_pass": 0,
+    "elapsed_seconds": 880.8067765235901,
+    "total_tokens": 319720,
+    "calls": 7,
+    "input_tokens": 293273,
+    "output_tokens": 26447,
+    "cached_input_tokens": 0,
+    "audit": {
+      "status": "passed",
+      "original_frames_unchanged": true,
+      "all_boxes_exact_detector_candidates": true,
+      "nonnull_detector_boxes": 189,
+      "source_hashes_unchanged": true,
+      "independent_cosine_max_error": 0.0,
+      "all_unordered_pairs": true,
+      "one_B_call": true,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "actual_calls": 7,
+      "inference_reuse": false
+    }
+  },
+  "study1": {
+    "scores": {
+      "presence": {
+        "score": 94.44444444444444,
+        "coverage": 0.8888888888888888,
+        "N": 18,
+        "C": 15,
+        "K": 1,
+        "U": 2,
+        "E": 0,
+        "identification_interval": [
+          83.33333333333333,
+          94.44444444444444
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 105,
+        "C": 0,
+        "K": 0,
+        "U": 105,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      }
+    },
+    "entity_counts": {
+      "shot1": {
+        "static": 18,
+        "moving": 2,
+        "unknown": 0,
+        "entities": 20
+      },
+      "shot3": {
+        "static": 17,
+        "moving": 1,
+        "unknown": 0,
+        "entities": 18
+      }
+    },
+    "presence_conflicts": [
+      {
+        "group_id": "g02",
+        "kind": "unexplained_missing",
+        "reason": [
+          "按桌沿、杯和墙面对应原灯位，冻结投影中心约为[626,180]，位于空区内。两侧各两帧原像素确认有灯与无灯，排除出画、遮挡及漏检；红本搬运动作不能解释台灯缺失。"
+        ],
+        "identity": {
+          "group_id": "g02",
+          "a_ids": [
+            "shot1/e3"
+          ],
+          "b_ids": [],
+          "identity": "unmatched",
+          "anchor_eligible": false,
+          "identity_evidence": "shot1持续可见弯杆黑台灯；shot3同一桌面及上方空间清楚可见而无灯。",
+          "anchor_reason": "单侧实体。"
+        }
+      }
+    ],
+    "unknown_groups": [
+      {
+        "group_id": "g13",
+        "reason": [
+          "保持冻结身份未定标签；两侧有白纸本不等于已确认同一本或同一叠，不能判缺失、增加或配对兼容。"
+        ],
+        "identity": {
+          "group_id": "g13",
+          "a_ids": [
+            "shot1/e15"
+          ],
+          "b_ids": [
+            "shot3/e13"
+          ],
+          "identity": "ambiguous",
+          "anchor_eligible": false,
+          "identity_evidence": "同一桌面区域均有白色纸本，shot1末帧揭露更宽白页；仍无法确认冻结实体是否覆盖同一本或同一叠纸。",
+          "anchor_reason": "缺少可辨装订、页纹及明确实体范围。"
+        }
+      },
+      {
+        "group_id": "g16",
+        "reason": [
+          "保持scope_mismatch：虽可见对应绿椅及垂毯，冻结整体范围不一致，无法按同一评分实体确认；不拆分成单侧对象。"
+        ],
+        "identity": {
+          "group_id": "g16",
+          "a_ids": [
+            "shot1/e18"
+          ],
+          "b_ids": [
+            "shot3/e10"
+          ],
+          "identity": "scope_mismatch",
+          "anchor_eligible": false,
+          "identity_evidence": "原图为同一绿色扶手椅及右侧垂毯，但shot1冻结框混用椅体与毯，shot3又混有座面局部，不能建立一致整体范围。",
+          "anchor_reason": "冻结实体范围混用，不作为确认配对或结构锚点。"
+        }
+      }
+    ],
+    "spatial_conflicts": [],
+    "population": 15,
+    "pairs": 105,
+    "negative_proposals": 0,
+    "support_pass": 0,
+    "elapsed_seconds": 880.8642873764038,
+    "total_tokens": 326860,
+    "calls": 7,
+    "input_tokens": 299879,
+    "output_tokens": 26981,
+    "cached_input_tokens": 14848,
+    "audit": {
+      "status": "passed",
+      "original_frames_unchanged": true,
+      "all_boxes_exact_detector_candidates": true,
+      "nonnull_detector_boxes": 195,
+      "source_hashes_unchanged": true,
+      "independent_cosine_max_error": 0.0,
+      "all_unordered_pairs": true,
+      "one_B_call": true,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "actual_calls": 7,
+      "inference_reuse": false
+    }
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "case_id": "study3",
+  "job_id": 200642,
+  "status_at_last_check": "CANCELLED_by_user_CPU_replacement",
+  "reason": "Priority",
+  "scheduler_estimated_start_utc": "2026-09-19T21:20:07",
+  "requested_gpu_count": 1,
+  "time_limit_minutes": 30,
+  "stop_after": "identity",
+  "expected_codex_calls": 7,
+  "inference_reuse": false,
+  "existing_allocations_checked": {
+    "189667/node296": "all GPUs resident, even zero-use devices",
+    "191764/node306": "all GPUs busy/resident"
+  },
+  "preparation_cpu": "owned node306, 128 CPUs, checked 98% idle, single-thread low priority",
+  "tests_passed": 8,
+  "replacement": "run_cpu02",
+  "replacement_existing_allocation": "191764",
+  "replacement_node": "auh7-1b-gpu-306"
+}

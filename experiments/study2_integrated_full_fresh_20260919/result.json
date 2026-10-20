@@ -1,0 +1,661 @@
+{
+  "scores": {
+    "presence": {
+      "score": 86.66666666666667,
+      "coverage": 0.6666666666666666,
+      "N": 15,
+      "C": 8,
+      "K": 2,
+      "U": 5,
+      "E": 15,
+      "identification_interval": [
+        53.333333333333336,
+        86.66666666666667
+      ]
+    },
+    "spatial": {
+      "score": 96.42857142857143,
+      "coverage": 0.03571428571428571,
+      "N": 28,
+      "C": 0,
+      "K": 1,
+      "U": 27,
+      "E": 0,
+      "identification_interval": [
+        0.0,
+        96.42857142857143
+      ]
+    }
+  },
+  "entity_counts": {
+    "shot1": {
+      "static": 19,
+      "moving": 2,
+      "unknown": 0,
+      "entities": 21
+    },
+    "shot3": {
+      "static": 21,
+      "moving": 1,
+      "unknown": 0,
+      "entities": 22
+    }
+  },
+  "presence_conflicts": [
+    {
+      "group_id": "g03",
+      "kind": "unexplained_missing",
+      "reason": [
+        "以桌面端部及窗侧椅子的反向关系定位，不采用错位中心投影。原右侧远桌端对应反打左侧远端，两侧各两帧可检验；高出台面的整灯不可能由桌沿遮住，原图也排除漏检。"
+      ],
+      "identity": {
+        "group_id": "g03",
+        "a_ids": [
+          "shot1/e3"
+        ],
+        "b_ids": [],
+        "identity": "unmatched",
+        "anchor_eligible": false,
+        "identity_evidence": "黑罩弯杆圆底台灯仅在shot1出现；shot3大桌完整可见部分没有台灯。",
+        "anchor_reason": "无配对。"
+      }
+    },
+    {
+      "group_id": "g24",
+      "kind": "unexplained_added",
+      "reason": [
+        "按同一桌面的四边、中央内区和窗侧椅子建立反向区域对应，不采用偏移的几何中心。对应中央区域在shot1两帧均显露，整桌复查也未见纸巾包；排除人物遮挡及检测漏项，新增不受故事支持。"
+      ],
+      "identity": {
+        "group_id": "g24",
+        "a_ids": [],
+        "b_ids": [
+          "shot3/e14"
+        ],
+        "identity": "unmatched",
+        "anchor_eligible": false,
+        "identity_evidence": "蓝白纸巾包在shot3桌面出现；shot1无遮挡桌面未见。",
+        "anchor_reason": "无配对。"
+      }
+    }
+  ],
+  "spatial_conflicts": [
+    {
+      "relation_id": "pair_g02_g06",
+      "endpoint_groups": [
+        "g02",
+        "g06"
+      ],
+      "anchor_groups": [
+        "g04",
+        "g13"
+      ],
+      "cosine": -0.5515472092139512,
+      "angle_deg": 123.47322286570409,
+      "vector_shot1": [
+        -0.00435112789273262,
+        0.339999794960022,
+        -0.012141048908233643
+      ],
+      "vector_shot3": [
+        0.006902337074279785,
+        0.12962079048156738,
+        0.0033465921878814697
+      ],
+      "vector_shot3_aligned": [
+        -0.11064975609303714,
+        -0.07514086001645412,
+        0.0034483597777534014
+      ],
+      "status": "conflict",
+      "reason": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded",
+      "local_observations": [
+        {
+          "cross_anchor_up": {
+            "subject_id": "shot1/e2",
+            "object_id": "shot1/e7",
+            "origin_anchor_id": "shot1/e5",
+            "reference_anchor_id": "shot1/e15",
+            "axis": "cross_anchor_up",
+            "order": "negative",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": true,
+            "geometry_error_can_reverse": false,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  432,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  826,
+                  479
+                ],
+                "observation": "暖气片位于桌后窗侧，结合桌面透视确认参考方向。杯身遮住笔筒下部，杯底更靠桌前；两者横向中心接近。u指向世界右前方的反向深度分量实际为正y，故杯相对笔筒沿u为负。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  431,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  827,
+                  480
+                ],
+                "observation": "人物离开后，桌面、暖气片及杯筒遮挡关系仍清楚。按u=(0.735,0.678,0)，杯在笔筒前方的深度差占主导；杯柄造成的中心偏移不足以反转该符号。"
+              }
+            ],
+            "reason": "参考水平向量v约为(-0.678,0.735,0)，u=v×z约为(0.735,0.678,0)。共同桌面与杯筒前后遮挡支持负序，几何中心差投影约为-0.227，仅作 corroboration。",
+            "uncertainty": "视角几乎固定，帧间证据相关；采用直立容器的水平中心近似支撑区域中心，未把遮挡表面当作中心。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          },
+          "toward_reference": {
+            "subject_id": "shot1/e2",
+            "object_id": "shot1/e7",
+            "origin_anchor_id": "shot1/e5",
+            "reference_anchor_id": "shot1/e15",
+            "axis": "toward_reference",
+            "order": "negative",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": true,
+            "geometry_error_can_reverse": false,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  432,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  826,
+                  479
+                ],
+                "observation": "桌至暖气片的水平正向朝窗侧后方。杯口、杯身和可见底部共同表明杯位于笔筒前方；笔筒下部被杯遮挡，不能仅以图像上下解释位置。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  431,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  827,
+                  480
+                ],
+                "observation": "无遮挡桌面再次支持两容器共面直立，杯处于更远离窗后方的位置。横向偏移较小，结合尺寸与深度先验，不足以抵消沿参考方向的前后差。"
+              }
+            ],
+            "reason": "沿v约为(-0.678,0.735,0)，杯中心较笔筒偏负；像素中的共面布局和遮挡支持此序，先验投影差约-0.253。",
+            "uncertainty": "无有效侧向视差，深度数值不作精确测量；容器中心与底面中心的直立近似只用于佐证。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          },
+          "vertical": {
+            "subject_id": "shot1/e2",
+            "object_id": "shot1/e7",
+            "origin_anchor_id": "shot1/e5",
+            "reference_anchor_id": "shot1/e15",
+            "axis": "vertical",
+            "order": "unknown",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": false,
+            "geometry_error_can_reverse": true,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  432,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  826,
+                  479
+                ],
+                "observation": "杯底可见，但笔筒底部被杯遮住；笔筒口在图像上更高同时包含深度效应，不能直接证明其中心更高或更低。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  353,
+                  321,
+                  433,
+                  398
+                ],
+                "object_region_xyxy": [
+                  382,
+                  294,
+                  431,
+                  328
+                ],
+                "reference_region_xyxy": [
+                  30,
+                  239,
+                  827,
+                  480
+                ],
+                "observation": "遮挡未解除，不能可靠恢复笔筒完整高度；伸出的笔不属于笔筒本体高度。已知向上方向也不足以消除中心高度歧义。"
+              }
+            ],
+            "reason": "冻结中心高度仅差约0.012，且笔筒逐帧估计可使符号反转；原像素不能约束被遮挡底部到足以确定OBB中心高度序。",
+            "uncertainty": "共同支撑不等于等中心高；笔筒本体高度及深度误差足以反转中心高度差。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          }
+        },
+        {
+          "cross_anchor_up": {
+            "subject_id": "shot3/e2",
+            "object_id": "shot3/e9",
+            "origin_anchor_id": "shot3/e7",
+            "reference_anchor_id": "shot3/e18",
+            "axis": "cross_anchor_up",
+            "order": "positive",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": true,
+            "geometry_error_can_reverse": false,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  362
+                ],
+                "reference_region_xyxy": [
+                  108,
+                  214,
+                  852,
+                  480
+                ],
+                "observation": "桌面延伸至右侧窗下暖气片，结合相机姿态确认v朝世界右后方，u朝右前方。杯身遮住笔筒左下部；两者直立且底缘可辨，杯子明显在笔筒前方。其少量横向偏左不足抵消u的向前分量。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  361
+                ],
+                "reference_region_xyxy": [
+                  109,
+                  213,
+                  852,
+                  480
+                ],
+                "observation": "杯底约在y=387，笔筒可见右底缘约在y=360；结合近似等高筒身及共同桌面，仍支持杯中心更靠前。暖气片与桌面方向不变，按u=(0.599,-0.801,0)组合，中心差为正。"
+              }
+            ],
+            "reason": "以直立杯筒的底部中心辅助定位，像素遮挡与底缘支持前后差；尺寸先验下横向中心差很小，u投影约+0.100，合理中心修正不足以翻转。",
+            "uncertainty": "把手及被遮筒底使中心定位有误差；重复帧几乎同视点，不能视为独立测深。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          },
+          "toward_reference": {
+            "subject_id": "shot3/e2",
+            "object_id": "shot3/e9",
+            "origin_anchor_id": "shot3/e7",
+            "reference_anchor_id": "shot3/e18",
+            "axis": "toward_reference",
+            "order": "negative",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": true,
+            "geometry_error_can_reverse": false,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  362
+                ],
+                "reference_region_xyxy": [
+                  108,
+                  214,
+                  852,
+                  480
+                ],
+                "observation": "暖气片在桌子的右后侧，建立v=(0.801,0.599,0)。杯子遮挡笔筒，杯底较靠桌面前部；杯身中心也略偏左。结合共同桌面与直立姿态，这两个分量均指向远离参考方向。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  361
+                ],
+                "reference_region_xyxy": [
+                  109,
+                  213,
+                  852,
+                  480
+                ],
+                "observation": "两物未移动，笔筒右侧底缘及杯子完整底缘仍显示前后错位；已知向上方向与近似相当的筒身高度排除纯高度造成该错位。杯中心沿桌子至暖气片的水平轴位于负侧。"
+              }
+            ],
+            "reason": "前后遮挡、可见底缘及身体宽度共同支持杯中心更靠前；结合参考轴而非直接套用图像左右，v投影约-0.083，合理中心误差不改变符号。",
+            "uncertainty": "笔筒底部部分遮挡，深度未标定；结论依赖两容器直立、共桌面这一可见条件。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          },
+          "vertical": {
+            "subject_id": "shot3/e2",
+            "object_id": "shot3/e9",
+            "origin_anchor_id": "shot3/e7",
+            "reference_anchor_id": "shot3/e18",
+            "axis": "vertical",
+            "order": "unknown",
+            "reference_direction_verified": true,
+            "common_support_verified": true,
+            "center_order_supported": false,
+            "geometry_error_can_reverse": true,
+            "evidence": [
+              {
+                "frame_id": 0,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  362
+                ],
+                "reference_region_xyxy": [
+                  108,
+                  214,
+                  852,
+                  480
+                ],
+                "observation": "杯口、筒口与底缘可见程度不同，笔筒底部部分被遮；图像高度差混有桌面深度差，不能直接表示物体中心高低。"
+              },
+              {
+                "frame_id": 120,
+                "subject_region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "object_region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  361
+                ],
+                "reference_region_xyxy": [
+                  109,
+                  213,
+                  852,
+                  480
+                ],
+                "observation": "同视点仍缺乏笔筒完整底部信息。笔尖属于另一个实体，不能用笔尖高度提高笔筒中心；两个容器自身的高度差很小。"
+              }
+            ],
+            "reason": "几何中心高差仅约-0.0033，尺寸与底部遮挡误差足以反转；共面直立假设也不足以可靠判定OBB中心高度顺序。",
+            "uncertainty": "近等高容器的真实高度、隐藏底缘及OBB拟合均有误差。",
+            "canonical_center_subtraction": "first endpoint group center minus second endpoint group center"
+          }
+        }
+      ],
+      "local_axis_evidence": {
+        "cross_anchor_up": {
+          "per_shot_evidence_pass": [
+            true,
+            true
+          ],
+          "orders": [
+            -1,
+            1
+          ],
+          "opposite_supported": true
+        },
+        "toward_reference": {
+          "per_shot_evidence_pass": [
+            true,
+            true
+          ],
+          "orders": [
+            -1,
+            -1
+          ],
+          "opposite_supported": false
+        },
+        "vertical": {
+          "per_shot_evidence_pass": [
+            false,
+            false
+          ],
+          "orders": [
+            0,
+            0
+          ],
+          "opposite_supported": false
+        }
+      },
+      "common_support_eligible": true,
+      "verification": {
+        "relation_id": "pair_g02_g06",
+        "verdict": "conflict",
+        "identity_supported": true,
+        "anchors_supported": true,
+        "common_support_verified": true,
+        "reference_correspondence_verified": true,
+        "center_semantics_verified": true,
+        "geometry_error_excluded": true,
+        "viewpoint_only_explanation_excluded": true,
+        "witnesses_a": [
+          {
+            "frame_id": 0,
+            "subject_region_xyxy": [
+              353,
+              321,
+              433,
+              398
+            ],
+            "object_region_xyxy": [
+              382,
+              294,
+              432,
+              328
+            ],
+            "reference_region_xyxy": [
+              30,
+              239,
+              826,
+              479
+            ],
+            "observation": "绿杯与浅色笔筒直立于同一桌面。结合杯口、完整杯身和杯底，以及笔筒可见筒口、宽度和被遮挡部分，支持杯中心沿桌中心至暖气片方向所定义的u轴为负；不是直接以遮挡边缘代替中心。"
+          },
+          {
+            "frame_id": 120,
+            "subject_region_xyxy": [
+              353,
+              321,
+              433,
+              398
+            ],
+            "object_region_xyxy": [
+              382,
+              294,
+              431,
+              328
+            ],
+            "reference_region_xyxy": [
+              30,
+              239,
+              827,
+              480
+            ],
+            "observation": "人物离开后，同一桌面、暖气片及杯筒关系仍在。两容器横向中心接近，结合直立体形和桌面透视，杯相对笔筒的u负序保持；把手或隐藏筒底的合理中心修正不足以反转。"
+          }
+        ],
+        "witnesses_b": [
+          {
+            "frame_id": 0,
+            "subject_region_xyxy": [
+              260,
+              331,
+              318,
+              388
+            ],
+            "object_region_xyxy": [
+              287,
+              310,
+              325,
+              362
+            ],
+            "reference_region_xyxy": [
+              108,
+              214,
+              852,
+              480
+            ],
+            "observation": "反向视点下仍为同一桌面和窗下暖气片。杯底及笔筒右侧底缘可辨，筒身高度相近；结合重力方向和桌面透视，杯中心沿同一物理定义的u轴为正，少量横向偏移不足以抵消该序。"
+          },
+          {
+            "frame_id": 120,
+            "subject_region_xyxy": [
+              260,
+              331,
+              318,
+              388
+            ],
+            "object_region_xyxy": [
+              287,
+              310,
+              325,
+              361
+            ],
+            "reference_region_xyxy": [
+              109,
+              213,
+              852,
+              480
+            ],
+            "observation": "人物返回后杯筒没有受到遮挡或触碰，杯底约y=387、笔筒右底缘约y=360。结合本体比例和共同支撑，而非单用图像纵坐标，重复支持u正序。"
+          }
+        ],
+        "reason": "确认冲突的依据是独立局部水平中心序，而非负余弦。固定端点减法为绿杯减笔筒；以同一桌中心为原点、同一暖气片中心为参考，v指向暖气片，u=v×up。两镜头各两帧支持u由负变正，v均为负；竖直中心序仍为unknown，不参与判定。容器口沿、杯身比例、可见底缘和共同桌面约束共同支持水平中心序，合理的隐藏底部及把手中心偏差不能解释相反符号。全局配准确实不可靠：训练中位误差约72.9像素，桌面留出中位误差约126.3像素，因此123.47度仅是候选夹角。然而局部参考有独立物理对应，不依赖该全局旋转；相机转向时锚点与up一起变换，同一不变布局不能产生这两个u符号。故此关系的几何误差及纯视点解释可被局部证据排除。结论只说明至少一个端点的摆放不一致，不说明两物交换了位置。",
+        "remaining_alternatives": "无法确定是绿杯、笔筒还是两者的位置改变，也不能恢复精确位移。竖直中心序及全局三维夹角的准确性仍未验证；这些不影响已支持的局部水平序冲突。",
+        "prompt_motion_review": {
+          "prompt_fact_references": [
+            "p02",
+            "p03",
+            "p04",
+            "p05",
+            "p06",
+            "p07",
+            "p08",
+            "p09",
+            "p10",
+            "p11"
+          ],
+          "specified_motion": "镜头1女子只拿红笔记本离开，椅子留原处；中间镜头在走廊放下笔记本后空手返回；镜头3改为实际反向视点，女子回到原椅旁站定。明确无人进入或重新布置书房。",
+          "affected_entities": [
+            "女子",
+            "红笔记本",
+            "相机"
+          ],
+          "causal_explanation_of_observed_relation_change": "指定动作只搬运红笔记本，没有搬动绿杯、笔筒、桌子或暖气片；p07还排除了间隔期间重新布置书房。p08和p09能解释屏幕方向改变，但不能改变随同一锚点及物理向上共同定义的u轴上的中心序。因此这些动作不能解释本候选的局部符号变化。",
+          "verdict": "does_not_explain_change"
+        }
+      },
+      "prompt_gate_pass": true,
+      "visual_gate_pass": true
+    }
+  ],
+  "population": 8,
+  "pairs": 28,
+  "negative_proposals": 5,
+  "support_pass": 1,
+  "elapsed_seconds": 1429.9363899230957,
+  "total_tokens": 656483,
+  "calls": 10,
+  "input_tokens": 614683,
+  "output_tokens": 41800,
+  "cached_input_tokens": 0
+}

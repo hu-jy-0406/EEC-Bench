@@ -1,0 +1,72 @@
+{
+  "status": "success",
+  "version": "gs-consistency-spatial-v1.2",
+  "allocation": "185272",
+  "started": 1789411303.545078,
+  "source_run": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/gs_consistency_20260914/run02",
+  "geometry_unchanged": true,
+  "score": 77.77777777777779,
+  "counts": {
+    "compatible": 2,
+    "conflict": 4,
+    "unknown": 12,
+    "complement": 7
+  },
+  "ended": 1789411421.1540792,
+  "calls": [
+    {
+      "stage": "observe_shot1",
+      "status": "success",
+      "started": 1789411303.567703,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 45571,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1807,
+          "reasoning_output_tokens": 141
+        }
+      ],
+      "ended": 1789411365.1010754,
+      "seconds": 61.53337240219116
+    },
+    {
+      "stage": "observe_shot3",
+      "status": "success",
+      "started": 1789411303.5704303,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 53942,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1840,
+          "reasoning_output_tokens": 97
+        }
+      ],
+      "ended": 1789411365.7501965,
+      "seconds": 62.17976641654968
+    },
+    {
+      "stage": "verify_relations",
+      "status": "success",
+      "started": 1789411365.791941,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 95687,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1149,
+          "reasoning_output_tokens": 263
+        }
+      ],
+      "ended": 1789411421.08456,
+      "seconds": 55.29261898994446
+    }
+  ]
+}

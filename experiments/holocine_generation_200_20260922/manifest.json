@@ -1,0 +1,22 @@
+{
+  "episodes": 200,
+  "shots": 1000,
+  "priority": "first100 must all pass before additional100",
+  "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/holocine_shared_prompts_20260922",
+  "text_len": 1519,
+  "model": "HoloCine-14B-full",
+  "size": [
+    832,
+    480
+  ],
+  "fps": 16,
+  "frames": "80*shots+1",
+  "steps": 50,
+  "cfg": 5,
+  "sigma_shift": 5,
+  "negative_prompt": "过曝，静态，细节模糊不清，字幕，最差质量，低质量，畸形，多余的手指",
+  "weights": "official BF16; no quantization",
+  "memory": "original offload or exactly equivalent file-backed CPU storage",
+  "stop_after": 200,
+  "new_allocations_requested": false
+}

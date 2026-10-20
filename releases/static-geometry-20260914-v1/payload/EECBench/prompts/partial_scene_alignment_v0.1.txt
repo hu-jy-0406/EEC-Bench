@@ -1,0 +1,14 @@
+Align the two independently extracted partial scene graphs using their original images.
+Attachments are ordered by images in the payload; each entry specifies shot_id and frame_id.
+Return evidence, not a consistency verdict. You have no ground-truth anomaly labels.
+Partition EVERY local node from both graphs exactly once into groups:
+matched: exactly one node from each shot, sufficiently supported same physical instance and same scope;
+unmatched: exactly one node on one side, zero on other;
+ambiguous: nonempty sets on both sides with unresolved identity;
+scope_mismatch: nonempty sets on both sides, member/group or assembly scope mismatch.
+Do not force same-name matches. Do not use spatial consistency as the objective for matching.
+Matched groups require pixel evidence from BOTH shots, frame IDs and original-image regions when possible.
+Link graph anchors only when their parent entities are matched and physical parts/axes correspond.
+aligned anchors need identifiable physical ends and same/reversed axis orientation with evidence on both sides. Otherwise ambiguous/unknown; omit unpairable anchors.
+Use independent furniture/structural landmarks to orient the anchors, not positions of objects whose arrangement will be tested. Never assume a camera reversal from narrative alone. Respect resolvable=false in input anchors.
+Provide concise Chinese evidence. No new entity nodes, no judgments of which shot is correct.

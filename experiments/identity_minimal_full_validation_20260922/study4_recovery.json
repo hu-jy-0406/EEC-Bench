@@ -1,0 +1,35 @@
+{
+  "status": "blocked_on_corrected_prompt",
+  "started": 1790086867.57823,
+  "stages": [
+    {
+      "stage": "entity_displacement",
+      "status": "success",
+      "seconds": 0.08985114097595215,
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_displacement.py",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/runs/study4"
+      ],
+      "returncode": 0
+    },
+    {
+      "stage": "appearance_report",
+      "status": "success",
+      "seconds": 2.3978562355041504,
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_appearance_scoring.py",
+        "report",
+        "--runs",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/runs/study4/appearance/compact",
+        "--out",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/runs/study4/appearance/report"
+      ],
+      "returncode": 0
+    }
+  ],
+  "reason": "Initial binding invalid; independent successful work retained. Corrected-reference branch uses fresh validated calls.",
+  "seconds": 2.508537769317627
+}

@@ -1,0 +1,131 @@
+{
+  "status": "completed_and_audited",
+  "case_id": "study3",
+  "final_group_counts": {
+    "unmatched": 21,
+    "matched": 10,
+    "scope_mismatch": 1
+  },
+  "initial_group_counts": {
+    "matched": 13,
+    "unmatched": 15,
+    "scope_mismatch": 1
+  },
+  "lamp_groups": [
+    {
+      "group": {
+        "group_id": "g03",
+        "a_ids": [
+          "shot1/e3"
+        ],
+        "b_ids": [
+          "shot3/e4"
+        ],
+        "identity": "matched",
+        "anchor_eligible": false,
+        "identity_evidence": "同一主桌上的圆底座、细弯金属杆、钟形灯罩及顶部接头支持延续同一台灯；黑白变化和位置变化单独记录，不据此拆分。",
+        "anchor_reason": "便携物，尺寸及位置重建差异明显。"
+      },
+      "entities": [
+        {
+          "entity_id": "shot1/e3",
+          "name": "Black desk lamp",
+          "motion_status": "static"
+        },
+        {
+          "entity_id": "shot3/e4",
+          "name": "White desk lamp",
+          "motion_status": "static"
+        }
+      ]
+    }
+  ],
+  "shot_counts": {
+    "shot1": {
+      "total": 21,
+      "motion": {
+        "static": 19,
+        "moving": 2
+      }
+    },
+    "shot3": {
+      "total": 22,
+      "motion": {
+        "static": 21,
+        "moving": 1
+      }
+    }
+  },
+  "shot2_entities": 7,
+  "pipeline_seconds": 3890.8079764842987,
+  "total_tokens": 366651,
+  "calls": [
+    {
+      "call": "calls/identity_review",
+      "status": "success",
+      "seconds": 408.8125145435333,
+      "input_tokens": 143407,
+      "output_tokens": 13233,
+      "cached_input_tokens": 0,
+      "total_tokens": 156640
+    },
+    {
+      "call": "calls/matching",
+      "status": "success",
+      "seconds": 107.70486402511597,
+      "input_tokens": 77674,
+      "output_tokens": 3311,
+      "cached_input_tokens": 0,
+      "total_tokens": 80985
+    },
+    {
+      "call": "calls/motion_shot1",
+      "status": "success",
+      "seconds": 158.78693962097168,
+      "input_tokens": 34630,
+      "output_tokens": 5061,
+      "cached_input_tokens": 0,
+      "total_tokens": 39691
+    },
+    {
+      "call": "calls/motion_shot3",
+      "status": "success",
+      "seconds": 160.6906659603119,
+      "input_tokens": 38265,
+      "output_tokens": 5174,
+      "cached_input_tokens": 0,
+      "total_tokens": 43439
+    },
+    {
+      "call": "entities/shots/shot1",
+      "status": "success",
+      "seconds": 24.86005449295044,
+      "input_tokens": 15109,
+      "output_tokens": 551,
+      "cached_input_tokens": 0,
+      "total_tokens": 15660
+    },
+    {
+      "call": "entities/shots/shot2",
+      "status": "success",
+      "seconds": 15.548805952072144,
+      "input_tokens": 13861,
+      "output_tokens": 251,
+      "cached_input_tokens": 0,
+      "total_tokens": 14112
+    },
+    {
+      "call": "entities/shots/shot3",
+      "status": "success",
+      "seconds": 26.158528327941895,
+      "input_tokens": 15477,
+      "output_tokens": 647,
+      "cached_input_tokens": 0,
+      "total_tokens": 16124
+    }
+  ],
+  "identity_only": true,
+  "appearance_score_computed": false,
+  "execution_device": "cpu",
+  "case_directory": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/run_cpu02"
+}

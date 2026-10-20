@@ -1,0 +1,120 @@
+{
+  "study2": {
+    "status": "success",
+    "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000",
+    "old_summary": {
+      "score": 83.33333333333334,
+      "coverage": 0.8333333333333334,
+      "N": 12,
+      "C": 8,
+      "K": 2,
+      "U": 2,
+      "E": 18,
+      "identification_interval": [
+        66.66666666666667,
+        83.33333333333333
+      ]
+    },
+    "new_summary": {
+      "score": 83.33333333333334,
+      "coverage": 0.8333333333333334,
+      "N": 12,
+      "C": 8,
+      "K": 2,
+      "U": 2,
+      "E": 18,
+      "identification_interval": [
+        66.66666666666667,
+        83.33333333333333
+      ]
+    },
+    "differences": [],
+    "old_conflicts": [
+      "presence_g03",
+      "presence_g25"
+    ],
+    "new_conflicts": [
+      "presence_g03",
+      "presence_g25"
+    ],
+    "seconds": 196.762371301651,
+    "total_tokens": 106526,
+    "standard_api_equivalent_usd": 1.2467,
+    "usage": [
+      {
+        "input_tokens": 100262,
+        "cached_input_tokens": 7680,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 6264,
+        "reasoning_output_tokens": 109
+      }
+    ]
+  },
+  "study4": {
+    "status": "success",
+    "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000",
+    "old_summary": {
+      "score": 100.0,
+      "coverage": 0.2222222222222222,
+      "N": 9,
+      "C": 2,
+      "K": 0,
+      "U": 7,
+      "E": 13,
+      "identification_interval": [
+        22.22222222222222,
+        100.0
+      ]
+    },
+    "new_summary": {
+      "score": 100.0,
+      "coverage": 0.25,
+      "N": 12,
+      "C": 3,
+      "K": 0,
+      "U": 9,
+      "E": 10,
+      "identification_interval": [
+        25.0,
+        100.0
+      ]
+    },
+    "differences": [
+      {
+        "event_id": "presence_g03",
+        "old": "exempt",
+        "new": "compatible",
+        "old_reason": "Both endpoint states are positively visible and fit the specified departure and return. Outside does not mean absent from the image.",
+        "new_reason": "Positive person presence at both endpoints satisfies the respective story states."
+      },
+      {
+        "event_id": "presence_g10",
+        "old": "exempt",
+        "new": "unknown",
+        "old_reason": "The following image does not expose a corresponding empty bookshelf location. The wooden surface is not rematched.",
+        "new_reason": "Neither a corresponding bookshelf nor an observable empty expected location is established."
+      },
+      {
+        "event_id": "presence_g14",
+        "old": "exempt",
+        "new": "unknown",
+        "old_reason": "There is no observable corresponding empty location, and the lamp-side plant remains a separate identity.",
+        "new_reason": "No supported empty location or corresponding plant instance establishes a presence change."
+      }
+    ],
+    "old_conflicts": [],
+    "new_conflicts": [],
+    "seconds": 148.3050091266632,
+    "total_tokens": 80537,
+    "standard_api_equivalent_usd": 0.99133,
+    "usage": [
+      {
+        "input_tokens": 75888,
+        "cached_input_tokens": 0,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4649,
+        "reasoning_output_tokens": 118
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "pass",
+  "tests": 5,
+  "seconds": 0.174,
+  "allocation": "185272",
+  "gpu_calls": 0,
+  "command": "python -m unittest discover -s EECBench/tests -p test_gravity_box_registration.py -v",
+  "checks": [
+    "known yaw/scale/translation + symmetry + inverse/heldout",
+    "independent 5-parameter optimizer",
+    "upside-down solution exclusion",
+    "robust outlier retained",
+    "undetermined yaw and invalid weights rejection"
+  ]
+}

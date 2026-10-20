@@ -1,0 +1,1511 @@
+{
+ "labeling": {
+  "P1": {
+   "case": "p014_wan21",
+   "title": "#014 Wan2.1: the woman's outfit changes in Shot3 (double-breasted coat; scarf hides the required peach neckline)",
+   "example": "E1",
+   "runs": {
+    "v1/hist": [],
+    "v1/rerun_a": [
+     {
+      "issue_id": "VL-1",
+      "labels": [
+       "V-L"
+      ],
+      "related": [],
+      "scope": [
+       "Shot3"
+      ],
+      "description": "Shot3颈部为厚围巾，未呈现提示要求的桃色领口。",
+      "verdicts": {
+       "V-L": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v1/rerun_b": [
+     {
+      "issue_id": "vv1",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2"
+      ],
+      "description": "同一女子的灰外套款式和穿法不一致：Shot1为系带裹合款，Shot2为敞开的翻领双排扣款。",
+      "verdicts": {
+       "V-V cross": {
+        "v1": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "vv2",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女子在Shot3颈部出现米色围巾，Shot1与Shot2同一着装中未见该围巾。",
+      "verdicts": {
+       "V-V cross": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_a": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女人灰外套跨镜细节不一致：Shot1是系腰带、前襟无明显双排扣的款式；Shot3清楚可见大号双排扣及不同前襟结构，Shot2也呈敞开直身外套。作为同一人物连续出现，外套款式发生变化。",
+      "verdicts": {
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_b": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女人的灰外套跨镜款式不一致：Shot1为系带合拢款，Shot2敞开，Shot3又出现显眼黑色双排扣；Shot3的浅棕围巾还遮住了指定清晰可见的桃色领口。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_c": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女子在Shot3换成带黑扣的双排扣灰大衣，并围浅棕色厚围巾；Shot1/2为系带灰外套、露出桃色高领，围巾未见，属于重复人物服饰不连续。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_1": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "女人外套样式不一致：Shot1为系带裹身、未见扣子的灰外套；Shot3为明显黑扣双排扣外套。Shot1所见也未体现明确扣合状态，与其明示的扣合要求不符。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_2": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-L"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1"
+      ],
+      "description": "Shot1女子的灰色外套看起来是腰带系合的裹身款，未见所述扣合状态；与明确要求的扣合外套不符。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L"
+      ],
+      "related": [],
+      "scope": [
+       "Shot3"
+      ],
+      "description": "Shot3女子颈部围着浅棕色围巾，明显遮住原本应清楚可见的桃色领口区域。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_3": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女人跨镜服饰细节变化：Shot1有明显系带，Shot3出现浅米色围巾并遮住桃色领口，外套呈双排扣样式。",
+      "verdicts": {
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_1": [
+     {
+      "issue_id": "I02",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "女人的灰外套在镜头间呈现不同款式/穿法：Shot1为系腰带的交叠式外套，Shot2敞开，Shot3则为明显黑扣双排扣外套。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_2": [],
+    "v3/fresh_3": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I2"
+      ],
+      "scope": [
+       "Shot1",
+       "Shot2",
+       "Shot3"
+      ],
+      "description": "Shot3女性颈部出现浅驼色围巾并遮住桃色领口；Shot1/2可见桃色领口且未见该围巾，形成跨镜头外观差异。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I1"
+      ],
+      "scope": [
+       "Shot3"
+      ],
+      "description": "Shot3未呈现提示要求清楚可见的白帽、直发及桃色领口中的桃色领口；围巾遮挡了该属性。",
+      "verdicts": {
+       "V-L": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "P2": {
+   "case": "p069_wan21",
+   "title": "#069 Wan2.1: the short figure is a woman in Shot2 and a man in dark clothes in Shot4",
+   "example": "E2",
+   "runs": {
+    "v1/hist": [],
+    "v1/rerun_1": [],
+    "v1/rerun_2": [],
+    "v2/run_a": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2的短身人物是穿棕色外套和棕裤的短发女性；Shot4同一排程角色则呈现为靠砖墙的深色长外套男性，身份外观不连续。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_b": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot4承担Shot2中短身深色衣着人物的镜头，却呈现黑衣成年男性样貌；Shot2可见的是较矮、棕色长裤的女性样貌人物，身份与外观均不连贯。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_c": [],
+    "v2/fresh_1": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot4的短身影与Shot2的短身影看起来不是同一人物：Shot2为齐肩直发、棕色裤装的女性，Shot4为深色短发、黑色外套及深色裤装的人物。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_2": [
+     {
+      "issue_id": "I5",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2的短装人物是齐肩直发女性，穿棕色长裤和深棕外套；Shot4对应人物呈短发男性外观，穿深色长外套，身份外观不一致。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_3": [
+     {
+      "issue_id": "I5",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot4左侧被标作短身影的人物看起来是黑外套、深裤的短发男性，与Shot2的直发女性及深棕外套、棕裤外观不符，疑似角色被替换。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "rejected",
+        "v4": "rejected"
+       }
+      }
+     }
+    ],
+    "v3/fresh_1": [
+     {
+      "issue_id": "I5",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I6"
+      ],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2中短身影为齐下巴黑发、棕色长裤的女性；Shot4左侧离开者看似成年男性，明显不是该人物的同一可见外貌。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I6",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I5"
+      ],
+      "scope": [
+       "Shot4"
+      ],
+      "description": "Shot4短身影未保留Shot2所示人物身份/外貌，并且暗色离场人物与Shot2短女性明显不匹配。",
+      "verdicts": {
+       "V-L": {
+        "v4": "rejected"
+       }
+      }
+     }
+    ],
+    "v3/fresh_2": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2中较矮、棕色外套和裤子的短人物，在Shot4变为身形更高宽、黑色长衣的人物；重复角色外观不一致。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_3": [
+     {
+      "issue_id": "I7",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I8"
+      ],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2 与 Shot4 被称为同一短身影，但其可见人物外观差异显著：Shot2 是棕裤短发女性样貌，Shot4 是深色长外套的男性样貌。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I8",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I7"
+      ],
+      "scope": [
+       "Shot4"
+      ],
+      "description": "Shot4 的短身影与 Shot2 建立的短身影外观及性别呈现不符。",
+      "verdicts": {
+       "V-L": {
+        "v4": "rejected"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "P3": {
+   "case": "p069_wan21",
+   "title": "#069 Wan2.1: the long-coat adult changes between Shot2 and Shot4 (hair, coat colour, trousers)",
+   "example": "E3",
+   "runs": {
+    "v1/hist": [
+     {
+      "issue_id": "vv5",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "长外套成人的衣着前后差异明显：灰色外套配红色长裙变为橄榄绿外套配深色裤装。",
+      "verdicts": {
+       "V-V cross": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v1/rerun_1": [],
+    "v1/rerun_2": [],
+    "v2/run_a": [
+     {
+      "issue_id": "I3",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2长外套成人为直发女性，穿灰色外套和暗红长裤；Shot4对应角色变为卷发成人，穿橄榄绿色宽大外套和深色裤装。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_b": [
+     {
+      "issue_id": "I3",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2与Shot4所指长外套成人的外观不一致：Shot2为灰色外套、酒红裤及直发，Shot4为橄榄绿外套、深色裤及卷发。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_c": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2的长外套成人为直发、灰色外套与暗红长裤；Shot4相应搏斗者呈卷曲深发、橄榄绿外套，身份外观存在明显不一致。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_1": [
+     {
+      "issue_id": "I5",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot4长外套成人的发型及外套颜色与Shot2不符：Shot2为直发、灰色外套；Shot4为卷发、橄榄绿外套。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_2": [
+     {
+      "issue_id": "I6",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2的灰外套直发女性与Shot4扭打中的橄榄绿外套卷发、体型较壮人物外观差异明显。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_3": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot4的长外套成人相较Shot2外观有显著变化：灰色外套、直发及肩、暗红裤变为橄榄绿长外套、卷曲短发、深色裤。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_1": [
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I7"
+      ],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2至Shot4回归角色外观差异明显：红衣面具人的长款黑红服装变为红蓝/黑拼色造型；灰外套、酒红裤人物变为橄榄绿外套卷发人物。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I7",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I4"
+      ],
+      "scope": [
+       "Shot4"
+      ],
+      "description": "两位回归人物的外观变化违反跨镜头的角色连续性：面具人服装不一致；长外套人物的头发、外套颜色和裤装不一致。",
+      "verdicts": {
+       "V-L": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_2": [
+     {
+      "issue_id": "I5",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I11"
+      ],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2的长外套成人为短棕发、灰色外套及红裤；Shot4为卷发、橄榄绿外套及深色裤，重复角色外观不连贯。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I11",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I5"
+      ],
+      "scope": [
+       "Shot4"
+      ],
+      "description": "Shot4长外套成人的外套呈橄榄绿而非Shot2所述灰棕色，裤子也呈深色；同镜可见人物与Shot2角色形象不连续。",
+      "verdicts": {
+       "V-L": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_3": [
+     {
+      "issue_id": "I11",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I12"
+      ],
+      "scope": [
+       "Shot2",
+       "Shot4"
+      ],
+      "description": "Shot2 与 Shot4 的长外套成人外观不一致：Shot2 为直发女性样貌、灰外套与红裤；Shot4 为卷发女性样貌、橄榄绿外套与深裤。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I12",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I11"
+      ],
+      "scope": [
+       "Shot4"
+      ],
+      "description": "Shot4 的长外套成人外套颜色及裤装与 Shot2 对同一角色的明确描述不符。",
+      "verdicts": {
+       "V-L": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ]
+   }
+  },
+  "P4": {
+   "case": "p069_wan21",
+   "title": "#069 Wan2.1: the gun changes between Shot1 and Shot3 (bulky angular gun vs slim rifle with a yellow strap)",
+   "example": "E5",
+   "runs": {
+    "v1/hist": [
+     {
+      "issue_id": "vv2",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "同一枪械外形不一致：Shot1为大型黑灰厚壳枪，Shot3为带醒目黄色背带的细长枪。",
+      "verdicts": {
+       "V-V cross": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v1/rerun_1": [
+     {
+      "issue_id": "vv02",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "同一枪械外形不一致：Shot1为大型带纹理的粗大枪身，Shot3变为较细枪身并带醒目黄色背带。",
+      "verdicts": {
+       "V-V cross": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v1/rerun_2": [
+     {
+      "issue_id": "vl2",
+      "labels": [
+       "V-L"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot3枪械与Shot1外观明显不同：Shot3为带黄色背带的细长枪，非先前粗大纹理枪身。",
+      "verdicts": {
+       "V-L": {
+        "v1": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_a": [
+     {
+      "issue_id": "I1",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "男主在Shot1穿红黑菱格纹夹克并持大型黑灰色长枪；Shot3回到男主时，上衣变为红黑细条纹款，枪械形状及黄色挂带也显著不同。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_b": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "同一夹克男在Shot1与Shot3的上衣图案明显不同：Shot1为红黑菱形纹夹克，Shot3为红黑细横纹衣；持枪造型也明显不同。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/run_c": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot1的大型灰黑色角形枪械与Shot3明显不同：Shot3呈常规长枪外形，并带有醒目的黄色挂带。",
+      "verdicts": {
+       "V-L": {
+        "v2": "rejected",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_1": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot1与Shot3所持枪械外形不一致：前者是粗厚棱角大型枪械，后者为细长枪管并带醒目黄色背带的不同设计。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "rejected"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_2": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "男主跨镜服装花纹与枪械外观同时改变：Shot1为红黑菱格夹克和粗大瞄准镜枪械，Shot3为红黑细波纹夹克及带黄色吊带的另一种枪械。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v2/fresh_3": [
+     {
+      "issue_id": "I2",
+      "labels": [
+       "V-L",
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "男主两镜所持枪械明显不同：Shot1为粗厚方形灰黑枪械，Shot3为细长枪管银灰枪并带醒目黄色挂带。",
+      "verdicts": {
+       "V-L": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       },
+       "V-V cross": {
+        "v2": "confirmed",
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_1": [
+     {
+      "issue_id": "I3",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot1的大型宽厚灰黑枪械与Shot3的细长枪械结构显著不同；Shot3另有醒目的黄色背带。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_2": [
+     {
+      "issue_id": "I3",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot1与Shot3持枪男子所持武器的外形和显眼配件不一致。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     }
+    ],
+    "v3/fresh_3": [
+     {
+      "issue_id": "I3",
+      "labels": [
+       "V-V cross"
+      ],
+      "related": [
+       "I4"
+      ],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot1 与 Shot3 中男子手持枪械外形不同：Shot1 为厚重长枪并带瞄准镜，Shot3 为不同形状且带黄色吊带的枪。",
+      "verdicts": {
+       "V-V cross": {
+        "v4": "confirmed"
+       }
+      }
+     },
+     {
+      "issue_id": "I4",
+      "labels": [
+       "V-L"
+      ],
+      "related": [
+       "I2",
+       "I3"
+      ],
+      "scope": [
+       "Shot1",
+       "Shot3"
+      ],
+      "description": "Shot3 回到男子时，他的服装与枪械均和 Shot1 建立的形象/道具不同；违反文本对该男子及枪械的明确描述。",
+      "verdicts": {
+       "V-L": {
+        "v4": "rejected"
+       }
+      }
+     }
+    ]
+   }
+  }
+ },
+ "fixed": {
+  "E1": {
+   "case": "p014_wan21",
+   "run": "run_c",
+   "issue_id": "I1",
+   "labels": {
+    "v_l": {
+     "v2_1": {
+      "verdict": "rejected",
+      "assessment": "提示要求Shot3保留白色针织帽、直发和桃色领口，但未要求大衣必须系带、不得有黑扣，也未禁止围巾；画面仍可见灰色大衣和桃色领口，不能据此确认V-L违背。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot3明确要求桃色领口清晰可见，但所给画面中浅棕色围巾包住颈部，桃色领口不可见；大衣仍为灰色这一点不构成矛盾。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "提示明确要求Shot3的桃色领口清晰可见；该处被浅棕围巾遮挡，未达到“clear”的要求。但灰色大衣仍符合要求，且提示没有规定大衣必须是系带款或禁止围巾。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot3未能清楚呈现明确要求的桃色领口：围巾遮住颈部，且其外套前襟可见黑色扣子。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot3 明确要求桃色领口清晰可见且穿灰外套；画面中灰外套仍在，但浅棕色围巾遮住领口，双排扣也取代了Shot1/2可见的系带外观，因此核心服饰不符成立。描述中“Shot1/2未见围巾”并不准确：这些画面确实没有围巾，但核心违例不依赖此细节。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot3没有清楚呈现提示明确要求的 muted peach neckline：颈部被浅棕色围巾包住。提示未要求不得戴围巾，也未规定扣子或系带样式；这些不是此标签的核心依据。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot3的服饰违反了明确要求：提示要求桃色领口清楚可见，画面中颈部被浅棕围巾遮住。描述中称Shot1/2均为系带大衣并未见围巾，属于次要细节；Shot2实际也未见围巾。"
+     }
+    },
+    "v_v": {
+     "v2_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot1/2中的女子穿系带灰色大衣且未见围巾；Shot3可见黑色双排扣大衣和浅棕围巾。相同人物的服饰跨镜头明显不连续。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot1/2的女子穿系带灰大衣且颈部露出桃色衣物；Shot3同一女子改为有明显黑色双排扣的灰大衣并围浅棕围巾，跨镜服饰不一致。"
+     },
+     "v3": {
+      "verdict": "confirmed",
+      "assessment": "Shot1/2与Shot3都是同一女子，且在连续可见的造型中大衣剪裁从系带款变为有明显黑色双排扣的款式，Shot3还新增浅棕围巾，未见可解释这些服饰改变的动作或遮挡。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot1/2中女子穿系带灰色外套、露出桃色高领；Shot3换成双排扣外套并围浅棕围巾。对比的是同一女子，且未见解释该服饰变化的原因。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot1/2与Shot3是同一女子的连续造型比较：前者为系带灰外套、露出桃色衣领且无围巾，Shot3则为双排扣灰外套并戴浅棕围巾，存在明显跨镜服饰不一致。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot1与Shot3均为同一女子的近景，外套外观不连续：Shot1是系带、无可见双排扣的灰外套，Shot3出现明显黑色双排扣。描述所说Shot1/2的具体服饰细节并非都准确，但跨镜头外套不匹配仍成立。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "同一女子在Shot1/2与Shot3之间出现明显服饰不连续：Shot1/2是系带灰色大衣、露出浅桃色领口，Shot3则是带黑色双排扣的灰大衣并戴浅棕围巾。描述对Shot1/2的概括有误，但跨镜头服饰不匹配确实存在。"
+     }
+    }
+   },
+   "description": "女子在Shot3换成带黑扣的双排扣灰大衣，并围浅棕色厚围巾；Shot1/2为系带灰外套、露出桃色高领，围巾未见，属于重复人物服饰不连续。"
+  },
+  "E2": {
+   "case": "p069_wan21",
+   "run": "run_a",
+   "issue_id": "I2",
+   "labels": {
+    "v_l": {
+     "v2_1": {
+      "verdict": "rejected",
+      "assessment": "文本要求短身、深色衣着及棕褐色裤子，并未规定性别、发型或外套颜色。Shot2裤子呈棕色，Shot4裤子偏暗；现有画面不足以据此确认违反棕褐色要求。"
+     },
+     "v2_2": {
+      "verdict": "rejected",
+      "assessment": "文本只要求短身、深色衣着及棕色调裤子，没有规定性别、发型或外套颜色；Shot4人物裤子看起来较深，但不足以构成文本矛盾。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "Shot2建立的短身人物穿棕色裤装；Shot4对应位置的人物裤装明显较深，与棕色裤装要求不符。候选对Shot4人物性别、身份和外套颜色的具体描述并非提示要求，不能据此扩大确认范围。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2 明确称该人物穿棕色裤装；Shot4 对应人物可见的是深色裤装，与棕色裤装要求不符。文本没有指定性别，因此候选关于性别的部分不构成 V-L。"
+     },
+     "v4_1": {
+      "verdict": "rejected",
+      "assessment": "Shot2的要求是短身、深色衣着并穿棕色裤装；画面中的短身人物穿深色外套和棕色裤装，符合要求。Shot4只要求短身深色衣着，并未规定性别或裤色，因此候选所述Shot4差异不构成违反该处明确要求。"
+     },
+     "v4_2": {
+      "verdict": "rejected",
+      "assessment": "所引提示要求 Shot2 的短身人物穿深色衣物、棕色裤装；Shot2 中可见人物穿深色外套和棕色裤子，满足该要求。候选所说女性、棕色外套不是提示规定，不能据此判为 V-L。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "原文要求短身人物穿深色衣物和棕色裤子；Shot4中对应人物可见深色衣裤，裤子看起来并非棕色，故该服装要求未完整满足。性别和发型并非原文要求。"
+     }
+    },
+    "v_v": {
+     "v2_1": {
+      "verdict": "confirmed",
+      "assessment": "两镜头中的短身人物是对应角色，但其可见性别呈现、头发和衣着明显不同：Shot2为短发、棕色外套与棕裤的人物，Shot4则为黑发、深色长外套与深色裤装的人物；这不是视角或遮挡造成的差异。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot2与Shot4所示排程中的短身人物，面部、发型及外观明显不同：Shot2为短发女性，Shot4为短发男性，属于有效的跨镜身份连续性比较。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "Shot2和Shot4都出现靠近长外套成人与红衣面具成人的短身人物，位置与情境支持同一角色比较；两处可见人物的脸部及短发轮廓不同。不过两处服装都是长外套和长裤，不能确认候选描述的整体外观差异。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2 与 Shot4 都呈现短身人物，服装及发型明显不同：前者为棕色外套、棕色裤装和短发，后者为深色外套、深色裤装及不同发型；这不是镜头角度所能解释的。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot2与Shot4文本都指向同一短身深色衣着人物，但可见面貌与整体身份呈现不一致：Shot2是短发女性，Shot4左侧人物是男性。描述称Shot4人物穿深色长外套、深色裤装，与画面相符。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot2 与 Shot4 的对应短身人物外观明显不一致：Shot2 是穿棕色裤装的短发人物，Shot4 左侧人物则穿深色长外套和深色裤装，且可见面貌不同。描述对 Shot2 外套颜色的说法不准确，但跨镜头身份外观不连续仍成立。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2短身人物为短发人物，穿棕色裤子；Shot4左侧对应人物的可见面部、发型和体貌明显不同，是跨镜头身份不连续。服装差异是次要佐证，不是判断身份变化的必要条件。"
+     }
+    }
+   },
+   "description": "Shot2的短身人物是穿棕色外套和棕裤的短发女性；Shot4同一排程角色则呈现为靠砖墙的深色长外套男性，身份外观不连续。"
+  },
+  "E3": {
+   "case": "p069_wan21",
+   "run": "run_b",
+   "issue_id": "I3",
+   "labels": {
+    "v_l": {
+     "v2_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot2明示长外套成人穿松身灰棕外套、深色裤；Shot4可见其外套明显偏橄榄绿，违背对同一角色明确建立的服装描述。"
+     },
+     "v2_2": {
+      "verdict": "rejected",
+      "assessment": "Shot4只要求Long-coat adult参与搏斗，没有明文要求外套颜色、裤色或发型；Shot2的灰棕外套要求不能直接当作Shot4的逐镜要求。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "Shot2要求长外套成人穿灰棕外套、深色长裤；画面中其裤子呈酒红色，与深色裤要求不符。Shot4未在提示中另行明确外套颜色、头发或裤色，不能把这些都判为语言矛盾。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "提示明确规定长外套成人穿灰棕色外套、深色长裤；Shot2可见其外套偏灰，但露出的裤子明显偏酒红色，而非深色，已与明确要求不符。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot2 明确要求长外套成人穿灰棕外套、深色长裤；帧5可见其裤装呈酒红色，而非深色，违反该项要求。Shot4 外套颜色的细节不是确认此标签所必需。"
+     },
+     "v4_2": {
+      "verdict": "rejected",
+      "assessment": "文本要求灰棕色外套和深色裤；Shot4所见外套虽偏橄榄灰色，但仍可与灰棕色在画面光色下相容，裤装也呈深色，未能确认违反要求。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2明确要求长外套为宽松灰棕色、内穿深色裤；Shot4搏斗者外套呈橄榄绿，裤装可见为深色，外套颜色不符。头发和裤色的描述是次要细节，不影响外套颜色这一核心问题。"
+     }
+    },
+    "v_v": {
+     "v2_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot2的长外套成人与Shot4搏斗中的外套成人由角色和动作情境相连，但外套颜色、裤装呈现及头发外观有明显差异，无法由镜头角度解释。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot2和Shot4文本都指向同一Long-coat adult；可见外套颜色和发型明显不同，差异没有文本支持的换装或时间原因。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "Shot2和Shot4均指向参与场景的长外套成人；两处可见外观存在差别，但Shot2部分头发和裤装细节有限，且光线会影响外套颜色判断。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2与Shot4中的长外套成人均与红衣面具人相邻，Shot4延续两人搏斗，身份对应成立；外套颜色、裤色和头发外观均出现明显差异，不能仅由镜头角度解释。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot2 与 Shot4 都呈现同一长外套成人，但外套颜色和裤装外观明显不同，构成跨镜外观不一致。次要细节上，Shot2 成人头发并非清晰可见到足以判定直发。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot2与Shot4中被认作长外套成人的人物，其外套颜色从灰色明显变为橄榄绿色，外观不一致。候选提到的裤色及头发差异不是确认核心问题所必需。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot2与Shot4的长外套成人应是同一角色，灰色外套与橄榄绿外套的外观不一致；裤装颜色并非判断该核心问题所必需。"
+     }
+    }
+   },
+   "description": "Shot2与Shot4所指长外套成人的外观不一致：Shot2为灰色外套、酒红裤及直发，Shot4为橄榄绿外套、深色裤及卷发。"
+  },
+  "E5": {
+   "case": "p069_wan21",
+   "run": "run_c",
+   "issue_id": "I2",
+   "labels": {
+    "v_l": {
+     "v2_1": {
+      "verdict": "rejected",
+      "assessment": "文本要求枪械为大型、灰黑色且有棱角，但没有排除长枪外形或黄色挂带；Shot3枪械仍可见灰黑色枪身和有棱角的部分，不能据此确认违反明确要求。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot1明确要求大型灰黑色角形枪械及厚重外壳；Shot3可见常规长枪构型和醒目的黄色挂带，与该要求不符。"
+     },
+     "v3": {
+      "verdict": "partly_confirmed",
+      "assessment": "提示明确要求大型、灰黑色、角形且有厚重纹理外壳的枪械；Shot3仍可见灰黑色枪械，但其长枪构型和黄色挂带与所要求的厚重角形外观不符。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot3明确要求同一把 Angular firearm；Shot3画面所示枪械呈细长枪管与常规枪身构型，和Shot1所见的大型棱角厚重枪械不符。"
+     },
+     "v4_1": {
+      "verdict": "rejected",
+      "assessment": "核心问题是 Shot3 的枪械违反文字规定；文本要求角形枪械，但未要求其必须是短枪或禁止枪管、挂带。Shot3 可见灰黑色枪械，外形仍有棱角，黄色挂带本身也不违背明确要求。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot1与Shot3所示的是同一支枪；Shot3的枪与Shot1的大型灰黑角形枪械明显不同，未满足Shot3持有Angular firearm的要求。描述提及的黄色挂带也可见。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "核心问题是Shot3中的枪械是否符合原文所要求的Angular firearm；Shot3可见常规长枪式枪身与枪管，明显不同于Shot1的棱角分明、厚重外壳枪械，违反对同一枪械的要求。黄色挂带是额外细节，不是此标签的必要依据。"
+     }
+    },
+    "v_v": {
+     "v2_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot1可见厚重、宽大的灰黑色枪械外壳，Shot3则是细长枪管与不同枪身构型并带醒目黄色挂带；作为同一男子持有的同一枪械，两帧外观不一致。"
+     },
+     "v2_2": {
+      "verdict": "confirmed",
+      "assessment": "同一男子在Shot1与Shot3持有的枪械外形差异明显，后者还出现Shot1未见的黄色挂带，视觉上不一致。"
+     },
+     "v3": {
+      "verdict": "confirmed",
+      "assessment": "Shot1与Shot3中作为同一男子所持物的枪械外形明显不同，且文本将Shot3中的枪械称为同一 Angular firearm，未提供更换原因。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot1与Shot3均显示男子手持枪械，但枪身构型明显不同，Shot3还出现醒目的黄色挂带；文本没有说明更换枪械。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "核心问题是同一物件跨镜头身份或外形不一致：Shot1 是厚重、方正的灰黑色枪械，Shot3 则是带长枪管及黄色挂带的另一种明显构型。黄色挂带是次要细节；主要的不一致在枪械构型。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot1与Shot3的枪械外形和构造明显不一致，且文本将其指为同一Angular firearm。描述所称的黄色挂带也确实可见。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "核心问题是Shot1与Shot3作为同一枪械是否保持物体身份一致；Shot1为大型棱角厚重枪械，Shot3则呈长枪构型并带黄色挂带，外观差异显著且无可见原因。描述提及黄色挂带属次要细节。"
+     }
+    }
+   },
+   "description": "Shot1的大型灰黑色角形枪械与Shot3明显不同：Shot3呈常规长枪外形，并带有醒目的黄色挂带。"
+  },
+  "I5": {
+   "case": "p068_holocine",
+   "run": "run_a",
+   "issue_id": "I5",
+   "labels": {
+    "v_v": {
+     "v2_1": {
+      "verdict": "rejected",
+      "assessment": "候选所称女子在Shot6中消失后又重新出现没有得到画面支持；后续所见空画面只是人物离开视野后的短暂空镜，没有观察到女子再次入镜。"
+     },
+     "v2_2": {
+      "verdict": "rejected",
+      "assessment": "Shot6中人物离开画面后出现空镜，符合人物离开视野的可能过程；候选所称女子随后在Shot6重现也不符合所给画面，不能据此认定镜内不连续。"
+     },
+     "v2_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot6中两名男子仍在画面时，随后数帧只见空电梯；末帧女子又突然出现在电梯内。该重新出现没有可见进入过程，且与她此前向左离开不一致。"
+     },
+     "v4_1": {
+      "verdict": "confirmed",
+      "assessment": "Shot6相同电梯背景中，人物先可见、随后连续数帧画面无人，再出现女子；同一镜头内人物在无可见出入过程下消失并重现，符合所报的在场不稳定问题。"
+     },
+     "v4_2": {
+      "verdict": "confirmed",
+      "assessment": "Shot6同一连续镜头内，电梯背景与机位基本对齐，但人物先后消失，随后空画面持续出现；这不是仅由正常遮挡或视角变化解释的连续性，符合镜内人物存在不稳定。描述中女子后来重新出现确有画面支持，但没有证据显示所有所列人物都突然消失。"
+     },
+     "v4_3": {
+      "verdict": "confirmed",
+      "assessment": "Shot6 内先后可见人物，之后连续关键帧只显示电梯壁，构成镜头内人物骤然消失的存在不稳定。候选称女子随后重现不准确：所给 Shot6 后段画面没有显示她重新入镜。"
+     }
+    }
+   },
+   "description": "Shot6人物突然消失，随后空电梯连续出现数帧，之后女子又入镜；没有可见出场动作解释该空镜及人物重现。"
+  }
+ },
+ "paired_v_l": {
+  "v2_dual": {
+   "runs": 18,
+   "paired_v_l": {
+    "confirmed": 31,
+    "rejected": 23
+   },
+   "rejection_causes": {
+    "visual_judgement": 6,
+    "per_shot_reading": 10,
+    "not_a_text_requirement": 7
+   },
+   "unpaired_v_l": {
+    "confirmed": 14
+   }
+  },
+  "v3_split": {
+   "runs": 12,
+   "paired_v_l": {
+    "rejected": 10,
+    "confirmed": 15
+   },
+   "rejection_causes": {
+    "per_shot_reading": 2,
+    "visual_judgement": 3,
+    "not_a_text_requirement": 5
+   },
+   "unpaired_v_l": {
+    "confirmed": 8,
+    "rejected": 3
+   }
+  }
+ },
+ "cost": {
+  "calls": 163,
+  "uncached_input_tokens": 2889836,
+  "cached_input_tokens": 2235545,
+  "output_tokens": 233606,
+  "estimated_usd": 0.428142,
+  "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; estimate, not billed amount."
+ },
+ "labeling_shapes": {
+  "P1": {
+   "v1/hist": "not reported",
+   "v1/rerun_a": "V-L only",
+   "v1/rerun_b": "V-V only",
+   "v2/run_a": "V-V only",
+   "v2/run_b": "one issue, both labels",
+   "v2/run_c": "one issue, both labels",
+   "v2/fresh_1": "one issue, both labels",
+   "v2/fresh_2": "V-L only",
+   "v2/fresh_3": "V-V only",
+   "v3/fresh_1": "V-V only",
+   "v3/fresh_2": "not reported",
+   "v3/fresh_3": "linked pair"
+  },
+  "P2": {
+   "v1/hist": "not reported",
+   "v1/rerun_1": "not reported",
+   "v1/rerun_2": "not reported",
+   "v2/run_a": "one issue, both labels",
+   "v2/run_b": "one issue, both labels",
+   "v2/run_c": "not reported",
+   "v2/fresh_1": "one issue, both labels",
+   "v2/fresh_2": "one issue, both labels",
+   "v2/fresh_3": "one issue, both labels",
+   "v3/fresh_1": "linked pair",
+   "v3/fresh_2": "V-V only",
+   "v3/fresh_3": "linked pair"
+  },
+  "P3": {
+   "v1/hist": "V-V only",
+   "v1/rerun_1": "not reported",
+   "v1/rerun_2": "not reported",
+   "v2/run_a": "one issue, both labels",
+   "v2/run_b": "one issue, both labels",
+   "v2/run_c": "one issue, both labels",
+   "v2/fresh_1": "one issue, both labels",
+   "v2/fresh_2": "one issue, both labels",
+   "v2/fresh_3": "one issue, both labels",
+   "v3/fresh_1": "linked pair",
+   "v3/fresh_2": "linked pair",
+   "v3/fresh_3": "linked pair"
+  },
+  "P4": {
+   "v1/hist": "V-V only",
+   "v1/rerun_1": "V-V only",
+   "v1/rerun_2": "V-L only",
+   "v2/run_a": "one issue, both labels",
+   "v2/run_b": "one issue, both labels",
+   "v2/run_c": "one issue, both labels",
+   "v2/fresh_1": "one issue, both labels",
+   "v2/fresh_2": "one issue, both labels",
+   "v2/fresh_3": "one issue, both labels",
+   "v3/fresh_1": "V-V only",
+   "v3/fresh_2": "V-V only",
+   "v3/fresh_3": "linked pair"
+  }
+ }
+}

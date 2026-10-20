@@ -1,0 +1,18 @@
+{
+  "status": "pass",
+  "replayed_entity_frame_predictions": 472,
+  "unique_input_frames": 12,
+  "nodes": 41,
+  "predicted_visible_states_geocalib": 236,
+  "checks": [
+    "frozen original image hashes",
+    "all 19+22 entity nodes preserved",
+    "exact visible entity-frame coverage and IDs",
+    "positive box extents and SO3",
+    "box corners consistent with center/rotation/size",
+    "world-to-camera and original-pixel projection replay",
+    "unaltered official tracked source",
+    "paired baseline grounding references"
+  ],
+  "limits": "Input-conditioned projection consistency, not independent 3D accuracy. No world registration."
+}

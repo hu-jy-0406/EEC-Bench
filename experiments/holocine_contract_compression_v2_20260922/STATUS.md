@@ -1,0 +1,1 @@
+Superseded by explicit user selection of unchanged current Wan/StoryMem shared inputs. Selected delivery: ../holocine_shared_prompts_20260922; uniform text_len1519. No new compression or video generation was launched from this intermediate proposal.

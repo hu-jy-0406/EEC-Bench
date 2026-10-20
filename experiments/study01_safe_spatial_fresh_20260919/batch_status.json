@@ -1,0 +1,57 @@
+{
+  "status": "success",
+  "started": 1789821957.6139443,
+  "host": "auh7-1b-gpu-214",
+  "job_id": "200016",
+  "cases": {
+    "study0": {
+      "status": "success",
+      "started": 1789821958.862753,
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+        "--manifest",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study0.json",
+        "--narrative",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study0_narrative.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+        "--gpu",
+        "0",
+        "--gpu-uuid",
+        "GPU-fbf44063f6e48526",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "returncode": 0,
+      "seconds": 881.3908092975616
+    },
+    "study1": {
+      "status": "success",
+      "started": 1789822841.018862,
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+        "--manifest",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study1.json",
+        "--narrative",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study1_narrative.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+        "--gpu",
+        "0",
+        "--gpu-uuid",
+        "GPU-fbf44063f6e48526",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "returncode": 0,
+      "seconds": 881.2378950119019
+    }
+  },
+  "slurm_global_gpu": 2,
+  "rocm_device_index": 0,
+  "gpu_uuid": "GPU-fbf44063f6e48526",
+  "finished": 1789823722.275691,
+  "seconds": 1764.6617469787598
+}

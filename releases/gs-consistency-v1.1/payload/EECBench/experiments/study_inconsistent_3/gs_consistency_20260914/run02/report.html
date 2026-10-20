@@ -1,0 +1,2981 @@
+<!doctype html><html lang="zh"><meta charset="utf-8"><title>Gs 一致性评分</title><style>body{font:16px system-ui;max-width:1100px;margin:32px auto;padding:20px;background:#f7f8fa;color:#182230}details{background:white;border:1px solid #ddd;padding:14px;margin:8px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px}</style><h1>Gs 跨 shot 一致性</h1><p>WSC <b>88.89 / 100</b> · 可判定覆盖率 <b>22.2%</b></p><p>互补不扣分；证据不足不当作一致。每个实体最多扣一次。区间 [11.11111111111111, 88.88888888888889] 是未知项敏感性范围，不是置信区间。</p><details><summary>Framed landscape painting on wall / Framed landscape painting — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g01&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e1&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e1&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g01&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Wall around the landscape painting, above and beside g16.&quot;,
+      &quot;gs_evidence&quot;: &quot;Painting depth estimates are 5.421 and 7.113 in independent coordinates; shot3 depth MAD is 0.317. No trusted registration exists.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            298,
+            0,
+            501,
+            278
+          ],
+          &quot;observation&quot;: &quot;Landscape frame and narrow oblique view of the plant support are visible.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            251,
+            5,
+            418,
+            235
+          ],
+          &quot;observation&quot;: &quot;Matching landscape hangs above the more frontal console and plant.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged hanging position must reproduce its wall-relative offset after independently orienting the wall; that mapping is not established.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Oblique projection, uncertain support depth, and an actual hanging-position change remain possible.&quot;,
+      &quot;reason&quot;: &quot;Identity is supported, but apparent offsets do not establish compatible or conflicting physical placement.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g01&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Wall above the small wooden plant support.&quot;,
+      &quot;gs_evidence&quot;: &quot;Painting depth MAD is 0.056 in shot1 and 0.317 in shot3; registration is untrusted with no retained transforms.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            397,
+            0,
+            498,
+            84
+          ],
+          &quot;observation&quot;: &quot;Gold landscape frame is visible above and to the image right of the plant stand.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            260,
+            5,
+            366,
+            91
+          ],
+          &quot;observation&quot;: &quot;Corresponding landscape frame is visible above the console.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged hanging position requires a wall mapping independent of the painting; that mapping is not established.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Viewpoint and uncertain wall depth can explain the differing projected relation to the support.&quot;,
+      &quot;reason&quot;: &quot;Identity and presence are supported, but complete placement is unresolved.&quot;
+    }
+  ]
+}</pre></details><details><summary>Dark green mug / Dark green mug — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g02&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e2&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e2&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g02&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Mug contact area on g04, oriented toward the window wall by g12.&quot;,
+      &quot;gs_evidence&quot;: &quot;Mug–cup distances are 0.359 and 0.183 in independent metric priors; mug projection IoUs are 0.522 and 0.608. These are not registered distances.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            349,
+            274,
+            435,
+            401
+          ],
+          &quot;observation&quot;: &quot;Green mug rests on the table and overlaps the lower pencil cup in projection.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            257,
+            290,
+            328,
+            391
+          ],
+          &quot;observation&quot;: &quot;Green mug rests beside the pencil cup; their projected spacing differs.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Compare mug contact position within the table plane oriented by the radiator wall. Available evidence does not bound that position tightly enough.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Perspective and monocular depth error can explain the difference; a small relocation also remains possible.&quot;,
+      &quot;reason&quot;: &quot;The local support region is identifiable, but complete placement compatibility is not proved.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g02&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Tabletop beside the pencil cup.&quot;,
+      &quot;gs_evidence&quot;: &quot;Mug–cup center distance is 0.359 versus 0.183 in independent monocular reconstructions; no registered distance range exists.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            353,
+            294,
+            433,
+            398
+          ],
+          &quot;observation&quot;: &quot;Green mug overlaps the lower portion of the pale cup.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            260,
+            310,
+            325,
+            388
+          ],
+          &quot;observation&quot;: &quot;Green mug again stands immediately beside and partly in front of the cup.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The projected pairing admits unchanged placement, but does not establish the mug&#x27;s position on an independently oriented tabletop.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Perspective, uncertain contact depths, or movement within the tabletop region.&quot;,
+      &quot;reason&quot;: &quot;The visible pairing supports correspondence without proving cross-shot placement.&quot;
+    }
+  ]
+}</pre></details><details><summary>Black desk lamp — 确认冲突</summary><pre>{
+  &quot;group_id&quot;: &quot;g03&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e3&quot;
+  ],
+  &quot;b_ids&quot;: [],
+  &quot;verdict&quot;: &quot;conflict&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;presence&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g03&quot;,
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;The end of g04 carrying the lamp in shot1, on the side away from the g12 window wall; this is the far tabletop end in shot3.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot1/e3 has six supporting frames, projection IoU 0.813, and estimated height 0.456. Its base is directly visible on g04. No registered projection is available; the occupancy test uses the visible support surface.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            663,
+            69,
+            790,
+            252
+          ],
+          &quot;observation&quot;: &quot;Black shade, curved stem, and circular base are plainly visible; the base rests on the tabletop.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            108,
+            65,
+            430,
+            278
+          ],
+          &quot;observation&quot;: &quot;The corresponding far table end and space above it contain no lamp shade or stem; background wall, console, and doorway remain visible.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 24,
+          &quot;region_xyxy&quot;: [
+            200,
+            65,
+            430,
+            278
+          ],
+          &quot;observation&quot;: &quot;The woman is confined to the doorway side. The far tabletop and its central overhead space remain exposed without a lamp.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Keeping the visible base on the same table end would place the tall stem and shade above that surface in both target frames. Neither diagnostic part is present.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Removal or relocation outside the observed tabletop can explain the observations. A detector miss cannot explain the empty original pixels. Table-axis alternatives cannot hide a tall lamp elsewhere on the exposed table.&quot;,
+      &quot;reason&quot;: &quot;Direct target images exclude unchanged occupancy of the source lamp location; this does not establish global nonexistence.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g03&quot;,
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Exposed tabletop at the end opposite the foreground mug, on the side away from the window radiator.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot1/e3 has six selected supports, size approximately 0.365 × 0.283 × 0.456 and projection IoU 0.813. Its original pixels show the base on the table. Global registration is untrusted; the witness uses the visible support surface.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            667,
+            71,
+            787,
+            247
+          ],
+          &quot;observation&quot;: &quot;A large black shade, curved stem and circular base are plainly visible; the base rests on the tabletop.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            108,
+            65,
+            778,
+            475
+          ],
+          &quot;observation&quot;: &quot;The tabletop and space above it are exposed. Only the mug, pencil cup and tissue packet occupy the surface; no lamp shade or stem appears.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 24,
+          &quot;region_xyxy&quot;: [
+            108,
+            65,
+            778,
+            475
+          ],
+          &quot;observation&quot;: &quot;The person remains at the rear doorway. The tabletop is exposed and contains no black lamp shade or upright stem.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;If the source lamp remained on its tabletop support, its elevated black shade and stem would be visible in both target frames. The table establishes the support plane and the installed radiator identifies the window side. Uncertainty in end assignment cannot conceal the lamp: both ends and the intervening surface are in view.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Removal or relocation outside the visible tabletop is possible. This witness does not assert global nonexistence.&quot;,
+      &quot;reason&quot;: &quot;Two target frames directly exclude occupancy by the diagnostic elevated lamp parts throughout the plausible mapped support region.&quot;
+    }
+  ]
+}</pre></details><details><summary>Large wooden desk / Large wooden dining table — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g04&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e5&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e7&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g04&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Large table footprint relative to the radiator wall and room floor.&quot;,
+      &quot;gs_evidence&quot;: &quot;Sizes are [2.049,0.901,0.804] and [1.005,2.391,0.811]. Axis permutation and independent scale are unresolved. Only one other eligible anchor exists.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            63,
+            209,
+            827,
+            480
+          ],
+          &quot;observation&quot;: &quot;Worn rectangular tabletop, apron, and some legs are visible; the near boundary is cropped.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            108,
+            214,
+            778,
+            480
+          ],
+          &quot;observation&quot;: &quot;Matching table construction is visible from the other side; lower structure is partly cropped.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Test table pose and extent using two independent matched landmarks excluding the table. Such a certified reference is unavailable.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Viewpoint and reconstruction explain the axis and size differences; movement is also unresolved.&quot;,
+      &quot;reason&quot;: &quot;The table cannot certify its own unchanged placement through its anchor role.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g04&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Main table between the window radiator and room interior.&quot;,
+      &quot;gs_evidence&quot;: &quot;Sizes are 2.049 × 0.901 × 0.804 and 1.005 × 2.391 × 0.811; horizontal axes differ. The table is itself an alignment candidate.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            63,
+            209,
+            827,
+            480
+          ],
+          &quot;observation&quot;: &quot;Worn rectangular top, apron and some legs are visible; lower extent is cropped.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            108,
+            214,
+            778,
+            480
+          ],
+          &quot;observation&quot;: &quot;Corresponding top and apron appear from another direction; lower extent is cropped.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Testing table placement requires independent references that establish its corners and heading without using the table itself.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Axis permutation, monocular scale differences and hidden leg geometry.&quot;,
+      &quot;reason&quot;: &quot;Matching construction does not certify unchanged complete placement or extent.&quot;
+    }
+  ]
+}</pre></details><details><summary>Small framed picture on bookcase — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g05&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e6&quot;
+  ],
+  &quot;b_ids&quot;: [],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g05&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Interior bookcase shelf holding the small framed picture.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source support is [688,46,748,94]; shot3 has no corresponding shelf-picture node and shows only a narrow boundary fragment of shelving.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            682,
+            39,
+            755,
+            101
+          ],
+          &quot;observation&quot;: &quot;Small landscape frame rests within the bookcase shelf.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            39,
+            205
+          ],
+          &quot;observation&quot;: &quot;Only an edge of dark shelving is visible; the interior shelf holding the frame is outside the crop.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged shelf picture can remain beyond shot3&#x27;s left boundary.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Its hidden state cannot be determined.&quot;,
+      &quot;reason&quot;: &quot;The diagnostic shelf region is excluded by framing; precise metric mapping is unnecessary.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g05&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Interior bookcase shelf carrying the small landscape frame.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source frame support is [688,46,748,94]; shot3 has no corresponding node.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            688,
+            46,
+            748,
+            94
+          ],
+          &quot;observation&quot;: &quot;Small framed landscape rests inside the bookcase.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            36,
+            200
+          ],
+          &quot;observation&quot;: &quot;Only a narrow boundary portion of dark shelving is visible; the source shelf interior is excluded.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The frame could remain on the shelf outside the target crop.&quot;,
+      &quot;alternative_explanations&quot;: &quot;The target does not expose the diagnostic shelf region.&quot;,
+      &quot;reason&quot;: &quot;Certain cropping of the relevant shelf interior suffices without a precise metric mapping.&quot;
+    }
+  ]
+}</pre></details><details><summary>Light ceramic pencil cup / White pencil cup — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g06&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e7&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e9&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g06&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Pencil cup on the table plane oriented by the radiator wall.&quot;,
+      &quot;gs_evidence&quot;: &quot;Estimated heights are 0.077 and 0.108; source projection IoU is only 0.412 and its lower body is occluded by the mug.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            379,
+            274,
+            434,
+            353
+          ],
+          &quot;observation&quot;: &quot;Pale cup rim and implements are visible; the mug hides its lower body.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            282,
+            290,
+            328,
+            365
+          ],
+          &quot;observation&quot;: &quot;More of the pale holder&#x27;s body is visible beside the mug.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged cup should preserve its footprint and extent in the oriented table plane; hidden source contact geometry prevents a complete test.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Occlusion and depth error can explain differing extents; relocation or shape differences remain unresolved.&quot;,
+      &quot;reason&quot;: &quot;Positive identity and support evidence do not establish complete unchanged placement.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g06&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Pencil cup on the main tabletop beside the mug.&quot;,
+      &quot;gs_evidence&quot;: &quot;Cup projection IoUs are 0.412 and 0.590; inferred heights are 0.077 and 0.108. The mug hides part of the source cup.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            382,
+            274,
+            432,
+            340
+          ],
+          &quot;observation&quot;: &quot;Pale holder and implements are visible, with its lower front obscured by the mug.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            285,
+            293,
+            325,
+            362
+          ],
+          &quot;observation&quot;: &quot;Pale holder stands behind the mug with a larger exposed side.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged holder can produce these differing visible extents, but its contact position is not independently registered.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Mug occlusion and uncertain depth explain the box differences; relocation remains possible.&quot;,
+      &quot;reason&quot;: &quot;Presence is established; complete placement and extent are not.&quot;
+    }
+  ]
+}</pre></details><details><summary>Trailing plant on windowsill / Trailing plant on windowsill — 有证据相容</summary><pre>{
+  &quot;group_id&quot;: &quot;g07&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e8&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e10&quot;
+  ],
+  &quot;verdict&quot;: &quot;compatible&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;bounded_witness_recheck_resolved_abstention&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g07&quot;,
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Window ledge above g12, along the window-facing side of g04.&quot;,
+      &quot;gs_evidence&quot;: &quot;Plant–radiator distances are 0.549 and 0.503; estimated vertical extents are 0.534 and 0.588. Independent scales prevent exact metric comparison.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            22,
+            151,
+            219,
+            413
+          ],
+          &quot;observation&quot;: &quot;Plant crown sits on the window ledge and vines descend over the radiator region.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            709,
+            151,
+            852,
+            411
+          ],
+          &quot;observation&quot;: &quot;Corresponding crown and descending vines occupy the same ledge-over-radiator arrangement.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The unchanged plant fits both observed ledge contacts and vertical envelopes without requiring an offset or extent change.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Small foliage deformations and hidden-leaf differences are unresolved.&quot;,
+      &quot;reason&quot;: &quot;The radiator fixes the local wall region and the table distinguishes its room-facing side. This supplies positive support and extent compatibility despite uncertain exact leaf geometry.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g07&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Window ledge above the radiator.&quot;,
+      &quot;gs_evidence&quot;: &quot;Plant heights are 0.534 and 0.588; plant–radiator distances are 0.549 and 0.503, without registered uncertainty bounds.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            24,
+            155,
+            97,
+            321
+          ],
+          &quot;observation&quot;: &quot;Foliage descends from the sill beside the curtain and over the radiator.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            738,
+            156,
+            827,
+            314
+          ],
+          &quot;observation&quot;: &quot;Corresponding foliage descends from the sill over the radiator.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The common attachment is consistent, but individual vine depth and full extent cannot be mapped.&quot;,
+      &quot;alternative_explanations&quot;: &quot;View-dependent foliage overlap, deformation or a small placement difference.&quot;,
+      &quot;reason&quot;: &quot;Attachment context alone does not establish the complete static plant geometry.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g07&quot;,
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Window ledge above g12, beside the window-facing long side of g04.&quot;,
+      &quot;gs_evidence&quot;: &quot;The matched plant has estimated heights 0.534 and 0.588 and plant–radiator distances 0.549 and 0.503. These independent monocular estimates admit a common extent but do not measure it. Global registration is untrusted.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            22,
+            151,
+            219,
+            413
+          ],
+          &quot;observation&quot;: &quot;The leafy crown rises from the window ledge; long vines descend in front of the radiator. The table lies inward from this window-wall assembly.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            709,
+            151,
+            852,
+            411
+          ],
+          &quot;observation&quot;: &quot;The corresponding crown occupies the ledge above the radiator, with vines descending over its front and the table inward from the window.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged plant at this ledge contact admits both visible crown and hanging-vine envelopes. The proposals correctly identify positive support and placement evidence; their inability to recover individual vine depths does not defeat this compatible explanation.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Hidden foliage, small deformations and small shifts remain unresolved. These prevent an exact geometry claim but do not require a different layout.&quot;,
+      &quot;reason&quot;: &quot;The table and installed radiator independently identify the window-facing side and orient the local ledge region, without using the plant as an anchor. The visible ledge contact and vertical relation to the radiator provide placement evidence beyond appearance. Remaining endpoint and depth ambiguity admits the same placement; it does not reverse the local support relation.&quot;
+    }
+  ]
+}</pre></details><details><summary>Dark wooden bookcase with lower cabinet — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g08&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e9&quot;
+  ],
+  &quot;b_ids&quot;: [],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g08&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Bookcase at the boundary of shot3.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source bookcase size is [1.137,0.403,2.115]; no target furniture node exists. The target crop exposes only a fragment.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            531,
+            0,
+            792,
+            235
+          ],
+          &quot;observation&quot;: &quot;Dark bookcase shelves and lower cabinet are visible behind the table.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            40,
+            360
+          ],
+          &quot;observation&quot;: &quot;Dark shelving and cabinet structure are physically visible at the left boundary.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A graph omission cannot establish disappearance when furniture remains visible in the original image.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Detector omission and cropping explain the one-sided inventory; full placement is unresolved.&quot;,
+      &quot;reason&quot;: &quot;Visible furniture without a frozen counterpart is an omission case, not demonstrated absence or complete compatibility.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g08&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Dark bookcase at the room boundary.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot1/e9 has a 2.115 inferred height and 0.626 projection IoU; no shot3 furniture node represents the visible boundary shelving.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            534,
+            0,
+            790,
+            234
+          ],
+          &quot;observation&quot;: &quot;Bookcase shelves and upper portion of the lower cabinet are visible.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            39,
+            355
+          ],
+          &quot;observation&quot;: &quot;Dark shelving and cabinet trim remain visibly present at the left boundary.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Graph omission cannot demonstrate disappearance when related furniture is visible in original pixels.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Detector omission combined with severe cropping; full placement remains unresolved.&quot;,
+      &quot;reason&quot;: &quot;Visible counterpart without a frozen node, with insufficient extent for compatibility.&quot;
+    }
+  ]
+}</pre></details><details><summary>Trailing plant on bookcase shelf / Plant at far left edge — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g09&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e10&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e13&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g09&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: false,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Bookcase foliage and the cropped plant fragment at shot3&#x27;s left edge.&quot;,
+      &quot;gs_evidence&quot;: &quot;The supplied group is ambiguous. Source height 0.547 and target height 0.312 describe differently exposed foliage.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            586,
+            37,
+            658,
+            143
+          ],
+          &quot;observation&quot;: &quot;Plant crown and trailing foliage occupy an interior bookcase shelf.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            129,
+            29,
+            201
+          ],
+          &quot;observation&quot;: &quot;Only cropped foliage and a ledge fragment are visible.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A shared-entity occupancy or shape test requires confirmation of the same plant and shelf attachment.&quot;,
+      &quot;alternative_explanations&quot;: &quot;A different shelf plant or a cropped view of the source plant both remain possible.&quot;,
+      &quot;reason&quot;: &quot;The supplied identity ambiguity cannot be resolved.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g09&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: false,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Bookcase foliage versus the target&#x27;s cropped left-edge plant.&quot;,
+      &quot;gs_evidence&quot;: &quot;The supplied group is ambiguous; inferred heights are 0.547 and 0.312 for differently exposed foliage.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            589,
+            39,
+            656,
+            139
+          ],
+          &quot;observation&quot;: &quot;Leafy plant trails from an interior shelf.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            132,
+            27,
+            198
+          ],
+          &quot;observation&quot;: &quot;Only a small cropped foliage fragment is visible.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;No valid same-entity counterfactual can be formed without identifying the fragment.&quot;,
+      &quot;alternative_explanations&quot;: &quot;The fragment may belong to the source plant or another plant.&quot;,
+      &quot;reason&quot;: &quot;Disputed identity is preserved.&quot;
+    }
+  ]
+}</pre></details><details><summary>Patterned area rug beneath desk / Large patterned rug beneath dining table — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g10&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e11&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e15&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g10&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Floor covering beneath g04 beside the radiator wall.&quot;,
+      &quot;gs_evidence&quot;: &quot;Rug sizes are [2.954,2.353,0.050] and [2.489,3.859,0.050]; boundaries are heavily occluded and cropped.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            0,
+            383,
+            852,
+            480
+          ],
+          &quot;observation&quot;: &quot;Only strips of patterned rug around and beneath the table are visible.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            24,
+            351,
+            849,
+            480
+          ],
+          &quot;observation&quot;: &quot;Patterned border and field appear around table legs; much of the rug remains hidden.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Check corresponding borders and corners within the floor region oriented by table and radiator. Too few corresponding boundaries are exposed.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Uncertain inferred extent, axis assignment, and an actual rug displacement remain possible.&quot;,
+      &quot;reason&quot;: &quot;The support relation is compatible, but full placement and extent are not positively established.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g10&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Floor beneath and around the main table.&quot;,
+      &quot;gs_evidence&quot;: &quot;Rug footprints are 2.954 × 2.353 and 2.489 × 3.859; both have a fixed approximately 0.05 thickness prior.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            566,
+            385,
+            852,
+            480
+          ],
+          &quot;observation&quot;: &quot;A patterned portion extends beside the table; much of the rug is hidden or cropped.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            25,
+            355,
+            300,
+            480
+          ],
+          &quot;observation&quot;: &quot;Border and ornamental field appear beside the table, with other boundaries hidden.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Full rug corners and orientation would need correspondence to distinguish a shape change from reconstruction error.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Cropping, table occlusion, axis choices and monocular extent estimation.&quot;,
+      &quot;reason&quot;: &quot;Neither a complete unchanged footprint nor a conflicting footprint is established.&quot;
+    }
+  ]
+}</pre></details><details><summary>Wooden slat-back chair / Wooden dining chair — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g11&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e13&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e6&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g11&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Chair along the window-facing side of g04, in front of g12.&quot;,
+      &quot;gs_evidence&quot;: &quot;Both chair geometries are limited, with projection IoUs 0.315 and 0.271; source center MAD includes 0.107 in depth.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            124,
+            178,
+            290,
+            323
+          ],
+          &quot;observation&quot;: &quot;Curved top rail and vertical slats are visible; seat and floor contacts are hidden.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            536,
+            206,
+            685,
+            345
+          ],
+          &quot;observation&quot;: &quot;Matching chair back stands between table and radiator; the tabletop hides lower structure.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Compare chair footprint and facing within the window-side table region. Hidden seat and legs leave offset and rotation uncertain.&quot;,
+      &quot;alternative_explanations&quot;: &quot;An unchanged chair or a modest movement both explain the exposed backs.&quot;,
+      &quot;reason&quot;: &quot;The same side-of-table relation does not prove complete chair placement.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g11&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Chair beside the window-facing long side of the table.&quot;,
+      &quot;gs_evidence&quot;: &quot;Both chair estimates are limited, with projection IoUs 0.315 and 0.271. Source center MAD reaches 0.107 in depth.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            126,
+            180,
+            287,
+            323
+          ],
+          &quot;observation&quot;: &quot;Broad top rail and slats are exposed behind the table; the seat is concealed.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            539,
+            209,
+            682,
+            342
+          ],
+          &quot;observation&quot;: &quot;Matching chair back is visible between table and window; the seat and lower structure are concealed.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A placement comparison needs the chair&#x27;s support position and heading, not only its projected back.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Perspective and hidden seat depth, or actual chair movement.&quot;,
+      &quot;reason&quot;: &quot;The same general seating region is visible, but precise placement remains uncertain.&quot;
+    }
+  ]
+}</pre></details><details><summary>White radiator below window / White radiator beneath window — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g12&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e14&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e18&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g12&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Radiator installed below the window.&quot;,
+      &quot;gs_evidence&quot;: &quot;Sizes are [1.240,0.171,0.454] and [0.155,1.254,0.586]. The radiator is an alignment candidate, with no trusted transform or independent two-landmark test.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            29,
+            234,
+            220,
+            414
+          ],
+          &quot;observation&quot;: &quot;White radiator lies beneath the sill, partly hidden by chair and curtain.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            711,
+            235,
+            852,
+            412
+          ],
+          &quot;observation&quot;: &quot;White radiator is beneath the window, with its right extent cropped.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Its own anchor hypothesis cannot establish unchanged endpoints and extent; an independent reference is required.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Cropping, occlusion, scale error, and axis permutation explain the reconstructed size differences.&quot;,
+      &quot;reason&quot;: &quot;Installation context supports identity, but the required independent placement mapping is unavailable.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g12&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Installed radiator beneath the sash window.&quot;,
+      &quot;gs_evidence&quot;: &quot;Inferred lengths are approximately 1.240 and 1.254, but heights are 0.454 and 0.586. This entity is an alignment candidate itself.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            30,
+            239,
+            218,
+            412
+          ],
+          &quot;observation&quot;: &quot;Radiator sits below the sill, partly blocked by the chair and curtain.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            713,
+            241,
+            852,
+            409
+          ],
+          &quot;observation&quot;: &quot;Radiator is visible below the sill, with its right extent cropped.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Independent references and visible endpoints are needed to verify the radiator&#x27;s full placement and extent.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Different visible endpoints, repeated ribs and monocular height error.&quot;,
+      &quot;reason&quot;: &quot;Installed attachment is supported, but complete geometric compatibility is not certified.&quot;
+    }
+  ]
+}</pre></details><details><summary>Terracotta planter on windowsill / Windowsill plant pot — 有证据相容</summary><pre>{
+  &quot;group_id&quot;: &quot;g13&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e15&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e17&quot;
+  ],
+  &quot;verdict&quot;: &quot;compatible&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;bounded_witness_recheck_resolved_abstention&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g13&quot;,
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Plant-pot contact on the window ledge directly above g12.&quot;,
+      &quot;gs_evidence&quot;: &quot;Pot heights are 0.218 and 0.202; relative center dispersions are 0.211 and 0.192. Exact depth is uncertain, but frame support shows ledge attachment.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            25,
+            184,
+            99,
+            267
+          ],
+          &quot;observation&quot;: &quot;Earthy tapered pot rests on the sill above the radiator, partly covered by leaves.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            744,
+            182,
+            820,
+            253
+          ],
+          &quot;observation&quot;: &quot;Corresponding tapered pot rests on the same window ledge above the radiator.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;One unchanged pot on this ledge reproduces the support contact and exposed tapered body in both views within the supplied uncertainty.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Rotation about the pot axis and hidden rim detail remain unresolved without affecting this compatibility.&quot;,
+      &quot;reason&quot;: &quot;The radiator and table orient the local window region; visible contact and body extent supply positive placement evidence.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g13&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Pot on the window ledge above the radiator.&quot;,
+      &quot;gs_evidence&quot;: &quot;Relative center dispersions are 0.211 and 0.192; source projection IoU is 0.396.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            28,
+            194,
+            66,
+            246
+          ],
+          &quot;observation&quot;: &quot;Earthy-colored tapered pot is partly covered by leaves.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            768,
+            192,
+            812,
+            232
+          ],
+          &quot;observation&quot;: &quot;Corresponding pot is visible on the sill beneath the leafy crown.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A fixed sill contact is plausible, but its exact position along and across the ledge is not registered.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Perspective, foliage occlusion and rotational symmetry permit different placements.&quot;,
+      &quot;reason&quot;: &quot;Common support and identity do not resolve full placement.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g13&quot;,
+      &quot;verdict&quot;: &quot;compatible&quot;,
+      &quot;mechanism&quot;: &quot;layout&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Window-ledge support contact above g12, on the window-facing side of g04.&quot;,
+      &quot;gs_evidence&quot;: &quot;Pot heights are estimated as 0.218 and 0.202; relative center dispersions are 0.211 and 0.192. Source projection IoU is only 0.396. These values do not establish exact depth or displacement, but are consistent with the exposed pot and sill support in the original images.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            25,
+            184,
+            99,
+            267
+          ],
+          &quot;observation&quot;: &quot;An earthy tapered pot rests on the window sill above the radiator. Leaves overlap its rim and part of its body.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            744,
+            182,
+            820,
+            253
+          ],
+          &quot;observation&quot;: &quot;The corresponding tapered pot rests on the sill over the radiator, beneath the leafy crown; its exposed body and support contact are visible.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A single pot retained at the observed sill contact can explain both exposed tapered bodies and their support heights. Both proposals correctly locate the pot; uncertainty about its exact coordinate along the sill does not rule out that common placement.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Axial rotation, concealed rim geometry and a small shift along or across the sill cannot be distinguished. No exact hidden footprint is asserted.&quot;,
+      &quot;reason&quot;: &quot;The g04–g12 table/window-wall arrangement orients the local region independently of the tested pot. Positive sill contact and placement above the same radiator support compatibility within uncertain scale. Alternative pot rotations and unresolved ledge coordinates preserve this compatible explanation.&quot;
+    }
+  ]
+}</pre></details><details><summary>Small pale ceramic vessel on bookcase — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g14&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e16&quot;
+  ],
+  &quot;b_ids&quot;: [],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g14&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Interior bookcase shelf beside the small landscape frame.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source vessel support is [649,67,672,93], well within the bookcase interior; no target counterpart is supplied.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            645,
+            62,
+            678,
+            97
+          ],
+          &quot;observation&quot;: &quot;Small pale vessel is visible on the shelf.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            40,
+            205
+          ],
+          &quot;observation&quot;: &quot;Only a boundary strip of the shelving is exposed, excluding this interior shelf location.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The unchanged vessel can remain outside the target crop.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Its unseen presence or movement is untestable.&quot;,
+      &quot;reason&quot;: &quot;Framing excludes the diagnostic shelf region.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g14&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Bookcase interior shelf between plant and small picture.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source vessel support is [649,67,672,93], with inferred height 0.128; there is no target node.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            649,
+            67,
+            672,
+            93
+          ],
+          &quot;observation&quot;: &quot;Small pale vessel rests on the interior shelf.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            36,
+            200
+          ],
+          &quot;observation&quot;: &quot;The narrow shelving crop does not expose the vessel&#x27;s interior shelf location.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The vessel could remain outside the target crop.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Relevant shelf interior is outside the view.&quot;,
+      &quot;reason&quot;: &quot;Cropping explains the one-sided observation without requiring precise registration.&quot;
+    }
+  ]
+}</pre></details><details><summary>Black pen in pencil cup / Writing implements in pencil cup — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g15&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e17&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e19&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g15&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: false,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Writing implements inside the matched pencil cup.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source node isolates one black pen, with limited geometry and IoU 0.262; target node represents an aggregate of implements.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            409,
+            273,
+            428,
+            308
+          ],
+          &quot;observation&quot;: &quot;A dark pen projects above the cup rim.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            282,
+            290,
+            327,
+            323
+          ],
+          &quot;observation&quot;: &quot;Several tan and dark implements form a cluster above the holder.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An individual-pen test cannot use the aggregate target extent as its counterpart.&quot;,
+      &quot;alternative_explanations&quot;: &quot;The pen may be present within the cluster, hidden by other implements, or different.&quot;,
+      &quot;reason&quot;: &quot;The frozen scope mismatch precludes a shared-entity placement verdict.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g15&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: false,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Writing implements protruding from the pencil cup.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source node isolates a pen; target node aggregates implements. Source geometry is limited with IoU 0.262.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            411,
+            276,
+            425,
+            305
+          ],
+          &quot;observation&quot;: &quot;A dark implement protrudes from the cup.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            285,
+            293,
+            324,
+            320
+          ],
+          &quot;observation&quot;: &quot;Several tan and dark implements form a small overlapping cluster.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The individual source pen cannot be tested against an aggregate as though their complete extents were equivalent.&quot;,
+      &quot;alternative_explanations&quot;: &quot;The pen may be present within the cluster, hidden by another implement, or different.&quot;,
+      &quot;reason&quot;: &quot;Entity scope mismatch prevents an identity-supported comparison.&quot;
+    }
+  ]
+}</pre></details><details><summary>Small wooden plant stand against wall / Small wooden console table — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g16&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e18&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e8&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g16&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Wooden wall-side support carrying g17.&quot;,
+      &quot;gs_evidence&quot;: &quot;Widths are 0.361 and 0.906 under independent axes. Projection IoUs are 0.370 and 0.429; depth MADs are 0.129 and 0.366.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            296,
+            184,
+            393,
+            280
+          ],
+          &quot;observation&quot;: &quot;A narrow oblique top, drawer/apron, and portions of legs appear behind the main table.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            263,
+            138,
+            420,
+            236
+          ],
+          &quot;observation&quot;: &quot;The broader frontal top and drawer/apron are visible; lower legs remain obscured.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A shape or position change requires corresponding physical edges under an independently oriented wall mapping. Neither full depth nor hidden edges are established.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Foreshortening and reconstruction of visible fragments can explain the large width difference.&quot;,
+      &quot;reason&quot;: &quot;There is no certified mapping or exposed geometry sufficient to distinguish unchanged furniture from a change.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g16&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Small wooden support against the wall near the landscape painting.&quot;,
+      &quot;gs_evidence&quot;: &quot;Footprints are 0.361 × 0.335 and 0.906 × 0.481; depth MADs are 0.129 and 0.366, and projection IoUs 0.370 and 0.429.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            299,
+            190,
+            390,
+            277
+          ],
+          &quot;observation&quot;: &quot;Narrow oblique top and slender supports are visible; the main table hides the lower structure.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            268,
+            144,
+            417,
+            233
+          ],
+          &quot;observation&quot;: &quot;A broader frontal top and drawer/apron are visible above the main table.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A shape conflict requires corresponding physical edges and an independent wall mapping in two frames per shot.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Oblique foreshortening, concealed dimensions and systematic reconstruction error.&quot;,
+      &quot;reason&quot;: &quot;The large box difference does not exclude an unchanged support.&quot;
+    }
+  ]
+}</pre></details><details><summary>Trailing plant on small wooden stand / Trailing plant on console table — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g17&quot;,
+  &quot;a_ids&quot;: [
+    &quot;shot1/e19&quot;
+  ],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e11&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g17&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Plant crown and trailing vines on g16.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source fused IoU is 0.0197, with depth MAD 0.278 and mixed fragment/full-view support; target IoU is 0.397.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            305,
+            156,
+            377,
+            267
+          ],
+          &quot;observation&quot;: &quot;Small crown and trailing vines are visible around the narrow support.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            248,
+            109,
+            339,
+            227
+          ],
+          &quot;observation&quot;: &quot;Leafy crown and long vines descend along the console; lower foliage is hidden by the table.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A shared plant envelope cannot be tested from the unreliable source fusion and unmatched exposed foliage boundaries.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Viewpoint, occlusion, deformable foliage, and source reconstruction error remain sufficient explanations.&quot;,
+      &quot;reason&quot;: &quot;Attachment supports identity, but complete placement and shape cannot be verified.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g17&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;shape&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Trailing plant on the small wall-side support.&quot;,
+      &quot;gs_evidence&quot;: &quot;Source fused IoU is only 0.020, relative dispersion 0.293, and depth MAD 0.278; tiny fragments and fuller views were combined.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            309,
+            160,
+            373,
+            264
+          ],
+          &quot;observation&quot;: &quot;Leafy crown and descending vines are visible over the narrow stand.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            252,
+            112,
+            336,
+            224
+          ],
+          &quot;observation&quot;: &quot;Leafy crown and long vines descend at the side of the console.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The source fused extent cannot reliably predict a corresponding target foliage envelope.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Occlusion, view-dependent overlap, deformation and poor source fusion.&quot;,
+      &quot;reason&quot;: &quot;Unreliable source geometry prevents either complete compatibility or a shape conflict.&quot;
+    }
+  ]
+}</pre></details><details><summary>Larger framed picture in hallway — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g18&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e3&quot;
+  ],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g18&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Hallway wall beyond the room doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target picture depth is approximately 9.915 and support is [54,21,90,73]; it belongs to the hallway, not the room landscape group.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            48,
+            16,
+            96,
+            80
+          ],
+          &quot;observation&quot;: &quot;A framed picture is visible on the hallway wall through the open doorway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            786,
+            0,
+            852,
+            364
+          ],
+          &quot;observation&quot;: &quot;The room-side door and boundary are visible; the hallway picture&#x27;s wall is not exposed.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged hallway picture is hidden from shot1 by the doorway geometry and framing.&quot;,
+      &quot;alternative_explanations&quot;: &quot;The unseen hallway state remains untested.&quot;,
+      &quot;reason&quot;: &quot;The relevant wall is outside shot1&#x27;s visible region.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g18&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Hallway wall beyond the doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e3 is supported at [54,21,90,73], with depth approximately 9.915 in its independent frame.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            54,
+            21,
+            90,
+            73
+          ],
+          &quot;observation&quot;: &quot;Framed picture is visible beyond the open doorway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            790,
+            0,
+            852,
+            365
+          ],
+          &quot;observation&quot;: &quot;The doorway area shows a closed door surface and no exposed hallway interior.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A hallway picture can remain behind the door or outside the source viewing direction.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Hallway exclusion from shot1.&quot;,
+      &quot;reason&quot;: &quot;The relevant hallway wall is not visible; precise cross-shot coordinates are unnecessary.&quot;
+    }
+  ]
+}</pre></details><details><summary>Framed botanical picture beside window — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g19&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e4&quot;
+  ],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g19&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Window-side wall return bearing the botanical print.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target support [589,5,640,96] places this distinct picture beside the window; no source counterpart is supplied.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            581,
+            0,
+            653,
+            107
+          ],
+          &quot;observation&quot;: &quot;Tall botanical print hangs on the wall beside the curtain.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            225,
+            240
+          ],
+          &quot;observation&quot;: &quot;Window and curtain fill the left view; the wall return seen beside the window in shot3 is not exposed.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The print can remain unchanged on a wall portion outside shot1&#x27;s framing.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Its hidden state cannot be assessed.&quot;,
+      &quot;reason&quot;: &quot;The botanical print&#x27;s attachment region is not visible in shot1.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g19&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Window-side wall carrying the botanical print.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target support is [589,5,640,96]; no source counterpart is frozen.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            589,
+            5,
+            640,
+            96
+          ],
+          &quot;observation&quot;: &quot;Tall botanical print hangs on the wall beside the window.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            0,
+            0,
+            175,
+            250
+          ],
+          &quot;observation&quot;: &quot;The window occupies the left image boundary; the wall beyond its opposite side is outside the crop.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The print can remain on the window-side wall excluded by the source viewpoint.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Out-of-view wall region.&quot;,
+      &quot;reason&quot;: &quot;The relevant wall face is outside shot1; no empty-wall witness exists.&quot;
+    }
+  ]
+}</pre></details><details><summary>Narrow framed picture in hallway — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g20&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e5&quot;
+  ],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g20&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Hallway return wall with the narrow frame.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target support [103,24,122,73] and estimated depth 9.564 concern a wall beyond the doorway.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            98,
+            18,
+            127,
+            80
+          ],
+          &quot;observation&quot;: &quot;A narrow framed picture is visible beyond the door jamb.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            786,
+            0,
+            852,
+            365
+          ],
+          &quot;observation&quot;: &quot;The hallway return wall is not visible beyond the room-side door.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The frame can remain in place on the unobserved hallway return.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Presence behind the excluded region is untestable.&quot;,
+      &quot;reason&quot;: &quot;No shared view of the relevant wall exists.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g20&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Hallway return wall beyond the doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e5 has support [103,24,122,73] and no source node.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            103,
+            24,
+            122,
+            73
+          ],
+          &quot;observation&quot;: &quot;Narrow framed picture is visible on the hallway return.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            790,
+            0,
+            852,
+            365
+          ],
+          &quot;observation&quot;: &quot;Door surface excludes a view into the hallway.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The picture could remain on the concealed hallway return.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Door and viewpoint exclusion.&quot;,
+      &quot;reason&quot;: &quot;The relevant region is unobservable in shot1.&quot;
+    }
+  ]
+}</pre></details><details><summary>Small dark wooden hallway cabinet — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g21&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e12&quot;
+  ],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g21&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Low cabinet on the hallway floor beyond the doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target support [59,149,103,210] and depth 10.116 distinguish the hallway cabinet from room furniture.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            53,
+            142,
+            111,
+            215
+          ],
+          &quot;observation&quot;: &quot;A low dark cabinet is visible beyond the doorway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            787,
+            136,
+            852,
+            392
+          ],
+          &quot;observation&quot;: &quot;Door and room floor are visible, without a sightline to this hallway cabinet.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged hallway cabinet would remain concealed from shot1.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Its excluded location prevents testing its state.&quot;,
+      &quot;reason&quot;: &quot;The diagnostic cabinet region lies beyond shot1&#x27;s visible doorway area.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g21&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Hallway floor against the wall beyond the doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e12 is supported at [59,149,103,210]; inferred height is 0.528.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            59,
+            149,
+            103,
+            210
+          ],
+          &quot;observation&quot;: &quot;Low dark cabinet stands inside the hallway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            790,
+            140,
+            852,
+            365
+          ],
+          &quot;observation&quot;: &quot;Closed door surface blocks the corresponding hallway view.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The cabinet can remain behind the excluded doorway region.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Hallway occlusion and camera coverage.&quot;,
+      &quot;reason&quot;: &quot;No source view exposes the cabinet&#x27;s diagnostic location.&quot;
+    }
+  ]
+}</pre></details><details><summary>Tissue packet with protruding tissue — 确认冲突</summary><pre>{
+  &quot;group_id&quot;: &quot;g22&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e14&quot;
+  ],
+  &quot;verdict&quot;: &quot;conflict&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;presence&quot;,
+  &quot;reason&quot;: &quot;bounded_witness_recheck_resolved_abstention&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;reason&quot;: &quot;all_required_gates_passed&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g22&quot;,
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Interior of the g04 tabletop, between its long edges, oriented by the g12 window wall.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e14 is supported in all six frames, IoU 0.679, size [0.148,0.192,0.081], and depth MAD 0.041. Original pixels establish tabletop support despite uncertain metric height.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            348,
+            270,
+            414,
+            320
+          ],
+          &quot;observation&quot;: &quot;Pale blue packet rests on the interior tabletop with a conspicuous upright white tissue.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 48,
+          &quot;region_xyxy&quot;: [
+            432,
+            278,
+            623,
+            382
+          ],
+          &quot;observation&quot;: &quot;The corresponding exposed interior tabletop shows continuous wood grain without a blue packet or upright white tissue; the held red book is above and toward the person.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            432,
+            278,
+            623,
+            382
+          ],
+          &quot;observation&quot;: &quot;The same interior surface is unobstructed and contains neither packet nor tissue.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Keeping the packet at its target tabletop contact would expose at least the upright white tissue in both source frames. The candidate contact region and surrounding uncertainty margin are visibly bare.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Introduction or relocation between observations explains the difference. The empty original pixels exclude detector omission, and the person, mug, and cup do not cover this interior region.&quot;,
+      &quot;reason&quot;: &quot;The table boundary and radiator-facing side orient the support plane. Remaining depth and corner uncertainty do not move this interior packet into an occluded region in both witness frames.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g22&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Central tabletop near the pencil cup, toward the chair&#x27;s working area.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target packet size is approximately 0.148 × 0.192 × 0.081, with depth MAD 0.041. No trusted transform maps its low envelope into shot1.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            351,
+            274,
+            410,
+            316
+          ],
+          &quot;observation&quot;: &quot;Pale blue packet and protruding white tissue are exposed on the tabletop.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            300,
+            210,
+            650,
+            340
+          ],
+          &quot;observation&quot;: &quot;Exposed central tabletop contains no visible blue packet or white tissue.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            300,
+            220,
+            550,
+            340
+          ],
+          &quot;observation&quot;: &quot;Hands, red book and pencil cup occupy or obscure parts of the possible central support region.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;A reverse presence conflict needs two source frames in which the packet&#x27;s mapped diagnostic part must be visible. The final source frame is clear, but a second guaranteed unobscured mapped region is not established.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Earlier source occlusion by the book, hands or cup remains possible within mapping and depth uncertainty.&quot;,
+      &quot;reason&quot;: &quot;The visible difference is suggestive, but the required two-frame directional occupancy witness is incomplete.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g22&quot;,
+      &quot;verdict&quot;: &quot;conflict&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;local_visual&quot;,
+      &quot;anchor_group_ids&quot;: [
+        &quot;g04&quot;,
+        &quot;g12&quot;
+      ],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: true,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: true,
+      &quot;detector_miss_excluded&quot;: true,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Interior of g04&#x27;s tabletop, inward from its window-facing long edge identified using g12; the shot3 packet contact maps into the exposed central-right tabletop in shot1.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e14 has original support in all six frames at [351,274,410,316], fused projection IoU 0.679, estimated size [0.148,0.192,0.081], and depth MAD 0.041. The model scale and systematic depth error are not bounded by that MAD. The occupancy test instead uses the visible tabletop contact and upright tissue, with g04 and g12 as independent local references; no global transform is claimed.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            348,
+            270,
+            414,
+            320
+          ],
+          &quot;observation&quot;: &quot;A pale blue packet lies on the interior tabletop with a conspicuous white tissue rising above it.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 24,
+          &quot;region_xyxy&quot;: [
+            348,
+            270,
+            414,
+            320
+          ],
+          &quot;observation&quot;: &quot;The same packet and upright tissue remain exposed at the same tabletop contact while the person is near the doorway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 48,
+          &quot;region_xyxy&quot;: [
+            432,
+            278,
+            623,
+            382
+          ],
+          &quot;observation&quot;: &quot;The proposed interior region is exposed wood with continuous grain and reflections. The held red book and hands are above and toward the person; neither a blue packet nor an upright white tissue occupies this region.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 72,
+          &quot;region_xyxy&quot;: [
+            432,
+            278,
+            623,
+            382
+          ],
+          &quot;observation&quot;: &quot;The interior tabletop remains exposed to the right of the pencil cup. The standing person, hand and held book are to its left; no packet or tissue is visible.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            432,
+            278,
+            623,
+            382
+          ],
+          &quot;observation&quot;: &quot;With the person absent, the same tabletop region is unobstructed and bare.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;In the reverse direction, retain the shot3 packet at its tabletop contact. The table perimeter supplies the support plane and long/short axes; the radiator/window-wall side resolves the tabletop&#x27;s side ambiguity. The corresponding interior region in shot1 is exposed in frames 48, 72 and 120. At least the protruding white tissue, as well as exposed packet surface, must appear there. Instead the original pixels show bare wood.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Relocation or introduction between shots can explain the observations, so this is not global nonexistence. Earlier hand/book occlusion is real in some frames, but does not survive frames 48 and 72. The mug and pencil cup lie outside the necessary diagnostic region. Modest contact-depth or scale variation keeps the packet on the exposed interior surface; moving it behind those occluders would change its anchored tabletop placement.&quot;,
+      &quot;reason&quot;: &quot;The first proposal is supported by the original pixels and by an additional clear intermediate frame, 72. The second proposal&#x27;s concern about a missing second clear frame is resolved by frames 48 and 72. The mapping uses the table&#x27;s visible perimeter together with the installed radiator to orient its window-facing side, not the tested packet or a symmetric tabletop alone. Metric reconstruction uncertainty does not permit an unchanged packet to avoid this exposed occupancy region. This is one localized reverse-direction presence conflict.&quot;
+    }
+  ]
+}</pre></details><details><summary>Stack of books on console — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g23&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e16&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g23&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Console top beside the trailing plant.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target book-stack support is [334,138,379,158], with relative dispersion 0.430 and depth MAD 0.181; source console extent is weak.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            330,
+            133,
+            384,
+            163
+          ],
+          &quot;observation&quot;: &quot;Several books lie horizontally on the console beside the plant.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            298,
+            173,
+            393,
+            221
+          ],
+          &quot;observation&quot;: &quot;The support top appears as a narrow oblique strip, partly obscured by plant foliage; no securely corresponding book contact patch is identified.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;No diagnostic portion of an unchanged stack is proved necessarily visible in two source frames.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Foreshortening, plant occlusion, detector omission, or actual addition remain possible.&quot;,
+      &quot;reason&quot;: &quot;Neither demonstrated exclusion nor a directional empty-region witness is available.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g23&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Console top beside its plant.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target stack height is 0.103, relative dispersion 0.430 and depth MAD 0.181. The matched support has uncertain dimensions.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            334,
+            138,
+            379,
+            158
+          ],
+          &quot;observation&quot;: &quot;Several books form a low horizontal stack beside the plant.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            299,
+            160,
+            390,
+            210
+          ],
+          &quot;observation&quot;: &quot;The support top is seen obliquely through foliage; no reliably corresponding full book footprint is exposed.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The low stack must be mapped to an exposed source support patch before absence can be assessed.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Plant occlusion, oblique support geometry, detector omission or actual added contents.&quot;,
+      &quot;reason&quot;: &quot;Neither certain exclusion nor a mandatory-visible empty region is established.&quot;
+    }
+  ]
+}</pre></details><details><summary>Hallway patterned rug — 视角互补</summary><pre>{
+  &quot;group_id&quot;: &quot;g24&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e20&quot;
+  ],
+  &quot;verdict&quot;: &quot;complement&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;reason&quot;: &quot;positive_view_exclusion&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g24&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: true,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: true,
+      &quot;affected_location&quot;: &quot;Hallway floor beyond the doorway, separate from the main table rug.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target support [63,207,130,271] identifies the hallway rug; its inferred full extent is limited and IoU is 0.242.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            57,
+            201,
+            137,
+            278
+          ],
+          &quot;observation&quot;: &quot;A patterned floor runner is visible through the doorway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            787,
+            273,
+            852,
+            423
+          ],
+          &quot;observation&quot;: &quot;The door and immediate room floor do not expose the hallway runner&#x27;s location.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;An unchanged hallway runner can occupy the floor excluded from shot1.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Its hidden full extent remains unknown.&quot;,
+      &quot;reason&quot;: &quot;The visible target portion lies in a hallway region not observed in shot1; uncertain hidden rug boundaries do not alter that exclusion.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g24&quot;,
+      &quot;verdict&quot;: &quot;complement&quot;,
+      &quot;mechanism&quot;: &quot;presence&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Hallway floor beyond the doorway.&quot;,
+      &quot;gs_evidence&quot;: &quot;shot3/e20 has limited geometry, IoU 0.242 and support [63,207,130,271].&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            63,
+            207,
+            130,
+            271
+          ],
+          &quot;observation&quot;: &quot;A separate patterned floor covering is visible inside the hallway.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            790,
+            260,
+            852,
+            365
+          ],
+          &quot;observation&quot;: &quot;Door surface extends down to the threshold, excluding the hallway floor.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;The hallway rug can remain on the unseen floor behind the doorway.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Hallway floor is outside the exposed source region.&quot;,
+      &quot;reason&quot;: &quot;Certain regional exclusion is sufficient despite weak rug geometry.&quot;
+    }
+  ]
+}</pre></details><details><summary>Plant pot on console table — 证据不足</summary><pre>{
+  &quot;group_id&quot;: &quot;g25&quot;,
+  &quot;a_ids&quot;: [],
+  &quot;b_ids&quot;: [
+    &quot;shot3/e21&quot;
+  ],
+  &quot;verdict&quot;: &quot;unknown&quot;,
+  &quot;weight&quot;: 1,
+  &quot;mechanism&quot;: &quot;none&quot;,
+  &quot;reason&quot;: &quot;two_reviews_agree&quot;,
+  &quot;gate_results&quot;: [
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    },
+    {
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;reason&quot;: &quot;reviewer_abstained&quot;
+    }
+  ],
+  &quot;reviews&quot;: [
+    {
+      &quot;group_id&quot;: &quot;g25&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: true,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Container supporting the console plant on g16.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target has a separate pot node with relative dispersion 0.447. Source has the matched plant node but no separate pot node; these scopes are not merged.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            280,
+            130,
+            321,
+            163
+          ],
+          &quot;observation&quot;: &quot;A pot body is visible beneath the console plant crown.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            310,
+            166,
+            365,
+            205
+          ],
+          &quot;observation&quot;: &quot;A small container is visibly present beneath the stand plant, although leaves obscure much of its rim and body.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Absence of a separate source pot node cannot demonstrate physical absence when a container is visible.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Detector granularity or omission explains the inventory difference; exact container correspondence and placement remain unresolved.&quot;,
+      &quot;reason&quot;: &quot;This is a visible-object omission case without sufficient geometry for complete placement compatibility.&quot;
+    },
+    {
+      &quot;group_id&quot;: &quot;g25&quot;,
+      &quot;verdict&quot;: &quot;unknown&quot;,
+      &quot;mechanism&quot;: &quot;none&quot;,
+      &quot;mapping_basis&quot;: &quot;none&quot;,
+      &quot;anchor_group_ids&quot;: [],
+      &quot;identity_supported&quot;: true,
+      &quot;mapping_supported&quot;: false,
+      &quot;visibility_supported&quot;: false,
+      &quot;geometry_uncertainty_excluded&quot;: false,
+      &quot;occlusion_excluded&quot;: false,
+      &quot;detector_miss_excluded&quot;: false,
+      &quot;alternative_mappings_excluded&quot;: false,
+      &quot;affected_location&quot;: &quot;Container beneath the console plant&#x27;s crown.&quot;,
+      &quot;gs_evidence&quot;: &quot;Target has a separate pot node with relative dispersion 0.447; source has only the matched plant node at this support.&quot;,
+      &quot;visual_evidence&quot;: [
+        {
+          &quot;shot_id&quot;: &quot;shot3&quot;,
+          &quot;frame_id&quot;: 0,
+          &quot;region_xyxy&quot;: [
+            285,
+            135,
+            316,
+            159
+          ],
+          &quot;observation&quot;: &quot;Plant container is visible below the leafy crown.&quot;
+        },
+        {
+          &quot;shot_id&quot;: &quot;shot1&quot;,
+          &quot;frame_id&quot;: 120,
+          &quot;region_xyxy&quot;: [
+            309,
+            160,
+            373,
+            210
+          ],
+          &quot;observation&quot;: &quot;Foliage and a small earthy container-like region appear on the stand; the full container is obscured.&quot;
+        }
+      ],
+      &quot;counterfactual_test&quot;: &quot;Lack of a separate source pot node cannot establish physical absence or complete placement.&quot;,
+      &quot;alternative_explanations&quot;: &quot;Different detector decomposition, foliage occlusion and unresolved container extent.&quot;,
+      &quot;reason&quot;: &quot;The separate-node omission is not a disappearance witness; no additional identity correspondence is invented.&quot;
+    }
+  ]
+}</pre></details></html>

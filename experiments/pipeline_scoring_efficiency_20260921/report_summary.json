@@ -1,0 +1,64 @@
+{
+  "selected_runtime": "scoring_efficiency_v1",
+  "selected_schedule": "parallel_v2",
+  "fresh_gpu_run": false,
+  "components": [
+    {
+      "component": "identity",
+      "old_seconds": 390.4898200035095,
+      "new_seconds": 226.13265800476074,
+      "time_reduction_percent": 42.08999917008634,
+      "old_tokens": 140970,
+      "new_tokens": 134325,
+      "old_usd": 1.91754,
+      "new_usd": 0.38481,
+      "new_usd_if_no_cache": 1.54257
+    },
+    {
+      "component": "presence",
+      "old_seconds": 341.0208423137665,
+      "new_seconds": 199.5144190788269,
+      "time_reduction_percent": 41.49494860045601,
+      "old_tokens": 220610,
+      "new_tokens": 106245,
+      "old_usd": 2.63642,
+      "new_usd": 1.31693,
+      "new_usd_if_no_cache": 1.31693
+    },
+    {
+      "component": "alignment",
+      "old_seconds": 279.788161277771,
+      "new_seconds": 145.92528438568115,
+      "time_reduction_percent": 47.844367781949174,
+      "old_tokens": 190586,
+      "new_tokens": 174088,
+      "old_usd": 2.23298,
+      "new_usd": 2.06224,
+      "new_usd_if_no_cache": 2.06224
+    }
+  ],
+  "study3_changed_components": {
+    "old_tokens": 552166,
+    "new_tokens": 414658,
+    "token_reduction_percent": 24.90338050513795,
+    "old_usd": 6.78694,
+    "new_usd": 3.76398,
+    "new_usd_if_no_cache": 4.92174
+  },
+  "validation_expense": {
+    "model_calls": 8,
+    "tokens": 601721,
+    "standard_api_equivalent_usd": 6.00201
+  },
+  "tests_passed": 268,
+  "quality_scope": "Study3 identity/presence/alignment and offline downstream composition; Study2/4 presence only. Documented uncertainty/population changes, not exact quality equivalence.",
+  "full_episode_wall_time_measured": false,
+  "full_episode_token_composition": {
+    "tokens": 1170938,
+    "standard_api_equivalent_usd": 12.165644,
+    "estimated": true,
+    "retains_original_failed_binding_attempt": true,
+    "does_not_rerun_changed_identity_downstream": true
+  },
+  "pricing": "Standard Astra equivalent, not billed: USD/M input10, cached-input1, cache-write12.5, output50; input>272000 uses input-side x2/output x1.5. Cached input is a subset. Current calls below long-context threshold."
+}

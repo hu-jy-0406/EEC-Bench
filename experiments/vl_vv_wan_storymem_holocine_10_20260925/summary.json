@@ -1,0 +1,3915 @@
+{
+  "protocol": "vl_vv_ten_episode_summary_v1",
+  "status": "success",
+  "selection": {
+    "selection_rule": "Contract priority indices 0,1,2,5,7,8,9,10,12,13; excludes every episode in the earlier four-episode multimodel pilot.",
+    "source_contract_index": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/episode_contracts_20260921/deliverables/index.json",
+    "episodes": [
+      {
+        "priority_index": 0,
+        "episode_id": "74Od5-Fmf60_s00006_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 1,
+        "episode_id": "74S1Iw0gJrA_s00006_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 2,
+        "episode_id": "kTAOppBVgsU_s00001_n6_clean_v2",
+        "shot_count": 6
+      },
+      {
+        "priority_index": 5,
+        "episode_id": "7M9pU29bOeY_s00004_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 7,
+        "episode_id": "2hEV6a24yXc_s00017_n8_clean_v3_alt8",
+        "shot_count": 8
+      },
+      {
+        "priority_index": 8,
+        "episode_id": "6kwhPKkHFpA_s00007_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 9,
+        "episode_id": "v9I0QHOiU0Y_s00050_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 10,
+        "episode_id": "KFuxHDKp2oc_s00012_n6_clean_v2",
+        "shot_count": 6
+      },
+      {
+        "priority_index": 12,
+        "episode_id": "tIB4z4uMeNs_s00023_n4_clean_v2",
+        "shot_count": 4
+      },
+      {
+        "priority_index": 13,
+        "episode_id": "MTYQT6fSzaE_s00091_n4_clean_v2",
+        "shot_count": 4
+      }
+    ]
+  },
+  "pricing": {
+    "uncached_input_usd_m": 0.1,
+    "cached_input_usd_m": 0.01,
+    "output_usd_m": 0.5
+  },
+  "models": {
+    "wan22": {
+      "planned_episodes": 10,
+      "completed_pipeline_cases": 10,
+      "completed_review_cases": 10,
+      "global_entities": 259,
+      "prompt_bound_entities": 151,
+      "prompt_unbound_entities": 108,
+      "discovery_counts": {
+        "v_l_inconsistencies": 12,
+        "within_shot": 0,
+        "cross_shot": 8
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 11,
+          "rejected": 1,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 7,
+          "rejected": 0,
+          "uncertain": 1
+        }
+      },
+      "luna_usage": {
+        "api_responses": 142,
+        "api_errors": 0,
+        "unknown_usage_responses": 0,
+        "uncached_input_tokens": 2759058,
+        "cached_input_tokens": 0,
+        "output_tokens": 104382,
+        "input_tokens_including_cached": 2759058,
+        "total_tokens": 2863440,
+        "estimated_api_usd": 0.3280968,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 60,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 322453,
+            "cached_input_tokens": 0,
+            "output_tokens": 33620,
+            "input_tokens_including_cached": 322453,
+            "total_tokens": 356073,
+            "estimated_api_usd": 0.0490553
+          },
+          "prompt_binding": {
+            "api_responses": 48,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 358674,
+            "cached_input_tokens": 0,
+            "output_tokens": 36585,
+            "input_tokens_including_cached": 358674,
+            "total_tokens": 395259,
+            "estimated_api_usd": 0.0541599
+          },
+          "global_matching": {
+            "api_responses": 14,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 596307,
+            "cached_input_tokens": 0,
+            "output_tokens": 19466,
+            "input_tokens_including_cached": 596307,
+            "total_tokens": 615773,
+            "estimated_api_usd": 0.0693637
+          },
+          "issue_discovery": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 1151302,
+            "cached_input_tokens": 0,
+            "output_tokens": 7726,
+            "input_tokens_including_cached": 1151302,
+            "total_tokens": 1159028,
+            "estimated_api_usd": 0.11899320000000001
+          },
+          "issue_review": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 330322,
+            "cached_input_tokens": 0,
+            "output_tokens": 6985,
+            "input_tokens_including_cached": 330322,
+            "total_tokens": 337307,
+            "estimated_api_usd": 0.0365247
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_case_seconds_sum": 61.95892832179052,
+      "pipeline_case_seconds_sum": 3282.0085842549997,
+      "pipeline_case_seconds_mean": 328.2008584255,
+      "pipeline_case_seconds_median": 182.8643338965,
+      "frontend_case_seconds_sum": 3166.296685451289,
+      "frontend_case_seconds_mean": 316.6296685451289,
+      "frontend_case_seconds_median": 171.8023023725805,
+      "issue_discovery_case_seconds_sum": 115.71189880371094,
+      "issue_discovery_case_seconds_mean": 11.571189880371094,
+      "issue_discovery_case_seconds_median": 11.048895597457886,
+      "issue_review_case_seconds_sum": 112.941618351,
+      "issue_review_case_seconds_mean": 11.2941618351,
+      "issue_review_case_seconds_median": 11.1753590515
+    },
+    "storymem": {
+      "planned_episodes": 10,
+      "completed_pipeline_cases": 10,
+      "completed_review_cases": 10,
+      "global_entities": 234,
+      "prompt_bound_entities": 151,
+      "prompt_unbound_entities": 83,
+      "discovery_counts": {
+        "v_l_inconsistencies": 6,
+        "within_shot": 1,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 4,
+          "rejected": 1,
+          "uncertain": 1
+        },
+        "within_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 147,
+        "api_errors": 0,
+        "unknown_usage_responses": 0,
+        "uncached_input_tokens": 2667696,
+        "cached_input_tokens": 6052,
+        "output_tokens": 101800,
+        "input_tokens_including_cached": 2673748,
+        "total_tokens": 2775548,
+        "estimated_api_usd": 0.31773012,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 69,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 368717,
+            "cached_input_tokens": 6052,
+            "output_tokens": 39507,
+            "input_tokens_including_cached": 374769,
+            "total_tokens": 414276,
+            "estimated_api_usd": 0.05668572
+          },
+          "prompt_binding": {
+            "api_responses": 48,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 353208,
+            "cached_input_tokens": 0,
+            "output_tokens": 35915,
+            "input_tokens_including_cached": 353208,
+            "total_tokens": 389123,
+            "estimated_api_usd": 0.0532783
+          },
+          "global_matching": {
+            "api_responses": 14,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 589049,
+            "cached_input_tokens": 0,
+            "output_tokens": 18818,
+            "input_tokens_including_cached": 589049,
+            "total_tokens": 607867,
+            "estimated_api_usd": 0.06831390000000001
+          },
+          "issue_discovery": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 1150601,
+            "cached_input_tokens": 0,
+            "output_tokens": 4919,
+            "input_tokens_including_cached": 1150601,
+            "total_tokens": 1155520,
+            "estimated_api_usd": 0.1175196
+          },
+          "issue_review": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 206121,
+            "cached_input_tokens": 0,
+            "output_tokens": 2641,
+            "input_tokens_including_cached": 206121,
+            "total_tokens": 208762,
+            "estimated_api_usd": 0.021932600000000003
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_case_seconds_sum": 0.0,
+      "pipeline_case_seconds_sum": 1971.671794782,
+      "pipeline_case_seconds_mean": 197.1671794782,
+      "pipeline_case_seconds_median": 193.17766605449998,
+      "frontend_case_seconds_sum": 1876.907434115725,
+      "frontend_case_seconds_mean": 187.6907434115725,
+      "frontend_case_seconds_median": 181.48905025554978,
+      "issue_discovery_case_seconds_sum": 94.76436066627502,
+      "issue_discovery_case_seconds_mean": 9.476436066627503,
+      "issue_discovery_case_seconds_median": 9.356257438659668,
+      "issue_review_case_seconds_sum": 50.775477955,
+      "issue_review_case_seconds_mean": 5.0775477955,
+      "issue_review_case_seconds_median": 6.589904312
+    },
+    "holocine": {
+      "planned_episodes": 10,
+      "completed_pipeline_cases": 10,
+      "completed_review_cases": 10,
+      "global_entities": 255,
+      "prompt_bound_entities": 151,
+      "prompt_unbound_entities": 104,
+      "discovery_counts": {
+        "v_l_inconsistencies": 9,
+        "within_shot": 2,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 9,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 1,
+          "rejected": 1,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 1,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 174,
+        "api_errors": 0,
+        "unknown_usage_responses": 0,
+        "uncached_input_tokens": 2809436,
+        "cached_input_tokens": 35105,
+        "output_tokens": 147394,
+        "input_tokens_including_cached": 2844541,
+        "total_tokens": 2991935,
+        "estimated_api_usd": 0.35499165,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 96,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 497768,
+            "cached_input_tokens": 35105,
+            "output_tokens": 77679,
+            "input_tokens_including_cached": 532873,
+            "total_tokens": 610552,
+            "estimated_api_usd": 0.08896735
+          },
+          "prompt_binding": {
+            "api_responses": 48,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 360835,
+            "cached_input_tokens": 0,
+            "output_tokens": 39064,
+            "input_tokens_including_cached": 360835,
+            "total_tokens": 399899,
+            "estimated_api_usd": 0.055615500000000005
+          },
+          "global_matching": {
+            "api_responses": 12,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 512617,
+            "cached_input_tokens": 0,
+            "output_tokens": 20134,
+            "input_tokens_including_cached": 512617,
+            "total_tokens": 532751,
+            "estimated_api_usd": 0.0613287
+          },
+          "issue_discovery": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 1165513,
+            "cached_input_tokens": 0,
+            "output_tokens": 6428,
+            "input_tokens_including_cached": 1165513,
+            "total_tokens": 1171941,
+            "estimated_api_usd": 0.1197653
+          },
+          "issue_review": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 272703,
+            "cached_input_tokens": 0,
+            "output_tokens": 4089,
+            "input_tokens_including_cached": 272703,
+            "total_tokens": 276792,
+            "estimated_api_usd": 0.029314800000000002
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "unknown_usage_responses": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_case_seconds_sum": 330.26854508333435,
+      "pipeline_case_seconds_sum": 6295.63583852,
+      "pipeline_case_seconds_mean": 629.563583852,
+      "pipeline_case_seconds_median": 188.37004448149997,
+      "frontend_case_seconds_sum": 6191.718021165798,
+      "frontend_case_seconds_mean": 619.1718021165798,
+      "frontend_case_seconds_median": 179.62294484351474,
+      "issue_discovery_case_seconds_sum": 103.91781735420227,
+      "issue_discovery_case_seconds_mean": 10.391781735420228,
+      "issue_discovery_case_seconds_median": 10.159149646759033,
+      "issue_review_case_seconds_sum": 78.74979848699999,
+      "issue_review_case_seconds_mean": 7.8749798487,
+      "issue_review_case_seconds_median": 7.8793738730000005
+    }
+  },
+  "cases": [
+    {
+      "model": "wan22",
+      "episode_id": "74Od5-Fmf60_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 1582.992543031,
+      "review_seconds": 7.399320135,
+      "frontend_seconds": 1571.9946082127321,
+      "discovery_seconds": 10.997934818267822,
+      "global_entities": 44,
+      "prompt_bound_entities": 23,
+      "prompt_unbound_entities": 21,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 14,
+        "api_errors": 0,
+        "uncached_input_tokens": 265748,
+        "cached_input_tokens": 0,
+        "output_tokens": 15651,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 265748,
+        "total_tokens": 281399,
+        "estimated_api_usd": 0.0344003,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 7,
+            "api_errors": 0,
+            "uncached_input_tokens": 40167,
+            "cached_input_tokens": 0,
+            "output_tokens": 6856,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 40167,
+            "total_tokens": 47023,
+            "estimated_api_usd": 0.007444700000000001
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 40798,
+            "cached_input_tokens": 0,
+            "output_tokens": 5253,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 40798,
+            "total_tokens": 46051,
+            "estimated_api_usd": 0.0067063
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 43150,
+            "cached_input_tokens": 0,
+            "output_tokens": 2666,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 43150,
+            "total_tokens": 45816,
+            "estimated_api_usd": 0.005648
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 111570,
+            "cached_input_tokens": 0,
+            "output_tokens": 517,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 111570,
+            "total_tokens": 112087,
+            "estimated_api_usd": 0.0114155
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 30063,
+            "cached_input_tokens": 0,
+            "output_tokens": 359,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 30063,
+            "total_tokens": 30422,
+            "estimated_api_usd": 0.0031858000000000004
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 61.694602202
+    },
+    {
+      "model": "wan22",
+      "episode_id": "74S1Iw0gJrA_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 145.08015128,
+      "review_seconds": 10.477555634,
+      "frontend_seconds": 134.83016677720764,
+      "discovery_seconds": 10.249984502792358,
+      "global_entities": 8,
+      "prompt_bound_entities": 8,
+      "prompt_unbound_entities": 0,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 2,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 12,
+        "api_errors": 0,
+        "uncached_input_tokens": 153515,
+        "cached_input_tokens": 0,
+        "output_tokens": 5018,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 153515,
+        "total_tokens": 158533,
+        "estimated_api_usd": 0.0178605,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 24238,
+            "cached_input_tokens": 0,
+            "output_tokens": 1279,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 24238,
+            "total_tokens": 25517,
+            "estimated_api_usd": 0.0030633
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19888,
+            "cached_input_tokens": 0,
+            "output_tokens": 1453,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19888,
+            "total_tokens": 21341,
+            "estimated_api_usd": 0.0027153000000000004
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 23190,
+            "cached_input_tokens": 0,
+            "output_tokens": 841,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 23190,
+            "total_tokens": 24031,
+            "estimated_api_usd": 0.0027395
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 62598,
+            "cached_input_tokens": 0,
+            "output_tokens": 776,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 62598,
+            "total_tokens": 63374,
+            "estimated_api_usd": 0.006647800000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 23601,
+            "cached_input_tokens": 0,
+            "output_tokens": 669,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 23601,
+            "total_tokens": 24270,
+            "estimated_api_usd": 0.0026946
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "wan22",
+      "episode_id": "kTAOppBVgsU_s00001_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 225.223445166,
+      "review_seconds": 11.687315189,
+      "frontend_seconds": 214.8923334964596,
+      "discovery_seconds": 10.331111669540405,
+      "global_entities": 49,
+      "prompt_bound_entities": 15,
+      "prompt_unbound_entities": 34,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 18,
+        "api_errors": 0,
+        "uncached_input_tokens": 427943,
+        "cached_input_tokens": 0,
+        "output_tokens": 16272,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 427943,
+        "total_tokens": 444215,
+        "estimated_api_usd": 0.050930300000000005,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 45812,
+            "cached_input_tokens": 0,
+            "output_tokens": 4968,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 45812,
+            "total_tokens": 50780,
+            "estimated_api_usd": 0.0070652
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 56691,
+            "cached_input_tokens": 0,
+            "output_tokens": 6192,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 56691,
+            "total_tokens": 62883,
+            "estimated_api_usd": 0.0087651
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 117247,
+            "cached_input_tokens": 0,
+            "output_tokens": 3612,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 117247,
+            "total_tokens": 120859,
+            "estimated_api_usd": 0.013530700000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 167178,
+            "cached_input_tokens": 0,
+            "output_tokens": 734,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 167178,
+            "total_tokens": 167912,
+            "estimated_api_usd": 0.0170848
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 41015,
+            "cached_input_tokens": 0,
+            "output_tokens": 766,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 41015,
+            "total_tokens": 41781,
+            "estimated_api_usd": 0.0044845
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.06531356561669921
+    },
+    {
+      "model": "wan22",
+      "episode_id": "7M9pU29bOeY_s00004_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 180.230486895,
+      "review_seconds": 19.690093938,
+      "frontend_seconds": 166.90416982308534,
+      "discovery_seconds": 13.326317071914673,
+      "global_entities": 13,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 3,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 2
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 2,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 1
+        }
+      },
+      "luna_usage": {
+        "api_responses": 13,
+        "api_errors": 0,
+        "uncached_input_tokens": 216592,
+        "cached_input_tokens": 0,
+        "output_tokens": 8458,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 216592,
+        "total_tokens": 225050,
+        "estimated_api_usd": 0.0258882,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 25654,
+            "cached_input_tokens": 0,
+            "output_tokens": 2411,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 25654,
+            "total_tokens": 28065,
+            "estimated_api_usd": 0.0037709
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 26007,
+            "cached_input_tokens": 0,
+            "output_tokens": 2214,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26007,
+            "total_tokens": 28221,
+            "estimated_api_usd": 0.0037077000000000004
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 56977,
+            "cached_input_tokens": 0,
+            "output_tokens": 1344,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 56977,
+            "total_tokens": 58321,
+            "estimated_api_usd": 0.006369700000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 80665,
+            "cached_input_tokens": 0,
+            "output_tokens": 1030,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 80665,
+            "total_tokens": 81695,
+            "estimated_api_usd": 0.0085815
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27289,
+            "cached_input_tokens": 0,
+            "output_tokens": 1459,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27289,
+            "total_tokens": 28748,
+            "estimated_api_usd": 0.0034584
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.06287989160754395
+    },
+    {
+      "model": "wan22",
+      "episode_id": "2hEV6a24yXc_s00017_n8_clean_v3_alt8",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 244.7606971,
+      "review_seconds": 11.241062087,
+      "frontend_seconds": 229.93247220261534,
+      "discovery_seconds": 14.828224897384644,
+      "global_entities": 42,
+      "prompt_bound_entities": 20,
+      "prompt_unbound_entities": 22,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 20,
+        "api_errors": 0,
+        "uncached_input_tokens": 562246,
+        "cached_input_tokens": 0,
+        "output_tokens": 16193,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 562246,
+        "total_tokens": 578439,
+        "estimated_api_usd": 0.0643211,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 44372,
+            "cached_input_tokens": 0,
+            "output_tokens": 4310,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 44372,
+            "total_tokens": 48682,
+            "estimated_api_usd": 0.0065921999999999994
+          },
+          "prompt_binding": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 67741,
+            "cached_input_tokens": 0,
+            "output_tokens": 7160,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 67741,
+            "total_tokens": 74901,
+            "estimated_api_usd": 0.0103541
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 148571,
+            "cached_input_tokens": 0,
+            "output_tokens": 3153,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 148571,
+            "total_tokens": 151724,
+            "estimated_api_usd": 0.0164336
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 247131,
+            "cached_input_tokens": 0,
+            "output_tokens": 951,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 247131,
+            "total_tokens": 248082,
+            "estimated_api_usd": 0.025188600000000002
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 54431,
+            "cached_input_tokens": 0,
+            "output_tokens": 619,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 54431,
+            "total_tokens": 55050,
+            "estimated_api_usd": 0.0057526
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.07640785869665527
+    },
+    {
+      "model": "wan22",
+      "episode_id": "6kwhPKkHFpA_s00007_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 175.409417757,
+      "review_seconds": 12.586380685,
+      "frontend_seconds": 163.38890827556995,
+      "discovery_seconds": 12.020509481430054,
+      "global_entities": 23,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 6,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 2,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 12,
+        "api_errors": 0,
+        "uncached_input_tokens": 202172,
+        "cached_input_tokens": 0,
+        "output_tokens": 8011,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 202172,
+        "total_tokens": 210183,
+        "estimated_api_usd": 0.0242227,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 25668,
+            "cached_input_tokens": 0,
+            "output_tokens": 2074,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 25668,
+            "total_tokens": 27742,
+            "estimated_api_usd": 0.0036038000000000003
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 27199,
+            "cached_input_tokens": 0,
+            "output_tokens": 2732,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27199,
+            "total_tokens": 29931,
+            "estimated_api_usd": 0.0040859
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 33117,
+            "cached_input_tokens": 0,
+            "output_tokens": 1578,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33117,
+            "total_tokens": 34695,
+            "estimated_api_usd": 0.0041007000000000005
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 88113,
+            "cached_input_tokens": 0,
+            "output_tokens": 886,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 88113,
+            "total_tokens": 88999,
+            "estimated_api_usd": 0.009254300000000002
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 28075,
+            "cached_input_tokens": 0,
+            "output_tokens": 741,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 28075,
+            "total_tokens": 28816,
+            "estimated_api_usd": 0.003178
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "wan22",
+      "episode_id": "v9I0QHOiU0Y_s00050_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 193.311680198,
+      "review_seconds": 8.56423938,
+      "frontend_seconds": 182.86343324212842,
+      "discovery_seconds": 10.448246955871582,
+      "global_entities": 27,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 10,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 13,
+        "api_errors": 0,
+        "uncached_input_tokens": 261838,
+        "cached_input_tokens": 0,
+        "output_tokens": 9066,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 261838,
+        "total_tokens": 270904,
+        "estimated_api_usd": 0.030716800000000002,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 26722,
+            "cached_input_tokens": 0,
+            "output_tokens": 2557,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26722,
+            "total_tokens": 29279,
+            "estimated_api_usd": 0.0039507000000000006
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 33668,
+            "cached_input_tokens": 0,
+            "output_tokens": 3585,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33668,
+            "total_tokens": 37253,
+            "estimated_api_usd": 0.0051593
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 74126,
+            "cached_input_tokens": 0,
+            "output_tokens": 1914,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 74126,
+            "total_tokens": 76040,
+            "estimated_api_usd": 0.0083696
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 100157,
+            "cached_input_tokens": 0,
+            "output_tokens": 622,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 100157,
+            "total_tokens": 100779,
+            "estimated_api_usd": 0.010326700000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27165,
+            "cached_input_tokens": 0,
+            "output_tokens": 388,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27165,
+            "total_tokens": 27553,
+            "estimated_api_usd": 0.0029105
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "wan22",
+      "episode_id": "KFuxHDKp2oc_s00012_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 178.466433279,
+      "review_seconds": 11.109656016,
+      "frontend_seconds": 167.36657690235205,
+      "discovery_seconds": 11.09985637664795,
+      "global_entities": 12,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 2,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 15,
+        "api_errors": 0,
+        "uncached_input_tokens": 272813,
+        "cached_input_tokens": 0,
+        "output_tokens": 7463,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 272813,
+        "total_tokens": 280276,
+        "estimated_api_usd": 0.031012800000000004,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 29876,
+            "cached_input_tokens": 0,
+            "output_tokens": 2098,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 29876,
+            "total_tokens": 31974,
+            "estimated_api_usd": 0.0040366
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 32117,
+            "cached_input_tokens": 0,
+            "output_tokens": 2522,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 32117,
+            "total_tokens": 34639,
+            "estimated_api_usd": 0.0044727000000000005
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 38667,
+            "cached_input_tokens": 0,
+            "output_tokens": 1487,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 38667,
+            "total_tokens": 40154,
+            "estimated_api_usd": 0.004610200000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 129135,
+            "cached_input_tokens": 0,
+            "output_tokens": 641,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 129135,
+            "total_tokens": 129776,
+            "estimated_api_usd": 0.013234
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 43018,
+            "cached_input_tokens": 0,
+            "output_tokens": 715,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 43018,
+            "total_tokens": 43733,
+            "estimated_api_usd": 0.0046593
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "wan22",
+      "episode_id": "tIB4z4uMeNs_s00023_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 185.498180898,
+      "review_seconds": 8.286848385,
+      "frontend_seconds": 176.23802784280895,
+      "discovery_seconds": 9.26015305519104,
+      "global_entities": 28,
+      "prompt_bound_entities": 19,
+      "prompt_unbound_entities": 9,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 13,
+        "api_errors": 0,
+        "uncached_input_tokens": 212645,
+        "cached_input_tokens": 0,
+        "output_tokens": 11390,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 212645,
+        "total_tokens": 224035,
+        "estimated_api_usd": 0.0269595,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 33958,
+            "cached_input_tokens": 0,
+            "output_tokens": 4983,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33958,
+            "total_tokens": 38941,
+            "estimated_api_usd": 0.0058873
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 32409,
+            "cached_input_tokens": 0,
+            "output_tokens": 3642,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 32409,
+            "total_tokens": 36051,
+            "estimated_api_usd": 0.005061899999999999
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 33087,
+            "cached_input_tokens": 0,
+            "output_tokens": 1623,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33087,
+            "total_tokens": 34710,
+            "estimated_api_usd": 0.004120200000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 84627,
+            "cached_input_tokens": 0,
+            "output_tokens": 669,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 84627,
+            "total_tokens": 85296,
+            "estimated_api_usd": 0.008797200000000002
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 28564,
+            "cached_input_tokens": 0,
+            "output_tokens": 473,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 28564,
+            "total_tokens": 29037,
+            "estimated_api_usd": 0.0030929
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "wan22",
+      "episode_id": "MTYQT6fSzaE_s00091_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 171.035548651,
+      "review_seconds": 11.899146902,
+      "frontend_seconds": 157.8859886763296,
+      "discovery_seconds": 13.14955997467041,
+      "global_entities": 13,
+      "prompt_bound_entities": 12,
+      "prompt_unbound_entities": 1,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 1,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 12,
+        "api_errors": 0,
+        "uncached_input_tokens": 183546,
+        "cached_input_tokens": 0,
+        "output_tokens": 6860,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 183546,
+        "total_tokens": 190406,
+        "estimated_api_usd": 0.0217846,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 25986,
+            "cached_input_tokens": 0,
+            "output_tokens": 2084,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 25986,
+            "total_tokens": 28070,
+            "estimated_api_usd": 0.0036406000000000003
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 22156,
+            "cached_input_tokens": 0,
+            "output_tokens": 1832,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 22156,
+            "total_tokens": 23988,
+            "estimated_api_usd": 0.0031316
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 28175,
+            "cached_input_tokens": 0,
+            "output_tokens": 1248,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 28175,
+            "total_tokens": 29423,
+            "estimated_api_usd": 0.0034415
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 80128,
+            "cached_input_tokens": 0,
+            "output_tokens": 900,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 80128,
+            "total_tokens": 81028,
+            "estimated_api_usd": 0.0084628
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27101,
+            "cached_input_tokens": 0,
+            "output_tokens": 796,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27101,
+            "total_tokens": 27897,
+            "estimated_api_usd": 0.0031081000000000004
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.059724803869628904
+    },
+    {
+      "model": "storymem",
+      "episode_id": "74Od5-Fmf60_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 208.521112888,
+      "review_seconds": 8.346283723,
+      "frontend_seconds": 199.95725485577344,
+      "discovery_seconds": 8.563858032226562,
+      "global_entities": 34,
+      "prompt_bound_entities": 23,
+      "prompt_unbound_entities": 11,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 14,
+        "api_errors": 0,
+        "uncached_input_tokens": 289444,
+        "cached_input_tokens": 0,
+        "output_tokens": 13150,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 289444,
+        "total_tokens": 302594,
+        "estimated_api_usd": 0.0355194,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 32983,
+            "cached_input_tokens": 0,
+            "output_tokens": 5454,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 32983,
+            "total_tokens": 38437,
+            "estimated_api_usd": 0.0060253
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 35864,
+            "cached_input_tokens": 0,
+            "output_tokens": 4384,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 35864,
+            "total_tokens": 40248,
+            "estimated_api_usd": 0.0057783999999999995
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 83158,
+            "cached_input_tokens": 0,
+            "output_tokens": 2351,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 83158,
+            "total_tokens": 85509,
+            "estimated_api_usd": 0.009491300000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 107381,
+            "cached_input_tokens": 0,
+            "output_tokens": 571,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 107381,
+            "total_tokens": 107952,
+            "estimated_api_usd": 0.0110236
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 30058,
+            "cached_input_tokens": 0,
+            "output_tokens": 390,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 30058,
+            "total_tokens": 30448,
+            "estimated_api_usd": 0.0032008
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "74S1Iw0gJrA_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 157.126059747,
+      "review_seconds": 0.241205359,
+      "frontend_seconds": 146.66465065505054,
+      "discovery_seconds": 10.461409091949463,
+      "global_entities": 15,
+      "prompt_bound_entities": 8,
+      "prompt_unbound_entities": 7,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 10,
+        "api_errors": 0,
+        "uncached_input_tokens": 144828,
+        "cached_input_tokens": 0,
+        "output_tokens": 5105,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 144828,
+        "total_tokens": 149933,
+        "estimated_api_usd": 0.017035300000000003,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 20161,
+            "cached_input_tokens": 0,
+            "output_tokens": 1195,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 20161,
+            "total_tokens": 21356,
+            "estimated_api_usd": 0.0026136
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 24720,
+            "cached_input_tokens": 0,
+            "output_tokens": 2130,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 24720,
+            "total_tokens": 26850,
+            "estimated_api_usd": 0.003537
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27139,
+            "cached_input_tokens": 0,
+            "output_tokens": 1294,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27139,
+            "total_tokens": 28433,
+            "estimated_api_usd": 0.0033609
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 72808,
+            "cached_input_tokens": 0,
+            "output_tokens": 486,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 72808,
+            "total_tokens": 73294,
+            "estimated_api_usd": 0.0075238
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "kTAOppBVgsU_s00001_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 284.645564507,
+      "review_seconds": 7.688522978,
+      "frontend_seconds": 274.42709035729604,
+      "discovery_seconds": 10.21847414970398,
+      "global_entities": 35,
+      "prompt_bound_entities": 15,
+      "prompt_unbound_entities": 20,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 1,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 25,
+        "api_errors": 0,
+        "uncached_input_tokens": 458947,
+        "cached_input_tokens": 6052,
+        "output_tokens": 21879,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 464999,
+        "total_tokens": 486878,
+        "estimated_api_usd": 0.05689472,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 15,
+            "api_errors": 0,
+            "uncached_input_tokens": 85028,
+            "cached_input_tokens": 6052,
+            "output_tokens": 12386,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 91080,
+            "total_tokens": 103466,
+            "estimated_api_usd": 0.014756320000000002
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 53279,
+            "cached_input_tokens": 0,
+            "output_tokens": 5491,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 53279,
+            "total_tokens": 58770,
+            "estimated_api_usd": 0.008073400000000001
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 112388,
+            "cached_input_tokens": 0,
+            "output_tokens": 3023,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 112388,
+            "total_tokens": 115411,
+            "estimated_api_usd": 0.012750300000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 167395,
+            "cached_input_tokens": 0,
+            "output_tokens": 589,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 167395,
+            "total_tokens": 167984,
+            "estimated_api_usd": 0.017034
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 40857,
+            "cached_input_tokens": 0,
+            "output_tokens": 390,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 40857,
+            "total_tokens": 41247,
+            "estimated_api_usd": 0.004280700000000001
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "7M9pU29bOeY_s00004_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 147.212712985,
+      "review_seconds": 5.767981252,
+      "frontend_seconds": 142.5273520764917,
+      "discovery_seconds": 4.685360908508301,
+      "global_entities": 13,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 3,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 1,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 187682,
+        "cached_input_tokens": 0,
+        "output_tokens": 5726,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 187682,
+        "total_tokens": 193408,
+        "estimated_api_usd": 0.0216312,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 20130,
+            "cached_input_tokens": 0,
+            "output_tokens": 1894,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 20130,
+            "total_tokens": 22024,
+            "estimated_api_usd": 0.00296
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 26548,
+            "cached_input_tokens": 0,
+            "output_tokens": 2175,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26548,
+            "total_tokens": 28723,
+            "estimated_api_usd": 0.0037423
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 28757,
+            "cached_input_tokens": 0,
+            "output_tokens": 1248,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 28757,
+            "total_tokens": 30005,
+            "estimated_api_usd": 0.0034997
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 85442,
+            "cached_input_tokens": 0,
+            "output_tokens": 172,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 85442,
+            "total_tokens": 85614,
+            "estimated_api_usd": 0.008630200000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 26805,
+            "cached_input_tokens": 0,
+            "output_tokens": 237,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26805,
+            "total_tokens": 27042,
+            "estimated_api_usd": 0.002799
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "2hEV6a24yXc_s00017_n8_clean_v3_alt8",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 244.050860877,
+      "review_seconds": 8.385515324,
+      "frontend_seconds": 232.95825576301684,
+      "discovery_seconds": 11.092605113983154,
+      "global_entities": 24,
+      "prompt_bound_entities": 20,
+      "prompt_unbound_entities": 4,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 22,
+        "api_errors": 0,
+        "uncached_input_tokens": 520082,
+        "cached_input_tokens": 0,
+        "output_tokens": 13987,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 520082,
+        "total_tokens": 534069,
+        "estimated_api_usd": 0.059001700000000004,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "uncached_input_tokens": 52472,
+            "cached_input_tokens": 0,
+            "output_tokens": 4516,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 52472,
+            "total_tokens": 56988,
+            "estimated_api_usd": 0.007505200000000001
+          },
+          "prompt_binding": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 56818,
+            "cached_input_tokens": 0,
+            "output_tokens": 5897,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 56818,
+            "total_tokens": 62715,
+            "estimated_api_usd": 0.008630299999999999
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 130152,
+            "cached_input_tokens": 0,
+            "output_tokens": 2509,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 130152,
+            "total_tokens": 132661,
+            "estimated_api_usd": 0.014269700000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 226358,
+            "cached_input_tokens": 0,
+            "output_tokens": 626,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 226358,
+            "total_tokens": 226984,
+            "estimated_api_usd": 0.022948800000000002
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 54282,
+            "cached_input_tokens": 0,
+            "output_tokens": 439,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 54282,
+            "total_tokens": 54721,
+            "estimated_api_usd": 0.005647700000000001
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "6kwhPKkHFpA_s00007_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 182.107238437,
+      "review_seconds": 0.235172495,
+      "frontend_seconds": 173.55098548060963,
+      "discovery_seconds": 8.55625295639038,
+      "global_entities": 22,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 5,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 12,
+        "api_errors": 0,
+        "uncached_input_tokens": 200866,
+        "cached_input_tokens": 0,
+        "output_tokens": 6668,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 200866,
+        "total_tokens": 207534,
+        "estimated_api_usd": 0.023420600000000003,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 24557,
+            "cached_input_tokens": 0,
+            "output_tokens": 1479,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 24557,
+            "total_tokens": 26036,
+            "estimated_api_usd": 0.0031952000000000005
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 26786,
+            "cached_input_tokens": 0,
+            "output_tokens": 3002,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26786,
+            "total_tokens": 29788,
+            "estimated_api_usd": 0.0041796
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 65161,
+            "cached_input_tokens": 0,
+            "output_tokens": 1719,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 65161,
+            "total_tokens": 66880,
+            "estimated_api_usd": 0.0073756
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 84362,
+            "cached_input_tokens": 0,
+            "output_tokens": 468,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 84362,
+            "total_tokens": 84830,
+            "estimated_api_usd": 0.008670200000000001
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "v9I0QHOiU0Y_s00050_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 186.493549215,
+      "review_seconds": 7.411827372,
+      "frontend_seconds": 177.72356115500244,
+      "discovery_seconds": 8.769988059997559,
+      "global_entities": 27,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 10,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 12,
+        "api_errors": 0,
+        "uncached_input_tokens": 224173,
+        "cached_input_tokens": 0,
+        "output_tokens": 9483,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 224173,
+        "total_tokens": 233656,
+        "estimated_api_usd": 0.027158800000000004,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 27048,
+            "cached_input_tokens": 0,
+            "output_tokens": 2970,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27048,
+            "total_tokens": 30018,
+            "estimated_api_usd": 0.0041898000000000005
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 33080,
+            "cached_input_tokens": 0,
+            "output_tokens": 3825,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33080,
+            "total_tokens": 36905,
+            "estimated_api_usd": 0.0052205
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 36631,
+            "cached_input_tokens": 0,
+            "output_tokens": 1767,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 36631,
+            "total_tokens": 38398,
+            "estimated_api_usd": 0.0045466000000000005
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 100246,
+            "cached_input_tokens": 0,
+            "output_tokens": 516,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 100246,
+            "total_tokens": 100762,
+            "estimated_api_usd": 0.010282600000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27168,
+            "cached_input_tokens": 0,
+            "output_tokens": 405,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27168,
+            "total_tokens": 27573,
+            "estimated_api_usd": 0.0029193
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "KFuxHDKp2oc_s00012_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 199.861782894,
+      "review_seconds": 0.2442482,
+      "frontend_seconds": 185.25453935609715,
+      "discovery_seconds": 14.607243537902832,
+      "global_entities": 20,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 10,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 16,
+        "api_errors": 0,
+        "uncached_input_tokens": 262110,
+        "cached_input_tokens": 0,
+        "output_tokens": 9719,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 262110,
+        "total_tokens": 271829,
+        "estimated_api_usd": 0.0310705,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 40870,
+            "cached_input_tokens": 0,
+            "output_tokens": 4053,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 40870,
+            "total_tokens": 44923,
+            "estimated_api_usd": 0.0061135
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 39831,
+            "cached_input_tokens": 0,
+            "output_tokens": 3300,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 39831,
+            "total_tokens": 43131,
+            "estimated_api_usd": 0.0056331
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 43035,
+            "cached_input_tokens": 0,
+            "output_tokens": 1822,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 43035,
+            "total_tokens": 44857,
+            "estimated_api_usd": 0.0052145
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 138374,
+            "cached_input_tokens": 0,
+            "output_tokens": 544,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 138374,
+            "total_tokens": 138918,
+            "estimated_api_usd": 0.014109400000000001
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "tIB4z4uMeNs_s00023_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 201.951065892,
+      "review_seconds": 0.238759539,
+      "frontend_seconds": 194.084423893709,
+      "discovery_seconds": 7.866641998291016,
+      "global_entities": 32,
+      "prompt_bound_entities": 19,
+      "prompt_unbound_entities": 13,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 14,
+        "api_errors": 0,
+        "uncached_input_tokens": 205723,
+        "cached_input_tokens": 0,
+        "output_tokens": 11400,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 205723,
+        "total_tokens": 217123,
+        "estimated_api_usd": 0.026272300000000002,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 45494,
+            "cached_input_tokens": 0,
+            "output_tokens": 5022,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 45494,
+            "total_tokens": 50516,
+            "estimated_api_usd": 0.0070604000000000005
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 35642,
+            "cached_input_tokens": 0,
+            "output_tokens": 4103,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 35642,
+            "total_tokens": 39745,
+            "estimated_api_usd": 0.0056157
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 34890,
+            "cached_input_tokens": 0,
+            "output_tokens": 1975,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 34890,
+            "total_tokens": 36865,
+            "estimated_api_usd": 0.0044765
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 89697,
+            "cached_input_tokens": 0,
+            "output_tokens": 300,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 89697,
+            "total_tokens": 89997,
+            "estimated_api_usd": 0.009119700000000001
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "storymem",
+      "episode_id": "MTYQT6fSzaE_s00091_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 159.70184734,
+      "review_seconds": 12.215961713,
+      "frontend_seconds": 149.75932052267822,
+      "discovery_seconds": 9.942526817321777,
+      "global_entities": 12,
+      "prompt_bound_entities": 12,
+      "prompt_unbound_entities": 0,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 1
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 173841,
+        "cached_input_tokens": 0,
+        "output_tokens": 4683,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 173841,
+        "total_tokens": 178524,
+        "estimated_api_usd": 0.019725600000000003,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19974,
+            "cached_input_tokens": 0,
+            "output_tokens": 538,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19974,
+            "total_tokens": 20512,
+            "estimated_api_usd": 0.0022664
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 20640,
+            "cached_input_tokens": 0,
+            "output_tokens": 1608,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 20640,
+            "total_tokens": 22248,
+            "estimated_api_usd": 0.002868
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27738,
+            "cached_input_tokens": 0,
+            "output_tokens": 1110,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27738,
+            "total_tokens": 28848,
+            "estimated_api_usd": 0.0033288000000000002
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 78538,
+            "cached_input_tokens": 0,
+            "output_tokens": 647,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 78538,
+            "total_tokens": 79185,
+            "estimated_api_usd": 0.0081773
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 26951,
+            "cached_input_tokens": 0,
+            "output_tokens": 780,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26951,
+            "total_tokens": 27731,
+            "estimated_api_usd": 0.0030851000000000003
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "74Od5-Fmf60_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 240.422607183,
+      "review_seconds": 9.145636272,
+      "frontend_seconds": 226.08766746475354,
+      "discovery_seconds": 14.33493971824646,
+      "global_entities": 41,
+      "prompt_bound_entities": 23,
+      "prompt_unbound_entities": 18,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 2,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 15,
+        "api_errors": 0,
+        "uncached_input_tokens": 306197,
+        "cached_input_tokens": 0,
+        "output_tokens": 14863,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 306197,
+        "total_tokens": 321060,
+        "estimated_api_usd": 0.0380512,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 7,
+            "api_errors": 0,
+            "uncached_input_tokens": 38127,
+            "cached_input_tokens": 0,
+            "output_tokens": 5834,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 38127,
+            "total_tokens": 43961,
+            "estimated_api_usd": 0.006729700000000001
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 37316,
+            "cached_input_tokens": 0,
+            "output_tokens": 4817,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 37316,
+            "total_tokens": 42133,
+            "estimated_api_usd": 0.006140100000000001
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 88892,
+            "cached_input_tokens": 0,
+            "output_tokens": 2749,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 88892,
+            "total_tokens": 91641,
+            "estimated_api_usd": 0.0102637
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 111690,
+            "cached_input_tokens": 0,
+            "output_tokens": 893,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 111690,
+            "total_tokens": 112583,
+            "estimated_api_usd": 0.0116155
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 30172,
+            "cached_input_tokens": 0,
+            "output_tokens": 570,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 30172,
+            "total_tokens": 30742,
+            "estimated_api_usd": 0.0033022000000000004
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "74S1Iw0gJrA_s00006_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 149.727952181,
+      "review_seconds": 4.746457133,
+      "frontend_seconds": 141.0732240067904,
+      "discovery_seconds": 8.654728174209595,
+      "global_entities": 10,
+      "prompt_bound_entities": 8,
+      "prompt_unbound_entities": 2,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 151873,
+        "cached_input_tokens": 0,
+        "output_tokens": 4937,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 151873,
+        "total_tokens": 156810,
+        "estimated_api_usd": 0.017655800000000003,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19660,
+            "cached_input_tokens": 0,
+            "output_tokens": 1114,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19660,
+            "total_tokens": 20774,
+            "estimated_api_usd": 0.002523
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 21173,
+            "cached_input_tokens": 0,
+            "output_tokens": 1977,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 21173,
+            "total_tokens": 23150,
+            "estimated_api_usd": 0.0031058
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 23972,
+            "cached_input_tokens": 0,
+            "output_tokens": 1064,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 23972,
+            "total_tokens": 25036,
+            "estimated_api_usd": 0.0029292000000000003
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 63817,
+            "cached_input_tokens": 0,
+            "output_tokens": 578,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 63817,
+            "total_tokens": 64395,
+            "estimated_api_usd": 0.006670700000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 23251,
+            "cached_input_tokens": 0,
+            "output_tokens": 204,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 23251,
+            "total_tokens": 23455,
+            "estimated_api_usd": 0.0024270999999999997
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "kTAOppBVgsU_s00001_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 1913.271360981,
+      "review_seconds": 9.022916954,
+      "frontend_seconds": 1901.5504168148166,
+      "discovery_seconds": 11.720944166183472,
+      "global_entities": 51,
+      "prompt_bound_entities": 15,
+      "prompt_unbound_entities": 36,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 57,
+        "api_errors": 0,
+        "uncached_input_tokens": 643463,
+        "cached_input_tokens": 35105,
+        "output_tokens": 58003,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 678568,
+        "total_tokens": 736571,
+        "estimated_api_usd": 0.09369885,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 47,
+            "api_errors": 0,
+            "uncached_input_tokens": 244705,
+            "cached_input_tokens": 35105,
+            "output_tokens": 47506,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 279810,
+            "total_tokens": 327316,
+            "estimated_api_usd": 0.04857455
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 60581,
+            "cached_input_tokens": 0,
+            "output_tokens": 6273,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 60581,
+            "total_tokens": 66854,
+            "estimated_api_usd": 0.0091946
+          },
+          "global_matching": {
+            "api_responses": 2,
+            "api_errors": 0,
+            "uncached_input_tokens": 124695,
+            "cached_input_tokens": 0,
+            "output_tokens": 3378,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 124695,
+            "total_tokens": 128073,
+            "estimated_api_usd": 0.0141585
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 172815,
+            "cached_input_tokens": 0,
+            "output_tokens": 625,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 172815,
+            "total_tokens": 173440,
+            "estimated_api_usd": 0.017594
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 40667,
+            "cached_input_tokens": 0,
+            "output_tokens": 221,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 40667,
+            "total_tokens": 40888,
+            "estimated_api_usd": 0.004177200000000001
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 187.407234128
+    },
+    {
+      "model": "holocine",
+      "episode_id": "7M9pU29bOeY_s00004_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 150.793043728,
+      "review_seconds": 4.809335577,
+      "frontend_seconds": 141.85532223714,
+      "discovery_seconds": 8.937721490859985,
+      "global_entities": 10,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 0,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 171003,
+        "cached_input_tokens": 0,
+        "output_tokens": 5722,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 171003,
+        "total_tokens": 176725,
+        "estimated_api_usd": 0.019961299999999998,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19273,
+            "cached_input_tokens": 0,
+            "output_tokens": 1669,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19273,
+            "total_tokens": 20942,
+            "estimated_api_usd": 0.0027618
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 22939,
+            "cached_input_tokens": 0,
+            "output_tokens": 2272,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 22939,
+            "total_tokens": 25211,
+            "estimated_api_usd": 0.0034299
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 26413,
+            "cached_input_tokens": 0,
+            "output_tokens": 927,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26413,
+            "total_tokens": 27340,
+            "estimated_api_usd": 0.0031048
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 75639,
+            "cached_input_tokens": 0,
+            "output_tokens": 606,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 75639,
+            "total_tokens": 76245,
+            "estimated_api_usd": 0.007866900000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 26739,
+            "cached_input_tokens": 0,
+            "output_tokens": 248,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26739,
+            "total_tokens": 26987,
+            "estimated_api_usd": 0.0027979000000000003
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.05495797333435058
+    },
+    {
+      "model": "holocine",
+      "episode_id": "2hEV6a24yXc_s00017_n8_clean_v3_alt8",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 1404.355105609,
+      "review_seconds": 17.567905072,
+      "frontend_seconds": 1391.6525292101505,
+      "discovery_seconds": 12.702576398849487,
+      "global_entities": 48,
+      "prompt_bound_entities": 20,
+      "prompt_unbound_entities": 28,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 1,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 21,
+        "api_errors": 0,
+        "uncached_input_tokens": 519757,
+        "cached_input_tokens": 0,
+        "output_tokens": 21694,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 519757,
+        "total_tokens": 541451,
+        "estimated_api_usd": 0.06282270000000001,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 10,
+            "api_errors": 0,
+            "uncached_input_tokens": 55468,
+            "cached_input_tokens": 0,
+            "output_tokens": 7404,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 55468,
+            "total_tokens": 62872,
+            "estimated_api_usd": 0.0092488
+          },
+          "prompt_binding": {
+            "api_responses": 8,
+            "api_errors": 0,
+            "uncached_input_tokens": 73424,
+            "cached_input_tokens": 0,
+            "output_tokens": 8502,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 73424,
+            "total_tokens": 81926,
+            "estimated_api_usd": 0.011593400000000002
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 78324,
+            "cached_input_tokens": 0,
+            "output_tokens": 4327,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 78324,
+            "total_tokens": 82651,
+            "estimated_api_usd": 0.009995900000000002
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 258287,
+            "cached_input_tokens": 0,
+            "output_tokens": 789,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 258287,
+            "total_tokens": 259076,
+            "estimated_api_usd": 0.026223200000000002
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 54254,
+            "cached_input_tokens": 0,
+            "output_tokens": 672,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 54254,
+            "total_tokens": 54926,
+            "estimated_api_usd": 0.005761400000000001
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 83.471690028
+    },
+    {
+      "model": "holocine",
+      "episode_id": "6kwhPKkHFpA_s00007_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 1725.850957905,
+      "review_seconds": 8.428907319,
+      "frontend_seconds": 1716.5440371381696,
+      "discovery_seconds": 9.306920766830444,
+      "global_entities": 21,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 4,
+      "discovery_counts": {
+        "v_l_inconsistencies": 1,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 1,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 203565,
+        "cached_input_tokens": 0,
+        "output_tokens": 8470,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 203565,
+        "total_tokens": 212035,
+        "estimated_api_usd": 0.0245915,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19786,
+            "cached_input_tokens": 0,
+            "output_tokens": 2911,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19786,
+            "total_tokens": 22697,
+            "estimated_api_usd": 0.0034341000000000003
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 27539,
+            "cached_input_tokens": 0,
+            "output_tokens": 3028,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27539,
+            "total_tokens": 30567,
+            "estimated_api_usd": 0.0042679
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 34742,
+            "cached_input_tokens": 0,
+            "output_tokens": 1501,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 34742,
+            "total_tokens": 36243,
+            "estimated_api_usd": 0.0042247000000000005
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 93697,
+            "cached_input_tokens": 0,
+            "output_tokens": 530,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 93697,
+            "total_tokens": 94227,
+            "estimated_api_usd": 0.009634700000000001
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 27801,
+            "cached_input_tokens": 0,
+            "output_tokens": 500,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 27801,
+            "total_tokens": 28301,
+            "estimated_api_usd": 0.0030301000000000004
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 59.334662953999995
+    },
+    {
+      "model": "holocine",
+      "episode_id": "v9I0QHOiU0Y_s00050_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 183.511179369,
+      "review_seconds": 0.247527763,
+      "frontend_seconds": 177.02835861971715,
+      "discovery_seconds": 6.482820749282837,
+      "global_entities": 20,
+      "prompt_bound_entities": 17,
+      "prompt_unbound_entities": 3,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 181359,
+        "cached_input_tokens": 0,
+        "output_tokens": 9093,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 181359,
+        "total_tokens": 190452,
+        "estimated_api_usd": 0.022682400000000002,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 5,
+            "api_errors": 0,
+            "uncached_input_tokens": 25436,
+            "cached_input_tokens": 0,
+            "output_tokens": 3610,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 25436,
+            "total_tokens": 29046,
+            "estimated_api_usd": 0.0043486
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 28781,
+            "cached_input_tokens": 0,
+            "output_tokens": 3728,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 28781,
+            "total_tokens": 32509,
+            "estimated_api_usd": 0.0047421
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 33385,
+            "cached_input_tokens": 0,
+            "output_tokens": 1463,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 33385,
+            "total_tokens": 34848,
+            "estimated_api_usd": 0.00407
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 93757,
+            "cached_input_tokens": 0,
+            "output_tokens": 292,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 93757,
+            "total_tokens": 94049,
+            "estimated_api_usd": 0.009521700000000001
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "KFuxHDKp2oc_s00012_n6_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 176.03632467,
+      "review_seconds": 17.232557688,
+      "frontend_seconds": 164.1495398780536,
+      "discovery_seconds": 11.886784791946411,
+      "global_entities": 11,
+      "prompt_bound_entities": 10,
+      "prompt_unbound_entities": 1,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 1,
+        "cross_shot": 1
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 1,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 1,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 16,
+        "api_errors": 0,
+        "uncached_input_tokens": 275718,
+        "cached_input_tokens": 0,
+        "output_tokens": 9143,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 275718,
+        "total_tokens": 284861,
+        "estimated_api_usd": 0.0321433,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 7,
+            "api_errors": 0,
+            "uncached_input_tokens": 35126,
+            "cached_input_tokens": 0,
+            "output_tokens": 3231,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 35126,
+            "total_tokens": 38357,
+            "estimated_api_usd": 0.0051281
+          },
+          "prompt_binding": {
+            "api_responses": 6,
+            "api_errors": 0,
+            "uncached_input_tokens": 32598,
+            "cached_input_tokens": 0,
+            "output_tokens": 2498,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 32598,
+            "total_tokens": 35096,
+            "estimated_api_usd": 0.0045088
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 37983,
+            "cached_input_tokens": 0,
+            "output_tokens": 1318,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 37983,
+            "total_tokens": 39301,
+            "estimated_api_usd": 0.0044573
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 127080,
+            "cached_input_tokens": 0,
+            "output_tokens": 911,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 127080,
+            "total_tokens": 127991,
+            "estimated_api_usd": 0.0131635
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 42931,
+            "cached_input_tokens": 0,
+            "output_tokens": 1185,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 42931,
+            "total_tokens": 44116,
+            "estimated_api_usd": 0.0048856
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "tIB4z4uMeNs_s00023_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 193.228909594,
+      "review_seconds": 0.218714282,
+      "frontend_seconds": 182.21753106731236,
+      "discovery_seconds": 11.011378526687622,
+      "global_entities": 29,
+      "prompt_bound_entities": 19,
+      "prompt_unbound_entities": 10,
+      "discovery_counts": {
+        "v_l_inconsistencies": 0,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 10,
+        "api_errors": 0,
+        "uncached_input_tokens": 171656,
+        "cached_input_tokens": 0,
+        "output_tokens": 9482,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 171656,
+        "total_tokens": 181138,
+        "estimated_api_usd": 0.021906600000000002,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 20437,
+            "cached_input_tokens": 0,
+            "output_tokens": 3044,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 20437,
+            "total_tokens": 23481,
+            "estimated_api_usd": 0.0035656999999999998
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 31836,
+            "cached_input_tokens": 0,
+            "output_tokens": 3763,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 31836,
+            "total_tokens": 35599,
+            "estimated_api_usd": 0.0050651
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 34267,
+            "cached_input_tokens": 0,
+            "output_tokens": 2126,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 34267,
+            "total_tokens": 36393,
+            "estimated_api_usd": 0.004489700000000001
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 85116,
+            "cached_input_tokens": 0,
+            "output_tokens": 549,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 85116,
+            "total_tokens": 85665,
+            "estimated_api_usd": 0.0087861
+          },
+          "issue_review": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    },
+    {
+      "model": "holocine",
+      "episode_id": "MTYQT6fSzaE_s00091_n4_clean_v2",
+      "pipeline_status": "success",
+      "review_status": "success",
+      "case_status": "success",
+      "pipeline_seconds": 158.4383973,
+      "review_seconds": 7.329840427,
+      "frontend_seconds": 149.55939472889403,
+      "discovery_seconds": 8.879002571105957,
+      "global_entities": 14,
+      "prompt_bound_entities": 12,
+      "prompt_unbound_entities": 2,
+      "discovery_counts": {
+        "v_l_inconsistencies": 2,
+        "within_shot": 0,
+        "cross_shot": 0
+      },
+      "review_verdicts": {
+        "v_l_inconsistencies": {
+          "confirmed": 2,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "within_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        },
+        "cross_shot": {
+          "confirmed": 0,
+          "rejected": 0,
+          "uncertain": 0
+        }
+      },
+      "luna_usage": {
+        "api_responses": 11,
+        "api_errors": 0,
+        "uncached_input_tokens": 184845,
+        "cached_input_tokens": 0,
+        "output_tokens": 5987,
+        "unknown_usage_responses": 0,
+        "input_tokens_including_cached": 184845,
+        "total_tokens": 190832,
+        "estimated_api_usd": 0.021478,
+        "by_stage": {
+          "entity_clustering": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 19750,
+            "cached_input_tokens": 0,
+            "output_tokens": 1356,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 19750,
+            "total_tokens": 21106,
+            "estimated_api_usd": 0.002653
+          },
+          "prompt_binding": {
+            "api_responses": 4,
+            "api_errors": 0,
+            "uncached_input_tokens": 24648,
+            "cached_input_tokens": 0,
+            "output_tokens": 2206,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 24648,
+            "total_tokens": 26854,
+            "estimated_api_usd": 0.0035678000000000003
+          },
+          "global_matching": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 29944,
+            "cached_input_tokens": 0,
+            "output_tokens": 1281,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 29944,
+            "total_tokens": 31225,
+            "estimated_api_usd": 0.0036349
+          },
+          "issue_discovery": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 83615,
+            "cached_input_tokens": 0,
+            "output_tokens": 655,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 83615,
+            "total_tokens": 84270,
+            "estimated_api_usd": 0.008689
+          },
+          "issue_review": {
+            "api_responses": 1,
+            "api_errors": 0,
+            "uncached_input_tokens": 26888,
+            "cached_input_tokens": 0,
+            "output_tokens": 489,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 26888,
+            "total_tokens": 27377,
+            "estimated_api_usd": 0.0029333000000000002
+          },
+          "other": {
+            "api_responses": 0,
+            "api_errors": 0,
+            "uncached_input_tokens": 0,
+            "cached_input_tokens": 0,
+            "output_tokens": 0,
+            "unknown_usage_responses": 0,
+            "input_tokens_including_cached": 0,
+            "total_tokens": 0,
+            "estimated_api_usd": 0.0
+          }
+        }
+      },
+      "recovery_seconds": 0.0
+    }
+  ]
+}

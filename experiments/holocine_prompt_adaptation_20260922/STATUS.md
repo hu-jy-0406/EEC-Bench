@@ -1,0 +1,1 @@
+Candidate processing/export finished: 400 episodes, 241 ready, 159 explicit exceptions. Full all400 generation-ready objective remains unmet if exceptions are nonzero. See REPORT.md and deliverables/ready_queue.jsonl.

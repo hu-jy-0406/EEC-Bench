@@ -1,0 +1,122 @@
+{
+  "checks": [
+    {
+      "group_id": "g07",
+      "verdict": "compatible",
+      "mechanism": "layout",
+      "mapping_basis": "local_visual",
+      "anchor_group_ids": ["g04", "g12"],
+      "identity_supported": true,
+      "mapping_supported": true,
+      "visibility_supported": true,
+      "geometry_uncertainty_excluded": false,
+      "occlusion_excluded": false,
+      "detector_miss_excluded": true,
+      "alternative_mappings_excluded": true,
+      "affected_location": "Window ledge above g12, beside the window-facing long side of g04.",
+      "gs_evidence": "The matched plant has estimated heights 0.534 and 0.588 and plant–radiator distances 0.549 and 0.503. These independent monocular estimates admit a common extent but do not measure it. Global registration is untrusted.",
+      "visual_evidence": [
+        {
+          "shot_id": "shot1",
+          "frame_id": 120,
+          "region_xyxy": [22, 151, 219, 413],
+          "observation": "The leafy crown rises from the window ledge; long vines descend in front of the radiator. The table lies inward from this window-wall assembly."
+        },
+        {
+          "shot_id": "shot3",
+          "frame_id": 0,
+          "region_xyxy": [709, 151, 852, 411],
+          "observation": "The corresponding crown occupies the ledge above the radiator, with vines descending over its front and the table inward from the window."
+        }
+      ],
+      "counterfactual_test": "An unchanged plant at this ledge contact admits both visible crown and hanging-vine envelopes. The proposals correctly identify positive support and placement evidence; their inability to recover individual vine depths does not defeat this compatible explanation.",
+      "alternative_explanations": "Hidden foliage, small deformations and small shifts remain unresolved. These prevent an exact geometry claim but do not require a different layout.",
+      "reason": "The table and installed radiator independently identify the window-facing side and orient the local ledge region, without using the plant as an anchor. The visible ledge contact and vertical relation to the radiator provide placement evidence beyond appearance. Remaining endpoint and depth ambiguity admits the same placement; it does not reverse the local support relation."
+    },
+    {
+      "group_id": "g13",
+      "verdict": "compatible",
+      "mechanism": "layout",
+      "mapping_basis": "local_visual",
+      "anchor_group_ids": ["g04", "g12"],
+      "identity_supported": true,
+      "mapping_supported": true,
+      "visibility_supported": true,
+      "geometry_uncertainty_excluded": false,
+      "occlusion_excluded": false,
+      "detector_miss_excluded": true,
+      "alternative_mappings_excluded": true,
+      "affected_location": "Window-ledge support contact above g12, on the window-facing side of g04.",
+      "gs_evidence": "Pot heights are estimated as 0.218 and 0.202; relative center dispersions are 0.211 and 0.192. Source projection IoU is only 0.396. These values do not establish exact depth or displacement, but are consistent with the exposed pot and sill support in the original images.",
+      "visual_evidence": [
+        {
+          "shot_id": "shot1",
+          "frame_id": 120,
+          "region_xyxy": [25, 184, 99, 267],
+          "observation": "An earthy tapered pot rests on the window sill above the radiator. Leaves overlap its rim and part of its body."
+        },
+        {
+          "shot_id": "shot3",
+          "frame_id": 0,
+          "region_xyxy": [744, 182, 820, 253],
+          "observation": "The corresponding tapered pot rests on the sill over the radiator, beneath the leafy crown; its exposed body and support contact are visible."
+        }
+      ],
+      "counterfactual_test": "A single pot retained at the observed sill contact can explain both exposed tapered bodies and their support heights. Both proposals correctly locate the pot; uncertainty about its exact coordinate along the sill does not rule out that common placement.",
+      "alternative_explanations": "Axial rotation, concealed rim geometry and a small shift along or across the sill cannot be distinguished. No exact hidden footprint is asserted.",
+      "reason": "The g04–g12 table/window-wall arrangement orients the local region independently of the tested pot. Positive sill contact and placement above the same radiator support compatibility within uncertain scale. Alternative pot rotations and unresolved ledge coordinates preserve this compatible explanation."
+    },
+    {
+      "group_id": "g22",
+      "verdict": "conflict",
+      "mechanism": "presence",
+      "mapping_basis": "local_visual",
+      "anchor_group_ids": ["g04", "g12"],
+      "identity_supported": true,
+      "mapping_supported": true,
+      "visibility_supported": true,
+      "geometry_uncertainty_excluded": true,
+      "occlusion_excluded": true,
+      "detector_miss_excluded": true,
+      "alternative_mappings_excluded": true,
+      "affected_location": "Interior of g04's tabletop, inward from its window-facing long edge identified using g12; the shot3 packet contact maps into the exposed central-right tabletop in shot1.",
+      "gs_evidence": "shot3/e14 has original support in all six frames at [351,274,410,316], fused projection IoU 0.679, estimated size [0.148,0.192,0.081], and depth MAD 0.041. The model scale and systematic depth error are not bounded by that MAD. The occupancy test instead uses the visible tabletop contact and upright tissue, with g04 and g12 as independent local references; no global transform is claimed.",
+      "visual_evidence": [
+        {
+          "shot_id": "shot3",
+          "frame_id": 0,
+          "region_xyxy": [348, 270, 414, 320],
+          "observation": "A pale blue packet lies on the interior tabletop with a conspicuous white tissue rising above it."
+        },
+        {
+          "shot_id": "shot3",
+          "frame_id": 24,
+          "region_xyxy": [348, 270, 414, 320],
+          "observation": "The same packet and upright tissue remain exposed at the same tabletop contact while the person is near the doorway."
+        },
+        {
+          "shot_id": "shot1",
+          "frame_id": 48,
+          "region_xyxy": [432, 278, 623, 382],
+          "observation": "The proposed interior region is exposed wood with continuous grain and reflections. The held red book and hands are above and toward the person; neither a blue packet nor an upright white tissue occupies this region."
+        },
+        {
+          "shot_id": "shot1",
+          "frame_id": 72,
+          "region_xyxy": [432, 278, 623, 382],
+          "observation": "The interior tabletop remains exposed to the right of the pencil cup. The standing person, hand and held book are to its left; no packet or tissue is visible."
+        },
+        {
+          "shot_id": "shot1",
+          "frame_id": 120,
+          "region_xyxy": [432, 278, 623, 382],
+          "observation": "With the person absent, the same tabletop region is unobstructed and bare."
+        }
+      ],
+      "counterfactual_test": "In the reverse direction, retain the shot3 packet at its tabletop contact. The table perimeter supplies the support plane and long/short axes; the radiator/window-wall side resolves the tabletop's side ambiguity. The corresponding interior region in shot1 is exposed in frames 48, 72 and 120. At least the protruding white tissue, as well as exposed packet surface, must appear there. Instead the original pixels show bare wood.",
+      "alternative_explanations": "Relocation or introduction between shots can explain the observations, so this is not global nonexistence. Earlier hand/book occlusion is real in some frames, but does not survive frames 48 and 72. The mug and pencil cup lie outside the necessary diagnostic region. Modest contact-depth or scale variation keeps the packet on the exposed interior surface; moving it behind those occluders would change its anchored tabletop placement.",
+      "reason": "The first proposal is supported by the original pixels and by an additional clear intermediate frame, 72. The second proposal's concern about a missing second clear frame is resolved by frames 48 and 72. The mapping uses the table's visible perimeter together with the installed radiator to orient its window-facing side, not the tested packet or a symmetric tabletop alone. Metric reconstruction uncertainty does not permit an unchanged packet to avoid this exposed occupancy region. This is one localized reverse-direction presence conflict."
+    }
+  ],
+  "limitations": "Only the three requested groups were rechecked. Global registration is untrusted. Local compatibility does not certify exact hidden geometry; the tissue finding concerns occupancy at its anchored tabletop location."
+}

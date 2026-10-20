@@ -1,0 +1,73 @@
+## Summary
+
+The paper studies structural complementarity in Diffusion Transformers, replacing homogeneous dense attention with heterogeneous operations intended to preserve generative quality at lower computational cost. It considers two instantiations: rotation complementarity, which combines differently oriented causal attention masks through a rotate–attend–restore procedure, and scale complementarity, which varies convolutional key/value downsampling across layers. Rotation is additionally implemented across attention heads. Experiments on LightningDiT-XL and SiT-S assess generation quality and sensitivity to architectural assignments. On ImageNet-256, the layer-wise designs achieve comparable FID with approximately 9.5–12.5% lower backbone sampling latency. The paper also presents higher-resolution timing measurements and longer-training results for the rotation variants.
+
+**Soundness: 2: fair**  
+**Presentation: 3: good**  
+**Contribution: 2: fair**
+
+## Strengths
+
+The paper addresses a relevant architectural question: whether every DiT layer needs unrestricted, full-resolution attention. The proposed modifications are simple and compatible with existing attention implementations. In particular, exploiting optimized causal attention through token reordering is a practical design choice that does not require custom sparse kernels or additional learned parameters.
+
+The evaluation includes measured A100 latency rather than relying exclusively on theoretical attention complexity. The use of 50,000 generated samples and consistent evaluation settings across variants is also positive. Table 3 provides a useful demonstration that opposing directional assignments substantially outperform repeatedly applying the same causal ordering. The additional SiT experiments and the 800-epoch rotation results in Appendix C.1 strengthen the evidence beyond a single architecture or short training schedule.
+
+The manuscript is generally easy to follow. Its organization around what to complement, where to apply complementarity, and how assignments matter gives the architectural exploration a clear structure.
+
+## Weaknesses
+
+1. **The methodological novelty beyond existing heterogeneous attention designs is not sufficiently established.**  
+   Scale complementarity uses an established operation—convolutional K/V compression—with a depth-dependent schedule. The relationship to selective K/V compression in PixArt-Σ and multiscale processing in U-DiT is acknowledged, but the paper does not demonstrate what the proposed principle enables beyond these existing design choices. Rotation complementarity is more distinctive, although its central mechanism is complementary directional sparsity implemented through permutations. The current framework is primarily descriptive: it groups useful heterogeneous operations under “complementarity,” without providing a sufficiently predictive criterion for choosing new operations or assignments. The broad claim in Appendix A.2 that this approach fundamentally differs from sparse-attention methods is also overstated, since rotation complementarity is itself a structured sparse-attention construction.
+
+2. **The formal justification establishes connectivity, not the stated approximation of functional capacity.**  
+   For opposing rotations, the identity
+   \[
+   \Omega_{\psi_i}\cup\Omega_{\psi_j}=\mathcal I\times\mathcal I
+   \]
+   is a useful and valid observation about attention support. However, covering all token pairs does not establish that composing or concatenating masked attention functions approximates the corresponding dense-attention network. Separate softmax normalizations, different learned projections, and nonlinear layer composition matter. Section 2.1 does not specify a norm, input distribution, or approximation criterion for its “additive approximation” condition, and the scale-based justification is entirely qualitative. Similarly, heterogeneous inductive biases do not automatically ensure minimally redundant learned representations. These arguments would be appropriate as architectural intuitions, but the manuscript presents them too strongly as verification of the three conditions. A formal approximation theorem is not necessary for an empirical architecture paper; the claims should nevertheless distinguish structural reachability from representational equivalence.
+
+3. **The attention-diversity analysis does not substantiate reduced functional redundancy.**  
+   Figure 1 and Appendix C.2 largely measure an effect that is imposed by construction: different masks necessarily produce differently shaped attention maps. Passing those maps through an image-pretrained ResNet-50 and visualizing PCA coordinates can separate mask geometry without demonstrating that learned computations contain more complementary information. Conversely, similar attention maps do not imply redundant head or layer outputs, because value and output projections may differ. Figure 8 also provides no numerical redundancy statistic or uncertainty estimate. Activation-level similarity, effective-rank measurements, or component-ablation utility would be more informative, especially with controls that separate mask-induced differences from learned specialization.
+
+4. **The experiments do not adequately isolate the benefit of complementarity from ordinary sparsification or compression.**  
+   Most comparisons are against dense attention or alternative assignments within the proposed family. Table 3 convincingly shows the limitations of repeated one-directional attention, but does not establish an advantage over other sparse designs with adequate information flow. Useful controls would include a random token ordering paired with its reverse, and representative local/global or shifted-window attention designs at comparable cost. For scale complementarity, fixed-ratio K/V compression and simpler dense/compressed schedules should be included in a quality–latency comparison. These would clarify whether multiple scales provide an advantage beyond compression itself.
+
+   In addition, many conclusions depend on small FID differences, such as 2.10 versus 2.15 or 2.01 versus 2.11, without repeated training runs or FID uncertainty estimates. The reported IS deviations do not establish variability across independently trained models. Claims of assignment robustness should also be qualified: changing the scale ordering from the sandwich schedule to monotonic ordering worsens FID from 2.01 to 2.48.
+
+5. **The largest efficiency benefits are not accompanied by generation-quality evidence in the corresponding regime.**  
+   All reported quality evaluations concern ImageNet-256, whereas Figure 6 emphasizes substantially larger speedups at 512–2048 resolution. The manuscript does not clearly explain whether these are timing-only measurements using enlarged token grids or measurements of models trained and evaluated at those resolutions. Timing scalability is useful, but it does not establish a quality-preserving high-resolution efficiency improvement. This matters particularly for K/V downsampling, where fine-detail preservation is central.
+
+   The timing protocol also needs more detail: absolute high-resolution latencies, numerical precision, attention backend, warm-up, synchronization, repetitions, and memory consumption. The 2.15% Head-Rot improvement is small enough that measurement variability should be reported. Excluding VAE decoding is explicitly disclosed and reasonable for a backbone study, but an additional end-to-end measurement would clarify practical savings. Table 1 reports latency reductions while Figure 6 appears to report throughput increases; these quantities should be defined explicitly rather than presented under interchangeable speed terminology.
+
+6. **Several implementation and reporting details need correction or justification.**  
+   The claim that head-wise scale complementarity has “prohibitive parameter overhead” is not supported by parameter counts. With depthwise convolutions, the additional parameter cost may be modest relative to a DiT backbone, and sharing kernels within equal-scale head groups appears possible. This exclusion needs quantitative justification. Algorithm 2 also omits the post-convolution reshaping needed to restore K/V to the sequence format expected by SDPA. Finally, Section 3.1 reports Layer-Scale IS as 256.55, whereas Table 1 gives 252.66. These issues are individually fixable, but they reduce reproducibility and precision.
+
+## Questions
+
+1. **What advantage does complementarity provide over simpler efficient-attention baselines?** Could the authors compare Layer-Scale against fixed-ratio K/V compression and simpler compression schedules, and compare Layer-Rot against random-permutation/reverse-permutation pairs at similar computational cost?
+
+2. **What exactly is claimed by “additive approximation”?** Is this intended to mean spatial reachability, approximation of attention outputs, or preservation of downstream generation quality? Could the formal claims be narrowed accordingly, or supported by an explicit approximation criterion?
+
+3. **Can reduced redundancy be demonstrated independently of the imposed masks?** For example, do head/layer output similarities, effective ranks, or component-ablation effects support the interpretation in Appendix C.2 after controlling for mask geometry?
+
+4. **What is the experimental protocol behind Figure 6?** Were models trained or adapted for each resolution, and can at least one higher-resolution setting be evaluated jointly for FID and absolute latency? Please also specify the timing backend, precision, repetitions, and peak memory.
+
+5. **How stable are the main architectural conclusions?** Could representative configurations be repeated across training seeds, with uncertainty reported for FID? Please also quantify the proposed head-wise scale parameter overhead and reconcile the implementation and numerical inconsistencies noted above.
+
+## Flag For Ethics Review
+
+No ethics review needed.
+
+## Rating
+
+**4: marginally below the acceptance threshold. But would not mind if paper is accepted.**
+
+The measured quality–latency trade-offs are encouraging, and the rotation construction is a practical architectural idea. However, the current evidence supports a narrower conclusion—that certain directional masks and K/V compression schedules can preserve ImageNet-256 quality—more strongly than the proposed general principle of reduced functional redundancy. Better-controlled efficient-attention comparisons, stronger evidence for the complementarity interpretation, and quality validation in the higher-resolution regime would materially strengthen the case for acceptance.
+
+## Confidence
+
+**4: You are confident in your assessment, but not absolutely certain.** The principal concerns follow directly from the definitions, experiments, and implementation details presented, although additional comparisons or clarifications could change the assessment.
+
+## Code Of Conduct
+
+Yes.

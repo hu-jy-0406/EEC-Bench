@@ -1,0 +1,1 @@
+Completed multi-keyframe experiment; see run01/results/REPORT.md. Alignment failed independent spatial support checks. All relation values diagnostic; no confirmed spatial penalty. Inputs, model/code provenance and audit retained.

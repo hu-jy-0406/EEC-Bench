@@ -1,0 +1,48 @@
+{
+  "endpoint_point_residual": {
+    "all": {
+      "n": 263,
+      "median": 0.11479288618363204,
+      "p90": 0.5296148683690215,
+      "max": 1.5044788385191288
+    },
+    "by_group": {
+      "5": {
+        "n": 201,
+        "median": 0.08952276907458603,
+        "p90": 0.17609532699739042,
+        "max": 1.5044788385191288
+      },
+      "13": {
+        "n": 4,
+        "median": 0.39052884677089117,
+        "p90": 0.39642064497473967,
+        "max": 0.39807252611484145
+      },
+      "14": {
+        "n": 58,
+        "median": 0.524081394798661,
+        "p90": 0.5752550961471565,
+        "max": 0.5917265201969046
+      }
+    }
+  },
+  "lamp_existing_quality_flag_sensitivity": {
+    "existing_selected_frames": [
+      0,
+      24,
+      48,
+      72,
+      120
+    ],
+    "pairwise": {
+      "n": 10,
+      "median": 0.011231400826659552,
+      "p90": 0.030346930682442545,
+      "max": 0.031960296571108535
+    },
+    "p95": 0.031153613626775538
+  },
+  "lamp_lower_face_center_distance": 0.056162764325237674,
+  "note": "Lower OBB face center is a diagnostic support-position proxy, not a tracked physical landmark. No data removed from registration or production scores."
+}

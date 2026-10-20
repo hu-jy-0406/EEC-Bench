@@ -1,0 +1,145 @@
+{
+  "study2": {
+    "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2",
+    "spatial": {
+      "score": 97.22222222222221,
+      "total_pairs": 36,
+      "confirmed_conflict_pairs": 1,
+      "anomaly_ratio": 0.027777777777777776,
+      "no_conflict_pairs": 24,
+      "unresolved_pairs": 11,
+      "exempt_pairs": 0,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 83.33333333333334,
+      "coverage": 0.8333333333333334,
+      "N": 12,
+      "C": 8,
+      "K": 2,
+      "U": 2,
+      "E": 18,
+      "identification_interval": [
+        66.66666666666667,
+        83.33333333333333
+      ]
+    },
+    "conflicts": [
+      {
+        "kind": "presence",
+        "ids": [
+          "shot1/e3"
+        ],
+        "names": [
+          "Desk lamp"
+        ]
+      },
+      {
+        "kind": "presence",
+        "ids": [
+          "shot3/e14"
+        ],
+        "names": [
+          "tissue packet"
+        ]
+      },
+      {
+        "kind": "spatial",
+        "ids": [
+          "shot1/e2",
+          "shot1/e7",
+          "shot3/e2",
+          "shot3/e9"
+        ],
+        "names": [
+          "Dark green mug",
+          "Pen holder",
+          "dark mug",
+          "pen holder"
+        ]
+      }
+    ]
+  },
+  "study3": {
+    "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run",
+    "spatial": {
+      "score": 97.77777777777777,
+      "total_pairs": 45,
+      "confirmed_conflict_pairs": 1,
+      "anomaly_ratio": 0.022222222222222223,
+      "no_conflict_pairs": 32,
+      "unresolved_pairs": 12,
+      "exempt_pairs": 0,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 92.3076923076923,
+      "coverage": 0.7692307692307693,
+      "N": 13,
+      "C": 9,
+      "K": 1,
+      "U": 3,
+      "E": 16,
+      "identification_interval": [
+        69.23076923076923,
+        92.3076923076923
+      ]
+    },
+    "conflicts": [
+      {
+        "kind": "presence",
+        "ids": [
+          "shot3/e13"
+        ],
+        "names": [
+          "Tissue packet"
+        ]
+      },
+      {
+        "kind": "spatial",
+        "ids": [
+          "shot1/e2",
+          "shot1/e7",
+          "shot3/e2",
+          "shot3/e10"
+        ],
+        "names": [
+          "Dark green mug",
+          "Pen holder",
+          "Dark green mug",
+          "Pen holder"
+        ]
+      }
+    ]
+  },
+  "study4": {
+    "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4",
+    "spatial": {
+      "score": 100.0,
+      "total_pairs": 3,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 2,
+      "unresolved_pairs": 1,
+      "exempt_pairs": 0,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 100.0,
+      "coverage": 0.2222222222222222,
+      "N": 9,
+      "C": 2,
+      "K": 0,
+      "U": 7,
+      "E": 13,
+      "identification_interval": [
+        22.22222222222222,
+        100.0
+      ]
+    },
+    "conflicts": []
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": "complete",
+  "selected_profile": "temporal_cost_v1",
+  "tests_passed": {
+    "temporal_and_transport": 27,
+    "boundary_spatial": 9,
+    "integrated": 9
+  },
+  "cli_plan_checks": [
+    "study2",
+    "study3",
+    "study4"
+  ],
+  "composition_passed": [
+    "study2",
+    "study3",
+    "study4"
+  ],
+  "fresh_end_to_end_run": false,
+  "all_model_calls_complete": true,
+  "validation_calls": 57,
+  "validation_tokens": 3294015,
+  "validation_standard_api_equivalent_usd": 39.725366,
+  "baseline_standard_api_equivalent_usd": 47.004546,
+  "estimated_new_standard_api_equivalent_usd": 41.885576,
+  "estimated_new_tokens": 3397860,
+  "unchanged_default_alignment": "roma_fps32",
+  "rollback_profile": "safe_spatial_medium",
+  "plan_check_note": "Initial test expected historical22 stages; current workspace also has pre-existing global_entity_table export. Final comparisons use current rollback plan; stage inventory and dependencies identical."
+}

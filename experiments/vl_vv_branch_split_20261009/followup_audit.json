@@ -1,0 +1,38 @@
+{
+  "note": "Assistant audit of the final validation runs (runs/main), checked on labeled contact sheets of the original keyframes. Not human annotation.",
+  "splits": {
+    "total_split_candidates": 13,
+    "genuine_bundle": ["run_a/p014_wan21 L3 (lips vs head tilt)", "run_a/p028_wan22 L3 (blur vs size)", "run_a/p028_wan22 V1 (top pattern vs hair streaks)", "run_a/p047_wan21 L2 (hair vs clothing)", "run_a/p047_wan21 V2 (Shot2 vs 6/8 walls; Shot4 vs 7)", "run_b/p002_wan21 V1 (shirt vs hair)", "run_b/p014_wan21 V1 (coat vs scarf)", "run_b/p032_wan22 V2 (walls vs cabinets)", "run_b/p069_wan21 L4 (fall below landing vs tangled end)", "run_b/p069_wan21 V2 (identity vs clothing)", "run_b/p069_wan21 V4 (walls vs staircase)"],
+    "fragmented_one_failure": {
+      "run_a/p014_wan21 L1": "the same earflap-hat requirement failing in Shot2 and Shot4 (discovery correctly reported one issue with two occurrences) split by shot; both halves deduct moderate",
+      "run_a/p047_wan21 V1": "one look swap between two fighters in Shot4 split per character; both halves deduct major"
+    },
+    "scoring_effect": "split siblings cannot be linked as duplicates (gate), so a fragmented failure deducts twice"
+  },
+  "rejections": {
+    "total": 18,
+    "correct": ["1 run_a/p028 L3.2", "7 run_b/p014_storymem V1", "8 run_b/p028 L1", "9 run_b/p028 L5", "11 run_b/p032 L5", "12 run_b/p047_storymem L2", "16 run_b/p069 L3", "18 run_b/p069 L4.2"],
+    "wrong": {
+      "2 run_a/p028 V2": "the text's familiar blue chair is a small upright chair in Shots 1/5 and a lounger in Shots 3/7; rejected as different furniture (not_expected_to_match)",
+      "13 run_b/p047_wan21 V1": "older man has a full head of hair in a ponytail in Shot2 and a balding crown in Shot8; rejected as consistent",
+      "14 run_b/p047_wan21 V2": "Shot4 fighters swap looks (shirtless light-haired man vs dark ponytail in a sleeveless top); rejected as different entities",
+      "15 run_b/p047_wan21 V3": "same swap seen from the sleeveless man; rejected as different entities"
+    },
+    "debatable": {
+      "3 run_a/p032 V2": "kitchen background Shots 1/3/5: same arch in 1 and 3, orange cabinets in 5; rejected as viewpoint change",
+      "4 run_a/p047_storymem V1": "Shot6 frame 0 smeared orange/dark frame; reference calls it corruption, but the shot text has an arm crossing the foreground; confirmed in run_b",
+      "5 run_a/p047_wan21 V2.2": "Shot4 pale wall vs Shot7 tan wall behind the flag; rejected as viewpoint change",
+      "6 run_a/p069 L4": "short figure's trousers dark vs brownish; not resolvable at keyframe resolution",
+      "10 run_b/p032 L4": "white cat with large black patches and a black tail; reviewer reads 'white cat' as satisfied, reference counts it as a violation",
+      "17 run_b/p069 L4.1": "whether the fighters end below the landing; ambiguous framing"
+    },
+    "by_branch": {"v_l": {"rejected": 10, "wrong": 0, "debatable": 3, "correct": 7}, "v_v": {"rejected": 8, "wrong": 4, "debatable": 3, "correct": 1}}
+  },
+  "unbound_entities_in_detected_issues": {
+    "final_runs": {"detected": 84, "v_l": 50, "v_v": 34, "v_v_with_prompt_unbound_subject": 3, "v_l_citing_detector_unbound_or_added_entity": 0, "share_all_detected": 0.0357, "share_v_v_detected": 0.0882,
+                   "after_review": {"v_v_units": 42, "with_unbound_subject": 5, "confirmed": 3, "rejected": 2}},
+    "pre_element_gate_runs": {"detected": 82, "with_prompt_unbound_subject": 0},
+    "detector_unbound_entities_in_ledgers": 17,
+    "detector_unbound_entities_cited_by_any_issue": 0
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "type": "object",
+  "properties": {
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation_id": {
+            "type": "string"
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "conflict",
+              "compatible",
+              "unknown"
+            ]
+          },
+          "identity_supported": {
+            "type": "boolean"
+          },
+          "anchors_supported": {
+            "type": "boolean"
+          },
+          "common_support_verified": {
+            "type": "boolean"
+          },
+          "reference_correspondence_verified": {
+            "type": "boolean"
+          },
+          "center_semantics_verified": {
+            "type": "boolean"
+          },
+          "geometry_error_excluded": {
+            "type": "boolean"
+          },
+          "viewpoint_only_explanation_excluded": {
+            "type": "boolean"
+          },
+          "witnesses_a": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer"
+                },
+                "subject_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "object_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "reference_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "frame_id",
+                "subject_region_xyxy",
+                "object_region_xyxy",
+                "reference_region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "witnesses_b": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer"
+                },
+                "subject_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "object_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "reference_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "frame_id",
+                "subject_region_xyxy",
+                "object_region_xyxy",
+                "reference_region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "remaining_alternatives": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "relation_id",
+          "verdict",
+          "identity_supported",
+          "anchors_supported",
+          "common_support_verified",
+          "reference_correspondence_verified",
+          "center_semantics_verified",
+          "geometry_error_excluded",
+          "viewpoint_only_explanation_excluded",
+          "witnesses_a",
+          "witnesses_b",
+          "reason",
+          "remaining_alternatives"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "relations",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

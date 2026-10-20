@@ -1,0 +1,131 @@
+{
+  "status": "complete_measurements_with_explicit_extrapolations",
+  "episodes": 400,
+  "shots": 2000,
+  "api_calls": 0,
+  "api_cost_usd": 0,
+  "excludes": [
+    "one-time downloads/setup",
+    "downstream evaluation",
+    "queueing/retries"
+  ],
+  "assumptions": [
+    "same MI210 and settings",
+    "adequate host RAM",
+    "continuous availability"
+  ],
+  "wan": {
+    "samples": 2,
+    "shot_seconds": [
+      1547.3026743099908,
+      1540.6436202490004
+    ],
+    "mean_shot_seconds": 1543.9731472794956,
+    "projection_seconds_400": 3087946.294558991,
+    "projection_days_one_gpu": 35.740119149988324,
+    "worker_init_seconds_extra": 239.8170098440023,
+    "mode": "measured_full_steps_per_shot_extrapolation"
+  },
+  "holocine": {
+    "mode": "two_step_full_duration_projection_to_50_steps_NOT_full_length_50step_measurement",
+    "length_measurements": {
+      "4": {
+        "episodes": 240,
+        "frames": 321,
+        "measured_step_seconds": [
+          323.2637734449818,
+          326.1524501229869
+        ],
+        "non_step_generation_seconds": 263.9070265159826,
+        "encoding_seconds": 16.818382945959456,
+        "projection_50step_episode_seconds": 16516.13099866116,
+        "projection_total_seconds": 3963871.4396786783,
+        "load_seconds_per_worker_or_episode_extra": 46.185635140980594
+      },
+      "6": {
+        "episodes": 120,
+        "frames": 481,
+        "measured_step_seconds": [
+          691.9118068739772,
+          729.7971719320049
+        ],
+        "non_step_generation_seconds": 297.43235030199867,
+        "encoding_seconds": 15.549989930994343,
+        "projection_50step_episode_seconds": 35855.706810382544,
+        "projection_total_seconds": 4302684.817245905,
+        "load_seconds_per_worker_or_episode_extra": 81.51287957897875
+      },
+      "8": {
+        "episodes": 40,
+        "frames": 641,
+        "measured_step_seconds": [
+          1221.292425230029,
+          1273.5008275709697
+        ],
+        "non_step_generation_seconds": 348.2912186620524,
+        "encoding_seconds": 13.131201184005477,
+        "projection_50step_episode_seconds": 62731.25373987103,
+        "projection_total_seconds": 2509250.149594841,
+        "load_seconds_per_worker_or_episode_extra": 61.924182693997864
+      }
+    },
+    "complete_length_coverage": true,
+    "limitations": [
+      "two-step probe has one high and one low expert step; 50-step run has 21 high and 29 low",
+      "per-step times include expert-switch and warmup costs, amplified by scaling",
+      "CFG positive/negative forwards already included; do not multiply by two",
+      "worker initialization and validation excluded from core projection",
+      "16fps is benchmark duration adaptation; official entrypoint uses 15fps"
+    ],
+    "projection_seconds_400": 10775806.406519424,
+    "projection_days_one_gpu": 124.71998155693778
+  },
+  "storymem": {
+    "status": "complete_with_recorded_first_quality_and_concat_recoveries",
+    "composition": {
+      "episodes": 400,
+      "shots": 2000,
+      "first_shots": 400,
+      "memory_shots": 1600,
+      "observed_memory_encode_mean_seconds": 10.068629999999999,
+      "missing_first_encode_proxy_additional_hours": 1.1187366666666665,
+      "assumed_first_quality_seconds": 50.1680968850269,
+      "observed_memory_quality_mean_seconds": 56.61736066666666,
+      "load_encode_quality_hours": 80.38486206129929,
+      "low_memory_mean_hours": 1073.6698025057437,
+      "low_memory_observed_min_scenario_hours": 1035.6934322835216,
+      "low_memory_observed_max_scenario_hours": 1103.4058238390771,
+      "cap10_compute_shape_scenario_hours": 1620.033686166599,
+      "scope": "single-device sequential composition estimate, not measured batch walltime; first encode omitted because unmeasured, its optional mean-encode proxy is separately reported; excludes interpreter/guard/concat/manual/recovery overhead; cap10 extrapolated from 2 steps with 13/27 expert weighting, not upper bound"
+    },
+    "projection_hours_400": 1074.7885391724103,
+    "projection_days_one_gpu": 44.78285579885043,
+    "cap10_conditional_hours": 1621.1524228332655,
+    "cap10_conditional_days": 67.54801761805273,
+    "first_encode_assumption": "unmeasured; uses mean of measured later-shot encoding",
+    "limitations": "low-memory chain observed 0/1/2/2 input memories; cap10 is selector-bypass two-step diagnostic, not full40step measurement or strict bound"
+  },
+  "pooled_parallel_projection": {
+    "scope": "each model400episodes,1200total; balanced independent workers on identical MI210; ideal only, excludes queues/retries/validation and Wan/Holo worker load",
+    "total_single_gpu_hours_low_memory": 4925.830956138637,
+    "total_single_gpu_hours_cap10_scenario": 5472.194839799492,
+    "ideal_days": {
+      "4": {
+        "low_memory": 51.31073912644413,
+        "cap10_scenario": 57.002029581244706
+      },
+      "8": {
+        "low_memory": 25.655369563222067,
+        "cap10_scenario": 28.501014790622353
+      },
+      "16": {
+        "low_memory": 12.827684781611033,
+        "cap10_scenario": 14.250507395311176
+      },
+      "32": {
+        "low_memory": 6.413842390805517,
+        "cap10_scenario": 7.125253697655588
+      }
+    }
+  }
+}

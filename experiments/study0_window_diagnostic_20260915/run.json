@@ -1,0 +1,951 @@
+{
+  "status": "success",
+  "job": "185272",
+  "device": "cpu",
+  "seed": 0,
+  "source_manifest": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/entities/manifest.json",
+  "source_manifest_sha256": "7641eba40304ba92e7a53aa6b9274fdb037ebaa89cd4dc73b1b190e12625cdb2",
+  "weight_sha256": "e595578aeeb5f2a36cca383c23279cf7ea72e0bfb7c546dc39420359bf2d2c82",
+  "window_class_id": 4501,
+  "policy": {
+    "objectness_threshold": 0.1,
+    "nms_iou": 0.7,
+    "top_k": 100,
+    "match_threshold": 0.4
+  },
+  "diagnostic_roi": [
+    277.0,
+    0.0,
+    445.0,
+    225.0
+  ],
+  "roi_scope": "Approximate image-space window localization, not annotation ground truth and never a detector input",
+  "frames": [
+    {
+      "shot": "shot1",
+      "frame_id": 0,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000000.jpg",
+      "image_sha256": "e092003f6bafe7c27ec500c711ecf52bc9aae3f1a15051f78ca639af0a34d6c6",
+      "raw_proposals": 8400,
+      "objectness_pass": 198,
+      "nms_survivors": 24,
+      "top100": 24,
+      "final_count": 18,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 66,
+      "spatial_window_proposals_iou03": 146,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 66,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          276.93048095703125,
+          0.0,
+          445.37725830078125,
+          220.96044921875
+        ],
+        "roi_iou": 0.9794883011084332,
+        "objectness": 1.3732503134633589e-08,
+        "window_score": 8.255987893335259e-08,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 3.830390937764605e-07,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2834,
+        "box_xyxy": [
+          348.80279541015625,
+          179.2338409423828,
+          382.0106506347656,
+          229.24407958984375
+        ],
+        "roi_iou": 0.04005688969831042,
+        "objectness": 0.6938669085502625,
+        "window_score": 0.0001475093886256218,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.7605987191200256,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 7
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          274.17236328125,
+          0.0,
+          440.75311279296875,
+          221.9012908935547
+        ],
+        "roi_iou": 0.9456006124020174,
+        "objectness": 0.08229038119316101,
+        "window_score": 0.5611640810966492,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.5611640810966492,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.359623432159424
+    },
+    {
+      "shot": "shot1",
+      "frame_id": 24,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000024.jpg",
+      "image_sha256": "421cf2e5af08988c7c132afb92ed5c1c2b35c47fc45970f544fc164c819ce585",
+      "raw_proposals": 8400,
+      "objectness_pass": 198,
+      "nms_survivors": 27,
+      "top100": 27,
+      "final_count": 19,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 70,
+      "spatial_window_proposals_iou03": 151,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 70,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          277.95684814453125,
+          0.0,
+          445.2981262207031,
+          220.07064819335938
+        ],
+        "roi_iou": 0.9708358905414524,
+        "objectness": 4.295306865742532e-08,
+        "window_score": 2.7131923729939444e-07,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 9.29682300920831e-07,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8147,
+        "box_xyxy": [
+          0.8531976342201233,
+          0.0,
+          812.1851806640625,
+          480.0
+        ],
+        "roi_iou": 0.09706261220557534,
+        "objectness": 0.11237868666648865,
+        "window_score": 0.0048828511498868465,
+        "top_class": "房子",
+        "top_class_id": 2155,
+        "top_class_score": 0.8488748073577881,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 24
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          277.0575866699219,
+          0.0,
+          428.9255676269531,
+          220.27244567871094
+        ],
+        "roi_iou": 0.8849823981043841,
+        "objectness": 0.08246548473834991,
+        "window_score": 0.5567708015441895,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.5567708015441895,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.357895851135254
+    },
+    {
+      "shot": "shot1",
+      "frame_id": 47,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000047.jpg",
+      "image_sha256": "168ebc11591f8e3456f8e0a439a57f859030171216946d9d9f36bbdf80b7a52b",
+      "raw_proposals": 8400,
+      "objectness_pass": 196,
+      "nms_survivors": 22,
+      "top100": 22,
+      "final_count": 17,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 67,
+      "spatial_window_proposals_iou03": 145,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 67,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          278.3908996582031,
+          0.0,
+          444.3642272949219,
+          220.06414794921875
+        ],
+        "roi_iou": 0.9662639334829252,
+        "objectness": 1.9395688610757134e-08,
+        "window_score": 1.3513314911506313e-07,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 5.609347795143549e-07,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2834,
+        "box_xyxy": [
+          348.5150146484375,
+          179.09080505371094,
+          381.971435546875,
+          229.18927001953125
+        ],
+        "roi_iou": 0.040483681560092306,
+        "objectness": 0.7157275676727295,
+        "window_score": 0.00013730069622397423,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.760321855545044,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 8
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          275.3070373535156,
+          0.0,
+          435.0029602050781,
+          220.32254028320312
+        ],
+        "roi_iou": 0.9119434517950209,
+        "objectness": 0.07708816230297089,
+        "window_score": 0.5544452667236328,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.5544452667236328,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.349223852157593
+    },
+    {
+      "shot": "shot1",
+      "frame_id": 71,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000071.jpg",
+      "image_sha256": "c6df37219a9ab84a1f3d1d3dd0065f8c2c6fbbe45684593790f9a9d0f01955d8",
+      "raw_proposals": 8400,
+      "objectness_pass": 189,
+      "nms_survivors": 22,
+      "top100": 22,
+      "final_count": 16,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 62,
+      "spatial_window_proposals_iou03": 149,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 62,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          278.38299560546875,
+          0.0,
+          444.9513244628906,
+          220.4962615966797
+        ],
+        "roi_iou": 0.9716320729354541,
+        "objectness": 2.4197408521331454e-09,
+        "window_score": 1.2644533420314019e-08,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 9.579066784226598e-08,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2834,
+        "box_xyxy": [
+          348.73284912109375,
+          179.47854614257812,
+          381.391845703125,
+          229.19992065429688
+        ],
+        "roi_iou": 0.03918808759009723,
+        "objectness": 0.7190001606941223,
+        "window_score": 0.00011720365000655875,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.7557983994483948,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 7
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          274.1026611328125,
+          0.0,
+          441.81689453125,
+          221.4845733642578
+        ],
+        "roi_iou": 0.9496037593910818,
+        "objectness": 0.09480373561382294,
+        "window_score": 0.5331404209136963,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.5331404209136963,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.184272527694702
+    },
+    {
+      "shot": "shot1",
+      "frame_id": 94,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000094.jpg",
+      "image_sha256": "4c81f3ac3826c88833fc9a4591d640ac1e93ebb93f2ee71cd6a2ffb84bbead76",
+      "raw_proposals": 8400,
+      "objectness_pass": 196,
+      "nms_survivors": 22,
+      "top100": 22,
+      "final_count": 19,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 67,
+      "spatial_window_proposals_iou03": 150,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 67,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          277.0104064941406,
+          0.0,
+          446.6915588378906,
+          221.04837036132812
+        ],
+        "roi_iou": 0.9727538978470119,
+        "objectness": 5.4942422167414406e-08,
+        "window_score": 3.0899229841452325e-07,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 1.11227416255133e-06,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8147,
+        "box_xyxy": [
+          0.5788466930389404,
+          0.0,
+          801.605224609375,
+          480.0
+        ],
+        "roi_iou": 0.0983113705438945,
+        "objectness": 0.12061531841754913,
+        "window_score": 0.005589720327407122,
+        "top_class": "房子",
+        "top_class_id": 2155,
+        "top_class_score": 0.8493968844413757,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 22
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          275.8459777832031,
+          0.0,
+          432.9753112792969,
+          221.5675811767578
+        ],
+        "roi_iou": 0.9081183274884226,
+        "objectness": 0.06910403072834015,
+        "window_score": 0.46205201745033264,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.46205201745033264,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.268242597579956
+    },
+    {
+      "shot": "shot1",
+      "frame_id": 118,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot1/frame_000118.jpg",
+      "image_sha256": "7648f12ea28321ba6840279bc2ce04c47e908b504fa983b771105d926a0d2e53",
+      "raw_proposals": 8400,
+      "objectness_pass": 184,
+      "nms_survivors": 24,
+      "top100": 24,
+      "final_count": 18,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 54,
+      "spatial_window_proposals_iou03": 115,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 54,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6777,
+        "box_xyxy": [
+          276.7994079589844,
+          0.0,
+          441.0909118652344,
+          224.50259399414062
+        ],
+        "roi_iou": 0.9734127199842031,
+        "objectness": 8.594584244292491e-08,
+        "window_score": 4.376183824206237e-07,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 2.1384755655162735e-06,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8170,
+        "box_xyxy": [
+          364.423095703125,
+          17.834800720214844,
+          511.3729553222656,
+          477.93603515625
+        ],
+        "roi_iou": 0.18815265045202398,
+        "objectness": 0.7961786389350891,
+        "window_score": 4.209286635159515e-05,
+        "top_class": "人",
+        "top_class_id": 2163,
+        "top_class_score": 0.9234120845794678,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 3
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6856,
+        "box_xyxy": [
+          277.6994323730469,
+          0.0,
+          434.7488708496094,
+          223.08421325683594
+        ],
+        "roi_iou": 0.9268584872714425,
+        "objectness": 0.04847908392548561,
+        "window_score": 0.4918653964996338,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.4918653964996338,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.189950227737427
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 0,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000000.jpg",
+      "image_sha256": "691746620242545f61dfd602bd86b8563fa7d519cfeb0b24b0c862db70eb4cb4",
+      "raw_proposals": 8400,
+      "objectness_pass": 192,
+      "nms_survivors": 22,
+      "top100": 22,
+      "final_count": 16,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 69,
+      "spatial_window_proposals_iou03": 146,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 69,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 7018,
+        "box_xyxy": [
+          273.4305114746094,
+          0.0,
+          446.6759948730469,
+          225.23046875
+        ],
+        "roi_iou": 0.9687301034321204,
+        "objectness": 9.695805935905355e-09,
+        "window_score": 7.15299321996099e-08,
+        "top_class": "浴室窗户",
+        "top_class_id": 337,
+        "top_class_score": 5.588193516814499e-07,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2833,
+        "box_xyxy": [
+          344.8463134765625,
+          179.9891815185547,
+          376.2048645019531,
+          230.71090698242188
+        ],
+        "roi_iou": 0.037164509490648576,
+        "objectness": 0.7342336177825928,
+        "window_score": 0.0004470773274078965,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.8176459670066833,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 7
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          270.7606506347656,
+          0.0,
+          443.827880859375,
+          224.9412841796875
+        ],
+        "roi_iou": 0.9572228596847997,
+        "objectness": 0.06670691817998886,
+        "window_score": 0.505348265171051,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.505348265171051,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.312852621078491
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 25,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000025.jpg",
+      "image_sha256": "68ac835a8593186d535159e46e6457362a3c4c8eeb133e2c702df205bee02ec0",
+      "raw_proposals": 8400,
+      "objectness_pass": 188,
+      "nms_survivors": 22,
+      "top100": 22,
+      "final_count": 18,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 66,
+      "spatial_window_proposals_iou03": 141,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 66,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 7018,
+        "box_xyxy": [
+          269.5233459472656,
+          0.0,
+          446.9168701171875,
+          224.4692840576172
+        ],
+        "roi_iou": 0.9449311359553203,
+        "objectness": 2.5608861164982955e-07,
+        "window_score": 1.5379005162685644e-06,
+        "top_class": "卧室窗户",
+        "top_class_id": 381,
+        "top_class_score": 3.8183443393791094e-06,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8205,
+        "box_xyxy": [
+          158.657958984375,
+          15.727400779724121,
+          339.70458984375,
+          479.916015625
+        ],
+        "roi_iou": 0.12070145244876086,
+        "objectness": 0.7924847602844238,
+        "window_score": 7.496237230952829e-05,
+        "top_class": "人",
+        "top_class_id": 2163,
+        "top_class_score": 0.8415476679801941,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 4
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 8108,
+        "box_xyxy": [
+          228.6722869873047,
+          0.0,
+          446.2420349121094,
+          228.10162353515625
+        ],
+        "roi_iou": 0.7616665611944866,
+        "objectness": 0.078622967004776,
+        "window_score": 0.4750956594944,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.4750956594944,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.351896286010742
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 50,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000050.jpg",
+      "image_sha256": "5ff9c6ca45be641066e2213c9b6eb49747f47eb3d7d47b1d467927a228594510",
+      "raw_proposals": 8400,
+      "objectness_pass": 193,
+      "nms_survivors": 24,
+      "top100": 24,
+      "final_count": 16,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 62,
+      "spatial_window_proposals_iou03": 183,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 62,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 8088,
+        "box_xyxy": [
+          276.5097351074219,
+          0.0,
+          444.0909729003906,
+          225.65460205078125
+        ],
+        "roi_iou": 0.9888338066335571,
+        "objectness": 0.03352092579007149,
+        "window_score": 0.31261587142944336,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.31261587142944336,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8189,
+        "box_xyxy": [
+          286.7425842285156,
+          20.651071548461914,
+          469.22406005859375,
+          480.0
+        ],
+        "roi_iou": 0.3622162740195479,
+        "objectness": 0.7986240983009338,
+        "window_score": 0.00012625587987713516,
+        "top_class": "人",
+        "top_class_id": 2163,
+        "top_class_score": 0.8849114775657654,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 3
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6774,
+        "box_xyxy": [
+          274.64617919921875,
+          0.0,
+          420.2371826171875,
+          224.8899383544922
+        ],
+        "roi_iou": 0.8404160134432496,
+        "objectness": 0.04306503012776375,
+        "window_score": 0.41280317306518555,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.41280317306518555,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.285295486450195
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 74,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000074.jpg",
+      "image_sha256": "0b1c62498a87c8eb309b8114ab31f3ce7e639d9a4199f985142e733e200b351b",
+      "raw_proposals": 8400,
+      "objectness_pass": 212,
+      "nms_survivors": 24,
+      "top100": 24,
+      "final_count": 19,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 59,
+      "spatial_window_proposals_iou03": 149,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 59,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6779,
+        "box_xyxy": [
+          275.41717529296875,
+          0.0,
+          444.59967041015625,
+          224.4969482421875
+        ],
+        "roi_iou": 0.9861166463828833,
+        "objectness": 2.7836813387693837e-05,
+        "window_score": 7.728578930255026e-05,
+        "top_class": "窗帘",
+        "top_class_id": 467,
+        "top_class_score": 0.0001382850605295971,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 8190,
+        "box_xyxy": [
+          398.5031433105469,
+          27.607206344604492,
+          527.1962890625,
+          476.6647644042969
+        ],
+        "roi_iou": 0.1062131809947737,
+        "objectness": 0.6899073719978333,
+        "window_score": 0.00011196975538041443,
+        "top_class": "人",
+        "top_class_id": 2163,
+        "top_class_score": 0.8318642973899841,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 8
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          272.96197509765625,
+          0.0,
+          429.14202880859375,
+          222.52157592773438
+        ],
+        "roi_iou": 0.8748359038469795,
+        "objectness": 0.08067165315151215,
+        "window_score": 0.5696107149124146,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.5696107149124146,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.2441558837890625
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 99,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000099.jpg",
+      "image_sha256": "4aa26379e561cf203be5134009ee80e0b68e0ac9acfc6ebfe3db61e83f653812",
+      "raw_proposals": 8400,
+      "objectness_pass": 200,
+      "nms_survivors": 23,
+      "top100": 23,
+      "final_count": 18,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 62,
+      "spatial_window_proposals_iou03": 149,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 62,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6978,
+        "box_xyxy": [
+          272.44000244140625,
+          0.0,
+          448.0155029296875,
+          223.695068359375
+        ],
+        "roi_iou": 0.9515419358370608,
+        "objectness": 8.306184184903032e-08,
+        "window_score": 7.851178338569298e-07,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 3.5374391700315755e-06,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2833,
+        "box_xyxy": [
+          344.5497741699219,
+          180.477294921875,
+          378.1160583496094,
+          229.89674377441406
+        ],
+        "roi_iou": 0.03936485485282613,
+        "objectness": 0.750275194644928,
+        "window_score": 0.0004130627785343677,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.8172663450241089,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 6
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6897,
+        "box_xyxy": [
+          270.2889709472656,
+          0.0,
+          439.9311828613281,
+          222.93392944335938
+        ],
+        "roi_iou": 0.9243380003066324,
+        "objectness": 0.05673897638916969,
+        "window_score": 0.4708496928215027,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.4708496928215027,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.19975471496582
+    },
+    {
+      "shot": "shot3",
+      "frame_id": 124,
+      "image_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/inputs/shot3/frame_000124.jpg",
+      "image_sha256": "c0f625e1e0a458b090b7b5829ca675ad5e7ab76ab39a12b3c7b54d9fca7fcba3",
+      "raw_proposals": 8400,
+      "objectness_pass": 209,
+      "nms_survivors": 25,
+      "top100": 25,
+      "final_count": 17,
+      "final_windows": 0,
+      "spatial_window_proposals_iou05": 62,
+      "spatial_window_proposals_iou03": 145,
+      "window_proposal_stages": {
+        "class_score_below_threshold": 0,
+        "objectness_below_threshold": 62,
+        "output_as_other_class": 0,
+        "suppressed_by_nms": 0
+      },
+      "best_raw_roi": {
+        "proposal_index": 6938,
+        "box_xyxy": [
+          270.95989990234375,
+          0.0,
+          444.3480529785156,
+          221.84814453125
+        ],
+        "roi_iou": 0.9485402595095906,
+        "objectness": 1.568650134231575e-07,
+        "window_score": 1.0806863883772166e-06,
+        "top_class": "办公室的窗户",
+        "top_class_id": 2838,
+        "top_class_score": 3.942332114093006e-06,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "best_post_nms_roi": {
+        "proposal_index": 2833,
+        "box_xyxy": [
+          344.3312072753906,
+          180.31674194335938,
+          378.53662109375,
+          229.77162170410156
+        ],
+        "roi_iou": 0.04026027052001314,
+        "objectness": 0.7575069665908813,
+        "window_score": 0.00039756903424859047,
+        "top_class": "室内植物",
+        "top_class_id": 2157,
+        "top_class_score": 0.8268700838088989,
+        "stage": "output_as_other_class",
+        "nms_blocker": null,
+        "nms_rank": 4
+      },
+      "highest_window_score_on_roi": {
+        "proposal_index": 6896,
+        "box_xyxy": [
+          274.3356628417969,
+          0.0,
+          420.9515380859375,
+          221.21189880371094
+        ],
+        "roi_iou": 0.829494877793899,
+        "objectness": 0.05565303564071655,
+        "window_score": 0.42885908484458923,
+        "top_class": "窗户",
+        "top_class_id": 4501,
+        "top_class_score": 0.42885908484458923,
+        "stage": "objectness_below_threshold",
+        "nms_blocker": null,
+        "nms_rank": null
+      },
+      "original_labels_boxes_exact": true,
+      "max_original_score_error": 0.0,
+      "seconds": 5.423392295837402
+    }
+  ],
+  "all_original_labels_boxes_exact": true,
+  "max_original_score_error": 0
+}

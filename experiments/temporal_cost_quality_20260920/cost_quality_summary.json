@@ -1,0 +1,307 @@
+{
+  "scope": "Controlled frozen-upstream component validation, not a fresh GPU end-to-end run. Unchanged stages retain baseline measurements; new full-pipeline cost/latency are composition estimates.",
+  "currency": "USD",
+  "pricing": {
+    "model": "gpt-6-astra",
+    "uncached_per_million": 10,
+    "cached_per_million": 1,
+    "output_per_million": 50,
+    "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "actual_billing": false
+  },
+  "production": [
+    {
+      "study": "study2",
+      "baseline": {
+        "input": 1298721,
+        "output": 67602,
+        "cached": 22656,
+        "tokens": 1366323,
+        "usd": 16.163406000000002,
+        "seconds": 2091.337108850479
+      },
+      "baseline_spatial": {
+        "input": 370353,
+        "output": 5238,
+        "cached": 0,
+        "tokens": 375591,
+        "usd": 3.96543,
+        "seconds": 183.08736276626587
+      },
+      "selected_spatial": {
+        "input": 194499,
+        "output": 2629,
+        "cached": 0,
+        "tokens": 197128,
+        "usd": 2.07644,
+        "seconds": 102.37814378738403
+      },
+      "estimated_pipeline": {
+        "input": 1122867,
+        "output": 64993,
+        "cached": 22656,
+        "tokens": 1187860,
+        "usd": 14.274416000000002
+      },
+      "baseline_pipeline_seconds": 1893.459524154663,
+      "estimated_spatial_parallel_seconds": 65.25326299667358,
+      "estimated_pipeline_seconds": 1775.6254243850708
+    },
+    {
+      "study": "study3",
+      "baseline": {
+        "input": 1287525,
+        "output": 72194,
+        "cached": 15360,
+        "tokens": 1359719,
+        "usd": 16.34671,
+        "seconds": 2229.157639026642
+      },
+      "baseline_spatial": {
+        "input": 365002,
+        "output": 4481,
+        "cached": 0,
+        "tokens": 369483,
+        "usd": 3.8740699999999997,
+        "seconds": 167.012202501297
+      },
+      "selected_spatial": {
+        "input": 195346,
+        "output": 2726,
+        "cached": 0,
+        "tokens": 198072,
+        "usd": 2.08976,
+        "seconds": 108.61878776550293
+      },
+      "estimated_pipeline": {
+        "input": 1117869,
+        "output": 70439,
+        "cached": 15360,
+        "tokens": 1188308,
+        "usd": 14.562400000000002
+      },
+      "baseline_pipeline_seconds": 2127.2742598056793,
+      "estimated_spatial_parallel_seconds": 70.95494198799133,
+      "estimated_pipeline_seconds": 2031.2169992923737
+    },
+    {
+      "study": "study4",
+      "baseline": {
+        "input": 1083848,
+        "output": 73119,
+        "cached": 0,
+        "tokens": 1156967,
+        "usd": 14.49443,
+        "seconds": 2229.9487731456757
+      },
+      "baseline_spatial": {
+        "input": 297144,
+        "output": 5032,
+        "cached": 0,
+        "tokens": 302176,
+        "usd": 3.22304,
+        "seconds": 176.00710105895996
+      },
+      "selected_spatial": {
+        "input": 164192,
+        "output": 2709,
+        "cached": 0,
+        "tokens": 166901,
+        "usd": 1.7773700000000001,
+        "seconds": 109.0693211555481
+      },
+      "estimated_pipeline": {
+        "input": 950896,
+        "output": 70796,
+        "cached": 0,
+        "tokens": 1021692,
+        "usd": 13.04876
+      },
+      "baseline_pipeline_seconds": 1925.5270359516144,
+      "estimated_spatial_parallel_seconds": 70.21129965782166,
+      "estimated_pipeline_seconds": 1819.731234550476
+    }
+  ],
+  "validation": [
+    {
+      "mode": "boundary_compact_medium",
+      "study": "study2",
+      "calls": 4,
+      "complete": true,
+      "input": 299799,
+      "output": 11536,
+      "cached": 7680,
+      "tokens": 311335,
+      "usd": 3.50567,
+      "seconds": 377.6079022884369
+    },
+    {
+      "mode": "boundary_compact_medium",
+      "study": "study3",
+      "calls": 4,
+      "complete": true,
+      "input": 301119,
+      "output": 12625,
+      "cached": 0,
+      "tokens": 313744,
+      "usd": 3.64244,
+      "seconds": 410.371196269989
+    },
+    {
+      "mode": "boundary_compact_medium",
+      "study": "study4",
+      "calls": 4,
+      "complete": true,
+      "input": 251579,
+      "output": 13251,
+      "cached": 15360,
+      "tokens": 264830,
+      "usd": 3.0401,
+      "seconds": 426.55306029319763
+    },
+    {
+      "mode": "shots_compact_medium",
+      "study": "study2",
+      "calls": 6,
+      "complete": true,
+      "input": 252387,
+      "output": 30657,
+      "cached": 0,
+      "tokens": 283044,
+      "usd": 4.05672,
+      "seconds": 957.5754127502441
+    },
+    {
+      "mode": "shots_compact_medium",
+      "study": "study3",
+      "calls": 6,
+      "complete": true,
+      "input": 251328,
+      "output": 32286,
+      "cached": 30464,
+      "tokens": 283614,
+      "usd": 3.8534040000000003,
+      "seconds": 1009.923757314682
+    },
+    {
+      "mode": "shots_compact_medium",
+      "study": "study4",
+      "calls": 6,
+      "complete": true,
+      "input": 230886,
+      "output": 36047,
+      "cached": 22912,
+      "tokens": 266933,
+      "usd": 3.905002,
+      "seconds": 1120.9067749977112
+    },
+    {
+      "mode": "spatial_compact_low",
+      "study": "study2",
+      "calls": 3,
+      "complete": true,
+      "input": 193369,
+      "output": 3868,
+      "cached": 0,
+      "tokens": 197237,
+      "usd": 2.12709,
+      "seconds": 139.79051995277405
+    },
+    {
+      "mode": "spatial_compact_low",
+      "study": "study3",
+      "calls": 3,
+      "complete": true,
+      "input": 194246,
+      "output": 3799,
+      "cached": 7680,
+      "tokens": 198045,
+      "usd": 2.06329,
+      "seconds": 136.05016779899597
+    },
+    {
+      "mode": "spatial_compact_low",
+      "study": "study4",
+      "calls": 3,
+      "complete": true,
+      "input": 163073,
+      "output": 3708,
+      "cached": 0,
+      "tokens": 166781,
+      "usd": 1.81613,
+      "seconds": 132.89442086219788
+    },
+    {
+      "mode": "spatial_efficient_low",
+      "study": "study2",
+      "calls": 3,
+      "complete": true,
+      "input": 194499,
+      "output": 2629,
+      "cached": 0,
+      "tokens": 197128,
+      "usd": 2.07644,
+      "seconds": 102.37814378738403
+    },
+    {
+      "mode": "spatial_efficient_low",
+      "study": "study3",
+      "calls": 3,
+      "complete": true,
+      "input": 195346,
+      "output": 2726,
+      "cached": 0,
+      "tokens": 198072,
+      "usd": 2.08976,
+      "seconds": 108.61878776550293
+    },
+    {
+      "mode": "spatial_efficient_low",
+      "study": "study4",
+      "calls": 3,
+      "complete": true,
+      "input": 164192,
+      "output": 2709,
+      "cached": 0,
+      "tokens": 166901,
+      "usd": 1.7773700000000001,
+      "seconds": 109.0693211555481
+    },
+    {
+      "mode": "within_compact_medium_fixed",
+      "study": "study2",
+      "calls": 3,
+      "complete": true,
+      "input": 138908,
+      "output": 9080,
+      "cached": 7680,
+      "tokens": 147988,
+      "usd": 1.77396,
+      "seconds": 295.54819416999817
+    },
+    {
+      "mode": "within_compact_medium_fixed",
+      "study": "study3",
+      "calls": 3,
+      "complete": true,
+      "input": 140151,
+      "output": 11767,
+      "cached": 7680,
+      "tokens": 151918,
+      "usd": 1.92074,
+      "seconds": 373.90997219085693
+    },
+    {
+      "mode": "within_compact_medium_fixed",
+      "study": "study4",
+      "calls": 3,
+      "complete": true,
+      "input": 129397,
+      "output": 17048,
+      "cached": 7680,
+      "tokens": 146445,
+      "usd": 2.07725,
+      "seconds": 537.5780482292175
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "violations": [
+    {
+      "group_id": "g01",
+      "entity_ids": [
+        "Shot1/e1",
+        "Shot3/e1",
+        "Shot4/e5"
+      ],
+      "anchor_pairs": [
+        {
+          "shot_a": "Shot1",
+          "shot_b": "Shot3",
+          "reason": "两镜各六帧中车体均保持停驻，变化来自视角、反光和人物遮挡；大尺度车体几何可用。Shot4明确规定车辆驶过，且首帧后背景露出，涉及Shot4的两对均不作锚。"
+        }
+      ],
+      "reason": "Car is not stable common room structure/large furniture required by unchanged global_match.txt. Static label alone is insufficient."
+    }
+  ],
+  "pair_filter_counts": {
+    "Shot1_Shot2": {
+      "raw": 180000,
+      "same_structural_region": 2216,
+      "confidence_and_cycle": 0,
+      "lifted": 0
+    },
+    "Shot1_Shot3": {
+      "raw": 180000,
+      "same_structural_region": 6886,
+      "confidence_and_cycle": 1721,
+      "lifted": 1721
+    },
+    "Shot1_Shot4": {
+      "raw": 180000,
+      "same_structural_region": 137,
+      "confidence_and_cycle": 0,
+      "lifted": 0
+    },
+    "Shot2_Shot4": {
+      "raw": 180000,
+      "same_structural_region": 3820,
+      "confidence_and_cycle": 0,
+      "lifted": 0
+    }
+  },
+  "accepted_optimization_roots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+  ],
+  "raw_outputs_preserved": true
+}

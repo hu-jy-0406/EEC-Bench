@@ -1,0 +1,12 @@
+[
+  {
+    "batch_id": "b035",
+    "label": "primary_source_check",
+    "feedback": "Primary source review found one avoidable added material assumption: episode HFAGAjkDaOU_s00062_n4_clean_v2 Shot2 currently appends 'The mouse has brown fur, enormous round ears, a cream muzzle and a reddish nose.' The exact source says 'a small brown mouse ...', not 'fur'. Avoid inferring surface material, even if plausible. Minimal correction is 'The mouse is brown, with enormous round ears, a cream muzzle and a reddish nose.' Preserve the original shot verbatim and all other already correct additions exactly. Recheck this correction against the original quoted source; do not add new texture, size, pose or visibility requirements. Return all episodes/shots, applying the same minimal-edit rules."
+  },
+  {
+    "batch_id": "b043",
+    "label": "primary_source_check",
+    "feedback": "This is a targeted semantic source correction after primary review. For episode fUHoxXHmNoQ_s00020_n4_clean_v2 Shot3 the proposed supplement says 'The cat has tawny-gray fur covered in dark rosettes.' The original text defines 'a muscular tawny-gray animal covered in dark rosettes', without explicitly specifying fur material. To obey the user's strict no-extra-facts requirement, use the minimal supported wording 'The cat is tawny-gray and covered in dark rosettes.' Do not import hidden body musculature into the profile close-up. Preserve all other correct additions exactly, returning the complete batch after rechecking against original text."
+  }
+]

@@ -1,0 +1,79 @@
+{
+  "allocation": "185272",
+  "graphs": [
+    {
+      "method": "codex",
+      "shot_id": "shot1",
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 12,
+        "limited": 5
+      },
+      "median_fused_projection_iou": 0.43294256639426143
+    },
+    {
+      "method": "codex",
+      "shot_id": "shot3",
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 16,
+        "limited": 5
+      },
+      "median_fused_projection_iou": 0.5487643932233667
+    },
+    {
+      "method": "boxer_codex_camera",
+      "shot_id": "shot1",
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 14,
+        "limited": 3
+      },
+      "median_fused_projection_iou": 0.5714079143766116
+    },
+    {
+      "method": "boxer_codex_camera",
+      "shot_id": "shot3",
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 18,
+        "limited": 3
+      },
+      "median_fused_projection_iou": 0.5158982901134512
+    },
+    {
+      "method": "boxer_geocalib",
+      "shot_id": "shot1",
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 14,
+        "limited": 3
+      },
+      "median_fused_projection_iou": 0.6084942969126275
+    },
+    {
+      "method": "boxer_geocalib",
+      "shot_id": "shot3",
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 19,
+        "limited": 2
+      },
+      "median_fused_projection_iou": 0.636807347114021
+    }
+  ],
+  "notation": "G=Gm+Gs is a fixed node partition, not arithmetic addition; cross-partition relations would need separate treatment.",
+  "new_model_calls": 0,
+  "source_mode": "reuse frozen three-method geometry; newly quality-weighted fusion",
+  "weights": "IoU * sqrt(visible-box area / max visible-box area) * boundary factor * (0.5+0.5 native reliability); shared-state duplicate correction; robust center outlier gate",
+  "unit_tests_passed": 10,
+  "audit": "pass",
+  "browser_runtime_validated": false,
+  "html": "comparison.html"
+}

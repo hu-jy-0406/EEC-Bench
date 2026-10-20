@@ -1,0 +1,86 @@
+{
+  "status": "partial_until_all_models_complete",
+  "episodes": 400,
+  "shots": 2000,
+  "api_calls": 0,
+  "api_cost_usd": 0,
+  "excludes": [
+    "one-time downloads/setup",
+    "downstream evaluation",
+    "queueing/retries"
+  ],
+  "assumptions": [
+    "same MI210 and settings",
+    "adequate host RAM",
+    "continuous availability"
+  ],
+  "wan": {
+    "samples": 2,
+    "shot_seconds": [
+      1547.3026743099908,
+      1540.6436202490004
+    ],
+    "mean_shot_seconds": 1543.9731472794956,
+    "projection_seconds_400": 3087946.294558991,
+    "projection_days_one_gpu": 35.740119149988324,
+    "worker_init_seconds_extra": 239.8170098440023,
+    "mode": "measured_full_steps_per_shot_extrapolation"
+  },
+  "holocine": {
+    "mode": "two_step_full_duration_projection_to_50_steps_NOT_full_length_50step_measurement",
+    "length_measurements": {
+      "4": {
+        "episodes": 240,
+        "frames": 321,
+        "measured_step_seconds": [
+          323.2637734449818,
+          326.1524501229869
+        ],
+        "non_step_generation_seconds": 263.9070265159826,
+        "encoding_seconds": 16.818382945959456,
+        "projection_50step_episode_seconds": 16516.13099866116,
+        "projection_total_seconds": 3963871.4396786783,
+        "load_seconds_per_worker_or_episode_extra": 46.185635140980594
+      },
+      "6": {
+        "episodes": 120,
+        "frames": 481,
+        "measured_step_seconds": [
+          691.9118068739772,
+          729.7971719320049
+        ],
+        "non_step_generation_seconds": 297.43235030199867,
+        "encoding_seconds": 15.549989930994343,
+        "projection_50step_episode_seconds": 35855.706810382544,
+        "projection_total_seconds": 4302684.817245905,
+        "load_seconds_per_worker_or_episode_extra": 81.51287957897875
+      },
+      "8": {
+        "episodes": 40,
+        "frames": 641,
+        "measured_step_seconds": [
+          1221.292425230029,
+          1273.5008275709697
+        ],
+        "non_step_generation_seconds": 348.2912186620524,
+        "encoding_seconds": 13.131201184005477,
+        "projection_50step_episode_seconds": 62731.25373987103,
+        "projection_total_seconds": 2509250.149594841,
+        "load_seconds_per_worker_or_episode_extra": 61.924182693997864
+      }
+    },
+    "complete_length_coverage": true,
+    "limitations": [
+      "two-step probe has one high and one low expert step; 50-step run has 21 high and 29 low",
+      "per-step times include expert-switch and warmup costs, amplified by scaling",
+      "CFG positive/negative forwards already included; do not multiply by two",
+      "worker initialization and validation excluded from core projection",
+      "16fps is benchmark duration adaptation; official entrypoint uses 15fps"
+    ],
+    "projection_seconds_400": 10775806.406519424,
+    "projection_days_one_gpu": 124.71998155693778
+  },
+  "storymem": {
+    "status": "pending_memory_conditioned_measurements"
+  }
+}

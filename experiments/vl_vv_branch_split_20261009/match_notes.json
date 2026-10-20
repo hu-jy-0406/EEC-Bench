@@ -1,0 +1,18 @@
+{
+  "rule": "Assistant matching (not human annotation): a unit or issue matches a reference artifact when it reports the same physical discrepancy; found = any matching unit, confirmed = a matching unit confirmed by review. Controls count when flagged.",
+  "wrong_shot": {
+    "p002_wan21/run_a": "A1: L2 and V2 place the collared shirt in Shot4; it is in Shot3 (verified on the frames). Counted as found, with the wrong shot.",
+    "p002_wan21/run_b": "A1: L3 and V1.1 place the collared shirt in Shot4; it is in Shot3. Counted as found, with the wrong shot."
+  },
+  "not_counted": {
+    "p047_wan21/run_a L3": "Shot6 arm does not cross the foreground; does not identify the extra shirtless old man (A2).",
+    "p069_wan21/run_b V2.1": "Long-coat adult looks female in Shot2 and male in Shot4; ambiguous with A5 (short figure), not counted.",
+    "p028_wan22 L1/L2 (Shot2/Shot4 wrist support)": "Real V-L failures, not reference artifacts (A5 concerns Shot8)."
+  },
+  "rejected_matches": {
+    "p028_wan22/run_a V2": "A4 chair type change rejected as not_expected_to_match; the V-L unit L2 for the same chair is confirmed.",
+    "p032_wan22/run_b L4": "A4 cat with black patches rejected as requirement_satisfied (the reviewer reads 'white cat' as satisfied by a mostly white cat).",
+    "p047_wan21/run_b V1": "A3 older man's hair rejected as consistent_in_frames; V2/V3 (A1 swap) rejected as not_expected_to_match, while the V-L unit L2 for the same Shot4 look is confirmed.",
+    "p047_storymem/run_a V1": "A1 corrupted Shot6 frame 0 rejected as normal_change (foreground blur); confirmed in run_b."
+  }
+}

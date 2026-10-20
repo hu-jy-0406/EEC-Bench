@@ -1,0 +1,19 @@
+{
+  "case": "study2",
+  "shots": [
+    "shot1",
+    "shot3"
+  ],
+  "baseline": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_anchor_joint_fresh_20260918",
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "pipeline_revision": "candidate_only_clustering_detector_boxes_v1",
+  "scope": "fresh_detection_clustering_geometry_isolated_motion_static_fusion_only",
+  "inference_reuse": false,
+  "reused_inputs": [
+    "original JPEGs",
+    "code/environments",
+    "pretrained weights and download metadata"
+  ],
+  "stops_before_cross_shot_matching": true
+}

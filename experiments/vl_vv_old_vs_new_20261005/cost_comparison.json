@@ -1,0 +1,379 @@
+{
+ "pricing": {
+  "uncached": 0.1,
+  "cached": 0.01,
+  "output": 0.5
+ },
+ "run_counts": {
+  "v1": 18,
+  "v2": 27,
+  "v1_historical": 9
+ },
+ "mean_per_run": {
+  "v1": {
+   "issue_discovery": {
+    "calls": 1.0,
+    "input": 115978.33333333333,
+    "cached": 57987.666666666664,
+    "uncached": 57990.666666666664,
+    "output": 948.3888888888889,
+    "reasoning": 443.44444444444446,
+    "usd": 0.0068531377777777775,
+    "usd_nocache": 0.012072027777777779
+   },
+   "issue_review": {
+    "calls": 1.0,
+    "input": 35713.833333333336,
+    "cached": 0.0,
+    "uncached": 35713.833333333336,
+    "output": 807.3333333333334,
+    "reasoning": 183.88888888888889,
+    "usd": 0.00397505,
+    "usd_nocache": 0.00397505
+   },
+   "episode_scoring": {
+    "calls": 1.0,
+    "input": 2517.9444444444443,
+    "cached": 0.0,
+    "uncached": 2517.9444444444443,
+    "output": 215.33333333333334,
+    "reasoning": 38.611111111111114,
+    "usd": 0.00035946111111111114,
+    "usd_nocache": 0.00035946111111111114
+   },
+   "all": {
+    "calls": 3.0,
+    "input": 154210.11111111112,
+    "cached": 57987.666666666664,
+    "uncached": 96222.44444444444,
+    "output": 1971.0555555555557,
+    "reasoning": 665.9444444444445,
+    "usd": 0.011187648888888891,
+    "usd_nocache": 0.01640653888888889
+   }
+  },
+  "v2": {
+   "issue_discovery": {
+    "calls": 1.4074074074074074,
+    "input": 177001.37037037036,
+    "cached": 133877.62962962964,
+    "uncached": 43123.74074074074,
+    "output": 4775.222222222223,
+    "reasoning": 428.4074074074074,
+    "usd": 0.00803876148148148,
+    "usd_nocache": 0.02008774814814815
+   },
+   "issue_review": {
+    "calls": 1.0,
+    "input": 37472.555555555555,
+    "cached": 0.0,
+    "uncached": 37472.555555555555,
+    "output": 1441.4444444444443,
+    "reasoning": 324.6296296296296,
+    "usd": 0.004467977777777778,
+    "usd_nocache": 0.004467977777777778
+   },
+   "episode_scoring": {
+    "calls": 1.037037037037037,
+    "input": 3197.6666666666665,
+    "cached": 132.74074074074073,
+    "uncached": 3064.925925925926,
+    "output": 457.2962962962963,
+    "reasoning": 65.85185185185185,
+    "usd": 0.0005364681481481482,
+    "usd_nocache": 0.0005484148148148148
+   },
+   "all": {
+    "calls": 3.4444444444444446,
+    "input": 217671.59259259258,
+    "cached": 134010.37037037036,
+    "uncached": 83661.22222222222,
+    "output": 6673.962962962963,
+    "reasoning": 818.8888888888889,
+    "usd": 0.01304320740740741,
+    "usd_nocache": 0.025104140740740747
+   }
+  },
+  "v1_historical": {
+   "issue_discovery": {
+    "calls": 1.0,
+    "input": 115967.55555555556,
+    "cached": 0.0,
+    "uncached": 115967.55555555556,
+    "output": 836.4444444444445,
+    "reasoning": 414.22222222222223,
+    "usd": 0.012014977777777778,
+    "usd_nocache": 0.012014977777777778
+   },
+   "issue_review": {
+    "calls": 0.8888888888888888,
+    "input": 32662.11111111111,
+    "cached": 0.0,
+    "uncached": 32662.11111111111,
+    "output": 649.8888888888889,
+    "reasoning": 157.0,
+    "usd": 0.0035911555555555555,
+    "usd_nocache": 0.0035911555555555555
+   },
+   "episode_scoring": {
+    "calls": 1.0,
+    "input": 2302.8888888888887,
+    "cached": 0.0,
+    "uncached": 2302.8888888888887,
+    "output": 208.44444444444446,
+    "reasoning": 53.333333333333336,
+    "usd": 0.00033451111111111115,
+    "usd_nocache": 0.00033451111111111115
+   },
+   "all": {
+    "calls": 2.888888888888889,
+    "input": 150932.55555555556,
+    "cached": 0.0,
+    "uncached": 150932.55555555556,
+    "output": 1694.7777777777778,
+    "reasoning": 624.5555555555555,
+    "usd": 0.015940644444444443,
+    "usd_nocache": 0.015940644444444443
+   }
+  }
+ },
+ "per_case": [
+  {
+   "key": "p002_wan21",
+   "shots": 4,
+   "v1_historical": {
+    "mean_usd": 0.009785499999999999,
+    "mean_usd_nocache": 0.009785499999999999,
+    "mean_input": 88830,
+    "mean_output": 1805,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.0070538300000000005,
+    "mean_usd_nocache": 0.00989045,
+    "mean_input": 89324.5,
+    "mean_output": 1916,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.008842466666666667,
+    "mean_usd_nocache": 0.014936366666666666,
+    "mean_input": 120450.33333333333,
+    "mean_output": 5782.666666666667,
+    "mean_calls": 3.3333333333333335
+   }
+  },
+  {
+   "key": "p014_wan21",
+   "shots": 4,
+   "v1_historical": {
+    "mean_usd": 0.011691600000000002,
+    "mean_usd_nocache": 0.011691600000000002,
+    "mean_input": 109316,
+    "mean_output": 1520,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.008383330000000001,
+    "mean_usd_nocache": 0.011993050000000002,
+    "mean_input": 109888,
+    "mean_output": 2008.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.008709386666666668,
+    "mean_usd_nocache": 0.013804766666666668,
+    "mean_input": 115769.33333333333,
+    "mean_output": 4455.666666666667,
+    "mean_calls": 3
+   }
+  },
+  {
+   "key": "p014_storymem",
+   "shots": 4,
+   "v1_historical": {
+    "mean_usd": 0.0082476,
+    "mean_usd_nocache": 0.0082476,
+    "mean_input": 80621,
+    "mean_output": 371,
+    "mean_calls": 2
+   },
+   "v1": {
+    "mean_usd": 0.007786175,
+    "mean_usd_nocache": 0.0113495,
+    "mean_input": 107852.5,
+    "mean_output": 1128.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.008171146666666667,
+    "mean_usd_nocache": 0.013204666666666667,
+    "mean_input": 113953.33333333333,
+    "mean_output": 3618.6666666666665,
+    "mean_calls": 3
+   }
+  },
+  {
+   "key": "p028_wan22",
+   "shots": 8,
+   "v1_historical": {
+    "mean_usd": 0.019450500000000003,
+    "mean_usd_nocache": 0.019450500000000003,
+    "mean_input": 186715,
+    "mean_output": 1558,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.013491935,
+    "mean_usd_nocache": 0.01970585,
+    "mean_input": 187281,
+    "mean_output": 1955.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.013886426666666668,
+    "mean_usd_nocache": 0.02248106666666667,
+    "mean_input": 195084,
+    "mean_output": 5945.333333333333,
+    "mean_calls": 3
+   }
+  },
+  {
+   "key": "p028_cinetrans",
+   "shots": 8,
+   "v1_historical": {
+    "mean_usd": 0.0206732,
+    "mean_usd_nocache": 0.0206732,
+    "mean_input": 196112,
+    "mean_output": 2124,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.014024309999999998,
+    "mean_usd_nocache": 0.0206295,
+    "mean_input": 196167.5,
+    "mean_output": 2025.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.017364393333333332,
+    "mean_usd_nocache": 0.035593233333333335,
+    "mean_input": 311892.3333333333,
+    "mean_output": 8808,
+    "mean_calls": 3.6666666666666665
+   }
+  },
+  {
+   "key": "p180_cinetrans",
+   "shots": 4,
+   "v1_historical": {
+    "mean_usd": 0.011547100000000001,
+    "mean_usd_nocache": 0.011547100000000001,
+    "mean_input": 107331,
+    "mean_output": 1628,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.008199025,
+    "mean_usd_nocache": 0.011734000000000001,
+    "mean_input": 107652.5,
+    "mean_output": 1937.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.011455533333333334,
+    "mean_usd_nocache": 0.024121233333333332,
+    "mean_input": 204909,
+    "mean_output": 7260.666666666667,
+    "mean_calls": 4
+   }
+  },
+  {
+   "key": "p047_wan21",
+   "shots": 8,
+   "v1_historical": {
+    "mean_usd": 0.021203699999999995,
+    "mean_usd_nocache": 0.021203699999999995,
+    "mean_input": 206622,
+    "mean_output": 1083,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.014663269999999999,
+    "mean_usd_nocache": 0.021821149999999997,
+    "mean_input": 207479,
+    "mean_output": 2146.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.014968213333333332,
+    "mean_usd_nocache": 0.02492953333333333,
+    "mean_input": 217182,
+    "mean_output": 6422.666666666667,
+    "mean_calls": 3.3333333333333335
+   }
+  },
+  {
+   "key": "p015_cinetrans",
+   "shots": 4,
+   "v1_historical": {
+    "mean_usd": 0.0162454,
+    "mean_usd_nocache": 0.0162454,
+    "mean_input": 143629,
+    "mean_output": 3765,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.010306280000000001,
+    "mean_usd_nocache": 0.01523315,
+    "mean_input": 141754,
+    "mean_output": 2115.5,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.013572966666666667,
+    "mean_usd_nocache": 0.02727756666666667,
+    "mean_input": 230289,
+    "mean_output": 8497.333333333334,
+    "mean_calls": 3.6666666666666665
+   }
+  },
+  {
+   "key": "p068_holocine",
+   "shots": 8,
+   "v1_historical": {
+    "mean_usd": 0.024621200000000003,
+    "mean_usd_nocache": 0.024621200000000003,
+    "mean_input": 239217,
+    "mean_output": 1399,
+    "mean_calls": 3
+   },
+   "v1": {
+    "mean_usd": 0.016780685000000004,
+    "mean_usd_nocache": 0.0253022,
+    "mean_input": 240492,
+    "mean_output": 2506,
+    "mean_calls": 3
+   },
+   "v2": {
+    "mean_usd": 0.020418333333333333,
+    "mean_usd_nocache": 0.04958883333333333,
+    "mean_input": 449515,
+    "mean_output": 9274.666666666666,
+    "mean_calls": 4
+   }
+  }
+ ],
+ "frontend_mean_per_task": {
+  "usd": 0.014496022222222222,
+  "usd_nocache": 0.014496022222222222
+ },
+ "first200_v1_batch": {
+  "tasks": 1000,
+  "evaluation_usd": 15.54360191,
+  "frontend_usd": 15.1278788,
+  "evaluation_input": 148185697,
+  "evaluation_cached": 2041081,
+  "evaluation_output": 1817459
+ }
+}

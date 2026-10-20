@@ -1,0 +1,12 @@
+{
+  "preserved": "Original code_snapshot, code_hashes, prompts, responses and model request evidence are unchanged.",
+  "post_inference_source_changes": [
+    "Record canonical endpoint order normalization as explicit provenance; actual case order was unchanged.",
+    "Use each frame camera image size instead of the first camera size; actual case has the same 852x480 size throughout.",
+    "Degenerate reference pairs are skipped for visual requests and remain unassessed.",
+    "Render null scores, no common relations and missing geometry without failure; replace example-specific UI phrasing.",
+    "Add replay/audit/evidence renderer, method documentation and tests."
+  ],
+  "numeric_policy_changed_after_inference": false,
+  "verification": "Current and frozen-source numeric/score replay must match saved results exactly."
+}

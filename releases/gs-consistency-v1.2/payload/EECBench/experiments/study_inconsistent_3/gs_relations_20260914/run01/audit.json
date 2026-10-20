@@ -1,0 +1,49 @@
+{
+  "passed": true,
+  "source_hashes_unchanged": true,
+  "independent_shot_contexts": 2,
+  "unique_tool_free_calls": 3,
+  "all_numeric_opportunities": 108,
+  "common_support_relations": 3,
+  "confirmed_spatial_relations": 1,
+  "exact_score_replay": true,
+  "calls": [
+    {
+      "stage": "observe_shot1",
+      "usage": [
+        {
+          "input_tokens": 45571,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1807,
+          "reasoning_output_tokens": 141
+        }
+      ]
+    },
+    {
+      "stage": "observe_shot3",
+      "usage": [
+        {
+          "input_tokens": 53942,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1840,
+          "reasoning_output_tokens": 97
+        }
+      ]
+    },
+    {
+      "stage": "verify_relations",
+      "usage": [
+        {
+          "input_tokens": 95687,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 1149,
+          "reasoning_output_tokens": 263
+        }
+      ]
+    }
+  ],
+  "limitation": "Audits protocol and numeric reproducibility, not human accuracy or true physical anchor/center geometry."
+}

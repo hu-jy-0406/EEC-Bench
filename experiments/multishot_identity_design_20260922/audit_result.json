@@ -1,0 +1,233 @@
+{
+  "status": "complete",
+  "production_modified": false,
+  "source_definition": "Scene IDs from effective Wan inputs cross-checked against all 400 frozen source contracts/index; labels, not a visual audit of 400 generated videos.",
+  "stats": {
+    "definition": "Scene IDs from effective Wan inputs cross-checked against all 400 frozen source contracts/index; labels, not a visual audit of 400 generated videos.",
+    "all": {
+      "episodes": 400,
+      "shots": 2000,
+      "scenes": 749,
+      "episodes_with_scene_ge3": 318,
+      "scenes_ge3": 336,
+      "episode_max_scene_shots": {
+        "2": 82,
+        "3": 73,
+        "4": 153,
+        "5": 21,
+        "6": 51,
+        "7": 4,
+        "8": 16
+      },
+      "scene_shot_counts": {
+        "1": 281,
+        "2": 132,
+        "3": 88,
+        "4": 156,
+        "5": 21,
+        "6": 51,
+        "7": 4,
+        "8": 16
+      },
+      "qualifying_episode_total_shots": {
+        "4": 172,
+        "6": 108,
+        "8": 38
+      },
+      "adjacent_pairs": 1251,
+      "all_pairs": 2839
+    },
+    "wan_complete": {
+      "episodes": 202,
+      "shots": 1008,
+      "scenes": 250,
+      "episodes_with_scene_ge3": 195,
+      "scenes_ge3": 202,
+      "episode_max_scene_shots": {
+        "2": 7,
+        "3": 16,
+        "4": 108,
+        "5": 12,
+        "6": 44,
+        "7": 3,
+        "8": 12
+      },
+      "scene_shot_counts": {
+        "1": 30,
+        "2": 18,
+        "3": 23,
+        "4": 108,
+        "5": 12,
+        "6": 44,
+        "7": 3,
+        "8": 12
+      },
+      "qualifying_episode_total_shots": {
+        "4": 115,
+        "6": 60,
+        "8": 20
+      },
+      "adjacent_pairs": 758,
+      "all_pairs": 1914
+    },
+    "scheduled_object_gap_episodes": 262,
+    "completed_scheduled_object_gap_episodes": 176,
+    "source_hashes": {
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/prompt_revision_20260922/input_queue_400.v2.jsonl": "403de4dfca6d8668a1411f87411665440bba2c9c834ef756a45c0f0272194c76",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/queue.json": "4afaf7f32ee2e52988509d5f74183ad5d8e0ad8f25bfcb20b33a518981ff2415",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/exports/storymem_hf_priority50_20260922/storymem_inputs/index.json": "7374537b056b86176730a1a202d0fda24b09b202535f2a961be999b7cedf93d9"
+    }
+  },
+  "selected": {
+    "episode_id": "_6fzoABYwyk_s00021_n4_clean_v2",
+    "generation_priority": 39,
+    "scene_id": "Scene1",
+    "shot_count": 4,
+    "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/episode.mp4",
+    "total_frames": 324,
+    "actual_duration_seconds": 20.25,
+    "prompt_target_duration_seconds": 20,
+    "shot_videos": [
+      {
+        "shot_id": "Shot1",
+        "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot1.mp4",
+        "sha256": "6a61ffe3e46efaf0edd171a456f693fc796c2a3692791ad706bb1230a8a47fef",
+        "metadata": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot1.json",
+        "probe": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 16.0,
+          "source_size": [
+            832,
+            480
+          ],
+          "size": [
+            832,
+            480
+          ],
+          "rotate": 0,
+          "duration": 5.06,
+          "decoded_frames": 81
+        },
+        "preview": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot1.contact.jpg"
+      },
+      {
+        "shot_id": "Shot2",
+        "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot2.mp4",
+        "sha256": "27aff6ad2f875fce5a339fc97103c31ac3430516eebc553963047bab235cc244",
+        "metadata": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot2.json",
+        "probe": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 16.0,
+          "source_size": [
+            832,
+            480
+          ],
+          "size": [
+            832,
+            480
+          ],
+          "rotate": 0,
+          "duration": 5.06,
+          "decoded_frames": 81
+        },
+        "preview": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot2.contact.jpg"
+      },
+      {
+        "shot_id": "Shot3",
+        "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot3.mp4",
+        "sha256": "68750fa2d781bee3c2ce590ce097eb91939397418b7a472a0ee369966cc993fd",
+        "metadata": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot3.json",
+        "probe": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 16.0,
+          "source_size": [
+            832,
+            480
+          ],
+          "size": [
+            832,
+            480
+          ],
+          "rotate": 0,
+          "duration": 5.06,
+          "decoded_frames": 81
+        },
+        "preview": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot3.contact.jpg"
+      },
+      {
+        "shot_id": "Shot4",
+        "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot4.mp4",
+        "sha256": "b196af2a44f6f206fde50608043475a0f41a61ec96702f8126f977cd76bda3f2",
+        "metadata": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot4.json",
+        "probe": {
+          "ffmpeg_version": "7.0.2-static https://johnvansickle.com/ffmpeg/ built with gcc 8 (Debian 8.3.0-6)",
+          "codec": "h264",
+          "pix_fmt": "yuv420p(progressive)",
+          "fps": 16.0,
+          "source_size": [
+            832,
+            480
+          ],
+          "size": [
+            832,
+            480
+          ],
+          "rotate": 0,
+          "duration": 5.06,
+          "decoded_frames": 81
+        },
+        "preview": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot4.contact.jpg"
+      }
+    ],
+    "source_hashes": {
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot1.mp4": "6a61ffe3e46efaf0edd171a456f693fc796c2a3692791ad706bb1230a8a47fef",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot2.mp4": "27aff6ad2f875fce5a339fc97103c31ac3430516eebc553963047bab235cc244",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot3.mp4": "68750fa2d781bee3c2ce590ce097eb91939397418b7a472a0ee369966cc993fd",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/Shot4.mp4": "b196af2a44f6f206fde50608043475a0f41a61ec96702f8126f977cd76bda3f2",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/videos/_6fzoABYwyk_s00021_n4_clean_v2/episode.mp4": "62298d6ffd23751940c15311464dc8de9b9795c409e11fbeacf83659ab5cbf97"
+    },
+    "keyframes_per_shot": 6,
+    "sampled_frame_ids": [
+      0,
+      16,
+      32,
+      48,
+      64,
+      80
+    ],
+    "scope": "Wan2.2 generated pixels, not source film. Video hashes/probes and original prompt hashes verified. Frames decoded without crop/resize, saved JPEG quality95/subsampling0.",
+    "candidate_gap": {
+      "first": "Shot2",
+      "intervening": [
+        "Shot3"
+      ],
+      "last": "Shot4",
+      "objects": [
+        "orange bedside lamp",
+        "bed",
+        "question-mark print",
+        "plaid blanket"
+      ]
+    },
+    "detection_run": false,
+    "registration_run": false,
+    "identity_run": false,
+    "ground_truth_identity": false
+  },
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_identity_design_20260922/audit.py": "aed272e476900d037bfac33025599e46764d306e2536b0ad789c88d580658439",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_identity_design_20260922/prepare_case.py": "966645be8385916374bc6aa4234b0846f6504778f630c9387eb6619c9dd17818",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_identity_design_20260922/summary.json": "0f32f37ff06ce2a7169fe8dddd3bb62dbd9ea3813d3ed9ec25f55eec7c8620f4",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_identity_design_20260922/REPORT.md": "ce20a020b7caa847ff9484df2cab0f9925bd59e7f8d6a594b9d3bf723770941b",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/docs/scene-global-identity-v2-design.md": "a6c3fb29a8b5a43a486473ca85269940dd6c177442e29bb4621e5fc6edd0a268"
+  },
+  "new_pipeline_model_calls": 0,
+  "billable_api_tokens": 0,
+  "api_cost_usd": 0
+}

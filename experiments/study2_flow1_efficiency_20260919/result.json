@@ -1,0 +1,175 @@
+{
+  "status": "validated",
+  "baseline": {
+    "matching": {
+      "seconds": 112.45215010643005,
+      "input_tokens": 133049,
+      "output_tokens": 3408,
+      "cached_input_tokens": 0,
+      "total_tokens": 136457
+    },
+    "identity_review": {
+      "seconds": 406.64891171455383,
+      "input_tokens": 85795,
+      "output_tokens": 13287,
+      "cached_input_tokens": 0,
+      "total_tokens": 99082
+    },
+    "presence_1": {
+      "seconds": 249.6074035167694,
+      "input_tokens": 226666,
+      "output_tokens": 7933,
+      "cached_input_tokens": 0,
+      "total_tokens": 234599
+    },
+    "presence_2": {
+      "seconds": 288.4548716545105,
+      "input_tokens": 226624,
+      "output_tokens": 9202,
+      "cached_input_tokens": 0,
+      "total_tokens": 235826
+    }
+  },
+  "rounds": {
+    "compact_round01": {
+      "gate": {
+        "identity_signature_equal": true,
+        "presence_equal": true,
+        "counts_equal": true,
+        "identity_contract_passed": true,
+        "presence_contract_passed": true,
+        "geometry_equivalence_passed": true,
+        "original_images_unchanged": true
+      },
+      "anchors_equal": true,
+      "spatial_numeric_equal": true,
+      "pair_count": 28,
+      "negative_count": 6,
+      "calls": {
+        "identity_review": {
+          "seconds": 405.6126666069031,
+          "input_tokens": 51530,
+          "output_tokens": 13291,
+          "cached_input_tokens": 0,
+          "total_tokens": 64821
+        },
+        "matching": {
+          "seconds": 94.23937439918518,
+          "input_tokens": 62423,
+          "output_tokens": 2815,
+          "cached_input_tokens": 0,
+          "total_tokens": 65238
+        },
+        "presence_1": {
+          "seconds": 230.43418836593628,
+          "input_tokens": 98022,
+          "output_tokens": 7341,
+          "cached_input_tokens": 0,
+          "total_tokens": 105363
+        },
+        "presence_2": {
+          "seconds": 219.9804973602295,
+          "input_tokens": 98008,
+          "output_tokens": 7033,
+          "cached_input_tokens": 0,
+          "total_tokens": 105041
+        }
+      },
+      "costs": {
+        "A_B_tokens": 275225,
+        "A_B_seconds": 636.0468549728394
+      },
+      "presence_summary": {
+        "score": 86.66666666666667,
+        "coverage": 0.6666666666666666,
+        "N": 15,
+        "C": 8,
+        "K": 2,
+        "U": 5,
+        "E": 13,
+        "identification_interval": [
+          53.333333333333336,
+          86.66666666666667
+        ]
+      },
+      "identity_changes": []
+    },
+    "compact_round02": {
+      "gate": {
+        "identity_signature_equal": true,
+        "anchors_equal": true,
+        "presence_equal": true,
+        "counts_equal": true,
+        "source_hashes_unchanged": true,
+        "geometry_frozen": true,
+        "production_entrypoint_exercised": true
+      },
+      "anchors_equal": true,
+      "spatial_numeric_equal": true,
+      "pair_count": 28,
+      "negative_count": 6,
+      "calls": {
+        "identity_review": {
+          "seconds": 415.92616415023804,
+          "input_tokens": 51390,
+          "output_tokens": 13584,
+          "cached_input_tokens": 0,
+          "total_tokens": 64974
+        },
+        "presence_1": {
+          "seconds": 228.91725158691406,
+          "input_tokens": 97862,
+          "output_tokens": 7360,
+          "cached_input_tokens": 7680,
+          "total_tokens": 105222
+        },
+        "presence_2": {
+          "seconds": 234.3375174999237,
+          "input_tokens": 97820,
+          "output_tokens": 7512,
+          "cached_input_tokens": 0,
+          "total_tokens": 105332
+        }
+      },
+      "costs": {
+        "A_B_tokens": 275528,
+        "A_B_seconds": 650.2636816501617
+      },
+      "presence_summary": {
+        "score": 86.66666666666667,
+        "coverage": 0.6666666666666666,
+        "N": 15,
+        "C": 8,
+        "K": 2,
+        "U": 5,
+        "E": 13,
+        "identification_interval": [
+          53.333333333333336,
+          86.66666666666667
+        ]
+      },
+      "identity_changes": []
+    }
+  },
+  "initial_matching_equal": true,
+  "baseline_A_B_tokens": 569507,
+  "optimized_mean_A_B_tokens": 275376.5,
+  "token_reduction": 0.5164651180758094,
+  "baseline_A_B_seconds": 695.1037833690643,
+  "optimized_mean_A_B_seconds": 643.1552683115005,
+  "time_reduction": 0.07473490477317946,
+  "new_validation_calls": 7,
+  "new_validation_tokens": 615991,
+  "promotable": true,
+  "scope": "Initial matching one replay; two A/B checks including production-entrypoint chain; same frozen geometry; numerical spatial invariance only, spatial model review unchanged and not rerun.",
+  "optimized_stages_summary": {
+    "baseline_tokens": 705964,
+    "optimized_tokens": 340614.5,
+    "baseline_seconds": 807.5559334754944,
+    "optimized_seconds": 737.3946427106857,
+    "token_reduction": 0.5175185986820858,
+    "time_reduction": 0.08688102935836794
+  },
+  "adopted": true,
+  "active_config": "EECBench/configs/gs-consistency-two-scores.v1.json"
+}

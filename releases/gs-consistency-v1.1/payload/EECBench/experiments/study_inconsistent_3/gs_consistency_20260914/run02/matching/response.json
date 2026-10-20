@@ -1,0 +1,231 @@
+{
+  "groups": [
+    {
+      "group_id": "g01",
+      "a_ids": ["shot1/e1"],
+      "b_ids": ["shot3/e1"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Matching gold frame and landscape composition, including trees, sky and winding water, on the wall near the wooden plant support.",
+      "anchor_reason": "Identifiable wall decoration, but not an architectural or support landmark; its hanging position is not independently established across shots."
+    },
+    {
+      "group_id": "g02",
+      "a_ids": ["shot1/e2"],
+      "b_ids": ["shot3/e2"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Same dark green cylindrical mug with rounded handle and contrasting rim, beside the pale pencil cup on the large table.",
+      "anchor_reason": "Small movable tabletop content."
+    },
+    {
+      "group_id": "g03",
+      "a_ids": ["shot1/e3"],
+      "b_ids": [],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Black domed desk lamp with curved metal stem and circular base has no corresponding frozen shot3 node.",
+      "anchor_reason": "No matched node; its within-shot stability does not establish a cross-shot reference."
+    },
+    {
+      "group_id": "g04",
+      "a_ids": ["shot1/e5"],
+      "b_ids": ["shot3/e7"],
+      "identity": "matched",
+      "anchor_eligible": true,
+      "identity_evidence": "Matching large rectangular wooden table with mottled worn top, thick perimeter, deep apron and square legs; the surrounding chair, rug and window ensemble supports correspondence.",
+      "anchor_reason": "Substantial support furniture whose placement plausibly provides a reference across these views. Eligibility is provisional, not proof of immobility. Its rectangular cuboid determines axes only up to symmetry, not a unique heading or corner assignment."
+    },
+    {
+      "group_id": "g05",
+      "a_ids": ["shot1/e6"],
+      "b_ids": [],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Small landscape frame resting on the bookcase shelf has no corresponding shot3 node. The hallway and botanical pictures have different subjects or attachments.",
+      "anchor_reason": "No resolved correspondence; movable shelf content."
+    },
+    {
+      "group_id": "g06",
+      "a_ids": ["shot1/e7"],
+      "b_ids": ["shot3/e9"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Matching pale cylindrical ceramic holder with tan and dark writing implements, immediately beside the green mug.",
+      "anchor_reason": "Small movable holder; partial mug occlusion also affects its estimated extent."
+    },
+    {
+      "group_id": "g07",
+      "a_ids": ["shot1/e8"],
+      "b_ids": ["shot3/e10"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Matching rounded leaves and descending vines from a pot on the window ledge above the white radiator. This attachment distinguishes it from the other plants.",
+      "anchor_reason": "Movable, deformable plant; attachment context identifies it but does not fix its world position."
+    },
+    {
+      "group_id": "g08",
+      "a_ids": ["shot1/e9"],
+      "b_ids": [],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "The dark bookcase with lower cabinet is extensively visible in shot1. Related dark shelving is partly visible at shot3's boundary, but no corresponding furniture node is frozen there.",
+      "anchor_reason": "A visible counterpart without a frozen node cannot supply a matched anchor."
+    },
+    {
+      "group_id": "g09",
+      "a_ids": ["shot1/e10"],
+      "b_ids": ["shot3/e13"],
+      "identity": "ambiguous",
+      "anchor_eligible": false,
+      "identity_evidence": "Both concern foliage associated with dark shelving, but shot3 shows only a cropped plant fragment near a ledge. Pot, complete vine pattern and exact shelf attachment cannot be verified against shot1's upper-shelf plant.",
+      "anchor_reason": "Identity remains unresolved, and foliage is unsuitable as a stable alignment reference."
+    },
+    {
+      "group_id": "g10",
+      "a_ids": ["shot1/e11"],
+      "b_ids": ["shot3/e15"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Matching muted cream, reddish and dark ornamental rug with a bordered field beneath the large wooden table.",
+      "anchor_reason": "Movable floor covering with substantial occlusion and cropped boundaries; its center and unique orientation are not securely identified."
+    },
+    {
+      "group_id": "g11",
+      "a_ids": ["shot1/e13"],
+      "b_ids": ["shot3/e6"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Matching wooden chair with broad curved top rail and vertical back slats, associated with the table beside the window.",
+      "anchor_reason": "Readily movable seating used by the person; occlusion and limited geometry further weaken positional reference."
+    },
+    {
+      "group_id": "g12",
+      "a_ids": ["shot1/e14"],
+      "b_ids": ["shot3/e18"],
+      "identity": "matched",
+      "anchor_eligible": true,
+      "identity_evidence": "Matching white ribbed radiator installed below the sash window, with the trailing windowsill plant above it and curtains beside it.",
+      "anchor_reason": "Installed architectural fixture whose wall attachment plausibly fixes its world position. Repeated ribs, cropping and occlusion leave endpoint and extent uncertainty; the cuboid alone does not establish unique orientation."
+    },
+    {
+      "group_id": "g13",
+      "a_ids": ["shot1/e15"],
+      "b_ids": ["shot3/e17"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Corresponding tapered earthy-colored pot holding the matched windowsill plant above the radiator; foliage partly covers both rims.",
+      "anchor_reason": "Small movable container with rotationally ambiguous shape."
+    },
+    {
+      "group_id": "g14",
+      "a_ids": ["shot1/e16"],
+      "b_ids": [],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Small pale vessel on the bookcase shelf has no corresponding frozen shot3 node.",
+      "anchor_reason": "No correspondence and small movable shelf content."
+    },
+    {
+      "group_id": "g15",
+      "a_ids": ["shot1/e17"],
+      "b_ids": ["shot3/e19"],
+      "identity": "scope_mismatch",
+      "anchor_eligible": false,
+      "identity_evidence": "Shot1's box isolates a black pen, whereas shot3's box encompasses the cluster of writing implements in the corresponding cup. The individual pen cannot be equated with the aggregate.",
+      "anchor_reason": "Different entity scope and small movable contents."
+    },
+    {
+      "group_id": "g16",
+      "a_ids": ["shot1/e18"],
+      "b_ids": ["shot3/e8"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Wooden wall-side support with a projecting top, shallow drawer/apron and slender legs carrying a trailing plant. Shot1's final frames expose a narrow oblique view; shot3 provides a broader frontal view in the corresponding wall ensemble.",
+      "anchor_reason": "Identity is defensible from construction and context, but partial views conceal much of the support and do not securely establish unchanged placement. Its inferred center and dimensions are weak."
+    },
+    {
+      "group_id": "g17",
+      "a_ids": ["shot1/e19"],
+      "b_ids": ["shot3/e11"],
+      "identity": "matched",
+      "anchor_eligible": false,
+      "identity_evidence": "Trailing leafy plant on the corresponding small wooden support, with a compact leafy crown and long vines descending beside the legs; shot1's final frames provide the useful evidence.",
+      "anchor_reason": "Movable, deformable plant. Shot1's fused geometry is particularly unreliable and mixes tiny visible fragments with fuller views."
+    },
+    {
+      "group_id": "g18",
+      "a_ids": [],
+      "b_ids": ["shot3/e3"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Larger hallway wall picture beyond the doorway has no corresponding frozen shot1 node.",
+      "anchor_reason": "No matched counterpart."
+    },
+    {
+      "group_id": "g19",
+      "a_ids": [],
+      "b_ids": ["shot3/e4"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Tall botanical print beside the window is distinct from the landscape pictures and has no frozen shot1 counterpart.",
+      "anchor_reason": "No matched counterpart."
+    },
+    {
+      "group_id": "g20",
+      "a_ids": [],
+      "b_ids": ["shot3/e5"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Narrow hallway picture on the return wall has no corresponding frozen shot1 node.",
+      "anchor_reason": "No matched counterpart."
+    },
+    {
+      "group_id": "g21",
+      "a_ids": [],
+      "b_ids": ["shot3/e12"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Low dark cabinet beyond the doorway is separate from the room's tall bookcase and plant support; no frozen shot1 counterpart exists.",
+      "anchor_reason": "No matched counterpart."
+    },
+    {
+      "group_id": "g22",
+      "a_ids": [],
+      "b_ids": ["shot3/e14"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Pale blue tissue packet with protruding white tissue has no corresponding frozen shot1 node.",
+      "anchor_reason": "No counterpart and small movable tabletop content."
+    },
+    {
+      "group_id": "g23",
+      "a_ids": [],
+      "b_ids": ["shot3/e16"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Horizontal stack of books on the console has no corresponding frozen shot1 node.",
+      "anchor_reason": "No counterpart and movable contents."
+    },
+    {
+      "group_id": "g24",
+      "a_ids": [],
+      "b_ids": ["shot3/e20"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Rug beyond the doorway occupies the hallway, separately from the matched rug beneath the main table; no frozen shot1 counterpart exists.",
+      "anchor_reason": "No matched counterpart; partial visible extent."
+    },
+    {
+      "group_id": "g25",
+      "a_ids": [],
+      "b_ids": ["shot3/e21"],
+      "identity": "unmatched",
+      "anchor_eligible": false,
+      "identity_evidence": "Separate pot node for the console plant has no separate frozen pot node in shot1. The matched plant node does not supply an additional pot correspondence.",
+      "anchor_reason": "No counterpart at the same entity scope; movable container."
+    }
+  ],
+  "scene_correspondence": "The frames support overlapping views of the same furnished room through the table, chair, window-radiator-plant ensemble, landscape picture and wall-side wooden support. A denotes shot1 and B denotes shot3. The table and installed radiator are eligible reference candidates, without asserting a complete room alignment or classifying anomalies.",
+  "limitations": "All 17 shot1 and 21 shot3 entities are included exactly once. Coordinates and scales are independent monocular estimates; neither raw coordinate equality nor reprojection IoU establishes cross-shot position or depth. Repeated frames have correlated predictions. Cropping, person occlusion, uncertain furniture extents and aggregate detections limit correspondence. Unmatched means no corresponding frozen node, not demonstrated physical absence. Anchor eligibility does not certify immobility or a unique orientation."
+}

@@ -1,0 +1,38 @@
+{
+  "passed": true,
+  "legacy_exact_plan_restored": true,
+  "gpu_peak": 1,
+  "api_peak": 8,
+  "gpu_stage_count": 10,
+  "all_dependency_barriers_passed": true,
+  "old": {
+    "seconds": 1674.6470634937286,
+    "tokens": 1049420,
+    "usd": 12.114328
+  },
+  "new": {
+    "seconds": 1398.875216960907,
+    "tokens": 1046586,
+    "usd": 11.685572
+  },
+  "wall_reduction_percent": 16.46746066944358,
+  "comparisons_are_two_fresh_stochastic_runs": true,
+  "timings": {
+    "pair_000_identity_review": {
+      "old_seconds": 405.8958172798157,
+      "new_seconds": 417.82799315452576
+    },
+    "pair_000_boundary": {
+      "old_seconds": 437.03944635391235,
+      "new_seconds": 324.7134952545166
+    },
+    "appearance_codex": {
+      "old_seconds": 325.34806656837463,
+      "new_seconds": 214.74232029914856
+    },
+    "appearance_dino": {
+      "old_seconds": 89.2910783290863,
+      "new_seconds": 138.50828862190247
+    }
+  }
+}

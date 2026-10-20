@@ -1,0 +1,353 @@
+{
+  "passed": true,
+  "fresh_frontend_geometry_identity_dino_codex": true,
+  "original_frames": 18,
+  "source_hashes_unchanged": 59,
+  "appearance_audit": {
+    "passed": true,
+    "entities": 36,
+    "appearances_pixel_checked": 240,
+    "original_images": 18,
+    "all_original_v3_prompts_and_schemas_unchanged": true,
+    "no_new_model_calls": true,
+    "raw_scores_and_dino_unchanged": true,
+    "model": "gpt-6-astra",
+    "reasoning": "medium"
+  },
+  "model_calls": 48,
+  "usage": {
+    "input_tokens": 1002442,
+    "cached_input_tokens": 60672,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 44144
+  },
+  "total_tokens": 1046586,
+  "standard_api_equivalent_usd": 11.685572000000004,
+  "elapsed_seconds": 1398.875216960907,
+  "appearance": {
+    "status": "success",
+    "model_protocol": "entity_appearance_compact_v3",
+    "protocol": "entity_appearance_scoring_v6",
+    "fused_score": false,
+    "model_calls": 34,
+    "total_tokens": 217402,
+    "standard_api_equivalent_usd": 2.073868,
+    "stage_seconds_sum": 376.2455542087555,
+    "cost_note": "Usage of calls in this pipeline; local report adds no model calls. Standard Astra API equivalent, not a billing guarantee.",
+    "results_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/report/results.json",
+    "entity_scores_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/report/entities.csv",
+    "appearance_inputs_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/canonical",
+    "all_entities": {
+      "entities": 36,
+      "scored_entities": 34,
+      "unscored_entities": 2,
+      "codex_score": 85.19513499630011,
+      "codex_entity_mean": 95.52696078431372,
+      "dino_score": 0.913816650902764,
+      "dino_scored_entities": 34,
+      "unknown_dimensions": 27
+    },
+    "multi_shot_entities": {
+      "entities": 10,
+      "scored_entities": 10,
+      "unscored_entities": 0,
+      "codex_score": 72.9888783193951,
+      "codex_entity_mean": 86.04166666666666,
+      "dino_score": 0.8584378239295033,
+      "dino_scored_entities": 10,
+      "unknown_dimensions": 9
+    },
+    "single_shot_entities": {
+      "entities": 26,
+      "scored_entities": 24,
+      "unscored_entities": 2,
+      "codex_score": 97.44844818460085,
+      "codex_entity_mean": 99.47916666666667,
+      "dino_score": 0.9368911621416225,
+      "dino_scored_entities": 24,
+      "unknown_dimensions": 18
+    }
+  },
+  "lamp_entities": [
+    {
+      "study": "compact",
+      "global_entity_id": "ge0003",
+      "name": "Desk lamp",
+      "observed_shot_ids": [
+        "shot1",
+        "shot3"
+      ],
+      "appearances": 12,
+      "attribute_scores": [
+        100,
+        25,
+        75,
+        75
+      ],
+      "raw_v3_mean": 68.75,
+      "severe_cap": 25,
+      "codex_score": 25,
+      "dino_score": 0.8380229813227226,
+      "unknown_dimensions": 0,
+      "reason": "各帧均保留圆罩、短颈、弯杆与圆底座；跨镜头灯罩及底座由黑变乳白，非光照可解释。白底座相对更厚，黑底座的分层边缘弱化；支杆左右换位可由反向视角解释。",
+      "limitations": "A4仅见局部灯头且受遮挡；灯罩内侧、底座底面及背面细节不可比。裁切限制精确尺寸判断。"
+    }
+  ],
+  "within": {
+    "shot1": {
+      "score": 100.0,
+      "total_pairs": 190,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 28,
+      "unresolved_pairs": 125,
+      "exempt_pairs": 37,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "shot2": {
+      "score": 100.0,
+      "total_pairs": 15,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 3,
+      "unresolved_pairs": 3,
+      "exempt_pairs": 9,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "shot3": {
+      "score": 100.0,
+      "total_pairs": 190,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 78,
+      "unresolved_pairs": 93,
+      "exempt_pairs": 19,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    }
+  },
+  "boundaries": {
+    "pair_000": {
+      "presence": {
+        "score": 92.3076923076923,
+        "coverage": 0.7692307692307693,
+        "N": 13,
+        "C": 9,
+        "K": 1,
+        "U": 3,
+        "E": 16,
+        "identification_interval": [
+          69.23076923076923,
+          92.3076923076923
+        ]
+      },
+      "spatial": {
+        "score": 97.77777777777777,
+        "total_pairs": 45,
+        "confirmed_conflict_pairs": 1,
+        "anomaly_ratio": 0.022222222222222223,
+        "no_conflict_pairs": 32,
+        "unresolved_pairs": 12,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      }
+    }
+  },
+  "call_sources": [
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/entities/shots/shot1/status.json",
+      "sha256": "7ffc93e410612c6dceb859b11626becc196341eb6c5d2483e62924a3683a698a"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/entities/shots/shot2/status.json",
+      "sha256": "bbd66aee05e2a16a824fd97d60904a24b1fae03c0256d200c6e7d25c831026e2"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/entities/shots/shot3/status.json",
+      "sha256": "50f134ae16d351fb91fc60b219514b3b8dbb15c611f18ab2a6c86c2a7bc23fad"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/calls/expected_motion_shot1/status.json",
+      "sha256": "eefa14f3c815841e5e8b8aedd4ae74275bace13e9a734bbbb8beb0d253d887ac"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/calls/expected_motion_shot2/status.json",
+      "sha256": "3f2c11036dbce70dbeb64e5e16bf980fe3ed4b12dfcccd42a86b41391af7ab65"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/calls/expected_motion_shot3/status.json",
+      "sha256": "2614b37c037475b968253d3a201eebbee7f03b90913eb8a7b367ec1698cf7779"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/calls/within_shot1_000/status.json",
+      "sha256": "54d9c5d1740e1156a3112e9891c5d2fe22ab8d813335f1211d13d6dda18a4dba"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/calls/within_shot3_000/status.json",
+      "sha256": "5c339506606be87e7b44b701ceab33ff6867ed5d08cbf1b0e2d92d4caf88232d"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/boundary_local_shot1/status.json",
+      "sha256": "15523d1e9f169b4e473cc2258c358782f3d03d2bca0278ce8a3e0cb8f75c2f27"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/boundary_local_shot3/status.json",
+      "sha256": "1ec43b06704cc79ca1f3d78e9cb0b2cd3f03413f83bcd8f2e6dd5077e001f18b"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/boundary_review_000/status.json",
+      "sha256": "ab26e96cfe595e73b6394c67a5c570038ffbcde51961dc0b3212dd58ee444ce3"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/boundary_spatial_verify/status.json",
+      "sha256": "b300aca43b4537f85442289cef1abac767e61e60a5db465e52b1664660db1c4b"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/identity_review/status.json",
+      "sha256": "94b3367f18d3848b91c419a986e33d6f57ef73e5b512bffd2f974ee76bb53e4e"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/pairs/pair_000/calls/matching/status.json",
+      "sha256": "11edc3dd0823966c3b695c4bffa6f7217cf2c1227fc50965194b6d460efd6143"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0001/status.json",
+      "sha256": "15ddadbc7b51cb08112fbf896b87fecdb5e57e9f944476b345c4c7618b87f283"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0002/status.json",
+      "sha256": "3016f8f85f72492e69b1481e02e36ba20bc223bfe726cc032b4b7219ade74cd9"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0003/status.json",
+      "sha256": "54a3f8ecaadc8548fd948443d34c9c51db44099d7d99e62d68dd41854192ce4b"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0004/status.json",
+      "sha256": "1061bf8d74f799cc630cab1e5eb582a42faf0035e0ecb72654a91a06472cdb4a"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0005/status.json",
+      "sha256": "f1317189ab1ee11fa673832a643b503fa3bffd33135a438aa48999de09ab2e16"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0006/status.json",
+      "sha256": "64042b16409f7535e376d236209f9c6c293b86d3e6067b83bede42081a7fd433"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0007/status.json",
+      "sha256": "d4536a0fcb83d729690bdf0e212d03fd792dda64058c745ada43d854ba519404"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0008/status.json",
+      "sha256": "76a12f7c4e7a3deadeee574c88d58582d22ad1abab47c095952fdab79cb5145c"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0009/status.json",
+      "sha256": "0b20ef589a41eccbafe7032693f8e2780c78d581b0963435923cb8765646b7d8"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0010/status.json",
+      "sha256": "e3ee9aba88c5f23a115e5a9ddd9ad4b2c4a9a1521b085082a8c49b5369a10341"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0011/status.json",
+      "sha256": "271de7f53cd5517cad213b8aecdc99c84cd5c63e8bc5729b9126313bbb6f33fd"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0012/status.json",
+      "sha256": "901eb948849406dbd09682315ac1041e2287d7a95fb8c09d995e271410186673"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0013/status.json",
+      "sha256": "47a7c2f0a8b331089fb4085516b696a3c860cf3b09b5bd9c88a4a6ed319aa199"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0014/status.json",
+      "sha256": "a0eff58642bb23b478dd54a1a5a44dbc81063823022eda51b0a7b03039d988ab"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0015/status.json",
+      "sha256": "aaabf1dafb2458a6263c61c5e30d9f0cc42822ff9ae38b9cd5dc5d716f29509b"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0016/status.json",
+      "sha256": "c9af69a982459464efa7b8aeefabf304702c03a3fe228e62aab4f6aed221cb51"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0017/status.json",
+      "sha256": "db999821118b7c51733606a8f7fd986087f238b0498644dad2e3b876103c63d3"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0018/status.json",
+      "sha256": "8d447fe87b337685ea4313312c57cb4a04b5d157c743b1db73cae1d288d5ae97"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0021/status.json",
+      "sha256": "af6011f00d95f7ebd9cae68673f1cc60115d50e9f03c378f2a3ccf3c2651db6b"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0022/status.json",
+      "sha256": "9820539e0f445cb2f4cedfcb48bab448349bce9ce883a3c54c1bcfa6db7580b8"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0023/status.json",
+      "sha256": "f006ea4d4a0fd6f75a2d6473229f4f81bb125d62bc5d8aeab4ec133d88574e01"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0024/status.json",
+      "sha256": "d5d3bee36b51fc04087d4aa222654fca141793dd5798adbc0b52cb9e9e172d63"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0025/status.json",
+      "sha256": "7f29b11f49d861494eb03d72faa3d32164e0d5a94ba644d00c178f1aff015e70"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0026/status.json",
+      "sha256": "d04869734202440c6ce1b676bde6563c60a031f113b5a85fbe3b4351c36be074"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0027/status.json",
+      "sha256": "c955b2cb1e8742fc63c2195d89c4f4c5291991473c24b37bd5bdd522653dd5b5"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0028/status.json",
+      "sha256": "7b9107f5ad676c1e7067661c866b7a9ca93e61f08f3960dc4b92569e72139191"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0029/status.json",
+      "sha256": "70b401cc57b7b807e96d21d0393c0c290e4e130fec3eda775b9b3506d559fb85"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0030/status.json",
+      "sha256": "bdc83b30e8d5e850ffa1957929897acc7d5e0311a36ea10743ff30ff3c800bb9"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0031/status.json",
+      "sha256": "53461e512094a1ea571e6025346771b46fe9d59c720006194bf7ccc98f0f2bf4"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0032/status.json",
+      "sha256": "42aa84c1a414922324ed6b01ddfacadd1ea0cde4ea8ba332282feacf1f24e8ee"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0033/status.json",
+      "sha256": "9282dfb92e1a142932a7208eed281bc93d1bfe6ea48e854561f364e6d363aa94"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0034/status.json",
+      "sha256": "7afa0ab884247a5e60c06b91605d67e1359628d9031268fcfde64833c6ae4938"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0035/status.json",
+      "sha256": "7a40adf873d5b1cb91d35da760646537ed7cc2b8793ec142f8c2883f58658994"
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/appearance/compact/calls/ge0036/status.json",
+      "sha256": "49aa51b491d8e3f9704e30bfb62f0aa56d308955894d40bae53503558e85e695"
+    }
+  ]
+}

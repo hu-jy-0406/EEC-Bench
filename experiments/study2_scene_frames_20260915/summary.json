@@ -1,0 +1,215 @@
+{
+  "method": "independent_scene_frames_then_coincide_origins_axes_units",
+  "frame_alignment_transform": {
+    "scale": 1,
+    "R": [
+      [
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t": [
+      0,
+      0,
+      0
+    ]
+  },
+  "equivalent_input_transform": {
+    "scale": 1.0241212677529954,
+    "R_b_from_a": [
+      [
+        -0.06603259184362664,
+        0.9978174666813631,
+        0.0
+      ],
+      [
+        -0.9978174666813631,
+        -0.06603259184362664,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "translation_b": [
+      -2.4647083015064903,
+      3.1354180954243844,
+      -0.0729841689846712
+    ],
+    "rotation_angle_deg": 93.78614368551942,
+    "determinant": 1.0
+  },
+  "equivalent_yaw_deg": -93.7861436855194,
+  "units": "Each shot horizontal desk-to-radiator separation = 1",
+  "frames": [
+    {
+      "origin_in_input": [
+        0.24296139180660248,
+        2.1999595165252686,
+        -0.7923265695571899
+      ],
+      "axes_in_input_columns_xyz": [
+        [
+          0.755007723219463,
+          -0.6557158972290994,
+          0.0
+        ],
+        [
+          0.6557158972290994,
+          0.755007723219463,
+          0.0
+        ],
+        [
+          -0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unit_length_in_input": 2.297017303207985,
+      "R_scene_from_input": [
+        [
+          0.755007723219463,
+          0.6557158972290994,
+          -0.0
+        ],
+        [
+          -0.6557158972290994,
+          0.755007723219463,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_scene": [
+        -0.7078684837216357,
+        -0.6537490059953052,
+        0.34493713584596725
+      ],
+      "scale_scene_from_input": 0.43534717766531966,
+      "shot_id": "shot1",
+      "origin_entity_id": "shot1/e5",
+      "direction_entity_id": "shot1/e14",
+      "origin_name": "Large wooden desk",
+      "direction_name": "White radiator below window",
+      "construction": "origin=desk center; Z=up; Y=horizontal desk-to-radiator; X=Y cross Z",
+      "scale_convention": "horizontal desk-to-radiator separation = one scene unit",
+      "input_graphs_used": 1,
+      "cross_shot_inputs_used": false,
+      "all_box_optimization_used": false
+    },
+    {
+      "origin_in_input": [
+        -0.23303063213825226,
+        2.73836612701416,
+        -0.8844226598739624
+      ],
+      "axes_in_input_columns_xyz": [
+        [
+          0.6044296586097003,
+          0.7966585139148148,
+          0.0
+        ],
+        [
+          -0.7966585139148148,
+          0.6044296586097003,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "unit_length_in_input": 2.3524242726119278,
+      "R_scene_from_input": [
+        [
+          0.6044296586097003,
+          -0.7966585139148148,
+          0.0
+        ],
+        [
+          0.7966585139148148,
+          0.6044296586097003,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation_scene": [
+        0.987234038421186,
+        -0.6246763746286449,
+        0.3759622233841246
+      ],
+      "scale_scene_from_input": 0.425093386274954,
+      "shot_id": "shot3",
+      "origin_entity_id": "shot3/e7",
+      "direction_entity_id": "shot3/e18",
+      "origin_name": "Large wooden dining table",
+      "direction_name": "White radiator beneath window",
+      "construction": "origin=desk center; Z=up; Y=horizontal desk-to-radiator; X=Y cross Z",
+      "scale_convention": "horizontal desk-to-radiator separation = one scene unit",
+      "input_graphs_used": 1,
+      "cross_shot_inputs_used": false,
+      "all_box_optimization_used": false
+    }
+  ],
+  "counts": [
+    17,
+    21
+  ],
+  "camera_poses_in_common_scene": [
+    {
+      "shot": 0,
+      "name": "Shot1相机",
+      "position": [
+        -0.7078684837216357,
+        -0.6537490059953052,
+        0.34493713584596725
+      ],
+      "forward": [
+        0.6483753814026368,
+        0.746555669266198,
+        -0.149211251175923
+      ]
+    },
+    {
+      "shot": 1,
+      "name": "Shot3相机",
+      "position": [
+        0.987234038421186,
+        -0.6246763746286449,
+        0.3759622233841246
+      ],
+      "forward": [
+        -0.7881622044433554,
+        0.5979834569516764,
+        -0.1456575597046479
+      ]
+    }
+  ],
+  "matched_box_corner_rmse_scene_units": 1.127634098382033,
+  "nonreference_box_corner_rmse_scene_units": 1.24355827322584,
+  "all_box_fitting_performed": false,
+  "identity_rematching_performed": false,
+  "prior_gravity_optimizer_used": false,
+  "reference_alignment_not_independent_consistency_evidence": true
+}

@@ -1,0 +1,3625 @@
+{
+  "protocol_version": "sparse_scene_3d_v0.3",
+  "proposal": {
+    "shot_id": "shot3",
+    "reference": {
+      "entity_id": "e7",
+      "frame_id": "0",
+      "origin_description": "餐桌顶面中心；单位为桌面长边长度，地板约在z=-0.32。",
+      "x_positive_description": "沿桌面长边指向画面下方、靠近相机的短端。",
+      "y_positive_description": "沿桌面短边指向右侧椅子和窗户；与+X构成右手系，+Z向上。",
+      "width_ratio": 0.39,
+      "width_ratio_halfwidth": 0.06,
+      "reason": "用桌面四角及边线透视建立共同坐标；尺度和相机均为未标定假设。",
+      "corners_by_frame": [
+        {
+          "frame_id": 0,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": true,
+            "reason": "远端边线交点可见。"
+          }
+        },
+        {
+          "frame_id": 24,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          }
+        },
+        {
+          "frame_id": 48,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": false,
+            "reason": "人物遮挡，沿用固定桌面。"
+          }
+        },
+        {
+          "frame_id": 72,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": true,
+            "reason": "可见远角。"
+          }
+        },
+        {
+          "frame_id": 96,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": true,
+            "reason": "可见远角。"
+          }
+        },
+        {
+          "frame_id": 120,
+          "xminus_yminus": {
+            "xy": [
+              112,
+              240
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yminus": {
+            "xy": [
+              330,
+              475
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xplus_yplus": {
+            "xy": [
+              773,
+              397
+            ],
+            "observed": true,
+            "reason": "可见桌角。"
+          },
+          "xminus_yplus": {
+            "xy": [
+              365,
+              215
+            ],
+            "observed": true,
+            "reason": "可见远角。"
+          }
+        }
+      ]
+    },
+    "cameras": [
+      {
+        "frame_id": 0,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "四角透视拟合的粗略针孔假设，轻微滚转；相机高于桌面。"
+      },
+      {
+        "frame_id": 24,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "背景及桌角不变，固定相机。"
+      },
+      {
+        "frame_id": 48,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "固定相机。"
+      },
+      {
+        "frame_id": 72,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "固定相机。"
+      },
+      {
+        "frame_id": 96,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "固定相机。"
+      },
+      {
+        "frame_id": 120,
+        "fx": 1273,
+        "fy": 1273,
+        "cx": 426,
+        "cy": 240,
+        "position_world": [
+          1.33,
+          -0.444,
+          0.335
+        ],
+        "look_at_world": [
+          0.0546,
+          0.0684,
+          0.0676
+        ],
+        "up_hint_world": [
+          -0.165,
+          0.101,
+          0.981
+        ],
+        "reason": "固定相机。"
+      }
+    ],
+    "entities": [
+      {
+        "entity_id": "e1",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.35,
+                0.38,
+                0.22
+              ],
+              "size_xyz": [
+                0.025,
+                0.25,
+                0.19
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.25,
+                0.12,
+                0.06
+              ],
+              "size_halfwidth_xyz": [
+                0.015,
+                0.05,
+                0.04
+              ],
+              "orientation_error_deg": 15,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  260,
+                  5,
+                  366,
+                  91
+                ],
+                "reason": "完整画框及后墙位置可见。"
+              }
+            ],
+            "reason": "按后墙竖直画框估计；墙距和厚度依赖先验。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e2",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.265,
+                -0.149,
+                0.025
+              ],
+              "size_xyz": [
+                0.05,
+                0.052,
+                0.05
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.015,
+                0.012,
+                0.007
+              ],
+              "size_halfwidth_xyz": [
+                0.012,
+                0.012,
+                0.01
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": "e7",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  260,
+                  331,
+                  318,
+                  388
+                ],
+                "reason": "杯身、杯口和左侧把手可见。"
+              }
+            ],
+            "reason": "包围杯身及把手，底面接触桌面。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e3",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -2.68,
+                0.04,
+                0.2
+              ],
+              "size_xyz": [
+                0.025,
+                0.13,
+                0.16
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.55,
+                0.22,
+                0.08
+              ],
+              "size_halfwidth_xyz": [
+                0.02,
+                0.05,
+                0.05
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  54,
+                  21,
+                  90,
+                  73
+                ],
+                "reason": "走廊画框可见。"
+              }
+            ],
+            "reason": "远处墙面深度较弱，按竖直薄框估计。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e4",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.82,
+                0.78,
+                0.23
+              ],
+              "size_xyz": [
+                0.16,
+                0.025,
+                0.18
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.2,
+                0.16,
+                0.06
+              ],
+              "size_halfwidth_xyz": [
+                0.05,
+                0.015,
+                0.04
+              ],
+              "orientation_error_deg": 20,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  589,
+                  5,
+                  640,
+                  96
+                ],
+                "reason": "窗旁竖直画框完整可见。"
+              }
+            ],
+            "reason": "假设安装于窗侧墙；倾斜透视限制横向尺寸。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e5",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -2.55,
+                0.14,
+                0.2
+              ],
+              "size_xyz": [
+                0.11,
+                0.02,
+                0.15
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.55,
+                0.25,
+                0.08
+              ],
+              "size_halfwidth_xyz": [
+                0.05,
+                0.015,
+                0.05
+              ],
+              "orientation_error_deg": 30,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  103,
+                  24,
+                  122,
+                  73
+                ],
+                "reason": "窄框轮廓可见。"
+              }
+            ],
+            "reason": "按走廊侧墙薄框估计，深度不确定。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e6",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.12,
+                0.29,
+                -0.12
+              ],
+              "size_xyz": [
+                0.23,
+                0.24,
+                0.4
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.06,
+                0.06,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.05,
+                0.06,
+                0.07
+              ],
+              "orientation_error_deg": 15,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  539,
+                  209,
+                  682,
+                  342
+                ],
+                "reason": "椅背可见，座面和腿被桌遮挡。"
+              },
+              {
+                "frame_id": 120,
+                "region_xyxy": [
+                  608,
+                  221,
+                  682,
+                  342
+                ],
+                "reason": "人物遮住部分椅背，剩余轮廓位置稳定。"
+              }
+            ],
+            "reason": "整椅含隐藏椅腿，按落地高度补全。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e7",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0,
+                0,
+                -0.16
+              ],
+              "size_xyz": [
+                1,
+                0.39,
+                0.32
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0,
+                0,
+                0.025
+              ],
+              "size_halfwidth_xyz": [
+                0,
+                0.06,
+                0.05
+              ],
+              "orientation_error_deg": 0,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  108,
+                  214,
+                  778,
+                  480
+                ],
+                "reason": "桌面四角、围板及左侧腿可见。"
+              }
+            ],
+            "reason": "参考桌体含全部腿；桌顶z=0，隐藏下缘按家具比例推断。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e8",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.23,
+                0.41,
+                -0.165
+              ],
+              "size_xyz": [
+                0.16,
+                0.34,
+                0.31
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.22,
+                0.1,
+                0.045
+              ],
+              "size_halfwidth_xyz": [
+                0.06,
+                0.07,
+                0.07
+              ],
+              "orientation_error_deg": 15,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  268,
+                  144,
+                  417,
+                  233
+                ],
+                "reason": "桌顶、抽屉及部分腿可见。"
+              }
+            ],
+            "reason": "靠后墙，脚部被餐桌遮挡；顶面约z=-0.01。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e9",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.205,
+                -0.115,
+                0.025
+              ],
+              "size_xyz": [
+                0.033,
+                0.033,
+                0.05
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.015,
+                0.01,
+                0.006
+              ],
+              "size_halfwidth_xyz": [
+                0.007,
+                0.007,
+                0.01
+              ],
+              "orientation_error_deg": 10,
+              "symmetry": "rotation_about_z"
+            },
+            "support_parent_id": "e7",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  287,
+                  310,
+                  325,
+                  362
+                ],
+                "reason": "白色杯身可见，底部部分被绿杯遮挡。"
+              }
+            ],
+            "reason": "直立圆杯，底面由桌面接触推断；不辨识偏航。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e10",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.11,
+                0.65,
+                -0.015
+              ],
+              "size_xyz": [
+                0.16,
+                0.13,
+                0.23
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.1,
+                0.09,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.05,
+                0.04,
+                0.05
+              ],
+              "orientation_error_deg": 40,
+              "symmetry": "unknown"
+            },
+            "support_parent_id": "e17",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  738,
+                  156,
+                  827,
+                  314
+                ],
+                "reason": "上部叶冠及下垂枝条可见。"
+              }
+            ],
+            "reason": "植物枝叶整体包围盒，包含盆口以下垂枝。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e11",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.19,
+                0.28,
+                -0.055
+              ],
+              "size_xyz": [
+                0.19,
+                0.18,
+                0.25
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.22,
+                0.1,
+                0.05
+              ],
+              "size_halfwidth_xyz": [
+                0.06,
+                0.05,
+                0.06
+              ],
+              "orientation_error_deg": 45,
+              "symmetry": "unknown"
+            },
+            "support_parent_id": "e21",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  252,
+                  112,
+                  336,
+                  224
+                ],
+                "reason": "叶冠与桌前垂枝可见。"
+              }
+            ],
+            "reason": "包围整株枝叶，深度依附后方桌面假设。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e12",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -2.27,
+                0.015,
+                -0.225
+              ],
+              "size_xyz": [
+                0.17,
+                0.17,
+                0.19
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.45,
+                0.2,
+                0.06
+              ],
+              "size_halfwidth_xyz": [
+                0.08,
+                0.07,
+                0.08
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  59,
+                  149,
+                  103,
+                  210
+                ],
+                "reason": "走廊柜顶及柜门局部可见。"
+              }
+            ],
+            "reason": "门框遮挡侧部；柜体深度及落地高度用先验补全。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e13",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.04,
+                -0.31,
+                0.1
+              ],
+              "size_xyz": [
+                0.17,
+                0.15,
+                0.15
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.35,
+                0.18,
+                0.1
+              ],
+              "size_halfwidth_xyz": [
+                0.1,
+                0.09,
+                0.07
+              ],
+              "orientation_error_deg": 60,
+              "symmetry": "unknown"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  0,
+                  132,
+                  27,
+                  198
+                ],
+                "reason": "仅画面左缘少量叶片及盆部可见。"
+              }
+            ],
+            "reason": "整株大部分在画外，完整体积及深度高度不确定。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e14",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.075,
+                0.01,
+                0.022
+              ],
+              "size_xyz": [
+                0.05,
+                0.065,
+                0.044
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.018,
+                0.014,
+                0.007
+              ],
+              "size_halfwidth_xyz": [
+                0.012,
+                0.015,
+                0.01
+              ],
+              "orientation_error_deg": 20,
+              "symmetry": "none"
+            },
+            "support_parent_id": "e7",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  351,
+                  274,
+                  410,
+                  316
+                ],
+                "reason": "纸包与抽出的纸巾可见。"
+              }
+            ],
+            "reason": "作为整体组件，高度包含突出纸巾。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e15",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.1,
+                0,
+                -0.317
+              ],
+              "size_xyz": [
+                1.3,
+                0.78,
+                0.006
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.15,
+                0.1,
+                0.025
+              ],
+              "size_halfwidth_xyz": [
+                0.22,
+                0.15,
+                0.003
+              ],
+              "orientation_error_deg": 10,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  25,
+                  355,
+                  846,
+                  480
+                ],
+                "reason": "桌下及两侧露出地毯纹样和边缘。"
+              }
+            ],
+            "reason": "贴地薄盒，前部出画且中心被桌遮挡，整体尺寸先验较强。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e16",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.23,
+                0.45,
+                0.008
+              ],
+              "size_xyz": [
+                0.09,
+                0.1,
+                0.036
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.22,
+                0.1,
+                0.02
+              ],
+              "size_halfwidth_xyz": [
+                0.03,
+                0.025,
+                0.012
+              ],
+              "orientation_error_deg": 15,
+              "symmetry": "none"
+            },
+            "support_parent_id": "e8",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  334,
+                  138,
+                  379,
+                  158
+                ],
+                "reason": "叠放书脊及顶面可见。"
+              }
+            ],
+            "reason": "书堆作为集合，底部接触玄关桌顶。"
+          },
+          {
+            "frame_ids": [
+              48
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.23,
+                0.45,
+                0.008
+              ],
+              "size_xyz": [
+                0.09,
+                0.1,
+                0.036
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.22,
+                0.1,
+                0.02
+              ],
+              "size_halfwidth_xyz": [
+                0.03,
+                0.025,
+                0.012
+              ],
+              "orientation_error_deg": 15,
+              "symmetry": "none"
+            },
+            "support_parent_id": "e8",
+            "basis": "within_shot_propagation",
+            "evidence": [
+              {
+                "frame_id": 24,
+                "region_xyxy": [
+                  334,
+                  138,
+                  379,
+                  158
+                ],
+                "reason": "遮挡前书堆可见。"
+              },
+              {
+                "frame_id": 72,
+                "region_xyxy": [
+                  334,
+                  138,
+                  379,
+                  158
+                ],
+                "reason": "遮挡后同位置可见。"
+              }
+            ],
+            "reason": "本帧被人物遮挡，沿用前后帧静态假设。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e17",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.1,
+                0.68,
+                0.027
+              ],
+              "size_xyz": [
+                0.062,
+                0.062,
+                0.053
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.1,
+                0.08,
+                0.03
+              ],
+              "size_halfwidth_xyz": [
+                0.016,
+                0.016,
+                0.014
+              ],
+              "orientation_error_deg": 10,
+              "symmetry": "rotation_about_z"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  768,
+                  192,
+                  812,
+                  232
+                ],
+                "reason": "盆壁及窗台接触位置可见。"
+              }
+            ],
+            "reason": "直立圆盆，窗台未列为实体；偏航不可辨识。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e18",
+        "alignment_role": "structural_candidate",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.025,
+                0.73,
+                -0.17
+              ],
+              "size_xyz": [
+                0.43,
+                0.09,
+                0.25
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.14,
+                0.1,
+                0.045
+              ],
+              "size_halfwidth_xyz": [
+                0.16,
+                0.04,
+                0.06
+              ],
+              "orientation_error_deg": 12,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  713,
+                  241,
+                  852,
+                  409
+                ],
+                "reason": "散热片及顶部可见，右端出画。"
+              }
+            ],
+            "reason": "沿窗侧墙的完整暖气盒，画外长度与底脚推断。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e19",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                0.205,
+                -0.115,
+                0.043
+              ],
+              "size_xyz": [
+                0.035,
+                0.035,
+                0.068
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.017,
+                0.013,
+                0.012
+              ],
+              "size_halfwidth_xyz": [
+                0.012,
+                0.012,
+                0.018
+              ],
+              "orientation_error_deg": 30,
+              "symmetry": "unknown"
+            },
+            "support_parent_id": "e9",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  285,
+                  293,
+                  324,
+                  320
+                ],
+                "reason": "笔杆上端可见，下端藏在杯内。"
+              }
+            ],
+            "reason": "集合盒包含杯内隐藏笔杆，倾斜分布作粗略估计。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e20",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -2.02,
+                0.01,
+                -0.317
+              ],
+              "size_xyz": [
+                0.72,
+                0.3,
+                0.006
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.35,
+                0.16,
+                0.025
+              ],
+              "size_halfwidth_xyz": [
+                0.3,
+                0.14,
+                0.003
+              ],
+              "orientation_error_deg": 20,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  63,
+                  207,
+                  130,
+                  271
+                ],
+                "reason": "门内地毯局部可见。"
+              }
+            ],
+            "reason": "按走廊落地长毯补全，远端及两侧遮挡明显。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e21",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0,
+              24,
+              48,
+              72,
+              96,
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.25,
+                0.32,
+                0.013
+              ],
+              "size_xyz": [
+                0.066,
+                0.066,
+                0.046
+              ],
+              "rotation_wxyz": [
+                1,
+                0,
+                0,
+                0
+              ],
+              "center_halfwidth_xyz": [
+                0.22,
+                0.1,
+                0.025
+              ],
+              "size_halfwidth_xyz": [
+                0.02,
+                0.02,
+                0.015
+              ],
+              "orientation_error_deg": 10,
+              "symmetry": "rotation_about_z"
+            },
+            "support_parent_id": "e8",
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 0,
+                "region_xyxy": [
+                  285,
+                  135,
+                  316,
+                  159
+                ],
+                "reason": "叶片间可见盆壁，盆底接近桌顶。"
+              }
+            ],
+            "reason": "直立圆盆，底部约z=-0.01；偏航不确定。"
+          }
+        ]
+      },
+      {
+        "entity_id": "e22",
+        "alignment_role": "movable",
+        "states": [
+          {
+            "frame_ids": [
+              0
+            ],
+            "bbox3d": null,
+            "support_parent_id": null,
+            "basis": "unresolved",
+            "evidence": [],
+            "reason": "本帧人物不可见，无法定位画外位置。"
+          },
+          {
+            "frame_ids": [
+              24
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.55,
+                0.05,
+                0.02
+              ],
+              "size_xyz": [
+                0.22,
+                0.18,
+                0.68
+              ],
+              "rotation_wxyz": [
+                0.924,
+                0,
+                0,
+                0.382
+              ],
+              "center_halfwidth_xyz": [
+                0.2,
+                0.1,
+                0.045
+              ],
+              "size_halfwidth_xyz": [
+                0.06,
+                0.05,
+                0.08
+              ],
+              "orientation_error_deg": 30,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 24,
+                "region_xyxy": [
+                  106,
+                  12,
+                  199,
+                  238
+                ],
+                "reason": "头、躯干和部分裤腿可见，脚被桌遮挡。"
+              }
+            ],
+            "reason": "整个人体含隐藏下肢；按落地站姿和头顶高度补全。"
+          },
+          {
+            "frame_ids": [
+              48
+            ],
+            "bbox3d": {
+              "center_world": [
+                -1.18,
+                0.39,
+                0.02
+              ],
+              "size_xyz": [
+                0.23,
+                0.18,
+                0.68
+              ],
+              "rotation_wxyz": [
+                0.924,
+                0,
+                0,
+                0.382
+              ],
+              "center_halfwidth_xyz": [
+                0.17,
+                0.09,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.06,
+                0.05,
+                0.08
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 48,
+                "region_xyxy": [
+                  295,
+                  11,
+                  398,
+                  227
+                ],
+                "reason": "人物移至桌后，下肢大部分被桌面遮挡。"
+              }
+            ],
+            "reason": "沿同一地板估计完整站立人体，深度由头部投影约束。"
+          },
+          {
+            "frame_ids": [
+              72
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.57,
+                0.43,
+                0.02
+              ],
+              "size_xyz": [
+                0.24,
+                0.2,
+                0.68
+              ],
+              "rotation_wxyz": [
+                0.7071,
+                0,
+                0,
+                0.7071
+              ],
+              "center_halfwidth_xyz": [
+                0.12,
+                0.075,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.06,
+                0.055,
+                0.08
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 72,
+                "region_xyxy": [
+                  415,
+                  5,
+                  554,
+                  287
+                ],
+                "reason": "人物在椅旁，一手接触桌面。"
+              }
+            ],
+            "reason": "按头顶、手部接触及地板高度联合估计；脚仍隐藏。"
+          },
+          {
+            "frame_ids": [
+              96
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.24,
+                0.42,
+                0.02
+              ],
+              "size_xyz": [
+                0.29,
+                0.23,
+                0.68
+              ],
+              "rotation_wxyz": [
+                0.7071,
+                0,
+                0,
+                0.7071
+              ],
+              "center_halfwidth_xyz": [
+                0.1,
+                0.07,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.07,
+                0.06,
+                0.08
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 96,
+                "region_xyxy": [
+                  447,
+                  0,
+                  639,
+                  321
+                ],
+                "reason": "头顶略出画，双臂靠近桌边，下肢遮挡。"
+              }
+            ],
+            "reason": "包围躯干和伸出的手臂，完整身高依赖前帧及站姿先验。"
+          },
+          {
+            "frame_ids": [
+              120
+            ],
+            "bbox3d": {
+              "center_world": [
+                -0.24,
+                0.42,
+                0.02
+              ],
+              "size_xyz": [
+                0.27,
+                0.22,
+                0.68
+              ],
+              "rotation_wxyz": [
+                0.7071,
+                0,
+                0,
+                0.7071
+              ],
+              "center_halfwidth_xyz": [
+                0.1,
+                0.07,
+                0.04
+              ],
+              "size_halfwidth_xyz": [
+                0.065,
+                0.06,
+                0.08
+              ],
+              "orientation_error_deg": 25,
+              "symmetry": "none"
+            },
+            "support_parent_id": null,
+            "basis": "visual_amodal_estimate",
+            "evidence": [
+              {
+                "frame_id": 120,
+                "region_xyxy": [
+                  462,
+                  0,
+                  631,
+                  319
+                ],
+                "reason": "人物停在桌旁，手臂位置略变。"
+              }
+            ],
+            "reason": "位置近似不变，单独表示当前姿态；补全桌后隐藏腿部。"
+          }
+        ]
+      }
+    ]
+  },
+  "frozen_observations": [
+    {
+      "entity_id": "e1",
+      "name": "Framed landscape painting",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            5,
+            366,
+            91
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e2",
+      "name": "Dark green mug",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            260,
+            331,
+            318,
+            388
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e3",
+      "name": "Larger framed picture in hallway",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            54,
+            21,
+            90,
+            73
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e4",
+      "name": "Framed botanical picture beside window",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            589,
+            5,
+            640,
+            96
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e5",
+      "name": "Narrow framed picture in hallway",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            103,
+            24,
+            122,
+            73
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e6",
+      "name": "Wooden dining chair",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            539,
+            209,
+            682,
+            342
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            539,
+            209,
+            682,
+            342
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            539,
+            209,
+            682,
+            342
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            539,
+            209,
+            682,
+            342
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            610,
+            224,
+            682,
+            342
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            608,
+            221,
+            682,
+            342
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e7",
+      "name": "Large wooden dining table",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            214,
+            778,
+            480
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            214,
+            778,
+            480
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            214,
+            778,
+            480
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            213,
+            778,
+            480
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            213,
+            778,
+            480
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            108,
+            213,
+            778,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e8",
+      "name": "Small wooden console table",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            268,
+            144,
+            417,
+            233
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            268,
+            144,
+            417,
+            233
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            280,
+            147,
+            417,
+            233
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            268,
+            144,
+            417,
+            233
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            268,
+            144,
+            417,
+            233
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            268,
+            144,
+            417,
+            233
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e9",
+      "name": "White pencil cup",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            287,
+            310,
+            325,
+            362
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e10",
+      "name": "Trailing plant on windowsill",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            738,
+            156,
+            827,
+            314
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e11",
+      "name": "Trailing plant on console table",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            336,
+            224
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            336,
+            224
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            309,
+            224
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            336,
+            224
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            336,
+            224
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            252,
+            112,
+            336,
+            224
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e12",
+      "name": "Small dark wooden hallway cabinet",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            59,
+            149,
+            103,
+            210
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e13",
+      "name": "Plant at far left edge",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            0,
+            132,
+            27,
+            198
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e14",
+      "name": "Tissue packet with protruding tissue",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            351,
+            274,
+            410,
+            316
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e15",
+      "name": "Large patterned rug beneath dining table",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            25,
+            355,
+            846,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e16",
+      "name": "Stack of books on console",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            334,
+            138,
+            379,
+            158
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            334,
+            138,
+            379,
+            158
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": false,
+          "box_xyxy": null
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            334,
+            138,
+            379,
+            158
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            334,
+            138,
+            379,
+            158
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            334,
+            138,
+            379,
+            158
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e17",
+      "name": "Windowsill plant pot",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            768,
+            192,
+            812,
+            232
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e18",
+      "name": "White radiator beneath window",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            713,
+            241,
+            852,
+            409
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e19",
+      "name": "Writing implements in pencil cup",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            293,
+            324,
+            320
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e20",
+      "name": "Hallway patterned rug",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            63,
+            207,
+            130,
+            271
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e21",
+      "name": "Plant pot on console table",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            316,
+            159
+          ]
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            316,
+            159
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            300,
+            159
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            316,
+            159
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            316,
+            159
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            285,
+            135,
+            316,
+            159
+          ]
+        }
+      ]
+    },
+    {
+      "entity_id": "e22",
+      "name": "Woman wearing gray sweater and dark trousers",
+      "observations": [
+        {
+          "frame_id": 0,
+          "exist": true,
+          "visible": false,
+          "box_xyxy": null
+        },
+        {
+          "frame_id": 24,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            106,
+            12,
+            199,
+            238
+          ]
+        },
+        {
+          "frame_id": 48,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            295,
+            11,
+            398,
+            227
+          ]
+        },
+        {
+          "frame_id": 72,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            415,
+            5,
+            554,
+            287
+          ]
+        },
+        {
+          "frame_id": 96,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            447,
+            0,
+            639,
+            321
+          ]
+        },
+        {
+          "frame_id": 120,
+          "exist": true,
+          "visible": true,
+          "box_xyxy": [
+            462,
+            0,
+            631,
+            319
+          ]
+        }
+      ]
+    }
+  ],
+  "frames": [
+    {
+      "frame_id": 0,
+      "timestamp_sec": 0.0,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 1,
+      "image_sha256": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea"
+    },
+    {
+      "frame_id": 24,
+      "timestamp_sec": 0.9950413223140495,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 2,
+      "image_sha256": "f9e33d7d4d0c67d10a187746e2f9e6c63213f05ea250e1b344957d55ceb47376"
+    },
+    {
+      "frame_id": 48,
+      "timestamp_sec": 1.990082644628099,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 3,
+      "image_sha256": "f87a6413e336d37a5b81cd5bdc9bc5eb79da28f79867b40d481db3925046e47d"
+    },
+    {
+      "frame_id": 72,
+      "timestamp_sec": 2.9851239669421488,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 4,
+      "image_sha256": "b25e3c3ee29db540bf9dcd40e1c7edd99e6c8c052de49a2e2ede5405b904e5f7"
+    },
+    {
+      "frame_id": 96,
+      "timestamp_sec": 3.980165289256198,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 5,
+      "image_sha256": "27f04d2c7490cc723f59cadde33c7d2a6689202598439f1513881dbe4a0a54c7"
+    },
+    {
+      "frame_id": 120,
+      "timestamp_sec": 4.975206611570248,
+      "image_size": [
+        852,
+        480
+      ],
+      "attachment_index": 6,
+      "image_sha256": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a"
+    }
+  ],
+  "source_hash": "45a8304f6c244c2ac594ffb1fd75a9ce8da2b2b7a4f77da1a9da5653b4848870"
+}

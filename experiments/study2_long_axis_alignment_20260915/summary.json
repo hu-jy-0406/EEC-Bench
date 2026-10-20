@@ -1,0 +1,171 @@
+{
+  "method": "independent_scene_frames_then_shared_long_axis_yaw",
+  "transformation": {
+    "scale": 1,
+    "R": [
+      [
+        0.8951984224838968,
+        0.4456677959897288,
+        0.0
+      ],
+      [
+        -0.4456677959897288,
+        0.8951984224838968,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t": [
+      0,
+      0,
+      0
+    ],
+    "yaw_deg": -26.466072077520877,
+    "original_frame_metadata_preserved": true
+  },
+  "objective": "mean[1-(u_b dot Rz(theta) u_a)^2] = mean[sin^2(theta-delta)]",
+  "entity_weights": "equal per eligible matched entity",
+  "aspect_threshold": 1.2,
+  "matched_pairs": 11,
+  "eligible_pairs": 4,
+  "eligible_groups": [
+    "g01",
+    "g04",
+    "g10",
+    "g12"
+  ],
+  "direction_ambiguity": "180 degrees; choose minimizer nearest the existing frame alignment",
+  "translation_fixed": [
+    0,
+    0,
+    0
+  ],
+  "scale_fixed": 1,
+  "theta_regularization": false,
+  "per_entity_rotations": false,
+  "metrics": {
+    "before": {
+      "angle_mae_deg": 26.488640851355633,
+      "angle_rmse_deg": 26.9319464994236,
+      "direction_loss": 0.2029450613445021,
+      "all_11_corner_rmse": 1.127634098382033,
+      "all_11_center_rmse": 1.1168713695609533,
+      "excluded_7_corner_rmse": 1.0410460908115
+    },
+    "after": {
+      "angle_mae_deg": 4.078501467376126,
+      "angle_rmse_deg": 4.8664316953247315,
+      "direction_loss": 0.007175781186059889,
+      "all_11_corner_rmse": 1.3467406688320747,
+      "all_11_center_rmse": 1.3444576590384107,
+      "excluded_7_corner_rmse": 1.2663238192098518
+    }
+  },
+  "equivalent_input_transform": {
+    "scale": 1.0241212677529954,
+    "R": [
+      [
+        -0.5038073832268753,
+        0.8638160224295961,
+        0.0
+      ],
+      [
+        -0.8638160224295961,
+        -0.5038073832268753,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "t": [
+      -2.0538716855944705,
+      4.088393291045957,
+      -0.0729841689846712
+    ],
+    "yaw_deg": -120.25221576304028
+  },
+  "loo": [
+    {
+      "heldout": "g01",
+      "yaw_deg": -23.762187270628278,
+      "heldout_angle_deg": 10.906025289314364
+    },
+    {
+      "heldout": "g04",
+      "yaw_deg": -26.842861935049083,
+      "heldout_angle_deg": 1.4861530014278284
+    },
+    {
+      "heldout": "g10",
+      "yaw_deg": -27.956376105283383,
+      "heldout_angle_deg": 5.914949937548009
+    },
+    {
+      "heldout": "g12",
+      "yaw_deg": -27.339467389074336,
+      "heldout_angle_deg": 3.451251644951071
+    }
+  ],
+  "sensitivity": [
+    {
+      "aspect_threshold": 1.1,
+      "groups": [
+        "g01",
+        "g04",
+        "g10",
+        "g12"
+      ],
+      "yaw_deg": -26.466072077520877
+    },
+    {
+      "aspect_threshold": 1.2,
+      "groups": [
+        "g01",
+        "g04",
+        "g10",
+        "g12"
+      ],
+      "yaw_deg": -26.466072077520877
+    },
+    {
+      "aspect_threshold": 1.3,
+      "groups": [
+        "g01",
+        "g04",
+        "g12"
+      ],
+      "yaw_deg": -27.956376105283383
+    },
+    {
+      "aspect_threshold": 1.5,
+      "groups": [
+        "g01",
+        "g04",
+        "g12"
+      ],
+      "yaw_deg": -27.956376105283383
+    },
+    {
+      "aspect_threshold": 2.0,
+      "groups": [
+        "g01",
+        "g04",
+        "g12"
+      ],
+      "yaw_deg": -27.956376105283383
+    }
+  ],
+  "reference_radiator_center_after": [
+    0.4456677959897288,
+    0.8951984224838968,
+    -0.04250791158912307
+  ],
+  "caveat": "Improved fitted axis agreement is not an independent consistency score or human ground truth."
+}

@@ -1,0 +1,42 @@
+{
+  "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_prompt_adaptation_20260921/deliverables/generation_queue_400.jsonl",
+  "source_sha256": "479568f1410beb5706ab3a6373f618bc91ef24e71c1d40a2745a9a0754896174",
+  "model": "Wan2.2-T2V-A14B",
+  "checkpoint": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/models/Wan2.2-T2V-A14B",
+  "size": [
+    832,
+    480
+  ],
+  "frames": 81,
+  "fps": 16,
+  "steps": 40,
+  "solver": "unipc",
+  "shift": 12,
+  "guide_scale": [
+    3.0,
+    4.0
+  ],
+  "precision": "official BF16 conversion; no quantization",
+  "negative_prompt": "unchanged official WAN_CONFIGS[t2v-A14B].sample_neg_prompt",
+  "prompt_policy": "exact wan_prompt_en; no global concatenation or extra rewriting",
+  "phase_policy": "all 500 core shots verified before stage2; next500 before final1000",
+  "seed_policy": "first32bits SHA256(wan400-v1:<episode_id>/<shot_id>)",
+  "created": 1790023457.677145,
+  "all_68_sampling_verified_utc": "2026-09-21T21:10:42Z",
+  "active_gpu_workers": 68,
+  "repo_commit": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+  "checkpoint_revision": "c8c270b13ee05bfa474194ac9fb07a5868a97cea",
+  "launch_source_sha256": {
+    "campaign.py": "bb51e8f53282c9fd6e06d1d8884dade14bdc23f3db166549a3bb3a02903c2fc3",
+    "lease_guard.py": "5168f70b3e5318b43e9daf0c73f17c9d5b0c24afc432c4f18c9f3b7546c92dc9",
+    "node_probe.py": "ddf28a09eb7648f8a82d807d3201d013015e597d0368dc8ffe67e5a65220c704",
+    "node_supervisor.py": "0cf5e9f30f2671a6644c389526a26b29933101f38c20749cd1847a0253a291ce",
+    "recovery.py": "61c564cd53a67f2379edd64da4faaf45b623a7ec4928cc5b07232337156f73ae",
+    "streaming.py": "502746c9bcafc94b9bd7c51cfbefe20f024916d8760e2526a4226b6b74bec5e7",
+    "test_queue.py": "7326e19be67b291394b82d918b37a0105673d43ee35e16bd7e925230a7bd8c1d",
+    "validate_streaming.py": "f156e7a3848c41df62ff2c02b321aee9d6e3d9bfd63c2a03ed16d51e1dbdaec6"
+  },
+  "effective_source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/prompt_revision_20260922/input_queue_400.v2.jsonl",
+  "effective_source_sha256": "403de4dfca6d8668a1411f87411665440bba2c9c834ef756a45c0f0272194c76",
+  "source_revision_journal": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/prompt_revision_20260922/applied.json"
+}

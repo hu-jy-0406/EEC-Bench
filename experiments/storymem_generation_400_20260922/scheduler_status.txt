@@ -1,0 +1,31 @@
+JobId=208465 JobName=eec-storymem400
+   UserId=guangyi.chen(2012) GroupId=camdpi(2000) MCS_label=N/A
+   Priority=105671 Nice=0 Account=faculty-acc QOS=bgqos
+   JobState=PENDING Reason=Priority Dependency=(null)
+   Requeue=1 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0
+   RunTime=00:00:00 TimeLimit=3-00:00:00 TimeMin=N/A
+   SubmitTime=2026-09-22T01:05:56 EligibleTime=2026-09-22T01:05:56
+   AccrueTime=2026-09-22T01:05:56
+   StartTime=2026-09-23T08:13:59 EndTime=2026-09-26T08:13:59 Deadline=N/A
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-09-22T01:10:25 Scheduler=Main
+   Partition=faculty AllocNode:Sid=auh-1b-cpu-login-001:4155498
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=
+   NumNodes=8-8 NumCPUs=512 NumTasks=8 CPUs/Task=64 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=512,mem=16T,node=8,billing=512,gres/gpu=64,gres/gpu:mi210=64
+   AllocTRES=(null)
+   Socks/Node=* NtasksPerN:B:S:C=1:0:*:* CoreSpec=*
+   MinCPUsNode=64 MinMemoryNode=2T MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=NO Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/storymem_generation_400_20260922/submit.sbatch
+   WorkDir=/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/storymem_generation_400_20260922
+   StdErr=/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/storymem_generation_400_20260922/logs/slurm-208465.log
+   StdIn=/dev/null
+   StdOut=/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/storymem_generation_400_20260922/logs/slurm-208465.log
+   TresPerNode=gres/gpu:mi210:8
+   TresPerTask=cpu=64
+   
+
+
+208465|PENDING|2026-09-23T08:13:59|(Priority)

@@ -1,0 +1,1146 @@
+[
+  {
+    "study": "study2",
+    "within": {
+      "shot1": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.6153846153846154,
+            "N": 13,
+            "C": 8,
+            "K": 0,
+            "U": 5,
+            "E": 7,
+            "identification_interval": [
+              61.53846153846154,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 28,
+            "unresolved_pairs": 125,
+            "exempt_pairs": 37,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot1/e14"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            }
+          ],
+          "spatial": []
+        }
+      },
+      "shot2": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.75,
+            "N": 4,
+            "C": 3,
+            "K": 0,
+            "U": 1,
+            "E": 2,
+            "identification_interval": [
+              75.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 15,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 3,
+            "unresolved_pairs": 3,
+            "exempt_pairs": 9,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot2/e5"
+              ],
+              "old": "compatible",
+              "new": "exempt"
+            }
+          ],
+          "spatial": [
+            {
+              "entity_members": [
+                "shot2/e2",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e3",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e4",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e5",
+                "shot2/e6"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            }
+          ]
+        }
+      },
+      "shot3": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 1.0,
+            "N": 17,
+            "C": 17,
+            "K": 0,
+            "U": 0,
+            "E": 3,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 135,
+            "unresolved_pairs": 36,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [],
+          "spatial": []
+        }
+      }
+    },
+    "boundary": {
+      "scores": {
+        "presence": {
+          "score": 83.33333333333334,
+          "coverage": 0.75,
+          "N": 12,
+          "C": 7,
+          "K": 2,
+          "U": 3,
+          "E": 18,
+          "identification_interval": [
+            58.333333333333336,
+            83.33333333333333
+          ]
+        },
+        "spatial": {
+          "score": 96.42857142857143,
+          "total_pairs": 28,
+          "confirmed_conflict_pairs": 1,
+          "anomaly_ratio": 0.03571428571428571,
+          "no_conflict_pairs": 18,
+          "unresolved_pairs": 9,
+          "exempt_pairs": 0,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "unit_differences": {
+        "presence": [
+          {
+            "entity_members": [
+              "shot1/e10"
+            ],
+            "old": "unknown",
+            "new": "exempt"
+          }
+        ],
+        "spatial": []
+      },
+      "presence_confirmed_anomalies_preserved": true,
+      "spatial_confirmed_anomalies_preserved": true
+    },
+    "identity_differences": [],
+    "confirmed_identity_matches_preserved": true,
+    "anchors": {
+      "old": [
+        {
+          "entity_members": [
+            "shot1/e1",
+            "shot3/e1"
+          ],
+          "reason": "两侧均预期静止且 anchor_observed_static=true；画框边缘逐帧固定，几何可用，深度漂移不构成可见移动。"
+        },
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e7"
+          ],
+          "reason": "两侧预期静止且观测静止，桌角与木纹逐帧稳定，几何稳定；手撑桌面不构成搬动原因。"
+        },
+        {
+          "entity_members": [
+            "shot1/e14",
+            "shot3/e17"
+          ],
+          "reason": "固定安装结构，两侧预期及观测均静止，散热柱逐帧对齐，几何足以提供稳定房间参照。"
+        }
+      ],
+      "new": [
+        {
+          "entity_members": [
+            "shot1/e1",
+            "shot3/e1"
+          ],
+          "reason": "两侧原帧均显示固定挂墙；shot3深度波动未伴随画框位移，二维轮廓、朝向和融合几何足以支持锚点。"
+        },
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e7"
+          ],
+          "reason": "两侧帧0–120桌沿和桌腿均无可见位移，扶桌动作未推动桌子；融合尺寸及朝向稳定，投影吻合良好。"
+        },
+        {
+          "entity_members": [
+            "shot1/e14",
+            "shot3/e17"
+          ],
+          "reason": "shot1帧96、120及shot3各帧显示固定安装、无物理位移；遮挡改变可见宽度，融合薄长几何和朝向仍可用。"
+        }
+      ]
+    },
+    "confirmed_anomaly_sets_preserved": true,
+    "scope": "Fresh CPU/API downstream replay from frozen detector/Pi3X/Boxer/raw RoMa outputs; not a fresh GPU frontend run"
+  },
+  {
+    "study": "study3",
+    "within": {
+      "shot1": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.6153846153846154,
+            "N": 13,
+            "C": 8,
+            "K": 0,
+            "U": 5,
+            "E": 7,
+            "identification_interval": [
+              61.53846153846154,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 28,
+            "unresolved_pairs": 125,
+            "exempt_pairs": 37,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot1/e12"
+              ],
+              "old": "compatible",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e14"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            }
+          ],
+          "spatial": [
+            {
+              "entity_members": [
+                "shot1/e1",
+                "shot1/e12"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e10",
+                "shot1/e12"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e11",
+                "shot1/e12"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e13"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e14"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e15"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e16"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e17"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e18"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e19"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e2"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e20"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e3"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e6"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e7"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e8"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e9"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            }
+          ]
+        }
+      },
+      "shot2": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.75,
+            "N": 4,
+            "C": 3,
+            "K": 0,
+            "U": 1,
+            "E": 2,
+            "identification_interval": [
+              75.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 15,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 3,
+            "unresolved_pairs": 3,
+            "exempt_pairs": 9,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot2/e5"
+              ],
+              "old": "compatible",
+              "new": "exempt"
+            }
+          ],
+          "spatial": [
+            {
+              "entity_members": [
+                "shot2/e2",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e3",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e4",
+                "shot2/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot2/e5",
+                "shot2/e6"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            }
+          ]
+        }
+      },
+      "shot3": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.8125,
+            "N": 16,
+            "C": 13,
+            "K": 0,
+            "U": 3,
+            "E": 4,
+            "identification_interval": [
+              81.25,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 78,
+            "unresolved_pairs": 93,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot3/e8"
+              ],
+              "old": "exempt",
+              "new": "unknown"
+            }
+          ],
+          "spatial": []
+        }
+      }
+    },
+    "boundary": {
+      "scores": {
+        "presence": {
+          "score": 92.3076923076923,
+          "coverage": 0.6923076923076923,
+          "N": 13,
+          "C": 8,
+          "K": 1,
+          "U": 4,
+          "E": 16,
+          "identification_interval": [
+            61.53846153846154,
+            92.3076923076923
+          ]
+        },
+        "spatial": {
+          "score": 97.22222222222221,
+          "total_pairs": 36,
+          "confirmed_conflict_pairs": 1,
+          "anomaly_ratio": 0.027777777777777776,
+          "no_conflict_pairs": 25,
+          "unresolved_pairs": 10,
+          "exempt_pairs": 0,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "unit_differences": {
+        "presence": [
+          {
+            "entity_members": [
+              "shot1/e20"
+            ],
+            "old": "exempt",
+            "new": null
+          },
+          {
+            "entity_members": [
+              "shot1/e20",
+              "shot3/e11"
+            ],
+            "old": null,
+            "new": "unknown"
+          },
+          {
+            "entity_members": [
+              "shot3/e11"
+            ],
+            "old": "exempt",
+            "new": null
+          }
+        ],
+        "spatial": []
+      },
+      "presence_confirmed_anomalies_preserved": true,
+      "spatial_confirmed_anomalies_preserved": true
+    },
+    "identity_differences": [
+      {
+        "entity_members": [
+          "shot1/e20"
+        ],
+        "old": "unmatched",
+        "new": null
+      },
+      {
+        "entity_members": [
+          "shot1/e20",
+          "shot3/e11"
+        ],
+        "old": null,
+        "new": "ambiguous"
+      },
+      {
+        "entity_members": [
+          "shot3/e11"
+        ],
+        "old": "unmatched",
+        "new": null
+      }
+    ],
+    "confirmed_identity_matches_preserved": true,
+    "anchors": {
+      "old": [
+        {
+          "entity_members": [
+            "shot1/e1",
+            "shot3/e1"
+          ],
+          "reason": "固定墙饰，双方 anchor_observed_static=true；各帧画框保持墙面位置，几何可用于结构定位。"
+        },
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e7"
+          ],
+          "reason": "共同大型支撑家具，双方 anchor_observed_static=true，桌角与木纹跨帧稳定，几何可靠。人物扶桌没有可见移桌动作。"
+        },
+        {
+          "entity_members": [
+            "shot1/e14",
+            "shot3/e15"
+          ],
+          "reason": "固定安装结构，双方 anchor_observed_static=true；可见竖片跨帧固定，几何支持稳定定位。"
+        }
+      ],
+      "new": [
+        {
+          "entity_members": [
+            "shot1/e1",
+            "shot3/e1"
+          ],
+          "reason": "双方均为static；各帧画框相对墙面固定，二维框稳定，融合几何及投影支持定位。shot3深度波动不构成实际移动证据。"
+        },
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e7"
+          ],
+          "reason": "双方均为static；全部原帧桌边及桌腿稳定，女子扶桌未造成位移。融合中心离散小、投影吻合良好，几何可用。"
+        },
+        {
+          "entity_members": [
+            "shot1/e13",
+            "shot3/e6"
+          ],
+          "reason": "双方均为static；shot1逐渐露出的椅背与shot3帧0–72清晰椅背均未位移。后续框缩小来自人体遮挡；结合未遮挡结构与融合尺寸，整体几何可用。"
+        },
+        {
+          "entity_members": [
+            "shot1/e14",
+            "shot3/e15"
+          ],
+          "reason": "双方均为static；shot1帧0、120及shot3全段显示窗下固定结构。遮挡造成可见宽度变化，融合薄长箱体及投影仍支持可用定位。"
+        }
+      ]
+    },
+    "confirmed_anomaly_sets_preserved": true,
+    "scope": "Fresh CPU/API downstream replay from frozen detector/Pi3X/Boxer/raw RoMa outputs; not a fresh GPU frontend run"
+  },
+  {
+    "study": "study4",
+    "within": {
+      "shot1": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.625,
+            "N": 16,
+            "C": 10,
+            "K": 0,
+            "U": 6,
+            "E": 2,
+            "identification_interval": [
+              62.5,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 153,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 45,
+            "unresolved_pairs": 91,
+            "exempt_pairs": 17,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot1/e10"
+              ],
+              "old": "exempt",
+              "new": "unknown"
+            },
+            {
+              "entity_members": [
+                "shot1/e14"
+              ],
+              "old": "exempt",
+              "new": "unknown"
+            },
+            {
+              "entity_members": [
+                "shot1/e4"
+              ],
+              "old": "compatible",
+              "new": "exempt"
+            }
+          ],
+          "spatial": [
+            {
+              "entity_members": [
+                "shot1/e1",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e10",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e11",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e12",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e13",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e14",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e15",
+                "shot1/e4"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e16",
+                "shot1/e4"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e17",
+                "shot1/e4"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e18",
+                "shot1/e4"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e2",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e3",
+                "shot1/e4"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e4",
+                "shot1/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e4",
+                "shot1/e6"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e4",
+                "shot1/e7"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e4",
+                "shot1/e8"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot1/e4",
+                "shot1/e9"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            }
+          ]
+        }
+      },
+      "shot2": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.125,
+            "N": 8,
+            "C": 1,
+            "K": 0,
+            "U": 7,
+            "E": 1,
+            "identification_interval": [
+              12.5,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 36,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 0,
+            "unresolved_pairs": 28,
+            "exempt_pairs": 8,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot2/e2"
+              ],
+              "old": "exempt",
+              "new": "unknown"
+            }
+          ],
+          "spatial": []
+        }
+      },
+      "shot3": {
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.7,
+            "N": 10,
+            "C": 7,
+            "K": 0,
+            "U": 3,
+            "E": 3,
+            "identification_interval": [
+              70.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 78,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 21,
+            "unresolved_pairs": 34,
+            "exempt_pairs": 23,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "unit_differences": {
+          "presence": [
+            {
+              "entity_members": [
+                "shot3/e2"
+              ],
+              "old": "compatible",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e7"
+              ],
+              "old": "exempt",
+              "new": "unknown"
+            }
+          ],
+          "spatial": [
+            {
+              "entity_members": [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e10",
+                "shot3/e2"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e11",
+                "shot3/e2"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e12",
+                "shot3/e2"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e13",
+                "shot3/e2"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e3"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e5"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e6"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e7"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e8"
+              ],
+              "old": "unknown",
+              "new": "exempt"
+            },
+            {
+              "entity_members": [
+                "shot3/e2",
+                "shot3/e9"
+              ],
+              "old": "no_conflict",
+              "new": "exempt"
+            }
+          ]
+        }
+      }
+    },
+    "boundary": {
+      "scores": {
+        "presence": {
+          "score": 100.0,
+          "coverage": 0.5,
+          "N": 10,
+          "C": 5,
+          "K": 0,
+          "U": 5,
+          "E": 15,
+          "identification_interval": [
+            50.0,
+            100.0
+          ]
+        },
+        "spatial": {
+          "score": 100.0,
+          "total_pairs": 15,
+          "confirmed_conflict_pairs": 0,
+          "anomaly_ratio": 0.0,
+          "no_conflict_pairs": 11,
+          "unresolved_pairs": 3,
+          "exempt_pairs": 1,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "unit_differences": {
+        "presence": [],
+        "spatial": []
+      },
+      "presence_confirmed_anomalies_preserved": true,
+      "spatial_confirmed_anomalies_preserved": true
+    },
+    "identity_differences": [],
+    "confirmed_identity_matches_preserved": true,
+    "anchors": {
+      "old": [
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e3"
+          ],
+          "reason": "共同大型支承家具，双侧预期静止且anchor_observed_static=true；可见边角、桌腿及逐帧几何支持稳定定位。"
+        },
+        {
+          "entity_members": [
+            "shot1/e9",
+            "shot3/e5"
+          ],
+          "reason": "共同大型家具，双侧预期及观测均静止；采用无遮挡帧的整体几何，避免把后续局部检测当作位移。"
+        },
+        {
+          "entity_members": [
+            "shot1/e18",
+            "shot3/e11"
+          ],
+          "reason": "双侧预期静止且anchor_observed_static=true；原帧褶皱和底边持续稳定，无接触或可见风致变化，具有可用的整体几何。"
+        }
+      ],
+      "new": [
+        {
+          "entity_members": [
+            "shot1/e5",
+            "shot3/e3"
+          ],
+          "reason": "双方为static；图1–8无遮挡桌沿、桌腿和下层板保持固定，后续变化由人体遮挡解释。融合OBB完整，投影总体吻合，可用作支承面锚点。"
+        },
+        {
+          "entity_members": [
+            "shot1/e9",
+            "shot3/e5"
+          ],
+          "reason": "双方为static；原图中沙发轮廓及座垫缝线无实际位移。shot3后段框缩小来自人体遮挡，前两帧完整几何与融合OBB支持使用；shot1融合几何亦可用。"
+        }
+      ]
+    },
+    "confirmed_anomaly_sets_preserved": true,
+    "scope": "Fresh CPU/API downstream replay from frozen detector/Pi3X/Boxer/raw RoMa outputs; not a fresh GPU frontend run"
+  }
+]

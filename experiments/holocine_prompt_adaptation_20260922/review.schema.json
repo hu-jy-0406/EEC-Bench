@@ -1,0 +1,82 @@
+{
+  "type": "object",
+  "properties": {
+    "verdict": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "fail"
+      ]
+    },
+    "supported_claim_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "unsupported_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "problem": {
+            "type": "string"
+          },
+          "correction": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "problem",
+          "correction"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "additions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_omissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schedule_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "alias_issues": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "checked_shot_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "verdict",
+    "supported_claim_ids",
+    "unsupported_claims",
+    "additions",
+    "source_omissions",
+    "schedule_issues",
+    "alias_issues",
+    "checked_shot_ids"
+  ],
+  "additionalProperties": false
+}

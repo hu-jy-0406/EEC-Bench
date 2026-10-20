@@ -1,0 +1,148 @@
+{
+  "status": "completed_with_cross_shot_geometry_not_evaluable",
+  "identity_binding": {
+    "bound": 8,
+    "unbound": 0,
+    "unknown": 1
+  },
+  "prompt_alignment": {
+    "presence": {
+      "score": 100.0,
+      "interval": [
+        100.0,
+        100.0
+      ]
+    },
+    "appearance": {
+      "score": 100.0,
+      "interval": [
+        100.0,
+        100.0
+      ]
+    },
+    "spatial": {
+      "score": 94.44444444444444,
+      "interval": [
+        80.95238095238095,
+        95.23809523809523
+      ]
+    },
+    "motion": {
+      "score": 100.0,
+      "interval": [
+        77.77777777777779,
+        100.0
+      ]
+    }
+  },
+  "within_shot_spatial": {
+    "Shot1": {
+      "score": 100.0,
+      "total_pairs": 15,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 2,
+      "unresolved_pairs": 1,
+      "exempt_pairs": 12,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "Shot2": {
+      "score": 100.0,
+      "total_pairs": 10,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 3,
+      "unresolved_pairs": 0,
+      "exempt_pairs": 7,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "Shot3": {
+      "score": 100.0,
+      "total_pairs": 15,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 1,
+      "unresolved_pairs": 0,
+      "exempt_pairs": 14,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "Shot4": {
+      "score": 100.0,
+      "total_pairs": 15,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 1,
+      "unresolved_pairs": 2,
+      "exempt_pairs": 12,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    }
+  },
+  "position_displacement": {
+    "within": {
+      "score": 61.780651644073515,
+      "total_records": 23,
+      "scored_records": 11,
+      "unscored_records": 12,
+      "weighting": "equal_entity_observation_records"
+    },
+    "cross": null,
+    "all": {
+      "score": 61.780651644073515,
+      "total_records": 23,
+      "scored_records": 11,
+      "unscored_records": 12,
+      "weighting": "equal_entity_observation_records"
+    }
+  },
+  "appearance": {
+    "entities": 9,
+    "appearances": 128,
+    "codex": {
+      "score": 86.45833333333333,
+      "scored_entities": 8,
+      "unscored_entities": 1
+    },
+    "dino": {
+      "score": 0.774840070707939,
+      "scored_entities": 9,
+      "unscored_entities": 0
+    }
+  },
+  "appearance_multi_shot": {
+    "entities": 6,
+    "appearances": 113,
+    "codex": {
+      "score": 81.94444444444444,
+      "scored_entities": 6,
+      "unscored_entities": 0
+    },
+    "dino": {
+      "score": 0.6970866346375538,
+      "scored_entities": 6,
+      "unscored_entities": 0
+    }
+  },
+  "registration": {
+    "coordinate_groups": [
+      "Shot1",
+      "Shot2",
+      "Shot3",
+      "Shot4"
+    ],
+    "cross_shot_geometry": "not_evaluable_no_accepted_transform"
+  },
+  "token_cost": {
+    "actual_api_cost": "unavailable",
+    "reason": "the run used a user-supplied Luna API route, while legacy artifact fields contain Astra-equivalent estimates and are not billing data."
+  },
+  "provenance": {
+    "prompt_alignment": "EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/prompt_alignment/results.json",
+    "appearance": "EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/appearance/compact/summary.json",
+    "displacement": "EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/displacement_within_only/results.json",
+    "registration": "EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/direct_prompt_bound_luna/results.json"
+  }
+}

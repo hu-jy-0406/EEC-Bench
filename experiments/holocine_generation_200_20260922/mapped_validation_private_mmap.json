@@ -1,0 +1,72 @@
+{
+  "pass_all": true,
+  "all_loaded_parameters_equal": true,
+  "all_latents_bit_exact": true,
+  "pixels_bit_exact": false,
+  "native_repeat_pixel_max_abs": 1,
+  "mapped_pixel_max_abs": 1,
+  "scope": "Same-seed short2step generation; original repeat control explains at most1/255 RGB differences. Not full production quality or full-length equivalence.",
+  "proof": [
+    {
+      "mode": "standard",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 34.38417387008667,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": true,
+      "pixel_max_abs": 0
+    },
+    {
+      "mode": "standard",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 40.36064147949219,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped_plain",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 71.583744764328,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped_plain",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 44.2450008392334,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 50.384390354156494,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 11.611445188522339,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    }
+  ],
+  "finished": 1790056792.7087843
+}

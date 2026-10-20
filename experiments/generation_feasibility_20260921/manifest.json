@@ -1,0 +1,79 @@
+{
+  "created_utc": "2026-09-21T14:47:19Z",
+  "dataset": {
+    "episodes": 400,
+    "shots": 2000,
+    "duration_seconds": 10000,
+    "episode_counts": {
+      "4": 240,
+      "6": 120,
+      "8": 40
+    }
+  },
+  "repos": {
+    "HoloCine": {
+      "commit": "0a7630ba448e13ddc7b872638b578e5618208c45",
+      "url": "https://github.com/yihao-meng/HoloCine.git"
+    },
+    "StoryMem": {
+      "commit": "052c68d2627a22a95f79dbb4d3376cc30c96f1a3",
+      "url": "https://github.com/Kevin-thu/StoryMem.git"
+    },
+    "Wan2.2": {
+      "commit": "1ea34ff48f87168174e12956e200b1d908b1c5ff",
+      "url": "https://github.com/Wan-Video/Wan2.2.git"
+    }
+  },
+  "estimation_policy": {
+    "wan": "2000 * measured warm 81-frame shot seconds + per-worker initialization",
+    "storymem": "400 * first-shot seconds + 1600 * measured memory-conditioned shot seconds including official memory extraction; report observed memory sizes and extrapolation uncertainty",
+    "holocine": "240*T(321f)+120*T(481f)+40*T(641f), fixed steps and 832x480; distinguish full-step measurement from step-scaled projections",
+    "parallel": "per-model workers ideal throughput only, conditioned on actual idle resources; 3 models each one worker finish at max of their total times, not sum"
+  },
+  "current_allocation": {
+    "job_id": 206117,
+    "node": "auh7-1b-gpu-306",
+    "host_memory": "2TiB",
+    "gpu_assignments": {
+      "wan": 2,
+      "holocine_length_probes": 3,
+      "storymem": 4,
+      "holocine_50step_short": 5
+    },
+    "excluded_resident_gpus": [
+      0,
+      1,
+      6,
+      7
+    ]
+  },
+  "holocine_test_plan_revision": {
+    "reason": "First20s full attention denoising step323.26s implies~4.5h for50steps; feasibility/runtime estimation does not require that full-length full-step run.",
+    "full_duration_probes": [
+      {
+        "frames": 321,
+        "steps": 2
+      },
+      {
+        "frames": 481,
+        "steps": 2
+      },
+      {
+        "frames": 641,
+        "steps": 2
+      }
+    ],
+    "full_steps_short_video": {
+      "shots": 4,
+      "frames": 81,
+      "fps": 16,
+      "steps": 50,
+      "note": "~1.25s/shot test adaptation; same tracked entity shot schedule. Not a20s full-quality timing."
+    },
+    "formal400_estimate": "Extrapolate duration-specific measured step costs to50steps; preserve uncertainty and label projected, not measured complete400."
+  },
+  "status": "complete_with_documented_recoveries",
+  "report": "REPORT.md",
+  "runtime_estimates": "runtime_estimates.json",
+  "production_400_started": false
+}

@@ -1,0 +1,551 @@
+{
+  "study2": {
+    "status": "success",
+    "seconds": 826.1321189403534,
+    "tokens": 676561,
+    "usd": 7.597234,
+    "calls": 12,
+    "geocalib_absent": true,
+    "rotation_determinant": 1.0,
+    "orthogonality_error": 8.326672684688674e-17,
+    "registration": {
+      "scale": 0.9076519240253624,
+      "selected_pairs": 32,
+      "pool_pairs": 3662,
+      "selected_mean": 0.3345243935798743,
+      "full_mean": 0.21316033851475924,
+      "full_median": 0.1991335069123103,
+      "full_p90": 0.26820628578253963,
+      "reprojection_median_pixels": 47.43967387152503,
+      "seconds": 0.18442416191101074
+    },
+    "identity_counts": {
+      "ambiguous": 2,
+      "matched": 9,
+      "unmatched": 18
+    },
+    "spatial": {
+      "score": 100.0,
+      "total_pairs": 36,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 23,
+      "unresolved_pairs": 13,
+      "exempt_pairs": 0,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 84.61538461538461,
+      "coverage": 0.7692307692307693,
+      "N": 13,
+      "C": 8,
+      "K": 2,
+      "U": 3,
+      "E": 16,
+      "identification_interval": [
+        61.53846153846154,
+        84.61538461538461
+      ]
+    },
+    "within": {
+      "shot1": {
+        "score": 100.0,
+        "total_pairs": 190,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 28,
+        "unresolved_pairs": 125,
+        "exempt_pairs": 37,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot2": {
+        "score": 100.0,
+        "total_pairs": 15,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 3,
+        "unresolved_pairs": 3,
+        "exempt_pairs": 9,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot3": {
+        "score": 100.0,
+        "total_pairs": 190,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 136,
+        "unresolved_pairs": 35,
+        "exempt_pairs": 19,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      }
+    },
+    "conflict_events": [
+      {
+        "kind": "presence",
+        "event_id": "presence_g03",
+        "entity_ids": [
+          "shot1/e3"
+        ],
+        "names": [
+          "Desk lamp"
+        ],
+        "reason": "The lamp's desk-end location is exposed and empty in the following endpoint, with no person or foreground obstruction."
+      },
+      {
+        "kind": "presence",
+        "event_id": "presence_g25",
+        "entity_ids": [
+          "shot3/e14"
+        ],
+        "names": [
+          "Tissue box with protruding tissue"
+        ],
+        "reason": "The expected tabletop area is exposed at both endpoints, establishing an unexplained addition directly from pixels."
+      }
+    ],
+    "spatial_candidates": [
+      {
+        "event_id": "spatial_pair_g02_g05",
+        "names": [
+          "Dark green mug",
+          "Large wooden desk",
+          "Dark green mug",
+          "Large wooden table"
+        ],
+        "status": "unknown",
+        "cosine": -0.2085846546273779,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "The mug contacts the desktop in both targets, but the cropped desk's full center and a common support for both endpoints are unverified; local eligibility is false."
+      },
+      {
+        "event_id": "spatial_pair_g02_g07",
+        "names": [
+          "Dark green mug",
+          "Pen holder",
+          "Dark green mug",
+          "White pen holder"
+        ],
+        "status": "unknown",
+        "cosine": -0.18188887045579843,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "The corresponding long edge opposite the window-side chair places the mug edgeward of the holder in both targets; the hidden Shot1 holder base defeats full-center verification and local eligibility."
+      },
+      {
+        "event_id": "spatial_pair_g02_g17",
+        "names": [
+          "Dark green mug",
+          "Bunch of pens and pencils",
+          "Dark green mug",
+          "Bunch of writing implements"
+        ],
+        "status": "unknown",
+        "cosine": -0.3418191824127021,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Both targets show shafts entering the adjacent holder, with the mug toward the corresponding non-chair edge; concealed shaft lengths prevent full-bunch centers and local eligibility."
+      },
+      {
+        "event_id": "spatial_pair_g05_g07",
+        "names": [
+          "Large wooden desk",
+          "Pen holder",
+          "Large wooden table",
+          "White pen holder"
+        ],
+        "status": "unknown",
+        "cosine": -0.16655109430558204,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "The independent mug reference remains beside the holder in both targets, but no frozen support carries both desk and holder; cropped desk and obscured holder centers fail local eligibility."
+      },
+      {
+        "event_id": "spatial_pair_g07_g17",
+        "names": [
+          "Pen holder",
+          "Bunch of pens and pencils",
+          "White pen holder",
+          "Bunch of writing implements"
+        ],
+        "status": "unknown",
+        "cosine": -0.21606599771222595,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Shafts enter the holder opening in both targets on the same desk; hidden shaft ends and the obscured holder base defeat full-center verification and local eligibility."
+      }
+    ],
+    "displacement": {
+      "within": {
+        "score": 62.36239044773253,
+        "total_records": 46,
+        "scored_records": 39,
+        "unscored_records": 7,
+        "weighting": "equal_entity_observation_records"
+      },
+      "cross": {
+        "score": 65.46609692103307,
+        "total_records": 29,
+        "scored_records": 8,
+        "unscored_records": 21,
+        "weighting": "equal_entity_observation_records"
+      },
+      "all": {
+        "score": 62.87235354959111,
+        "total_records": 75,
+        "scored_records": 47,
+        "unscored_records": 28,
+        "weighting": "equal_entity_observation_records"
+      }
+    }
+  },
+  "study3": {
+    "status": "success",
+    "seconds": 870.0976240634918,
+    "tokens": 716287,
+    "usd": 7.998766,
+    "calls": 13,
+    "geocalib_absent": true,
+    "rotation_determinant": 1.0,
+    "orthogonality_error": 1.1102230246251565e-16,
+    "registration": {
+      "scale": 0.875293157091582,
+      "selected_pairs": 32,
+      "pool_pairs": 4452,
+      "selected_mean": 0.2969329107648833,
+      "full_mean": 0.18382319539065584,
+      "full_median": 0.14562464114938936,
+      "full_p90": 0.25554162901435756,
+      "reprojection_median_pixels": 39.94512579555426,
+      "seconds": 0.21268653869628906
+    },
+    "identity_counts": {
+      "ambiguous": 1,
+      "matched": 10,
+      "unmatched": 18
+    },
+    "spatial": {
+      "score": 100.0,
+      "total_pairs": 45,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 31,
+      "unresolved_pairs": 14,
+      "exempt_pairs": 0,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 92.3076923076923,
+      "coverage": 0.7692307692307693,
+      "N": 13,
+      "C": 9,
+      "K": 1,
+      "U": 3,
+      "E": 16,
+      "identification_interval": [
+        69.23076923076923,
+        92.3076923076923
+      ]
+    },
+    "within": {
+      "shot1": {
+        "score": 100.0,
+        "total_pairs": 190,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 28,
+        "unresolved_pairs": 125,
+        "exempt_pairs": 37,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot2": {
+        "score": 100.0,
+        "total_pairs": 15,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 3,
+        "unresolved_pairs": 3,
+        "exempt_pairs": 9,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot3": {
+        "score": 100.0,
+        "total_pairs": 190,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 78,
+        "unresolved_pairs": 93,
+        "exempt_pairs": 19,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      }
+    },
+    "conflict_events": [
+      {
+        "kind": "presence",
+        "event_id": "presence_g24",
+        "entity_ids": [
+          "shot3/e13"
+        ],
+        "names": [
+          "Tissue packet"
+        ],
+        "reason": "The packet is absent from the observable earlier desktop and present before the woman's return; no occluder or detector-only inference accounts for it."
+      }
+    ],
+    "spatial_candidates": [
+      {
+        "event_id": "spatial_pair_g02_g05",
+        "names": [
+          "Dark green mug",
+          "Large wooden desk",
+          "Dark mug",
+          "Large wooden table"
+        ],
+        "status": "unknown",
+        "cosine": -0.18934174620057864,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Both targets show desktop contact near the edge opposite the chair; neither establishes the complete desk center or a separate common support."
+      },
+      {
+        "event_id": "spatial_pair_g02_g07",
+        "names": [
+          "Dark green mug",
+          "Pen holder",
+          "Dark mug",
+          "Pen holder"
+        ],
+        "status": "unknown",
+        "cosine": -0.267393083149689,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Independently in both targets, the mug occupies the side toward the corresponding long edge opposite the chair and the holder lies inward; shot1 hides the holder's complete center."
+      },
+      {
+        "event_id": "spatial_pair_g02_g17",
+        "names": [
+          "Dark green mug",
+          "Bunch of pens and pencils",
+          "Dark mug",
+          "Bunch of pens and pencils"
+        ],
+        "status": "unknown",
+        "cosine": -0.33159251445825316,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Both targets place the mug toward the corresponding outer long edge from the holder containing the shafts; exposed pen fragments do not establish a whole-bunch center."
+      },
+      {
+        "event_id": "spatial_pair_g05_g07",
+        "names": [
+          "Large wooden desk",
+          "Pen holder",
+          "Large wooden table",
+          "Pen holder"
+        ],
+        "status": "unknown",
+        "cosine": -0.12259470888931268,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Both targets locate the holder inside the desktop boundary, but the desk cannot supply its own common support and its full center remains unresolved."
+      },
+      {
+        "event_id": "spatial_pair_g07_g17",
+        "names": [
+          "Pen holder",
+          "Bunch of pens and pencils",
+          "Pen holder",
+          "Bunch of pens and pencils"
+        ],
+        "status": "unknown",
+        "cosine": -0.205368576534928,
+        "gate": "insufficient_relative_geometry_or_causal_evidence",
+        "reason": "Both targets independently show shafts entering the holder rim at the same tabletop cluster; neither reveals complete bunch extent or internal contacts."
+      }
+    ],
+    "displacement": {
+      "within": {
+        "score": 59.617896811327206,
+        "total_records": 46,
+        "scored_records": 39,
+        "unscored_records": 7,
+        "weighting": "equal_entity_observation_records"
+      },
+      "cross": {
+        "score": 47.744612232401195,
+        "total_records": 29,
+        "scored_records": 9,
+        "unscored_records": 20,
+        "weighting": "equal_entity_observation_records"
+      },
+      "all": {
+        "score": 57.14037301444519,
+        "total_records": 75,
+        "scored_records": 48,
+        "unscored_records": 27,
+        "weighting": "equal_entity_observation_records"
+      }
+    }
+  },
+  "study4": {
+    "status": "success",
+    "seconds": 864.9324266910553,
+    "tokens": 599196,
+    "usd": 6.711408,
+    "calls": 13,
+    "geocalib_absent": true,
+    "rotation_determinant": 1.0000000000000004,
+    "orthogonality_error": 2.220446049250313e-16,
+    "registration": {
+      "scale": 0.8174349206201987,
+      "selected_pairs": 32,
+      "pool_pairs": 13286,
+      "selected_mean": 0.5296476155215406,
+      "full_mean": 0.22515490898545545,
+      "full_median": 0.1947428388834689,
+      "full_p90": 0.341031144119036,
+      "reprojection_median_pixels": 48.93101720926454,
+      "seconds": 0.2506229877471924
+    },
+    "identity_counts": {
+      "matched": 6,
+      "unmatched": 19
+    },
+    "spatial": {
+      "score": 100.0,
+      "total_pairs": 15,
+      "confirmed_conflict_pairs": 0,
+      "anomaly_ratio": 0.0,
+      "no_conflict_pairs": 11,
+      "unresolved_pairs": 0,
+      "exempt_pairs": 4,
+      "scoring_protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+    },
+    "presence": {
+      "score": 100.0,
+      "coverage": 0.5454545454545454,
+      "N": 11,
+      "C": 6,
+      "K": 0,
+      "U": 5,
+      "E": 14,
+      "identification_interval": [
+        54.54545454545455,
+        100.0
+      ]
+    },
+    "within": {
+      "shot1": {
+        "score": 100.0,
+        "total_pairs": 153,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 45,
+        "unresolved_pairs": 91,
+        "exempt_pairs": 17,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot2": {
+        "score": 100.0,
+        "total_pairs": 28,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 0,
+        "unresolved_pairs": 21,
+        "exempt_pairs": 7,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "shot3": {
+        "score": 100.0,
+        "total_pairs": 78,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 21,
+        "unresolved_pairs": 34,
+        "exempt_pairs": 23,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      }
+    },
+    "conflict_events": [],
+    "spatial_candidates": [
+      {
+        "event_id": "spatial_pair_g01_g03",
+        "names": [
+          "Blue-and-white teacup",
+          "Tall blue-and-white mug",
+          "Small blue-and-white cup",
+          "Tall blue-and-white mug"
+        ],
+        "status": "exempt",
+        "cosine": -0.906495727898947,
+        "gate": "normal_story_explains_specific_relative_change",
+        "reason": "Both complete vessels share g05, but their edge-relative placements do not independently prove reversal; the specified exchange is exempt."
+      },
+      {
+        "event_id": "spatial_pair_g01_g04",
+        "names": [
+          "Blue-and-white teacup",
+          "Woman wearing a gray cardigan and jeans",
+          "Small blue-and-white cup",
+          "Woman wearing a gray cardigan and jeans"
+        ],
+        "status": "exempt",
+        "cosine": -0.7597679618962354,
+        "gate": "normal_story_explains_specific_relative_change",
+        "reason": "The cup rests on g05 while the woman occupies the patio or threshold; local eligibility and common-support gates fail."
+      },
+      {
+        "event_id": "spatial_pair_g03_g04",
+        "names": [
+          "Tall blue-and-white mug",
+          "Woman wearing a gray cardigan and jeans",
+          "Tall blue-and-white mug",
+          "Woman wearing a gray cardigan and jeans"
+        ],
+        "status": "exempt",
+        "cosine": -0.783102309034556,
+        "gate": "normal_story_explains_specific_relative_change",
+        "reason": "The mug and woman have no verified common support, and endpoint pixels do not establish the proposed center-direction reversal."
+      },
+      {
+        "event_id": "spatial_pair_g04_g05",
+        "names": [
+          "Woman wearing a gray cardigan and jeans",
+          "Wooden coffee table",
+          "Woman wearing a gray cardigan and jeans",
+          "Wooden coffee table"
+        ],
+        "status": "exempt",
+        "cosine": -0.5477730064019573,
+        "gate": "normal_story_explains_specific_relative_change",
+        "reason": "Local eligibility fails; cropped table extents prevent full-object center verification, and the cabinet and opposite curtain are not corresponding references."
+      }
+    ],
+    "displacement": {
+      "within": {
+        "score": 58.20481974961025,
+        "total_records": 39,
+        "scored_records": 34,
+        "unscored_records": 5,
+        "weighting": "equal_entity_observation_records"
+      },
+      "cross": {
+        "score": 67.54688113643418,
+        "total_records": 25,
+        "scored_records": 4,
+        "unscored_records": 21,
+        "weighting": "equal_entity_observation_records"
+      },
+      "all": {
+        "score": 59.087615814749505,
+        "total_records": 64,
+        "scored_records": 38,
+        "unscored_records": 26,
+        "weighting": "equal_entity_observation_records"
+      }
+    }
+  }
+}

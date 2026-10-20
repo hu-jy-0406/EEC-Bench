@@ -1,0 +1,50 @@
+{
+  "passed": true,
+  "cases": {
+    "study2": {
+      "selected_count": 32,
+      "reproduces_experimental_transform": true,
+      "old_sources_unchanged": true,
+      "hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_integrated_full_fresh_20260919/study2/registration/roma_geometry/correspondences.npz": "151ece8cd138809029bd482c5c9829eaffd3885dd25028f6b1684fbc3eeb5c6b",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_integrated_full_fresh_20260919/study2/registration/roma_geometry/registration.json": "831676a5c242c74c4945c954fd67ca48f71e2800b9cd6563f8c5f2ff61d88f82"
+      }
+    },
+    "study3": {
+      "selected_count": 32,
+      "reproduces_experimental_transform": true,
+      "old_sources_unchanged": true,
+      "hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/run_cpu02/registration/roma_geometry/correspondences.npz": "6ab29257848a792d669c230aa39e09dc75b80cc8329f1877e5954534dc6786d1",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/run_cpu02/registration/roma_geometry/registration.json": "5cc7d73f22387cac2a4340871cabdbeb4300766ea4434d5bea380fea019f19dc"
+      }
+    }
+  },
+  "checks": [
+    {
+      "pattern": "test_gs_registration_3d.py",
+      "code": 0,
+      "output": ".....\n----------------------------------------------------------------------\nRan 5 tests in 0.231s\n\nOK\n"
+    },
+    {
+      "pattern": "test_gs_registration_variants.py",
+      "code": 0,
+      "output": ".......\n----------------------------------------------------------------------\nRan 7 tests in 0.308s\n\nOK\n"
+    },
+    {
+      "pattern": "test_gs_integrated.py",
+      "code": 0,
+      "output": "START first\nSTART aligned_identity_review\nEND aligned_identity_review 0.00035500526428222656\nSTART presence\nEND presence 0.0003387928009033203\n........\n----------------------------------------------------------------------\nRan 8 tests in 0.041s\n\nOK\n"
+    }
+  ],
+  "small_pool_and_insufficient_pool_checked": true,
+  "new_model_calls": 0,
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py": "aceaee9a083fed80dc6f841859d1dd507cc1a380c735f8c0e3ab648450243829",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py": "ac40bcceedd9a9babd73f8727035005caca787a0f1afd34cb07f4f8cf0167b68",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py": "e4da835ac6d0acc06d5785ce6b9497c3e337efd31cd20956e5a2d5779682fc8d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-consistency-two-scores.v1.json": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb"
+  }
+}

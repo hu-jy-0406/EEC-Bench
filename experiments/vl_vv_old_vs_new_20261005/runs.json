@@ -1,0 +1,5794 @@
+{
+  "p002_wan21": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 60.94,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "同一男子在Shot4换成深色翻领衬衫，与前三镜的蓝灰色圆领T恤不符。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "a faded blue-gray T-shirt"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot4的沙发呈高而圆的椅背状，与前几镜低矮、横向的沙发外观不一致。",
+          "scope": [
+            "Shot1",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "quotes": [
+            "the same Beige sofa",
+            "the rounded sofa back"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 88830,
+        "cached": 0,
+        "output": 1805,
+        "usd": 0.009786
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p002_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 75.0,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "同一男子在Shot3穿深色立领衬衫，Shot4穿灰色T恤，与提示规定的蓝灰色T恤不符。",
+          "scope": [
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "faded blue-gray T-shirt with small outlined chest lettering."
+          ]
+        },
+        {
+          "issue_id": "vv01",
+          "description": "同一男子的上衣在Shot1为蓝灰色短袖T恤，在Shot3变为深色立领衬衫，Shot4又变为灰色T恤。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots"
+          ]
+        },
+        {
+          "issue_id": "vv02",
+          "description": "同一房间的画面观感不一致：Shot1昏暗暖光，Shot3则明亮，背景以大面积浅色墙面为主。",
+          "scope": [
+            "Shot1",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "visual_style",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 89689,
+        "cached": 63036,
+        "output": 2213,
+        "usd": 0.004402
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p002_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 81.25,
+        "v_v": 90.63
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Shot4男子穿深色立领衬衫，与前几镜的蓝灰色T恤不符。",
+          "scope": [
+            "Shot1",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "a faded blue-gray T-shirt with small outlined chest lettering."
+          ]
+        },
+        {
+          "issue_id": "vv1",
+          "description": "Shot4沙发呈高而圆弧的靠背，与前几镜的低靠背沙发外观明显不同。",
+          "scope": [
+            "Shot1",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "quotes": [
+            "the Beige sofa",
+            "the same Beige sofa"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 88960,
+        "cached": 0,
+        "output": 1619,
+        "usd": 0.009705
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p002_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 28.13,
+        "within": 100.0,
+        "cross": 37.5,
+        "v_v": 68.75
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot4中的人物相较Shot1–3明显换了外观：发型更短且贴头，肤色更浅，脸部观感不同，并从圆领短袖T恤变成有领衬衫，和同一男性的连续设定不符。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot4座椅呈高大、圆弧包围式的单人椅外形；Shot1–3则是低矮、横向延伸的沙发，形状与尺寸明显不一致。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C2",
+            "C8"
+          ],
+          "quotes": [
+            "the Beige sofa",
+            "The same beige sofa supporting the man"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot1人物双臂向两侧伸展并搭在沙发靠背上，而非描述的低放手臂姿势。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3"
+          ],
+          "quotes": [
+            "arms resting low"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot4人物背后为大面积深色木质背景并配高圆弧座椅；Shot1与Shot3的可比室内视图呈木门、浅色墙及不同背景布局，无法与Shot4的整片深木背景连贯对应。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 169903,
+        "cached": 135420,
+        "output": 7777,
+        "usd": 0.008691
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p002_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 28.13,
+        "within": 100.0,
+        "cross": 28.13,
+        "v_v": 64.07
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot3人物穿有领门襟衬衫，而Shot1、2、4为圆领T恤；同一人物身份也存在明显不确定差异。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "a faded blue-gray T-shirt",
+            "his blue-gray shirt"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot4人物的脸型及卷发样式与Shot1至3的人物明显不同，像是换成另一名男子。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "同一房间的背景外观跨镜头差异较大：Shot2为满幅横向木板墙，Shot1与Shot3则呈现门框及浅色墙面；未能确认是合理视角变化。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "uncertain",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "uncertain",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot4的座椅是高大圆弧背、环绕人物的扶手椅状家具，与前镜头低背横向沙发不相符。",
+          "scope": [
+            "Shot1",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "C2",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "The Bearded man remains on the same Beige sofa"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 95959,
+        "cached": 67710,
+        "output": 4947,
+        "usd": 0.005975
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p002_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 30.47,
+        "v_v": 65.24
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "同一男子跨镜发型与服装不一致：第1镜短卷发、浅蓝灰圆领T恤；第2镜卷发更蓬长；第3镜换成深色翻领扣衫；第4镜又为浅灰蓝圆领T恤。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "a faded blue-gray T-shirt with small outlined chest lettering."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "第3镜房间显著明亮，浅色墙面占据背景；与第1镜暖暗的木门室内观感不符，且不符合房间的明暗要求。",
+          "scope": [
+            "Shot1",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "setting_environment",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "environment_lighting",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C4",
+            "C8"
+          ],
+          "quotes": [
+            "In a dim, warmly lit room",
+            "Maintain the same man and room across four five-second shots"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "第4镜可见座椅为高而圆弧的单人椅状椅背，不像前镜出现的低矮沙发；与指定为同一张沙发的要求不符。",
+          "scope": [
+            "Shot1",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C2",
+            "C8"
+          ],
+          "quotes": [
+            "Maintain the same man and room across four five-second shots",
+            "The Bearded man remains on the same Beige sofa"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 95489,
+        "cached": 0,
+        "output": 4624,
+        "usd": 0.011861
+      }
+    }
+  ],
+  "p014_wan21": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 67.5,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "男子戴宽檐黑帽，未见耳罩，和要求的耳罩帽不符。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a black earflap hat",
+            "Older man in earflap hat"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "男子起始时背朝镜头，未呈现要求的低头左侧面。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "minor",
+              "deduction": 10.0
+            }
+          ],
+          "quotes": [
+            "Starting with his face lowered in screen-left profile"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 109316,
+        "cached": 0,
+        "output": 1520,
+        "usd": 0.011692
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p014_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "VL-1",
+          "description": "Shot3颈部为厚围巾，未呈现提示要求的桃色领口。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "her white beanie, straight dark hair and muted peach neckline clear"
+          ]
+        },
+        {
+          "issue_id": "VL-2",
+          "description": "Shot4开场男子背向镜头，并非提示所述的低头左侧面。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Starting with his face lowered in screen-left profile"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 109332,
+        "cached": 80216,
+        "output": 1601,
+        "usd": 0.004514
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p014_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 56.25,
+        "v_v": 78.13
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "老人戴宽檐黑帽，未见耳罩，与要求的耳罩帽不符。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "The older man has wispy gray hair and facial hair, a black earflap hat"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot4开场老人背向镜头，未呈现要求的左侧面。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Starting with his face lowered in screen-left profile"
+          ]
+        },
+        {
+          "issue_id": "vv1",
+          "description": "同一女子的灰外套款式和穿法不一致：Shot1为系带裹合款，Shot2为敞开的翻领双排扣款。",
+          "scope": [
+            "Shot1",
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "vv2",
+          "description": "女子在Shot3颈部出现米色围巾，Shot1与Shot2同一着装中未见该围巾。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 110444,
+        "cached": 0,
+        "output": 2416,
+        "usd": 0.012252
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p014_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 50.0,
+        "within": 100.0,
+        "cross": 37.5,
+        "v_v": 68.75
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "四镜都指向同一庭院，但背景建筑的类型、材料与布局显著不一致：Shot1为棕灰石砌旧式建筑，Shot2为奶油色带拱窗门廊的建筑，Shot3则是低矮米色房屋。镜头角度变化不足以解释这些明显不同的场所外观。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C3",
+            "C8",
+            "S5"
+          ],
+          "quotes": [
+            "retain the courtyard continuity",
+            "remains in the same wintry courtyard",
+            "in the same snow-dusted courtyard"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "女人灰外套跨镜细节不一致：Shot1是系腰带、前襟无明显双排扣的款式；Shot3清楚可见大号双排扣及不同前襟结构，Shot2也呈敞开直身外套。作为同一人物连续出现，外套款式发生变化。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "C1",
+            "S2",
+            "C8"
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 115381,
+        "cached": 84923,
+        "output": 3695,
+        "usd": 0.005743
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p014_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 38.09,
+        "within": 100.0,
+        "cross": 46.88,
+        "v_v": 73.44
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "女人的灰外套跨镜款式不一致：Shot1为系带合拢款，Shot2敞开，Shot3又出现显眼黑色双排扣；Shot3的浅棕围巾还遮住了指定清晰可见的桃色领口。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C6"
+          ],
+          "quotes": [
+            "wearing a white knit beanie over straight shoulder-length dark hair and a muted peach high neckline beneath her buttoned gray winter coat",
+            "her white beanie, straight dark hair and muted peach neckline clear"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot3的低矮浅色建筑、木檐和长椅背景，与Shot1的高大棕灰石质多层建筑及Shot2的奶油色拱窗立面明显不同；不同景别不足以解释整体建筑类型与背景格局的变化，与庭院连续性要求冲突。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "major",
+              "deduction": 37.5
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "major",
+              "deduction": 37.5
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "retain the courtyard continuity",
+            "remains in the same wintry courtyard"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot4起始帧中老人背向镜头，帽子和灰发后侧可见，并非描述的脸部低垂、朝画面左侧的侧面姿态。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_orientation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4"
+          ],
+          "quotes": [
+            "Starting with his face lowered in screen-left profile"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 116057,
+        "cached": 84923,
+        "output": 5317,
+        "usd": 0.006621
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p014_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 37.5,
+        "within": 100.0,
+        "cross": 37.5,
+        "v_v": 68.75
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "女子在Shot3换成带黑扣的双排扣灰大衣，并围浅棕色厚围巾；Shot1/2为系带灰外套、露出桃色高领，围巾未见，属于重复人物服饰不连续。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C8"
+          ],
+          "quotes": [
+            "her white beanie, straight dark hair and muted peach neckline clear",
+            "The woman retains her white beanie, peach neckline and gray coat"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "同一雪地庭院的建筑背景差异显著：Shot1/2呈现较高的石质或带拱窗立面，Shot3则出现低矮独立小屋及斜屋顶，难以视为同一庭院背景。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "retain the courtyard continuity",
+            "remains in the same wintry courtyard"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot4开头老人背对镜头，未呈现要求的低头左侧面起始姿势；随后才转身。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_orientation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4"
+          ],
+          "quotes": [
+            "Starting with his face lowered in screen-left profile"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 115870,
+        "cached": 0,
+        "output": 4355,
+        "usd": 0.013765
+      }
+    }
+  ],
+  "p014_storymem": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [],
+      "usage": {
+        "calls": 2,
+        "input": 80621,
+        "cached": 0,
+        "output": 371,
+        "usd": 0.008248
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p014_storymem",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 75.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "Shot1背景树木呈针叶常绿状，未见要求的修剪树形。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "against softly blurred, thick pollarded trees"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 107814,
+        "cached": 79185,
+        "output": 948,
+        "usd": 0.004129
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p014_storymem",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "vv_cross_001",
+          "description": "同一男子的围巾图案不一致：Shot2呈格纹，Shot4可见宽横条纹。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 107891,
+        "cached": 0,
+        "output": 1309,
+        "usd": 0.011444
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p014_storymem",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 75.0,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot2中老人的长围巾呈棕色与浅棕色格纹；Shot4中围巾可见的是宽幅横条，未见格纹，构成同一角色的外观差异。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1"
+          ],
+          "quotes": [
+            "a long brown-and-tan checked scarf",
+            "beneath his long checked scarf"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "被明确要求保持连续的同一庭院，在不同镜头中呈现出难以协调的建筑背景：Shot1、3为常绿树与浅色水平栏杆背景；Shot2为带拱形门窗和装饰铁艺的古典石质立面；Shot4则出现浅褐色平整墙面和矩形窗。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C2",
+            "C3",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "retain the courtyard continuity",
+            "the same courtyard",
+            "remains in the same wintry courtyard",
+            "in the same snow-dusted courtyard"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 114451,
+        "cached": 83892,
+        "output": 4023,
+        "usd": 0.005906
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p014_storymem",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "同一庭院的背景建筑风格和布局不协调：Shot2为带柱饰、拱形门窗的宏大石立面，Shot4则呈现朴素浅米色矩形窗立面；与明确的庭院连续性要求不符。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "C3",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "retain the courtyard continuity",
+            "the same snow-dusted courtyard"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot4帧1到帧2间取景与镜位突然改变，人物和树的相对画面位置、背景布局明显跳变，之后画面才稳定；镜内未要求切镜。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "unintended_cut",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 114066,
+        "cached": 83892,
+        "output": 3749,
+        "usd": 0.005731
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p014_storymem",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "庭院连续性要求下，Shot2呈现浅色石质古典立面、柱饰和拱形门窗；Shot4则呈现米黄色简洁矩形窗建筑，建筑类型、材质观感及立面布局明显不一致。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "stated_continuity",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "retain the courtyard continuity"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 113343,
+        "cached": 0,
+        "output": 3084,
+        "usd": 0.012876
+      }
+    }
+  ],
+  "p028_wan22": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_028_N39I1LM-HGY_s00208_n8_clean_v3_alt8/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 40.63,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Shot2中女孩未用自己的手托住来手手腕。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "She lightly supports the wrist with her own raised hand."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot1起始帧眼睛明显睁开，不符合眼睛近乎闭合的起始状态。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "quotes": [
+            "Starting with her head lowered and eyes nearly closed"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 186715,
+        "cached": 0,
+        "output": 1558,
+        "usd": 0.01945
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p028_wan22",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 75.0,
+        "within": 100.0,
+        "cross": 50.0,
+        "v_v": 75.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "手未呈电话状弯曲，未见另一指靠近下巴。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "She keeps a curled hand beside her ear and a finger near her chin in a telephone-like pose."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "嘴部持续张开，未见所述张口后再闭合。",
+          "scope": [
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "she opens her mouth slightly wider and then lets it close again over five seconds."
+          ]
+        },
+        {
+          "issue_id": "vv1",
+          "description": "同一蓝色椅子在不同镜头中外形尺度不一致：小型直立椅变为大型躺椅。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The fixed contract instance is also one confirmed visual identity group."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 187546,
+        "cached": 138087,
+        "output": 2174,
+        "usd": 0.007414
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p028_wan22",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 100.0,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "Shot8中未见来手贴住她的左耳和脸颊；画面里抬手的是她自己的白袖手臂。",
+          "scope": [
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "Incoming hand, which remains against her left ear and cheek"
+          ]
+        },
+        {
+          "issue_id": "vv01",
+          "description": "Shot8上衣改为明显的棕榈树图案，与前几次海岸镜头中抽象深色斑痕不一致。",
+          "scope": [
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 187016,
+        "cached": 0,
+        "output": 1737,
+        "usd": 0.01957
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p028_wan22",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 60.94,
+        "within": 75.0,
+        "cross": 37.5,
+        "v_v": 56.25
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1中手从耳旁逐渐移至下巴附近，未维持描述的耳旁卷手姿势。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3"
+          ],
+          "quotes": [
+            "She keeps a curled hand beside her ear and a finger near her chin in a telephone-like pose."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "青衣女子跨镜头外观明显变化：Shot2及Shot8为及肩至中长波浪发，Shot4及Shot6为更长、更蓬松卷发；Shot8上衣的棕榈印花也不同于Shot4、Shot6所示零散深色印记。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C4",
+            "O1"
+          ],
+          "quotes": [
+            "shoulder-length wavy brown hair with lighter strands",
+            "her loose turquoise top showing scattered dark marks",
+            "Her marked turquoise top and wind-tossed brown hair remain clearly visible."
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot3首帧与紧接帧之间发生明显景别及构图跳变，像同一镜头内部未请求的切换。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "unintended_cut",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I4",
+          "description": "回归蓝椅在Shot1、Shot5中是小型直立沙滩椅，而Shot3、Shot7中变为宽大低矮的躺椅，类型和尺寸不一致。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C2",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "a small blue beach chair far to the right",
+            "The familiar blue chair remains distant at screen right."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 195180,
+        "cached": 143244,
+        "output": 6468,
+        "usd": 0.00986
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p028_wan22",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 37.5,
+        "v_v": 68.75
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Robe 女子的手贴在耳侧，手指展开，并非文字描述的卷曲电话手势；该手势贯穿此镜。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "O1"
+          ],
+          "quotes": [
+            "She keeps a curled hand beside her ear and a finger near her chin in a telephone-like pose."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot2首帧来手悬在脸旁，未触及脸颊；之后才接触，未能全程保持要求的手部接触。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S6"
+          ],
+          "quotes": [
+            "its little finger touching her cheek",
+            "Maintain the hand contact throughout."
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "同一蓝色沙滩椅在 Shot1、Shot5 是小型直立椅，在 Shot3、Shot7 却成为带木架的大型躺椅，类型与尺寸明显不一致。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C2",
+            "C3",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "a small blue beach chair far to the right",
+            "The familiar blue chair remains distant at screen right.",
+            "the distant blue chair at far right",
+            "the blue chair remains blurred in the far-right background"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "同一排定绿衣女子的发型、上衣款式和图案跨镜变化：Shot2为及肩挑染波浪发、纯色露肩带上衣；Shot4/8为深色棕榈图案上衣，Shot6另有黑色肩标及白色长袖内搭。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C4",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "shoulder-length wavy brown hair with lighter strands",
+            "Her loose turquoise neckline exposes a thin dark shoulder strap",
+            "her loose turquoise top showing scattered dark marks",
+            "Her marked turquoise top and wind-tossed brown hair remain clearly visible."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 195544,
+        "cached": 143244,
+        "output": 6103,
+        "usd": 0.009714
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p028_wan22",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 75.0,
+        "within": 100.0,
+        "cross": 56.25,
+        "v_v": 78.13
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "重复出现的蓝色沙滩椅在Shot3与Shot7成为大型低矮躺椅，形状、尺寸均不同于Shot1与Shot5远处的小型直立蓝椅；Shot7还可见额外相似躺椅。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "object_identity",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "C2",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "a small blue beach chair far to the right",
+            "The familiar blue chair remains distant at screen right.",
+            "the distant blue chair at far right"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "同一青绿色上衣女子跨镜外观不一致：Shot2、4、6、8的发长、纹理及服饰图案明显变化；Shot8的棕榈印花与Shot4的散布暗斑、Shot6的肩部标志也不同。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C4",
+            "C5",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot6内部镜头构图突然从较宽上身景跳至脸部近景，随后又跳回宽景；变化不似平滑运镜。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "unintended_cut",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 194528,
+        "cached": 0,
+        "output": 5265,
+        "usd": 0.022085
+      }
+    }
+  ],
+  "p028_cinetrans": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/cinetrans/priority_028_N39I1LM-HGY_s00208_n8_clean_v3_alt8/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 18.75,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "长镜头中这位女性一直穿青绿色衣物；Robe woman要求的白浴袍未见。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "wearing a white bathrobe tied at the waist"
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "岸边镜头中的女性呈浅色头发、较成熟的外观，与Turquoise woman要求的棕色波浪发及年轻外观不符。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a younger adult with medium skin and shoulder-length wavy brown hair with lighter strands"
+          ]
+        },
+        {
+          "issue_id": "vl03",
+          "description": "岸边镜头中只见女性自己的手在耳旁，未见从画面右侧伸来的Incoming hand。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The Incoming hand extends from screen right"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 196112,
+        "cached": 0,
+        "output": 2124,
+        "usd": 0.020673
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p028_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 18.75,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "Robe女子多镜头穿青绿色衣物，未见要求的白色浴袍。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "wearing a white bathrobe tied at the waist"
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "画面中未见从右侧伸入的来手。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The Incoming hand extends from screen right"
+          ]
+        },
+        {
+          "issue_id": "vl03",
+          "description": "末镜未见要求展示的鞋带及悬挂的两只鞋。",
+          "scope": [
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Two separate gray-mauve athletic shoes dangle below it"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 196517,
+        "cached": 146782,
+        "output": 2328,
+        "usd": 0.007605
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p028_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 25.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "长袍女子多镜头穿浅 turquoise 色衣袍，未见要求的白色浴袍。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "wearing a white bathrobe tied at the waist"
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "岸边镜头中耳旁只有女子自己的手，未见要求从画面右侧伸入并接触她脸颊的来手。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The Incoming hand extends from screen right",
+            "Maintain the hand contact throughout."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 195818,
+        "cached": 0,
+        "output": 1723,
+        "usd": 0.020443
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p028_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 18.75,
+        "within": 100.0,
+        "cross": 25.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "镜头1、3、5、7要求白袍棕榈海滩人物，镜头2、4、6、8要求年轻棕发青衣人物；全片却反复呈现浅肤浅发、穿青绿色衣服的女性，人物形象未按两角色交替，白袍与棕榈海滩要素亦缺失。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "instance_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "S5",
+            "C1",
+            "C3",
+            "C5",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "an older fair-skinned woman with pale blonde-gray hair pulled back and a white bathrobe tied at the waist",
+            "Blurred palms rise behind her, with a small blue beach chair far to the right.",
+            "a younger adult with medium skin and shoulder-length wavy brown hair with lighter strands"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "要求出现的 Incoming hand 在青衣女子耳旁镜头中没有作为独立来手呈现；画面只见似与女子相连的手，无法形成指定的来手接触及腕下托扶关系。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S3",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "The Incoming hand extends from screen right",
+            "She lightly supports the wrist with her own raised hand.",
+            "The Incoming hand, now accompanied by a broad white sleeve at screen right",
+            "The white sleeve stays partly visible at screen right"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "七个边界均要求切镜，但相邻镜头仍是几乎相同的海平线、人物位置与青衣女性构图；未呈现要求的清晰新机位或新主体镜头。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C6",
+            "C7",
+            "O1"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut",
+            "Shot4->Shot5: cut",
+            "Shot5->Shot6: cut",
+            "Shot6->Shot7: cut",
+            "Shot7->Shot8: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 366670,
+        "cached": 303814,
+        "output": 10878,
+        "usd": 0.014763
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p028_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 12.5,
+        "within": 100.0,
+        "cross": 25.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Robe woman 在所有返回镜头中均呈现浅发、浅肤、穿 turquoise 宽袖交叠衣的女性；未见提示所要求的年长女性白浴袍外观，且与另一指定女性的可见形象无法区分。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "an older fair-skinned woman with pale blonde-gray hair pulled back and a white bathrobe tied at the waist"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Turquoise woman 的重复镜头呈现浅肤、偏成熟、浅色梳后头发及 turquoise 宽袖交叠衣，与指定的年轻成人、中等肤色、肩长棕色波浪发形象明显不符；同时来手与人物自己的耳旁手无法清楚区分，未见明确独立白袖来手。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "instance_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "S3",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "a younger adult with medium skin and shoulder-length wavy brown hair with lighter strands",
+            "The Incoming hand extends from screen right",
+            "a broad white sleeve at screen right"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot8 全部关键帧均没有描述中的手持鞋带与两只悬垂鞋，也未见举手转掌后放低、鞋子落出画面的动作。",
+          "scope": [
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S3",
+            "O1"
+          ],
+          "quotes": [
+            "raises her right hand near her chest holding pale laces",
+            "Two separate gray-mauve athletic shoes dangle below it",
+            "then lowers it so the shoes pass below the frame"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 203453,
+        "cached": 151907,
+        "output": 5127,
+        "usd": 0.009237
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p028_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 18.75,
+        "within": 100.0,
+        "cross": 18.75,
+        "v_v": 59.38
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "八镜均反复呈现浅发、穿青绿色交叠领衣的同一类女性；白袍老人及年轻棕发女性的指定形象均未出现，角色形象被替代或混同。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "instance_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "C1",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "an older fair-skinned woman with pale blonde-gray hair pulled back and a white bathrobe tied at the waist",
+            "a younger adult with medium skin and shoulder-length wavy brown hair with lighter strands"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot2、4、6、8均未呈现要求的年轻中等肤色、及肩棕色波浪发女性；可见人物外观为浅发女性。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1"
+          ],
+          "quotes": [
+            "a younger adult with medium skin and shoulder-length wavy brown hair with lighter strands"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Robe woman指定的棕榈海滩背景及远处蓝椅未见；回归镜头仍以开阔海面为主，和提示要求的棕榈海滩视图不符。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "setting_environment",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "S5",
+            "C2",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "Blurred palms rise behind her, with a small blue beach chair far to the right",
+            "The familiar blue chair remains distant at screen right"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "要求七处边界均切镜，但边界两侧保持近似的人物中景、平直海平线及蓝绿色海面构图，未见明显的新镜头设置；连续数镜观感近似重复同一画面。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C6",
+            "C7"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut",
+            "Shot4->Shot5: cut",
+            "Shot5->Shot6: cut",
+            "Shot6->Shot7: cut",
+            "Shot7->Shot8: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 365554,
+        "cached": 151907,
+        "output": 10419,
+        "usd": 0.028093
+      }
+    }
+  ],
+  "p180_cinetrans": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02_b/cinetrans/priority_180_hBj4rcs0AiQ_s00102_n4_clean_v2/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 50.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Shot2和Shot4均出现人物近景，未呈现要求的走廊景象。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "Four five-second shots alternate between the same watchful young person and the same dark hallway",
+            "A five-second low, slightly canted view looks down a narrow hallway",
+            "return to the same narrow hallway"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "走廊镜头中人物占据画面，与走廊镜头不含人物的要求不符；Shot4也出现明确人物。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "without a resolved figure or new action"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 107331,
+        "cached": 0,
+        "output": 1628,
+        "usd": 0.011547
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p180_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 20.31,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Shot2画面为人物近景，未呈现指定走廊场景。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "A five-second low, slightly canted view looks down a narrow hallway",
+            "The narrow hallway is visible."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot4画面仍为人物近景，未呈现指定走廊场景。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "return to the same narrow hallway",
+            "The same hallway is visible."
+          ]
+        },
+        {
+          "issue_id": "vl3",
+          "description": "Shot2出现清晰人物，与该镜头要求的空走廊画面不符。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "Sustain the quiet view with the far door held open and the space beyond unreadably dark.",
+            "\"characters\":[]"
+          ]
+        },
+        {
+          "issue_id": "vl4",
+          "description": "Shot3人物视线多帧朝下，与固定略向上的视线要求不符。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "quotes": [
+            "Their wide eyes remain fixed slightly upward."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 108177,
+        "cached": 78555,
+        "output": 2459,
+        "usd": 0.004977
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p180_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 25.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Shot2画面为人物近景，未呈现要求的走廊。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "A five-second low, slightly canted view looks down a narrow hallway in weak green-blue light."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot4画面仍为人物近景，未呈现要求的走廊。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "For five seconds, return to the same narrow hallway, with a little more of the dark foreground floor visible."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 107128,
+        "cached": 0,
+        "output": 1416,
+        "usd": 0.011421
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p180_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 25.0,
+        "within": 90.0,
+        "cross": 20.0,
+        "v_v": 55.0
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot2和Shot4本应呈现走廊及开着的远门，却持续显示人物近景；人物成为这些走廊镜头中的显著额外主体，走廊关键场景内容缺失。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "S5",
+            "C5",
+            "C8"
+          ],
+          "quotes": [
+            "A five-second low, slightly canted view looks down a narrow hallway",
+            "Sustain the quiet view with the far door held open",
+            "For five seconds, return to the same narrow hallway",
+            "without a resolved figure or new action"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot1帧0人物及画面整体显著过暗，紧接帧1亮度明显恢复，形成突兀的曝光闪变。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "rendering_instability",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "minor",
+              "deduction": 10.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I3",
+          "description": "多个按要求切换至走廊或人物特写的镜头仍显示几乎相同的人物正面近景，未形成规定的新镜头内容或明显构图切换。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "critical",
+              "deduction": 80.0
+            }
+          ],
+          "checklist_items": [
+            "S4",
+            "C6",
+            "C7"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 203267,
+        "cached": 166534,
+        "output": 7608,
+        "usd": 0.009143
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p180_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 25.0,
+        "within": 100.0,
+        "cross": 25.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot2与Shot4均没有显示所要求的走廊、远门或门外空间，而是呈现青蓝室内人物近景；走廊场景被整体替换。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "A five-second low, slightly canted view looks down a narrow hallway",
+            "return to the same narrow hallway"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "未安排人物的走廊镜头中，戴帽年轻人仍显著出镜。",
+          "scope": [
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "C5"
+          ],
+          "quotes": [
+            "without a resolved figure or new action"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "三个要求切换镜头的边界前后都保持近似的人物正面近景与青蓝背景，未实现清楚的镜头切换。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C7"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 113945,
+        "cached": 0,
+        "output": 4373,
+        "usd": 0.013581
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p180_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 37.5,
+        "within": 75.0,
+        "cross": 50.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot2与Shot4都重复显示戴帽人物和蓝绿色室内近景，没有呈现所要求的走廊及远门画面；各镜头边界也未形成可见的新镜头，人物镜头连续重复。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "C5",
+            "C7",
+            "C8"
+          ],
+          "quotes": [
+            "A five-second low, slightly canted view looks down a narrow hallway",
+            "Sustain the quiet view with the far door held open and the space beyond unreadably dark.",
+            "For five seconds, return to the same narrow hallway",
+            "Hold this dim corridor view; the space beyond the doorway stays deeply shadowed, without a resolved figure or new action.",
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot1首帧整体显著偏暗，随后下一帧画面突然变亮；人物、构图和背景基本不变，亮度跳变没有可见原因。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "rendering_instability",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot3要求面部及帽子、衣领、抽绳占据画面，但可见帧仍是与Shot1相近的胸上人物构图，未明显收紧为所述特写。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "camera_composition",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S4"
+          ],
+          "quotes": [
+            "now close enough that the face, dark beanie, gray hoodie collar, and black drawstrings dominate the image"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 5,
+        "input": 297515,
+        "cached": 255656,
+        "output": 9801,
+        "usd": 0.011643
+      }
+    }
+  ],
+  "p047_wan21": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 50.0,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl_1",
+          "description": "白衣男子未向画面底部落出，而是翻跃进入门口；翻跃过程仍在画面内。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 206622,
+        "cached": 0,
+        "output": 1083,
+        "usd": 0.021204
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p047_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 37.5,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "白衣男子未向画面底部落出，而是在门口翻腾，空中动作仍清晰可见。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "第四镜的马尾男子变为赤膊、浅发短发，与要求的黑色武术服及颈后发辫不符。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "the barefoot Ponytailed man at left",
+            "Both men in black briefly bend forward and straighten."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 207168,
+        "cached": 159064,
+        "output": 1931,
+        "usd": 0.007367
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p047_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 28.13,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "白衣男子未向画面下方退出，反而在镜头内翻腾；着陆也出现在画面内。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot4左侧马尾男子上身赤裸，未穿黑色武术服。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "the Ponytailed man at left",
+            "Both men in black"
+          ]
+        },
+        {
+          "issue_id": "vl3",
+          "description": "Shot6前景出现一名赤裸上身的灰发男子，未见于该镜头规定的角色。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "The Sleeveless man's bare arm crosses the near foreground",
+            "\"characters\":[\"Older man\",\"Sleeveless man\"]"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 207790,
+        "cached": 0,
+        "output": 2362,
+        "usd": 0.02196
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p047_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 25.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1男子没有按描述向下退出画面；他转入门洞并在帧4于画内翻转，明显可见翻转过程，与要求的落地在画外相反。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot4左侧排定为马尾男子的人物上身赤裸，仅穿黑裤；与其黑色武服外观相矛盾。",
+          "scope": [
+            "Shot4",
+            "Shot3",
+            "Shot5"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "O1"
+          ],
+          "quotes": [
+            "a black martial arts uniform",
+            "Both men in black"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot6近景除指定老人和Sleeveless man's bare arm外，还持续出现一名灰发白须、赤裸上身的男子，构成未要求的显著额外人物。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "C5",
+            "O1"
+          ],
+          "quotes": [
+            "The Sleeveless man's bare arm crosses the near foreground"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "被指定为同一训练室的镜头呈现互不相似的环境布景：Shot2为橙棕木墙和横向深色饰带，Shot4为浅灰绿墙、酒红地面与百叶窗，Shot6为蓝灰下墙，Shot3/5则为浅色镜墙环境；不像同一房间的可解释视角变化。",
+          "scope": [
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C3",
+            "C4",
+            "C8",
+            "O1"
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 215325,
+        "cached": 164230,
+        "output": 5928,
+        "usd": 0.009716
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p047_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 42.19,
+        "within": 75.0,
+        "cross": 37.5,
+        "v_v": 56.25
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1人物没有按要求向下掉出画面；他转入门洞后翻腾倒置、腾空，落地过程也进入画面，随后才消失。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot4左侧人物是赤膊、浅棕发男子，与Shot3及Shot5的黑衣低马尾男子外观明显不符；尤其Shot4没有穿黑色上衣。",
+          "scope": [
+            "Shot3",
+            "Shot4",
+            "Shot5"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "O1"
+          ],
+          "quotes": [
+            "slicked-back dark hair tied at the nape and a black martial arts uniform",
+            "Both men in black briefly bend forward and straighten."
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot2的背景呈现暖棕木板墙、深色饰带及蓝色标牌，与同一训练室其余镜头中浅色墙、镜墙和不同布置明显不一致。",
+          "scope": [
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C4",
+            "C8",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot6前景持续出现一名赤膊、灰发、白胡须男子，显著占据画面左侧；他不是所描述的穿衣Sleeveless man手臂，也不是其他排定角色的外观。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V within",
+              "subcategory": "presence_instability",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S6",
+            "C5",
+            "O1"
+          ],
+          "quotes": [
+            "The Sleeveless man's bare arm crosses the near foreground"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 215240,
+        "cached": 0,
+        "output": 5793,
+        "usd": 0.024421
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p047_wan21",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 20.31,
+        "within": 100.0,
+        "cross": 28.13,
+        "v_v": 64.07
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1男子并未按要求向下离开画面：他移入门洞后翻滚/腾跃，关键帧4仍清晰可见，落地动作也在画面内。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S3"
+          ],
+          "quotes": [
+            "He drops downward out of the bottom of the view.",
+            "Keep the framing steady and the landing outside the view."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot2的训练室背景变为橙棕木板墙、深色横带和蓝色告示牌，与同一训练室入口浅灰海报墙等既有画面明显不一致。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "setting_environment",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "setting_background",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "The Older man stands near the training room's poster wall in warm striped light."
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot4左侧被安排为马尾男子的人物却是赤膊、浅棕短发、黑裤赤脚，与Shot3及Shot5的黑色道服马尾男子明显不同。",
+          "scope": [
+            "Shot3",
+            "Shot4",
+            "Shot5"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5"
+          ],
+          "quotes": [
+            "the barefoot Ponytailed man at left",
+            "a lean man with slicked-back dark hair tied at the nape and a black martial arts uniform"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot6老人身旁持续出现一个明显的赤膊灰发男性近景人物，既非规定角色亦非短暂遮挡动作的一部分。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "C5"
+          ],
+          "quotes": [
+            "Against the training room's pale poster wall, the Older man watches upward"
+          ]
+        },
+        {
+          "issue_id": "I5",
+          "description": "Shot6老人穿明显较浅的米卡其衬衫，而Shot2、Shot4及Shot8均为较深的橄榄卡其色上衣，缺少换衣原因。",
+          "scope": [
+            "Shot2",
+            "Shot4",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1"
+          ],
+          "quotes": [
+            "olive-khaki collared shirt."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 220981,
+        "cached": 167814,
+        "output": 7547,
+        "usd": 0.010768
+      }
+    }
+  ],
+  "p015_cinetrans": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/cinetrans/priority_015_4cSZVMEi710_s00000_n4_clean_v2/attempt_02/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 22.78,
+        "within": 100.0,
+        "cross": 81.25,
+        "v_v": 90.63
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "左侧短发女子穿无肩带黑裙，未见提示要求的细肩带。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "minor",
+              "deduction": 10.0
+            }
+          ],
+          "quotes": [
+            "a black thin-strapped dress"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "花裙女子的头发披散至肩部，并非提示所说的盘起发型。",
+          "scope": [
+            "Shot1",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "minor",
+              "deduction": 10.0
+            }
+          ],
+          "quotes": [
+            "with swept-up blonde hair"
+          ]
+        },
+        {
+          "issue_id": "vl3",
+          "description": "耳边调整动作由左侧短发女子做出，花裙女子未做该动作。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "the Floral-dress woman keeps both hands beside her right ear"
+          ]
+        },
+        {
+          "issue_id": "vl4",
+          "description": "花裙女子坐在窗边左侧短发女子旁，而非位于后方梳妆台。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "At the rear vanity, the Floral-dress woman"
+          ]
+        },
+        {
+          "issue_id": "vl5",
+          "description": "开场画面未呈现提示明确要求的卧室后方梳妆区、床及前景白色毛毯等场景要素。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The right side is occupied by a bed with an ornate dark headboard, pink pillows, a dark red cushion and a white garment hanging over its foot; a white shag rug fills the foreground."
+          ]
+        },
+        {
+          "issue_id": "vv1",
+          "description": "同一花裙女子在Shot4变为无花纹纯黑裙，与前面可见的红浅花纹黑裙不一致。",
+          "scope": [
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 143629,
+        "cached": 0,
+        "output": 3765,
+        "usd": 0.016245
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p015_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 37.5,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl1",
+          "description": "Bob发女性始终穿无肩带上衣，与要求的黑色细肩带连衣裙不符。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a black thin-strapped dress"
+          ]
+        },
+        {
+          "issue_id": "vl2",
+          "description": "Shot1花裙女性坐在床边前景，未处于后方梳妆台位置。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "spatial_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "At the rear vanity, the Floral-dress woman"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 141362,
+        "cached": 109486,
+        "output": 1617,
+        "usd": 0.005091
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p015_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "vl-1",
+          "description": "Bob发女性的黑裙为无肩带抹胸款，未见提示要求的细肩带。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a black thin-strapped dress"
+          ]
+        },
+        {
+          "issue_id": "vl-2",
+          "description": "花裙女性的头发在画面中披散至肩部，并非要求的盘起发型。",
+          "scope": [
+            "Shot1",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "swept-up blonde hair"
+          ]
+        },
+        {
+          "issue_id": "vv-cross-1",
+          "description": "同一花裙女性在前几镜穿红色花卉黑裙，Shot4却变为无花纹的纯黑细肩带裙。",
+          "scope": [
+            "Shot1",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": []
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 142146,
+        "cached": 0,
+        "output": 2614,
+        "usd": 0.015522
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p015_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 37.5,
+        "within": 100.0,
+        "cross": 62.5,
+        "v_v": 81.25
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "四镜都基本沿用同一固定双人窗边中景，未落实要求的宽卧室介绍、单人腰部以上化妆镜头、梳妆台镜头及回到单人窗口镜头；各边界也没有清晰的新机位切换。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "major",
+              "deduction": 37.5
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "S5",
+            "C3",
+            "C5",
+            "C7",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "A five-second wide view",
+            "the Bob-haired woman is seen from the waist up",
+            "At the adjoining bedroom vanity",
+            "Return to the Bob-haired woman seated at the same bedroom window"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot2、Shot3和Shot4均持续把花裙女性作为明显的第二位人物留在画面中，与各镜指定的单人主体取景不符。",
+          "scope": [
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "C5"
+          ],
+          "quotes": [
+            "the Bob-haired woman is seen from the waist up",
+            "At the adjoining bedroom vanity, the Floral-dress woman",
+            "Return to the Bob-haired woman seated at the same bedroom window"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "花裙女性在Shot1和Shot3均为披散的浅金齐肩直发，而非指定的盘起头发；Shot3没有与Shot1或文字要求相符的盘发。",
+          "scope": [
+            "Shot1",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "O1"
+          ],
+          "quotes": [
+            "swept-up blonde hair",
+            "Her blonde hair is swept up"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 268949,
+        "cached": 228410,
+        "output": 7864,
+        "usd": 0.01027
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p015_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 6.86,
+        "within": 100.0,
+        "cross": 15.0,
+        "v_v": 57.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1没有实现指定的宽卧室介绍构图：画面为两人中景，床、地毯及后方开放梳妆区等指定空间布置未完整呈现。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "camera_composition",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "A five-second wide view",
+            "preserve the wide bedroom introduction"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "同一花裙女性跨镜服装不一致：Shot1及Shot3为黑底红粉花纹裙；Shot2中衣裙转为纯黑，Shot4仍为纯黑。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot2连续帧中右侧女性花纹裙逐渐变成纯黑裙，画面没有换装动作可解释。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "appearance_drift",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot3要求花裙女性在右耳旁调整手指，但画面中做耳边动作的是左侧Bob发女性，指定花裙女性坐在右侧未做该动作。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "the Floral-dress woman keeps both hands beside her right ear",
+            "making delicate finger adjustments"
+          ]
+        },
+        {
+          "issue_id": "I5",
+          "description": "Shot3没有呈现指定的卧室梳妆区特征，而是沿用窗边双人画面；蓝灰瓷砖、发光镜边、洗脸盆等均未见。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "setting_environment",
+              "verdict": "confirmed",
+              "confidence": "medium",
+              "severity": "moderate",
+              "deduction": 18.75
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "S5",
+            "O1"
+          ],
+          "quotes": [
+            "Cool blue-gray tiles, the illuminated mirror edge, a basin and a decorative vase with green foliage establish the alcove",
+            "At the adjoining bedroom vanity"
+          ]
+        },
+        {
+          "issue_id": "I6",
+          "description": "Shot4左侧女性未保持要求的低手安静姿势：多帧双手抬至脸旁，末段手臂转到身后，而非手低置膝旁。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S3",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "Her hands rest low near her lap",
+            "making only a small eye shift and subtle changes in her lips, maintaining the quiet pose"
+          ]
+        },
+        {
+          "issue_id": "I7",
+          "description": "三处要求cut的边界都仅呈现近似相同的窗边双人构图，后续镜头没有明显呈现各自指定的梳妆动作或独立镜头内容；转场切换未清晰实现。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "critical",
+              "deduction": 80.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "critical",
+              "deduction": 80.0
+            }
+          ],
+          "checklist_items": [
+            "C7",
+            "O1"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut",
+            "Shot2->Shot3: cut",
+            "Shot3->Shot4: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 150796,
+        "cached": 0,
+        "output": 7604,
+        "usd": 0.018882
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p015_cinetrans",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 10.55,
+        "within": 75.0,
+        "cross": 42.19,
+        "v_v": 58.6
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1没有实现指定卧室宽景；画面是两名女子占据主体的窗口中景，未展示所要求的完整卧室陈设。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "camera_composition",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S4",
+            "O1"
+          ],
+          "quotes": [
+            "A five-second wide view of a softly daylit bedroom"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "Shot2仍有花裙女子显著坐在右侧；该镜只排定短发女子，额外人物持续入镜。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "O1"
+          ],
+          "quotes": [
+            "Beside the same bedroom window, the Bob-haired woman is seen from the waist up against softly glowing white blinds and sheer curtains."
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot3没有呈现花裙女子在梳妆台前调整右耳；她仍坐在右侧，画面中进行耳边手势的是短发女子，且指定梳妆间陈设未出现。",
+          "scope": [
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "action_state",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S3",
+            "S4",
+            "S5",
+            "O1"
+          ],
+          "quotes": [
+            "the Floral-dress woman keeps both hands beside her right ear, making delicate finger adjustments",
+            "At the adjoining bedroom vanity"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "Shot4右侧重复出现的花裙女子在末两帧由黑底红花纹裙变成纯黑细肩带裙，画面中没有换衣动作。",
+          "scope": [
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "appearance_drift",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "O1"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I5",
+          "description": "Shot1到Shot2要求切镜，但窗口双人构图及人物左右位置几乎原样延续，边界没有清楚的新镜头呈现。",
+          "scope": [
+            "Shot1",
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "C7"
+          ],
+          "quotes": [
+            "Shot1->Shot2: cut"
+          ]
+        },
+        {
+          "issue_id": "I6",
+          "description": "Shot2到Shot3要求切镜，但窗口双人构图和人物位置仍几乎不变，没有切到指定梳妆台主体及背景。",
+          "scope": [
+            "Shot2",
+            "Shot3"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "C7"
+          ],
+          "quotes": [
+            "Shot2->Shot3: cut"
+          ]
+        },
+        {
+          "issue_id": "I7",
+          "description": "Shot3到Shot4要求切镜，但双人窗口构图继续沿用，没有明显的新镜头构图变化。",
+          "scope": [
+            "Shot3",
+            "Shot4"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "transition_realization",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "C7"
+          ],
+          "quotes": [
+            "Shot3->Shot4: cut"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 271122,
+        "cached": 228410,
+        "output": 10024,
+        "usd": 0.011567
+      }
+    }
+  ],
+  "p068_holocine": [
+    {
+      "protocol": "v1",
+      "run_id": "historical",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_068_08aNKQO0xkE_s00052_n8_clean_v3_alt8/attempt_01/results",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "女子穿棕色长裤而非黑色及膝裙。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a black knee-length skirt"
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "蓝衣男子穿绿色衬衫，而非蓝色衬衫。",
+          "scope": [
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "the blue-shirted man"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 239217,
+        "cached": 0,
+        "output": 1399,
+        "usd": 0.024621
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_a/p068_holocine",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 12.5,
+        "within": 100.0,
+        "cross": 100.0,
+        "v_v": 100.0
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "蓝衣男子在电梯画面中穿绿色衬衫、棕色裤子，未呈现要求的蓝衬衫与卡其裤。",
+          "scope": [
+            "Shot2",
+            "Shot3",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "the blue-shirted man, who has swept reddish-brown hair, rolled sleeves, khaki trousers and gray shoes"
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "绿衣女子多处穿棕色裤子或灰绿色上衣，未呈现要求的黑色及膝裙和绿色衬衫。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "The green-bloused woman, with shoulder-length wavy light brown hair, a decorative headband and a black knee-length skirt"
+          ]
+        },
+        {
+          "issue_id": "vl03",
+          "description": "开场画面为电梯内女子与背心男子同框，未呈现蓝衣男子走向门槛或门向左开启通往大厅的场景。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "interaction_relation",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "From inside an elevator, look through a metal sliding door as it opens leftward onto a lobby"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 240184,
+        "cached": 189367,
+        "output": 2233,
+        "usd": 0.008092
+      }
+    },
+    {
+      "protocol": "v1",
+      "run_id": "rerun_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v1/rerun_b/p068_holocine",
+      "scoring_protocol": "vl_vv_episode_scoring_v2",
+      "scores": {
+        "v_l": 28.13,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "vl01",
+          "description": "蓝衬衫男子可见为绿色衬衫、棕色裤子，与指定服装不符。",
+          "scope": [
+            "Shot2",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "the blue-shirted man",
+            "Man wearing a blue shirt with rolled sleeves, with swept reddish-brown hair, khaki trousers and gray shoes."
+          ]
+        },
+        {
+          "issue_id": "vl02",
+          "description": "指定的中长袖绿色上衣女性在可见画面中穿灰绿色无袖上衣。",
+          "scope": [
+            "Shot5"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "quotes": [
+            "the green-bloused woman"
+          ]
+        },
+        {
+          "issue_id": "vl03",
+          "description": "女性可见穿棕色长裤，不是指定的黑色及膝裙。",
+          "scope": [
+            "Shot2"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "a black knee-length skirt"
+          ]
+        },
+        {
+          "issue_id": "vl04",
+          "description": "指定的中庭平台被表现为木板电梯内部，未见平台玻璃栏杆等环境。",
+          "scope": [
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "quotes": [
+            "Begin on an empty atrium landing with glass balustrades topped by wooden rails, a beige column and pale masonry surrounding tall rectangular openings."
+          ]
+        },
+        {
+          "issue_id": "vv01",
+          "description": "同一蓝衬衫男子跨镜头持续呈现绿色衬衫、棕色裤子，与角色设定不一致。",
+          "scope": [
+            "Shot2",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-V cross",
+              "subcategory": "appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "quotes": [
+            "Man wearing a blue shirt with rolled sleeves, with swept reddish-brown hair, khaki trousers and gray shoes."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 3,
+        "input": 240800,
+        "cached": 0,
+        "output": 2779,
+        "usd": 0.025469
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_a",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_a/p068_holocine",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 15.82,
+        "within": 90.0,
+        "cross": 56.25,
+        "v_v": 73.13
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1中蓝衣男子缺席；六帧均未显示他，出现的是背心男子。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "C5"
+          ],
+          "quotes": [
+            "beside the blue-shirted man",
+            "The blue-shirted man is visible."
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "女子服装不符且跨镜变化：Shot1、2、3、6、7可见棕色长裤；Shot5为灰绿上衣，均与指定绿衬衫、黑色及膝裙的外观不符。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1"
+          ],
+          "quotes": [
+            "a black knee-length skirt",
+            "Woman wearing a green blouse"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "被描述为蓝衣男子的复现人物在Shot6及Shot8穿绿色衬衫、棕裤；与指定蓝衬衫外观不符，并与其他镜头要求的蓝衣男子形象不一致。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "C1",
+            "C5"
+          ],
+          "quotes": [
+            "Man wearing a blue shirt with rolled sleeves"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "女子在多镜头中为深色卷发、束发造型，与要求的肩长浅棕波浪发不符；头带仍可见。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1"
+          ],
+          "quotes": [
+            "shoulder-length wavy light brown hair"
+          ]
+        },
+        {
+          "issue_id": "I5",
+          "description": "Shot6人物突然消失，随后空电梯连续出现数帧，之后女子又入镜；没有可见出场动作解释该空镜及人物重现。",
+          "scope": [
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-V within",
+              "subcategory": "presence_instability",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S6",
+            "S7"
+          ],
+          "quotes": []
+        },
+        {
+          "issue_id": "I6",
+          "description": "Shot7全程呈现电梯内部及电梯壁，未呈现指定的中庭平台、玻璃栏杆、米色柱体及高矩形开口。",
+          "scope": [
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "setting_environment",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S5",
+            "C3",
+            "C8"
+          ],
+          "quotes": [
+            "Begin on an empty atrium landing with glass balustrades topped by wooden rails, a beige column and pale masonry surrounding tall rectangular openings."
+          ]
+        },
+        {
+          "issue_id": "I7",
+          "description": "Shot1首帧几乎全黑，人物及电梯细节不可读。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V within",
+              "subcategory": "rendering_instability",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "minor",
+              "deduction": 10.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S7",
+            "O1"
+          ],
+          "quotes": [
+            "The elevator is visible."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 451823,
+        "cached": 388940,
+        "output": 11160,
+        "usd": 0.015758
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_b",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_b/p068_holocine",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 28.13,
+        "within": 75.0,
+        "cross": 50.0,
+        "v_v": 62.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "Shot1首帧画面近乎全黑，人物和场景难以辨认。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "presence_count",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V within",
+              "subcategory": "rendering_instability",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S7",
+            "O1"
+          ],
+          "quotes": [
+            "From inside an elevator, look through a metal sliding door as it opens leftward onto a lobby"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "指定蓝衫男子在Shot2、3、5、6、8以绿色衬衫及棕色裤装出现；Shot1也未见其与女性一同走向门槛。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "C1",
+            "C5",
+            "O1"
+          ],
+          "quotes": [
+            "the blue-shirted man, who has swept reddish-brown hair, rolled sleeves, khaki trousers and gray shoes"
+          ]
+        },
+        {
+          "issue_id": "I3",
+          "description": "Shot1未呈现指定的电梯门向左打开、门外大厅和两人接近门槛；镜头反而是电梯内女性与背心男子。",
+          "scope": [
+            "Shot1"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "shot_structure",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S3",
+            "S4",
+            "S5",
+            "O1"
+          ],
+          "quotes": [
+            "From inside an elevator, look through a metal sliding door as it opens leftward onto a lobby with pale flooring, seating and leafy plants.",
+            "they walk toward the threshold"
+          ]
+        },
+        {
+          "issue_id": "I4",
+          "description": "同一女性在Shot1、2、3、6穿棕色裤装，与指定黑色及膝裙相悖；可见女性亦多次穿绿色长袖衬衫而非提示所述造型的明确呈现。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot6"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "O1"
+          ],
+          "quotes": [
+            "a black knee-length skirt"
+          ]
+        },
+        {
+          "issue_id": "I5",
+          "description": "女性服装跨镜不一致：Shot5为橄榄绿短袖上衣与黑裙，Shot7为绿色无袖上衣与黑裙，其他电梯镜头多为绿色长袖上衣与棕色裤装；Shot7发型也变为长散卷发。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "rejected",
+              "confidence": "medium",
+              "severity": "none",
+              "deduction": 0.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "major",
+              "deduction": 50.0
+            }
+          ],
+          "checklist_items": [
+            "C1",
+            "C5",
+            "C8",
+            "O1"
+          ],
+          "quotes": [
+            "shoulder-length wavy light brown hair, a decorative headband and a black knee-length skirt"
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 450400,
+        "cached": 194470,
+        "output": 9669,
+        "usd": 0.032372
+      }
+    },
+    {
+      "protocol": "v2",
+      "run_id": "run_c",
+      "status": "success",
+      "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_old_vs_new_20261005/runs/v2/run_c/p068_holocine",
+      "scoring_protocol": "vl_vv_episode_scoring_v3",
+      "scores": {
+        "v_l": 56.25,
+        "within": 100.0,
+        "cross": 75.0,
+        "v_v": 87.5
+      },
+      "issues": [
+        {
+          "issue_id": "I1",
+          "description": "女主的裤装与指定黑色及膝裙不符；多个镜头中可见棕色长裤，且镜头1未见蓝衫男而出现背心男。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot7"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            }
+          ],
+          "checklist_items": [
+            "S2",
+            "C1",
+            "C5"
+          ],
+          "quotes": [
+            "a black knee-length skirt"
+          ]
+        },
+        {
+          "issue_id": "I2",
+          "description": "被标作蓝衫男的重复男性在多镜头中穿绿色衬衫和棕色裤装，不符合蓝色衬衫描述；镜头1指定的蓝衫男未出现。",
+          "scope": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot5",
+            "Shot6",
+            "Shot8"
+          ],
+          "labels": [
+            {
+              "label": "V-L",
+              "subcategory": "attribute",
+              "verdict": "confirmed",
+              "confidence": "high",
+              "severity": "moderate",
+              "deduction": 25.0
+            },
+            {
+              "label": "V-V cross",
+              "subcategory": "character_appearance",
+              "verdict": "rejected",
+              "confidence": "high",
+              "severity": "none",
+              "deduction": 0.0
+            }
+          ],
+          "checklist_items": [
+            "S1",
+            "S2",
+            "C1",
+            "C5"
+          ],
+          "quotes": [
+            "Man wearing a blue shirt with rolled sleeves, with swept reddish-brown hair, khaki trousers and gray shoes."
+          ]
+        }
+      ],
+      "usage": {
+        "calls": 4,
+        "input": 446322,
+        "cached": 388940,
+        "output": 6995,
+        "usd": 0.013125
+      }
+    }
+  ]
+}

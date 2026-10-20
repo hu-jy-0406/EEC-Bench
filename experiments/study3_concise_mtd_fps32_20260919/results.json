@@ -1,0 +1,666 @@
+{
+  "case": "run",
+  "study": "run",
+  "method": "roma_fps32",
+  "status": "completed",
+  "error": null,
+  "final_scores_available": true,
+  "presence_score": 100.0,
+  "spatial_score": 100.0,
+  "presence": {
+    "score": 100.0,
+    "coverage": 0.38461538461538464,
+    "N": 13,
+    "C": 5,
+    "K": 0,
+    "U": 8,
+    "E": 9,
+    "identification_interval": [
+      38.46153846153846,
+      100.0
+    ]
+  },
+  "spatial": {
+    "score": 100.0,
+    "coverage": 0.0,
+    "N": 10,
+    "C": 0,
+    "K": 0,
+    "U": 10,
+    "E": 0,
+    "identification_interval": [
+      0.0,
+      100.0
+    ]
+  },
+  "partial_presence": null,
+  "partial_spatial": null,
+  "elapsed_seconds": 1063.341478586197,
+  "total_tokens": 525153,
+  "input_tokens": 492115,
+  "output_tokens": 33038,
+  "cached_input_tokens": 22912,
+  "calls": 10,
+  "roma_seconds": 130.66171526908875,
+  "registration_seconds": 0.5005321502685547,
+  "direct_call_seconds": null,
+  "fps_selection_seconds": 0.00956574600058957,
+  "optimization_seconds": 0.04531619000044884,
+  "population": {
+    "shot1": {
+      "detected_entities": 20,
+      "identity_entities": 20,
+      "motion_counts": {
+        "static": 19,
+        "moving": 1
+      }
+    },
+    "shot2": {
+      "detected_entities": 9,
+      "identity_entities": null,
+      "motion_counts": {}
+    },
+    "shot3": {
+      "detected_entities": 15,
+      "identity_entities": 15,
+      "motion_counts": {
+        "static": 13,
+        "moving": 2
+      }
+    }
+  },
+  "identity_groups": {
+    "matched": 7,
+    "unmatched": 13,
+    "ambiguous": 4
+  },
+  "matched_moving_or_unknown_groups": [
+    "g01",
+    "g04"
+  ],
+  "spatial_population": 5,
+  "spatial_pairs": 10,
+  "negative_proposals": 2,
+  "support_pass": 0,
+  "defects": {
+    "presence": [],
+    "spatial": []
+  },
+  "anchors_initial": [
+    "g05",
+    "g09"
+  ],
+  "transform": {
+    "objective": "sum_all_pair_euclidean_3d_distances_v1",
+    "objective_value": 7.790103091424014,
+    "parameters": [
+      -0.22906604002984726,
+      -3.279591422091704,
+      0.24184938502211892,
+      -0.8484599859463209,
+      -0.06185882448267106
+    ],
+    "scale": 0.7952760117192921,
+    "rotation": [
+      [
+        -0.9904932712316236,
+        -0.13756118509549625,
+        0.0
+      ],
+      [
+        0.13756118509549625,
+        -0.9904932712316236,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "translation": [
+      0.24184938502211892,
+      -0.8484599859463209,
+      -0.06185882448267106
+    ],
+    "yaw_deg": 172.09325298683763,
+    "selected_start": 7,
+    "selected_candidate": "optimized",
+    "selected_solver_success": true,
+    "fit_rows": 32,
+    "all_selected_pairs_used": true,
+    "points_removed": 0,
+    "point_weights": "uniform_1",
+    "distance_power": 1,
+    "scale_bounds": [
+      0.1,
+      10.0
+    ],
+    "scale_at_bound": false,
+    "global_optimum_certified": false,
+    "attempts": [
+      {
+        "start": 0,
+        "initial_sum": 7.988861207443392,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 12,
+        "evaluations": 14
+      },
+      {
+        "start": 1,
+        "initial_sum": 8.263241866452274,
+        "final_sum": 7.7901030914240215,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 11,
+        "evaluations": 13
+      },
+      {
+        "start": 2,
+        "initial_sum": 10.421391181612979,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 13,
+        "evaluations": 15
+      },
+      {
+        "start": 3,
+        "initial_sum": 13.225817868726669,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 14,
+        "evaluations": 17
+      },
+      {
+        "start": 4,
+        "initial_sum": 15.991162378215416,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 16,
+        "evaluations": 21
+      },
+      {
+        "start": 5,
+        "initial_sum": 18.046247905197742,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 17,
+        "evaluations": 21
+      },
+      {
+        "start": 6,
+        "initial_sum": 19.157868622969723,
+        "final_sum": 7.790103091424017,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 23,
+        "evaluations": 29
+      },
+      {
+        "start": 7,
+        "initial_sum": 19.699865153589663,
+        "final_sum": 7.790103091424014,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 24,
+        "evaluations": 33
+      },
+      {
+        "start": 8,
+        "initial_sum": 20.21967521388451,
+        "final_sum": 7.790103091424017,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 26,
+        "evaluations": 33
+      },
+      {
+        "start": 9,
+        "initial_sum": 20.65962946782183,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 26,
+        "evaluations": 38
+      },
+      {
+        "start": 10,
+        "initial_sum": 21.00743173763769,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 21,
+        "evaluations": 36
+      },
+      {
+        "start": 11,
+        "initial_sum": 21.24356000526705,
+        "final_sum": 7.790103091424017,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 25,
+        "evaluations": 35
+      },
+      {
+        "start": 12,
+        "initial_sum": 21.352394997311933,
+        "final_sum": 7.790103091424021,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 30,
+        "evaluations": 41
+      },
+      {
+        "start": 13,
+        "initial_sum": 21.329314166037207,
+        "final_sum": 7.790103091424016,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 26,
+        "evaluations": 40
+      },
+      {
+        "start": 14,
+        "initial_sum": 21.13981459922801,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 25,
+        "evaluations": 39
+      },
+      {
+        "start": 15,
+        "initial_sum": 20.831509667036215,
+        "final_sum": 7.790103091424016,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 26,
+        "evaluations": 37
+      },
+      {
+        "start": 16,
+        "initial_sum": 20.425890902033217,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 24,
+        "evaluations": 33
+      },
+      {
+        "start": 17,
+        "initial_sum": 19.943035848368094,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 23,
+        "evaluations": 31
+      },
+      {
+        "start": 18,
+        "initial_sum": 19.407688809621554,
+        "final_sum": 7.790103091424024,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 22,
+        "evaluations": 33
+      },
+      {
+        "start": 19,
+        "initial_sum": 18.826055359107215,
+        "final_sum": 7.790103091424014,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 20,
+        "evaluations": 32
+      },
+      {
+        "start": 20,
+        "initial_sum": 17.52654047005312,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 17,
+        "evaluations": 21
+      },
+      {
+        "start": 21,
+        "initial_sum": 15.256596275474408,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 16,
+        "evaluations": 20
+      },
+      {
+        "start": 22,
+        "initial_sum": 12.610499739574527,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 14,
+        "evaluations": 19
+      },
+      {
+        "start": 23,
+        "initial_sum": 10.015118768027982,
+        "final_sum": 7.790103091424015,
+        "success": true,
+        "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+        "iterations": 12,
+        "evaluations": 16
+      },
+      {
+        "start": 24,
+        "initial_sum": 8.23493233912017,
+        "final_sum": 7.790103091424014,
+        "success": true,
+        "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+        "iterations": 12,
+        "evaluations": 14
+      }
+    ],
+    "status": "numeric_candidate",
+    "distance_3d": {
+      "n": 8437,
+      "sum": 1062.8509246074625,
+      "mean": 0.12597498217464295,
+      "median": 0.10563925272938886,
+      "p90": 0.23712809069552446,
+      "max": 0.766107544952863,
+      "by_group": {
+        "5": {
+          "n": 4475,
+          "sum": 421.8170843608944,
+          "mean": 0.09426080097450154,
+          "median": 0.08035751754654158,
+          "p90": 0.1430246249400708,
+          "max": 0.6610790941749976
+        },
+        "9": {
+          "n": 3962,
+          "sum": 641.0338402465682,
+          "mean": 0.16179551747768,
+          "median": 0.1550734221861872,
+          "p90": 0.24528288980064283,
+          "max": 0.766107544952863
+        }
+      },
+      "units": "Shot1 model coordinate units; not calibrated meters",
+      "evaluation_role": "full candidate pool diagnostic; not the fitting objective"
+    },
+    "selected_distance_3d": {
+      "n": 32,
+      "sum": 7.790103091424014,
+      "mean": 0.24344072160700045,
+      "median": 0.21825554399685462,
+      "p90": 0.4905046914311371,
+      "max": 0.766107544952863,
+      "by_group": {
+        "5": {
+          "n": 17,
+          "sum": 3.863269833536491,
+          "mean": 0.2272511666786171,
+          "median": 0.22306990435759405,
+          "p90": 0.4890284867500801,
+          "max": 0.6610790941749976
+        },
+        "9": {
+          "n": 15,
+          "sum": 3.9268332578875245,
+          "mean": 0.2617888838591683,
+          "median": 0.2134411836361152,
+          "p90": 0.4824868466280461,
+          "max": 0.766107544952863
+        }
+      },
+      "units": "Shot1 model coordinate units; not calibrated meters"
+    },
+    "all_correspondences": {
+      "n": 8437,
+      "median_pixels": 51.00195208757473,
+      "mean_pixels": 58.180216090869266,
+      "p90_pixels": 110.47440928917075,
+      "inlier_5px": 0.003792817352139386,
+      "balanced_inlier_5px": 0.0023360413985413983,
+      "by_group": {
+        "5": {
+          "n": 4475,
+          "median_px": 38.70229135263781,
+          "inlier_fraction_5px": 0.007150837988826816
+        },
+        "9": {
+          "n": 3962,
+          "median_px": 69.43644046688615,
+          "inlier_fraction_5px": 0.0
+        }
+      }
+    },
+    "train": {
+      "n": 5231,
+      "median_pixels": 56.197451234339525,
+      "mean_pixels": 59.52961053175229,
+      "p90_pixels": 106.59228070960387,
+      "inlier_5px": 0.0022940164404511567,
+      "balanced_inlier_5px": 0.0022504892367906067,
+      "by_group": {
+        "5": {
+          "n": 2544,
+          "median_px": 46.974168483260996,
+          "inlier_fraction_5px": 0.0047169811320754715
+        },
+        "9": {
+          "n": 2687,
+          "median_px": 65.65863066689019,
+          "inlier_fraction_5px": 0.0
+        }
+      },
+      "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+    },
+    "spatial_holdout": {
+      "n": 3206,
+      "median_pixels": 42.57721212653087,
+      "mean_pixels": 55.97850607207354,
+      "p90_pixels": 114.37392567653083,
+      "inlier_5px": 0.006238303181534623,
+      "balanced_inlier_5px": 0.0024736032445283546,
+      "by_group": {
+        "5": {
+          "n": 1931,
+          "median_px": 33.53007785912789,
+          "inlier_fraction_5px": 0.010357327809425169
+        },
+        "9": {
+          "n": 1275,
+          "median_px": 94.45552602446436,
+          "inlier_fraction_5px": 0.0
+        }
+      },
+      "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+    }
+  },
+  "notes": [],
+  "standard_api_equivalent_usd": 6.366841999999999,
+  "pricing": {
+    "model": "gpt-6-astra",
+    "verified_date": "2026-09-19",
+    "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "basis": "Standard API equivalent, not CLI invoice",
+    "usd_per_million": {
+      "input": 10,
+      "cached_input": 1,
+      "output": 50,
+      "cache_write": 12.5
+    },
+    "long_context_threshold": 272000,
+    "long_context_multipliers": {
+      "input": 2,
+      "cached_input": 2,
+      "output": 1.5
+    },
+    "cache_write_accounting": "Use reported cache_write_input_tokens within total input at 1.25x uncached rate; missing field treated as zero and reported",
+    "compute_cost_included": false
+  },
+  "stage_costs": [
+    {
+      "stage": "detection_and_clustering",
+      "label": "WeDetect检测＋各shot独立聚类",
+      "seconds": 70.30406260490417,
+      "input_tokens": 43933,
+      "cached_input_tokens": 0,
+      "output_tokens": 1704,
+      "total_tokens": 45637,
+      "standard_api_equivalent_usd": 0.5245299999999999
+    },
+    {
+      "stage": "geocalib",
+      "label": "GeoCalib标定",
+      "seconds": 40.11751627922058,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "prepare_shot_inputs",
+      "label": "准备几何输入",
+      "seconds": 0.2660176753997803,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "pi3x_shot1",
+      "label": "Shot1 Pi3X重建",
+      "seconds": 40.44495892524719,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "boxer_shot1",
+      "label": "Shot1 3D实体框",
+      "seconds": 12.907135009765625,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "pi3x_shot3",
+      "label": "Shot3 Pi3X重建",
+      "seconds": 21.70089864730835,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "boxer_shot3",
+      "label": "Shot3 3D实体框",
+      "seconds": 12.023488998413086,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "motion_and_fusion",
+      "label": "独立动静判断＋场景融合",
+      "seconds": 155.44183659553528,
+      "input_tokens": 64073,
+      "cached_input_tokens": 7552,
+      "output_tokens": 8705,
+      "total_tokens": 72778,
+      "standard_api_equivalent_usd": 1.0080120000000001
+    },
+    {
+      "stage": "roma_matches",
+      "label": "RoMA原始匹配（36帧对）",
+      "seconds": 130.66171526908875,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "initial_identity",
+      "label": "全实体初始身份匹配＋anchor选择",
+      "seconds": 111.77203273773193,
+      "input_tokens": 66904,
+      "cached_input_tokens": 0,
+      "output_tokens": 3471,
+      "total_tokens": 70375,
+      "standard_api_equivalent_usd": 0.84259
+    },
+    {
+      "stage": "lift_correspondences",
+      "label": "anchor筛选＋提升3D点对",
+      "seconds": 2.395667552947998,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "registration",
+      "label": "FPS32＋配准优化",
+      "seconds": 0.5005321502685547,
+      "input_tokens": 0,
+      "cached_input_tokens": 0,
+      "output_tokens": 0,
+      "total_tokens": 0,
+      "standard_api_equivalent_usd": 0
+    },
+    {
+      "stage": "aligned_identity_review",
+      "label": "配准后全实体身份复核",
+      "seconds": 352.18576192855835,
+      "input_tokens": 117587,
+      "cached_input_tokens": 0,
+      "output_tokens": 11408,
+      "total_tokens": 128995,
+      "standard_api_equivalent_usd": 1.74627
+    },
+    {
+      "stage": "presence",
+      "label": "实体存在性判断",
+      "seconds": 230.54176807403564,
+      "input_tokens": 134963,
+      "cached_input_tokens": 0,
+      "output_tokens": 7344,
+      "total_tokens": 142307,
+      "standard_api_equivalent_usd": 1.71683
+    },
+    {
+      "stage": "spatial",
+      "label": "空间关系计算＋复核",
+      "seconds": 12.728057622909546,
+      "input_tokens": 64655,
+      "cached_input_tokens": 15360,
+      "output_tokens": 406,
+      "total_tokens": 65061,
+      "standard_api_equivalent_usd": 0.52861
+    }
+  ],
+  "frontend_timing": {
+    "clustering_wall_seconds": 42.99037551879883,
+    "detection_and_preparation_seconds": 26.45571494102478
+  },
+  "input_preparation_seconds": 3.8804562091827393
+}

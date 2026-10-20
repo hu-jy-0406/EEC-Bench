@@ -1,0 +1,153 @@
+{
+  "rows": [
+    {
+      "shots": 4,
+      "target_seconds": 20,
+      "episodes": 240,
+      "frames": 321,
+      "measured_steps": 2,
+      "measured_model_load_seconds": 46.185635140980594,
+      "measured_generation_seconds": 913.3232500839513,
+      "measured_recorded_wall_seconds": 977.8529386520386,
+      "step_seconds": [
+        323.2637734449818,
+        326.1524501229869
+      ],
+      "step_mean_seconds": 324.70811178398435,
+      "peak_allocated_gib": 42.487714767456055,
+      "peak_reserved_gib": 48.455078125,
+      "estimated_50step_generation_encoding_seconds": 16516.13099866116,
+      "estimated_50step_generation_encoding_hours": 4.587814166294766,
+      "weighted_generation_encoding_gpu_hours": 1101.075399910744,
+      "estimated_50step_generation_seconds": 16499.3126157152,
+      "estimated_50step_generation_hours": 4.583142393254223,
+      "estimated_50step_with_load_encode_seconds": 16562.31663380214,
+      "weighted_generation_gpu_hours": 1099.9541743810134,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/4shot_20s_2step/video.mp4",
+      "contactsheet": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/4shot_20s_2step/contactsheet.jpg"
+    },
+    {
+      "shots": 6,
+      "target_seconds": 30,
+      "episodes": 120,
+      "frames": 481,
+      "measured_steps": 2,
+      "measured_model_load_seconds": 81.51287957897875,
+      "measured_generation_seconds": 1719.1413291079807,
+      "measured_recorded_wall_seconds": 1817.7695846557617,
+      "step_seconds": [
+        691.9118068739772,
+        729.7971719320049
+      ],
+      "step_mean_seconds": 710.854489402991,
+      "peak_allocated_gib": 46.90398406982422,
+      "peak_reserved_gib": 57.873046875,
+      "estimated_50step_generation_encoding_seconds": 35855.706810382544,
+      "estimated_50step_generation_encoding_hours": 9.959918558439595,
+      "weighted_generation_encoding_gpu_hours": 1195.1902270127514,
+      "estimated_50step_generation_seconds": 35840.15682045155,
+      "estimated_50step_generation_hours": 9.955599116792097,
+      "estimated_50step_with_load_encode_seconds": 35937.21968996152,
+      "weighted_generation_gpu_hours": 1194.6718940150515,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/6shot_30s_2step/video.mp4",
+      "contactsheet": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/6shot_30s_2step/contactsheet.jpg"
+    },
+    {
+      "shots": 8,
+      "target_seconds": 40,
+      "episodes": 40,
+      "frames": 641,
+      "measured_steps": 2,
+      "measured_model_load_seconds": 61.924182693997864,
+      "measured_generation_seconds": 2843.084471463051,
+      "measured_recorded_wall_seconds": 2919.5714061260223,
+      "step_seconds": [
+        1221.292425230029,
+        1273.5008275709697
+      ],
+      "step_mean_seconds": 1247.3966264004994,
+      "peak_allocated_gib": 45.69090175628662,
+      "peak_reserved_gib": 57.716796875,
+      "estimated_50step_generation_encoding_seconds": 62731.25373987103,
+      "estimated_50step_generation_encoding_hours": 17.425348261075285,
+      "weighted_generation_encoding_gpu_hours": 697.0139304430114,
+      "estimated_50step_generation_seconds": 62718.12253868702,
+      "estimated_50step_generation_hours": 17.42170070519084,
+      "estimated_50step_with_load_encode_seconds": 62793.177922565024,
+      "weighted_generation_gpu_hours": 696.8680282076335,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/8shot_40s_2step/video.mp4",
+      "contactsheet": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/holocine/8shot_40s_2step/contactsheet.jpg"
+    }
+  ],
+  "all_requested_durations_complete": true,
+  "total_400_generation_encoding_gpu_hours": 2993.2795573665067,
+  "total_400_generation_gpu_hours": 2991.4940966036984,
+  "standard_sampling_short_probe": {
+    "args": {
+      "shots": 4,
+      "frames": 81,
+      "steps": 50,
+      "width": 832,
+      "height": 480,
+      "fps": 16,
+      "name": "4shot_5s_50step",
+      "tokens_only": false,
+      "vram_limit": 52
+    },
+    "torch": "2.7.1+rocm6.3",
+    "hip": "6.3.42131-fa1d09cbd",
+    "device": "AMD Instinct MI210",
+    "episode_id": "MTYQT6fSzaE_s00091_n4_clean_v2",
+    "prompt": "[global caption] A snow-dusted stone courtyard under overcast light. [character1] is a young woman with medium-brown skin, straight dark hair, white beanie, gray winter coat and peach neckline. [character2] is an older light-skinned man with wispy gray hair, black earflap hat, checked scarf and dark brown jacket. This scene contains 4 shots. [per shot caption] Medium view of [character1] standing with arms down against blurred knotted trees and stone buildings. She looks left, then lowers her gaze slightly, remaining serious. [shot cut] Wide view: [character2] stands left, [character1] right, several meters apart with a thick tree between them. He keeps his hands in his pockets and adjusts his head. She remains still in dark trousers and black boots. [shot cut] Closer waist-up view of [character1] looking left. Her parted lips close and her head tilts subtly, then she holds a serious expression. [shot cut] Beside a knotted tree, [character2] holds one hand against his jacket front. He turns from lowered left profile toward a frontal angle and holds, with slight mouth movement. Iron railings and pale buildings behind him.",
+    "start": 1790004402.436973,
+    "api_calls": 0,
+    "api_cost_usd": 0,
+    "load_seconds": 82.94906524097314,
+    "frames": 81,
+    "cuts": [
+      21,
+      41,
+      61
+    ],
+    "generation_seconds": 1799.320614991011,
+    "peak_allocated_gib": 30.804832458496094,
+    "peak_reserved_gib": 34.291015625,
+    "output_pixel_stats": {
+      "min": 0,
+      "max": 255,
+      "mean": 88.70909503559605,
+      "std": 67.90023254038165,
+      "all_finite": true,
+      "scope": "PIL output RGB pixels, not internal latent tensors"
+    },
+    "contactsheet_frames": [
+      0,
+      10,
+      30,
+      40,
+      50,
+      70,
+      80
+    ],
+    "encoding_seconds": 13.106739249022212,
+    "output_frames": 81,
+    "decoded_frames": 81,
+    "container_seconds": 5.06,
+    "decode_verified": true,
+    "status": "complete",
+    "end": 1790006298.3746755
+  },
+  "estimate_formula": "measured two-step generation_seconds + 48 * mean of two synchronized denoising-step times; excludes model loading, encoding and validation",
+  "limits": [
+    "50-step 20/30/40-second runs were not executed; engineering projections are not precise bounds.",
+    "Two-step probes have one high-noise and one low-noise step, whereas the 50-step schedule has 21 high and 29 low; the low probe step includes an expert switch, and simple averaging repeats startup/switch cost. CFG positive/negative passes are already included and must not be doubled.",
+    "16 fps is benchmark adaptation; the official HoloCine example saves at 15 fps.",
+    "Short 81-frame 50-step sample preserves four shots but compresses the requested episode duration.",
+    "One prompt per length; not a quality or throughput benchmark.",
+    "Recorded wall starts after Python imports; excludes download, queue, guard and initial import time.",
+    "Peak memory is measured for the executed settings, not a guaranteed upper bound for all prompts or 50-step long videos.",
+    "Existing allocations and GPUs were shared without overlapping resident processes."
+  ],
+  "api_calls": 0,
+  "api_cost_usd": 0
+}

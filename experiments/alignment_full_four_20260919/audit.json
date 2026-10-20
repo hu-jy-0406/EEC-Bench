@@ -1,0 +1,1569 @@
+{
+  "status": "passed",
+  "generated_at": "2026-09-19T19:41:17.972784+00:00",
+  "cases": {
+    "study2_fps32": {
+      "status": "passed",
+      "checks": {
+        "18_original_frames_unchanged": true,
+        "root_manifest_same_bytes": true,
+        "normal_narrative_unchanged": true,
+        "fresh_detection_and_three_clustering_calls": true,
+        "detector_ran_on_all_18_original_frames": true,
+        "clustering_own_shot_original_frames_only": true,
+        "fresh_inference_declared": true,
+        "executed_sources_unchanged": true,
+        "all_entity_identity_population_conserved": true,
+        "initial_identity_includes_moving_and_unknown": true,
+        "aligned_identity_review_includes_moving_and_unknown": true,
+        "static_scoring_excludes_mixed_motion_groups_intact": true,
+        "all_saved_requests_astra_medium_ephemeral": true,
+        "fps32_fixed_population": true,
+        "fresh_36_roma_frame_pairs": true,
+        "exact_uniform_unsquared_objective_no_removal": true,
+        "registration_source_hashes_unchanged": true,
+        "single_presence_call": true,
+        "all_unordered_spatial_pairs": true,
+        "stored_spatial_cosines_consistent": true,
+        "summary_usage_matches_actual_call_records": true
+      },
+      "notes": [],
+      "original_frames": {
+        "shot1/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000000.jpg",
+          "expected": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977",
+          "actual": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977"
+        },
+        "shot1/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000024.jpg",
+          "expected": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8",
+          "actual": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8"
+        },
+        "shot1/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000048.jpg",
+          "expected": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0",
+          "actual": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0"
+        },
+        "shot1/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000072.jpg",
+          "expected": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322",
+          "actual": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322"
+        },
+        "shot1/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000096.jpg",
+          "expected": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec",
+          "actual": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec"
+        },
+        "shot1/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000120.jpg",
+          "expected": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1",
+          "actual": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1"
+        },
+        "shot2/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000000.jpg",
+          "expected": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9",
+          "actual": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9"
+        },
+        "shot2/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000024.jpg",
+          "expected": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6",
+          "actual": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6"
+        },
+        "shot2/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000048.jpg",
+          "expected": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d",
+          "actual": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d"
+        },
+        "shot2/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000072.jpg",
+          "expected": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032",
+          "actual": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032"
+        },
+        "shot2/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000096.jpg",
+          "expected": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3",
+          "actual": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3"
+        },
+        "shot2/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000120.jpg",
+          "expected": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c",
+          "actual": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c"
+        },
+        "shot3/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000000.jpg",
+          "expected": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea",
+          "actual": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea"
+        },
+        "shot3/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000024.jpg",
+          "expected": "f9e33d7d4d0c67d10a187746e2f9e6c63213f05ea250e1b344957d55ceb47376",
+          "actual": "f9e33d7d4d0c67d10a187746e2f9e6c63213f05ea250e1b344957d55ceb47376"
+        },
+        "shot3/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000048.jpg",
+          "expected": "f87a6413e336d37a5b81cd5bdc9bc5eb79da28f79867b40d481db3925046e47d",
+          "actual": "f87a6413e336d37a5b81cd5bdc9bc5eb79da28f79867b40d481db3925046e47d"
+        },
+        "shot3/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000072.jpg",
+          "expected": "b25e3c3ee29db540bf9dcd40e1c7edd99e6c8c052de49a2e2ede5405b904e5f7",
+          "actual": "b25e3c3ee29db540bf9dcd40e1c7edd99e6c8c052de49a2e2ede5405b904e5f7"
+        },
+        "shot3/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000096.jpg",
+          "expected": "27f04d2c7490cc723f59cadde33c7d2a6689202598439f1513881dbe4a0a54c7",
+          "actual": "27f04d2c7490cc723f59cadde33c7d2a6689202598439f1513881dbe4a0a54c7"
+        },
+        "shot3/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000120.jpg",
+          "expected": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a",
+          "actual": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a"
+        }
+      },
+      "source_hashes": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "expected": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba",
+          "actual": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+          "expected": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547",
+          "actual": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+          "expected": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5",
+          "actual": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+          "expected": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea",
+          "actual": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+          "expected": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0",
+          "actual": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_evaluator.py",
+          "expected": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608",
+          "actual": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+          "expected": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789",
+          "actual": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+          "expected": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291",
+          "actual": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+          "expected": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897",
+          "actual": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/common.py",
+          "expected": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09",
+          "actual": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+          "expected": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110",
+          "actual": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+          "expected": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c",
+          "actual": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+          "expected": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053",
+          "actual": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+          "expected": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea",
+          "actual": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_codex.py",
+          "expected": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23",
+          "actual": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_direct_registration_v1.txt",
+          "expected": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43",
+          "actual": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py",
+          "expected": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e",
+          "actual": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py",
+          "expected": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9",
+          "actual": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-consistency-two-scores.v1.json",
+          "expected": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb",
+          "actual": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_payload.py",
+          "expected": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58",
+          "actual": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_transport.py",
+          "expected": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322",
+          "actual": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_isolated_shot_static_3d.py",
+          "expected": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62",
+          "actual": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py",
+          "expected": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689",
+          "actual": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_identity_population.py",
+          "expected": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31",
+          "actual": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_review_v1.txt",
+          "expected": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855",
+          "actual": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_runtime_profile.py",
+          "expected": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db",
+          "actual": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_efficient_transport.py",
+          "expected": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c",
+          "actual": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_witness_codec.py",
+          "expected": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b",
+          "actual": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-runtime-profiles.v1.json",
+          "expected": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a",
+          "actual": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/gs_relation_shot_v1.txt",
+          "expected": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e",
+          "actual": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/match.txt",
+          "expected": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74",
+          "actual": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/presence.txt",
+          "expected": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f",
+          "actual": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/shot_motion_isolated_v0.2.txt",
+          "expected": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5",
+          "actual": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/verify_cosine.txt",
+          "expected": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819",
+          "actual": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/skills/wedetect-shot-entities/review_prompt.txt",
+          "expected": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0",
+          "actual": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0"
+        }
+      ],
+      "identity_population_expected": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "identity_population_seen": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "max_stored_cosine_error": 3.3306690738754696e-16
+    },
+    "study2_codex_direct": {
+      "status": "passed",
+      "checks": {
+        "18_original_frames_unchanged": true,
+        "root_manifest_same_bytes": true,
+        "normal_narrative_unchanged": true,
+        "fresh_detection_and_three_clustering_calls": true,
+        "detector_ran_on_all_18_original_frames": true,
+        "clustering_own_shot_original_frames_only": true,
+        "fresh_inference_declared": true,
+        "executed_sources_unchanged": true,
+        "all_entity_identity_population_conserved": true,
+        "initial_identity_includes_moving_and_unknown": true,
+        "aligned_identity_review_includes_moving_and_unknown": true,
+        "static_scoring_excludes_mixed_motion_groups_intact": true,
+        "all_saved_requests_astra_medium_ephemeral": true,
+        "direct_no_roma_or_lift_stages": true,
+        "direct_no_raw_keypoints_or_correspondence_arrays": true,
+        "direct_allowed_payload_fields_only": true,
+        "direct_normal_prompt_and_full_own_geometry": true,
+        "direct_12_original_frame_attachments": true,
+        "direct_tools_disabled": true,
+        "direct_no_matching_anchors_optimizer_or_prior_transform": true,
+        "registration_source_hashes_unchanged": true,
+        "single_presence_call": true,
+        "all_unordered_spatial_pairs": true,
+        "stored_spatial_cosines_consistent": true,
+        "summary_usage_matches_actual_call_records": true
+      },
+      "notes": [],
+      "original_frames": {
+        "shot1/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000000.jpg",
+          "expected": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977",
+          "actual": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977"
+        },
+        "shot1/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000024.jpg",
+          "expected": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8",
+          "actual": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8"
+        },
+        "shot1/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000048.jpg",
+          "expected": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0",
+          "actual": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0"
+        },
+        "shot1/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000072.jpg",
+          "expected": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322",
+          "actual": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322"
+        },
+        "shot1/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000096.jpg",
+          "expected": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec",
+          "actual": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec"
+        },
+        "shot1/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000120.jpg",
+          "expected": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1",
+          "actual": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1"
+        },
+        "shot2/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000000.jpg",
+          "expected": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9",
+          "actual": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9"
+        },
+        "shot2/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000024.jpg",
+          "expected": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6",
+          "actual": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6"
+        },
+        "shot2/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000048.jpg",
+          "expected": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d",
+          "actual": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d"
+        },
+        "shot2/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000072.jpg",
+          "expected": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032",
+          "actual": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032"
+        },
+        "shot2/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000096.jpg",
+          "expected": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3",
+          "actual": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3"
+        },
+        "shot2/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000120.jpg",
+          "expected": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c",
+          "actual": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c"
+        },
+        "shot3/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000000.jpg",
+          "expected": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea",
+          "actual": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea"
+        },
+        "shot3/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000024.jpg",
+          "expected": "f9e33d7d4d0c67d10a187746e2f9e6c63213f05ea250e1b344957d55ceb47376",
+          "actual": "f9e33d7d4d0c67d10a187746e2f9e6c63213f05ea250e1b344957d55ceb47376"
+        },
+        "shot3/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000048.jpg",
+          "expected": "f87a6413e336d37a5b81cd5bdc9bc5eb79da28f79867b40d481db3925046e47d",
+          "actual": "f87a6413e336d37a5b81cd5bdc9bc5eb79da28f79867b40d481db3925046e47d"
+        },
+        "shot3/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000072.jpg",
+          "expected": "b25e3c3ee29db540bf9dcd40e1c7edd99e6c8c052de49a2e2ede5405b904e5f7",
+          "actual": "b25e3c3ee29db540bf9dcd40e1c7edd99e6c8c052de49a2e2ede5405b904e5f7"
+        },
+        "shot3/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000096.jpg",
+          "expected": "27f04d2c7490cc723f59cadde33c7d2a6689202598439f1513881dbe4a0a54c7",
+          "actual": "27f04d2c7490cc723f59cadde33c7d2a6689202598439f1513881dbe4a0a54c7"
+        },
+        "shot3/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000120.jpg",
+          "expected": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a",
+          "actual": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a"
+        }
+      },
+      "source_hashes": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "expected": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba",
+          "actual": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+          "expected": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547",
+          "actual": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+          "expected": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5",
+          "actual": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+          "expected": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea",
+          "actual": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+          "expected": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0",
+          "actual": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_evaluator.py",
+          "expected": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608",
+          "actual": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+          "expected": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789",
+          "actual": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+          "expected": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291",
+          "actual": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+          "expected": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897",
+          "actual": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/common.py",
+          "expected": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09",
+          "actual": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+          "expected": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110",
+          "actual": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+          "expected": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c",
+          "actual": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+          "expected": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053",
+          "actual": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+          "expected": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea",
+          "actual": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_codex.py",
+          "expected": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23",
+          "actual": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_direct_registration_v1.txt",
+          "expected": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43",
+          "actual": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py",
+          "expected": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e",
+          "actual": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py",
+          "expected": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9",
+          "actual": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-consistency-two-scores.v1.json",
+          "expected": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb",
+          "actual": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_payload.py",
+          "expected": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58",
+          "actual": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_transport.py",
+          "expected": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322",
+          "actual": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_isolated_shot_static_3d.py",
+          "expected": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62",
+          "actual": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py",
+          "expected": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689",
+          "actual": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_identity_population.py",
+          "expected": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31",
+          "actual": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_review_v1.txt",
+          "expected": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855",
+          "actual": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_runtime_profile.py",
+          "expected": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db",
+          "actual": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_efficient_transport.py",
+          "expected": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c",
+          "actual": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_witness_codec.py",
+          "expected": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b",
+          "actual": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-runtime-profiles.v1.json",
+          "expected": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a",
+          "actual": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/gs_relation_shot_v1.txt",
+          "expected": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e",
+          "actual": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/match.txt",
+          "expected": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74",
+          "actual": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/presence.txt",
+          "expected": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f",
+          "actual": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/shot_motion_isolated_v0.2.txt",
+          "expected": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5",
+          "actual": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/verify_cosine.txt",
+          "expected": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819",
+          "actual": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/skills/wedetect-shot-entities/review_prompt.txt",
+          "expected": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0",
+          "actual": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0"
+        }
+      ],
+      "identity_population_expected": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "identity_population_seen": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "max_stored_cosine_error": 1.1102230246251565e-16
+    },
+    "study3_fps32": {
+      "status": "passed",
+      "checks": {
+        "18_original_frames_unchanged": true,
+        "root_manifest_same_bytes": true,
+        "normal_narrative_unchanged": true,
+        "fresh_detection_and_three_clustering_calls": true,
+        "detector_ran_on_all_18_original_frames": true,
+        "clustering_own_shot_original_frames_only": true,
+        "fresh_inference_declared": true,
+        "executed_sources_unchanged": true,
+        "all_entity_identity_population_conserved": true,
+        "initial_identity_includes_moving_and_unknown": true,
+        "aligned_identity_review_includes_moving_and_unknown": true,
+        "static_scoring_excludes_mixed_motion_groups_intact": true,
+        "all_saved_requests_astra_medium_ephemeral": true,
+        "fps32_fixed_population": true,
+        "fresh_36_roma_frame_pairs": true,
+        "exact_uniform_unsquared_objective_no_removal": true,
+        "registration_source_hashes_unchanged": true,
+        "single_presence_call": true,
+        "all_unordered_spatial_pairs": true,
+        "stored_spatial_cosines_consistent": true,
+        "summary_usage_matches_actual_call_records": true
+      },
+      "notes": [],
+      "original_frames": {
+        "shot1/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000000.jpg",
+          "expected": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977",
+          "actual": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977"
+        },
+        "shot1/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000024.jpg",
+          "expected": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8",
+          "actual": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8"
+        },
+        "shot1/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000048.jpg",
+          "expected": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0",
+          "actual": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0"
+        },
+        "shot1/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000072.jpg",
+          "expected": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322",
+          "actual": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322"
+        },
+        "shot1/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000096.jpg",
+          "expected": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec",
+          "actual": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec"
+        },
+        "shot1/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000120.jpg",
+          "expected": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1",
+          "actual": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1"
+        },
+        "shot2/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000000.jpg",
+          "expected": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9",
+          "actual": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9"
+        },
+        "shot2/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000024.jpg",
+          "expected": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6",
+          "actual": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6"
+        },
+        "shot2/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000048.jpg",
+          "expected": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d",
+          "actual": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d"
+        },
+        "shot2/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000072.jpg",
+          "expected": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032",
+          "actual": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032"
+        },
+        "shot2/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000096.jpg",
+          "expected": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3",
+          "actual": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3"
+        },
+        "shot2/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000120.jpg",
+          "expected": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c",
+          "actual": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c"
+        },
+        "shot3/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000000.jpg",
+          "expected": "c848803cb81c0f0db97acabc630b84fb0c0f100b831fd6915a0e0a810f67aff6",
+          "actual": "c848803cb81c0f0db97acabc630b84fb0c0f100b831fd6915a0e0a810f67aff6"
+        },
+        "shot3/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000024.jpg",
+          "expected": "acc86af7fe496733e9709c50e6763718c3aac9b0897a3fb6afbd24fce35a02f1",
+          "actual": "acc86af7fe496733e9709c50e6763718c3aac9b0897a3fb6afbd24fce35a02f1"
+        },
+        "shot3/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000048.jpg",
+          "expected": "79595f9260174768e8e43f4bee6a14acd459785545e9112a0b810df56e19b7f9",
+          "actual": "79595f9260174768e8e43f4bee6a14acd459785545e9112a0b810df56e19b7f9"
+        },
+        "shot3/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000072.jpg",
+          "expected": "49ac64c8edd7a6a9b2c00589e327392b9272a600fd6f7551cfd773f119ed6031",
+          "actual": "49ac64c8edd7a6a9b2c00589e327392b9272a600fd6f7551cfd773f119ed6031"
+        },
+        "shot3/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000096.jpg",
+          "expected": "8fc9df8928518955550afae1aac50b29d13d08f18360bbe6ec9646bc92bb9788",
+          "actual": "8fc9df8928518955550afae1aac50b29d13d08f18360bbe6ec9646bc92bb9788"
+        },
+        "shot3/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000120.jpg",
+          "expected": "85b5a2f3558ef64d285a4fc8a4276aaebbd2337724d95f5a17d9faf5d30aa436",
+          "actual": "85b5a2f3558ef64d285a4fc8a4276aaebbd2337724d95f5a17d9faf5d30aa436"
+        }
+      },
+      "source_hashes": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "expected": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba",
+          "actual": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+          "expected": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547",
+          "actual": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+          "expected": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5",
+          "actual": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+          "expected": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea",
+          "actual": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+          "expected": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0",
+          "actual": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_evaluator.py",
+          "expected": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608",
+          "actual": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+          "expected": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789",
+          "actual": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+          "expected": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291",
+          "actual": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+          "expected": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897",
+          "actual": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/common.py",
+          "expected": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09",
+          "actual": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+          "expected": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110",
+          "actual": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+          "expected": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c",
+          "actual": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+          "expected": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053",
+          "actual": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+          "expected": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea",
+          "actual": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_codex.py",
+          "expected": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23",
+          "actual": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_direct_registration_v1.txt",
+          "expected": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43",
+          "actual": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py",
+          "expected": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e",
+          "actual": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py",
+          "expected": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9",
+          "actual": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-consistency-two-scores.v1.json",
+          "expected": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb",
+          "actual": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_payload.py",
+          "expected": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58",
+          "actual": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_transport.py",
+          "expected": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322",
+          "actual": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_isolated_shot_static_3d.py",
+          "expected": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62",
+          "actual": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py",
+          "expected": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689",
+          "actual": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_identity_population.py",
+          "expected": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31",
+          "actual": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_review_v1.txt",
+          "expected": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855",
+          "actual": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_runtime_profile.py",
+          "expected": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db",
+          "actual": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_efficient_transport.py",
+          "expected": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c",
+          "actual": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_witness_codec.py",
+          "expected": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b",
+          "actual": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-runtime-profiles.v1.json",
+          "expected": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a",
+          "actual": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/gs_relation_shot_v1.txt",
+          "expected": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e",
+          "actual": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/match.txt",
+          "expected": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74",
+          "actual": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/presence.txt",
+          "expected": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f",
+          "actual": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/shot_motion_isolated_v0.2.txt",
+          "expected": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5",
+          "actual": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/verify_cosine.txt",
+          "expected": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819",
+          "actual": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/skills/wedetect-shot-entities/review_prompt.txt",
+          "expected": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0",
+          "actual": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0"
+        }
+      ],
+      "identity_population_expected": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "identity_population_seen": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "max_stored_cosine_error": 2.220446049250313e-16
+    },
+    "study3_codex_direct": {
+      "status": "passed",
+      "checks": {
+        "18_original_frames_unchanged": true,
+        "root_manifest_same_bytes": true,
+        "normal_narrative_unchanged": true,
+        "fresh_detection_and_three_clustering_calls": true,
+        "detector_ran_on_all_18_original_frames": true,
+        "clustering_own_shot_original_frames_only": true,
+        "fresh_inference_declared": true,
+        "executed_sources_unchanged": true,
+        "all_entity_identity_population_conserved": true,
+        "initial_identity_includes_moving_and_unknown": true,
+        "aligned_identity_review_includes_moving_and_unknown": true,
+        "static_scoring_excludes_mixed_motion_groups_intact": true,
+        "all_saved_requests_astra_medium_ephemeral": true,
+        "direct_no_roma_or_lift_stages": true,
+        "direct_no_raw_keypoints_or_correspondence_arrays": true,
+        "direct_allowed_payload_fields_only": true,
+        "direct_normal_prompt_and_full_own_geometry": true,
+        "direct_12_original_frame_attachments": true,
+        "direct_tools_disabled": true,
+        "direct_no_matching_anchors_optimizer_or_prior_transform": true,
+        "registration_source_hashes_unchanged": true,
+        "single_presence_call": true,
+        "all_unordered_spatial_pairs": true,
+        "stored_spatial_cosines_consistent": true,
+        "summary_usage_matches_actual_call_records": true
+      },
+      "notes": [],
+      "original_frames": {
+        "shot1/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000000.jpg",
+          "expected": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977",
+          "actual": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977"
+        },
+        "shot1/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000024.jpg",
+          "expected": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8",
+          "actual": "2c413e53e59dc5fbadc226658fe8c1f9f697d053c757700fec38090c699034c8"
+        },
+        "shot1/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000048.jpg",
+          "expected": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0",
+          "actual": "46f06bfef9f455fde6459e8d522949d253e80270ddd88f37c375e4b32607cef0"
+        },
+        "shot1/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000072.jpg",
+          "expected": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322",
+          "actual": "0cb3ee024530dc817009dce0e9dea13dfe27079db38a8a2b0e6c32d2b7e54322"
+        },
+        "shot1/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000096.jpg",
+          "expected": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec",
+          "actual": "bfd0febd97a52b51030e7b9088d4e870c8fe1f9db473cbac0605a977edf61aec"
+        },
+        "shot1/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000120.jpg",
+          "expected": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1",
+          "actual": "5a6a6f0d024c62246387d998c937c998f454363d96b80f6607e78a8311159cf1"
+        },
+        "shot2/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000000.jpg",
+          "expected": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9",
+          "actual": "84c0761276e62d1d8cc0bea1b9048fdeb710803883cd1e31c14faa2baba6e3d9"
+        },
+        "shot2/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000024.jpg",
+          "expected": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6",
+          "actual": "4a73262d870b74081a7e9e619f9655ef872c5c37af312a7f2ee39b0fe35b14a6"
+        },
+        "shot2/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000048.jpg",
+          "expected": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d",
+          "actual": "5f9e2f83c8ea88635ab3457ce827d614eec82aa7c4b7e8928ebb661efec9cd1d"
+        },
+        "shot2/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000072.jpg",
+          "expected": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032",
+          "actual": "a1c5901568d84164c803768c1f3a919cf31ce5b7625f2be75550429429cae032"
+        },
+        "shot2/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000096.jpg",
+          "expected": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3",
+          "actual": "076357f4192df508d81a3094ff90859ea152ecc489ea7878856d2eb7e50bc4b3"
+        },
+        "shot2/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot2/frame_000120.jpg",
+          "expected": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c",
+          "actual": "f6b0ce51d59ca8a79b7110e1f8ba645acf11a8103bd29cce9587b705bfc1835c"
+        },
+        "shot3/0": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000000.jpg",
+          "expected": "c848803cb81c0f0db97acabc630b84fb0c0f100b831fd6915a0e0a810f67aff6",
+          "actual": "c848803cb81c0f0db97acabc630b84fb0c0f100b831fd6915a0e0a810f67aff6"
+        },
+        "shot3/24": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000024.jpg",
+          "expected": "acc86af7fe496733e9709c50e6763718c3aac9b0897a3fb6afbd24fce35a02f1",
+          "actual": "acc86af7fe496733e9709c50e6763718c3aac9b0897a3fb6afbd24fce35a02f1"
+        },
+        "shot3/48": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000048.jpg",
+          "expected": "79595f9260174768e8e43f4bee6a14acd459785545e9112a0b810df56e19b7f9",
+          "actual": "79595f9260174768e8e43f4bee6a14acd459785545e9112a0b810df56e19b7f9"
+        },
+        "shot3/72": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000072.jpg",
+          "expected": "49ac64c8edd7a6a9b2c00589e327392b9272a600fd6f7551cfd773f119ed6031",
+          "actual": "49ac64c8edd7a6a9b2c00589e327392b9272a600fd6f7551cfd773f119ed6031"
+        },
+        "shot3/96": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000096.jpg",
+          "expected": "8fc9df8928518955550afae1aac50b29d13d08f18360bbe6ec9646bc92bb9788",
+          "actual": "8fc9df8928518955550afae1aac50b29d13d08f18360bbe6ec9646bc92bb9788"
+        },
+        "shot3/120": {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/frames/shot3/frame_000120.jpg",
+          "expected": "85b5a2f3558ef64d285a4fc8a4276aaebbd2337724d95f5a17d9faf5d30aa436",
+          "actual": "85b5a2f3558ef64d285a4fc8a4276aaebbd2337724d95f5a17d9faf5d30aa436"
+        }
+      },
+      "source_hashes": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "expected": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba",
+          "actual": "5df656daf4d3df3ead1e6b0d627ebfa1d1aee830813d393d3470e435beaf2bba"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+          "expected": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547",
+          "actual": "a93abee784e804c850dc94a1873be63721e11b758503ce83b55c4a6da746d547"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+          "expected": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5",
+          "actual": "77f8aefb0e9d8f2b8b19bee8bd8da7faa42407559c0d6d51f7eb88bf360655a5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+          "expected": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea",
+          "actual": "1a0a8f68a822aa77b64551c14461a53da59c9985d9d8bb3eac5791b1d27963ea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+          "expected": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0",
+          "actual": "cca24091b3114b785dc3e8bf4dc9797c5b2004d1ab4bb2eedb8c15afd0bcb1f0"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_evaluator.py",
+          "expected": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608",
+          "actual": "1452dac36c6e04ac1e7d56890d8b943ebcbea263151e982e750809747833f608"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+          "expected": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789",
+          "actual": "b7cd72436bab71acdb4677a43ccd0186f2de980cdb43f0b0a4420656388d9789"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+          "expected": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291",
+          "actual": "3f37eb4b184b5ac7c4ced8c3f935fe6a09895d038107e05970d41aa205b00291"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+          "expected": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897",
+          "actual": "ef0ef8c3add7f42f5df6c1de05fe5c86e03010dc8e9a24b8fa25ac1e5a079897"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/common.py",
+          "expected": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09",
+          "actual": "b5794725392d639762849b8fc96b6b4e94d85e147afc072ca796cd7559526b09"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+          "expected": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110",
+          "actual": "5b1de3a5bcc7fd096144a58c12a67220b0eb2b7cdd09afca43a9d30612040110"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+          "expected": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c",
+          "actual": "354e655d73b594f3121b206694a04f92cf5c469ae7cade73e071d1e22620eb7c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+          "expected": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053",
+          "actual": "189d6e2a5195c98596d33d86068f4b3f427177f8711cdf25042d24f1f3a25053"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+          "expected": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea",
+          "actual": "87a72760b7f023be5d3fa441a00d975fdf58abad31c258078e77c03999c3cbea"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_codex.py",
+          "expected": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23",
+          "actual": "feaabba863ca57ae51538d463337a3f550e093566df45e51cbe0ec28fc090e23"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_direct_registration_v1.txt",
+          "expected": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43",
+          "actual": "2833f196ca0c7d562eab8586bb3a998e27eb8ff7715e15770a329dbaf3050c43"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_3d.py",
+          "expected": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e",
+          "actual": "df156a09b8aabd12865ed9b4d149c5ea089f1a024dcef85fa87bb224a793ca2e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_registration_variants.py",
+          "expected": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9",
+          "actual": "f7e6b1a6f9f697ef2e6a34a68a0d237536ca579302dfb041b747fdf86b16f2d9"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-consistency-two-scores.v1.json",
+          "expected": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb",
+          "actual": "3ee16fcd49d6b9d76d8f7a869ba22b0e656e198c405c3817517a105ee128f6fb"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_payload.py",
+          "expected": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58",
+          "actual": "c4ff5b517cc06fda77a6a776b89a8d265d1a9976777a42b28df138196ea0cd58"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_flow1_compact_transport.py",
+          "expected": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322",
+          "actual": "de4ac272159fda554452d6744050ebc333585fb1c02641cfa1e7ed47473e1322"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_isolated_shot_static_3d.py",
+          "expected": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62",
+          "actual": "3f553a07458f74432c038f1684f8263bdf8bf205037054b381ca746bf9a93f62"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py",
+          "expected": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689",
+          "actual": "326eaaee3439dec1232ee007c3ac4f9ef26f9499f2a10470659e8495f75d1689"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_identity_population.py",
+          "expected": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31",
+          "actual": "6ae6552e1053c64bd620f1a909ebab58c9ad2ec1dd877a8603ae9c7069004d31"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_review_v1.txt",
+          "expected": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855",
+          "actual": "3b7ee1ecb250eed731cbe528583abc664ccd4b033b742bf118d5000485ca1855"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_runtime_profile.py",
+          "expected": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db",
+          "actual": "8aa75ae14013342c027b207a4acf65bdce1db3f06b059a109447bdb172cd09db"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_efficient_transport.py",
+          "expected": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c",
+          "actual": "ff73c6bfa361a7b14337b9695f8835e33d3b60520e99379ec6eada422f0ee37c"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_witness_codec.py",
+          "expected": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b",
+          "actual": "1cf71d729f6fc361bf6ee7c1514b55cc394463ad42ee9d485caecc563b525a2b"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-runtime-profiles.v1.json",
+          "expected": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a",
+          "actual": "6658b7d081109ac7f386087fce2fb901dda60e03d8573013fc5a3965a9afa18a"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/gs_relation_shot_v1.txt",
+          "expected": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e",
+          "actual": "9561a4f9bd759a4ff2888cdde3ff97da53a0f6931fc8dc2fbe71d261e625796e"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/match.txt",
+          "expected": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74",
+          "actual": "c709574b7aedda714bda083429f5fbeb8743484eea49c49a6b987c9c130e9c74"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/presence.txt",
+          "expected": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f",
+          "actual": "5e0e24b0d3229f93142aca76bcf1878eb2851fa52bf00172fdaab9663e29c79f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/shot_motion_isolated_v0.2.txt",
+          "expected": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5",
+          "actual": "645e6ae463511e9cfae22a87d0bb27a2efb753564481bbe1c682137b10575cb5"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_flow1/verify_cosine.txt",
+          "expected": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819",
+          "actual": "063f08ec39c860bc61394913d91f27e571209d1e2233c39632b5ce854579b819"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/skills/wedetect-shot-entities/review_prompt.txt",
+          "expected": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0",
+          "actual": "a6030820bef690ff47aca96d72211081a65d01fbd8735d77a3590a4e026c38d0"
+        }
+      ],
+      "identity_population_expected": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "identity_population_seen": [
+        "shot1/e1",
+        "shot1/e10",
+        "shot1/e11",
+        "shot1/e12",
+        "shot1/e13",
+        "shot1/e14",
+        "shot1/e15",
+        "shot1/e16",
+        "shot1/e17",
+        "shot1/e18",
+        "shot1/e19",
+        "shot1/e2",
+        "shot1/e20",
+        "shot1/e21",
+        "shot1/e3",
+        "shot1/e4",
+        "shot1/e5",
+        "shot1/e6",
+        "shot1/e7",
+        "shot1/e8",
+        "shot1/e9",
+        "shot3/e1",
+        "shot3/e10",
+        "shot3/e11",
+        "shot3/e12",
+        "shot3/e13",
+        "shot3/e14",
+        "shot3/e15",
+        "shot3/e16",
+        "shot3/e17",
+        "shot3/e18",
+        "shot3/e19",
+        "shot3/e2",
+        "shot3/e20",
+        "shot3/e21",
+        "shot3/e22",
+        "shot3/e3",
+        "shot3/e4",
+        "shot3/e5",
+        "shot3/e6",
+        "shot3/e7",
+        "shot3/e8",
+        "shot3/e9"
+      ],
+      "max_stored_cosine_error": 2.220446049250313e-16
+    }
+  },
+  "shared_input_checks": {
+    "study2_identical_method_inputs": true,
+    "study3_identical_method_inputs": true,
+    "study2_study3_shot1_shot2_same_original_bytes": true,
+    "study2_study3_shot3_different": true
+  },
+  "scope": "artifact/hash/structural audit; does not establish semantic correctness or ground-truth score accuracy"
+}

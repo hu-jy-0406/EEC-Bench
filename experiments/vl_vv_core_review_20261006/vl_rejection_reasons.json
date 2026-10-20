@@ -1,0 +1,32 @@
+{
+  "note": "Assistant classification of every review-v4 rejection of a V-L label that belongs to a discrepancy also reported as V-V (dual-labeled issue in discovery v2; linked pair in discovery v3), from the reviewer's own assessment.",
+  "categories": {
+    "per_shot_reading": "The requirement comes from the contract's character/object description or another shot; the reviewer rejects because the violating shot's own text does not restate it, or because another shot satisfies it.",
+    "not_a_text_requirement": "The V-L half rests on details the text never states (gender, exact pattern, inner layers); the rejection is correct and the V-V half carries the problem.",
+    "visual_judgement": "The reviewer judges the frames compatible with the requirement (viewpoint, color shade, shape still 'angular')."
+  },
+  "v2_dual": {
+    "p002_wan21 run_a I4": "visual_judgement", "p002_wan21 run_b I2": "visual_judgement", "p002_wan21 run_b I3": "visual_judgement",
+    "p002_wan21 run_c I1": "per_shot_reading", "p028_wan22 run_b I4": "per_shot_reading",
+    "p069_wan21 run_a I1": "not_a_text_requirement", "p069_wan21 run_a I2": "per_shot_reading",
+    "p069_wan21 run_b I1": "visual_judgement", "p069_wan21 run_b I2": "not_a_text_requirement",
+    "p069_wan21 run_b I4": "not_a_text_requirement", "p069_wan21 run_b I5": "per_shot_reading",
+    "p069_wan21 run_c I1": "not_a_text_requirement", "p069_wan21 run_c I2": "visual_judgement",
+    "p014_wan21 v2fresh_3 I4": "visual_judgement",
+    "p069_wan21 v2fresh_1 I1": "not_a_text_requirement", "p069_wan21 v2fresh_1 I2": "per_shot_reading",
+    "p069_wan21 v2fresh_1 I4": "per_shot_reading", "p069_wan21 v2fresh_1 I5": "per_shot_reading",
+    "p069_wan21 v2fresh_2 I5": "per_shot_reading", "p069_wan21 v2fresh_2 I6": "per_shot_reading",
+    "p069_wan21 v2fresh_2 I7": "per_shot_reading",
+    "p069_wan21 v2fresh_3 I1": "not_a_text_requirement", "p069_wan21 v2fresh_3 I6": "not_a_text_requirement"
+  },
+  "v3_split": {
+    "p002_wan21 split_1 I2": "per_shot_reading", "p002_wan21 split_1 I4": "visual_judgement",
+    "p002_wan21 split_2 I2": "per_shot_reading", "p014_wan21 split_1 I04": "visual_judgement",
+    "p028_wan22 split_3 I3": "not_a_text_requirement", "p069_wan21 split_1 I6": "not_a_text_requirement",
+    "p069_wan21 split_2 I7": "not_a_text_requirement", "p069_wan21 split_3 I4": "not_a_text_requirement",
+    "p069_wan21 split_3 I8": "not_a_text_requirement", "p069_wan21 split_3 I10": "visual_judgement"
+  },
+  "notes": {
+    "p002_wan21 split_1 I2 / split_2 I2": "The global text fixes 'faded blue-gray T-shirt' for the same man, while Shot3's own text says 'blue-gray shirt'; the reviewer follows Shot3's wording. The source text itself is ambiguous here."
+  }
+}

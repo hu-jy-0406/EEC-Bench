@@ -1,0 +1,48 @@
+{
+  "recommendation": "direct_camera_gravity_constrained_robust_center_plus_axial_orientation_with_ambiguity_and_stability_checks",
+  "study2_physical_alignment_accepted": false,
+  "max_gauge_prediction_difference": 8.51157229598879e-09,
+  "tests": 9,
+  "main_case_fits": 42,
+  "frame_fits": 108,
+  "control_joint_lambda_0_1": {
+    "study0": {
+      "fit": 0.048183350451763834,
+      "heldout": 0.05297496625724834,
+      "yaw_loo": 0.11681651352708985
+    },
+    "study1": {
+      "fit": 0.06352419268650125,
+      "heldout": 0.06663189400170454,
+      "yaw_loo": 0.189924831180022
+    },
+    "study2": {
+      "fit": 0.7020810996907727,
+      "heldout": 1.0920202572974262,
+      "yaw_loo": 177.10721683722562
+    }
+  },
+  "focal_pair_exclusion": [
+    {
+      "method": "center_huber",
+      "yaw": -17.58886150575392,
+      "cosine": 0.9490347159630597
+    },
+    {
+      "method": "joint_0.01",
+      "yaw": -54.31545382834092,
+      "cosine": 0.5746533326643846
+    },
+    {
+      "method": "joint_0.1",
+      "yaw": -59.20007875238903,
+      "cosine": 0.5029927629328264
+    },
+    {
+      "method": "axis_first",
+      "yaw": -59.747784236959724,
+      "cosine": 0.4947195756735041
+    }
+  ],
+  "old_scores_changed": false
+}

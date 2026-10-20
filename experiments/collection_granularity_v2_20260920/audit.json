@@ -1,0 +1,181 @@
+{
+  "status": "pass",
+  "scope": "Fresh independent clustering only; frozen detector inputs/original frames; no downstream registration/identity/score rerun",
+  "cases": [
+    {
+      "study": "study4",
+      "shot": "shot1",
+      "old_count": 17,
+      "new_count": 18,
+      "names": [
+        "Blue-and-white teacup",
+        "Framed wall picture",
+        "Tall blue-and-white mug",
+        "Woman in a gray cardigan and jeans",
+        "Wooden coffee table",
+        "Television",
+        "Wooden television cabinet",
+        "Plant on television cabinet",
+        "Beige sofa",
+        "Outdoor plant pot",
+        "Wooden shelving unit",
+        "Trailing plant on mantel",
+        "Small mantel picture frame",
+        "Outdoor potted plant",
+        "Plant at right edge",
+        "Small ceramic mantel vase",
+        "Patterned throw pillow",
+        "Patterned curtain"
+      ],
+      "usage": {
+        "input": 15280,
+        "output": 502,
+        "cached": 0,
+        "tokens": 15782,
+        "usd": 0.1779,
+        "model_seconds": 24.73709225654602,
+        "status": "success",
+        "path": "EECBench/experiments/collection_granularity_v2_20260920/study4/shot1/status.json"
+      },
+      "cup_entities": [
+        {
+          "entity_id": "e1",
+          "name": "Blue-and-white teacup",
+          "candidate_count": 6,
+          "observed_frames": [
+            0,
+            48,
+            96,
+            144,
+            192,
+            240
+          ]
+        },
+        {
+          "entity_id": "e3",
+          "name": "Tall blue-and-white mug",
+          "candidate_count": 6,
+          "observed_frames": [
+            0,
+            48,
+            96,
+            144,
+            192,
+            240
+          ]
+        }
+      ],
+      "old_cup_group_candidates_partitioned_exactly": true
+    },
+    {
+      "study": "study4",
+      "shot": "shot3",
+      "old_count": 11,
+      "new_count": 13,
+      "names": [
+        "Tall blue-and-white floral mug",
+        "Small blue-and-white floral cup",
+        "Wooden coffee table",
+        "Woman wearing a gray cardigan and jeans",
+        "Beige sofa",
+        "Left floral throw pillow",
+        "Middle patterned throw pillow",
+        "Right floral throw pillow",
+        "Tripod floor lamp",
+        "Indoor leafy plant",
+        "Patterned curtain",
+        "Outdoor flowerpot",
+        "Outdoor flowering plant"
+      ],
+      "usage": {
+        "input": 14984,
+        "output": 380,
+        "cached": 7424,
+        "tokens": 15364,
+        "usd": 0.102024,
+        "model_seconds": 21.28292751312256,
+        "status": "success",
+        "path": "EECBench/experiments/collection_granularity_v2_20260920/study4/shot3/status.json"
+      },
+      "cup_entities": [
+        {
+          "entity_id": "e1",
+          "name": "Tall blue-and-white floral mug",
+          "candidate_count": 6,
+          "observed_frames": [
+            0,
+            67,
+            134,
+            202,
+            269,
+            336
+          ]
+        },
+        {
+          "entity_id": "e2",
+          "name": "Small blue-and-white floral cup",
+          "candidate_count": 6,
+          "observed_frames": [
+            0,
+            67,
+            134,
+            202,
+            269,
+            336
+          ]
+        }
+      ]
+    },
+    {
+      "study": "study2",
+      "shot": "shot1",
+      "old_count": 20,
+      "new_count": 20,
+      "names": [
+        "Framed landscape painting",
+        "Dark green mug",
+        "Desk lamp",
+        "Woman in a gray sweater",
+        "Large wooden desk",
+        "Small framed picture on bookshelf",
+        "Pen holder",
+        "Collection of books on lower shelf",
+        "Trailing plant by window",
+        "Bookcase",
+        "Trailing plant on bookshelf",
+        "Red hardcover book",
+        "Wooden chair",
+        "Radiator",
+        "Collection of books on top shelf",
+        "Plant pot by window",
+        "Bunch of pens and pencils",
+        "Small ceramic pot on bookshelf",
+        "Small wooden side table",
+        "Plant on side table"
+      ],
+      "usage": {
+        "input": 15335,
+        "output": 511,
+        "cached": 0,
+        "tokens": 15846,
+        "usd": 0.17889999999999998,
+        "model_seconds": 23.535387754440308,
+        "status": "success",
+        "path": "EECBench/experiments/collection_granularity_v2_20260920/study2/shot1/status.json"
+      },
+      "pen_bunch_membership_preserved": true,
+      "holder_separate": true
+    }
+  ],
+  "total": {
+    "input": 45599,
+    "output": 1393,
+    "cached": 7424,
+    "tokens": 46992,
+    "usd": 0.458824,
+    "model_seconds": 69.55540752410889
+  },
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "api_cost_basis": "Standard API equivalent, not billing; USD10/M input,1/M cached,50/M output"
+}

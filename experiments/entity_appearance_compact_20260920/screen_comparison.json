@@ -1,0 +1,279 @@
+{
+  "protocol": "entity_appearance_compact_v2",
+  "entities": 9,
+  "calls": 9,
+  "all_appearances_pixel_audit": 96,
+  "original_image_attachments": 192,
+  "new_sheet_attachments": 13,
+  "before": {
+    "input_tokens": 181414,
+    "cached_input_tokens": 23040,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 9959,
+    "reasoning_output_tokens": 1068,
+    "total_tokens": 191373,
+    "api_equivalent_usd": 2.1047299999999995
+  },
+  "after": {
+    "input_tokens": 98364,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 3099,
+    "reasoning_output_tokens": 1262,
+    "total_tokens": 101463,
+    "api_equivalent_usd": 1.13859
+  },
+  "token_reduction": 0.4698154912134941,
+  "cost_reduction": 0.4590327500439485,
+  "equal_scores": 5,
+  "scored_entities": 9,
+  "score_mae": 3.9351851851851856,
+  "max_score_delta": 16.66666666666667,
+  "wall_seconds": 51.232834815979004,
+  "rates_source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "rate_verified_date": "2026-09-20",
+  "rows": [
+    {
+      "study": "study2",
+      "entity": "ge0002",
+      "name": "Dark green mug",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9598985137921086,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "全部面板中杯体、椭圆杯口及单侧环形把手形态稳定，深绿釉面与亮边一致。后组整体缩小，未见杯身或把手相对比例的明确改变；亮度差异符合表面反光变化。",
+      "limits": "杯底、背面及内壁细节不可辨，无可核对的独特标记；裁图不足以证实叙述中的反向机位，跨镜头仅比较可见表面。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0004",
+      "name": "Woman wearing a gray sweater",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 75,
+      "new": 75.0,
+      "delta": 0.0,
+      "dino": 0.7398865153772393,
+      "old_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "new_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "reason": "脸型、棕色松髻与毛衣领口、罗纹袖口总体稳定；低头及转身解释脸部投影差异。裤装从A3的贴身、弧形袋口与横向褶皱，变为A7–A9的宽松高腰打褶款，剪裁与细节有明显漂移。",
+      "limits": "A3–A4头部出框，A4模糊，A5分辨率低；鞋、完整裤腿及背面不可比，细微肤纹无法判断；无第二镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0005",
+      "name": "Wooden desk",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.7992627466190985,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见的矩形厚桌面、内收直腿和宽围板一致，深棕斑驳木质未见明确变化。跨镜头桌边透视方向及反光区域改变，足以解释表观宽窄和明暗差异；人物遮挡不视为结构缺失。",
+      "limits": "桌底及部分桌腿不可见；反向视角下无法可靠定位同一处独特木纹或磨痕，细节维度证据不足。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0009",
+      "name": "Trailing plant by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 91.66666666666667,
+      "new": 87.5,
+      "delta": -4.166666666666671,
+      "dino": 0.9350232007971702,
+      "old_dimensions": [
+        100,
+        100,
+        75,
+        null
+      ],
+      "new_dimensions": [
+        75,
+        100,
+        100,
+        75
+      ],
+      "reason": "各镜头内稳定；跨镜头盆体仍为棕色渐收形，绿叶质感一致。后组冠部更圆密，垂枝分叉与叶簇排列略变；可见盆口和侧面变化支持视角差异，但不能完全解释这些局部差别。",
+      "limits": "细枝连接、背面叶片及盆面细纹分辨不足；跨镜头无法逐叶对应，遮挡区域不参与判断。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0017",
+      "name": "Group of pens and pencils",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9004385543811557,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧均可见多支细长笔杆，木色与深色搭配稳定；跨镜头的重叠与露出长度变化未显示明确结构或比例矛盾，但不足以验证逐支身份或所述反向视角。",
+      "limits": "低分辨率及笔筒遮挡限制总数、完整长度与笔尖辨识；跨镜头仅能比较群体轮廓和配色，刻字、笔夹等细节不可核验。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0023",
+      "name": "Wooden console table",
+      "shots": [
+        "shot2"
+      ],
+      "old": 93.75,
+      "new": 87.5,
+      "delta": -6.25,
+      "dino": 0.9202346354570646,
+      "old_dimensions": [
+        100,
+        75,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        75,
+        100,
+        75
+      ],
+      "reason": "各帧桌板、围板和方腿的连接及比例稳定，轻微取景偏移可解释投影差异。末帧桌面与近端围板木纹明显变淡、表面更均匀，暖光下仍有轻度材质与纹理细节漂移。",
+      "limits": "腿脚底端、背面及桌底不可见；手和本子遮挡处未知。仅有同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0003",
+      "name": "desk lamp",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 62.5,
+      "new": 62.5,
+      "delta": 0.0,
+      "dino": 0.8380229542292897,
+      "old_dimensions": [
+        75,
+        25,
+        75,
+        75
+      ],
+      "new_dimensions": [
+        75,
+        25,
+        75,
+        75
+      ],
+      "reason": "各镜头内部基本稳定；跨镜头灯罩、顶部接头及底座由黑色变乳白，非光照可解释。圆底座由扁薄阶梯形变厚圆柱形，厚宽比及立杆底部套环细节改变。弯杆与灯罩左右关系反转可由反向视角解释。",
+      "limits": "A4仅见部分灯头且受遮挡；灯罩内侧、底座底面及背面细节不可核验，无充分证据比较细微纹理。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0013",
+      "name": "wooden chair",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 83.33333333333333,
+      "new": 100.0,
+      "delta": 16.66666666666667,
+      "dino": 0.8520445551500463,
+      "old_dimensions": [
+        50,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见椅背均保留圆角宽顶横档、两根内竖板及两侧立柱，深棕木质一致。跨镜头横档倾斜及竖板显宽差异符合可见视角变化；人物遮挡未显示部件增减。",
+      "limits": "座面、腿部及连接处大多被桌面遮挡；跨镜头无可可靠对应的独特木纹或伤痕，细节项证据不足，也不能确认实际绕拍角度。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0016",
+      "name": "plant pot by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 75,
+      "new": 83.33333333333333,
+      "delta": 8.333333333333329,
+      "dino": 0.8497130444346392,
+      "old_dimensions": [
+        100,
+        75,
+        50,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        75,
+        75,
+        null
+      ],
+      "reason": "各镜头内外观稳定，均可见上宽下窄的盆体。跨镜头盆体由深棕偏细长变为浅褐偏宽短；受光和可见盆口角度能解释部分差异，但宽高关系仍有轻微漂移。",
+      "limits": "裁图小且枝叶遮挡盆面，无法可靠对应叶片、纹路及背面细节；缺少全景，不能确认叙述中的反向机位。"
+    }
+  ]
+}

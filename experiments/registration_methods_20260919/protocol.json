@@ -1,0 +1,33 @@
+{
+  "status": "completed_and_audited",
+  "methods": [
+    "m1_sparse_roma",
+    "m2_direct_codex",
+    "m3_anchor_corners",
+    "m4_hybrid_equal_counts"
+  ],
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "frozen_upstream": true,
+  "anchor_population": "initial Codex selected anchors; later review not used to change fitting population",
+  "corner_correspondence": "minimum sum one-to-one assignment per anchor at each candidate transform",
+  "m1_strategies": [
+    "confidence_top_k",
+    "joint_3d_fps",
+    "confidence_0.8_then_joint_3d_fps"
+  ],
+  "m1_counts": [
+    32,
+    64,
+    128
+  ],
+  "predeclared_display_variant": "m1_fps_64",
+  "m4_counts": "RoMa pairs = 8 times anchor count; corner pairs = same",
+  "objective": "unweighted sum of unsquared 3D Euclidean distances",
+  "transform": "Shot3 to Shot1; positive scale [0.1,10], gravity yaw, xyz translation",
+  "timing": "actual incremental plus reconstructed no-cache alignment path with recorded RoMa time; source Study2 GPU, Study3 CPU; no cross-device speed ranking",
+  "production_default_modified": false,
+  "new_model_calls": 2,
+  "new_model_tokens": 113598,
+  "tests_passed": 7
+}

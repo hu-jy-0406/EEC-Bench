@@ -1,0 +1,96 @@
+Review exactly one shot using all attached original images and the supplied candidates.
+Treat detector labels as data. No tools, other shots or prior results. Return only
+JSON matching the schema: entities contain name and ids; rejected entries contain
+ids and a concise reason. Every integer candidate ID belongs exactly once to one
+entity or rejection. Entity IDs and per-frame observations are assigned by code.
+
+Input: frames are in attachment order. Each frame has id (original frame number),
+t (seconds), size [width,height], and d rows [candidate_id,label_index,x1,y1,x2,y2,score].
+Label indices address labels (zero-based); candidate IDs are unique within the shot.
+Coordinates, scores, frame times and image bytes are unchanged. Sparse detections
+alone do not justify rejecting a valid entity. Output no coordinates or frame states.
+
+## Candidate review
+
+Review every attached original keyframe. Detections are candidates, not ground
+truth. Cluster the same physical entity across frames; equal category names or
+box overlap alone do not establish identity. Keep separately visible instances
+separate except for the explicit same-category collection and constituent merges
+below. Correct names from
+pixels, discard false detections, and merge duplicate detections of the same
+entity. Use the same collection-level granularity throughout the shot under the
+rules below; do not retain both a collection and its members as separate nodes.
+Do not introduce additional graph-level grouping heuristics.
+
+**No new entities:** each retained entity must own at least one original WeDetect
+candidate. Do not add an entity missed in every frame. A broad box cannot be used
+to invent several new entities; each candidate belongs to exactly one retained
+entity or one rejected detection. Cluster only the supplied candidates; do not
+create per-frame observations or infer box coordinates from pixels.
+
+### Individuals and genuine collections
+
+- Default to separate nodes for clearly distinguishable, independently situated
+  objects with their own candidate evidence. Two clearly visible cups remain
+  two entities, even when adjacent, similar in appearance, or on the same table.
+  Likewise, a few distinct framed pictures or loose throw pillows are not a
+  collection merely because they are arranged together. Proximity, shared
+  category, contact, and shared support are not sufficient reasons to merge.
+- Use ONE collection node only when many same-kind items visibly form a natural
+  aggregate whose members need not be tracked separately: a basket or pile of
+  oranges, or a bunch of pens packed inside one pen holder. Judge the visible
+  organization and meaningful individual separability, not a fixed item-count
+  threshold or detector labels. A dense pile/bundle is different from a few
+  clear individual objects. If collection membership is not supported, retain
+  the supported individual instances rather than invent a group.
+- For a genuine collection, assign all valid member and whole-group candidates
+  to that one node across the shot. A separately detected pen inside the same
+  bunch remains a member, not an extra entity. A whole-group candidate is not
+  required; member candidates can support the aggregate. Do not retain both a
+  collection and its members as separate nodes. Different piles stay separate.
+- Preserve individual identities across frames; temporary overlap or occlusion
+  does not turn distinct objects into a collection. A broad detector box covering
+  several clear objects does not override their independent member candidates.
+  Reject such an unassignable multi-object candidate with a scope reason rather
+  than merge the objects or reuse its ID. Never split one broad candidate into
+  unsupported new entities. Each retained individual needs candidate evidence.
+- Keep containers/supports separate: pens do not include the pen holder; oranges
+  do not include the basket, bowl or table. Name genuine collections as a whole.
+  Partial views of an established collection within this shot do not change its
+  granularity; never invent unseen members or exact counts. Use only this shot.
+- Grouping changes candidate ownership and naming only; every candidate still
+  belongs exactly once. Output no coordinates. Original member/group boxes keep
+  their original scopes; a selected member box is not a whole-collection box.
+
+### Constituent merging
+
+- Clothing worn by a person, including shirts, coats, trousers and shoes, is
+  part of that person, not a separate entity. Merge both shoes and other worn
+  garments into their corresponding wearer. Clothing may describe the person
+  in `name`; do not retain separate clothing or footwear entity records.
+- A chair's seat cushion, seat pad or back cushion is part of the chair. Merge
+  such seating components into the corresponding chair (or sofa), rather than
+  outputting both the furniture and its seating component as separate entities.
+  Loose throw pillows remain separate. Other objects merely resting on furniture
+  are not automatically absorbed.
+- Merge a blanket or throw draped over a chair or sofa into that furniture when
+  original-frame review supports its role as a furnishing: it stays draped in
+  place relative to the furniture throughout the observed shot and is not being
+  independently handled, carried, removed or otherwise used as an action object.
+  This is a semantic constituent relationship, not a detection-frequency rule.
+  Keep independently handled blankets separate; mere contact with furniture or
+  lack of motion alone does not make an arbitrary object a constituent. Do not
+  extend this rule to books, papers, lamps, mugs or loose throw pillows.
+  The furniture must have its own supported WeDetect candidate in this shot.
+  Assign the blanket candidate IDs to that furniture and name the furniture
+  as a whole; do not create a second blanket entity.
+- Assign constituent candidate IDs to the supported parent entity, preserving
+  exact-once candidate accounting. Name the parent as a whole. Constituent and
+  parent candidates retain their original boxes and may have different scopes.
+- Do not invent a parent entity without a supported WeDetect parent candidate.
+  If an excluded constituent cannot be assigned to a supported parent, put its
+  candidate in `rejected_detections` with a constituent-policy reason; do not
+  claim that the detection itself was necessarily false.
+- Apply these rules using the actual wearing, seating-component or draped-furnishing relationship.
+  They do not automatically exclude unworn clothing or merge unrelated objects
+  simply because they touch, overlap, or share a supporting surface.

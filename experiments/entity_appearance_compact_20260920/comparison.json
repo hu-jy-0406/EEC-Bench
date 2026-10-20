@@ -1,0 +1,1902 @@
+{
+  "protocol": "entity_appearance_compact_v2",
+  "entities": 71,
+  "calls": 67,
+  "all_appearances_pixel_audit": 474,
+  "original_image_attachments": 940,
+  "new_sheet_attachments": 77,
+  "before": {
+    "input_tokens": 1115217,
+    "cached_input_tokens": 253440,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 56934,
+    "reasoning_output_tokens": 2301,
+    "total_tokens": 1172151,
+    "api_equivalent_usd": 11.717909999999998
+  },
+  "after": {
+    "input_tokens": 684912,
+    "cached_input_tokens": 230144,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 18406,
+    "reasoning_output_tokens": 5800,
+    "total_tokens": 703318,
+    "api_equivalent_usd": 5.698124000000002
+  },
+  "token_reduction": 0.39997662417214164,
+  "cost_reduction": 0.5137252291577592,
+  "equal_scores": 60,
+  "scored_entities": 67,
+  "score_mae": 1.181592039800995,
+  "max_score_delta": 24.999999999999993,
+  "wall_seconds": 373.16404700279236,
+  "rates_source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+  "rate_verified_date": "2026-09-20",
+  "rows": [
+    {
+      "study": "study2",
+      "entity": "ge0001",
+      "name": "Framed landscape painting",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9024997170683826,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见画框层次、宽高比例及棕金色材质一致，画中河道、树群与云层位置吻合；第2号面板左下被人物遮挡，未见可见部分改变。",
+      "limits": "仅有同镜头近似正面观察；顶部边框未完整展示，背面、侧面及细微笔触不可判定，无跨镜头比较证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0002",
+      "name": "Dark green mug",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9598985137921086,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "全部面板中杯体、椭圆杯口及单侧环形把手形态稳定，深绿釉面与亮边一致。后组整体缩小，未见杯身或把手相对比例的明确改变；亮度差异符合表面反光变化。",
+      "limits": "杯底、背面及内壁细节不可辨，无可核对的独特标记；裁图不足以证实叙述中的反向机位，跨镜头仅比较可见表面。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0003",
+      "name": "Desk lamp",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9326649472534461,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见灯罩、弧形支杆及圆盘底座的形状比例一致，黑色金属表面与暖色反光稳定；4仅见局部灯罩和连接件，前景遮挡未构成部件变化证据。",
+      "limits": "仅提供同一镜头，无法检验跨镜头一致性；4的支杆下段与底座不可见，背面及内部细节未知。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0004",
+      "name": "Woman wearing a gray sweater",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 75,
+      "new": 75.0,
+      "delta": 0.0,
+      "dino": 0.7398865153772393,
+      "old_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "new_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "reason": "脸型、棕色松髻与毛衣领口、罗纹袖口总体稳定；低头及转身解释脸部投影差异。裤装从A3的贴身、弧形袋口与横向褶皱，变为A7–A9的宽松高腰打褶款，剪裁与细节有明显漂移。",
+      "limits": "A3–A4头部出框，A4模糊，A5分辨率低；鞋、完整裤腿及背面不可比，细微肤纹无法判断；无第二镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0005",
+      "name": "Wooden desk",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.7992627466190985,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见的矩形厚桌面、内收直腿和宽围板一致，深棕斑驳木质未见明确变化。跨镜头桌边透视方向及反光区域改变，足以解释表观宽窄和明暗差异；人物遮挡不视为结构缺失。",
+      "limits": "桌底及部分桌腿不可见；反向视角下无法可靠定位同一处独特木纹或磨痕，细节维度证据不足。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0006",
+      "name": "Small framed picture on bookshelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9605604924689387,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧深色矩形画框、浅褐天空与中央深色景物轮廓保持一致，框边比例无明显变化。底部持续受前景遮挡，轻微位置变化未显示实体外观改变。",
+      "limits": "仅有同一镜头近似视角；画面模糊，细小笔触、框面纹理及被遮挡底边不可判断，背面与跨镜头一致性无证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0007",
+      "name": "Pen holder",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8999544390851896,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "reason": "各帧可见笔筒均为灰褐色、椭圆开口的筒体，口沿与表面质感未见明确变化。跨镜头可见宽度和遮挡程度不同，前方深色物体遮住下部，不能据此认定筒体变形。",
+      "limits": "底部及完整高度不可见，无法可靠比较固有比例；缺少可辨识的独特纹样。跨镜头仅能核对露出的口沿和上部筒壁。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0008",
+      "name": "Group of books on lower shelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9597386437612234,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "可见书群的排列、书脊高宽关系、棕红与米黄配色及横向饰带保持一致。A4仅露出模糊局部，遮挡与裁切不构成书群外观改变。",
+      "limits": "灯罩后方书籍、封面和细小文字不可辨；全部为同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0009",
+      "name": "Trailing plant by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 91.66666666666667,
+      "new": 87.5,
+      "delta": -4.166666666666671,
+      "dino": 0.9350232007971702,
+      "old_dimensions": [
+        100,
+        100,
+        75,
+        null
+      ],
+      "new_dimensions": [
+        75,
+        100,
+        100,
+        75
+      ],
+      "reason": "各镜头内稳定；跨镜头盆体仍为棕色渐收形，绿叶质感一致。后组冠部更圆密，垂枝分叉与叶簇排列略变；可见盆口和侧面变化支持视角差异，但不能完全解释这些局部差别。",
+      "limits": "细枝连接、背面叶片及盆面细纹分辨不足；跨镜头无法逐叶对应，遮挡区域不参与判断。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0010",
+      "name": "Bookcase",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9964805755471506,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "五帧中书柜立柱、层板、下柜门及旋钮位置一致，比例与深色木质表面稳定；书脊排列等可见细节吻合。视角基本固定，末帧左下局部变暗符合阴影变化，未见实体外观改变。",
+      "limits": "仅有同一镜头；柜顶、背面、内部及台灯和桌面遮挡区域无法比较，无跨镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0011",
+      "name": "Trailing plant on bookshelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8984875332659769,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "可比画面中叶丛轮廓、垂落藤条的分叉与长短关系及深浅绿色分布一致。4号被前景遮挡，仅露出局部叶丛，未见可确认的外观变化。",
+      "limits": "均为同一镜头；模糊限制单叶纹理与细小枝节判断，盆体和遮挡部分无法充分比较，无跨镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0012",
+      "name": "Red book",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.7647197142069833,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧均呈红色硬封面与浅色书页，未见结构、材质或比例矛盾；拿起后倾转使封面展开面积、书页露出量及明暗变化，手部遮挡可解释局部不可见。",
+      "limits": "细小纹理、独特标记及被遮挡的书脊细节无法可靠比较；仅有同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0013",
+      "name": "Wooden chair",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8389129738845685,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "可见椅背均保留圆角宽顶横梁、两根宽竖板及两侧立柱，深棕木质和构件比例一致。跨镜头横梁倾斜、竖板显宽及遮挡关系的变化符合观察角度改变；未见明确外观矛盾。",
+      "limits": "座面、椅腿及背面细节大多不可见；木纹无法逐点跨镜头核对，仅能比较可见椅背，不能据裁剪确认指定反向机位。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0014",
+      "name": "Radiator",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.852731483800034,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各面板可见暖气片均为米白色圆顶竖肋，肋间凹槽、下端连接及漆面一致。前组受桌面遮挡，后组露出更多下部；可见肋宽与间距差异符合斜视投影，未见明确外观突变。",
+      "limits": "两端及部分下部未完整呈现，无法核对总肋数、整体长宽比、阀门和背面；跨镜头只能比较共同可见的肋片表面，不能确认叙述中的反向机位。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0015",
+      "name": "Group of books on top shelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9257070746776955,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可辨书群的直立与倾斜组合、书脊宽窄关系及棕褐色排列稳定；A4可见范围缩窄，但重叠部分对应，未见明确外观变化。",
+      "limits": "仅有同一镜头的低分辨率窄裁剪；书脊文字与细小纹饰不可辨，封面及隐藏部分未知，无跨镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0016",
+      "name": "Plant pot by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 83.33333333333333,
+      "new": 58.333333333333336,
+      "delta": -24.999999999999993,
+      "dino": 0.8636639151524796,
+      "old_dimensions": [
+        100,
+        100,
+        50,
+        null
+      ],
+      "new_dimensions": [
+        75,
+        50,
+        50,
+        null
+      ],
+      "reason": "各镜头内基本稳定；跨镜头花盆由较高窄、深褐色变为较矮宽、浅米褐色，盆壁轮廓也有变化。光照可解释部分明暗，俯视可压缩高度，但不足以解释全部差异；垂叶遮挡限制比较。",
+      "limits": "裁切小且枝叶遮挡，盆口、背面及细小纹理无法可靠对应；缺少全景，不能确认实际反向机位或精确透视幅度。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0017",
+      "name": "Group of pens and pencils",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9004385543811557,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧均可见多支细长笔杆，木色与深色搭配稳定；跨镜头的重叠与露出长度变化未显示明确结构或比例矛盾，但不足以验证逐支身份或所述反向视角。",
+      "limits": "低分辨率及笔筒遮挡限制总数、完整长度与笔尖辨识；跨镜头仅能比较群体轮廓和配色，刻字、笔夹等细节不可核验。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0018",
+      "name": "Small ceramic pot on bookshelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9630428476539097,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "三帧可辨的罐体外轮廓、收口与腹部比例及灰褐色明暗分布一致；未见明确外观变化。",
+      "limits": "裁切小且模糊，仅支持同镜头粗略形状与色调比较；细部纹样、釉面及背面不可辨，无跨镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0019",
+      "name": "Small wooden side table",
+      "shots": [
+        "shot1"
+      ],
+      "old": null,
+      "new": null,
+      "delta": null,
+      "dino": null,
+      "old_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "reason": "",
+      "limits": ""
+    },
+    {
+      "study": "study2",
+      "entity": "ge0020",
+      "name": "Plant on side table",
+      "shots": [
+        "shot1"
+      ],
+      "old": null,
+      "new": null,
+      "delta": null,
+      "dino": null,
+      "old_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "reason": "",
+      "limits": ""
+    },
+    {
+      "study": "study2",
+      "entity": "ge0021",
+      "name": "Group of framed botanical prints",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9949364887576683,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧中两幅画的木框结构、长宽比例、米色底纸及植物枝叶和花簇布局均稳定；斜视形变与明暗也基本相同，未见可辨外观矛盾。",
+      "limits": "右幅画框顶部被裁切，背面、隐蔽边缘及细小笔触无法核验；仅有同一镜头，不能判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0022",
+      "name": "Woman wearing a gray sweater and dark trousers",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8635335268168682,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见脸部轮廓、棕色松髻、毛衣圆领与罗纹袖口、深色裤装一致。俯身、伸臂和转头解释轮廓及褶皱变化；A1、A4有运动模糊，未见明确外观矛盾。",
+      "limits": "仅有shot2，无法判断跨镜头一致性；鞋、完整裤脚及背面不可见，模糊帧的细微五官与织纹无法核验。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0023",
+      "name": "Wooden console table",
+      "shots": [
+        "shot2"
+      ],
+      "old": 93.75,
+      "new": 87.5,
+      "delta": -6.25,
+      "dino": 0.9202346354570646,
+      "old_dimensions": [
+        100,
+        75,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        75,
+        100,
+        75
+      ],
+      "reason": "各帧桌板、围板和方腿的连接及比例稳定，轻微取景偏移可解释投影差异。末帧桌面与近端围板木纹明显变淡、表面更均匀，暖光下仍有轻度材质与纹理细节漂移。",
+      "limits": "腿脚底端、背面及桌底不可见；手和本子遮挡处未知。仅有同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0024",
+      "name": "Red hardcover book",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8916737551996258,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "可比的红色硬封面、米白书芯及封皮外伸边缘保持一致；表观宽厚变化符合书本倾斜和透视，手部遮挡及第1帧模糊限制局部比较，未见明确外观矛盾。",
+      "limits": "仅有同一镜头；封底、完整书脊及细小纹理不可辨，无可可靠核对的独特标记，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0025",
+      "name": "Door strike plate",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9387309608110374,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "三帧可见的细长矩形外缘、上下暗色凹口及其比例一致，均呈暗褐金属质感；未见可确认的外观变化。",
+      "limits": "裁剪像素极少，螺钉、细纹与凹口内部不可辨；仅有同一镜头近似视角，无法验证背面或跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0026",
+      "name": "framed landscape painting",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9337524472246281,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧画框的矩形轮廓、层叠边饰、棕金色泽及画内树木、天空与浅色小径的位置一致；2号右部被人物遮挡，可见部分无明显变化。",
+      "limits": "仅有同一镜头近乎固定视角；背面、遮挡部分及细微笔触不可判断，无跨镜头比较证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0027",
+      "name": "framed picture in hallway",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9846166592417125,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧中外框、内层边框及画面长宽比例稳定，棕色框材与暗色画面一致；内部浅色斑块与深色轮廓位置对应，未见实质外观变化。",
+      "limits": "画面较小且偏暗，细微笔触与框面纹理不可辨；背面不可见，仅能评价同镜头可见正面，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0028",
+      "name": "framed botanical picture",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8328790378192714,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见的棕色矩形木框、浅色衬底及中央植物枝叶图案一致，框边比例与画芯布局无明显变化。末两帧人物遮住部分左侧及下缘，未见可比区域发生实质改变。",
+      "limits": "仅有同一镜头的低分辨率观察，细小笔触、木纹及背面不可辨；遮挡区域未知，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0029",
+      "name": "small framed picture beside doorway",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9526962886443366,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "六帧中可见的窄长矩形框、深棕边框与暗褐画面保持一致，框边和内画比例无明显变化；视角基本固定，未见可确认的外观漂移。",
+      "limits": "裁图像素少且模糊，画中具体图案、细小纹理及背面不可辨；仅有第三镜头，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0030",
+      "name": "wooden console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.917781064247737,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可对应的台面、抽屉横框、圆形拉钮及桌腿形制一致，深棕木色与木纹无明显变化。第2帧人物遮挡中部；轻微取景差异未显示实体比例变化。",
+      "limits": "桌腿底部、背面及内部不可见，细木纹受分辨率限制；仅有shot3，无法评估跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0031",
+      "name": "trailing plant on console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8868387631145038,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见的冠部轮廓、左右垂蔓分布、叶片簇与褐色盆体保持一致，未见实质变化；第2帧右侧被人物遮挡且裁切较窄，可比的左侧垂蔓仍吻合。",
+      "limits": "叶脉、细小斑纹及盆体背面不可辨；第2帧遮挡区域未知。仅有同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0032",
+      "name": "small hallway cabinet",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9665473790375704,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧可见柜体轮廓、突出顶沿、上部横向分隔及下部门框保持一致，深棕木色与宽高比例无明显漂移；视角基本不变。",
+      "limits": "画面较暗且分辨率低，细木纹、五金细节及背面不可辨；仅有同镜头近重复观察，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0033",
+      "name": "plant at left edge",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9376599424032616,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧可见枝叶轮廓、分叉位置、叶簇排列及暗绿色调一致；轻微画面偏移和裁切差异未显示实际形变或细节更换。",
+      "limits": "仅同一镜头的低分辨率局部可比；完整株形、盆器及细小叶纹不可判定，无跨镜头证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0034",
+      "name": "tissue packet",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.975440124606115,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧中包装轮廓、蓝白色块、抽出纸巾的分叉形态与主要折痕均稳定；轻微像素和明暗差异未显示实际外观变化。",
+      "limits": "仅有同一镜头的近似视角；背面、底面及细小印字不可辨，无跨镜头比较证据。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0035",
+      "name": "stack of books",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9411138020520211,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "五帧中整叠书的层叠轮廓、各层错位、相对厚度及棕褐封面与浅色书页保持一致；轻微明暗差异未构成材质或颜色变化。",
+      "limits": "裁图小且模糊，书名字样、封面纹饰及遮挡面无法比较；仅有同一镜头，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study2",
+      "entity": "ge0036",
+      "name": "plant pot on console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.908782066418505,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "五帧可见盆体轮廓、宽高关系及棕褐色表面基本稳定，未见明确外观矛盾；末帧轻微位置差异不足以表明形变。",
+      "limits": "裁图小且偏暗，仅能比较盆体粗略外观；盆口、细纹及枝叶细节不清。全部来自同一镜头，无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0001",
+      "name": "framed landscape painting",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9024997170683826,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见画框层叠边饰、棕金色调及画内树丛、水道和远景布局一致，未见实质变化；第2帧人物遮挡左下局部，其余对应区域仍吻合。",
+      "limits": "仅有同一镜头近似视角；顶部边框、背面及细小笔触不可核验，无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0002",
+      "name": "dark mug",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9578925394058044,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "全部面板中杯身、杯口及弧形把手形态稳定，深色光泽表面一致；跨镜头尺寸与高光变化未显示固有比例或材质改变。未见明确外观离群帧。",
+      "limits": "杯底及背面不可见，细小纹饰分辨率不足，无可对应的独特标记；裁剪证据无法确认叙述中的反向机位。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0003",
+      "name": "desk lamp",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 62.5,
+      "new": 62.5,
+      "delta": 0.0,
+      "dino": 0.8380229542292897,
+      "old_dimensions": [
+        75,
+        25,
+        75,
+        75
+      ],
+      "new_dimensions": [
+        75,
+        25,
+        75,
+        75
+      ],
+      "reason": "各镜头内部基本稳定；跨镜头灯罩、顶部接头及底座由黑色变乳白，非光照可解释。圆底座由扁薄阶梯形变厚圆柱形，厚宽比及立杆底部套环细节改变。弯杆与灯罩左右关系反转可由反向视角解释。",
+      "limits": "A4仅见部分灯头且受遮挡；灯罩内侧、底座底面及背面细节不可核验，无充分证据比较细微纹理。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0004",
+      "name": "woman",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 75,
+      "new": 75.0,
+      "delta": 0.0,
+      "dino": 0.7108683965133802,
+      "old_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "new_dimensions": [
+        75,
+        75,
+        100,
+        50
+      ],
+      "reason": "棕发松髻、面部轮廓及灰褐针织衫总体一致；转头与起身可解释轮廓、衣褶变化。但前段裤装呈贴身牛仔式口袋与接缝，后段变为宽松打褶西裤，腰部结构及面料质感有明显漂移。",
+      "limits": "部分画面截去头部或腿脚，A4模糊、A5较小；鞋履及背面细节缺乏可比证据，未提供走廊段。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0005",
+      "name": "wooden desk",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.7903356348832903,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧均见厚矩形桌面、深木色围板与方腿，结构及比例无明确矛盾。两镜头透视方向与可见桌边改变，桌面明暗和反光随之变化；A4被人物部分遮挡。",
+      "limits": "桌底及部分桌腿不可见；跨镜头无法可靠定位同一木纹或磨损标记，独特细节证据不足。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0006",
+      "name": "small framed picture",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9605605380205138,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六幅中可见的深棕矩形框、框边比例及画内浅色天空与深色景物轮廓一致；轻微位置和亮度差异未显示实体外观改变。",
+      "limits": "均为同一镜头的低清近似视角；下缘部分被遮挡，细小画面纹理、背面与支架不可判断，无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0007",
+      "name": "pen holder",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8919983181316067,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "reason": "各帧可见的椭圆杯口、直筒上壁及棕灰色表面基本稳定；后组杯口投影略窄，明暗略变，未见明确结构或材质冲突。前景遮挡程度不同，不能据露出高度认定杯身变长。",
+      "limits": "底部及大部分杯壁受遮挡，无法可靠跨镜头比较完整高宽比；无清晰可对应的独特纹饰，亦不足以确认叙述中的反向视角。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0008",
+      "name": "group of books on lower shelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9597386904591605,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "可比书群的排列、书脊高宽、棕绿米色分布及横向饰带均稳定；灯罩持续遮挡部分书脊，4号仅局部可见且模糊，未见明确外观变化。",
+      "limits": "仅有同一镜头；遮挡处、封面及书页不可判断，4号细节不足，无跨镜头比较证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0009",
+      "name": "plant by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 87.5,
+      "delta": -12.5,
+      "dino": 0.9393167635464329,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        75,
+        100,
+        100,
+        75
+      ],
+      "reason": "各镜头内稳定；跨镜头均为绿叶垂藤与棕色收口花盆，盆体比例相近。后组顶部枝叶较疏、垂藤分支轮廓有轻微变化；视角偏移可解释部分重叠差异，受光可解释盆色明暗。",
+      "limits": "叶片细纹、盆面细节及背面不可辨；跨镜头不能逐叶确认对应，也无法凭裁切验证叙述中的反向机位。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0010",
+      "name": "bookcase",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9964805643195578,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "五帧中书柜的立柱、层板、下柜门结构及比例一致；深色木质表面、门框线条与圆形把手位置稳定。视角基本相同，灯具遮挡区域一致，未见可比部位发生外观变化。",
+      "limits": "仅有同一镜头近似正面证据；柜顶、背面、侧面及灯具和桌面遮挡部分不可判断，无跨镜头比较依据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0011",
+      "name": "plant on bookshelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.89848745682415,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "可比画面中叶簇轮廓、下垂枝条的分叉与疏密、绿褐色调保持一致。4号仅露出局部，前景遮挡使可见范围缩小，未见可确认的外观变化。",
+      "limits": "画面偏糊，叶脉、细小斑纹及被遮挡的盆体不可判断；全部来自同一镜头，无跨镜头或背面证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0012",
+      "name": "red book",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.7647196339787202,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧均见红色硬封面、浅色书页及封面外伸边缘，未见明确形状或材质变化。拿起后封面转向镜头，解释了轮廓展开和书页可见厚度减小；手部遮挡位置随握持改变。",
+      "limits": "无可辨识文字或独特标记，书脊和被遮挡区域细节不足；仅有第一镜头，不能判断跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0013",
+      "name": "wooden chair",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 83.33333333333333,
+      "new": 100.0,
+      "delta": 16.66666666666667,
+      "dino": 0.8520445551500463,
+      "old_dimensions": [
+        50,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见椅背均保留圆角宽顶横档、两根内竖板及两侧立柱，深棕木质一致。跨镜头横档倾斜及竖板显宽差异符合可见视角变化；人物遮挡未显示部件增减。",
+      "limits": "座面、腿部及连接处大多被桌面遮挡；跨镜头无可可靠对应的独特木纹或伤痕，细节项证据不足，也不能确认实际绕拍角度。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0014",
+      "name": "radiator",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8460981434091235,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见部分均为暖白色竖肋暖气片，圆弧肋顶、重复间隔及细长比例相容。跨镜头显露长度和肋条投影宽度不同，伴随遮挡与观察角度变化，未见明确结构或材质矛盾。",
+      "limits": "首镜头下部及部分肋条被遮挡，后镜头右端出框；总肋数、完整长宽比及阀门无法核对，无清晰独特标记可跨镜头比较。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0015",
+      "name": "group of books on top shelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9257071010302953,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "可见书群的直立与倾斜排列、书脊宽度比例及棕黑色分布一致；4号可见范围较窄，仍能对应其余面板的排列，未见明确外观变化。",
+      "limits": "均为同一镜头的低分辨率局部；书本完整轮廓、封面及书脊文字纹饰不可辨，无跨镜头比较依据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0016",
+      "name": "plant pot by window",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 75,
+      "new": 83.33333333333333,
+      "delta": 8.333333333333329,
+      "dino": 0.8497130444346392,
+      "old_dimensions": [
+        100,
+        75,
+        50,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        75,
+        75,
+        null
+      ],
+      "reason": "各镜头内外观稳定，均可见上宽下窄的盆体。跨镜头盆体由深棕偏细长变为浅褐偏宽短；受光和可见盆口角度能解释部分差异，但宽高关系仍有轻微漂移。",
+      "limits": "裁图小且枝叶遮挡盆面，无法可靠对应叶片、纹路及背面细节；缺少全景，不能确认叙述中的反向机位。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0017",
+      "name": "group of pens and pencils",
+      "shots": [
+        "shot1",
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9080878075798126,
+      "old_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "reason": "各帧均可见多支细杆状文具，棕黄杆与深色杆的组合保持一致。后段露出长度较短、重叠增多，杯沿遮挡与观察角度差异可解释；未见可确认的部件或材质改变。",
+      "limits": "分辨率低且下端被遮，无法逐支确认长度比例、笔尖及标记；跨镜头只能比较群体轮廓与配色，不能验证每支文具身份或实际反向视角。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0018",
+      "name": "small ceramic pot on bookshelf",
+      "shots": [
+        "shot1"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9630427468081072,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "三帧可辨的罐口、鼓腹及收窄底部轮廓一致，棕灰色表面与明暗分布稳定，未见可确认的形状或比例变化。",
+      "limits": "裁剪像素少且模糊，细小纹饰、釉面质感及背面不可辨；仅有同镜头近似视角，无法比较跨镜头外观。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0019",
+      "name": "wooden side table",
+      "shots": [
+        "shot1"
+      ],
+      "old": null,
+      "new": null,
+      "delta": null,
+      "dino": null,
+      "old_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "reason": "",
+      "limits": ""
+    },
+    {
+      "study": "study3",
+      "entity": "ge0020",
+      "name": "plant on side table",
+      "shots": [
+        "shot1"
+      ],
+      "old": null,
+      "new": null,
+      "delta": null,
+      "dino": null,
+      "old_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "new_dimensions": [
+        null,
+        null,
+        null,
+        null
+      ],
+      "reason": "",
+      "limits": ""
+    },
+    {
+      "study": "study3",
+      "entity": "ge0021",
+      "name": "Group of framed botanical prints",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9949365020209023,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六幅中两件画框的轮廓、边框层次、棕木色与米色底纸均稳定；植物枝叶及花序布局对应一致，未见实质变化，斜视投影亦基本不变。",
+      "limits": "仅有同一镜头近乎固定视角；较大画框顶部被裁切，背面、细微木纹及植物精细笔触不可判定，无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0022",
+      "name": "Woman wearing a gray sweater and black trousers",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.863533532552683,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见脸部轮廓、棕色松髻、灰褐针织衫及黑裤一致，领口、袖口与裤腰细节相符。前倾和转身解释躯干投影、衣褶及发髻位置变化；A4转头模糊，未见可靠外观矛盾。",
+      "limits": "仅有同一镜头；无法验证跨镜头一致性。鞋、完整裤脚及背面不可见，模糊帧的面部细节不作确定比较。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0023",
+      "name": "Wooden console table",
+      "shots": [
+        "shot2"
+      ],
+      "old": 93.75,
+      "new": 87.5,
+      "delta": -6.25,
+      "dino": 0.9202346932501597,
+      "old_dimensions": [
+        100,
+        75,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        75,
+        100,
+        75
+      ],
+      "reason": "各帧桌面轮廓、围板与方腿连接及比例一致；末帧桌面和正面围板木纹明显变淡、表面更均匀，视角基本未变，难完全用投影解释。手与书的局部遮挡不构成结构变化。",
+      "limits": "腿脚底端、背面与底面不可见；仅有同一镜头，无法检验跨镜头一致性，细小木纹受清晰度限制。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0024",
+      "name": "Red hardcover book",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8916737660827336,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "可比的红色硬封面、浅色书页及封面外伸边缘保持一致；视角倾斜与手部遮挡解释轮廓差异，亮度变化未显示材质改变。第1帧较模糊，未见明确矛盾。",
+      "limits": "仅有同一镜头；封底、书脊细节及文字标记不可可靠比较，缺乏可辨识的独特标记，无法验证跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0025",
+      "name": "Door strike plate",
+      "shots": [
+        "shot2"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9387312432995221,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "三帧可见的窄长轮廓、上下暗色开口布局及棕灰色表面一致，未见可辨的结构或比例变化；视角基本相同。",
+      "limits": "裁图仅约11×43像素，细小刻痕、螺钉及材质细节无法可靠比较；背面不可见，且无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0026",
+      "name": "Framed landscape painting",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.958721051199639,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧画框层级、长宽比例及棕金色木质外观一致，画内左侧树木、中央水面和右侧树丛布局稳定。3号右下部被人物遮挡，未见可比区域发生实质变化。",
+      "limits": "仅有同一镜头近似正面观察；低清晰度限制细笔触和木纹核验，背面、侧面及跨镜头一致性不可判断。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0027",
+      "name": "Framed picture on left hallway wall",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9760485691630828,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各面板的矩形外框、内层边框、宽高比例及画内主要深浅色块位置一致；轻微清晰度和亮度差异未显示可辨的外观改变。",
+      "limits": "分辨率低，无法核实画内精细笔触、微小纹饰及框体材质；背面不可见，且仅有单镜头证据，无法跨镜头比较。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0028",
+      "name": "Framed botanical picture",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.8684519670776879,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧木框轮廓、米色衬底及中央植物图案的位置、配色和分布一致，未见实质变化；末帧人物遮挡左侧，不构成框体或图案缺失。",
+      "limits": "仅有同一镜头近似视角；分辨率限制细小叶片与木纹比较，背面及遮挡部分不可判断，无跨镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0029",
+      "name": "Small framed picture beside doorway",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9649340964609044,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "各帧可见的竖长框体、深棕边框和暗米褐内画面保持一致，框边比例无明显变化；轻微明暗及边缘差异未显示实体外观改变。",
+      "limits": "裁图尺寸小且模糊，画内具体图案、细纹及背侧不可辨；仅有同一镜头，无法评估跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0030",
+      "name": "Wooden console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9870084147328846,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见的台面轮廓、抽屉分隔、深色圆拉手及桌腿形态一致，棕色木质与边缘色泽稳定。第2帧手臂遮挡局部，裁切偏移未显示实体比例变化。",
+      "limits": "桌背、内部及被前景遮挡的下部不可核验；细木纹较模糊。仅提供同一镜头，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0031",
+      "name": "Trailing plant on console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9035126764155053,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "各帧可见冠丛轮廓、垂藤分布、绿叶与棕色盆体及相对比例一致；第2帧手臂遮挡部分枝叶、裁切较窄，未见对应部位发生实质变化。",
+      "limits": "画面模糊，叶脉、细小斑纹与被遮挡枝叶不可辨；仅有同一镜头近似视角，无法评估背面或跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0032",
+      "name": "Tissue packet",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9669271273475458,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        100
+      ],
+      "reason": "六帧中纸巾包的扁长轮廓、白蓝配色、抽出纸巾的折叠形态及可见边角均稳定；竖杆遮挡位置近似，未见对应表面或部件发生实质变化。",
+      "limits": "仅有同一镜头的近重复视角；背面、底面及遮挡处不可见，细小文字与纹理无法辨认，不能判断跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0033",
+      "name": "Plant pot on console table",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9569584644196317,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        null,
+        null
+      ],
+      "reason": "五帧可辨的盆栽粗轮廓与深绿、棕褐色块基本稳定，未见明确外观变化；局部边缘差异受模糊影响，不能据此判定结构改变。",
+      "limits": "裁剪很小且暗糊，盆口、底部边界和叶片细节不清，无法可靠比较固有比例、材质及独特标记；仅有同镜头证据。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0034",
+      "name": "Stack of books",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9471083818290101,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "五帧中书堆的层叠轮廓、各层相对长厚及棕褐色表面保持一致；局部明暗与边缘清晰度略有波动，未见明确的形态或材质改变。",
+      "limits": "裁图小且模糊，书脊文字、细微纹理及遮挡面不可辨；仅有同一镜头证据，无法判断跨镜头一致性。"
+    },
+    {
+      "study": "study3",
+      "entity": "ge0035",
+      "name": "Small hallway cabinet",
+      "shots": [
+        "shot3"
+      ],
+      "old": 100,
+      "new": 100.0,
+      "delta": 0.0,
+      "dino": 0.9891688253127021,
+      "old_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "new_dimensions": [
+        100,
+        100,
+        100,
+        null
+      ],
+      "reason": "三帧中可辨的柜顶、正面横档与外轮廓一致，深棕木质观感及宽高比例稳定；视角基本相同，未见可确认的外观变化。",
+      "limits": "裁图暗且模糊，细小五金、木纹及内部构造无法可靠比较；背面不可见，仅有同镜头证据，无法评估跨镜头一致性。"
+    }
+  ]
+}

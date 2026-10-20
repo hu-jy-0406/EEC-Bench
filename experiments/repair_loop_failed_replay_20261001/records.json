@@ -1,0 +1,531 @@
+[
+  {
+    "case": "p003_wan21_a01_review",
+    "model": "wan21",
+    "priority": 3,
+    "attempt": 1,
+    "stage": "review",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_003_kTAOppBVgsU_s00001_n6_clean_v2/attempt_01/results/issue_review/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 0,
+    "round0_errors": [],
+    "errors_per_round": [
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [],
+    "seconds": 0.2
+  },
+  {
+    "case": "p015_holocine_a01_match",
+    "model": "holocine",
+    "priority": 15,
+    "attempt": 1,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_015_4cSZVMEi710_s00000_n4_clean_v2/attempt_01/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 20: singleton needs one member (groups[20] is labeled singleton but has 2 members ['Shot3/e3', 'Shot4/e2']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 43759,
+        "cached_input_tokens": 0,
+        "output_tokens": 1845,
+        "reasoning_output_tokens": 26
+      }
+    ],
+    "seconds": 17.2
+  },
+  {
+    "case": "p025_cinetrans_a01_discovery",
+    "model": "cinetrans",
+    "priority": 25,
+    "attempt": 1,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/cinetrans/priority_025_l-A-q-uzBJ4_s00003_n4_clean_v2/attempt_01/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl-01: witness is outside scope_shot_ids (v_l_inconsistencies issue vl-01: witness shots ['Shot4'] are not in scope_shot_ids ['Shot3'])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 79569,
+        "cached_input_tokens": 0,
+        "output_tokens": 340,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 8.2
+  },
+  {
+    "case": "p042_wan22_a01_match",
+    "model": "wan22",
+    "priority": 42,
+    "attempt": 1,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_042_ChxbeG5Rq28_s00009_n4_clean_v2/attempt_01/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 6: singleton needs one member (groups[6] is labeled singleton but has 2 members ['Shot3/e3', 'Shot4/e2']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 30804,
+        "cached_input_tokens": 0,
+        "output_tokens": 936,
+        "reasoning_output_tokens": 22
+      }
+    ],
+    "seconds": 10.6
+  },
+  {
+    "case": "p053_holocine_a01_discovery",
+    "model": "holocine",
+    "priority": 53,
+    "attempt": 1,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_053_etQCyk0Hkgs_s00018_n4_clean_v2/attempt_01/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl_001: witness is outside scope_shot_ids (v_l_inconsistencies issue vl_001: witness shots ['Shot2'] are not in scope_shot_ids ['Shot1'])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 82623,
+        "cached_input_tokens": 0,
+        "output_tokens": 244,
+        "reasoning_output_tokens": 36
+      }
+    ],
+    "seconds": 8.2
+  },
+  {
+    "case": "p056_wan22_a01_discovery",
+    "model": "wan22",
+    "priority": 56,
+    "attempt": 1,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_056_eF5sUGQ-lMo_s00028_n4_clean_v2/attempt_01/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl1: witness is outside scope_shot_ids (v_l_inconsistencies issue vl1: witness shots ['Shot1'] are not in scope_shot_ids ['Shot2', 'Shot3'])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 149033,
+        "cached_input_tokens": 0,
+        "output_tokens": 383,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 8.6
+  },
+  {
+    "case": "p057_storymem_a01_match",
+    "model": "storymem",
+    "priority": 57,
+    "attempt": 1,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_057_q86dRIci1Uo_s00073_n6_clean_v2/attempt_01/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 20: singleton needs one member (groups[20] is labeled singleton but has 2 members ['Shot3/e9', 'Shot5/e6']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 55474,
+        "cached_input_tokens": 0,
+        "output_tokens": 1983,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 17.1
+  },
+  {
+    "case": "p067_wan22_a01_discovery",
+    "model": "wan22",
+    "priority": 67,
+    "attempt": 1,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_067_kaZ87rTNkDA_s00001_n8_clean_v3_alt8/attempt_01/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl_1: witness is outside scope_shot_ids (v_l_inconsistencies issue vl_1: witness shots ['Shot1'] are not in scope_shot_ids ['Shot4'])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 217796,
+        "cached_input_tokens": 0,
+        "output_tokens": 221,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 6.7
+  },
+  {
+    "case": "p067_wan22_a02_discovery",
+    "model": "wan22",
+    "priority": 67,
+    "attempt": 2,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_067_kaZ87rTNkDA_s00001_n8_clean_v3_alt8/attempt_02/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl-1: witness is outside scope_shot_ids (v_l_inconsistencies issue vl-1: witness shots ['Shot1'] are not in scope_shot_ids ['Shot4'])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 220454,
+        "cached_input_tokens": 0,
+        "output_tokens": 710,
+        "reasoning_output_tokens": 29
+      }
+    ],
+    "seconds": 8.3
+  },
+  {
+    "case": "p072_holocine_a01_match",
+    "model": "holocine",
+    "priority": 72,
+    "attempt": 1,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_072_nx6a6NeQE5I_s00004_n6_clean_v2/attempt_01/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 10: confirmed needs at least two members (groups[10] has ['Shot6/e3'])",
+      "group 11: confirmed needs at least two members (groups[11] has ['Shot6/e4'])",
+      "group 12: confirmed needs at least two members (groups[12] has ['Shot6/e5'])",
+      "duplicate local entity Shot6/e5 in groups 2 and 12",
+      "group 13: confirmed needs at least two members (groups[13] has ['Shot6/e6'])",
+      "group 14: confirmed needs at least two members (groups[14] has ['Shot6/e7'])",
+      "group 15: confirmed needs at least two members (groups[15] has ['Shot6/e8'])",
+      "group 16: confirmed needs at least two members (groups[16] has ['Shot6/e9'])",
+      "group 27: singleton needs one member (groups[27] is labeled singleton but has 2 members ['Shot4/e4', 'Shot5/e3']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      9,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 53221,
+        "cached_input_tokens": 0,
+        "output_tokens": 1811,
+        "reasoning_output_tokens": 61
+      }
+    ],
+    "seconds": 15.2
+  },
+  {
+    "case": "p073_storymem_a01_discovery",
+    "model": "storymem",
+    "priority": 73,
+    "attempt": 1,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_01/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl_01: unknown global entity ID (v_l_inconsistencies issue vl_01: ['Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6', 'Character 7'] are not global_entity_id values in detector_ledger)",
+      "vl_01: witness has unknown global entity ID (v_l_inconsistencies issue vl_01, key_evidence[0]: ['Character 2', 'Character 3', 'Character 4', 'Character 5'])",
+      "vl_01: witness has unknown global entity ID (v_l_inconsistencies issue vl_01, key_evidence[1]: ['Character 2', 'Character 3', 'Character 4', 'Character 5'])"
+    ],
+    "errors_per_round": [
+      3,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 121966,
+        "cached_input_tokens": 0,
+        "output_tokens": 372,
+        "reasoning_output_tokens": 71
+      }
+    ],
+    "seconds": 7.4
+  },
+  {
+    "case": "p073_storymem_a02_discovery",
+    "model": "storymem",
+    "priority": 73,
+    "attempt": 2,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_02/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl-01: unknown global entity ID (v_l_inconsistencies issue vl-01: ['Character 2', 'Character 3', 'Character 4', 'Character 5'] are not global_entity_id values in detector_ledger)",
+      "vl-01: witness has unknown global entity ID (v_l_inconsistencies issue vl-01, key_evidence[0]: ['Character 2', 'Character 3', 'Character 4', 'Character 5'])",
+      "vl-01: witness has unknown global entity ID (v_l_inconsistencies issue vl-01, key_evidence[1]: ['Character 2', 'Character 3', 'Character 4', 'Character 5'])"
+    ],
+    "errors_per_round": [
+      3,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 122281,
+        "cached_input_tokens": 0,
+        "output_tokens": 314,
+        "reasoning_output_tokens": 24
+      }
+    ],
+    "seconds": 6.0
+  },
+  {
+    "case": "p073_holocine_a03_match",
+    "model": "holocine",
+    "priority": 73,
+    "attempt": 3,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_03/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 24: singleton needs one member (groups[24] is labeled singleton but has 2 members ['Shot1/e21', 'Shot3/e12']; use confirmed/unresolved for multiple members or split into singletons)",
+      "group 33: singleton needs one member (groups[33] is labeled singleton but has 2 members ['Shot2/e17', 'Shot4/e10']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      2,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 46533,
+        "cached_input_tokens": 0,
+        "output_tokens": 2188,
+        "reasoning_output_tokens": 47
+      }
+    ],
+    "seconds": 15.3
+  },
+  {
+    "case": "p073_holocine_a04_discovery",
+    "model": "holocine",
+    "priority": 73,
+    "attempt": 4,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_04/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl_1: unknown global entity ID (v_l_inconsistencies issue vl_1: ['Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6', 'Character 7'] are not global_entity_id values in detector_ledger)",
+      "vl_1: witness has unknown global entity ID (v_l_inconsistencies issue vl_1, key_evidence[0]: ['Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6', 'Character 7'])"
+    ],
+    "errors_per_round": [
+      2,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 113233,
+        "cached_input_tokens": 0,
+        "output_tokens": 249,
+        "reasoning_output_tokens": 36
+      }
+    ],
+    "seconds": 5.7
+  },
+  {
+    "case": "p073_holocine_a05_discovery",
+    "model": "holocine",
+    "priority": 73,
+    "attempt": 5,
+    "stage": "discovery",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/holocine/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_05/results/issue_discovery/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vl_01: unknown global entity ID (v_l_inconsistencies issue vl_01: ['Character 2', 'Character 3', 'Character 4', 'Character 5', 'Character 6', 'Character 7'] are not global_entity_id values in detector_ledger)",
+      "vl_01: witness has unknown global entity ID (v_l_inconsistencies issue vl_01, key_evidence[0]: ['Character 2', 'Character 3', 'Character 4', 'Character 7'])"
+    ],
+    "errors_per_round": [
+      2,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 111929,
+        "cached_input_tokens": 0,
+        "output_tokens": 219,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 5.1
+  },
+  {
+    "case": "p073_storymem_a06_match",
+    "model": "storymem",
+    "priority": 73,
+    "attempt": 6,
+    "stage": "match",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_073_JWUrJ-zH7fw_s00001_n4_clean_v2/attempt_06/work/case/global_match/attempts/attempt_00",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "group 11: confirmed needs at least two members (groups[11] has ['Shot3/e31'])",
+      "group 29: unknown local entity Shot2/e6",
+      "group 50: singleton needs one member (groups[50] is labeled singleton but has 2 members ['Shot3/e26', 'Shot3/e27']; use confirmed/unresolved for multiple members or split into singletons)"
+    ],
+    "errors_per_round": [
+      3,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 52782,
+        "cached_input_tokens": 0,
+        "output_tokens": 2792,
+        "reasoning_output_tokens": 249
+      }
+    ],
+    "seconds": 17.9
+  },
+  {
+    "case": "p101_wan22_a01_binding",
+    "model": "wan22",
+    "priority": 101,
+    "attempt": 1,
+    "stage": "binding",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02_b/wan22/priority_101_KFuxHDKp2oc_s00008_n4_clean_v2/attempt_01/work/case/shot_prompt_recovery/calls/Shot3_binding",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "Unsupported/duplicate binding (bindings[0] entity e1: witness frames [5] have no detected box for this entity; frames with boxes are [0, 1, 2, 3, 4])"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 9091,
+        "cached_input_tokens": 0,
+        "output_tokens": 499,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 6.7
+  },
+  {
+    "case": "p102_cinetrans_a01_review",
+    "model": "cinetrans",
+    "priority": 102,
+    "attempt": 1,
+    "stage": "review",
+    "source_call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02_b/cinetrans/priority_102_9ugYT3Xc59s_s00089_n4_clean_v2/attempt_01/results/issue_review/call",
+    "stage_model": "gpt-6-luna",
+    "stage_reasoning": "low",
+    "status": "resolved",
+    "repair_rounds": 1,
+    "round0_errors": [
+      "vvw1: within-shot review cites another shot (issue scope Shot3; evidence cites ['Shot1']; a within-shot review may only cite frames of its own shot)"
+    ],
+    "errors_per_round": [
+      1,
+      0
+    ],
+    "continuation_failures": 0,
+    "new_usage": [
+      {
+        "input_tokens": 35919,
+        "cached_input_tokens": 0,
+        "output_tokens": 852,
+        "reasoning_output_tokens": 0
+      }
+    ],
+    "seconds": 7.1
+  }
+]

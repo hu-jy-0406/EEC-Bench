@@ -1,0 +1,248 @@
+{
+  "shot_id": "shot3",
+  "camera_assessment": "六帧中门框、窗框、墙上画框和桌角的位置与透视保持一致，未见可辨认的相机平移、旋转或变焦。视觉支持固定相机，与输入各帧相同的相机参数无明显冲突。3D为单目先验估计，非实测；多个静止物体的预测深度和尺寸波动不能作为物理运动证据。",
+  "entities": [
+    {
+      "entity_id": "shot3/e1",
+      "status": "static",
+      "visual_evidence": "0、24帧画框固定；48帧被人物局部遮挡，72、96、120帧露出后边角及倾角与起始一致。",
+      "image_box_evidence": "六帧框均为[260,5,366,91]，支持位置稳定。",
+      "geometry_evidence": "预测中心y约6.48至7.63，伴随尺寸波动；画框视觉未移动，应视为估计噪声。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "局部遮挡及未采样时段无法直接核实。"
+    },
+    {
+      "entity_id": "shot3/e2",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧杯底位置、杯口轮廓及朝左的杯柄均保持一致，无接触或转动。",
+      "image_box_evidence": "六帧框均为[260,331,318,388]。",
+      "geometry_evidence": "预测中心y约1.89至1.97，旋转和尺寸略变，无对应视觉运动。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "未采样时段及杯体遮住的部分不可核实。"
+    },
+    {
+      "entity_id": "shot3/e3",
+      "status": "static",
+      "visual_evidence": "0至120帧走廊较大画框的四边及其相对门框位置一致，24、48帧人物经过未造成画框变化。",
+      "image_box_evidence": "六帧框均为[54,21,90,73]。",
+      "geometry_evidence": "预测中心y约9.68至9.98，尺寸和朝向轻微波动，未获图像支持。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "远处细节有限，未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e4",
+      "status": "static",
+      "visual_evidence": "0、24、48、72帧窗旁画框位置和倾角一致；96、120帧被人物局部遮挡，但露出的边框仍对齐原位置。",
+      "image_box_evidence": "六帧框均为[589,5,640,96]；固定框不能反映局部遮挡。",
+      "geometry_evidence": "预测中心y约5.36至5.68，尺寸略变，没有画框移动的视觉依据。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "后两帧遮挡部分及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e5",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧走廊窄画框均位于同一墙面位置，未见边缘位移或倾斜变化。",
+      "image_box_evidence": "六帧框均为[103,24,122,73]。",
+      "geometry_evidence": "预测中心y约9.49至9.74；24帧尺寸变化没有对应的可见形变。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "画框较小，细微变化和未采样时段无法排除。"
+    },
+    {
+      "entity_id": "shot3/e6",
+      "status": "static",
+      "visual_evidence": "0、24、48、72帧椅背横梁及立条保持原位；96、120帧人物挡住左侧，露出的右上角、右侧支柱与桌边位置仍一致，未见拉椅或转椅。",
+      "image_box_evidence": "框由[539,209,682,342]缩至96帧[610,224,682,342]、120帧[608,221,682,342]，主要是人物遮挡，右边界和下边界不变。",
+      "geometry_evidence": "72至96帧预测中心y由2.97跳至4.11，尺寸及旋转同时突变；与稳定的可见椅背冲突，符合遮挡导致的估计失真。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "椅座、椅腿和后期被人物遮住的部分不可直接判断；未采样时段仍有不确定性。"
+    },
+    {
+      "entity_id": "shot3/e7",
+      "status": "static",
+      "visual_evidence": "0、24、48帧桌角、桌腿及木纹对齐；72帧人物扶桌，96、120帧继续接触桌边，桌体未见位移或形变。",
+      "image_box_evidence": "框仅在72帧起上边界由214变为213，其余边界不变；视觉不支持运动。",
+      "geometry_evidence": "预测中心y约2.71至2.84，朝向近似稳定；深度和尺寸波动未对应桌角移动。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "桌体画外及遮挡部分、未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e8",
+      "status": "static",
+      "visual_evidence": "0、24帧玄关桌固定；48帧人物遮住中部，72、96、120帧重新露出后桌沿、抽屉及右腿仍在原位置。",
+      "image_box_evidence": "通常为[268,144,417,233]，48帧变为[280,147,417,233]，与遮挡相符。",
+      "geometry_evidence": "预测中心y约5.78至6.85，48帧尺寸明显改变；可见固定边缘支持估计受遮挡影响。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "48帧遮挡区域及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e9",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧白色笔筒均在绿杯后方同一位置，筒口及可见右边缘保持一致。",
+      "image_box_evidence": "六帧框均为[287,310,325,362]。",
+      "geometry_evidence": "预测中心y约2.03至2.14，尺寸小幅变化，未见对应平移或形变。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "杯子遮住的筒体部分及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e10",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧窗台植株顶部叶簇及向下垂落的枝条形状、位置保持一致，未见可辨认摆动。",
+      "image_box_evidence": "六帧框均为[738,156,827,314]。",
+      "geometry_evidence": "预测中心y约4.48至4.62，高度约0.58至0.65；图像未支持枝叶整体缩放或移动。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "细小叶片、内部遮挡及采样间可能的短暂摆动不可核实。"
+    },
+    {
+      "entity_id": "shot3/e11",
+      "status": "static",
+      "visual_evidence": "0、24帧叶簇和下垂长枝位置一致；48帧右侧被人物遮挡，72、96、120帧恢复可见后枝叶轮廓与起始一致。",
+      "image_box_evidence": "通常为[252,112,336,224]，48帧右边界缩至309，反映遮挡。",
+      "geometry_evidence": "48帧预测宽度缩小，中心y在6.22至6.44间波动，未见实际枝叶位移。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "被遮挡枝叶及未采样时段的细微摆动无法核实。"
+    },
+    {
+      "entity_id": "shot3/e12",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧走廊柜子的台面、前面板和底部均相对门框保持原位。",
+      "image_box_evidence": "六帧框均为[59,149,103,210]。",
+      "geometry_evidence": "预测中心y约9.98至10.19，尺寸波动未伴随可见柜体变化。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "远处暗部细节及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e13",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧最左侧露出的叶片、枝条和盆体局部保持相同轮廓，未见摆动。",
+      "image_box_evidence": "六帧框均为[0,132,27,198]，始终被画面左边缘裁切。",
+      "geometry_evidence": "预测中心y约5.28至5.38，尺寸和朝向小幅波动，无视觉运动支持。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "只能判断画内部分；画外部分及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e14",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧纸巾包底部位置、包装折角及突出纸巾的尖角和折痕一致，未见抽取或飘动。",
+      "image_box_evidence": "六帧框均为[351,274,410,316]。",
+      "geometry_evidence": "预测中心y约2.53至2.65，尺寸略变，未获纸巾轮廓变化支持。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "纸巾背面及未采样时段的短暂变化不可核实。"
+    },
+    {
+      "entity_id": "shot3/e15",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧桌下地毯左侧边线、可见花纹与桌腿及地板接缝的位置一致，未见滑动或卷起。",
+      "image_box_evidence": "六帧框均为[25,355,846,480]。",
+      "geometry_evidence": "预测中心y约3.10至3.21，尺寸和朝向略变，视觉花纹未相应移动。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "桌下遮挡和画外区域、未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e16",
+      "status": "static",
+      "visual_evidence": "0、24帧书堆位置和堆叠形状一致；48帧被人物完全遮挡，72、96、120帧重新可见时书脊及顶层书的位置未变。",
+      "image_box_evidence": "五个可见帧均为[334,138,379,158]；48帧无可见框。",
+      "geometry_evidence": "48帧无几何；其余预测中心y约6.16至6.95，未获书堆视觉位移支持。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "48帧完全遮挡期间及未采样时段的行为无法直接核实。"
+    },
+    {
+      "entity_id": "shot3/e17",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧窗台花盆的盆沿、盆身和底部相对窗台均保持原位。",
+      "image_box_evidence": "六帧框均为[768,192,812,232]。",
+      "geometry_evidence": "预测中心y约4.49至4.65，朝向略变，盆体视觉轮廓无对应旋转。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "枝叶遮住的部分及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e18",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧暖气片竖管、顶部边线及底部相对窗框和地板保持一致。",
+      "image_box_evidence": "六帧框均为[713,241,852,409]。",
+      "geometry_evidence": "预测中心y约4.12至4.22，尺寸略变，未见结构平移、转动或形变。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "右侧画外及枝叶遮挡部分、未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e19",
+      "status": "static",
+      "visual_evidence": "0、24、48、72、96、120帧笔尖高度、各笔倾斜方向和扇状排列一致，未见单支笔转动或取放。",
+      "image_box_evidence": "六帧框均为[285,293,324,320]。",
+      "geometry_evidence": "预测中心y约2.40至2.55，尺寸变化未对应笔尖排列变化，不能推断形变。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "笔筒内不可见部分、细小运动及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e20",
+      "status": "static",
+      "visual_evidence": "0帧走廊地毯边缘和花纹固定；24帧人物局部遮住右侧，48、72、96、120帧露出的边缘和花纹仍与地板接缝对齐。",
+      "image_box_evidence": "六帧框均为[63,207,130,271]，未反映24帧局部遮挡。",
+      "geometry_evidence": "24帧预测长度由约3.96变为2.57，48帧恢复约3.98；图像未见折叠或收缩，应视为遮挡下估计变化。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "人物及门框遮挡区域、未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e21",
+      "status": "static",
+      "visual_evidence": "0、24帧盆体固定；48帧人物遮住右半部，72、96、120帧重新露出后盆沿和盆底仍位于原处。",
+      "image_box_evidence": "通常为[285,135,316,159]，48帧右边界缩至300，符合遮挡。",
+      "geometry_evidence": "48帧预测宽度约减半，中心y由24帧6.96变为6.08；没有对应物理移动，遮挡使几何估计不稳定。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [0,24,48,72,96,120],
+      "motion_intervals": [],
+      "uncertainty": "48帧遮挡部分及未采样时段不可核实。"
+    },
+    {
+      "entity_id": "shot3/e22",
+      "status": "moving",
+      "visual_evidence": "24帧人物在左侧门口，48帧走到画面中部，72帧到达桌旁并伸手扶桌，96帧身体继续向右靠近椅子；120帧相对96帧双手位置及手腕、手臂姿态继续调整。固定背景下存在明确平移和关节运动。",
+      "image_box_evidence": "可见框从24帧[106,12,199,238]移至48帧[295,11,398,227]、72帧[415,5,554,287]及96帧[447,0,639,321]；120帧为[462,0,631,319]，结合肢体变化支持运动。",
+      "geometry_evidence": "24至96帧预测中心x由-1.98增至0.52、y由7.55降至4.40，与向右并靠近相机的视觉趋势一致；120帧姿态和中心仍变化。具体距离及旋转角不可视为实测。",
+      "reviewed_frame_ids": [0,24,48,72,96,120],
+      "observed_frame_ids": [24,48,72,96,120],
+      "motion_intervals": [[24,48],[48,72],[72,96],[96,120]],
+      "uncertainty": "0帧不可见，不能仅凭出现确定此前运动；桌后下肢及采样间的完整动作轨迹不可核实。"
+    }
+  ]
+}

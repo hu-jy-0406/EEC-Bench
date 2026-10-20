@@ -1,0 +1,70 @@
+{
+  "status": "complete",
+  "default": "minimal",
+  "rollback": "--identity-review-input full",
+  "tests_passed": 52,
+  "frozen_routing_passed": 6,
+  "fresh_calls_passed": 2,
+  "confirmed_links_equal": true,
+  "anchors_equal": true,
+  "partitions_equal": false,
+  "partition_differences": {
+    "minimal": [
+      {
+        "identity": "unmatched",
+        "a": [],
+        "b": [
+          "shot3/e11"
+        ]
+      },
+      {
+        "identity": "unmatched",
+        "a": [
+          "shot1/e20"
+        ],
+        "b": []
+      }
+    ],
+    "full": [
+      {
+        "identity": "ambiguous",
+        "a": [
+          "shot1/e20"
+        ],
+        "b": [
+          "shot3/e11"
+        ]
+      }
+    ]
+  },
+  "validation_tokens": 168407,
+  "validation_standard_api_equivalent_usd": 2.03439,
+  "full_pipeline_rerun": false,
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/gs-runtime-profiles.v1.json": "9f8bd5446f18efd4864b4344b92f024af7e37465cacec1f1eb3f13ebcfe80732",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_minimal_v1.txt": "452b00fa48846673b97a71c3192f2acfa316b17589648ecbd00f5f0ef6382973",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_review_v1.txt": "6de09a054e26e424c3fdcb92031ea90913cc47f02896840fc9de31a5a05cb42d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/gs_aligned_identity_scoring_v1.txt": "eefb10614e1e37a4597c100c8e5d7fb0ece28db45cd33970b99c3ab6e1b17050",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_identity_review_minimal_input.py": "173c6987585bdbf20043611566a1a6ff0da8e5455f75609c64faae6a3501b49d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_runtime_profile.py": "eb419b801602b66f58dc5bc1840be8c7eaae66b426f8d486fe8e0adf302ba34e",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/review_aligned_entity_identities.py": "17ca8645a94a1929f46ed3fed52c2f4bf33eb851018e2719ac05595463328332",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py": "0c6256fc5f567528de5e54b23e196cfbd802fbd43e80e09b1752e6735835231b",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py": "a7d3a2b3518df2e362d26c362fe108d372a339306285f7e4e41c8fae9d834dc4",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal.py": "abe695e7e00a20575d3567ebdc2ab52b5bde8495429bbb2ade2f894175ddef94",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/tests/test_gs_identity_review_switch.py": "219f0ed262041adbee55a996581e4f284bd478f45748545c32434a3b10429f02",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/docs/identity-review-minimal-input-v1.md": "05c26cc6782a1e2130e3ff7cfddfb1f66685d6cb898f530cd82af3a424377352"
+  },
+  "before_hashes": {
+    "before/configs/gs-runtime-profiles.v1.json": "e4e58d2974a99a310913adc18a5345bce6aa210f86689b84be5756a1f3b02a75",
+    "before/prompts/gs_aligned_identity_minimal_v1.txt": "452b00fa48846673b97a71c3192f2acfa316b17589648ecbd00f5f0ef6382973",
+    "before/prompts/gs_aligned_identity_review_v1.txt": "6de09a054e26e424c3fdcb92031ea90913cc47f02896840fc9de31a5a05cb42d",
+    "before/prompts/gs_aligned_identity_scoring_v1.txt": "eefb10614e1e37a4597c100c8e5d7fb0ece28db45cd33970b99c3ab6e1b17050",
+    "before/scripts/gs_identity_review_minimal_input.py": "3f7422dd14d3d0cdf94f3acc7572d435b52a820f5e9161fad8f41b4e228ecb13",
+    "before/scripts/gs_runtime_profile.py": "3e027e40fb4e2c617166fb3ee96b4caff51130c0ddb3e2d676a76dc1902dd0bd",
+    "before/scripts/review_aligned_entity_identities.py": "1c5559df1c20df7104baa03af9a814654b3114ef656274ae28512430a5b35824",
+    "before/scripts/run_gs_flow1_stage.py": "5556a001ed85531fc31d08ed46bf63a7b3b1d7df1b18d0ee8223722d044a20fd",
+    "before/scripts/run_gs_integrated.py": "333735d178ef15a55cf592ffcb8dd69da71e8234793e66635b33aa56c9483efa",
+    "before/scripts/run_gs_temporal.py": "2a8bf7d1559a5506e4d12ca9dd7dd78c1a7bd52f4d0f10638f9bc994be4ff990"
+  },
+  "active_task_processes": false
+}

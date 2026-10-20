@@ -1,0 +1,709 @@
+[
+  {
+    "case": "study0",
+    "static_counts": {
+      "shot1": 16,
+      "shot3": 18
+    },
+    "presence": {
+      "score": 100.0,
+      "coverage": 0.8888888888888888,
+      "N": 18,
+      "C": 16,
+      "K": 0,
+      "U": 2,
+      "E": 0,
+      "identification_interval": [
+        88.88888888888889,
+        100.0
+      ]
+    },
+    "spatial": {
+      "score": 100.0,
+      "coverage": 0.0,
+      "N": 120,
+      "C": 0,
+      "K": 0,
+      "U": 120,
+      "E": 0,
+      "identification_interval": [
+        0.0,
+        100.0
+      ]
+    },
+    "presence_conflicts": [],
+    "spatial_conflicts": [],
+    "negative_proposals": 0,
+    "cross_reviewed": 0,
+    "tokens": {
+      "input_tokens": 467753,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 22540,
+      "reasoning_output_tokens": 261,
+      "total_tokens": 490293
+    },
+    "runtime": {
+      "successful_stage_seconds_sum": 1083.2441499233246,
+      "parallel_aware_active_seconds": 779.1529285907745,
+      "case_wall_span_seconds": 1124.4210410118103,
+      "definition": "successful new stages only; wall span includes scheduling/development gaps; stage sum double-counts overlapping stages; reused stages excluded",
+      "stages": [
+        {
+          "stage": "shot1_geometry.py",
+          "started": 1789583191.5676441,
+          "seconds": 73.41999435424805,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot1_boxer.py",
+          "started": 1789583264.9921649,
+          "seconds": 18.43320870399475,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583283.428686,
+          "seconds": 3.2794277667999268,
+          "success": false,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583414.7592397,
+          "seconds": 50.44440507888794,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_boxer.py",
+          "started": 1789583465.2068653,
+          "seconds": 5.019859075546265,
+          "success": false,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_boxer.py",
+          "started": 1789583607.6571863,
+          "seconds": 21.198914289474487,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "RoMaV2_all_36_frame_pairs",
+          "started": 1789583454.8133302,
+          "seconds": 146.13826251029968,
+          "success": true,
+          "kind": "gpu_keypoints"
+        },
+        {
+          "stage": "matching",
+          "started": 1789583812.615693,
+          "seconds": 87.29296708106995,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot1",
+          "started": 1789583419.350687,
+          "seconds": 143.31979870796204,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot3",
+          "started": 1789583664.2403023,
+          "seconds": 147.6044545173645,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_1",
+          "started": 1789583900.4009607,
+          "seconds": 191.97293663024902,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_2",
+          "started": 1789583900.406851,
+          "seconds": 150.381108045578,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "lift",
+          "started": 1789584092.413597,
+          "seconds": 8.246554136276245,
+          "success": true,
+          "kind": "cpu_geometry"
+        },
+        {
+          "stage": "registration",
+          "started": 1789584100.6634061,
+          "seconds": 44.79154586791992,
+          "success": true,
+          "kind": "cpu_geometry"
+        }
+      ],
+      "archived_attempts": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study012_two_scores_20260916/study0/attempt02_gpu_runtime.json",
+          "record": {
+            "started": 1789583065.801061,
+            "seconds": 43.858771324157715,
+            "stages": [
+              {
+                "shot": "shot1",
+                "script": "geometry.py",
+                "started": 1789583065.8010824,
+                "seconds": 43.85872411727905,
+                "returncode": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "audit": {
+      "frame_sha256_unchanged": true,
+      "all_6_frames_each_shot": true,
+      "isolated_motion_and_relation_calls": true,
+      "all_unordered_pairs_once": true,
+      "negative_only_cross_review": true,
+      "prompt_review_required_for_every_conflict": true
+    },
+    "reuse": {
+      "stages": [
+        "WeDetect-Anything detection",
+        "isolated Codex clustering",
+        "own-shot GeoCalib gravity"
+      ],
+      "new_tokens": 0,
+      "new_model_inference_seconds": 0,
+      "sources": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/entities/manifest.json",
+          "sha256": "7641eba40304ba92e7a53aa6b9274fdb037ebaa89cd4dc73b1b190e12625cdb2"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/entities/shots/shot1/entities.json",
+          "sha256": "8e9156a9fc45ac6253bcf0f9d0e7f2d3840727ff6c7bd56529a509bb5701e9e9"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/geometry/calibration/shot1.json",
+          "sha256": "441f10dc373d4c0106ad5a06d9079eca6790b610dfc020a327249ebd0f0b5fa1"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/entities/manifest.json",
+          "sha256": "7641eba40304ba92e7a53aa6b9274fdb037ebaa89cd4dc73b1b190e12625cdb2"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/entities/shots/shot3/entities.json",
+          "sha256": "94a21ed2735c7303901c668b4596520cbe22c8cb1ed74285aedd44409cc5f13f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study0/geometry/calibration/shot3.json",
+          "sha256": "66ccf619673fe99ab468e5076d96c187ae80ab1b8aa4c7f86b19b82c9deb0e84"
+        }
+      ]
+    },
+    "spatial_scoring_rule": "spatial_confirmed_conflict_only_no_conflict_100"
+  },
+  {
+    "case": "study1",
+    "static_counts": {
+      "shot1": 18,
+      "shot3": 17
+    },
+    "presence": {
+      "score": 94.44444444444444,
+      "coverage": 0.9444444444444444,
+      "N": 18,
+      "C": 16,
+      "K": 1,
+      "U": 1,
+      "E": 0,
+      "identification_interval": [
+        88.88888888888889,
+        94.44444444444444
+      ]
+    },
+    "spatial": {
+      "score": 100.0,
+      "coverage": 0.0,
+      "N": 120,
+      "C": 0,
+      "K": 0,
+      "U": 120,
+      "E": 0,
+      "identification_interval": [
+        0.0,
+        100.0
+      ]
+    },
+    "presence_conflicts": [
+      {
+        "group_id": "g02",
+        "entity": "Black desk lamp",
+        "kind": "unexplained_missing",
+        "reasons": [
+          "近似同机位下，通过书桌、杯子及墙面对应台灯位置；两侧各两帧直接像素证明有灯与空位。该区域未被人物遮挡，也未出画，排除漏检。正常剧情仅解释红本离场，不能解释台灯消失。",
+          "两镜头视角近似，利用书桌后沿、杯子及后墙映射台灯位置，已在每侧至少两帧核对。shot3对应区域处于视野内且无遮挡，像素确为空，不是清单漏检；FULL清单也没有台灯移动的证据。符合未解释的物理缺失。"
+        ]
+      }
+    ],
+    "spatial_conflicts": [],
+    "negative_proposals": 0,
+    "cross_reviewed": 0,
+    "tokens": {
+      "input_tokens": 479949,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 23877,
+      "reasoning_output_tokens": 276,
+      "total_tokens": 503826
+    },
+    "runtime": {
+      "successful_stage_seconds_sum": 1139.8036692142487,
+      "parallel_aware_active_seconds": 829.7025127410889,
+      "case_wall_span_seconds": 1124.6108260154724,
+      "definition": "successful new stages only; wall span includes scheduling/development gaps; stage sum double-counts overlapping stages; reused stages excluded",
+      "stages": [
+        {
+          "stage": "shot1_geometry.py",
+          "started": 1789583192.606023,
+          "seconds": 69.0055513381958,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot1_boxer.py",
+          "started": 1789583261.6162062,
+          "seconds": 22.28772521018982,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583283.907692,
+          "seconds": 3.044010639190674,
+          "success": false,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583415.9512503,
+          "seconds": 52.406023263931274,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_boxer.py",
+          "started": 1789583468.36136,
+          "seconds": 3.8043549060821533,
+          "success": false,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_boxer.py",
+          "started": 1789583608.8395865,
+          "seconds": 21.787879705429077,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "RoMaV2_all_36_frame_pairs",
+          "started": 1789583610.0921178,
+          "seconds": 141.51158118247986,
+          "success": true,
+          "kind": "gpu_keypoints"
+        },
+        {
+          "stage": "matching",
+          "started": 1789583805.535567,
+          "seconds": 86.59317326545715,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot1",
+          "started": 1789583452.8306506,
+          "seconds": 149.3097083568573,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot3",
+          "started": 1789583665.7594924,
+          "seconds": 139.2992012500763,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_1",
+          "started": 1789583892.5422978,
+          "seconds": 188.19502115249634,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_2",
+          "started": 1789583892.5423405,
+          "seconds": 202.68975687026978,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "lift",
+          "started": 1789584095.2820954,
+          "seconds": 12.4335355758667,
+          "success": true,
+          "kind": "cpu_geometry"
+        },
+        {
+          "stage": "registration",
+          "started": 1789584107.7183797,
+          "seconds": 54.28451204299927,
+          "success": true,
+          "kind": "cpu_geometry"
+        }
+      ],
+      "archived_attempts": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study012_two_scores_20260916/study1/attempt01_matching_gpu_runtime.json",
+          "record": {
+            "started": 1789583456.2224534,
+            "seconds": 10.351158857345581,
+            "returncode": 1
+          }
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study012_two_scores_20260916/study1/attempt02_gpu_runtime.json",
+          "record": {
+            "started": 1789583067.069442,
+            "seconds": 41.57251191139221,
+            "stages": [
+              {
+                "shot": "shot1",
+                "script": "geometry.py",
+                "started": 1789583067.0694652,
+                "seconds": 41.57247018814087,
+                "returncode": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "audit": {
+      "frame_sha256_unchanged": true,
+      "all_6_frames_each_shot": true,
+      "isolated_motion_and_relation_calls": true,
+      "all_unordered_pairs_once": true,
+      "negative_only_cross_review": true,
+      "prompt_review_required_for_every_conflict": true
+    },
+    "reuse": {
+      "stages": [
+        "WeDetect-Anything detection",
+        "isolated Codex clustering",
+        "own-shot GeoCalib gravity"
+      ],
+      "new_tokens": 0,
+      "new_model_inference_seconds": 0,
+      "sources": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/entities/manifest.json",
+          "sha256": "d118e4fc0a3e5454d99ed22a2fb5d8f8bbdf01b8f3140d4f55fab05d036c132f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/entities/shots/shot1/entities.json",
+          "sha256": "f29776ee97c2554cc0be5df7691d1a75dd34cd24bfd79ad1970d31902c2b4fe4"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/geometry/calibration/shot1.json",
+          "sha256": "b4fef125cdcedd9cac9f7ec3ab5bb3b8fc512f5725a3cb8afe18102f440ad1b6"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/entities/manifest.json",
+          "sha256": "d118e4fc0a3e5454d99ed22a2fb5d8f8bbdf01b8f3140d4f55fab05d036c132f"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/entities/shots/shot3/entities.json",
+          "sha256": "d95b5de260909047b5313119611beb0b7af74f5bdac8318bfda6f2c4e5754829"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_gs_v12_20260915/study1/geometry/calibration/shot3.json",
+          "sha256": "58a48249fa1df9f1491279b4dcbd31d1e80d09bc8707f5376e09bc65c0d9aedf"
+        }
+      ]
+    },
+    "spatial_scoring_rule": "spatial_confirmed_conflict_only_no_conflict_100"
+  },
+  {
+    "case": "study2",
+    "static_counts": {
+      "shot1": 17,
+      "shot3": 21
+    },
+    "presence": {
+      "score": 88.23529411764706,
+      "coverage": 0.7647058823529411,
+      "N": 17,
+      "C": 11,
+      "K": 2,
+      "U": 4,
+      "E": 8,
+      "identification_interval": [
+        64.70588235294117,
+        88.23529411764706
+      ]
+    },
+    "spatial": {
+      "score": 98.18181818181819,
+      "coverage": 0.01818181818181818,
+      "N": 55,
+      "C": 0,
+      "K": 1,
+      "U": 54,
+      "E": 0,
+      "identification_interval": [
+        0.0,
+        98.18181818181819
+      ]
+    },
+    "presence_conflicts": [
+      {
+        "group_id": "g03",
+        "entity": "Black desk lamp",
+        "kind": "unexplained_missing",
+        "reasons": [
+          "以桌子两端、窗边椅子和杯筒组合对应方向，shot1右侧远端灯位映至shot3左侧远端桌面。两侧各两帧支持灯具存在与对应空区；不是清单漏检，也没有足以隐藏整灯的遮挡。剧情仅移动红本，故台灯无解释消失。",
+          "依据桌面四角、窗边椅子与书柜侧建立桌端对应；两侧各两帧证明台灯原先存在、随后对应区域空缺。不是仅凭漏检，且指定移动仅涉及红本，构成无法解释的缺失。"
+        ]
+      },
+      {
+        "group_id": "g22",
+        "entity": "Tissue packet with protruding tissue",
+        "kind": "unexplained_added",
+        "reasons": [
+          "用同一桌面、杯筒组合及桌边方向对应，纸巾包位于杯筒向桌内侧的开放区域；shot1两帧该区域无物，shot3两帧实物清楚。桌面没有遮住纸巾包的前景物，原图排除单纯漏检。未命名道具仍受p07连续性约束，判无解释新增。",
+          "利用桌面边界、杯筒组合与桌端方向对应中央支撑区域；两侧各两帧可见，排除人物遮挡和单纯漏检。纸巾包的新增不符合唯一获准的红本移动。"
+        ]
+      }
+    ],
+    "spatial_conflicts": [
+      {
+        "relation_id": "pair_g02_g06",
+        "entities": [
+          "Dark green mug",
+          "Light ceramic pencil cup / White pencil cup"
+        ],
+        "cosine": -0.5437587207146374,
+        "reason": "身份、共同桌面及桌中心—固定暖气片的参考对应得到原图支持。采用统一的杯中心减笔筒中心，独立局部观察在shot1支持u负号，在shot3支持u正号；v均为负，竖直次序均未知，不据此声称完全反转或交换位置。容器本体比例、口沿、可见底缘、重力方向和桌面透视共同支持水平中心次序，合理的隐藏底部或杯柄中心偏差不足以反转该u序。相同物理摆放在相机旋转且锚点与up一起变换时应保持局部符号，因此单纯反向视点不能解释两镜头。全局配准确实较差：桌面训练及留出中位误差约139和114像素，均无5像素内点；故负余弦及122.94度夹角本身不作证明。此处排除几何误差作为关系变化的解释，依据的是独立局部物理证据，而非认可全局变换。冲突仅证明至少一个端点的摆放不一致。",
+        "prompt_motion_review": {
+          "prompt_fact_references": [
+            "p01",
+            "p02",
+            "p03",
+            "p04",
+            "p05",
+            "p06",
+            "p07",
+            "p08",
+            "p09",
+            "p10",
+            "p11"
+          ],
+          "specified_motion": "shot1女子只拿红笔记本起身离开，椅子留在原处；中间shot2她在走廊放下笔记本并空手返回，无人进入或重新布置书房；shot3相机移至反向视点，女子空手回到原椅旁。",
+          "affected_entities": [
+            "女子",
+            "红色笔记本",
+            "相机"
+          ],
+          "causal_explanation_of_observed_relation_change": "指定搬运对象只有笔记本，走廊放书不会改变绿杯与笔筒在桌面上的相对中心。p07明确排除中间重新布置书房；返回动作也未涉及这两个容器。p08、p09的相机反向只能改变投影，不能改变由同一桌子、暖气片及物理向上定义的局部u符号，因此这些动作不解释本候选的关系变化。",
+          "verdict": "does_not_explain_change"
+        }
+      }
+    ],
+    "negative_proposals": 31,
+    "cross_reviewed": 1,
+    "tokens": {
+      "input_tokens": 788417,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 33068,
+      "reasoning_output_tokens": 714,
+      "total_tokens": 821485
+    },
+    "runtime": {
+      "successful_stage_seconds_sum": 1374.532763004303,
+      "parallel_aware_active_seconds": 899.5006246566772,
+      "case_wall_span_seconds": 1245.3755717277527,
+      "definition": "successful new stages only; wall span includes scheduling/development gaps; stage sum double-counts overlapping stages; reused stages excluded",
+      "stages": [
+        {
+          "stage": "shot1_geometry.py",
+          "started": 1789583193.8307953,
+          "seconds": 70.8033401966095,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot1_boxer.py",
+          "started": 1789583264.6380978,
+          "seconds": 20.034385204315186,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583284.6755111,
+          "seconds": 2.2115554809570312,
+          "success": false,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_geometry.py",
+          "started": 1789583417.1984668,
+          "seconds": 56.55238151550293,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "shot3_boxer.py",
+          "started": 1789583473.7541997,
+          "seconds": 16.540765523910522,
+          "success": true,
+          "kind": "gpu_geometry_or_boxer"
+        },
+        {
+          "stage": "RoMaV2_all_36_frame_pairs",
+          "started": 1789583611.4063482,
+          "seconds": 142.1638059616089,
+          "success": true,
+          "kind": "gpu_keypoints"
+        },
+        {
+          "stage": "matching",
+          "started": 1789583806.2836113,
+          "seconds": 114.08744764328003,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot1",
+          "started": 1789583454.0087528,
+          "seconds": 146.7322874069214,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "motion_shot3",
+          "started": 1789583613.0697284,
+          "seconds": 156.88795566558838,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "observe_shot1",
+          "started": 1789584214.3707266,
+          "seconds": 73.98445177078247,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "observe_shot3",
+          "started": 1789584214.3730767,
+          "seconds": 74.83911061286926,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_1",
+          "started": 1789583920.7877586,
+          "seconds": 224.26759147644043,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "presence_2",
+          "started": 1789583920.7886002,
+          "seconds": 226.7593288421631,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "verify_relations",
+          "started": 1789584289.2835386,
+          "seconds": 45.72074866294861,
+          "success": true,
+          "kind": "codex_cli"
+        },
+        {
+          "stage": "lift",
+          "started": 1789584147.5968575,
+          "seconds": 2.349445104598999,
+          "success": true,
+          "kind": "cpu_geometry"
+        },
+        {
+          "stage": "registration",
+          "started": 1789584149.9488888,
+          "seconds": 2.8097174167633057,
+          "success": true,
+          "kind": "cpu_geometry"
+        }
+      ],
+      "archived_attempts": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study012_two_scores_20260916/study2/attempt02_gpu_runtime.json",
+          "record": {
+            "started": 1789583068.2929392,
+            "seconds": 38.353814363479614,
+            "stages": [
+              {
+                "shot": "shot1",
+                "script": "geometry.py",
+                "started": 1789583068.293583,
+                "seconds": 38.3531494140625,
+                "returncode": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "audit": {
+      "frame_sha256_unchanged": true,
+      "all_6_frames_each_shot": true,
+      "isolated_motion_and_relation_calls": true,
+      "all_unordered_pairs_once": true,
+      "negative_only_cross_review": true,
+      "prompt_review_required_for_every_conflict": true
+    },
+    "reuse": {
+      "stages": [
+        "WeDetect-Anything detection",
+        "isolated Codex clustering",
+        "own-shot GeoCalib gravity"
+      ],
+      "new_tokens": 0,
+      "new_model_inference_seconds": 0,
+      "sources": [
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/shot_scene_boxes_goal_20260916/inputs/shot1.json",
+          "sha256": "4fa59e8acb69f36f22451ab1307932d033c25fe6545740a95af5c1856aaa0351"
+        },
+        {
+          "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/shot_scene_boxes_goal_20260916/inputs/shot3.json",
+          "sha256": "1426c900f6a92c5d2a5b55896f1bc7b3936d612ab0d989df056b4a874141ea7c"
+        }
+      ]
+    },
+    "spatial_scoring_rule": "spatial_confirmed_conflict_only_no_conflict_100"
+  }
+]

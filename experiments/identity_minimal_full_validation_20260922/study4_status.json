@@ -1,0 +1,8 @@
+{
+  "study": "study4",
+  "started": 1790086069.9338126,
+  "status": "failed",
+  "error": "RuntimeError('Failed stages: prompt_binding')",
+  "traceback": "Traceback (most recent call last):\n  File \"EECBench/experiments/identity_minimal_full_validation_20260922/replay.py\", line 107, in run\n    pipeline.execute(case,jobs,env,os.environ['SLURM_JOB_ID'],'full')\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal.py\", line 237, in execute\n    if failed:raise RuntimeError('Failed stages: '+','.join(failed))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Failed stages: prompt_binding\n",
+  "seconds": 759.7562291622162
+}

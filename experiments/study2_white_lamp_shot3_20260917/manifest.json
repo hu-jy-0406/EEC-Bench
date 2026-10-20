@@ -1,0 +1,31 @@
+{
+  "case_id": "study2_white_lamp_shot3_20260917",
+  "status": "prompts_and_source_frames_ready_image_edit_blocked",
+  "duration_seconds": 5,
+  "baseline": "study012_two_scores_20260916/study2, source study_inconsistent_3",
+  "sources": [
+    {
+      "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot1/frame_000000.jpg",
+      "copy": "reference_shot1_black_lamp.jpg",
+      "sha256": "b5f9baba70a1703836478c076e0b55022ea82167a6ec20a6ad279e19d9301977"
+    },
+    {
+      "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000000.jpg",
+      "copy": "source_shot3_first.jpg",
+      "sha256": "a5fca6660107247ef8833ed1db81bafcdea774190f8f860228f21e37b96206ea"
+    },
+    {
+      "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/wedetect_shot_entities_20260912/frames/shot3/frame_000120.jpg",
+      "copy": "source_shot3_last.jpg",
+      "sha256": "2966c3a750ab2981163a0a7c00423deaad9552200e5b73d15c20e43e12de569a"
+    }
+  ],
+  "requested_change": "Restore original lamp in original physical location, white instead of black; preserve other Shot3 content.",
+  "retained_baseline_anomalies": [
+    "tissue packet addition",
+    "mug/holder relation change"
+  ],
+  "evaluation_policy": "Hide generation prompt and expected anomaly from evaluators; rerun matching without forcing lamp correspondence.",
+  "video_generated": false,
+  "evaluation_run": false
+}

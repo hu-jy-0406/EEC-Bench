@@ -1,0 +1,33 @@
+group_id,identity,shot1_ids,shot1_names,shot1_motion,shot3_ids,shot3_names,shot3_motion,identity_evidence,anchor
+g01_a,unmatched,shot1/e1,Framed landscape painting,static,,,,书柜所在端墙上的横幅风景画；与反向镜头门洞旁的风景画处于不同端墙。相似画面不足以证明同一画框。,False
+g01_b,unmatched,,,,shot3/e1,Framed landscape painting,static,门洞旁、宽边桌上方的横幅风景画，与shot1书柜端墙的画分开。,False
+g02,matched,shot1/e2,Dark green mug,static,shot3/e2,Dark green mug,static,深绿釉面、圆柱杯身、弧形把手与相邻浅色笔筒的组合支持同一杯；位置变化留待空间评估。,False
+g03,matched,shot1/e3,Black desk lamp,static,shot3/e4,White desk lamp,static,同一主桌上的圆底座、细弯金属杆、钟形灯罩及顶部接头支持延续同一台灯；黑白变化和位置变化单独记录，不据此拆分。,False
+g04,matched,shot1/e4,Woman wearing a gray sweater and dark trousers,moving,shot3/e21,Woman wearing gray sweater and dark trousers,moving,面部、松髻、灰褐毛衣和深裤一致；携本离开、空手返回与p01、p02、p10吻合。,False
+g05,matched,shot1/e5,Large wooden desk,static,shot3/e7,Large wooden table,static,厚桌沿、宽围板、方腿、磨损木面及窗边椅子的共同结构支持同一主桌。,True
+g06,unmatched,shot1/e6,Small framed picture on bookshelf,static,,,,书架上的小相框，没有同范围对应库存项。,False
+g07,matched,shot1/e7,Pencil cup,static,shot3/e10,Pencil cup,static,浅色无柄圆筒及棕黑书写工具，与深绿杯的相邻组合支持同一笔筒。,False
+g08,unmatched,shot1/e8,Row of books on lower shelf,static,,,,书柜下层竖排书，不能对应宽边桌上的横放书堆。,False
+g09,matched,shot1/e9,Trailing plant by window,static,shot3/e12,Trailing plant by window,static,同一窗台、渐收盆和暖气片前的垂藤组合，支持同一植物。,False
+g10,unmatched,shot1/e10,Dark bookcase,static,,,,shot3左边缘可见相容的深色柜体，但冻结库存没有可配对书柜。,False
+g11,unmatched,shot1/e11,Trailing plant on bookshelf,static,,,,书架层板植物；与窗台及两端边桌植物的支撑位置不同。,False
+g12,matched,shot1/e12,Patterned rug,static,shot3/e16,Area rug beneath table,static,主桌下连续的红褐米色花纹地毯；shot3小检测框只覆盖露出角，不代表小块独立地毯。,False
+g13,unmatched,shot1/e13,Red hardcover book,moving,,,,红硬壳本被携走，shot3空手返回；p06、p11说明留在走廊。,False
+g14,matched,shot1/e14,Wooden chair,static,shot3/e6,Wooden chair,static,宽弧顶横梁、竖条靠背、窗下位置及人物返回路径支持同一椅子。,False
+g15,matched,shot1/e15,Radiator beneath window,static,shot3/e15,Radiator,static,同一窗台下多柱暖气片，与窗帘、垂藤和椅子的结构关系一致。,True
+g16,unmatched,shot1/e16,Books on top shelf,static,,,,书柜顶层竖排书，没有对应库存项。,False
+g17,matched,shot1/e17,Plant pot by window,static,shot3/e14,Plant pot on windowsill,static,同一窗台垂藤下的褐色渐收盆；盆体与植物分别保留。,False
+g18,unmatched,shot1/e18,Small pot on bookshelf,static,,,,书架相框旁的小浅色盆，与边桌上较大植物盆无实例对应证据。,False
+g19,scope_mismatch,shot1/e19,Black pen in pencil cup,static,shot3/e17,Writing instruments in pencil cup,static,shot1冻结项是一支黑笔，shot3是多支书写工具集合；不能建立一对一实体匹配。,False
+g20_a,unmatched,shot1/e20,Small wooden side table,static,,,,窗帘旁窄小单抽屉台，位于书柜端；不同于反向画面门洞旁较宽的多抽屉边桌。,False
+g20_b,unmatched,,,,shot3/e9,Wooden console table,static,门洞旁宽边桌，抽屉横向布局与shot1窄台不同，位于另一端墙。,False
+g21_a,unmatched,shot1/e21,Plant on side table,static,,,,窄台上的小叶簇和细垂藤；独立检查后与另一端宽桌上的较大圆叶长藤植物区分。,False
+g21_b,unmatched,,,,shot3/e11,Trailing plant on console table,static,宽边桌上大叶簇、长垂藤植物；没有搬运或独特枝叶对应证据将其等同于shot1窄台植物。,False
+g22,unmatched,,,,shot3/e3,Larger framed hallway picture,static,门洞内较大走廊画。,False
+g23,unmatched,,,,shot3/e5,Framed botanical picture,static,窗旁竖幅植物画，与横幅风景画不同。,False
+g24,unmatched,,,,shot3/e8,Smaller framed hallway picture,static,门洞内独立的小竖幅画。,False
+g25,unmatched,,,,shot3/e13,Tissue packet,static,主桌上蓝白纸巾包，shot1可见桌面无此物。,False
+g26,unmatched,,,,shot3/e18,Plant pot on console table,static,另一端宽边桌植物的独立盆体，不对应书架小盆或shot1植物整体。,False
+g27,unmatched,,,,shot3/e19,Stack of books,static,宽边桌上的横放书堆；没有与书架书组或红本相同的实例证据。,False
+g28,unmatched,,,,shot3/e20,Hallway rug,static,门洞内走廊地毯，与主桌地毯之间有木地板分隔。,False
+g29,unmatched,,,,shot3/e22,Small hallway cabinet,static,走廊深处矮抽屉柜，与书房两端细腿边桌不同。,False

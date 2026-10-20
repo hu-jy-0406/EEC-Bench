@@ -1,0 +1,5477 @@
+{
+  "status": "complete",
+  "pid": 1549254,
+  "started": 1790067087.728396,
+  "allocation": "196093",
+  "jobs": [
+    {
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 1
+    },
+    {
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 2
+    },
+    {
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 3
+    },
+    {
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 1
+    },
+    {
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 2
+    },
+    {
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 3
+    },
+    {
+      "study": "study3",
+      "variant": "lean_centers",
+      "repeat": 2
+    },
+    {
+      "study": "study3",
+      "variant": "lean_centers",
+      "repeat": 3
+    }
+  ],
+  "results": [
+    {
+      "status": "success",
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 1,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_payload.json": "90d59cf9134e349b38d78c1a7ecca0bdc7bafaeddf627e82191736b1a06fa6be",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_images.json": "0dd1a7336ab60ce59953b7fae48258c5a4f77d90c3625c606c155835db7c5cc7",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching.json": "d0c63620b65e78a706a6f54890304c94391d378de1d925081018564517412b4a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching_initial.json": "3343c605817aaf55b2c37ea582436adbca5ec49fdd456bdaf944a86daf552dd0",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/registration/roma_geometry/registration.json": "93c9c18b03c758c2c55312fcd7aceba60076a4a73de7c13444a553ab9ccddf40"
+      },
+      "image_count": 12,
+      "wire_characters": 58900,
+      "input_characters": 80306,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 167.0665156841278,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g01",
+          "action": "split",
+          "result_group_ids": [
+            "g01_a",
+            "g01_b"
+          ],
+          "visual_identity_evidence": "Similar landscapes hang on opposite end walls: shot1 beside the bookcase, shot3 beside the hallway console; the 5.57-unit separation supports this topology. Relocation of the whole arrangement is unsupported by the frames and conflicts with p07–p09; repeated artwork alone cannot establish identity."
+        },
+        {
+          "initial_group_id": "g11",
+          "action": "uncertain",
+          "result_group_ids": [
+            "g11"
+          ],
+          "visual_identity_evidence": "Shot3's cropped leaves beside the bookcase do not reveal the shelf level, pot or trailing form needed to identify shot1's shelf plant; 4.79-unit separation raises doubt but cannot resolve identity with this crop and inaccurate fit."
+        },
+        {
+          "initial_group_id": "g19",
+          "action": "split",
+          "result_group_ids": [
+            "g19_a",
+            "g19_b"
+          ],
+          "visual_identity_evidence": "The narrow corner table and wider doorway-wall console have different wall/window relationships and top arrangements; 4.36-unit separation corroborates distinct locations. Perspective affects width but cannot explain the opposite-wall topology, and p07 supplies no relocation event."
+        },
+        {
+          "initial_group_id": "g20",
+          "action": "split",
+          "result_group_ids": [
+            "g20_a",
+            "g20_b"
+          ],
+          "visual_identity_evidence": "Independently reconsidered after rejecting the tables: the compact fine-stemmed corner plant and broad dense cascading console plant occupy opposite-wall arrangements. Foliage drift alone is insufficient, but their distinct placement and no transfer evidence under p07 support different instances over relocation or depth error."
+        }
+      ],
+      "call_seconds": 166.53570008277893,
+      "usage": [
+        {
+          "input_tokens": 41079,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5099,
+          "reasoning_output_tokens": 176
+        }
+      ],
+      "total_tokens": 46178,
+      "standard_api_equivalent_usd": 0.66574
+    },
+    {
+      "status": "success",
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 3,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_payload.json": "90d59cf9134e349b38d78c1a7ecca0bdc7bafaeddf627e82191736b1a06fa6be",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_images.json": "0dd1a7336ab60ce59953b7fae48258c5a4f77d90c3625c606c155835db7c5cc7",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching.json": "d0c63620b65e78a706a6f54890304c94391d378de1d925081018564517412b4a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching_initial.json": "3343c605817aaf55b2c37ea582436adbca5ec49fdd456bdaf944a86daf552dd0",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/registration/roma_geometry/registration.json": "93c9c18b03c758c2c55312fcd7aceba60076a4a73de7c13444a553ab9ccddf40"
+      },
+      "image_count": 12,
+      "wire_characters": 58900,
+      "input_characters": 80306,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 181.02916860580444,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g01",
+          "action": "split",
+          "result_group_ids": [
+            "g01_a",
+            "g01_b"
+          ],
+          "visual_identity_evidence": "Similar gold-framed landscapes occupy opposite end walls: A beside the bookcase, B beside the hallway doorway; their tree/water compositions also differ. The 5.57-unit separation corroborates this topology, rather than proving it; relocation conflicts with p02/p07 and lacks visual support."
+        },
+        {
+          "initial_group_id": "g11",
+          "action": "uncertain",
+          "result_group_ids": [
+            "g11"
+          ],
+          "visual_identity_evidence": "B exposes only foliage beside a cropped dark cabinet; shelf height, pot and trailing structure cannot be verified against A. The 4.79-unit separation raises doubt but neither distinguishes another plant nor proves relocation."
+        },
+        {
+          "initial_group_id": "g19",
+          "action": "split",
+          "result_group_ids": [
+            "g19_a",
+            "g19_b"
+          ],
+          "visual_identity_evidence": "A's compact table has a short front and narrow footprint; B shows a broad console with a long drawer front beside the hallway. Opposite-wall context and differing construction support separate furniture, beyond the 4.36-unit separation; p07 provides no relocation explanation."
+        },
+        {
+          "initial_group_id": "g20",
+          "action": "split",
+          "result_group_ids": [
+            "g20_a",
+            "g20_b"
+          ],
+          "visual_identity_evidence": "Independently of the rejected tables, A's visible crown is small and sparse while B has a broad dense crown and multiple long hanging strands; opposite-wall supports corroborate separate plants. Occlusion affects height estimates, but does not explain the crown structure; relocation plus growth/change lacks support under p07."
+        }
+      ],
+      "call_seconds": 180.47296619415283,
+      "usage": [
+        {
+          "input_tokens": 41079,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5479,
+          "reasoning_output_tokens": 94
+        }
+      ],
+      "total_tokens": 46558,
+      "standard_api_equivalent_usd": 0.68474
+    },
+    {
+      "status": "success",
+      "study": "study2",
+      "variant": "lean_centers",
+      "repeat": 2,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_payload.json": "90d59cf9134e349b38d78c1a7ecca0bdc7bafaeddf627e82191736b1a06fa6be",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/identity_review_images.json": "0dd1a7336ab60ce59953b7fae48258c5a4f77d90c3625c606c155835db7c5cc7",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching.json": "d0c63620b65e78a706a6f54890304c94391d378de1d925081018564517412b4a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/matching_initial.json": "3343c605817aaf55b2c37ea582436adbca5ec49fdd456bdaf944a86daf552dd0",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2/pairs/pair_000/registration/roma_geometry/registration.json": "93c9c18b03c758c2c55312fcd7aceba60076a4a73de7c13444a553ab9ccddf40"
+      },
+      "image_count": 12,
+      "wire_characters": 58900,
+      "input_characters": 80306,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 186.8018479347229,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e12"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e14"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e15"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e19"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e4"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [
+                "shot3/e13"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e18"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e20"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e9"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e17"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e18"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e20"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e9"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e10"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e17"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g01",
+          "action": "split",
+          "result_group_ids": [
+            "g01_a",
+            "g01_b"
+          ],
+          "visual_identity_evidence": "The first landscape is on the end wall beside the bookcase, whereas the reverse view places its landscape beside the entrance, at the opposite end of the window wall. Similar landscape imagery cannot override this structural distinction. The 5.57-unit separation supports the check, not the decision; p02/p07 provide no painting relocation, and p08/p09 explain the reversed view. Reject g01 as an anchor."
+        },
+        {
+          "initial_group_id": "g11",
+          "action": "uncertain",
+          "result_group_ids": [
+            "g11"
+          ],
+          "visual_identity_evidence": "Reverse-view edge foliage lacks a complete pot, trailing pattern and verified shelf level. Its 4.79-unit offset and lower apparent placement challenge identity, but cropping and fit error prevent distinguishing a separate plant from relocation or the same shelf plant; p07 alone cannot resolve this."
+        },
+        {
+          "initial_group_id": "g19",
+          "action": "split",
+          "result_group_ids": [
+            "g19_a",
+            "g19_b"
+          ],
+          "visual_identity_evidence": "The narrow table stands beyond the curtain toward the bookcase-side end; the reverse-view broad console stands by the entrance on the opposite end wall. The 4.36-unit separation is consistent with those locations; partial first-shot geometry alone is insufficient, but the room layout and p02/p07 favor separate tables over relocation."
+        },
+        {
+          "initial_group_id": "g20",
+          "action": "split",
+          "result_group_ids": [
+            "g20_a",
+            "g20_b"
+          ],
+          "visual_identity_evidence": "Independently of the rejected support match, the first plant has a small sparse crown and finer short visible trails; the entrance-console plant has a broad dense crown and heavy long cascade. Occlusion limits height comparison, but opposite-wall placement, these visible differences and p02/p07 support distinct plants rather than an undocumented transfer; 4.35-unit separation is corroborative only."
+        }
+      ],
+      "call_seconds": 186.23716354370117,
+      "usage": [
+        {
+          "input_tokens": 41107,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5641,
+          "reasoning_output_tokens": 114
+        }
+      ],
+      "total_tokens": 46748,
+      "standard_api_equivalent_usd": 0.624
+    },
+    {
+      "status": "success",
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 1,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_payload.json": "f76a197cd343eb8783e04142f94babd670d456716739ab0f8c04d064b4925647",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_images.json": "23f8bbc82e6085bb102cda0f4da47f9aea3ac47ae98b5f78efcb1f2bb9938240",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching.json": "e60ec5ae1f65dd611984fe340b352ca20af75f6ffda44a22ec46af2fd81dfb1a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching_initial.json": "5b1754ed124b5e3d0b7c880a6e58b542b329e4a06ab9022c0715c514271dcb63",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/registration/roma_geometry/registration.json": "183ba57aaf029b92eeee19036501953811f96290d15f6df2d8fb40ca538b5111"
+      },
+      "image_count": 12,
+      "wire_characters": 47235,
+      "input_characters": 61828,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 146.69598960876465,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g09",
+          "action": "split",
+          "result_group_ids": [
+            "g09_a",
+            "g09_b"
+          ],
+          "visual_identity_evidence": "Doorway context places the similar tapered pots at opposite ends: television-side in shot1 and sofa-side in shot3. This independently supports the 6.37-unit separation; no distinctive pot marking or observed transfer supports relocation, and the prompt preserves non-cup locations."
+        },
+        {
+          "initial_group_id": "g13",
+          "action": "split",
+          "result_group_ids": [
+            "g13_a",
+            "g13_b"
+          ],
+          "visual_identity_evidence": "Independent foliage review places the flower clusters outside opposite doorway ends; generic leaves and flowers supply no individual identifier. The 7.28-unit separation agrees with that context, while neither visible handling nor the prompt supports transferring this plant."
+        },
+        {
+          "initial_group_id": "g17",
+          "action": "split",
+          "result_group_ids": [
+            "g17_a",
+            "g17_b"
+          ],
+          "visual_identity_evidence": "Shot1's panel borders the television wall, whereas shot3's panel borders the sofa-and-lamp wall: opposite jambs under the reversed view. Repeated fabric does not identify one panel; the 4.27-unit separation corroborates context, and fixed hanging panels plus the unchanged-room prompt favor different instances over relocation or depth error."
+        }
+      ],
+      "call_seconds": 146.44592428207397,
+      "usage": [
+        {
+          "input_tokens": 35028,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4281,
+          "reasoning_output_tokens": 326
+        }
+      ],
+      "total_tokens": 39309,
+      "standard_api_equivalent_usd": 0.49521
+    },
+    {
+      "status": "success",
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 2,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_payload.json": "f76a197cd343eb8783e04142f94babd670d456716739ab0f8c04d064b4925647",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_images.json": "23f8bbc82e6085bb102cda0f4da47f9aea3ac47ae98b5f78efcb1f2bb9938240",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching.json": "e60ec5ae1f65dd611984fe340b352ca20af75f6ffda44a22ec46af2fd81dfb1a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching_initial.json": "5b1754ed124b5e3d0b7c880a6e58b542b329e4a06ab9022c0715c514271dcb63",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/registration/roma_geometry/registration.json": "183ba57aaf029b92eeee19036501953811f96290d15f6df2d8fb40ca538b5111"
+      },
+      "image_count": 12,
+      "wire_characters": 47235,
+      "input_characters": 61828,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 143.20711469650269,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g09",
+          "action": "split",
+          "result_group_ids": [
+            "g09_a",
+            "g09_b"
+          ],
+          "visual_identity_evidence": "Door-jamb context places the pots at opposite ends of the opening: television-side in shot1 and sofa-side in shot3. The 6.37-unit separation prompts this check but does not decide it; generic tapered pots provide no distinctive relocation evidence, and the prompt preserves all non-cup locations."
+        },
+        {
+          "initial_group_id": "g13",
+          "action": "split",
+          "result_group_ids": [
+            "g13_a",
+            "g13_b"
+          ],
+          "visual_identity_evidence": "Independent inspection places each flowering crown above a different jamb-side pot; similar sparse foliage and flowers supply no unique identity bridge. The 7.28-unit separation is consistent with those locations, while neither a transplant nor whole-pot relocation is visually supported or specified."
+        },
+        {
+          "initial_group_id": "g17",
+          "action": "split",
+          "result_group_ids": [
+            "g17_a",
+            "g17_b"
+          ],
+          "visual_identity_evidence": "Matching fabric belongs to opposite doorway panels: shot1 adjoins the television wall, shot3 the sofa/lamp corner. Reverse viewing does not interchange these physical jambs. The 4.27-unit offset corroborates this context; no panel transfer is shown, the prompt preserves curtains, and g17 is rejected as an anchor."
+        }
+      ],
+      "call_seconds": 142.96715545654297,
+      "usage": [
+        {
+          "input_tokens": 35028,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4204,
+          "reasoning_output_tokens": 159
+        }
+      ],
+      "total_tokens": 39232,
+      "standard_api_equivalent_usd": 0.49136
+    },
+    {
+      "status": "success",
+      "study": "study4",
+      "variant": "lean_centers",
+      "repeat": 3,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_payload.json": "f76a197cd343eb8783e04142f94babd670d456716739ab0f8c04d064b4925647",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/identity_review_images.json": "23f8bbc82e6085bb102cda0f4da47f9aea3ac47ae98b5f78efcb1f2bb9938240",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching.json": "e60ec5ae1f65dd611984fe340b352ca20af75f6ffda44a22ec46af2fd81dfb1a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/matching_initial.json": "5b1754ed124b5e3d0b7c880a6e58b542b329e4a06ab9022c0715c514271dcb63",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/pairs/pair_000/registration/roma_geometry/registration.json": "183ba57aaf029b92eeee19036501953811f96290d15f6df2d8fb40ca538b5111"
+      },
+      "image_count": 12,
+      "wire_characters": 47235,
+      "input_characters": 61828,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 171.79794692993164,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e10"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e7"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [
+                "shot3/e1",
+                "shot3/e2"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e5"
+              ],
+              "scope_mismatch"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [],
+              "unmatched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e3"
+            ],
+            [
+              "shot1/e8",
+              "shot3/e6"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e3"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g09",
+          "action": "split",
+          "result_group_ids": [
+            "g09_a",
+            "g09_b"
+          ],
+          "visual_identity_evidence": "Both cameras remain indoors: the first pot is beyond the television-side jamb, the second beyond the sofa-side jamb. Similar tapered pots do not override these opposite structural locations; the 6.37-unit separation corroborates rather than establishes the split. Global/shot3 preserve other props, and no distinctive mark or transport supports relocation."
+        },
+        {
+          "initial_group_id": "g13",
+          "action": "split",
+          "result_group_ids": [
+            "g13_a",
+            "g13_b"
+          ],
+          "visual_identity_evidence": "Independently of pot identity, the foliage clusters occupy opposite doorway-side exterior positions and lack distinctive matching branches or blooms. Their 7.28-unit separation alone is insufficient, but the jamb context and global/shot3 unchanged planting favor different instances over unsupported relocation."
+        },
+        {
+          "initial_group_id": "g17",
+          "action": "split",
+          "result_group_ids": [
+            "g17_a",
+            "g17_b"
+          ],
+          "visual_identity_evidence": "The television-side panel and sofa/lamp-side panel flank different doorway jambs; looking toward the garden from indoors does not exchange those physical supports. Repeated fabric is insufficient, and global/shot3 preserve curtains rather than rehang them. The 4.27-unit separation supports this visual distinction despite fit error; reject anchor g17."
+        }
+      ],
+      "call_seconds": 171.5584945678711,
+      "usage": [
+        {
+          "input_tokens": 35028,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4179,
+          "reasoning_output_tokens": 237
+        }
+      ],
+      "total_tokens": 39207,
+      "standard_api_equivalent_usd": 0.55923
+    },
+    {
+      "status": "success",
+      "study": "study3",
+      "variant": "lean_centers",
+      "repeat": 2,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/identity_review_payload.json": "ca7e8c4ce7db3b926eb999f6cf1bda031bc93ed08f386ac4fe8f5fc5a6bc7b6a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/identity_review_images.json": "65c6f74314ee9ead296b298db1ae5e81326ca042c40f4fd426216671fac7a133",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/matching.json": "c14805573ad20301498b26a27276be60604000508e4599a2b2e7de5d8ff5d054",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/matching_initial.json": "6606b0a4201f226ba5fb9daf3b4105c1eb66cbcc9301e4ddd8594d19a895dc3d",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/registration/roma_geometry/registration.json": "e3dd7ec8fbe521e83daad7220769929ea2bd9c144b52dffb7fc1c910e738b3d1"
+      },
+      "image_count": 12,
+      "wire_characters": 57943,
+      "input_characters": 79230,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 169.5596535205841,
+      "differences": {
+        "population": {
+          "equal": true,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e13"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e17"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e18"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e20"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e14"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [
+                "shot3/e11"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e19"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e12"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e13"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e17"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e18"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e20"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e14"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [
+                "shot3/e11"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e19"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e12"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e15"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e14"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e19"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e10"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e12"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e15"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e14"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e19"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e10"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e12"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": true,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g01",
+          "action": "split",
+          "result_group_ids": [
+            "g01_a",
+            "g01_b"
+          ],
+          "visual_identity_evidence": "The similar landscapes occupy opposite background walls: A beside the bookcase, B above the console beside the entrance. The 5.29-unit separation supports this structural distinction despite poor registration; shot2 excludes intervening room rearrangement, so repeated artwork does not establish relocation or identity."
+        },
+        {
+          "initial_group_id": "g19",
+          "action": "split",
+          "result_group_ids": [
+            "g19_a",
+            "g19_b"
+          ],
+          "visual_identity_evidence": "A's narrow stand has a short apron and compact top; B's console has a much broader drawer front and stands on the opposite entrance-side wall. The 4.23-unit offset corroborates distinct furniture rather than deciding it; reverse perspective and A's weak reconstruction cannot explain both structure and wall context, and shot2 excludes furniture relocation."
+        },
+        {
+          "initial_group_id": "g20",
+          "action": "uncertain",
+          "result_group_ids": [
+            "g20_u"
+          ],
+          "visual_identity_evidence": "Independently of the rejected support match, A has a compact crown and thin visible trails, while B has a wider crown and longer dense strands. The 3.99-unit offset and different walls favor separate plants, but A's limited visibility prevents individual identification; unshown relocation is unsupported by shot2, not visually impossible."
+        }
+      ],
+      "call_seconds": 169.1936321258545,
+      "usage": [
+        {
+          "input_tokens": 41060,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5093,
+          "reasoning_output_tokens": 207
+        }
+      ],
+      "total_tokens": 46153,
+      "standard_api_equivalent_usd": 0.59613
+    },
+    {
+      "status": "success",
+      "study": "study3",
+      "variant": "lean_centers",
+      "repeat": 3,
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000",
+      "source_hashes": {
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/identity_review_payload.json": "ca7e8c4ce7db3b926eb999f6cf1bda031bc93ed08f386ac4fe8f5fc5a6bc7b6a",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/identity_review_images.json": "65c6f74314ee9ead296b298db1ae5e81326ca042c40f4fd426216671fac7a133",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/matching.json": "c14805573ad20301498b26a27276be60604000508e4599a2b2e7de5d8ff5d054",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/matching_initial.json": "6606b0a4201f226ba5fb9daf3b4105c1eb66cbcc9301e4ddd8594d19a895dc3d",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_scoring_efficiency_fresh_20260921/run/pairs/pair_000/registration/roma_geometry/registration.json": "e3dd7ec8fbe521e83daad7220769929ea2bd9c144b52dffb7fc1c910e738b3d1"
+      },
+      "image_count": 12,
+      "wire_characters": 57943,
+      "input_characters": 79230,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "protocol": "identity_scoring_v1",
+      "seconds": 197.04528951644897,
+      "differences": {
+        "population": {
+          "equal": false,
+          "old": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e13"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e17"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e18"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e20"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e14"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [
+                "shot3/e11"
+              ],
+              "ambiguous"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e19"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e12"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [],
+              [
+                "shot3/e1"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e11"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e13"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e17"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e18"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e20"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e3"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e5"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e8"
+              ],
+              "unmatched"
+            ],
+            [
+              [],
+              [
+                "shot3/e9"
+              ],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e1"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e10"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e11"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e12"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e13"
+              ],
+              [
+                "shot3/e6"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e15"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e16"
+              ],
+              [
+                "shot3/e14"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e17"
+              ],
+              [
+                "shot3/e16"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e18"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e19"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e2"
+              ],
+              [
+                "shot3/e2"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e20"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e3"
+              ],
+              [
+                "shot3/e4"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e4"
+              ],
+              [
+                "shot3/e19"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e6"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e7"
+              ],
+              [
+                "shot3/e10"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e8"
+              ],
+              [],
+              "unmatched"
+            ],
+            [
+              [
+                "shot1/e9"
+              ],
+              [
+                "shot3/e12"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "confirmed_links": {
+          "equal": true,
+          "old": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e15"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e14"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e19"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e10"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e12"
+            ]
+          ],
+          "new": [
+            [
+              "shot1/e13",
+              "shot3/e6"
+            ],
+            [
+              "shot1/e14",
+              "shot3/e15"
+            ],
+            [
+              "shot1/e16",
+              "shot3/e14"
+            ],
+            [
+              "shot1/e17",
+              "shot3/e16"
+            ],
+            [
+              "shot1/e2",
+              "shot3/e2"
+            ],
+            [
+              "shot1/e3",
+              "shot3/e4"
+            ],
+            [
+              "shot1/e4",
+              "shot3/e19"
+            ],
+            [
+              "shot1/e5",
+              "shot3/e7"
+            ],
+            [
+              "shot1/e7",
+              "shot3/e10"
+            ],
+            [
+              "shot1/e9",
+              "shot3/e12"
+            ]
+          ]
+        },
+        "anchor_eligible": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "anchors": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ]
+          ]
+        },
+        "references": {
+          "equal": true,
+          "old": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ]
+          ],
+          "new": [
+            [
+              [
+                "shot1/e5"
+              ],
+              [
+                "shot3/e7"
+              ],
+              "matched"
+            ],
+            [
+              [
+                "shot1/e14"
+              ],
+              [
+                "shot3/e15"
+              ],
+              "matched"
+            ]
+          ]
+        }
+      },
+      "exact_population": false,
+      "exact_links": true,
+      "exact_anchors": true,
+      "actions": [
+        {
+          "initial_group_id": "g01",
+          "action": "split",
+          "result_group_ids": [
+            "g01_a",
+            "g01_b"
+          ],
+          "visual_identity_evidence": "A's picture adjoins the bookcase beyond the window; B's hangs above a broad console beside the doorway on the opposite end wall. Repeated landscape imagery does not overcome these different architectural settings. The 5.29-unit separation supports this distinction; reconstruction error cannot explain the wall context, and shot2 specifies no furniture or prop rearrangement."
+        },
+        {
+          "initial_group_id": "g19",
+          "action": "split",
+          "result_group_ids": [
+            "g19_a",
+            "g19_b"
+          ],
+          "visual_identity_evidence": "A shows a narrow stand between curtain and bookcase-side wall picture; B shows a broad drawer console beneath the opposite doorway-side picture. The 4.23-unit separation agrees with different wall locations and furniture proportions; A's partial geometry alone would be insufficient, while shot2 supplies no relocation event."
+        },
+        {
+          "initial_group_id": "g20",
+          "action": "split",
+          "result_group_ids": [
+            "g20_a",
+            "g20_b"
+          ],
+          "visual_identity_evidence": "Independently of the rejected tables, A's compact crown and sparse hanging growth differ from B's broad crown and dense long vines in opposite wall settings. Similar round foliage is nondistinctive; the 3.99-unit offset corroborates separate instances, while occlusion explains some extent difference but supplies no evidence of plant transfer during shot2."
+        }
+      ],
+      "call_seconds": 196.76574659347534,
+      "usage": [
+        {
+          "input_tokens": 41046,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5822,
+          "reasoning_output_tokens": 138
+        }
+      ],
+      "total_tokens": 46868,
+      "standard_api_equivalent_usd": 0.63244
+    }
+  ],
+  "seconds": 521.3056542873383
+}

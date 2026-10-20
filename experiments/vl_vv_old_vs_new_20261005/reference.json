@@ -1,0 +1,824 @@
+{
+  "description": "Key visible artifacts per selected case, verified by the assistant on the original keyframes (contact sheets and full-resolution frames). Each run of each pipeline is matched against this list. expected_labels states the labels the v2 definitions call for; v1 had no dual labels. kind: missed_by_v1 / misfiled_by_v1 / found_by_v1 / control (a consistency the evaluator should NOT flag). Assistant judgment, not human annotation.",
+  "cases": [
+    {
+      "key": "p002_wan21",
+      "priority": 2,
+      "model": "wan21",
+      "model_name": "Wan2.1-T2V-1.3B",
+      "why": "V-L/V-V categorization: v1 filed two cross-shot changes as V-L only (one in the wrong shot) and missed the man's changing identity.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "Shirt changes in Shot3",
+          "detail": "Shots 1, 2, 4 show the described faded blue-gray T-shirt; Shot3 shows a dark collared button-down shirt.",
+          "expected_labels": "V-L attribute + V-V cross character_appearance",
+          "kind": "misfiled_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot4",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Sofa becomes a round armchair",
+          "detail": "\"the same Beige sofa\": low straight sofa in Shots 1-3, tall rounded tub chair in Shot4.",
+          "expected_labels": "V-L stated_continuity + V-V cross object_identity",
+          "kind": "misfiled_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot4",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "The man's face and hair change",
+          "detail": "\"Maintain the same man\": hair volume, hairline and face differ across Shots 1-4 (large rounded curls in Shot2, short hair in Shot3).",
+          "expected_labels": "V-V cross character_identity (+ V-L stated_continuity)",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot2",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot4",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Arms not resting low in Shot1",
+          "detail": "Shot1 asks for arms resting low; the arms stretch along the sofa back in every frame.",
+          "expected_labels": "V-L action_state",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              0
+            ],
+            [
+              "Shot1",
+              5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p014_wan21",
+      "priority": 14,
+      "model": "wan21",
+      "model_name": "Wan2.1-T2V-1.3B",
+      "why": "Owner example: courtyard background of Shot1 and Shot3 is inconsistent, missed by v1.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "Courtyard changes between Shot1 and Shot3",
+          "detail": "\"retain the courtyard continuity\" / \"remains in the same wintry courtyard\": tall dark stone building with balustraded stairs behind the woman in Shot1; low beige single-storey building and bench behind her in Shot3, from a comparable frontal view.",
+          "expected_labels": "V-V cross setting_background + V-L stated_continuity",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Woman's coat changes style",
+          "detail": "Belted wrap coat without visible buttons in Shot1; double-breasted buttoned coat with a peach scarf in Shot3.",
+          "expected_labels": "V-V cross character_appearance",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Wide-brim hat instead of earflap hat",
+          "detail": "The older man wears a black wide-brim hat in Shots 2 and 4; the prompt asks for a black earflap hat.",
+          "expected_labels": "V-L attribute",
+          "kind": "found_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              2
+            ],
+            [
+              "Shot4",
+              4
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Shot4 starts with his back to the camera",
+          "detail": "Shot4 should start with his face lowered in screen-left profile; frame 0 shows his back.",
+          "expected_labels": "V-L action_state",
+          "kind": "found_by_v1",
+          "evidence": [
+            [
+              "Shot4",
+              0
+            ],
+            [
+              "Shot4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A5",
+          "title": "Hand leaves the pocket in Shot2",
+          "detail": "He should keep his hands in his pockets; at the end of Shot2 he lifts a hand to his hat.",
+          "expected_labels": "V-L action_state",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              0
+            ],
+            [
+              "Shot2",
+              5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p014_storymem",
+      "priority": 14,
+      "model": "storymem",
+      "model_name": "StoryMem",
+      "why": "Control for the owner example: StoryMem keeps the courtyard consistent; a correct evaluator should not flag it.",
+      "artifacts": [
+        {
+          "id": "C1",
+          "title": "Courtyard stays consistent (should NOT be flagged)",
+          "detail": "Same spruce trees, pale stone building and balustrade behind the woman in Shots 1 and 3.",
+          "expected_labels": "no issue",
+          "kind": "control",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A1",
+          "title": "Neckline changes in Shot2",
+          "detail": "Peach high turtleneck in Shots 1 and 3; deep V-neck with a choker in Shot2.",
+          "expected_labels": "V-V cross character_appearance",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot2",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Shot3 repeats Shot1 instead of a closer view",
+          "detail": "Shot3 asks for a closer waist-up view; it reuses Shot1's framing, background and pose.",
+          "expected_labels": "V-L camera_composition",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p028_wan22",
+      "priority": 28,
+      "model": "wan22",
+      "model_name": "Wan2.2-T2V-A14B",
+      "why": "Owner example: the turquoise woman's clothing (and look) changes across shots, missed by v1.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "Turquoise woman's top changes",
+          "detail": "Plain top with a dark strap (Shot2), scattered dark marks (Shot4), dark shoulder print (Shot6), dense palm print over a white long-sleeve layer (Shot8).",
+          "expected_labels": "V-V cross character_appearance",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              2
+            ],
+            [
+              "Shot4",
+              2
+            ],
+            [
+              "Shot6",
+              2
+            ],
+            [
+              "Shot8",
+              5
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Turquoise woman's face and hair change",
+          "detail": "Different faces across her shots; Shot6 has dark curly hair with bold blonde streaks.",
+          "expected_labels": "V-V cross character_identity",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot4",
+              3
+            ],
+            [
+              "Shot6",
+              3
+            ],
+            [
+              "Shot8",
+              5
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Robe woman's hair falls loose in Shot7",
+          "detail": "Hair pulled back (prompt, Shots 1/3/5); long and loose in Shot7.",
+          "expected_labels": "V-L attribute + V-V cross character_appearance",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot5",
+              3
+            ],
+            [
+              "Shot7",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "The \"familiar blue chair\" changes type",
+          "detail": "Small upright chair in Shots 1 and 5; long blue lounger in Shots 3 and 7.",
+          "expected_labels": "V-V cross object_identity + V-L stated_continuity",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              2
+            ],
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot7",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A5",
+          "title": "Cheek contact lost in Shot8",
+          "detail": "\"Maintain the cheek contact\": no hand touches her cheek in the last frames of Shot8.",
+          "expected_labels": "V-L interaction",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot8",
+              0
+            ],
+            [
+              "Shot8",
+              5
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p028_cinetrans",
+      "priority": 28,
+      "model": "cinetrans",
+      "model_name": "CineTrans-DiT",
+      "why": "Missed transition failure: one continuous take instead of eight shots; the two women merge into one.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "No cut at any of the 7 boundaries",
+          "detail": "All eight 5-second intervals show the same static take of one woman by the sea.",
+          "expected_labels": "V-V cross transition_realization + V-L shot_structure",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot5",
+              3
+            ],
+            [
+              "Shot8",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Robe woman and turquoise woman merged",
+          "detail": "The two required characters (older woman in a white robe; younger brown-haired woman in turquoise) appear as one blonde woman in a teal wrap.",
+          "expected_labels": "V-V cross instance_count + V-L presence_count/attribute",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot2",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Shot8 shoes and laces never appear",
+          "detail": "The required shoe-bearing gesture is absent.",
+          "expected_labels": "V-L presence_count",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot8",
+              2
+            ],
+            [
+              "Shot8",
+              4
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Exposure flash at the first frame",
+          "detail": "Shot1 frame 0 is much brighter than frames 1-5.",
+          "expected_labels": "V-V within rendering_instability",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              0
+            ],
+            [
+              "Shot1",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p180_cinetrans",
+      "priority": 180,
+      "model": "cinetrans",
+      "model_name": "CineTrans-DiT",
+      "why": "Held-out transition failure: the person/hallway alternation never happens.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "No cut at any boundary",
+          "detail": "All four intervals are one nearly identical static close-up of the same person.",
+          "expected_labels": "V-V cross transition_realization + V-L shot_structure",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot3",
+              3
+            ],
+            [
+              "Shot4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Hallway shots replaced by the person",
+          "detail": "Shots 2 and 4 should show the empty hallway.",
+          "expected_labels": "V-L presence_count",
+          "kind": "found_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Green flash at the first frame",
+          "detail": "Shot1 frame 0 is darker and green-tinted, then jumps to the steady look.",
+          "expected_labels": "V-V within rendering_instability",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              0
+            ],
+            [
+              "Shot1",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p047_wan21",
+      "priority": 47,
+      "model": "wan21",
+      "model_name": "Wan2.1-T2V-1.3B",
+      "why": "Held-out: characters swap looks, a duplicate old man appears, recurring men change faces.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "Fighters swap looks in Shot4",
+          "detail": "The Ponytailed man's slot shows a shirtless man with loose light-brown hair; the Sleeveless man's slot shows a dark ponytail. Shots 3 and 5 have the opposite looks.",
+          "expected_labels": "V-V cross instance_count/character_appearance + V-L attribute",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot4",
+              0
+            ],
+            [
+              "Shot5",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "A second old man appears in Shot6",
+          "detail": "Instead of the Sleeveless man's bare arm, a shirtless gray-bearded old man fills the foreground.",
+          "expected_labels": "V-L presence_count + V-V cross instance_count",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot6",
+              0
+            ],
+            [
+              "Shot8",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "The older man changes",
+          "detail": "Full gray ponytail in Shot2 (prompt: balding crown), balding in Shot8; olive shirt in Shot2, beige shirt over a white undershirt in Shot6.",
+          "expected_labels": "V-V cross character_identity/appearance + V-L attribute",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot6",
+              3
+            ],
+            [
+              "Shot8",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Sleeveless man's face changes",
+          "detail": "Young slicked-blond man in Shot5; older, heavier face in Shot7.",
+          "expected_labels": "V-V cross character_identity",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot5",
+              3
+            ],
+            [
+              "Shot7",
+              2
+            ]
+          ]
+        },
+        {
+          "id": "A5",
+          "title": "Shot1 flips through the doorway",
+          "detail": "He should drop down out of view; he tumbles through the doorway.",
+          "expected_labels": "V-L action_state",
+          "kind": "found_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot1",
+              4
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p015_cinetrans",
+      "priority": 15,
+      "model": "cinetrans",
+      "model_name": "CineTrans-DiT",
+      "why": "Held-out within-shot defects: dress pattern flickers, objects pop in, no cuts.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "No cuts",
+          "detail": "The same two-woman composition lasts all 20 s; Shots 2-4 should be single-person views.",
+          "expected_labels": "V-V cross transition_realization + V-L shot_structure",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot2",
+              3
+            ],
+            [
+              "Shot3",
+              3
+            ],
+            [
+              "Shot4",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Floral dress flickers to plain and back",
+          "detail": "Within single shots the right-hand dress switches between floral and plain black (floral at frame 0 then plain in Shots 2 and 4; plain at frame 0 then floral in Shot3).",
+          "expected_labels": "V-V within appearance_drift + V-L attribute",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot2",
+              0
+            ],
+            [
+              "Shot2",
+              1
+            ],
+            [
+              "Shot4",
+              0
+            ],
+            [
+              "Shot4",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Plant and basin pop in during Shot3",
+          "detail": "A white basin and green plant appear under the window from frame 1 without camera motion.",
+          "expected_labels": "V-V within background_drift",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot3",
+              0
+            ],
+            [
+              "Shot3",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Flash at the first frame",
+          "detail": "Shot1 frame 0 has a different, darker look than frames 1-5.",
+          "expected_labels": "V-V within rendering_instability",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              0
+            ],
+            [
+              "Shot1",
+              1
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "key": "p068_holocine",
+      "priority": 68,
+      "model": "holocine",
+      "model_name": "HoloCine",
+      "why": "Known-hard case: a static take with characters vanishing and morphing.",
+      "artifacts": [
+        {
+          "id": "A1",
+          "title": "No real shot structure",
+          "detail": "Nearly the whole video is one static, dark view of the elevator wall; the lobby, close-up and atrium shots never appear.",
+          "expected_labels": "V-V cross transition_realization + V-L shot_structure",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot4",
+              3
+            ],
+            [
+              "Shot7",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A2",
+          "title": "Characters vanish and reappear",
+          "detail": "The frame shows an empty wall in Shot3 frames 1-3 and Shot6 frames 2-5, then people return in place.",
+          "expected_labels": "V-V within presence_instability",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot3",
+              0
+            ],
+            [
+              "Shot3",
+              2
+            ],
+            [
+              "Shot3",
+              4
+            ]
+          ]
+        },
+        {
+          "id": "A3",
+          "title": "Woman turns into a man in Shot8",
+          "detail": "Frame 0 shows the woman; from frame 1 the same clothes and pose belong to a man.",
+          "expected_labels": "V-V within identity_drift",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot8",
+              0
+            ],
+            [
+              "Shot8",
+              1
+            ]
+          ]
+        },
+        {
+          "id": "A4",
+          "title": "Required people and places missing",
+          "detail": "Lobby view, blue-shirted man and the Shot8 two-man view are absent.",
+          "expected_labels": "V-L presence_count",
+          "kind": "found_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              3
+            ],
+            [
+              "Shot8",
+              3
+            ]
+          ]
+        },
+        {
+          "id": "A5",
+          "title": "Dark flash at the first frame",
+          "detail": "Shot1 frame 0 is nearly black and green-tinted; frame 1 is back to the normal exposure.",
+          "expected_labels": "V-V within rendering_instability",
+          "kind": "missed_by_v1",
+          "evidence": [
+            [
+              "Shot1",
+              0
+            ],
+            [
+              "Shot1",
+              1
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

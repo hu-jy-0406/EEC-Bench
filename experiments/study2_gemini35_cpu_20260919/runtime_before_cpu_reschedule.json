@@ -1,0 +1,164 @@
+{
+  "status": "running",
+  "started": 1789832700.0437174,
+  "allocation": "191764",
+  "stages": [
+    {
+      "stage": "detection_and_clustering",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_wedetect_shot_entities.py",
+        "--manifest",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01/raw_manifest.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01/entities",
+        "--device",
+        "cpu",
+        "--model",
+        "gemini-3.5-flash",
+        "--reasoning",
+        "medium",
+        "--shot-workers",
+        "2",
+        "--codex-bin",
+        "/vast/users/guangyi.chen/.local/bin/codex",
+        "--timeout",
+        "1800",
+        "--detector-timeout",
+        "7200"
+      ],
+      "status": "success",
+      "started": 1789832700.0437217,
+      "seconds": 114.65730571746826,
+      "returncode": 0
+    },
+    {
+      "stage": "geocalib",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/calibrate_cpu.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01"
+      ],
+      "status": "success",
+      "started": 1789832814.70108,
+      "seconds": 31.086193799972534,
+      "returncode": 0
+    },
+    {
+      "stage": "prepare_shot_inputs",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "inputs"
+      ],
+      "status": "success",
+      "started": 1789832845.7873476,
+      "seconds": 2.0753912925720215,
+      "returncode": 0
+    },
+    {
+      "stage": "pi3x_shot1",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/geometry_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot1"
+      ],
+      "status": "success",
+      "started": 1789832847.8628125,
+      "seconds": 158.29932570457458,
+      "returncode": 0
+    },
+    {
+      "stage": "boxer_shot1",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/boxer_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot1"
+      ],
+      "status": "success",
+      "started": 1789833006.1622162,
+      "seconds": 20.701738357543945,
+      "returncode": 0
+    },
+    {
+      "stage": "pi3x_shot3",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/geometry_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot3"
+      ],
+      "status": "success",
+      "started": 1789833026.8639972,
+      "seconds": 153.94010162353516,
+      "returncode": 0
+    },
+    {
+      "stage": "boxer_shot3",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/boxer_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot3"
+      ],
+      "status": "success",
+      "started": 1789833180.8041387,
+      "seconds": 22.89479422569275,
+      "returncode": 0
+    },
+    {
+      "stage": "motion_and_fusion",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_gs_motion_fusion.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "status": "success",
+      "started": 1789833203.6990018,
+      "seconds": 49.163654804229736,
+      "returncode": 0
+    },
+    {
+      "stage": "initial_identity",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_gs_flow1_stage.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "match",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "status": "success",
+      "started": 1789833252.8627272,
+      "seconds": 51.171133279800415,
+      "returncode": 0
+    },
+    {
+      "stage": "roma_matches",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/roma_cpu.py",
+        "--method",
+        "roma"
+      ],
+      "status": "running",
+      "started": 1789833304.033932
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+
+
+============================ ROCm System Management Interface ============================
+======================================= Unique ID ========================================
+GPU[0]		: Unique ID: 0x2c7f4c8c046156c0
+GPU[1]		: Unique ID: 0xd2218b471577c2c7
+GPU[2]		: Unique ID: 0xbcd20303ade5dba1
+==========================================================================================
+=================================== % time GPU is busy ===================================
+GPU[0]		: GPU use (%): 0
+GPU[0]		: GFX Activity: 21132421
+GPU[1]		: GPU use (%): 0
+GPU[1]		: GFX Activity: 21193070
+GPU[2]		: GPU use (%): 0
+GPU[2]		: GFX Activity: 21181607
+==========================================================================================
+===================================== KFD Processes ======================================
+KFD process information:
+PID   	PROCESS NAME	GPU(s)	VRAM USED	SDMA USED	CU OCCUPANCY	
+103579	slurmstepd  	0     	0        	0        	0           	
+7858  	gpuagent    	0     	0        	0        	0           	
+104528	slurmstepd  	0     	0        	0        	0           	
+==========================================================================================
+================================== GPUs Indexed by PID ===================================
+PID 103579 is using 0 DRM device(s)
+PID 7858 is using 0 DRM device(s)
+PID 104528 is using 0 DRM device(s)
+==========================================================================================
+================================== Memory Usage (Bytes) ==================================
+GPU[0]		: VRAM Total Memory (B): 68702699520
+GPU[0]		: VRAM Total Used Memory (B): 13168640
+GPU[1]		: VRAM Total Memory (B): 68702699520
+GPU[1]		: VRAM Total Used Memory (B): 13168640
+GPU[2]		: VRAM Total Memory (B): 68702699520
+GPU[2]		: VRAM Total Used Memory (B): 13168640
+==========================================================================================
+================================== End of ROCm SMI Log ===================================
+/sys/class/kfd/kfd/proc/103579/pasid
+/sys/class/kfd/kfd/proc/104528/pasid
+/sys/class/kfd/kfd/proc/7858/pasid

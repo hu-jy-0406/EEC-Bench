@@ -1,0 +1,103 @@
+{
+  "status": "pass",
+  "graphs": [
+    {
+      "method": "codex",
+      "shot_id": "shot1",
+      "entities": 17,
+      "selected_observations": 96,
+      "center_outliers_rejected": 0,
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 12,
+        "limited": 5
+      }
+    },
+    {
+      "method": "codex",
+      "shot_id": "shot3",
+      "entities": 21,
+      "selected_observations": 125,
+      "center_outliers_rejected": 0,
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 16,
+        "limited": 5
+      }
+    },
+    {
+      "method": "boxer_codex_camera",
+      "shot_id": "shot1",
+      "entities": 17,
+      "selected_observations": 91,
+      "center_outliers_rejected": 5,
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 14,
+        "limited": 3
+      }
+    },
+    {
+      "method": "boxer_codex_camera",
+      "shot_id": "shot3",
+      "entities": 21,
+      "selected_observations": 122,
+      "center_outliers_rejected": 3,
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 18,
+        "limited": 3
+      }
+    },
+    {
+      "method": "boxer_geocalib",
+      "shot_id": "shot1",
+      "entities": 17,
+      "selected_observations": 94,
+      "center_outliers_rejected": 2,
+      "counts": {
+        "static_entities": 17,
+        "geometry_boxes": 17,
+        "supported_estimate": 14,
+        "limited": 3
+      }
+    },
+    {
+      "method": "boxer_geocalib",
+      "shot_id": "shot3",
+      "entities": 21,
+      "selected_observations": 123,
+      "center_outliers_rejected": 2,
+      "counts": {
+        "static_entities": 21,
+        "geometry_boxes": 21,
+        "supported_estimate": 19,
+        "limited": 2
+      }
+    }
+  ],
+  "plot_order": [
+    "codex_shot1",
+    "codex_shot3",
+    "boxer_codex_camera_shot1",
+    "boxer_codex_camera_shot3",
+    "boxer_geocalib_shot1",
+    "boxer_geocalib_shot3"
+  ],
+  "external_script_dependencies": [],
+  "checks": [
+    "identical frozen static partition in all three methods",
+    "six per-frame Gs per shot",
+    "source hashes",
+    "frame selection and shared-source weight normalization",
+    "weighted center medians and proper rotations/eight corners",
+    "camera position and forward/up vectors incl rendered arrows",
+    "six offline plots in method rows and shot1-left/shot3-right order"
+  ],
+  "browser_runtime_validated": false,
+  "geometry_accuracy_validated": false
+}

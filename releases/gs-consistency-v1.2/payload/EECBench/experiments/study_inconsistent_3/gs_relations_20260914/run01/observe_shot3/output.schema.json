@@ -1,0 +1,169 @@
+{
+  "type": "object",
+  "properties": {
+    "shot_id": {
+      "type": "string"
+    },
+    "placements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string"
+          },
+          "support_entity_id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "support_verified": {
+            "type": "boolean"
+          },
+          "frame_ids": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            }
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "entity_id",
+          "support_entity_id",
+          "support_verified",
+          "frame_ids",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subject_id": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "origin_anchor_id": {
+            "type": "string"
+          },
+          "reference_anchor_id": {
+            "type": "string"
+          },
+          "axis": {
+            "type": "string",
+            "enum": [
+              "cross_anchor_up",
+              "toward_reference",
+              "vertical"
+            ]
+          },
+          "order": {
+            "type": "string",
+            "enum": [
+              "negative",
+              "positive",
+              "unknown"
+            ]
+          },
+          "reference_direction_verified": {
+            "type": "boolean"
+          },
+          "common_support_verified": {
+            "type": "boolean"
+          },
+          "center_order_supported": {
+            "type": "boolean"
+          },
+          "geometry_error_can_reverse": {
+            "type": "boolean"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer"
+                },
+                "subject_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "object_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "reference_region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "frame_id",
+                "subject_region_xyxy",
+                "object_region_xyxy",
+                "reference_region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason": {
+            "type": "string"
+          },
+          "uncertainty": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "subject_id",
+          "object_id",
+          "origin_anchor_id",
+          "reference_anchor_id",
+          "axis",
+          "order",
+          "reference_direction_verified",
+          "common_support_verified",
+          "center_order_supported",
+          "geometry_error_can_reverse",
+          "evidence",
+          "reason",
+          "uncertainty"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "shot_id",
+    "placements",
+    "relations",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

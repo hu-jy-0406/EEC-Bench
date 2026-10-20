@@ -1,0 +1,1763 @@
+{
+  "targets": [
+    {
+      "name": "挂画",
+      "a_id": "shot1/e1",
+      "b_id": "shot3/e1",
+      "verdicts": {
+        "old_historical": "拆为两个实例",
+        "old_replay": "拆为两个实例",
+        "joint_historical": "身份未知",
+        "joint_replay": "同一实例"
+      }
+    },
+    {
+      "name": "小木桌",
+      "a_id": "shot1/e18",
+      "b_id": "shot3/e8",
+      "verdicts": {
+        "old_historical": "拆为两个实例",
+        "old_replay": "拆为两个实例",
+        "joint_historical": "身份未知",
+        "joint_replay": "身份未知"
+      }
+    },
+    {
+      "name": "桌上盆栽",
+      "a_id": "shot1/e19",
+      "b_id": "shot3/e11",
+      "verdicts": {
+        "old_historical": "拆为两个实例",
+        "old_replay": "拆为两个实例",
+        "joint_historical": "身份未知",
+        "joint_replay": "身份未知"
+      }
+    }
+  ],
+  "counts": {
+    "old_historical": {
+      "unmatched": 18,
+      "matched": 8,
+      "ambiguous": 1,
+      "scope_mismatch": 1
+    },
+    "old_replay": {
+      "unmatched": 18,
+      "matched": 8,
+      "ambiguous": 1,
+      "scope_mismatch": 1
+    },
+    "joint_historical": {
+      "ambiguous": 4,
+      "matched": 8,
+      "unmatched": 12,
+      "scope_mismatch": 1
+    },
+    "joint_replay": {
+      "matched": 9,
+      "unmatched": 12,
+      "ambiguous": 3,
+      "scope_mismatch": 1
+    }
+  },
+  "changed_entities": {
+    "old_repeat": [],
+    "joint_repeat_changed_geometry": [
+      "shot1/e1",
+      "shot3/e1"
+    ],
+    "protocols_same_geometry": [
+      "shot1/e1",
+      "shot1/e18",
+      "shot1/e19",
+      "shot3/e1",
+      "shot3/e8",
+      "shot3/e11"
+    ]
+  },
+  "calls": [
+    {
+      "stage": "original",
+      "seconds": 406.64891171455383,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "input_tokens": 85795,
+      "output_tokens": 13287,
+      "cached_input_tokens": 0,
+      "total_tokens": 99082
+    },
+    {
+      "stage": "joint",
+      "seconds": 307.12287878990173,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "input_tokens": 94827,
+      "output_tokens": 9922,
+      "cached_input_tokens": 0,
+      "total_tokens": 104749
+    }
+  ],
+  "total_tokens": 203831,
+  "wall_seconds": 408.0826358795166,
+  "all_entities": [
+    {
+      "entity_id": "shot1/e1",
+      "name": "Framed landscape painting",
+      "old_historical": {
+        "group_id": "g01_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e1"
+        ],
+        "reason": "shot1横幅画位于窗右侧、书架左侧的墙段；shot3横幅画在反向视野的门洞与窗之间。画中树群及水岸细节也不完全相同，判为不同墙面的相似风景画。"
+      },
+      "old_replay": {
+        "group_id": "g01_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e1"
+        ],
+        "reason": "Shot1画在窗右侧、书架左侧墙面；Shot3画在反向视野的门旁墙面。画内水岸和树群布局也有差别，不能把相似金框风景画认作同一实例。"
+      },
+      "joint_historical": {
+        "group_id": "g01",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e1",
+          "shot3/e1"
+        ],
+        "reason": "两者均为金褐框河岸风景画，但树群、河道及画框细节不足以确认同一实例；对齐中心相隔约5.39，互投落在画外或相机后方。已考虑室内移位，不能仅凭大位移拆分，也不能仅凭题材合并。"
+      },
+      "joint_replay": {
+        "group_id": "g01",
+        "identity": "matched",
+        "members": [
+          "shot1/e1",
+          "shot3/e1"
+        ],
+        "reason": "金褐色多层画框、横幅河岸风景及树木与水面的构图相应，均挂在带盆栽小桌上方。对齐中心相距约5.51，反投影落出画面，与原图对应矛盾；保留同一画作身份，不据此判定位置正确。"
+      }
+    },
+    {
+      "entity_id": "shot1/e2",
+      "name": "Dark green mug",
+      "old_historical": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿釉面直筒杯、圆弧把手、杯口及底部轮廓一致，始终与浅色笔筒组成同一桌面组合。保留实例身份，较大位移留作后续空间问题。"
+      },
+      "old_replay": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯的杯口、弧形把手及与浅色笔筒的组合一致；同一主桌和连续故事支持身份。大位移保留为位置异常或重建误差，不以此拆分。"
+      },
+      "joint_historical": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯、圆弧把手、杯口与底部轮廓一致，并与同一浅色笔筒及其深浅笔束形成独特桌面组合。尺寸约0.12一致；中心相隔约2.76且互投偏离实际杯位，保留身份，将位置问题留待后续。"
+      },
+      "joint_replay": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯、圆弧把手、杯口和底缘相应，均与浅色笔筒组成桌面组合；尺寸约0.13相符。中心相距约2.88且投影错位，不足以拆分这一有组合外观支持的身份。"
+      }
+    },
+    {
+      "entity_id": "shot1/e3",
+      "name": "Black desk lamp",
+      "old_historical": {
+        "group_id": "g03",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e3"
+        ],
+        "reason": "黑色弯杆台灯仅在shot1出现，shot3完整桌面未见。"
+      },
+      "old_replay": {
+        "group_id": "g03",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e3"
+        ],
+        "reason": "黑色罩、弯杆、圆底台灯仅在Shot1出现；Shot3原图也未见。"
+      },
+      "joint_historical": {
+        "group_id": "g03",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e3"
+        ],
+        "reason": "黑色钟形灯罩、弯曲金属灯杆和圆底座在Shot1清晰；Shot3没有对应灯具。"
+      },
+      "joint_replay": {
+        "group_id": "g03",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e3"
+        ],
+        "reason": "Shot1黑色灯罩、弯曲金属杆和圆底座清楚；Shot3没有对应灯具。"
+      }
+    },
+    {
+      "entity_id": "shot1/e5",
+      "name": "Large wooden desk",
+      "old_historical": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深棕桌面、厚边沿、宽围板与方腿组合相符；同一窗、椅、主地毯及p01共同支持同一书桌。"
+      },
+      "old_replay": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深棕桌面、厚桌沿、宽围板和方腿一致；窗边椅、地毯及人物返回动作共同支持同一主桌。"
+      },
+      "joint_historical": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深褐长桌、厚边、宽围板及方腿结构一致，窗侧原椅与桌下花毯支持同一实例。中心差约1.24，长轴及长度估计不完全吻合；这是配准或布局问题，不能否定像素身份。"
+      },
+      "joint_replay": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深色长桌、厚边、宽围板及方腿相应，并承载同一杯与笔筒组合。中心相距约1.32，长宽轴及长度估计不一致，但不推翻原图与故事共同支持的桌子身份。"
+      }
+    },
+    {
+      "entity_id": "shot1/e6",
+      "name": "Small framed picture on bookshelf",
+      "old_historical": {
+        "group_id": "g05",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e6"
+        ],
+        "reason": "书架层板上的小横幅摆框，与shot3墙面挂画均不相同。"
+      },
+      "old_replay": {
+        "group_id": "g05",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e6"
+        ],
+        "reason": "书架层板上的小横框，不对应Shot3墙上的植物图或走廊挂画。"
+      },
+      "joint_historical": {
+        "group_id": "g05",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e6"
+        ],
+        "reason": "书柜层板上的小型横向立框，不对应Shot3墙上安装的画框。"
+      },
+      "joint_replay": {
+        "group_id": "g05",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e6"
+        ],
+        "reason": "书架上的小横幅摆框，与Shot3墙上植物画及走廊挂画的内容、安装方式不同。"
+      }
+    },
+    {
+      "entity_id": "shot1/e7",
+      "name": "Light-colored pencil cup",
+      "old_historical": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒笔筒、杯口轮廓及木色与深色工具组合相符，两侧均紧邻深绿杯；shot1筒身更多被杯遮住。"
+      },
+      "old_replay": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒容器、木色与深色笔及绿杯组成一致的桌面组合；Shot1筒体下部受杯遮挡。"
+      },
+      "joint_historical": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆柱笔筒、杯沿及深浅笔束组合一致，均紧邻深绿杯；Shot1杯身被绿杯遮挡更多。中心差约2.36、互投不符，不能因此拆分同一桌面组合。"
+      },
+      "joint_replay": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒口、深色及木色书写工具、被绿杯遮住的支撑组合一致。中心差约2.49且高度估计有差异；可见杯体比例受遮挡影响，不能据几何偏差拆分。"
+      }
+    },
+    {
+      "entity_id": "shot1/e8",
+      "name": "Trailing plant by window",
+      "old_historical": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一白框窗台上，圆叶枝条与长垂藤跨过同一暖气片，盆体及枝叶布局支持身份。"
+      },
+      "old_replay": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台、暖气片及棕盆组合，圆叶上伸枝和向暖气片垂下的藤蔓对应。"
+      },
+      "joint_historical": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台陶盆中的圆叶垂藤，枝条越过窗台垂至暖气片前；盆、窗框、暖气片安装关系一致。中心差约0.13，尺寸及互投亦支持。"
+      },
+      "joint_replay": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台棕盆上方叶丛及向暖气片垂下的多条藤蔓相应，安装组合明确；中心差约0.12，双向投影邻近实际叶丛，尺寸亦相近。"
+      }
+    },
+    {
+      "entity_id": "shot1/e9",
+      "name": "Dark wooden bookcase with lower cabinet",
+      "old_historical": {
+        "group_id": "g08",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e9"
+        ],
+        "reason": "shot3左边缘确有深色高家具残片，但冻结清单没有书架实体；不能补建或与走廊低柜配对。"
+      },
+      "old_replay": {
+        "group_id": "g08",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e9"
+        ],
+        "reason": "Shot1高书架完整可见；Shot3左缘深色家具可能相关，但清单没有可配对家具，且不能用走廊低柜替代。"
+      },
+      "joint_historical": {
+        "group_id": "g08",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e9"
+        ],
+        "reason": "Shot3左边缘仍有深绿书柜和下柜的局部像素，但冻结库存没有对应书柜实体；不能新增匹配端点，也不能把门外小柜当作它。"
+      },
+      "joint_replay": {
+        "group_id": "g08",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e9"
+        ],
+        "reason": "Shot3未列书柜实体；左边缘仍有深色书架与下柜片段，但不新增静态评分对象，也不与走廊矮柜强配。"
+      }
+    },
+    {
+      "entity_id": "shot1/e10",
+      "name": "Trailing plant on bookshelf",
+      "old_historical": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "shot1为内部层板上的垂藤；shot3仅露出家具边缘上方少量叶片及盆体。支撑高度和垂藤外观不能充分核实，既不能确认也不能据位移强拆。"
+      },
+      "old_replay": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot1为书架较高层板的垂藤；Shot3仅有左缘窄片植物和较低支撑边缘。位置、支撑高度及裁切均有疑点，既不足确认同株，也不足排除同株移动或深度误差。"
+      },
+      "joint_historical": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot3左缘植物位于深绿柜旁，可能对应Shot1柜上垂藤；但仅27像素宽，盆与完整枝形不可辨。中心差约4.02、尺寸和高度亦不符；既可能裁切与几何误差，也可能为另一株，不能强配。"
+      },
+      "joint_replay": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot3左缘植物可能是书柜盆栽，但仅27像素宽的裁切部分，无法核实同一盆与藤蔓。中心差约4.04、尺寸及高度不一致；已考虑位置变化，仍缺实例级证据。"
+      }
+    },
+    {
+      "entity_id": "shot1/e11",
+      "name": "Patterned area rug beneath desk",
+      "old_historical": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "米灰底、红棕花纹、多道边框及围绕共同书桌铺设的连续大地毯相符；与走廊独立地毯区分明确。"
+      },
+      "old_replay": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "主桌下浅底红棕繁复纹样、深浅多道边框及铺设关系相符；与门内独立走廊毯区分。"
+      },
+      "joint_historical": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "同一长桌下露出的褪色米灰、暗红花纹地毯，边框层次与桌腿支撑范围相符；与门外独立走廊毯不同。中心差约0.47，完整尺寸受桌体遮挡而不可靠。"
+      },
+      "joint_replay": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "桌下同一红褐、米色与深色花纹边框地毯，两侧露出部分与桌腿支撑关系相应。中心差约0.49；整体长宽差异与大面积遮挡使盒估计不稳，不将走廊长毯并入。"
+      }
+    },
+    {
+      "entity_id": "shot1/e13",
+      "name": "Wooden slat-back chair",
+      "old_historical": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弯顶板、竖背板、立柱及窗边桌椅组合相符，p01/p03/p10明确同一原椅。位置残差不能证明不同椅子。"
+      },
+      "old_replay": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弯顶横板、竖板和立柱形态相符，均位于主桌与窗之间；人物离开和返回原椅的连续情境支持同一椅。"
+      },
+      "joint_historical": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弧顶横档、竖木条与深褐木色一致，均为窗侧、女子离开及返回所用的原椅。尺寸接近；中心差约1.46且朝向不符，保留身份，不在此判位置。"
+      },
+      "joint_replay": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弧形顶横板、竖木条与深色木纹相应，均是窗边女人使用的椅子；p03、p10明确原椅连续性。中心差约1.53、朝向不同，保留身份供后续位置判断。"
+      }
+    },
+    {
+      "entity_id": "shot1/e14",
+      "name": "White radiator beneath window",
+      "old_historical": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "白色密集竖肋、上部圆头、窗台及垂藤关系一致，反向观看解释左右交换。"
+      },
+      "old_replay": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "相同窗台下白色密集竖肋暖气片，与窗台盆栽和帘边的结构关系一致。"
+      },
+      "joint_historical": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "白色密集竖肋暖气片固定于同一白框窗下，窗台陶盆和窗帘提供安装定位。中心差约0.08，互投落在对应区域；长度、高度受遮挡和裁切影响。"
+      },
+      "joint_replay": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "同一白框窗台下密集白色竖肋，窗帘、花盆及椅子共同限定安装位置。中心差约0.095；长轴换轴后尺寸大致相应，端部裁切解释部分尺寸差。"
+      }
+    },
+    {
+      "entity_id": "shot1/e15",
+      "name": "Terracotta plant pot by window",
+      "old_historical": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台上的棕色收口盆身、宽盆口，与已确认植物及暖气片组合一致。"
+      },
+      "old_replay": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台植株下的棕色收口盆，盆缘与下窄轮廓对应；两侧均单列盆体。"
+      },
+      "joint_historical": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "暖气片上方同一窗台、同一垂藤根部的棕陶盆，盆口及收窄盆身一致；中心差约0.05，尺寸与双向投影吻合。"
+      },
+      "joint_replay": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台藤蔓下的棕色收底花盆，盆口及叶片遮挡关系相应；中心差约0.055，双向投影接近实际盆体，尺寸差较小。"
+      }
+    },
+    {
+      "entity_id": "shot1/e16",
+      "name": "Small pale ceramic vessel on bookshelf",
+      "old_historical": {
+        "group_id": "g14",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e16"
+        ],
+        "reason": "书架上植物与摆框之间的小浅色陶器，shot3无可确认对应。"
+      },
+      "old_replay": {
+        "group_id": "g14",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e16"
+        ],
+        "reason": "书架上植株与小画框之间的浅色陶器，Shot3无可配对冻结实体。"
+      },
+      "joint_historical": {
+        "group_id": "g14",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e16"
+        ],
+        "reason": "Shot1书柜层板上的小浅色器皿；Shot3没有可确认的库存对应项，不与植物盆混配。"
+      },
+      "joint_replay": {
+        "group_id": "g14",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e16"
+        ],
+        "reason": "书架中层浅色小器皿在Shot3没有可核实对应项；不能与棕色花盆相配。"
+      }
+    },
+    {
+      "entity_id": "shot1/e17",
+      "name": "Dark pen leaning right in pencil cup",
+      "old_historical": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "一支右倾深色笔与多支工具集合不是相同实体范围；不拆分冻结集合，也不把包含关系当实例等同。"
+      },
+      "old_replay": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1框一支右倾深色笔，Shot3框多支笔的集合；即使存在包含关系也不满足一实例对一实例。"
+      },
+      "joint_historical": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1端点只含右侧一支黑笔，Shot3端点包含整束多支笔。即使该黑笔属于同一笔束，也不是相同实体范围；不拆分或合并冻结库存。"
+      },
+      "joint_replay": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1标的是右侧单支深色笔，Shot3标的是多支笔的集合；即使集合含该笔，也不是一对一同一实体范围。"
+      }
+    },
+    {
+      "entity_id": "shot1/e18",
+      "name": "Small wooden side table against wall",
+      "old_historical": {
+        "group_id": "g16_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e18"
+        ],
+        "reason": "窗右侧角落的窄小单抽屉边桌；shot3门旁桌具有明显更宽的横向台面和抽屉围板，且处于窗另一侧墙段。"
+      },
+      "old_replay": {
+        "group_id": "g16_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e18"
+        ],
+        "reason": "窗帘右侧的小窄桌，桌面较窄、单个小抽屉区域及细腿；不同于Shot3门旁宽控制台。"
+      },
+      "joint_historical": {
+        "group_id": "g16",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e18",
+          "shot3/e8"
+        ],
+        "reason": "均为承托垂藤的靠墙木桌，但Shot1可见桌体较窄，Shot3有明显宽抽屉围板；长度估计约0.39与0.86。中心差约4.17且互投出画；考虑移位后，仍缺少足够构造细节确认实例。"
+      },
+      "joint_replay": {
+        "group_id": "g16",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e18",
+          "shot3/e8"
+        ],
+        "reason": "均为墙边带盆栽抽屉木桌，但Shot1有效可见部分较窄，无法核实抽屉、腿部细节；估计宽度0.39与0.89、中心差约4.26。已考虑搬动或视角变化，仍不能仅凭类型和邻接关系确认实例。"
+      }
+    },
+    {
+      "entity_id": "shot1/e19",
+      "name": "Small trailing plant on side table",
+      "old_historical": {
+        "group_id": "g17_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e19"
+        ],
+        "reason": "独立复查叶丛与垂藤：shot1边桌植物冠幅较小、枝叶较疏；shot3植物冠丛更宽密、左侧有明显长藤帘，所在墙段也不同。判为不同盆栽。"
+      },
+      "old_replay": {
+        "group_id": "g17_a",
+        "identity": "unmatched",
+        "members": [
+          "shot1/e19"
+        ],
+        "reason": "独立复查植株：Shot1冠部小而疏、细藤沿窄桌下垂；Shot3冠部宽密、左侧形成较厚垂叶带，结合不同墙侧支持不同实例。"
+      },
+      "joint_historical": {
+        "group_id": "g17",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e19",
+          "shot3/e11"
+        ],
+        "reason": "两株均在小木桌上垂落，但叶团密度、枝条轮廓和支撑桌身份未能确认；中心差约4.15，尺寸亦不同。不能以大位移直接分离，也不能以同类植物直接合并。"
+      },
+      "joint_replay": {
+        "group_id": "g17",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e19",
+          "shot3/e11"
+        ],
+        "reason": "两者均为小桌上的垂蔓植物，但叶簇与藤蔓细节未形成可靠实例对应，承载桌身份也未确认；中心差约4.23且盒高0.73与1.11，不能凭距离拆分，也不能凭同类强配。"
+      }
+    },
+    {
+      "entity_id": "shot3/e1",
+      "name": "Framed landscape painting",
+      "old_historical": {
+        "group_id": "g01_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e1"
+        ],
+        "reason": "门洞旁、宽抽屉桌上方的风景画，不是shot1书架旁墙画。"
+      },
+      "old_replay": {
+        "group_id": "g01_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e1"
+        ],
+        "reason": "门旁、宽控制台上方的风景画，与Shot1窗另一侧墙面的画分开。"
+      },
+      "joint_historical": {
+        "group_id": "g01",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e1",
+          "shot3/e1"
+        ],
+        "reason": "两者均为金褐框河岸风景画，但树群、河道及画框细节不足以确认同一实例；对齐中心相隔约5.39，互投落在画外或相机后方。已考虑室内移位，不能仅凭大位移拆分，也不能仅凭题材合并。"
+      },
+      "joint_replay": {
+        "group_id": "g01",
+        "identity": "matched",
+        "members": [
+          "shot1/e1",
+          "shot3/e1"
+        ],
+        "reason": "金褐色多层画框、横幅河岸风景及树木与水面的构图相应，均挂在带盆栽小桌上方。对齐中心相距约5.51，反投影落出画面，与原图对应矛盾；保留同一画作身份，不据此判定位置正确。"
+      }
+    },
+    {
+      "entity_id": "shot3/e2",
+      "name": "Dark green mug",
+      "old_historical": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿釉面直筒杯、圆弧把手、杯口及底部轮廓一致，始终与浅色笔筒组成同一桌面组合。保留实例身份，较大位移留作后续空间问题。"
+      },
+      "old_replay": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯的杯口、弧形把手及与浅色笔筒的组合一致；同一主桌和连续故事支持身份。大位移保留为位置异常或重建误差，不以此拆分。"
+      },
+      "joint_historical": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯、圆弧把手、杯口与底部轮廓一致，并与同一浅色笔筒及其深浅笔束形成独特桌面组合。尺寸约0.12一致；中心相隔约2.76且互投偏离实际杯位，保留身份，将位置问题留待后续。"
+      },
+      "joint_replay": {
+        "group_id": "g02",
+        "identity": "matched",
+        "members": [
+          "shot1/e2",
+          "shot3/e2"
+        ],
+        "reason": "深绿直筒杯、圆弧把手、杯口和底缘相应，均与浅色笔筒组成桌面组合；尺寸约0.13相符。中心相距约2.88且投影错位，不足以拆分这一有组合外观支持的身份。"
+      }
+    },
+    {
+      "entity_id": "shot3/e3",
+      "name": "Larger framed hallway picture",
+      "old_historical": {
+        "group_id": "g18",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e3"
+        ],
+        "reason": "门洞内走廊的大挂画，独立于室内墙画和书架摆框。"
+      },
+      "old_replay": {
+        "group_id": "g18",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e3"
+        ],
+        "reason": "门内走廊的大画框，无Shot1对应实体。"
+      },
+      "joint_historical": {
+        "group_id": "g18",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e3"
+        ],
+        "reason": "门外走廊墙上的较大竖框，有独立安装位置，不对应书房横向风景画或柜上立框。"
+      },
+      "joint_replay": {
+        "group_id": "g18",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e3"
+        ],
+        "reason": "走廊内竖幅挂画，与书架横幅摆框及室内风景画不同。"
+      }
+    },
+    {
+      "entity_id": "shot3/e4",
+      "name": "Framed botanical print beside window",
+      "old_historical": {
+        "group_id": "g19",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e4"
+        ],
+        "reason": "窗旁竖幅植物图，与其余横幅画不同。"
+      },
+      "old_replay": {
+        "group_id": "g19",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e4"
+        ],
+        "reason": "窗另一侧墙面的竖幅植物图，不是横幅风景画或书架小框。"
+      },
+      "joint_historical": {
+        "group_id": "g19",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e4"
+        ],
+        "reason": "窗旁窄竖植物图，内容、比例及壁挂方式区别于Shot1两幅画。"
+      },
+      "joint_replay": {
+        "group_id": "g19",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e4"
+        ],
+        "reason": "窗旁窄竖幅植物图，与Shot1各横幅风景图内容和框形不同。"
+      }
+    },
+    {
+      "entity_id": "shot3/e5",
+      "name": "Small narrow framed hallway picture",
+      "old_historical": {
+        "group_id": "g20",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e5"
+        ],
+        "reason": "走廊窄幅挂画，冻结shot1无对应。"
+      },
+      "old_replay": {
+        "group_id": "g20",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e5"
+        ],
+        "reason": "走廊窄竖框，与其他框形及挂置位置不同。"
+      },
+      "joint_historical": {
+        "group_id": "g20",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e5"
+        ],
+        "reason": "走廊门边独立窄竖框，与另一走廊画同时出现。"
+      },
+      "joint_replay": {
+        "group_id": "g20",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e5"
+        ],
+        "reason": "走廊门侧另一窄挂画，不能与相邻较大挂画或书架摆框合并。"
+      }
+    },
+    {
+      "entity_id": "shot3/e6",
+      "name": "Wooden dining chair",
+      "old_historical": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弯顶板、竖背板、立柱及窗边桌椅组合相符，p01/p03/p10明确同一原椅。位置残差不能证明不同椅子。"
+      },
+      "old_replay": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弯顶横板、竖板和立柱形态相符，均位于主桌与窗之间；人物离开和返回原椅的连续情境支持同一椅。"
+      },
+      "joint_historical": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弧顶横档、竖木条与深褐木色一致，均为窗侧、女子离开及返回所用的原椅。尺寸接近；中心差约1.46且朝向不符，保留身份，不在此判位置。"
+      },
+      "joint_replay": {
+        "group_id": "g11",
+        "identity": "matched",
+        "members": [
+          "shot1/e13",
+          "shot3/e6"
+        ],
+        "reason": "宽弧形顶横板、竖木条与深色木纹相应，均是窗边女人使用的椅子；p03、p10明确原椅连续性。中心差约1.53、朝向不同，保留身份供后续位置判断。"
+      }
+    },
+    {
+      "entity_id": "shot3/e7",
+      "name": "Large wooden dining table",
+      "old_historical": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深棕桌面、厚边沿、宽围板与方腿组合相符；同一窗、椅、主地毯及p01共同支持同一书桌。"
+      },
+      "old_replay": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深棕桌面、厚桌沿、宽围板和方腿一致；窗边椅、地毯及人物返回动作共同支持同一主桌。"
+      },
+      "joint_historical": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深褐长桌、厚边、宽围板及方腿结构一致，窗侧原椅与桌下花毯支持同一实例。中心差约1.24，长轴及长度估计不完全吻合；这是配准或布局问题，不能否定像素身份。"
+      },
+      "joint_replay": {
+        "group_id": "g04",
+        "identity": "matched",
+        "members": [
+          "shot1/e5",
+          "shot3/e7"
+        ],
+        "reason": "斑驳深色长桌、厚边、宽围板及方腿相应，并承载同一杯与笔筒组合。中心相距约1.32，长宽轴及长度估计不一致，但不推翻原图与故事共同支持的桌子身份。"
+      }
+    },
+    {
+      "entity_id": "shot3/e8",
+      "name": "Small wooden console table",
+      "old_historical": {
+        "group_id": "g16_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e8"
+        ],
+        "reason": "门洞旁较宽的抽屉桌，独立于shot1窗另一侧的窄小边桌。"
+      },
+      "old_replay": {
+        "group_id": "g16_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e8"
+        ],
+        "reason": "门旁墙面的宽抽屉控制台，正面宽、横向抽屉布局和两端腿关系不同于Shot1窗旁窄桌。"
+      },
+      "joint_historical": {
+        "group_id": "g16",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e18",
+          "shot3/e8"
+        ],
+        "reason": "均为承托垂藤的靠墙木桌，但Shot1可见桌体较窄，Shot3有明显宽抽屉围板；长度估计约0.39与0.86。中心差约4.17且互投出画；考虑移位后，仍缺少足够构造细节确认实例。"
+      },
+      "joint_replay": {
+        "group_id": "g16",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e18",
+          "shot3/e8"
+        ],
+        "reason": "均为墙边带盆栽抽屉木桌，但Shot1有效可见部分较窄，无法核实抽屉、腿部细节；估计宽度0.39与0.89、中心差约4.26。已考虑搬动或视角变化，仍不能仅凭类型和邻接关系确认实例。"
+      }
+    },
+    {
+      "entity_id": "shot3/e9",
+      "name": "White pencil cup",
+      "old_historical": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒笔筒、杯口轮廓及木色与深色工具组合相符，两侧均紧邻深绿杯；shot1筒身更多被杯遮住。"
+      },
+      "old_replay": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒容器、木色与深色笔及绿杯组成一致的桌面组合；Shot1筒体下部受杯遮挡。"
+      },
+      "joint_historical": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆柱笔筒、杯沿及深浅笔束组合一致，均紧邻深绿杯；Shot1杯身被绿杯遮挡更多。中心差约2.36、互投不符，不能因此拆分同一桌面组合。"
+      },
+      "joint_replay": {
+        "group_id": "g06",
+        "identity": "matched",
+        "members": [
+          "shot1/e7",
+          "shot3/e9"
+        ],
+        "reason": "浅色圆筒口、深色及木色书写工具、被绿杯遮住的支撑组合一致。中心差约2.49且高度估计有差异；可见杯体比例受遮挡影响，不能据几何偏差拆分。"
+      }
+    },
+    {
+      "entity_id": "shot3/e10",
+      "name": "Trailing plant on windowsill",
+      "old_historical": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一白框窗台上，圆叶枝条与长垂藤跨过同一暖气片，盆体及枝叶布局支持身份。"
+      },
+      "old_replay": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台、暖气片及棕盆组合，圆叶上伸枝和向暖气片垂下的藤蔓对应。"
+      },
+      "joint_historical": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台陶盆中的圆叶垂藤，枝条越过窗台垂至暖气片前；盆、窗框、暖气片安装关系一致。中心差约0.13，尺寸及互投亦支持。"
+      },
+      "joint_replay": {
+        "group_id": "g07",
+        "identity": "matched",
+        "members": [
+          "shot1/e8",
+          "shot3/e10"
+        ],
+        "reason": "同一窗台棕盆上方叶丛及向暖气片垂下的多条藤蔓相应，安装组合明确；中心差约0.12，双向投影邻近实际叶丛，尺寸亦相近。"
+      }
+    },
+    {
+      "entity_id": "shot3/e11",
+      "name": "Trailing plant on console table",
+      "old_historical": {
+        "group_id": "g17_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e11"
+        ],
+        "reason": "宽抽屉桌左端的茂密垂藤，非shot1窄边桌的小株垂藤。"
+      },
+      "old_replay": {
+        "group_id": "g17_b",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e11"
+        ],
+        "reason": "宽控制台左端的浓密大冠垂藤，与Shot1窄桌上较疏小冠植株形态及支撑环境不同。"
+      },
+      "joint_historical": {
+        "group_id": "g17",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e19",
+          "shot3/e11"
+        ],
+        "reason": "两株均在小木桌上垂落，但叶团密度、枝条轮廓和支撑桌身份未能确认；中心差约4.15，尺寸亦不同。不能以大位移直接分离，也不能以同类植物直接合并。"
+      },
+      "joint_replay": {
+        "group_id": "g17",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e19",
+          "shot3/e11"
+        ],
+        "reason": "两者均为小桌上的垂蔓植物，但叶簇与藤蔓细节未形成可靠实例对应，承载桌身份也未确认；中心差约4.23且盒高0.73与1.11，不能凭距离拆分，也不能凭同类强配。"
+      }
+    },
+    {
+      "entity_id": "shot3/e12",
+      "name": "Small dark hallway cabinet",
+      "old_historical": {
+        "group_id": "g21",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e12"
+        ],
+        "reason": "走廊低柜，与高书架及细腿边桌的形制不同。"
+      },
+      "old_replay": {
+        "group_id": "g21",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e12"
+        ],
+        "reason": "门内低矮柜，不是Shot1高书架或细腿桌。"
+      },
+      "joint_historical": {
+        "group_id": "g21",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e12"
+        ],
+        "reason": "门外低矮暗木柜，结构和支撑位置区别于书房高大深绿书柜。"
+      },
+      "joint_replay": {
+        "group_id": "g21",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e12"
+        ],
+        "reason": "门外低矮暗柜，有独立走廊支撑位置，并非室内高书柜。"
+      }
+    },
+    {
+      "entity_id": "shot3/e13",
+      "name": "Plant at far left edge",
+      "old_historical": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "shot1为内部层板上的垂藤；shot3仅露出家具边缘上方少量叶片及盆体。支撑高度和垂藤外观不能充分核实，既不能确认也不能据位移强拆。"
+      },
+      "old_replay": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot1为书架较高层板的垂藤；Shot3仅有左缘窄片植物和较低支撑边缘。位置、支撑高度及裁切均有疑点，既不足确认同株，也不足排除同株移动或深度误差。"
+      },
+      "joint_historical": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot3左缘植物位于深绿柜旁，可能对应Shot1柜上垂藤；但仅27像素宽，盆与完整枝形不可辨。中心差约4.02、尺寸和高度亦不符；既可能裁切与几何误差，也可能为另一株，不能强配。"
+      },
+      "joint_replay": {
+        "group_id": "g09",
+        "identity": "ambiguous",
+        "members": [
+          "shot1/e10",
+          "shot3/e13"
+        ],
+        "reason": "Shot3左缘植物可能是书柜盆栽，但仅27像素宽的裁切部分，无法核实同一盆与藤蔓。中心差约4.04、尺寸及高度不一致；已考虑位置变化，仍缺实例级证据。"
+      }
+    },
+    {
+      "entity_id": "shot3/e14",
+      "name": "Tissue packet with protruding tissue",
+      "old_historical": {
+        "group_id": "g22",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e14"
+        ],
+        "reason": "蓝白纸巾包及突出纸巾仅在shot3桌面出现。"
+      },
+      "old_replay": {
+        "group_id": "g22",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e14"
+        ],
+        "reason": "主桌上的蓝白纸巾包和突出纸巾，Shot1原图未见。"
+      },
+      "joint_historical": {
+        "group_id": "g22",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e14"
+        ],
+        "reason": "蓝白软包装及突出白纸清晰独立；Shot1桌上没有相同物体，不对应红笔记本或笔筒。"
+      },
+      "joint_replay": {
+        "group_id": "g22",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e14"
+        ],
+        "reason": "蓝白纸巾包及突出的白纸巾在Shot3明确可见，Shot1桌面无对应物；不是被带走的红本。"
+      }
+    },
+    {
+      "entity_id": "shot3/e15",
+      "name": "Large patterned rug under dining table",
+      "old_historical": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "米灰底、红棕花纹、多道边框及围绕共同书桌铺设的连续大地毯相符；与走廊独立地毯区分明确。"
+      },
+      "old_replay": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "主桌下浅底红棕繁复纹样、深浅多道边框及铺设关系相符；与门内独立走廊毯区分。"
+      },
+      "joint_historical": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "同一长桌下露出的褪色米灰、暗红花纹地毯，边框层次与桌腿支撑范围相符；与门外独立走廊毯不同。中心差约0.47，完整尺寸受桌体遮挡而不可靠。"
+      },
+      "joint_replay": {
+        "group_id": "g10",
+        "identity": "matched",
+        "members": [
+          "shot1/e11",
+          "shot3/e15"
+        ],
+        "reason": "桌下同一红褐、米色与深色花纹边框地毯，两侧露出部分与桌腿支撑关系相应。中心差约0.49；整体长宽差异与大面积遮挡使盒估计不稳，不将走廊长毯并入。"
+      }
+    },
+    {
+      "entity_id": "shot3/e16",
+      "name": "Stack of books on console",
+      "old_historical": {
+        "group_id": "g23",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e16"
+        ],
+        "reason": "shot3宽抽屉桌上的书堆；不是被带走的单本红书，也无shot1同范围实体。"
+      },
+      "old_replay": {
+        "group_id": "g23",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e16"
+        ],
+        "reason": "Shot3宽控制台上的书堆，无Shot1冻结实体对应；不能与人物携走的单本红书匹配。"
+      },
+      "joint_historical": {
+        "group_id": "g23",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e16"
+        ],
+        "reason": "室内靠墙桌上的多本叠书，不等同于Shot1动态红色笔记本；无法由低分辨率书脊确认单本身份。"
+      },
+      "joint_replay": {
+        "group_id": "g23",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e16"
+        ],
+        "reason": "小桌上多本横叠书，没有可确认的Shot1静态对应项；不能与动态单本红笔记本合并。"
+      }
+    },
+    {
+      "entity_id": "shot3/e17",
+      "name": "Windowsill plant pot",
+      "old_historical": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台上的棕色收口盆身、宽盆口，与已确认植物及暖气片组合一致。"
+      },
+      "old_replay": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台植株下的棕色收口盆，盆缘与下窄轮廓对应；两侧均单列盆体。"
+      },
+      "joint_historical": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "暖气片上方同一窗台、同一垂藤根部的棕陶盆，盆口及收窄盆身一致；中心差约0.05，尺寸与双向投影吻合。"
+      },
+      "joint_replay": {
+        "group_id": "g13",
+        "identity": "matched",
+        "members": [
+          "shot1/e15",
+          "shot3/e17"
+        ],
+        "reason": "同一窗台藤蔓下的棕色收底花盆，盆口及叶片遮挡关系相应；中心差约0.055，双向投影接近实际盆体，尺寸差较小。"
+      }
+    },
+    {
+      "entity_id": "shot3/e18",
+      "name": "White radiator under window",
+      "old_historical": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "白色密集竖肋、上部圆头、窗台及垂藤关系一致，反向观看解释左右交换。"
+      },
+      "old_replay": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "相同窗台下白色密集竖肋暖气片，与窗台盆栽和帘边的结构关系一致。"
+      },
+      "joint_historical": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "白色密集竖肋暖气片固定于同一白框窗下，窗台陶盆和窗帘提供安装定位。中心差约0.08，互投落在对应区域；长度、高度受遮挡和裁切影响。"
+      },
+      "joint_replay": {
+        "group_id": "g12",
+        "identity": "matched",
+        "members": [
+          "shot1/e14",
+          "shot3/e18"
+        ],
+        "reason": "同一白框窗台下密集白色竖肋，窗帘、花盆及椅子共同限定安装位置。中心差约0.095；长轴换轴后尺寸大致相应，端部裁切解释部分尺寸差。"
+      }
+    },
+    {
+      "entity_id": "shot3/e19",
+      "name": "Cluster of pencils in white cup",
+      "old_historical": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "一支右倾深色笔与多支工具集合不是相同实体范围；不拆分冻结集合，也不把包含关系当实例等同。"
+      },
+      "old_replay": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1框一支右倾深色笔，Shot3框多支笔的集合；即使存在包含关系也不满足一实例对一实例。"
+      },
+      "joint_historical": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1端点只含右侧一支黑笔，Shot3端点包含整束多支笔。即使该黑笔属于同一笔束，也不是相同实体范围；不拆分或合并冻结库存。"
+      },
+      "joint_replay": {
+        "group_id": "g15",
+        "identity": "scope_mismatch",
+        "members": [
+          "shot1/e17",
+          "shot3/e19"
+        ],
+        "reason": "Shot1标的是右侧单支深色笔，Shot3标的是多支笔的集合；即使集合含该笔，也不是一对一同一实体范围。"
+      }
+    },
+    {
+      "entity_id": "shot3/e20",
+      "name": "Patterned hallway runner rug",
+      "old_historical": {
+        "group_id": "g24",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e20"
+        ],
+        "reason": "门内走廊独立长地毯，不与主桌下地毯合并。"
+      },
+      "old_replay": {
+        "group_id": "g24",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e20"
+        ],
+        "reason": "门槛外独立走廊毯，与主桌下大毯分开。"
+      },
+      "joint_historical": {
+        "group_id": "g24",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e20"
+        ],
+        "reason": "门槛外的独立走廊长毯，与书房桌下地毯由木地板和门口分隔。"
+      },
+      "joint_replay": {
+        "group_id": "g24",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e20"
+        ],
+        "reason": "门槛外走廊长毯，与室内桌下地毯有可见地板及门框分隔。"
+      }
+    },
+    {
+      "entity_id": "shot3/e21",
+      "name": "Console plant pot",
+      "old_historical": {
+        "group_id": "g25",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e21"
+        ],
+        "reason": "shot3宽抽屉桌植物的独立盆体；shot1无同范围实体，不能从植物中拆出。"
+      },
+      "old_replay": {
+        "group_id": "g25",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e21"
+        ],
+        "reason": "Shot3控制台植株下独立盆体，无Shot1同范围实体，禁止从植株实体另拆盆补配。"
+      },
+      "joint_historical": {
+        "group_id": "g25",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e21"
+        ],
+        "reason": "Shot3靠墙桌上植物盆单列；Shot1无对应独立盆端点。不能并入植物实体或误配窗台盆。"
+      },
+      "joint_replay": {
+        "group_id": "g25",
+        "identity": "unmatched",
+        "members": [
+          "shot3/e21"
+        ],
+        "reason": "小桌植物下独立棕盆；Shot1没有相同范围的静态盆实体，不能并入植物项或窗台盆。"
+      }
+    }
+  ],
+  "joint_presence_counts": {
+    "compatible": 9,
+    "conflict": 2,
+    "exempt": 8,
+    "unknown": 6
+  },
+  "joint_presence_conflicts": [
+    {
+      "group_id": "g03",
+      "partition": "noncommon_static",
+      "status": "conflict",
+      "cause": "inconsistency",
+      "conflict_kind": "unexplained_missing",
+      "joint_presence_reasonable": false,
+      "evidence_gates_pass": [
+        true
+      ],
+      "reason": [
+        "按同一桌子的边沿、角点和支撑面作区域对应：Shot1远端灯所在桌端在反向观察中转到近侧；Shot3可见桌面及足以暴露灯罩、灯杆的上方区域均为空。不是仅据错误中心投影判缺失；少量桌体下缘裁切不能藏住整盏高灯，且两帧无人遮挡该区。"
+      ],
+      "reviews": [
+        {
+          "group_id": "g03",
+          "partition": "noncommon_static",
+          "cause": "inconsistency",
+          "status": "conflict",
+          "conflict_kind": "unexplained_missing",
+          "joint_presence_reasonable": false,
+          "prompt_fact_references": [
+            "p01",
+            "p02",
+            "p04",
+            "p05",
+            "p06",
+            "p07",
+            "p08",
+            "p09",
+            "p10"
+          ],
+          "prompt_explanation": "Shot1只拿走红本；Shot2在走廊放本并空手返回，且无人进入重排书房；Shot3只返回原椅。以上动作均不能移走桌灯。",
+          "witnesses": [
+            {
+              "shot_id": "shot1",
+              "frame_id": 0,
+              "region_xyxy": [
+                666,
+                70,
+                787,
+                248
+              ],
+              "observation": "黑罩、弯杆和圆底座完整位于桌子远端。"
+            },
+            {
+              "shot_id": "shot1",
+              "frame_id": 120,
+              "region_xyxy": [
+                666,
+                70,
+                787,
+                248
+              ],
+              "observation": "女人离开后灯仍完整在桌上。"
+            },
+            {
+              "shot_id": "shot3",
+              "frame_id": 0,
+              "region_xyxy": [
+                105,
+                90,
+                780,
+                480
+              ],
+              "observation": "无人，桌面各端及其上方无灯罩、灯杆或底座。"
+            },
+            {
+              "shot_id": "shot3",
+              "frame_id": 24,
+              "region_xyxy": [
+                105,
+                90,
+                780,
+                480
+              ],
+              "observation": "女人仍在左后门口；桌面与前景上方再次无灯具。"
+            }
+          ],
+          "reason": "按同一桌子的边沿、角点和支撑面作区域对应：Shot1远端灯所在桌端在反向观察中转到近侧；Shot3可见桌面及足以暴露灯罩、灯杆的上方区域均为空。不是仅据错误中心投影判缺失；少量桌体下缘裁切不能藏住整盏高灯，且两帧无人遮挡该区。",
+          "identity_supported": true,
+          "location_correspondence_supported": true,
+          "observable_region_supported": true,
+          "occlusion_excluded": true,
+          "detector_gap_excluded": true,
+          "prompt_review_completed": true
+        }
+      ],
+      "judgment_count": 1
+    },
+    {
+      "group_id": "g22",
+      "partition": "noncommon_static",
+      "status": "conflict",
+      "cause": "inconsistency",
+      "conflict_kind": "unexplained_added",
+      "joint_presence_reasonable": false,
+      "evidence_gates_pass": [
+        true
+      ],
+      "reason": [
+        "以同一桌面边界及杯—笔筒组合定位桌面内区，Shot1该可见支撑区域没有蓝白包或突出纸巾；无人末帧也排除红本、手臂遮挡。该判断覆盖桌面区域而非采用约(678,219)的失准点投影，且不依赖检测清单漏项。"
+      ],
+      "reviews": [
+        {
+          "group_id": "g22",
+          "partition": "noncommon_static",
+          "cause": "inconsistency",
+          "status": "conflict",
+          "conflict_kind": "unexplained_added",
+          "joint_presence_reasonable": false,
+          "prompt_fact_references": [
+            "p01",
+            "p02",
+            "p04",
+            "p05",
+            "p06",
+            "p07",
+            "p08",
+            "p09",
+            "p10",
+            "p11"
+          ],
+          "prompt_explanation": "Shot1只带走红本；Shot2在走廊留下红本并空手返回，期间无人进入或重排书房；Shot3纸巾包在女人入场前已经在桌上。红本外出及空手回返都不能带来纸巾包。",
+          "witnesses": [
+            {
+              "shot_id": "shot1",
+              "frame_id": 0,
+              "region_xyxy": [
+                435,
+                284,
+                679,
+                370
+              ],
+              "observation": "绿杯与笔筒邻近的桌面内区露出木纹，没有纸巾包或突出白纸。"
+            },
+            {
+              "shot_id": "shot1",
+              "frame_id": 120,
+              "region_xyxy": [
+                435,
+                240,
+                680,
+                370
+              ],
+              "observation": "红本已离开，桌面中央及笔筒邻侧无遮挡，仍无纸巾包。"
+            },
+            {
+              "shot_id": "shot3",
+              "frame_id": 0,
+              "region_xyxy": [
+                351,
+                274,
+                410,
+                316
+              ],
+              "observation": "女人尚未入场，蓝白纸巾包及白纸已存在。"
+            },
+            {
+              "shot_id": "shot3",
+              "frame_id": 24,
+              "region_xyxy": [
+                351,
+                274,
+                410,
+                316
+              ],
+              "observation": "女人在门口，纸巾包仍清楚位于桌面中央。"
+            }
+          ],
+          "reason": "以同一桌面边界及杯—笔筒组合定位桌面内区，Shot1该可见支撑区域没有蓝白包或突出纸巾；无人末帧也排除红本、手臂遮挡。该判断覆盖桌面区域而非采用约(678,219)的失准点投影，且不依赖检测清单漏项。",
+          "identity_supported": true,
+          "location_correspondence_supported": true,
+          "observable_region_supported": true,
+          "occlusion_excluded": true,
+          "detector_gap_excluded": true,
+          "prompt_review_completed": true
+        }
+      ],
+      "judgment_count": 1
+    }
+  ],
+  "audit": {
+    "same_geometry": true,
+    "same_original_frames": true,
+    "same_story": true,
+    "same_registration": true,
+    "source_hashes_unchanged": true,
+    "contract_validations_passed": true,
+    "all_38_static_entities_accounted_once": true
+  },
+  "scope": "One new call per protocol; no new detection/geometry/alignment/downstream spatial evaluation; protocol package comparison, not task-merger-only ablation."
+}

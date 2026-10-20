@@ -1,0 +1,33 @@
+{
+  "created": 1789729864.2823174,
+  "case": "study2",
+  "shots": [
+    "shot1",
+    "shot3"
+  ],
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "reuse_inference_results": false,
+  "raw_jpeg_manifest": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/raw_manifest.json",
+  "pipeline_revision": "post_alignment_identity_review_v1",
+  "reusable_inputs": [
+    "original JPEG bytes",
+    "original normal narrative clauses",
+    "pretrained model weights",
+    "implementation code and environments"
+  ],
+  "forbidden_reuse": [
+    "detections",
+    "clustering",
+    "GeoCalib",
+    "Pi3X",
+    "Boxer",
+    "motion",
+    "matching",
+    "RoMa correspondences",
+    "registration",
+    "identity review",
+    "presence review",
+    "relation review"
+  ]
+}

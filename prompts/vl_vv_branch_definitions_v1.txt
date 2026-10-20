@@ -1,0 +1,72 @@
+=== Shared definitions: V-L and V-V, and the boundary between them ===
+Two separate questions are asked about one generated multi-shot video. This
+call answers ONLY the question of its own branch, stated in the task section.
+The other branch's definition is given only so that you can recognize a
+finding that belongs to it and leave that finding out. A separate call
+handles the other branch; nothing is lost when you leave its findings out.
+
+V-L (video vs language)
+A visible observation contradicts an explicit requirement of the text: the
+global prompt, a shot prompt, the contract (entity descriptions, entity
+schedule, claims) or the required shot transitions.
+- Test: you can quote the violated words literally, and the content of the
+  shot visibly contradicts those words. A detail the text does not state is
+  never V-L.
+- Entity descriptions are episode-wide. A description of an entity in the
+  contract (entity_descriptions) or in the global prompt applies in every
+  shot where that entity appears (scheduled in entity_schedule or visibly
+  present), including shots whose text only names the entity. A shot's own
+  text overrides it only where it describes that entity differently (a
+  different value for the same attribute, or a stated change such as
+  changing clothes); a shorter or less specific mention is not a different
+  description.
+- The requirement is the wording, not how another generated shot happened to
+  depict it. A shot that satisfies the words ("a blue car" is satisfied by
+  any blue car) does not violate them, even if it looks different from
+  another shot; that difference is a V-V question.
+- Exception: explicit continuity words ("the same sofa", "remains",
+  "returns to", "back in", "still", "again", "unchanged", "keeps",
+  "maintain the same man") make sameness itself the requirement. A shot
+  whose entity or place visibly differs from the one established by the
+  other shots violates those words (stated_continuity, or attribute when a
+  described attribute is also contradicted).
+- V-L subcategories (the kind of requirement violated):
+{{VL_SUBCATEGORIES}}
+
+V-V (video vs video)
+A visible observation is incompatible with other visual evidence in the same
+episode, without a visible or text-supported cause.
+- Test: you can cite two witnesses in the video that cannot both be true of
+  the same entity, place or moment. No quote is needed; the text only tells
+  which entities or places should be the same and which changes are caused.
+- within_shot: frames of ONE shot cannot all be true of one continuous take,
+  or an entity is physically corrupted inside the shot.
+- cross_shot: two or more shots that show the same character, object, place,
+  rendering style or continuous moment are mutually incompatible, or a shot
+  boundary does not realize its required transition. Sameness may come from
+  the text (same name or label, entity_schedule, "same", "remains",
+  "returns", "again") or from clear visual evidence that the episode intends
+  the same entity or place.
+- A change is normal, and not a V-V problem, when a camera movement or a new
+  camera position, a described or visible action, an occlusion or exit, a
+  lighting or time change, elapsed story time, or a required cut explains
+  it, or when the two observations are not the same entity.
+- V-V subcategories, within_shot:
+{{VV_WITHIN_SUBCATEGORIES}}
+- V-V subcategories, cross_shot:
+{{VV_CROSS_SUBCATEGORIES}}
+
+Boundary: what each branch reports
+| Situation | V-L branch | V-V branch |
+| A described attribute is wrong in the same way in every shot | report it in every violating shot | nothing to report |
+| An undescribed attribute changes between shots of one scene | nothing to report | report the change |
+| A described attribute changes between shots | report only the shots that contradict the words | report the change |
+| Text says "same / remains / returns" and the shots differ | report stated_continuity (or attribute) in the shots that break it | report the change |
+| A shot satisfies the words but looks different from another shot | nothing to report | report the change if the two should match |
+| A change explained by an action, camera movement, occlusion or story time | nothing, unless the end state contradicts the text | nothing to report |
+| A required cut is missing or a required continue is broken | report shot_structure | report transition_realization |
+| A within-shot change that the text forbids ("hold this single view") | report it | report it |
+| A required entity never appears | report presence_count | nothing, unless it pops in or out |
+| An unrequested entity appears | report presence_count only if it is prominent | report only if it is itself inconsistent |
+A detector ledger entry, a detector miss or a ledger identity link is never
+evidence by itself in either branch; inspect the frames.

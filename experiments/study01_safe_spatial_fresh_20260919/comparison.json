@@ -1,0 +1,873 @@
+{
+  "batch": {
+    "status": "success",
+    "started": 1789821957.6139443,
+    "host": "auh7-1b-gpu-214",
+    "job_id": "200016",
+    "cases": {
+      "study0": {
+        "status": "success",
+        "started": 1789821958.862753,
+        "command": [
+          "/vast/users/guangyi.chen/anaconda3/bin/python",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "--manifest",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study0.json",
+          "--narrative",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study0_narrative.json",
+          "--output",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+          "--gpu",
+          "0",
+          "--gpu-uuid",
+          "GPU-fbf44063f6e48526",
+          "--runtime-profile",
+          "safe_spatial_medium"
+        ],
+        "returncode": 0,
+        "seconds": 881.3908092975616
+      },
+      "study1": {
+        "status": "success",
+        "started": 1789822841.018862,
+        "command": [
+          "/vast/users/guangyi.chen/anaconda3/bin/python",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_integrated.py",
+          "--manifest",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study1.json",
+          "--narrative",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/manifests/study1_narrative.json",
+          "--output",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+          "--gpu",
+          "0",
+          "--gpu-uuid",
+          "GPU-fbf44063f6e48526",
+          "--runtime-profile",
+          "safe_spatial_medium"
+        ],
+        "returncode": 0,
+        "seconds": 881.2378950119019
+      }
+    },
+    "slurm_global_gpu": 2,
+    "rocm_device_index": 0,
+    "gpu_uuid": "GPU-fbf44063f6e48526",
+    "finished": 1789823722.275691,
+    "seconds": 1764.6617469787598
+  },
+  "results": {
+    "study0": {
+      "frontend_timing": {
+        "clustering_wall_seconds": 25.819976091384888,
+        "detection_and_preparation_seconds": 31.832569122314453
+      },
+      "status": "success",
+      "elapsed_seconds": 880.8067765235901,
+      "stages": [
+        {
+          "stage": "detection_and_clustering",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+            "--manifest",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0/raw_manifest.json",
+            "--output",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0/entities",
+            "--gpu",
+            "0",
+            "--model",
+            "gpt-6-astra",
+            "--reasoning",
+            "medium",
+            "--shot-workers",
+            "2",
+            "--codex-bin",
+            "/vast/users/guangyi.chen/.local/bin/codex",
+            "--timeout",
+            "1800"
+          ],
+          "status": "success",
+          "started": 1789821959.393497,
+          "seconds": 58.48110246658325,
+          "returncode": 0,
+          "total_tokens": 31013
+        },
+        {
+          "stage": "geocalib",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "calibrate"
+          ],
+          "status": "success",
+          "started": 1789822017.8749747,
+          "seconds": 40.48996329307556,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "prepare_shot_inputs",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "inputs"
+          ],
+          "status": "success",
+          "started": 1789822058.365246,
+          "seconds": 0.3221445083618164,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "pi3x_shot1",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot1"
+          ],
+          "status": "success",
+          "started": 1789822058.6875854,
+          "seconds": 48.8635516166687,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "boxer_shot1",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot1"
+          ],
+          "status": "success",
+          "started": 1789822107.5513303,
+          "seconds": 14.127649068832397,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "pi3x_shot3",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot3"
+          ],
+          "status": "success",
+          "started": 1789822121.6791475,
+          "seconds": 23.106420516967773,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "boxer_shot3",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot3"
+          ],
+          "status": "success",
+          "started": 1789822144.7858005,
+          "seconds": 12.29842495918274,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "motion_and_fusion",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789822157.0843763,
+          "seconds": 144.60070180892944,
+          "returncode": 0,
+          "total_tokens": 75475
+        },
+        {
+          "stage": "roma_matches",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789822157.0844018,
+          "seconds": 130.11633682250977,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "initial_identity",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "match",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789822301.685347,
+          "seconds": 82.37522459030151,
+          "returncode": 0,
+          "total_tokens": 58155
+        },
+        {
+          "stage": "lift_correspondences",
+          "command": [
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789822384.0607529,
+          "seconds": 5.323384046554565,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "registration",
+          "command": [
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789822389.3842938,
+          "seconds": 14.419767618179321,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "aligned_identity_review",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "review_identity",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789822403.804314,
+          "seconds": 252.87602925300598,
+          "returncode": 0,
+          "total_tokens": 60269
+        },
+        {
+          "stage": "presence",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "presence",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789822656.6805763,
+          "seconds": 183.0823209285736,
+          "returncode": 0,
+          "total_tokens": 94808
+        },
+        {
+          "stage": "spatial",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study0",
+            "spatial",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789822839.7630188,
+          "seconds": 0.43004631996154785,
+          "returncode": 0,
+          "total_tokens": 0
+        }
+      ],
+      "calls": [
+        {
+          "call": "calls/identity_review",
+          "status": "success",
+          "seconds": 250.46369576454163,
+          "input_tokens": 52171,
+          "output_tokens": 8098,
+          "cached_input_tokens": 0,
+          "total_tokens": 60269
+        },
+        {
+          "call": "calls/matching",
+          "status": "success",
+          "seconds": 81.83216834068298,
+          "input_tokens": 55679,
+          "output_tokens": 2476,
+          "cached_input_tokens": 0,
+          "total_tokens": 58155
+        },
+        {
+          "call": "calls/motion_shot1",
+          "status": "success",
+          "seconds": 141.90584802627563,
+          "input_tokens": 33620,
+          "output_tokens": 4456,
+          "cached_input_tokens": 0,
+          "total_tokens": 38076
+        },
+        {
+          "call": "calls/motion_shot3",
+          "status": "success",
+          "seconds": 144.04977583885193,
+          "input_tokens": 32803,
+          "output_tokens": 4596,
+          "cached_input_tokens": 0,
+          "total_tokens": 37399
+        },
+        {
+          "call": "calls/presence_1",
+          "status": "success",
+          "seconds": 182.47403359413147,
+          "input_tokens": 88979,
+          "output_tokens": 5829,
+          "cached_input_tokens": 0,
+          "total_tokens": 94808
+        },
+        {
+          "call": "entities/shots/shot1",
+          "status": "success",
+          "seconds": 24.860301971435547,
+          "input_tokens": 15049,
+          "output_tokens": 474,
+          "cached_input_tokens": 0,
+          "total_tokens": 15523
+        },
+        {
+          "call": "entities/shots/shot3",
+          "status": "success",
+          "seconds": 25.819785118103027,
+          "input_tokens": 14972,
+          "output_tokens": 518,
+          "cached_input_tokens": 0,
+          "total_tokens": 15490
+        }
+      ],
+      "total_tokens": 319720,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "runtime_profile": {
+        "model": "gpt-6-astra",
+        "reasoning": "medium",
+        "transport": "efficient",
+        "clustering_model": "gpt-6-astra",
+        "clustering_reasoning": "medium",
+        "overlap_roma_with_identity": true,
+        "status": "validated_study2_fixed_upstream_spatial_replay",
+        "efficient_call_stages": [
+          "observe_shot1",
+          "observe_shot3",
+          "verify_relations"
+        ],
+        "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+        "name": "safe_spatial_medium"
+      },
+      "completed_through": "spatial",
+      "spatial_evaluation_run": true,
+      "presence": {
+        "score": 100.0,
+        "coverage": 0.8235294117647058,
+        "N": 17,
+        "C": 14,
+        "K": 0,
+        "U": 3,
+        "E": 0,
+        "identification_interval": [
+          82.3529411764706,
+          100.0
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 91,
+        "C": 0,
+        "K": 0,
+        "U": 91,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      },
+      "shot_counts": {
+        "shot1": {
+          "entities": 18,
+          "static": 16
+        },
+        "shot3": {
+          "entities": 18,
+          "static": 17
+        }
+      },
+      "scored_pair": [
+        "shot1",
+        "shot3"
+      ],
+      "auxiliary_clustering_counts": {}
+    },
+    "study1": {
+      "frontend_timing": {
+        "clustering_wall_seconds": 24.876725435256958,
+        "detection_and_preparation_seconds": 30.05079436302185
+      },
+      "status": "success",
+      "elapsed_seconds": 880.8642873764038,
+      "stages": [
+        {
+          "stage": "detection_and_clustering",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+            "--manifest",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1/raw_manifest.json",
+            "--output",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1/entities",
+            "--gpu",
+            "0",
+            "--model",
+            "gpt-6-astra",
+            "--reasoning",
+            "medium",
+            "--shot-workers",
+            "2",
+            "--codex-bin",
+            "/vast/users/guangyi.chen/.local/bin/codex",
+            "--timeout",
+            "1800"
+          ],
+          "status": "success",
+          "started": 1789822841.3075597,
+          "seconds": 55.74839448928833,
+          "returncode": 0,
+          "total_tokens": 31128
+        },
+        {
+          "stage": "geocalib",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "calibrate"
+          ],
+          "status": "success",
+          "started": 1789822897.0563755,
+          "seconds": 39.606974601745605,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "prepare_shot_inputs",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "inputs"
+          ],
+          "status": "success",
+          "started": 1789822936.6636198,
+          "seconds": 0.337862491607666,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "pi3x_shot1",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot1"
+          ],
+          "status": "success",
+          "started": 1789822937.0016224,
+          "seconds": 41.50635361671448,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "boxer_shot1",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot1"
+          ],
+          "status": "success",
+          "started": 1789822978.50811,
+          "seconds": 13.150135040283203,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "pi3x_shot3",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot3"
+          ],
+          "status": "success",
+          "started": 1789822991.6584857,
+          "seconds": 22.590421676635742,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "boxer_shot3",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+            "--method",
+            "pi3x",
+            "--shot",
+            "shot3"
+          ],
+          "status": "success",
+          "started": 1789823014.249269,
+          "seconds": 12.738164901733398,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "motion_and_fusion",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789823026.987857,
+          "seconds": 157.83647108078003,
+          "returncode": 0,
+          "total_tokens": 77539
+        },
+        {
+          "stage": "roma_matches",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+            "0",
+            "GPU-fbf44063f6e48526",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789823026.988002,
+          "seconds": 129.21330642700195,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "initial_identity",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "match",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789823184.8245533,
+          "seconds": 81.62519931793213,
+          "returncode": 0,
+          "total_tokens": 59611
+        },
+        {
+          "stage": "lift_correspondences",
+          "command": [
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789823266.4500644,
+          "seconds": 5.73944616317749,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "registration",
+          "command": [
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+            "--method",
+            "roma"
+          ],
+          "status": "success",
+          "started": 1789823272.1898382,
+          "seconds": 16.4313542842865,
+          "returncode": 0,
+          "total_tokens": 0
+        },
+        {
+          "stage": "aligned_identity_review",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "review_identity",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789823288.621561,
+          "seconds": 244.1910171508789,
+          "returncode": 0,
+          "total_tokens": 61336
+        },
+        {
+          "stage": "presence",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "presence",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789823532.8130276,
+          "seconds": 188.9326045513153,
+          "returncode": 0,
+          "total_tokens": 97246
+        },
+        {
+          "stage": "spatial",
+          "command": [
+            "/vast/users/guangyi.chen/anaconda3/bin/python",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+            "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study01_safe_spatial_fresh_20260919/study1",
+            "spatial",
+            "--runtime-profile",
+            "safe_spatial_medium"
+          ],
+          "status": "success",
+          "started": 1789823721.7459888,
+          "seconds": 0.4154191017150879,
+          "returncode": 0,
+          "total_tokens": 0
+        }
+      ],
+      "calls": [
+        {
+          "call": "calls/identity_review",
+          "status": "success",
+          "seconds": 242.67974495887756,
+          "input_tokens": 53521,
+          "output_tokens": 7815,
+          "cached_input_tokens": 0,
+          "total_tokens": 61336
+        },
+        {
+          "call": "calls/matching",
+          "status": "success",
+          "seconds": 81.10572409629822,
+          "input_tokens": 57176,
+          "output_tokens": 2435,
+          "cached_input_tokens": 0,
+          "total_tokens": 59611
+        },
+        {
+          "call": "calls/motion_shot1",
+          "status": "success",
+          "seconds": 148.084299325943,
+          "input_tokens": 34388,
+          "output_tokens": 4728,
+          "cached_input_tokens": 0,
+          "total_tokens": 39116
+        },
+        {
+          "call": "calls/motion_shot3",
+          "status": "success",
+          "seconds": 157.4125370979309,
+          "input_tokens": 33438,
+          "output_tokens": 4985,
+          "cached_input_tokens": 0,
+          "total_tokens": 38423
+        },
+        {
+          "call": "calls/presence_1",
+          "status": "success",
+          "seconds": 188.31410574913025,
+          "input_tokens": 91219,
+          "output_tokens": 6027,
+          "cached_input_tokens": 0,
+          "total_tokens": 97246
+        },
+        {
+          "call": "entities/shots/shot1",
+          "status": "success",
+          "seconds": 21.5868079662323,
+          "input_tokens": 14953,
+          "output_tokens": 487,
+          "cached_input_tokens": 7424,
+          "total_tokens": 15440
+        },
+        {
+          "call": "entities/shots/shot3",
+          "status": "success",
+          "seconds": 24.876470804214478,
+          "input_tokens": 15184,
+          "output_tokens": 504,
+          "cached_input_tokens": 7424,
+          "total_tokens": 15688
+        }
+      ],
+      "total_tokens": 326860,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "runtime_profile": {
+        "model": "gpt-6-astra",
+        "reasoning": "medium",
+        "transport": "efficient",
+        "clustering_model": "gpt-6-astra",
+        "clustering_reasoning": "medium",
+        "overlap_roma_with_identity": true,
+        "status": "validated_study2_fixed_upstream_spatial_replay",
+        "efficient_call_stages": [
+          "observe_shot1",
+          "observe_shot3",
+          "verify_relations"
+        ],
+        "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+        "name": "safe_spatial_medium"
+      },
+      "completed_through": "spatial",
+      "spatial_evaluation_run": true,
+      "presence": {
+        "score": 94.44444444444444,
+        "coverage": 0.8888888888888888,
+        "N": 18,
+        "C": 15,
+        "K": 1,
+        "U": 2,
+        "E": 0,
+        "identification_interval": [
+          83.33333333333333,
+          94.44444444444444
+        ]
+      },
+      "spatial": {
+        "score": 100.0,
+        "coverage": 0.0,
+        "N": 105,
+        "C": 0,
+        "K": 0,
+        "U": 105,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          100.0
+        ]
+      },
+      "shot_counts": {
+        "shot1": {
+          "entities": 20,
+          "static": 18
+        },
+        "shot3": {
+          "entities": 18,
+          "static": 17
+        }
+      },
+      "scored_pair": [
+        "shot1",
+        "shot3"
+      ],
+      "auxiliary_clustering_counts": {}
+    }
+  }
+}

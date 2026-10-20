@@ -1,0 +1,5444 @@
+{
+  "status": "complete_with_documented_recovery",
+  "studies": [
+    {
+      "study": "study2",
+      "seconds": 367.689430475235,
+      "including_reference_seconds": 531.4482190608978,
+      "calls": 46,
+      "tokens": 865343,
+      "usd": 9.414814,
+      "presence_before": {
+        "score": 83.33333333333334,
+        "coverage": 0.8333333333333334,
+        "N": 12,
+        "C": 8,
+        "K": 2,
+        "U": 2,
+        "E": 18,
+        "identification_interval": [
+          66.66666666666667,
+          83.33333333333333
+        ]
+      },
+      "presence_after": {
+        "score": 83.33333333333334,
+        "coverage": 0.8333333333333334,
+        "N": 12,
+        "C": 8,
+        "K": 2,
+        "U": 2,
+        "E": 18,
+        "identification_interval": [
+          66.66666666666667,
+          83.33333333333333
+        ]
+      },
+      "spatial_before": {
+        "score": 97.22222222222221,
+        "total_pairs": 36,
+        "confirmed_conflict_pairs": 1,
+        "anomaly_ratio": 0.027777777777777776,
+        "no_conflict_pairs": 24,
+        "unresolved_pairs": 11,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "spatial_after": {
+        "score": 97.22222222222221,
+        "total_pairs": 36,
+        "confirmed_conflict_pairs": 1,
+        "anomaly_ratio": 0.027777777777777776,
+        "no_conflict_pairs": 24,
+        "unresolved_pairs": 11,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "displacement": {
+        "within": {
+          "score": 60.679845192259506,
+          "total_records": 45,
+          "scored_records": 38,
+          "unscored_records": 7,
+          "weighting": "equal_entity_observation_records"
+        },
+        "cross": {
+          "score": 63.22760450589151,
+          "total_records": 30,
+          "scored_records": 8,
+          "unscored_records": 22,
+          "weighting": "equal_entity_observation_records"
+        },
+        "all": {
+          "score": 61.11094197173676,
+          "total_records": 75,
+          "scored_records": 46,
+          "unscored_records": 29,
+          "weighting": "equal_entity_observation_records"
+        }
+      },
+      "appearance": {
+        "entities": 36,
+        "scored_entities": 34,
+        "unscored_entities": 2,
+        "codex_score": 92.2624097880812,
+        "codex_entity_mean": 97.85539215686275,
+        "dino_score": 0.9100262084131273,
+        "dino_scored_entities": 34,
+        "unknown_dimensions": 26
+      },
+      "alignment": {
+        "presence": {
+          "micro": {
+            "T": 14,
+            "F": 0,
+            "U": 0,
+            "N": 14,
+            "score": 100.0,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            100.0,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot2",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        },
+        "appearance": {
+          "micro": {
+            "T": 24,
+            "F": 0,
+            "U": 3,
+            "N": 27,
+            "score": 100.0,
+            "identification_interval": [
+              88.88888888888889,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            78.88888888888889,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 5,
+              "F": 0,
+              "U": 0,
+              "N": 5,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 5,
+              "F": 0,
+              "U": 1,
+              "N": 6,
+              "score": 100.0,
+              "identification_interval": [
+                83.33333333333333,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 7,
+              "F": 0,
+              "U": 0,
+              "N": 7,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                94.44444444444444,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "score": null,
+              "unknown_scope_count": 2,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 1
+        },
+        "spatial": {
+          "micro": {
+            "T": 3,
+            "F": 0,
+            "U": 0,
+            "N": 3,
+            "score": 100.0,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            100.0,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        },
+        "motion": {
+          "micro": {
+            "T": 7,
+            "F": 0,
+            "U": 3,
+            "N": 10,
+            "score": 100.0,
+            "identification_interval": [
+              70.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            78.33333333333334,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "notebook",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 1,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "notebook",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                25.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                66.66666666666667,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        }
+      }
+    },
+    {
+      "study": "study3",
+      "seconds": 422.26370120048523,
+      "including_reference_seconds": 422.8941376209259,
+      "calls": 44,
+      "tokens": 755334,
+      "usd": 8.717356,
+      "presence_before": {
+        "score": 92.3076923076923,
+        "coverage": 0.7692307692307693,
+        "N": 13,
+        "C": 9,
+        "K": 1,
+        "U": 3,
+        "E": 16,
+        "identification_interval": [
+          69.23076923076923,
+          92.3076923076923
+        ]
+      },
+      "presence_after": {
+        "score": 92.3076923076923,
+        "coverage": 0.7692307692307693,
+        "N": 13,
+        "C": 9,
+        "K": 1,
+        "U": 3,
+        "E": 16,
+        "identification_interval": [
+          69.23076923076923,
+          92.3076923076923
+        ]
+      },
+      "spatial_before": {
+        "score": 97.77777777777777,
+        "total_pairs": 45,
+        "confirmed_conflict_pairs": 1,
+        "anomaly_ratio": 0.022222222222222223,
+        "no_conflict_pairs": 32,
+        "unresolved_pairs": 12,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "spatial_after": {
+        "score": 97.77777777777777,
+        "total_pairs": 45,
+        "confirmed_conflict_pairs": 1,
+        "anomaly_ratio": 0.022222222222222223,
+        "no_conflict_pairs": 32,
+        "unresolved_pairs": 12,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "displacement": {
+        "within": {
+          "score": 62.804234199204366,
+          "total_records": 46,
+          "scored_records": 39,
+          "unscored_records": 7,
+          "weighting": "equal_entity_observation_records"
+        },
+        "cross": {
+          "score": 67.14910493652648,
+          "total_records": 29,
+          "scored_records": 9,
+          "unscored_records": 20,
+          "weighting": "equal_entity_observation_records"
+        },
+        "all": {
+          "score": 63.57939385199178,
+          "total_records": 75,
+          "scored_records": 48,
+          "unscored_records": 27,
+          "weighting": "equal_entity_observation_records"
+        }
+      },
+      "appearance": {
+        "entities": 36,
+        "scored_entities": 34,
+        "unscored_entities": 2,
+        "codex_score": 85.7756006249227,
+        "codex_entity_mean": 96.0171568627451,
+        "dino_score": 0.913816675968825,
+        "dino_scored_entities": 34,
+        "unknown_dimensions": 25
+      },
+      "alignment": {
+        "presence": {
+          "micro": {
+            "T": 18,
+            "F": 0,
+            "U": 0,
+            "N": 18,
+            "score": 100.0,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            100.0,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "pens"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "pens"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "pens"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        },
+        "appearance": {
+          "micro": {
+            "T": 25,
+            "F": 1,
+            "U": 2,
+            "N": 28,
+            "score": 96.15384615384616,
+            "identification_interval": [
+              89.28571428571429,
+              96.42857142857143
+            ]
+          },
+          "score": 92.85714285714286,
+          "identification_interval": [
+            81.25,
+            93.75
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk"
+              ],
+              "score": null,
+              "unknown_scope_count": 2,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 50.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                50.0,
+                50.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 1
+        },
+        "spatial": {
+          "micro": {
+            "T": 9,
+            "F": 3,
+            "U": 5,
+            "N": 17,
+            "score": 75.0,
+            "identification_interval": [
+              52.94117647058823,
+              82.3529411764706
+            ]
+          },
+          "score": 80.95238095238095,
+          "identification_interval": [
+            60.41666666666667,
+            87.5
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "desk",
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "holder"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder",
+                "pens"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder",
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 2,
+              "N": 2,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "mug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "holder"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder",
+                "pens"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "holder"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "desk",
+                "lamp"
+              ],
+              "score": 66.66666666666667,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                66.66666666666667,
+                66.66666666666667
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "mug"
+              ],
+              "score": 50.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                33.333333333333336,
+                66.66666666666667
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "holder"
+              ],
+              "score": 50.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                33.333333333333336,
+                66.66666666666667
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder",
+                "pens"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder",
+                "mug"
+              ],
+              "score": null,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 1
+        },
+        "motion": {
+          "micro": {
+            "T": 12,
+            "F": 0,
+            "U": 4,
+            "N": 16,
+            "score": 100.0,
+            "identification_interval": [
+              75.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            72.22222222222223,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 1,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "mug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "holder"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "notebook",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "chair"
+              ],
+              "score": null,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "console",
+                "notebook",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "desk",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 1
+        }
+      }
+    },
+    {
+      "study": "study4",
+      "seconds": 315.1537322998047,
+      "including_reference_seconds": 1228.6915256977081,
+      "calls": 35,
+      "tokens": 376591,
+      "usd": 3.94619,
+      "presence_before": {
+        "score": 100.0,
+        "coverage": 0.2222222222222222,
+        "N": 9,
+        "C": 2,
+        "K": 0,
+        "U": 7,
+        "E": 13,
+        "identification_interval": [
+          22.22222222222222,
+          100.0
+        ]
+      },
+      "presence_after": {
+        "score": 100.0,
+        "coverage": 0.2222222222222222,
+        "N": 9,
+        "C": 2,
+        "K": 0,
+        "U": 7,
+        "E": 13,
+        "identification_interval": [
+          22.22222222222222,
+          100.0
+        ]
+      },
+      "spatial_before": {
+        "score": 100.0,
+        "total_pairs": 3,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 2,
+        "unresolved_pairs": 1,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "spatial_after": {
+        "score": 100.0,
+        "total_pairs": 3,
+        "confirmed_conflict_pairs": 0,
+        "anomaly_ratio": 0.0,
+        "no_conflict_pairs": 2,
+        "unresolved_pairs": 1,
+        "exempt_pairs": 0,
+        "scoring_protocol": "confirmed_anomaly_fraction_v1",
+        "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+      },
+      "displacement": {
+        "within": {
+          "score": 54.559373867835085,
+          "total_records": 36,
+          "scored_records": 31,
+          "unscored_records": 5,
+          "weighting": "equal_entity_observation_records"
+        },
+        "cross": {
+          "score": 80.09301171813323,
+          "total_records": 22,
+          "scored_records": 2,
+          "unscored_records": 20,
+          "weighting": "equal_entity_observation_records"
+        },
+        "all": {
+          "score": 55.68605733922958,
+          "total_records": 58,
+          "scored_records": 33,
+          "unscored_records": 25,
+          "weighting": "equal_entity_observation_records"
+        }
+      },
+      "appearance": {
+        "entities": 33,
+        "scored_entities": 32,
+        "unscored_entities": 1,
+        "codex_score": 97.12360390177415,
+        "codex_entity_mean": 99.15364583333333,
+        "dino_score": 0.9175733285683969,
+        "dino_scored_entities": 32,
+        "unknown_dimensions": 15
+      },
+      "alignment": {
+        "presence": {
+          "micro": {
+            "T": 34,
+            "F": 0,
+            "U": 0,
+            "N": 34,
+            "score": 100.0,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            100.0,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "fireplace"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "television_cabinet"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "hedge"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "planting"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot2",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "fireplace"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "television_cabinet"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "hedge"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "planting"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        },
+        "appearance": {
+          "micro": {
+            "T": 55,
+            "F": 0,
+            "U": 1,
+            "N": 56,
+            "score": 100.0,
+            "identification_interval": [
+              98.21428571428571,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            95.45454545454545,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 6,
+              "F": 0,
+              "U": 0,
+              "N": 6,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 6,
+              "F": 0,
+              "U": 0,
+              "N": 6,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 6,
+              "F": 0,
+              "U": 0,
+              "N": 6,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 3,
+              "F": 0,
+              "U": 0,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 3,
+              "F": 0,
+              "U": 0,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot2",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 0
+        },
+        "spatial": {
+          "micro": {
+            "T": 40,
+            "F": 2,
+            "U": 1,
+            "N": 43,
+            "score": 95.23809523809524,
+            "identification_interval": [
+              93.02325581395348,
+              95.34883720930233
+            ]
+          },
+          "score": 94.73684210526316,
+          "identification_interval": [
+            90.0,
+            95.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "sofa",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "table"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 4,
+              "F": 0,
+              "U": 0,
+              "N": 4,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa",
+                "table"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 3,
+              "F": 0,
+              "U": 0,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "table"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 1,
+              "U": 0,
+              "N": 1,
+              "score": 0.0,
+              "identification_interval": [
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 3,
+              "F": 0,
+              "U": 0,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa",
+                "table",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "table",
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot1",
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "sofa",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "tall_cup"
+              ],
+              "score": 50.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                50.0,
+                50.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "table"
+              ],
+              "score": 50.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                50.0,
+                50.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa",
+                "table"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa",
+                "table",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "tall_cup",
+                "woman"
+              ],
+              "score": null,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "table",
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 1
+        },
+        "motion": {
+          "micro": {
+            "T": 23,
+            "F": 0,
+            "U": 5,
+            "N": 28,
+            "score": 100.0,
+            "identification_interval": [
+              82.14285714285714,
+              100.0
+            ]
+          },
+          "score": 100.0,
+          "identification_interval": [
+            80.95238095238095,
+            100.0
+          ],
+          "units": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 1,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                66.66666666666667,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot1"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot2"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 1,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                50.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "woman"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 1,
+              "N": 3,
+              "score": 100.0,
+              "identification_interval": [
+                66.66666666666667,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 2,
+              "F": 0,
+              "U": 0,
+              "N": 2,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 0,
+              "F": 0,
+              "U": 1,
+              "N": 1,
+              "score": null,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "shot_ids": [
+                "shot3"
+              ],
+              "T": 1,
+              "F": 0,
+              "U": 0,
+              "N": 1,
+              "score": 100.0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "entity_groups": [
+            {
+              "entity_ids": [
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                83.33333333333333,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                83.33333333333334,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "door",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                66.66666666666667,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "tall_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "short_cup"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lawn",
+                "woman"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table",
+                "woman"
+              ],
+              "score": null,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "table"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "sofa"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "curtains"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "rug"
+              ],
+              "score": null,
+              "unknown_scope_count": 1,
+              "identification_interval": [
+                0.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "lamp"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            },
+            {
+              "entity_ids": [
+                "plant"
+              ],
+              "score": 100.0,
+              "unknown_scope_count": 0,
+              "identification_interval": [
+                100.0,
+                100.0
+              ]
+            }
+          ],
+          "unknown_entity_group_count": 2
+        }
+      }
+    }
+  ],
+  "selected_study4_prompt_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/study4_prompt_recovery_v2",
+  "initial_study4_pipeline_succeeded": false
+}

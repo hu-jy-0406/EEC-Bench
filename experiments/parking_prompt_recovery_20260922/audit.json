@@ -1,0 +1,114 @@
+{
+  "status": "success_after_one_rejected_review_and_schema_fix",
+  "audits": [
+    {
+      "shot_id": "Shot1",
+      "old_boxes_unchanged": 24,
+      "new_observations": 11,
+      "final_entities": 6,
+      "geometry_input_uses_recovered_entities": true
+    },
+    {
+      "shot_id": "Shot2",
+      "old_boxes_unchanged": 21,
+      "new_observations": 9,
+      "final_entities": 5,
+      "geometry_input_uses_recovered_entities": true
+    },
+    {
+      "shot_id": "Shot3",
+      "old_boxes_unchanged": 29,
+      "new_observations": 8,
+      "final_entities": 7,
+      "geometry_input_uses_recovered_entities": true
+    },
+    {
+      "shot_id": "Shot4",
+      "old_boxes_unchanged": 20,
+      "new_observations": 13,
+      "final_entities": 7,
+      "geometry_input_uses_recovered_entities": true
+    }
+  ],
+  "calls": [
+    {
+      "call": "Shot1_binding",
+      "status": "success",
+      "seconds": 19.02475333213806,
+      "tokens": 15712,
+      "standard_api_equivalent_usd": 0.17264
+    },
+    {
+      "call": "Shot1_review",
+      "status": "success",
+      "seconds": 26.12718176841736,
+      "tokens": 18721,
+      "standard_api_equivalent_usd": 0.21441
+    },
+    {
+      "call": "Shot2_binding",
+      "status": "success",
+      "seconds": 18.67569351196289,
+      "tokens": 15653,
+      "standard_api_equivalent_usd": 0.17081
+    },
+    {
+      "call": "Shot2_review",
+      "status": "success",
+      "seconds": 22.629964590072632,
+      "tokens": 18072,
+      "standard_api_equivalent_usd": 0.20344
+    },
+    {
+      "call": "Shot3_binding",
+      "status": "success",
+      "seconds": 20.67686176300049,
+      "tokens": 16770,
+      "standard_api_equivalent_usd": 0.18786
+    },
+    {
+      "call": "Shot3_review",
+      "status": "success",
+      "seconds": 29.423078775405884,
+      "tokens": 20081,
+      "standard_api_equivalent_usd": 0.23253
+    },
+    {
+      "call": "Shot4_binding",
+      "status": "success",
+      "seconds": 17.99968695640564,
+      "tokens": 15619,
+      "standard_api_equivalent_usd": 0.17183
+    },
+    {
+      "call": "Shot4_review",
+      "status": "success",
+      "seconds": 27.316784143447876,
+      "tokens": 20470,
+      "standard_api_equivalent_usd": 0.2321
+    },
+    {
+      "call": "Shot4_review_failed1",
+      "status": "failed",
+      "seconds": 33.93112778663635,
+      "tokens": 18719,
+      "standard_api_equivalent_usd": 0.22211
+    }
+  ],
+  "total_tokens": 159817,
+  "standard_api_equivalent_usd": 1.80773,
+  "actual_bill": false,
+  "usage": {
+    "input_tokens": 154578,
+    "cached_input_tokens": 0,
+    "output_tokens": 5239
+  },
+  "grounding_seconds": 163.9051263332367,
+  "first_call_to_last_call_seconds": 415.7702476978302,
+  "failed_validation_tokens": 18719,
+  "failed_validation_usd": 0.22211,
+  "reused_original_frontend": true,
+  "new_3d_inference": false,
+  "new_registration": false,
+  "original_inputs_unchanged": true
+}

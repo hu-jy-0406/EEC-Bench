@@ -1,0 +1,237 @@
+{
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4",
+  "metric": "Euclidean distance of same-entity 3D box centers after frozen Shot3-to-Shot1 transform",
+  "units": "Shot1 model units, not calibrated meters",
+  "images": [
+    {
+      "shot_id": "shot1",
+      "frame_id": 240,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_concise_mtd_fps32_20260919/frames/shot1/frame_000240.jpg",
+      "timestamp_sec": 9.975103734439834,
+      "sha256": "91f0244b89e6385ee108e7df296a51199dee3546cabc4a05269679e845ad414c"
+    },
+    {
+      "shot_id": "shot3",
+      "frame_id": 0,
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_concise_mtd_fps32_20260919/frames/shot3/frame_000000.jpg",
+      "timestamp_sec": 0.0,
+      "sha256": "8471b21bdfbb4571bad402eaaad3421e75724fb9abb098226439b4f670a5902a"
+    }
+  ],
+  "entities": [
+    {
+      "group_id": "g03",
+      "name": "woman",
+      "a_id": "shot1/e3",
+      "b_id": "shot3/e4",
+      "center_shot1": [
+        1.447407841682434,
+        2.032118320465088,
+        0.6341202855110168
+      ],
+      "center_shot3_aligned": [
+        1.105220471401691,
+        -1.783537057401832,
+        0.4403546172294007
+      ],
+      "distance": 3.835865390394848
+    },
+    {
+      "group_id": "g04",
+      "name": "wooden coffee table",
+      "a_id": "shot1/e4",
+      "b_id": "shot3/e3",
+      "center_shot1": [
+        0.1432427614927292,
+        -0.41869354248046875,
+        -0.252927303314209
+      ],
+      "center_shot3_aligned": [
+        0.11359620875639528,
+        -0.23917178094447827,
+        -0.21430406553912185
+      ],
+      "distance": 0.18600735321584513
+    },
+    {
+      "group_id": "g08",
+      "name": "sofa",
+      "a_id": "shot1/e8",
+      "b_id": "shot3/e6",
+      "center_shot1": [
+        -0.6719740033149719,
+        -1.5457128286361694,
+        -0.08806991577148438
+      ],
+      "center_shot3_aligned": [
+        -0.2635331641640287,
+        -1.4548117771357165,
+        -0.009756283916505008
+      ],
+      "distance": 0.42569936009410664
+    }
+  ],
+  "excluded": [
+    {
+      "group_id": "g01",
+      "identity": "scope_mismatch",
+      "a_ids": [
+        "shot1/e1"
+      ],
+      "b_ids": [
+        "shot3/e1",
+        "shot3/e2"
+      ]
+    },
+    {
+      "group_id": "g02",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e2"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g05",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e5"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g06",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e6"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g07",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e7"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g09_a",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e9"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g09_b",
+      "identity": "unmatched",
+      "a_ids": [],
+      "b_ids": [
+        "shot3/e10"
+      ]
+    },
+    {
+      "group_id": "g10",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e10"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g11",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e11"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g12",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e12"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g13_a",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e13"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g13_b",
+      "identity": "unmatched",
+      "a_ids": [],
+      "b_ids": [
+        "shot3/e11"
+      ]
+    },
+    {
+      "group_id": "g14",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e14"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g15",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e15"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g16",
+      "identity": "scope_mismatch",
+      "a_ids": [
+        "shot1/e16"
+      ],
+      "b_ids": [
+        "shot3/e5"
+      ]
+    },
+    {
+      "group_id": "g17_a",
+      "identity": "unmatched",
+      "a_ids": [
+        "shot1/e17"
+      ],
+      "b_ids": []
+    },
+    {
+      "group_id": "g17_b",
+      "identity": "unmatched",
+      "a_ids": [],
+      "b_ids": [
+        "shot3/e9"
+      ]
+    },
+    {
+      "group_id": "g18",
+      "identity": "unmatched",
+      "a_ids": [],
+      "b_ids": [
+        "shot3/e7"
+      ]
+    },
+    {
+      "group_id": "g19",
+      "identity": "unmatched",
+      "a_ids": [],
+      "b_ids": [
+        "shot3/e8"
+      ]
+    }
+  ],
+  "original_frame_hashes_verified": true,
+  "transform_recomputed_verified": true,
+  "new_model_calls": 0,
+  "api_usd": 0
+}

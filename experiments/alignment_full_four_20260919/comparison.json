@@ -1,0 +1,1600 @@
+{
+  "generated_at": "2026-09-19T19:41:17.972784+00:00",
+  "cases": [
+    {
+      "case": "study2_fps32",
+      "study": "study2",
+      "method": "roma_fps32",
+      "status": "completed",
+      "error": null,
+      "final_scores_available": true,
+      "presence_score": 88.23529411764706,
+      "spatial_score": 96.42857142857143,
+      "presence": {
+        "score": 88.23529411764706,
+        "coverage": 0.5882352941176471,
+        "N": 17,
+        "C": 8,
+        "K": 2,
+        "U": 7,
+        "E": 13,
+        "identification_interval": [
+          47.05882352941177,
+          88.23529411764706
+        ]
+      },
+      "spatial": {
+        "score": 96.42857142857143,
+        "coverage": 0.03571428571428571,
+        "N": 28,
+        "C": 0,
+        "K": 1,
+        "U": 27,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          96.42857142857143
+        ]
+      },
+      "partial_presence": null,
+      "partial_spatial": null,
+      "elapsed_seconds": 1309.9299387931824,
+      "total_tokens": 701394,
+      "input_tokens": 660055,
+      "output_tokens": 41339,
+      "cached_input_tokens": 14976,
+      "calls": 11,
+      "roma_seconds": 130.70255851745605,
+      "registration_seconds": 0.7913684844970703,
+      "direct_call_seconds": null,
+      "fps_selection_seconds": 0.0035231389992986806,
+      "optimization_seconds": 0.0646053620002931,
+      "population": {
+        "shot1": {
+          "detected_entities": 21,
+          "identity_entities": 21,
+          "motion_counts": {
+            "static": 19,
+            "moving": 2
+          }
+        },
+        "shot2": {
+          "detected_entities": 7,
+          "identity_entities": null,
+          "motion_counts": {}
+        },
+        "shot3": {
+          "detected_entities": 22,
+          "identity_entities": 22,
+          "motion_counts": {
+            "static": 21,
+            "moving": 1
+          }
+        }
+      },
+      "identity_groups": {
+        "unmatched": 21,
+        "matched": 9,
+        "ambiguous": 1,
+        "scope_mismatch": 1
+      },
+      "matched_moving_or_unknown_groups": [
+        "g04"
+      ],
+      "spatial_population": 8,
+      "spatial_pairs": 28,
+      "negative_proposals": 4,
+      "support_pass": 1,
+      "defects": {
+        "presence": [
+          {
+            "group_id": "g03",
+            "identity": {
+              "a": [
+                {
+                  "entity_id": "shot1/e3",
+                  "name": "Black desk lamp",
+                  "motion_status": "static"
+                }
+              ],
+              "b": []
+            },
+            "kind": "unexplained_missing",
+            "reason": [
+              "以同桌两端和完整支承面对应定位，反向画面的可见范围覆盖原灯占位及其上方；两帧直接排除人物遮挡和漏检。灯的消失不符合故事。"
+            ],
+            "label": "Black desk lamp ↔ ∅"
+          },
+          {
+            "group_id": "g26",
+            "identity": {
+              "a": [],
+              "b": [
+                {
+                  "entity_id": "shot3/e14",
+                  "name": "Tissue packet with protruding tissue",
+                  "motion_status": "static"
+                }
+              ]
+            },
+            "kind": "unexplained_added",
+            "reason": [
+              "以同桌边界和中部支承面对应定位，投影约[608,257]仅作辅助；原图相关桌面及周围均无纸巾包，两侧各两帧排除遮挡和漏检。该新增不受故事授权。"
+            ],
+            "label": "∅ ↔ Tissue packet with protruding tissue"
+          }
+        ],
+        "spatial": [
+          {
+            "relation_id": "pair_g02_g07",
+            "endpoint_groups": [
+              "g02",
+              "g07"
+            ],
+            "endpoints": [
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ]
+              },
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e7",
+                    "name": "Pencil cup",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e9",
+                    "name": "Pencil cup",
+                    "motion_status": "static"
+                  }
+                ]
+              }
+            ],
+            "cosine": -0.200685294954594,
+            "reason": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded",
+            "label": "Dark green mug ↔ Dark green mug / Pencil cup ↔ Pencil cup"
+          }
+        ]
+      },
+      "anchors_initial": [
+        "g01",
+        "g05",
+        "g15"
+      ],
+      "transform": {
+        "objective": "sum_all_pair_euclidean_3d_distances_v1",
+        "objective_value": 9.362936813745751,
+        "parameters": [
+          -0.08024097993958114,
+          -4.445119220788108,
+          -0.8698665653883025,
+          -0.22050661111495776,
+          0.25575929105879314
+        ],
+        "scale": 0.9228939206664019,
+        "rotation": [
+          [
+            -0.26409911958120236,
+            -0.9644955443320792,
+            0.0
+          ],
+          [
+            0.9644955443320792,
+            -0.26409911958120236,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          -0.8698665653883025,
+          -0.22050661111495776,
+          0.25575929105879314
+        ],
+        "yaw_deg": 105.3134292163603,
+        "selected_start": 4,
+        "selected_candidate": "optimized",
+        "selected_solver_success": true,
+        "fit_rows": 32,
+        "all_selected_pairs_used": true,
+        "points_removed": 0,
+        "point_weights": "uniform_1",
+        "distance_power": 1,
+        "scale_bounds": [
+          0.1,
+          10.0
+        ],
+        "scale_at_bound": false,
+        "global_optimum_certified": false,
+        "attempts": [
+          {
+            "start": 0,
+            "initial_sum": 9.5682293319554,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 15,
+            "evaluations": 17
+          },
+          {
+            "start": 1,
+            "initial_sum": 23.16646496520614,
+            "final_sum": 9.362936813745764,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 20,
+            "evaluations": 27
+          },
+          {
+            "start": 2,
+            "initial_sum": 24.60463910006836,
+            "final_sum": 9.362936813745758,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 20,
+            "evaluations": 28
+          },
+          {
+            "start": 3,
+            "initial_sum": 25.169733480024455,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 30,
+            "evaluations": 43
+          },
+          {
+            "start": 4,
+            "initial_sum": 25.714213969551707,
+            "final_sum": 9.362936813745751,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 30,
+            "evaluations": 42
+          },
+          {
+            "start": 5,
+            "initial_sum": 26.203933882603778,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 28,
+            "evaluations": 40
+          },
+          {
+            "start": 6,
+            "initial_sum": 26.5942880921938,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 30,
+            "evaluations": 43
+          },
+          {
+            "start": 7,
+            "initial_sum": 26.879573462462634,
+            "final_sum": 9.362936813745751,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 30,
+            "evaluations": 43
+          },
+          {
+            "start": 8,
+            "initial_sum": 27.04486846360596,
+            "final_sum": 9.362936813746199,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 35,
+            "evaluations": 50
+          },
+          {
+            "start": 9,
+            "initial_sum": 27.080517189081476,
+            "final_sum": 9.362936813745753,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 38,
+            "evaluations": 50
+          },
+          {
+            "start": 10,
+            "initial_sum": 26.98220719669854,
+            "final_sum": 9.362936813745765,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 32,
+            "evaluations": 44
+          },
+          {
+            "start": 11,
+            "initial_sum": 26.75569835334813,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 29,
+            "evaluations": 46
+          },
+          {
+            "start": 12,
+            "initial_sum": 26.43025641920161,
+            "final_sum": 9.362936813745753,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 27,
+            "evaluations": 39
+          },
+          {
+            "start": 13,
+            "initial_sum": 25.995923594588895,
+            "final_sum": 9.362936813745753,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 28,
+            "evaluations": 40
+          },
+          {
+            "start": 14,
+            "initial_sum": 25.47859929701717,
+            "final_sum": 9.362936813745751,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 26,
+            "evaluations": 38
+          },
+          {
+            "start": 15,
+            "initial_sum": 25.03991405684478,
+            "final_sum": 9.362936813745764,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 26,
+            "evaluations": 40
+          },
+          {
+            "start": 16,
+            "initial_sum": 23.8384938986399,
+            "final_sum": 9.362936813745756,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 18,
+            "evaluations": 22
+          },
+          {
+            "start": 17,
+            "initial_sum": 20.789027174345954,
+            "final_sum": 9.362936813745762,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 18,
+            "evaluations": 26
+          },
+          {
+            "start": 18,
+            "initial_sum": 17.188010149366413,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 18,
+            "evaluations": 23
+          },
+          {
+            "start": 19,
+            "initial_sum": 12.702313526969556,
+            "final_sum": 9.362936813745911,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 14,
+            "evaluations": 18
+          },
+          {
+            "start": 20,
+            "initial_sum": 9.562607921151427,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 14,
+            "evaluations": 18
+          },
+          {
+            "start": 21,
+            "initial_sum": 10.654586234188047,
+            "final_sum": 9.362936813745872,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 17,
+            "evaluations": 19
+          },
+          {
+            "start": 22,
+            "initial_sum": 13.951754960380915,
+            "final_sum": 9.362936813745753,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 18,
+            "evaluations": 20
+          },
+          {
+            "start": 23,
+            "initial_sum": 17.310649001171907,
+            "final_sum": 9.362936813745755,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 16,
+            "evaluations": 22
+          },
+          {
+            "start": 24,
+            "initial_sum": 20.649529526223,
+            "final_sum": 9.362936813745787,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 19,
+            "evaluations": 24
+          }
+        ],
+        "status": "numeric_candidate",
+        "distance_3d": {
+          "n": 2808,
+          "sum": 563.0718440857042,
+          "mean": 0.2005241609991824,
+          "median": 0.18327626104308295,
+          "p90": 0.2887907929695422,
+          "max": 1.5572142158852422,
+          "by_group": {
+            "5": {
+              "n": 1291,
+              "sum": 293.0477985679853,
+              "mean": 0.22699287263205678,
+              "median": 0.2097579515377968,
+              "p90": 0.3336350718558393,
+              "max": 1.5572142158852422
+            },
+            "15": {
+              "n": 1517,
+              "sum": 270.02404551771895,
+              "mean": 0.177998711613526,
+              "median": 0.17491168475884966,
+              "p90": 0.26022577612712283,
+              "max": 0.3053515533818044
+            }
+          },
+          "units": "Shot1 model coordinate units; not calibrated meters",
+          "evaluation_role": "full candidate pool diagnostic; not the fitting objective"
+        },
+        "selected_distance_3d": {
+          "n": 32,
+          "sum": 9.362936813745751,
+          "mean": 0.2925917754295547,
+          "median": 0.2544492670398577,
+          "p90": 0.43820776529108085,
+          "max": 1.5433156385296667,
+          "by_group": {
+            "5": {
+              "n": 27,
+              "sum": 8.419014132271771,
+              "mean": 0.3118153382322878,
+              "median": 0.26646601897453864,
+              "p90": 0.44328030993579637,
+              "max": 1.5433156385296667
+            },
+            "15": {
+              "n": 5,
+              "sum": 0.9439226814739834,
+              "mean": 0.1887845362947967,
+              "median": 0.17876150186739184,
+              "p90": 0.2536874519862184,
+              "max": 0.2890690406621652
+            }
+          },
+          "units": "Shot1 model coordinate units; not calibrated meters"
+        },
+        "all_correspondences": {
+          "n": 2808,
+          "median_pixels": 48.124303423839905,
+          "mean_pixels": 52.722553829429486,
+          "p90_pixels": 80.38344760399879,
+          "inlier_5px": 0.0,
+          "balanced_inlier_5px": 0.0,
+          "by_group": {
+            "5": {
+              "n": 1291,
+              "median_px": 60.96403584504885,
+              "inlier_fraction_5px": 0.0
+            },
+            "15": {
+              "n": 1517,
+              "median_px": 40.23745091053832,
+              "inlier_fraction_5px": 0.0
+            }
+          }
+        },
+        "train": {
+          "n": 1764,
+          "median_pixels": 47.03647591715709,
+          "mean_pixels": 51.91532737197979,
+          "p90_pixels": 82.5519215251018,
+          "inlier_5px": 0.0,
+          "balanced_inlier_5px": 0.0,
+          "by_group": {
+            "5": {
+              "n": 913,
+              "median_px": 62.66958918914811,
+              "inlier_fraction_5px": 0.0
+            },
+            "15": {
+              "n": 851,
+              "median_px": 36.510007546207675,
+              "inlier_fraction_5px": 0.0
+            }
+          },
+          "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+        },
+        "spatial_holdout": {
+          "n": 1044,
+          "median_pixels": 50.96168190262373,
+          "mean_pixels": 54.08648818856859,
+          "p90_pixels": 76.75733926161881,
+          "inlier_5px": 0.0,
+          "balanced_inlier_5px": 0.0,
+          "by_group": {
+            "5": {
+              "n": 378,
+              "median_px": 55.6550528573936,
+              "inlier_fraction_5px": 0.0
+            },
+            "15": {
+              "n": 666,
+              "median_px": 48.087592915275486,
+              "inlier_fraction_5px": 0.0
+            }
+          },
+          "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+        }
+      },
+      "notes": []
+    },
+    {
+      "case": "study2_codex_direct",
+      "study": "study2",
+      "method": "codex_direct",
+      "status": "completed",
+      "error": null,
+      "final_scores_available": true,
+      "presence_score": 84.61538461538461,
+      "spatial_score": 96.42857142857143,
+      "presence": {
+        "score": 84.61538461538461,
+        "coverage": 0.7692307692307693,
+        "N": 13,
+        "C": 8,
+        "K": 2,
+        "U": 3,
+        "E": 17,
+        "identification_interval": [
+          61.53846153846154,
+          84.61538461538461
+        ]
+      },
+      "spatial": {
+        "score": 96.42857142857143,
+        "coverage": 0.03571428571428571,
+        "N": 28,
+        "C": 0,
+        "K": 1,
+        "U": 27,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          96.42857142857143
+        ]
+      },
+      "partial_presence": null,
+      "partial_spatial": null,
+      "elapsed_seconds": 1343.5565674304962,
+      "total_tokens": 756632,
+      "input_tokens": 714198,
+      "output_tokens": 42434,
+      "cached_input_tokens": 0,
+      "calls": 12,
+      "roma_seconds": null,
+      "registration_seconds": 28.29132318496704,
+      "direct_call_seconds": 27.99615788459778,
+      "fps_selection_seconds": null,
+      "optimization_seconds": null,
+      "population": {
+        "shot1": {
+          "detected_entities": 21,
+          "identity_entities": 21,
+          "motion_counts": {
+            "static": 19,
+            "moving": 2
+          }
+        },
+        "shot2": {
+          "detected_entities": 7,
+          "identity_entities": null,
+          "motion_counts": {}
+        },
+        "shot3": {
+          "detected_entities": 22,
+          "identity_entities": 22,
+          "motion_counts": {
+            "static": 21,
+            "moving": 1
+          }
+        }
+      },
+      "identity_groups": {
+        "unmatched": 21,
+        "matched": 9,
+        "ambiguous": 1,
+        "scope_mismatch": 1
+      },
+      "matched_moving_or_unknown_groups": [
+        "g04"
+      ],
+      "spatial_population": 8,
+      "spatial_pairs": 28,
+      "negative_proposals": 5,
+      "support_pass": 1,
+      "defects": {
+        "presence": [
+          {
+            "group_id": "g03",
+            "identity": {
+              "a": [
+                {
+                  "entity_id": "shot1/e3",
+                  "name": "Black desk lamp",
+                  "motion_status": "static"
+                }
+              ],
+              "b": []
+            },
+            "kind": "unexplained_missing",
+            "reason": [
+              "以同一桌体四角、长边及窗侧椅定位桌端；反向镜头覆盖整个支撑面及灯高范围，无须依赖不可靠的中心投影。两侧各两帧排除了遮挡及漏检，台灯属无解释缺失。"
+            ],
+            "label": "Black desk lamp ↔ ∅"
+          },
+          {
+            "group_id": "g26",
+            "identity": {
+              "a": [],
+              "b": [
+                {
+                  "entity_id": "shot3/e14",
+                  "name": "Tissue packet with protruding tissue",
+                  "motion_status": "static"
+                }
+              ]
+            },
+            "kind": "unexplained_added",
+            "reason": [
+              "以同桌边界、窗侧椅和桌心支撑面对应定位，使用覆盖位置不确定性的空区框，不把杯筒偏移或粗投影当作精确坐标。shot1两帧该区域无物且无遮挡，shot3两帧明确有包；红本运动不能解释新增纸巾包。"
+            ],
+            "label": "∅ ↔ Tissue packet with protruding tissue"
+          }
+        ],
+        "spatial": [
+          {
+            "relation_id": "pair_g02_g07",
+            "endpoint_groups": [
+              "g02",
+              "g07"
+            ],
+            "endpoints": [
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ]
+              },
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e7",
+                    "name": "Pencil cup",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e9",
+                    "name": "White pencil cup",
+                    "motion_status": "static"
+                  }
+                ]
+              }
+            ],
+            "cosine": -0.44246395571978003,
+            "reason": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded",
+            "label": "Dark green mug ↔ Dark green mug / Pencil cup ↔ White pencil cup"
+          }
+        ]
+      },
+      "anchors_initial": [
+        "g01",
+        "g05",
+        "g15"
+      ],
+      "transform": {
+        "status": "numeric_candidate",
+        "estimate_source": "codex_direct",
+        "scale": 0.9,
+        "yaw_deg": 120,
+        "rotation": [
+          [
+            -0.4999999999999998,
+            -0.8660254037844387,
+            0.0
+          ],
+          [
+            0.8660254037844387,
+            -0.4999999999999998,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          -0.95,
+          -0.5,
+          0.23
+        ],
+        "parameters": [
+          -0.10536051565782628,
+          2.0943951023931953,
+          -0.95,
+          -0.5,
+          0.23
+        ],
+        "confidence": "low",
+        "reasoning": "The overall furniture axes and reversal of the window-side layout suggest an approximately 120-degree positive yaw. Relative scene dimensions suggest slightly reducing Shot3's scale; translation approximately aligns the main occupied region and floor heights.",
+        "limitations": "The images and own-shot geometries do not support a fully consistent similarity transform. Background layout and tabletop contents differ, and the inferred rotation departs from the narrative's 160–180 degrees. This is a rough visual estimate in Shot1 model units.",
+        "geometric_diagnostics": {
+          "status": "unavailable",
+          "reason": "No RoMA correspondences or numerical fit; model confidence is not measured registration accuracy"
+        }
+      },
+      "notes": []
+    },
+    {
+      "case": "study3_fps32",
+      "study": "study3",
+      "method": "roma_fps32",
+      "status": "completed",
+      "error": null,
+      "final_scores_available": true,
+      "presence_score": 91.66666666666666,
+      "spatial_score": 97.22222222222221,
+      "presence": {
+        "score": 91.66666666666666,
+        "coverage": 0.8333333333333334,
+        "N": 12,
+        "C": 9,
+        "K": 1,
+        "U": 2,
+        "E": 18,
+        "identification_interval": [
+          75.0,
+          91.66666666666667
+        ]
+      },
+      "spatial": {
+        "score": 97.22222222222221,
+        "coverage": 0.027777777777777776,
+        "N": 36,
+        "C": 0,
+        "K": 1,
+        "U": 35,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          97.22222222222223
+        ]
+      },
+      "partial_presence": null,
+      "partial_spatial": null,
+      "elapsed_seconds": 1452.5695624351501,
+      "total_tokens": 696393,
+      "input_tokens": 651580,
+      "output_tokens": 44813,
+      "cached_input_tokens": 0,
+      "calls": 11,
+      "roma_seconds": 131.30777311325073,
+      "registration_seconds": 0.4890928268432617,
+      "direct_call_seconds": null,
+      "fps_selection_seconds": 0.0050258179999218555,
+      "optimization_seconds": 0.05409602700092364,
+      "population": {
+        "shot1": {
+          "detected_entities": 21,
+          "identity_entities": 21,
+          "motion_counts": {
+            "static": 19,
+            "moving": 2
+          }
+        },
+        "shot2": {
+          "detected_entities": 7,
+          "identity_entities": null,
+          "motion_counts": {}
+        },
+        "shot3": {
+          "detected_entities": 22,
+          "identity_entities": 22,
+          "motion_counts": {
+            "static": 21,
+            "moving": 1
+          }
+        }
+      },
+      "identity_groups": {
+        "unmatched": 21,
+        "matched": 10,
+        "scope_mismatch": 1
+      },
+      "matched_moving_or_unknown_groups": [
+        "g04"
+      ],
+      "spatial_population": 9,
+      "spatial_pairs": 36,
+      "negative_proposals": 4,
+      "support_pass": 1,
+      "defects": {
+        "presence": [
+          {
+            "group_id": "g25",
+            "identity": {
+              "a": [],
+              "b": [
+                {
+                  "entity_id": "shot3/e13",
+                  "name": "Tissue packet",
+                  "motion_status": "static"
+                }
+              ]
+            },
+            "kind": "unexplained_added",
+            "reason": [
+              "以同一桌板边界和桌面中段映射位置，冻结投影约[589,260]仅辅助；两侧各两帧确认对应可见区域从空到有。原图排除遮挡和漏检，正常故事不能解释新增。"
+            ],
+            "label": "∅ ↔ Tissue packet"
+          }
+        ],
+        "spatial": [
+          {
+            "relation_id": "pair_g02_g07",
+            "endpoint_groups": [
+              "g02",
+              "g07"
+            ],
+            "endpoints": [
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ]
+              },
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e7",
+                    "name": "Pencil holder",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e10",
+                    "name": "Pencil cup",
+                    "motion_status": "static"
+                  }
+                ]
+              }
+            ],
+            "cosine": -0.3412265448149032,
+            "reason": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded",
+            "label": "Dark green mug ↔ Dark green mug / Pencil holder ↔ Pencil cup"
+          }
+        ]
+      },
+      "anchors_initial": [
+        "g01",
+        "g05",
+        "g15"
+      ],
+      "transform": {
+        "objective": "sum_all_pair_euclidean_3d_distances_v1",
+        "objective_value": 10.488699561369856,
+        "parameters": [
+          -0.23457305178549256,
+          -4.3543573064459595,
+          -0.8471279161501865,
+          -0.3814952083392829,
+          0.28518795915009343
+        ],
+        "scale": 0.7909084545061976,
+        "rotation": [
+          [
+            -0.3504314019467655,
+            -0.9365884008088209,
+            0.0
+          ],
+          [
+            0.9365884008088209,
+            -0.3504314019467655,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          -0.8471279161501865,
+          -0.3814952083392829,
+          0.28518795915009343
+        ],
+        "yaw_deg": 110.51370384869324,
+        "selected_start": 2,
+        "selected_candidate": "optimized",
+        "selected_solver_success": true,
+        "fit_rows": 32,
+        "all_selected_pairs_used": true,
+        "points_removed": 0,
+        "point_weights": "uniform_1",
+        "distance_power": 1,
+        "scale_bounds": [
+          0.1,
+          10.0
+        ],
+        "scale_at_bound": false,
+        "global_optimum_certified": false,
+        "attempts": [
+          {
+            "start": 0,
+            "initial_sum": 11.300614462618107,
+            "final_sum": 10.488699561369895,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 16,
+            "evaluations": 18
+          },
+          {
+            "start": 1,
+            "initial_sum": 23.267208134603877,
+            "final_sum": 10.488699561369858,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 22,
+            "evaluations": 28
+          },
+          {
+            "start": 2,
+            "initial_sum": 24.183685381304926,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "iterations": 31,
+            "evaluations": 50
+          },
+          {
+            "start": 3,
+            "initial_sum": 24.826171167294333,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 25,
+            "evaluations": 37
+          },
+          {
+            "start": 4,
+            "initial_sum": 25.422942784031513,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 24,
+            "evaluations": 41
+          },
+          {
+            "start": 5,
+            "initial_sum": 25.94048170937461,
+            "final_sum": 10.48869956136986,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 26,
+            "evaluations": 45
+          },
+          {
+            "start": 6,
+            "initial_sum": 26.35367787210337,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: NORM OF PROJECTED GRADIENT <= PGTOL",
+            "iterations": 27,
+            "evaluations": 43
+          },
+          {
+            "start": 7,
+            "initial_sum": 26.640090206720423,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 30,
+            "evaluations": 45
+          },
+          {
+            "start": 8,
+            "initial_sum": 26.784325962428028,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 29,
+            "evaluations": 48
+          },
+          {
+            "start": 9,
+            "initial_sum": 26.77803081104244,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 29,
+            "evaluations": 44
+          },
+          {
+            "start": 10,
+            "initial_sum": 26.619506180521135,
+            "final_sum": 10.488699561369863,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 31,
+            "evaluations": 45
+          },
+          {
+            "start": 11,
+            "initial_sum": 26.32792478852635,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 29,
+            "evaluations": 42
+          },
+          {
+            "start": 12,
+            "initial_sum": 25.918713187469564,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 27,
+            "evaluations": 41
+          },
+          {
+            "start": 13,
+            "initial_sum": 25.3577282455485,
+            "final_sum": 10.48869956136986,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 23,
+            "evaluations": 38
+          },
+          {
+            "start": 14,
+            "initial_sum": 24.70686347237478,
+            "final_sum": 10.48869956136986,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 23,
+            "evaluations": 33
+          },
+          {
+            "start": 15,
+            "initial_sum": 24.051476684138972,
+            "final_sum": 10.48869956136987,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 23,
+            "evaluations": 36
+          },
+          {
+            "start": 16,
+            "initial_sum": 23.13016013732295,
+            "final_sum": 10.488699561369858,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 21,
+            "evaluations": 28
+          },
+          {
+            "start": 17,
+            "initial_sum": 21.01286930523451,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 17,
+            "evaluations": 22
+          },
+          {
+            "start": 18,
+            "initial_sum": 17.83805810521311,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 18,
+            "evaluations": 21
+          },
+          {
+            "start": 19,
+            "initial_sum": 14.416752494432439,
+            "final_sum": 10.488699561370208,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 14,
+            "evaluations": 18
+          },
+          {
+            "start": 20,
+            "initial_sum": 11.515548757978278,
+            "final_sum": 10.488699561369858,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 14,
+            "evaluations": 17
+          },
+          {
+            "start": 21,
+            "initial_sum": 11.946396839999451,
+            "final_sum": 10.488699561369858,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 16,
+            "evaluations": 18
+          },
+          {
+            "start": 22,
+            "initial_sum": 14.592613674332044,
+            "final_sum": 10.488699561369943,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 15,
+            "evaluations": 17
+          },
+          {
+            "start": 23,
+            "initial_sum": 18.067606225977215,
+            "final_sum": 10.488699561369858,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 19,
+            "evaluations": 23
+          },
+          {
+            "start": 24,
+            "initial_sum": 21.1273361067288,
+            "final_sum": 10.488699561369856,
+            "success": true,
+            "message": "CONVERGENCE: RELATIVE REDUCTION OF F <= FACTR*EPSMCH",
+            "iterations": 19,
+            "evaluations": 24
+          }
+        ],
+        "status": "numeric_candidate",
+        "distance_3d": {
+          "n": 4309,
+          "sum": 1269.0497065404745,
+          "mean": 0.29451141948026793,
+          "median": 0.21621514217386184,
+          "p90": 0.5014916042800852,
+          "max": 2.266615251987511,
+          "by_group": {
+            "5": {
+              "n": 2638,
+              "sum": 486.0221196934001,
+              "mean": 0.18423886265860503,
+              "median": 0.12558726359933914,
+              "p90": 0.25709756057960526,
+              "max": 2.266615251987511
+            },
+            "15": {
+              "n": 1671,
+              "sum": 783.0275868470745,
+              "mean": 0.4685981967965736,
+              "median": 0.46258818273354096,
+              "p90": 0.5117530613463924,
+              "max": 0.5353873610999333
+            }
+          },
+          "units": "Shot1 model coordinate units; not calibrated meters",
+          "evaluation_role": "full candidate pool diagnostic; not the fitting objective"
+        },
+        "selected_distance_3d": {
+          "n": 32,
+          "sum": 10.488699561369856,
+          "mean": 0.327771861292808,
+          "median": 0.20241381358600902,
+          "p90": 0.4872457699311142,
+          "max": 2.266615251987511,
+          "by_group": {
+            "5": {
+              "n": 27,
+              "sum": 8.474624508755449,
+              "mean": 0.31387498180575735,
+              "median": 0.18275353607813527,
+              "p90": 0.4532521907565358,
+              "max": 2.266615251987511
+            },
+            "15": {
+              "n": 5,
+              "sum": 2.0140750526144098,
+              "mean": 0.40281501052288193,
+              "median": 0.45408465704411244,
+              "p90": 0.4981566136563841,
+              "max": 0.5032781769441792
+            }
+          },
+          "units": "Shot1 model coordinate units; not calibrated meters"
+        },
+        "all_correspondences": {
+          "n": 4309,
+          "median_pixels": 66.24336655277605,
+          "mean_pixels": 78.01274965682312,
+          "p90_pixels": 126.12420523441568,
+          "inlier_5px": 0.006033882571362265,
+          "balanced_inlier_5px": 0.004502303372329323,
+          "by_group": {
+            "5": {
+              "n": 2638,
+              "median_px": 44.18526093550549,
+              "inlier_fraction_5px": 0.009855951478392721
+            },
+            "15": {
+              "n": 1671,
+              "median_px": 110.24893170941797,
+              "inlier_fraction_5px": 0.0
+            }
+          }
+        },
+        "train": {
+          "n": 2249,
+          "median_pixels": 60.195379290880446,
+          "mean_pixels": 73.304000299869,
+          "p90_pixels": 110.61909308967414,
+          "inlier_5px": 0.006224988883948421,
+          "balanced_inlier_5px": 0.002714803615283091,
+          "by_group": {
+            "5": {
+              "n": 1512,
+              "median_px": 49.20896338169818,
+              "inlier_fraction_5px": 0.009259259259259259
+            },
+            "15": {
+              "n": 737,
+              "median_px": 107.75950469319378,
+              "inlier_fraction_5px": 0.0
+            }
+          },
+          "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+        },
+        "spatial_holdout": {
+          "n": 2060,
+          "median_pixels": 81.37671345388537,
+          "mean_pixels": 83.15351533827447,
+          "p90_pixels": 128.89941204024547,
+          "inlier_5px": 0.005825242718446602,
+          "balanced_inlier_5px": 0.007374866879659211,
+          "by_group": {
+            "5": {
+              "n": 1126,
+              "median_px": 36.127750153878054,
+              "inlier_fraction_5px": 0.010657193605683837
+            },
+            "15": {
+              "n": 934,
+              "median_px": 118.3709870274834,
+              "inlier_fraction_5px": 0.0
+            }
+          },
+          "evaluation_role": "legacy candidate-pool partition, may overlap fitting rows; NOT an independent holdout"
+        }
+      },
+      "notes": []
+    },
+    {
+      "case": "study3_codex_direct",
+      "study": "study3",
+      "method": "codex_direct",
+      "status": "completed",
+      "error": null,
+      "final_scores_available": true,
+      "presence_score": 92.85714285714286,
+      "spatial_score": 97.22222222222221,
+      "presence": {
+        "score": 92.85714285714286,
+        "coverage": 0.7142857142857143,
+        "N": 14,
+        "C": 9,
+        "K": 1,
+        "U": 4,
+        "E": 15,
+        "identification_interval": [
+          64.28571428571429,
+          92.85714285714286
+        ]
+      },
+      "spatial": {
+        "score": 97.22222222222221,
+        "coverage": 0.027777777777777776,
+        "N": 36,
+        "C": 0,
+        "K": 1,
+        "U": 35,
+        "E": 0,
+        "identification_interval": [
+          0.0,
+          97.22222222222223
+        ]
+      },
+      "partial_presence": null,
+      "partial_spatial": null,
+      "elapsed_seconds": 1330.1133608818054,
+      "total_tokens": 748753,
+      "input_tokens": 705439,
+      "output_tokens": 43314,
+      "cached_input_tokens": 7424,
+      "calls": 12,
+      "roma_seconds": null,
+      "registration_seconds": 21.771549940109253,
+      "direct_call_seconds": 21.4758243560791,
+      "fps_selection_seconds": null,
+      "optimization_seconds": null,
+      "population": {
+        "shot1": {
+          "detected_entities": 21,
+          "identity_entities": 21,
+          "motion_counts": {
+            "static": 19,
+            "moving": 2
+          }
+        },
+        "shot2": {
+          "detected_entities": 7,
+          "identity_entities": null,
+          "motion_counts": {}
+        },
+        "shot3": {
+          "detected_entities": 22,
+          "identity_entities": 22,
+          "motion_counts": {
+            "static": 21,
+            "moving": 1
+          }
+        }
+      },
+      "identity_groups": {
+        "unmatched": 19,
+        "matched": 10,
+        "scope_mismatch": 1,
+        "ambiguous": 1
+      },
+      "matched_moving_or_unknown_groups": [
+        "g04"
+      ],
+      "spatial_population": 9,
+      "spatial_pairs": 36,
+      "negative_proposals": 4,
+      "support_pass": 1,
+      "defects": {
+        "presence": [
+          {
+            "group_id": "g25",
+            "identity": {
+              "a": [],
+              "b": [
+                {
+                  "entity_id": "shot3/e13",
+                  "name": "Tissue packet",
+                  "motion_status": "static"
+                }
+              ]
+            },
+            "kind": "unexplained_added",
+            "reason": [
+              "以共同桌板及桌面边界定位中部支撑区，低置信投影约[565,273]仅辅助。shot1两帧该区裸露且无纸巾包，shot3两帧直接见包；像素排除遮挡和漏检，正常叙事不能解释新增。"
+            ],
+            "label": "∅ ↔ Tissue packet"
+          }
+        ],
+        "spatial": [
+          {
+            "relation_id": "pair_g02_g07",
+            "endpoint_groups": [
+              "g02",
+              "g07"
+            ],
+            "endpoints": [
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e2",
+                    "name": "Dark green mug",
+                    "motion_status": "static"
+                  }
+                ]
+              },
+              {
+                "a": [
+                  {
+                    "entity_id": "shot1/e7",
+                    "name": "Pencil holder",
+                    "motion_status": "static"
+                  }
+                ],
+                "b": [
+                  {
+                    "entity_id": "shot3/e10",
+                    "name": "Pencil holder",
+                    "motion_status": "static"
+                  }
+                ]
+              }
+            ],
+            "cosine": -0.5214925188139328,
+            "reason": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded",
+            "label": "Dark green mug ↔ Dark green mug / Pencil holder ↔ Pencil holder"
+          }
+        ]
+      },
+      "anchors_initial": [
+        "g01",
+        "g05",
+        "g15"
+      ],
+      "transform": {
+        "status": "numeric_candidate",
+        "estimate_source": "codex_direct",
+        "scale": 0.86,
+        "yaw_deg": 122,
+        "rotation": [
+          [
+            -0.5299192642332048,
+            -0.8480480961564261,
+            0.0
+          ],
+          [
+            0.8480480961564261,
+            -0.5299192642332048,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "translation": [
+          -0.96,
+          -0.72,
+          0.28
+        ],
+        "parameters": [
+          -0.15082288973458366,
+          2.129301687433082,
+          -0.96,
+          -0.72,
+          0.28
+        ],
+        "confidence": "low",
+        "reasoning": "The overall room layout and horizontal geometry directions suggest a reverse-side rotation near 122 degrees, modest scale reduction, and an upward origin offset. The visible geometry supports a smaller rotation than the narrative’s intended 160–180 degrees.",
+        "limitations": "Direct visual estimate without fitting. Independently reconstructed depths, inconsistent furnishings and placements, and partial visibility prevent a single similarity transform from aligning all supplied evidence reliably.",
+        "geometric_diagnostics": {
+          "status": "unavailable",
+          "reason": "No RoMA correspondences or numerical fit; model confidence is not measured registration accuracy"
+        }
+      },
+      "notes": []
+    }
+  ],
+  "method_comparisons": [
+    {
+      "study": "study2",
+      "both_complete": true,
+      "equal_presence_score": false,
+      "equal_spatial_score": true,
+      "presence_defect_labels": {
+        "roma_fps32": [
+          "Black desk lamp ↔ ∅",
+          "∅ ↔ Tissue packet with protruding tissue"
+        ],
+        "codex_direct": [
+          "Black desk lamp ↔ ∅",
+          "∅ ↔ Tissue packet with protruding tissue"
+        ]
+      },
+      "spatial_defect_labels": {
+        "roma_fps32": [
+          "Dark green mug ↔ Dark green mug / Pencil cup ↔ Pencil cup"
+        ],
+        "codex_direct": [
+          "Dark green mug ↔ Dark green mug / Pencil cup ↔ White pencil cup"
+        ]
+      },
+      "note": "实体 ID、名称及冻结总体来自各自独立推理；标签需人工核对，不自动把同名视为同一实体。"
+    },
+    {
+      "study": "study3",
+      "both_complete": true,
+      "equal_presence_score": false,
+      "equal_spatial_score": true,
+      "presence_defect_labels": {
+        "roma_fps32": [
+          "∅ ↔ Tissue packet"
+        ],
+        "codex_direct": [
+          "∅ ↔ Tissue packet"
+        ]
+      },
+      "spatial_defect_labels": {
+        "roma_fps32": [
+          "Dark green mug ↔ Dark green mug / Pencil holder ↔ Pencil cup"
+        ],
+        "codex_direct": [
+          "Dark green mug ↔ Dark green mug / Pencil holder ↔ Pencil holder"
+        ]
+      },
+      "note": "实体 ID、名称及冻结总体来自各自独立推理；标签需人工核对，不自动把同名视为同一实体。"
+    }
+  ],
+  "total_reported_tokens": 2903172,
+  "all_four_completed": true
+}

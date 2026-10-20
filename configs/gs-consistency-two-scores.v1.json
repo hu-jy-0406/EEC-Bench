@@ -1,0 +1,263 @@
+{
+  "version": "gs-consistency-two-scores-v1",
+  "status": "frozen_two_alignment_pipelines_validated_study2_study3",
+  "spec": "EECBench/docs/gs-consistency-two-scores-v1.md",
+  "within_shot": {
+    "discovery": "WeDetect-Anything on every supplied keyframe",
+    "clustering": "fresh isolated Codex per shot",
+    "scene": "one_fixed_scene_per_shot",
+    "cameras": "per_frame_full_pose",
+    "geometry_current_tested": "Pi3X_plus_depth_conditioned_Boxer",
+    "motion_classification": "independent_per_shot_after_camera_motion_compensation",
+    "moving_output": "representative_box_plus_trajectory"
+  },
+  "matching": {
+    "scope": "frozen_all_entity_sets_same_scene",
+    "ambiguous_identity": "unknown",
+    "dynamic_inventory": "identity_subjects_including_motion_unknown",
+    "primary_partition": [
+      "matched",
+      "unmatched",
+      "ambiguous",
+      "scope_mismatch"
+    ],
+    "unresolved_identity": "unknown_evidence_status_not_forced_into_partition",
+    "post_alignment_review": {
+      "required": true,
+      "position": "after_original_registration_before_presence_and_spatial_population",
+      "inputs": [
+        "all_original_keyframes",
+        "frozen_all_entity_inventories",
+        "initial_identity_hypotheses",
+        "aligned_boxes_and_center_displacements",
+        "per_frame_counterpart_projection_diagnostics",
+        "registration_quality",
+        "normal_story_prompt"
+      ],
+      "allowed_actions": [
+        "keep",
+        "split",
+        "reassign",
+        "uncertain"
+      ],
+      "large_displacement_alone_sufficient_to_split": false,
+      "different_instances_alone_sufficient_for_viewpoint_exemption": false,
+      "inventory_conservation_required": true,
+      "registration_refit_after_review": false,
+      "downstream_uses": "reviewed_matching",
+      "implementation": "EECBench/scripts/review_aligned_entity_identities.py",
+      "prompt": "EECBench/prompts/gs_aligned_identity_review_v1.txt"
+    },
+    "single_shot_scene": "skip_cross_shot_identity",
+    "motion_status_mismatch": "does_not_preclude_same_identity",
+    "structural_anchors": "matched_static_in_both_shots_with_geometry"
+  },
+  "static_entity_consistency": {
+    "unit": "identity_group",
+    "penalties": [
+      "unexplained_missing",
+      "unexplained_added",
+      "required_absent_but_present"
+    ],
+    "cap_per_group": 1,
+    "exemptions": [
+      "verified_viewpoint_reason",
+      "verified_motion_reason"
+    ],
+    "detector_gap": "unknown",
+    "conflict_requires_prompt_review": true,
+    "judgment_calls": 1,
+    "aggregation_version": "single_presence_witness_v1",
+    "acceptance": "single_judgment_with_original_witness_and_prompt_gates",
+    "population": "reviewed_groups_with_all_members_static; exclude_mixed_motion_groups_without_splitting"
+  },
+  "spatial_relation_consistency": {
+    "unit": "unordered_entity_pair",
+    "population": "all_pairs_of_identity_confirmed_common_static_entities_whose_joint_presence_is_expected",
+    "registration": "user_selected_roma_fps32_or_codex_direct",
+    "transform": "positive_scale_gravity_yaw_xyz_translation",
+    "output_frame": "fixed_shot1_scene",
+    "proposal": "cosine < 0",
+    "nonnegative_action": "no_additional_review_no_penalty",
+    "nonnegative_evidence_status": "unverified_unknown_unless_positive_evidence_exists",
+    "uncomputable": "unknown",
+    "review": "isolated_own_shot_support_and_local_order_then_cross_shot_original_frame_and_prompt_motion_cause_review",
+    "common_support_gate": true,
+    "reference_endpoint_gate": true,
+    "gate_excluded_status": "unknown_not_exempt",
+    "minimum_distinct_witness_frames_per_shot": 2,
+    "cap_per_pair": 1,
+    "distance_size_and_all_required_motion_detection": "not_implemented_by_cosine_only",
+    "prompt_motion_review": {
+      "required_before_conflict": true,
+      "input": "normal_story_prompt_for_compared_and_relevant_intervening_shots",
+      "fields": [
+        "prompt_fact_references",
+        "specified_motion",
+        "affected_entities",
+        "causal_explanation_of_observed_relation_change",
+        "verdict"
+      ],
+      "verdicts": [
+        "explains_change",
+        "does_not_explain_change",
+        "uncertain"
+      ],
+      "explains_change": "exempt_no_penalty",
+      "uncertain": "unknown_no_penalty",
+      "does_not_explain_change": "may_penalize_only_if_all_visual_gates_pass",
+      "motion_keyword_alone_sufficient": false,
+      "both_shots_static_does_not_exclude_intervening_motion": true
+    },
+    "historical_keypoint_review_included_prompt": false,
+    "no_confirmed_conflict": "no_penalty_score_100_including_no_negative_or_unconfirmed_negative",
+    "registration_objective": {
+      "id": "sum_all_pair_euclidean_3d_distances_v1",
+      "formula": "sum_i ||s Rz(theta) Q_i + t - P_i||_2",
+      "direction": "shot3_to_shot1",
+      "population": "all FPS-selected pairs, fixed before optimization",
+      "weights": "uniform_1",
+      "squared_distances": false,
+      "residual_trimming": false,
+      "residual_clipping": false,
+      "reprojection_used_for_optimization": false,
+      "scale_bounds": [
+        0.1,
+        10.0
+      ],
+      "independent_holdout": false,
+      "sampling": {
+        "method": "fps",
+        "count": 32,
+        "space": "joint normalized 6D endpoints",
+        "seed": "highest confidence",
+        "confidence_floor": 0.2,
+        "small_pool_policy": "all eligible if fewer than32; fewer than3 fails"
+      },
+      "applies_to": "roma_fps32_only"
+    }
+  },
+  "scoring": {
+    "per_score_formula": "100*(1-K/(C+K+U))",
+    "unknown_in_denominator": true,
+    "unknown_penalty": 0,
+    "exempt_in_denominator": false,
+    "coverage": "(C+K)/(C+K+U)",
+    "scores_combined": false,
+    "static_entity_score_null_if": "C+K==0 or C+K+U==0",
+    "spatial_score_formula": "100 if K==0 else 100*(1-K/(C+K+U))",
+    "spatial_no_confirmed_conflict_score": 100,
+    "applies_to": "completed_evaluations"
+  },
+  "new_model_runs_this_design_update": 0,
+  "historical_outputs_modified": false,
+  "classification": {
+    "standalone_keep_leave_allow_policy_stage": false,
+    "noncommon_causes": [
+      "viewpoint",
+      "motion",
+      "inconsistency"
+    ],
+    "unclear_or_detector_gap": "unknown_evidence_status",
+    "common_presence_question": "should_have_left_scene_but_still_present",
+    "prompt_role": "evidence_for_each_actual_branch_and_final_conflict_review",
+    "covers_prompt_unmentioned_entities": true
+  },
+  "spec_correction": "user_original_partition_and_required_prompt_motion_review",
+  "latest_experiment": "EECBench/experiments/study2_aligned_identity_review_20260918",
+  "runtime_notes": {
+    "normal_prompt_final_gate_implemented": true,
+    "new_codex_calls": 18,
+    "reused_stages": [
+      "WeDetect detection",
+      "independent per-shot clustering",
+      "GeoCalib gravity"
+    ],
+    "generic_production_entrypoint": false,
+    "post_alignment_identity_review_test": {
+      "case": "study2",
+      "new_calls": 6,
+      "all_three_suspect_groups_split": true,
+      "six_single_sided_entities_viewpoint_exempt": true,
+      "registration_refitted": false,
+      "historical_outputs_unchanged": true
+    },
+    "post_shot_stage_entrypoint": "EECBench/scripts/run_gs_flow1_stage.py",
+    "integrated_entrypoint": "EECBench/scripts/run_gs_integrated.py",
+    "integrated_scope": "fresh_wedetect_through_two_final_scores",
+    "integrated_validation": "EECBench/experiments/study2_integrated_full_fresh_20260919/REPORT.md",
+    "integrated_expected_codex_calls": 10,
+    "spatial_logic": "original_unchanged",
+    "runtime_profile_config": "EECBench/configs/gs-runtime-profiles.v1.json",
+    "selected_runtime_profile": "safe_spatial_medium",
+    "efficiency_validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+    "optional_shot2_scope": "detection_and_clustering_only",
+    "integrated_expected_codex_calls_with_shot2": 11
+  },
+  "latest_scoring_revision": "spatial_confirmed_conflict_only_no_conflict_100",
+  "pipeline_revision": "all_entity_identity_static_scoring_v2",
+  "latest_identity_review_experiment": "EECBench/experiments/study2_aligned_identity_review_20260918",
+  "baseline_experiment": "EECBench/experiments/study012_two_scores_20260916",
+  "selected_flow": "flow1",
+  "skill": "EECBench/skills/gs-consistency-flow1/SKILL.md",
+  "alternative_flow2": {
+    "selected": false,
+    "implementation": "EECBench/experiments/study2_flow2_separate_ab_20260919",
+    "report": "EECBench/experiments/study2_flow2_separate_ab_20260919/REPORT.md",
+    "order": [
+      "structural_anchor_only",
+      "registration",
+      "standalone_identity_and_anchor_review",
+      "dual_presence"
+    ]
+  },
+  "model_transport": {
+    "profile": "compact_geometry_v1",
+    "compact_call_stages": [
+      "matching",
+      "identity_review",
+      "presence_1"
+    ],
+    "implementation": "EECBench/scripts/gs_flow1_compact_transport.py",
+    "codec": "EECBench/scripts/gs_flow1_compact_payload.py",
+    "canonical_fallback": true,
+    "output_schema_changed": false,
+    "geometry_rounding": false,
+    "corner_reconstruction_tolerance": 1e-09,
+    "validation_report": "EECBench/experiments/study2_flow1_efficiency_20260919/REPORT.md",
+    "validated_case": "study2",
+    "initial_matching_replays": 1,
+    "post_alignment_A_B_checks": 2,
+    "spatial_model_transport": "compact_input_and_wire_output_with_canonical_schema_restoration",
+    "spatial_implementation": "EECBench/scripts/gs_efficient_transport.py",
+    "population_validation": "historical_quality_replays_cover_static_population_only; all_entity_model_quality_pending"
+  },
+  "latest_integrated_experiment": "EECBench/experiments/study2_integrated_full_fresh_20260919",
+  "registration_selection": {
+    "status": "fixed_by_user_20260919",
+    "entrypoint": "EECBench/scripts/run_gs_integrated.py",
+    "cli_option": "--alignment-method",
+    "choices": [
+      "roma_fps32",
+      "codex_direct"
+    ],
+    "default": "roma_fps32",
+    "selection_policy": "explicit_user_request_wins; otherwise_announce_existing_fps32_default",
+    "automatic_fallback": false,
+    "automatic_result_selection": false,
+    "documentation": "EECBench/docs/registration-options.md",
+    "validated_baseline": "EECBench/experiments/alignment_full_four_20260919",
+    "source_hashes": "EECBench/experiments/alignment_full_four_20260919/source_hashes.json",
+    "roma_fps32": {
+      "implementation": "EECBench/scripts/register_gs_3d.py",
+      "objective_ref": "spatial_relation_consistency.registration_objective"
+    },
+    "codex_direct": {
+      "implementation": "EECBench/scripts/register_gs_codex.py",
+      "uses_roma": false,
+      "uses_anchor_input": false,
+      "uses_numerical_optimizer": false,
+      "preserves_common_initial_identity": true
+    }
+  }
+}

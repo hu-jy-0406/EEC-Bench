@@ -1,0 +1,28 @@
+{
+  "status": "failed",
+  "seconds": 759.7694036960602,
+  "results": [
+    {
+      "study": "study2",
+      "started": 1790086069.933686,
+      "status": "success",
+      "case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/runs/study2",
+      "seconds": 531.4482190608978
+    },
+    {
+      "study": "study3",
+      "started": 1790086069.933746,
+      "status": "success",
+      "case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_minimal_full_validation_20260922/runs/study3",
+      "seconds": 422.8941376209259
+    },
+    {
+      "study": "study4",
+      "started": 1790086069.9338126,
+      "status": "failed",
+      "error": "RuntimeError('Failed stages: prompt_binding')",
+      "traceback": "Traceback (most recent call last):\n  File \"EECBench/experiments/identity_minimal_full_validation_20260922/replay.py\", line 107, in run\n    pipeline.execute(case,jobs,env,os.environ['SLURM_JOB_ID'],'full')\n    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal.py\", line 237, in execute\n    if failed:raise RuntimeError('Failed stages: '+','.join(failed))\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nRuntimeError: Failed stages: prompt_binding\n",
+      "seconds": 759.7562291622162
+    }
+  ]
+}

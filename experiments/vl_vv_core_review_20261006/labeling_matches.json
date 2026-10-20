@@ -1,0 +1,39 @@
+{
+  "note": "Assistant matching of reported issues to the four target problems (not human annotation). Empty list = problem not reported in that run.",
+  "problems": {
+    "P1": {"case": "p014_wan21", "title": "#014 Wan2.1: the woman's outfit changes in Shot3 (double-breasted coat; scarf hides the required peach neckline)", "example": "E1"},
+    "P2": {"case": "p069_wan21", "title": "#069 Wan2.1: the short figure is a woman in Shot2 and a man in dark clothes in Shot4", "example": "E2"},
+    "P3": {"case": "p069_wan21", "title": "#069 Wan2.1: the long-coat adult changes between Shot2 and Shot4 (hair, coat colour, trousers)", "example": "E3"},
+    "P4": {"case": "p069_wan21", "title": "#069 Wan2.1: the gun changes between Shot1 and Shot3 (bulky angular gun vs slim rifle with a yellow strap)", "example": "E5"}
+  },
+  "matches": {
+    "P1": {
+      "v1/hist": [], "v1/rerun_a": ["VL-1"], "v1/rerun_b": ["vv1", "vv2"],
+      "v2/run_a": ["I2"], "v2/run_b": ["I1"], "v2/run_c": ["I1"],
+      "v2/fresh_1": ["I1"], "v2/fresh_2": ["I1", "I2"], "v2/fresh_3": ["I2"],
+      "v3/fresh_1": ["I02"], "v3/fresh_2": [], "v3/fresh_3": ["I1", "I2"]
+    },
+    "P2": {
+      "v1/hist": [], "v1/rerun_1": [], "v1/rerun_2": [],
+      "v2/run_a": ["I2"], "v2/run_b": ["I4"], "v2/run_c": [],
+      "v2/fresh_1": ["I4"], "v2/fresh_2": ["I5"], "v2/fresh_3": ["I5"],
+      "v3/fresh_1": ["I5", "I6"], "v3/fresh_2": ["I4"], "v3/fresh_3": ["I7", "I8"]
+    },
+    "P3": {
+      "v1/hist": ["vv5"], "v1/rerun_1": [], "v1/rerun_2": [],
+      "v2/run_a": ["I3"], "v2/run_b": ["I3"], "v2/run_c": ["I4"],
+      "v2/fresh_1": ["I5"], "v2/fresh_2": ["I6"], "v2/fresh_3": ["I4"],
+      "v3/fresh_1": ["I4", "I7"], "v3/fresh_2": ["I5", "I11"], "v3/fresh_3": ["I11", "I12"]
+    },
+    "P4": {
+      "v1/hist": ["vv2"], "v1/rerun_1": ["vv02"], "v1/rerun_2": ["vl2"],
+      "v2/run_a": ["I1"], "v2/run_b": ["I2"], "v2/run_c": ["I2"],
+      "v2/fresh_1": ["I2"], "v2/fresh_2": ["I2"], "v2/fresh_3": ["I2"],
+      "v3/fresh_1": ["I3"], "v3/fresh_2": ["I3"], "v3/fresh_3": ["I3", "I4"]
+    }
+  },
+  "match_notes": {
+    "P2 v2/run_c": "I3 says the short figure is absent in Shot4 (a presence claim, not the woman-to-man change); not counted as reporting P2.",
+    "P4 v2/run_b": "I2 is mainly the jacket pattern and mentions only that the gun-holding look differs; counted as a weak report."
+  }
+}

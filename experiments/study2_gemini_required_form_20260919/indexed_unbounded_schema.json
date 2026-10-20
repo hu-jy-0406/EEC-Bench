@@ -1,0 +1,475 @@
+{
+  "type": "object",
+  "properties": {
+    "matching": {
+      "type": "object",
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "group_id": {
+                "type": "string"
+              },
+              "a_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "b_ids": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "identity": {
+                "type": "string",
+                "enum": [
+                  "matched",
+                  "unmatched",
+                  "ambiguous",
+                  "scope_mismatch"
+                ]
+              },
+              "anchor_eligible": {
+                "type": "boolean"
+              },
+              "identity_evidence": {
+                "type": "string"
+              },
+              "anchor_reason": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "group_id",
+              "a_ids",
+              "b_ids",
+              "identity",
+              "anchor_eligible",
+              "identity_evidence",
+              "anchor_reason"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "scene_correspondence": {
+          "type": "string"
+        },
+        "limitations": {
+          "type": "string"
+        },
+        "structural_anchor_group_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "local_origin_group_id": {
+          "type": "string"
+        },
+        "local_reference_group_id": {
+          "type": "string"
+        },
+        "reference_selection_reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "groups",
+        "scene_correspondence",
+        "limitations",
+        "structural_anchor_group_ids",
+        "local_origin_group_id",
+        "local_reference_group_id",
+        "reference_selection_reason"
+      ],
+      "additionalProperties": false
+    },
+    "initial_group_reviews": {
+      "type": "object",
+      "properties": {
+        "g01": {
+          "type": "integer",
+          "enum": [
+            0
+          ]
+        },
+        "g02": {
+          "type": "integer",
+          "enum": [
+            1
+          ]
+        },
+        "g03": {
+          "type": "integer",
+          "enum": [
+            2
+          ]
+        },
+        "g04": {
+          "type": "integer",
+          "enum": [
+            3
+          ]
+        },
+        "g05": {
+          "type": "integer",
+          "enum": [
+            4
+          ]
+        },
+        "g06": {
+          "type": "integer",
+          "enum": [
+            5
+          ]
+        },
+        "g07": {
+          "type": "integer",
+          "enum": [
+            6
+          ]
+        },
+        "g08": {
+          "type": "integer",
+          "enum": [
+            7
+          ]
+        },
+        "g09": {
+          "type": "integer",
+          "enum": [
+            8
+          ]
+        },
+        "g10": {
+          "type": "integer",
+          "enum": [
+            9
+          ]
+        },
+        "g11": {
+          "type": "integer",
+          "enum": [
+            10
+          ]
+        },
+        "g12": {
+          "type": "integer",
+          "enum": [
+            11
+          ]
+        },
+        "g13": {
+          "type": "integer",
+          "enum": [
+            12
+          ]
+        },
+        "g14": {
+          "type": "integer",
+          "enum": [
+            13
+          ]
+        },
+        "g15": {
+          "type": "integer",
+          "enum": [
+            14
+          ]
+        },
+        "g16": {
+          "type": "integer",
+          "enum": [
+            15
+          ]
+        },
+        "g17": {
+          "type": "integer",
+          "enum": [
+            16
+          ]
+        },
+        "g18": {
+          "type": "integer",
+          "enum": [
+            17
+          ]
+        },
+        "g19": {
+          "type": "integer",
+          "enum": [
+            18
+          ]
+        },
+        "g20": {
+          "type": "integer",
+          "enum": [
+            19
+          ]
+        },
+        "g21": {
+          "type": "integer",
+          "enum": [
+            20
+          ]
+        },
+        "g22": {
+          "type": "integer",
+          "enum": [
+            21
+          ]
+        },
+        "g23": {
+          "type": "integer",
+          "enum": [
+            22
+          ]
+        },
+        "g24": {
+          "type": "integer",
+          "enum": [
+            23
+          ]
+        },
+        "g25": {
+          "type": "integer",
+          "enum": [
+            24
+          ]
+        },
+        "g26": {
+          "type": "integer",
+          "enum": [
+            25
+          ]
+        },
+        "g27": {
+          "type": "integer",
+          "enum": [
+            26
+          ]
+        },
+        "g28": {
+          "type": "integer",
+          "enum": [
+            27
+          ]
+        },
+        "g29": {
+          "type": "integer",
+          "enum": [
+            28
+          ]
+        }
+      },
+      "required": [
+        "g01",
+        "g02",
+        "g03",
+        "g04",
+        "g05",
+        "g06",
+        "g07",
+        "g08",
+        "g09",
+        "g10",
+        "g11",
+        "g12",
+        "g13",
+        "g14",
+        "g15",
+        "g16",
+        "g17",
+        "g18",
+        "g19",
+        "g20",
+        "g21",
+        "g22",
+        "g23",
+        "g24",
+        "g25",
+        "g26",
+        "g27",
+        "g28",
+        "g29"
+      ],
+      "additionalProperties": false
+    },
+    "noncommon_checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "string"
+          },
+          "cause": {
+            "type": "string",
+            "enum": [
+              "viewpoint",
+              "motion",
+              "inconsistency",
+              "none"
+            ]
+          },
+          "evidence_status": {
+            "type": "string",
+            "enum": [
+              "supported",
+              "unknown"
+            ]
+          },
+          "counterpart_visibility": {
+            "type": "string",
+            "enum": [
+              "outside_view",
+              "occluded",
+              "observable",
+              "uncertain"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "prompt_fact_references": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "witnesses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "shot_id": {
+                  "type": "string"
+                },
+                "frame_id": {
+                  "type": "integer"
+                },
+                "region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "shot_id",
+                "frame_id",
+                "region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "group_id",
+          "cause",
+          "evidence_status",
+          "counterpart_visibility",
+          "reason",
+          "prompt_fact_references",
+          "witnesses"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "registration_caveats": {
+      "type": "string"
+    },
+    "limitations": {
+      "type": "string"
+    },
+    "initial_group_review_rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "keep",
+              "split",
+              "reassign",
+              "uncertain"
+            ]
+          },
+          "result_group_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "geometry_interpretation": {
+            "type": "string"
+          },
+          "visual_identity_evidence": {
+            "type": "string"
+          },
+          "same_instance_motion_alternative": {
+            "type": "string"
+          },
+          "witnesses": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "shot_id": {
+                  "type": "string"
+                },
+                "frame_id": {
+                  "type": "integer"
+                },
+                "region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "shot_id",
+                "frame_id",
+                "region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "action",
+          "result_group_ids",
+          "geometry_interpretation",
+          "visual_identity_evidence",
+          "same_instance_motion_alternative",
+          "witnesses"
+        ],
+        "additionalProperties": false
+      },
+      "description": "Exactly one complete row per required group, in the fixed index order"
+    }
+  },
+  "required": [
+    "matching",
+    "initial_group_reviews",
+    "noncommon_checks",
+    "registration_caveats",
+    "limitations",
+    "initial_group_review_rows"
+  ],
+  "additionalProperties": false
+}

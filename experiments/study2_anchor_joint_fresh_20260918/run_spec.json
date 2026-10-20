@@ -1,0 +1,30 @@
+{
+  "created": 1789751513.1546233,
+  "case": "study2",
+  "shots": [
+    "shot1",
+    "shot3"
+  ],
+  "pipeline_revision": "anchor_then_joint_presence_v1",
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "reuse_inference_results": false,
+  "baseline": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918",
+  "changes": [
+    "anchor-only pre-registration identity matching",
+    "single post-alignment full identity and presence judgment",
+    "remove two independent full presence judgments"
+  ],
+  "unchanged": [
+    "own-shot frontend",
+    "RoMa structure-filtered gravity Sim3",
+    "spatial local and Prompt gates",
+    "score formulas"
+  ],
+  "reusable_inputs": [
+    "original JPEGs",
+    "raw normal-story clauses",
+    "pretrained weights",
+    "code and environments"
+  ]
+}

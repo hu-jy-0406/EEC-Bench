@@ -1165,6 +1165,7 @@ def ground_entities(
     box_threshold: float,
     text_threshold: float,
     max_query_attributes: int,
+    grounding_frame_ids_by_entity: Optional[Mapping[str, Sequence[int]]] = None,
 ) -> Tuple[List[Dict[str, Any]], int, List[str]]:
     (
         get_grounding_dino,
@@ -1195,9 +1196,32 @@ def ground_entities(
     selection_warnings: List[str] = []
     n_calls = 0
 
+    entity_ids = set(by_id)
+    valid_frames = set(sample.reference_frame_ids)
+    if grounding_frame_ids_by_entity is not None:
+        supplied_ids = set(grounding_frame_ids_by_entity)
+        if supplied_ids != entity_ids:
+            raise GraphExtractionError(
+                "Grounding schedule must cover every entity exactly once; "
+                f"missing={sorted(entity_ids - supplied_ids)}, "
+                f"unknown={sorted(supplied_ids - entity_ids)}"
+            )
     for entity in grounded:
-        evidence = set(entity["evidence_frame_ids"])
-        attempted_frames[entity["id"]] = sorted(evidence & set(sample.reference_frame_ids))
+        if grounding_frame_ids_by_entity is None:
+            requested = list(entity["evidence_frame_ids"])
+        else:
+            requested = list(grounding_frame_ids_by_entity[entity["id"]])
+        if (
+            not requested
+            or len(requested) != len(set(requested))
+            or not set(requested) <= valid_frames
+        ):
+            raise GraphExtractionError(
+                f"Invalid grounding frame schedule for {entity['id']}: {requested}"
+            )
+        attempted_frames[entity["id"]] = [
+            frame_id for frame_id in sample.reference_frame_ids if frame_id in requested
+        ]
 
     for frame_id in sample.reference_frame_ids:
         active = [

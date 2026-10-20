@@ -1,0 +1,44 @@
+{
+  "utc": "2026-09-22T07:08:44Z",
+  "completed": 0,
+  "active_workers": 74,
+  "sample_steps": {
+    "4": 84,
+    "6": 12
+  },
+  "median_seconds_per_step": {
+    "4": 324.08124152125674,
+    "6": 682.0257521999883,
+    "8": 1156.317591735049
+  },
+  "eight_shot_estimated": true,
+  "scaling_exponent": 1.8351102777484614,
+  "per_video_hours": {
+    "4": 4.501128354461899,
+    "6": 9.472579891666506,
+    "8": 16.059966551875682
+  },
+  "constant74_scenarios": {
+    "fast": {
+      "first100_remaining_hours": 18.48154372776574,
+      "all200_remaining_hours": 37.15319581013623
+    },
+    "central": {
+      "first100_remaining_hours": 20.85298203831498,
+      "all200_remaining_hours": 41.91407694465256
+    },
+    "slow": {
+      "first100_remaining_hours": 24.410139504138847,
+      "all200_remaining_hours": 49.055398646427065
+    }
+  },
+  "assumptions": [
+    "current74 GPUs maintained throughout",
+    "core100 completion barrier before additional100",
+    "no interruption/restart",
+    "50 steps/episode",
+    "8shot extrapolated from4/6shot if no complete8shot steps",
+    "decode/save overhead assumed5/15/30minutes; no full production completion measured"
+  ],
+  "resource_caveat": "Read-only squeue snapshot at07:08UTC: production allocation time left ranges roughly10\u201339hours; constant74GPU estimate exceeds this window. New/renewed resources and restart effects are not predictable."
+}

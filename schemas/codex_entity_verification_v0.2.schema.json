@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_entity_verification_v0.2.schema.json",
+  "title": "Single-shot weak entity verification v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "shot_id", "verifier_id", "reviews", "warnings"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_ensemble_v0.2"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "verifier_id": {"type": "string", "minLength": 1},
+    "reviews": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/review"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "coarse_locator", "support_quality"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "coarse_locator": {"type": "string", "minLength": 1},
+        "support_quality": {
+          "type": "string",
+          "enum": ["strong", "moderate", "weak"]
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cluster_id",
+        "existence_judgment",
+        "salience_judgment",
+        "same_instance_with_cluster_ids",
+        "evidence",
+        "reason"
+      ],
+      "properties": {
+        "cluster_id": {"type": "string", "minLength": 1},
+        "existence_judgment": {
+          "type": "string",
+          "enum": ["confirmed", "rejected", "uncertain"]
+        },
+        "salience_judgment": {
+          "type": "string",
+          "enum": ["graph_worthy", "background_integrated", "ambiguous"]
+        },
+        "same_instance_with_cluster_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

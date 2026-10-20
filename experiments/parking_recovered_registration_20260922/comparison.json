@@ -1,0 +1,164 @@
+{
+  "episodes": [
+    {
+      "name": "parking4",
+      "metrics": {
+        "optimization": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "group_count": 4,
+          "attached_shots": 0,
+          "comparable_shot_pairs": 0,
+          "possible_shot_pairs": 6,
+          "seconds": 377.45918583869934,
+          "pairs": []
+        },
+        "direct": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot4"
+          ],
+          "group_count": 3,
+          "attached_shots": 1,
+          "comparable_shot_pairs": 1,
+          "possible_shot_pairs": 6,
+          "seconds": 48.812644481658936,
+          "pairs": [
+            {
+              "shot_a": "Shot1",
+              "shot_b": "Shot3",
+              "common_endpoint_entities": 3,
+              "static_endpoint_entities": 1,
+              "static_median_distance": 0.3131679450611317,
+              "cosines": [
+                {
+                  "groups": [
+                    "g01",
+                    "g02"
+                  ],
+                  "cosine": 0.67752343848401
+                },
+                {
+                  "groups": [
+                    "g01",
+                    "g03"
+                  ],
+                  "cosine": -0.5771304719670335
+                },
+                {
+                  "groups": [
+                    "g02",
+                    "g03"
+                  ],
+                  "cosine": -0.5157479329846534
+                }
+              ],
+              "negative_cosine_proposals": 2
+            }
+          ]
+        }
+      },
+      "point_diagnostics": [
+        {
+          "method": "optimization",
+          "shot_a": "Shot1",
+          "shot_b": "Shot3",
+          "points": 1721,
+          "mean_distance": 0.05292830787804157,
+          "median_distance": 0.053534263920359516,
+          "p95_distance": 0.08641054943814051,
+          "normalizer_target_cloud_rms_radius": 0.0578779092011363,
+          "normalized_mean": 0.9144820296480656,
+          "role": "common anchor/RoMa candidate-pool diagnostic, NOT independent accuracy"
+        },
+        {
+          "method": "direct",
+          "shot_a": "Shot1",
+          "shot_b": "Shot3",
+          "points": 1721,
+          "mean_distance": 0.6078446556836177,
+          "median_distance": 0.6072070206955915,
+          "p95_distance": 0.6534248391892946,
+          "normalizer_target_cloud_rms_radius": 0.0578779092011363,
+          "normalized_mean": 10.502187519788363,
+          "role": "common anchor/RoMa candidate-pool diagnostic, NOT independent accuracy"
+        }
+      ],
+      "plot": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/registration_topviews.png"
+    }
+  ],
+  "calls": [
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/direct_Shot2/status.json",
+      "status": "success",
+      "seconds": 16.68915295600891,
+      "tokens": 30115,
+      "standard_api_equivalent_usd": 0.30803
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/direct_Shot3/status.json",
+      "status": "success",
+      "seconds": 20.19143509864807,
+      "tokens": 41591,
+      "standard_api_equivalent_usd": 0.43379
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/direct_Shot4/status.json",
+      "status": "success",
+      "seconds": 11.617845296859741,
+      "tokens": 41403,
+      "standard_api_equivalent_usd": 0.42087
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/expected_motion_Shot1/status.json",
+      "status": "success",
+      "seconds": 19.086166381835938,
+      "tokens": 19903,
+      "standard_api_equivalent_usd": 0.21539
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/expected_motion_Shot2/status.json",
+      "status": "success",
+      "seconds": 16.876093864440918,
+      "tokens": 18999,
+      "standard_api_equivalent_usd": 0.20171
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/expected_motion_Shot3/status.json",
+      "status": "success",
+      "seconds": 19.52742290496826,
+      "tokens": 20239,
+      "standard_api_equivalent_usd": 0.22071
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/expected_motion_Shot4/status.json",
+      "status": "success",
+      "seconds": 21.406824111938477,
+      "tokens": 19768,
+      "standard_api_equivalent_usd": 0.21604
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_recovered_registration_20260922/shared/parking4/calls/global_initial/status.json",
+      "status": "success",
+      "seconds": 58.21399474143982,
+      "tokens": 66023,
+      "standard_api_equivalent_usd": 0.72811
+    }
+  ],
+  "total_tokens": 258041,
+  "standard_api_equivalent_usd": 2.74465,
+  "actual_bill_available": false
+}

@@ -1,0 +1,298 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "entity_scopes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "single",
+              "collection",
+              "assembly",
+              "unknown"
+            ]
+          }
+        },
+        "required": [
+          "entity_id",
+          "scope"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "anchor_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "part": {
+            "type": "string",
+            "minLength": 1
+          },
+          "axis_description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "resolvable": {
+            "type": "boolean"
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "negative_endpoint_xy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "positive_endpoint_xy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 2,
+                      "maxItems": 2
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "frame_id",
+                "negative_endpoint_xy",
+                "positive_endpoint_xy",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "anchor_id",
+          "entity_id",
+          "part",
+          "axis_description",
+          "resolvable",
+          "observations"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "clear",
+                    "partial",
+                    "not_visible",
+                    "uncertain"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "frame_id",
+                "status",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "entity_id",
+          "observations"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "pair_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pair_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "assessed",
+              "uncertain",
+              "not_observable"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "pair_id",
+          "status",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "relation_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subject_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "object_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "predicate": {
+            "type": "string",
+            "enum": [
+              "supported_by",
+              "touching",
+              "attached_to",
+              "inside",
+              "partially_inside",
+              "axis_order"
+            ]
+          },
+          "reference": {
+            "type": "string",
+            "minLength": 1
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "whole_entity",
+              "contact_regions",
+              "support_footprints"
+            ]
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "value": {
+                  "type": "string",
+                  "enum": [
+                    "true",
+                    "false",
+                    "less",
+                    "overlapping",
+                    "greater",
+                    "unknown"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "frame_id",
+                "value",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "relation_id",
+          "subject_id",
+          "object_id",
+          "predicate",
+          "reference",
+          "scope",
+          "observations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "shot_id",
+    "entity_scopes",
+    "anchors",
+    "coverage",
+    "pair_reviews",
+    "relations"
+  ],
+  "additionalProperties": false
+}

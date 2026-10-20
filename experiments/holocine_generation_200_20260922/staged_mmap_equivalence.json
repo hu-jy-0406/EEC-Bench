@@ -1,0 +1,49 @@
+{
+  "pass_all": true,
+  "proof": [
+    {
+      "mode": "standard",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 32.32295298576355,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": true,
+      "pixel_max_abs": 0
+    },
+    {
+      "mode": "standard",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 43.177165031433105,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 2
+    },
+    {
+      "mode": "mapped",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 25.336885929107666,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 2
+    },
+    {
+      "mode": "mapped",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 26.5078227519989,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 2
+    }
+  ],
+  "accepted_pixel_tolerance": 2,
+  "criterion": "All parameters and diffusion latents bit-exact; pixel delta no greater than measured standard repeat control",
+  "initial_threshold_1_failed_standard_repeat": true,
+  "finished": 1790059750.7284958
+}

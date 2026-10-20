@@ -1,0 +1,57 @@
+{
+  "pass_all": true,
+  "proof": [
+    {
+      "mode": "standard",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 31.550483465194702,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": true,
+      "pixel_max_abs": 0
+    },
+    {
+      "mode": "standard",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 42.2676465511322,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped",
+      "repeat": 0,
+      "weight_mismatches": [],
+      "seconds": 42.913196325302124,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    },
+    {
+      "mode": "mapped",
+      "repeat": 1,
+      "weight_mismatches": [],
+      "seconds": 49.11153697967529,
+      "latent_bit_exact": true,
+      "latent_max_abs": 0.0,
+      "pixels_bit_exact": false,
+      "pixel_max_abs": 1
+    }
+  ],
+  "frames": 33,
+  "size": [
+    256,
+    144
+  ],
+  "steps": 2,
+  "finished": 1790057480.251474,
+  "transport": "shared_mmap_v2",
+  "full_resolution_memory_pilot": "EECBench/experiments/holocine_generation_200_20260922/memory_probes/auh7-1b-gpu-197_1790057643.json",
+  "pilot_anon_bytes": 1952563200,
+  "pilot_oom_kill_delta": 0,
+  "resource_ramp": "two workers per low-memory node before expansion"
+}

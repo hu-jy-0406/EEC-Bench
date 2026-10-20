@@ -1,0 +1,122 @@
+{
+  "source_initial_runtime": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/initial_attempt/pipeline_runtime.json",
+  "completed_stages": [
+    "appearance_compact",
+    "appearance_dino",
+    "appearance_prepare",
+    "boxer_shot1",
+    "boxer_shot2",
+    "boxer_shot3",
+    "detection_and_clustering",
+    "expected_motion_shot1",
+    "expected_motion_shot2",
+    "expected_motion_shot3",
+    "geocalib",
+    "global_entity_table",
+    "pair_000_boundary",
+    "pair_000_identity_review",
+    "pair_000_initial_identity",
+    "pair_000_lift",
+    "pair_000_prepare",
+    "pair_000_registration",
+    "pair_000_roma_matches",
+    "pi3x_shot1",
+    "pi3x_shot2",
+    "pi3x_shot3",
+    "prepare_shot_inputs",
+    "prompt_binding",
+    "within_shot1",
+    "within_shot2",
+    "within_shot3"
+  ],
+  "pending_stages": [
+    {
+      "stage": "entity_displacement",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_displacement.py",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run"
+      ],
+      "case_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+      "gpu": false,
+      "api_slots": 0,
+      "depends": []
+    },
+    {
+      "stage": "prompt_alignment",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_prompt_alignment.py",
+        "run",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+        "--contract",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/prompt_alignment_reference/contract.json",
+        "--binding",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/prompt_binding/results.json",
+        "--out",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/prompt_alignment"
+      ],
+      "case_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+      "gpu": false,
+      "api_slots": 1,
+      "depends": []
+    },
+    {
+      "stage": "appearance_codex",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_appearance_scoring.py",
+        "score",
+        "--runs",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/appearance/compact",
+        "--workers",
+        "5"
+      ],
+      "case_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+      "gpu": false,
+      "api_slots": 5,
+      "depends": []
+    },
+    {
+      "stage": "appearance_report",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_appearance_scoring.py",
+        "report",
+        "--runs",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/appearance/compact",
+        "--out",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/appearance/report"
+      ],
+      "case_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+      "gpu": false,
+      "api_slots": 0,
+      "depends": [
+        "appearance_codex"
+      ]
+    },
+    {
+      "stage": "prompt_binding_report",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_prompt_binding.py",
+        "report",
+        "--binding",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/prompt_binding/results.json",
+        "--appearance-csv",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/appearance/report/entities.csv",
+        "--out",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run/prompt_binding/appearance_groups.json"
+      ],
+      "case_root": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3_final_integrated_20260921/run",
+      "gpu": false,
+      "api_slots": 0,
+      "depends": [
+        "appearance_report"
+      ]
+    }
+  ],
+  "reason": "Retry original binding under unchanged witness validation; no model or prompt changes"
+}

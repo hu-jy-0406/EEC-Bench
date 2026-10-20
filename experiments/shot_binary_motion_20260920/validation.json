@@ -1,0 +1,26 @@
+{
+  "status": "success",
+  "tests": {
+    "binary": 9,
+    "temporal_and_transport": 28,
+    "boundary": 10,
+    "integrated": 9,
+    "total": 56
+  },
+  "plan_cases": 3,
+  "plan_stages_each": 23,
+  "model": "gpt-6-astra",
+  "motion_reasoning": "medium",
+  "classification_entities": 132,
+  "selected": "temporal_binary_v1",
+  "full_gpu_run": false,
+  "validation_local_spatial_parallel": false,
+  "production_local_spatial_parallel": true,
+  "final_regression_log": "final_regression.log",
+  "final_regression_exit_code": 0,
+  "final_numeric_gate_audits": [
+    "sign_transport_fix/study2/pairs/pair_000/boundary/frozen_evidence_audit.json",
+    "sign_transport_fix/study3/pairs/pair_000/boundary/frozen_evidence_audit.json",
+    "sign_transport_fix/study4/pairs/pair_000/boundary/frozen_evidence_audit.json"
+  ]
+}

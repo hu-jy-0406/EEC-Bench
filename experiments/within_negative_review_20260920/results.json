@@ -1,0 +1,1658 @@
+{
+  "scope": "Fresh complete pipeline; component screen and frozen composition reported separately",
+  "fresh": [
+    {
+      "study": "study2",
+      "elapsed_seconds": 1268.4853301048279,
+      "calls": 14,
+      "usage": {
+        "input": 800829,
+        "output": 35410,
+        "cached": 7424,
+        "tokens": 836239,
+        "usd": 9.711974,
+        "model_seconds": 1117.0846009254456
+      },
+      "within_usage": {
+        "input": 74915,
+        "output": 1388,
+        "cached": 0,
+        "tokens": 76303,
+        "usd": 0.8185500000000001,
+        "model_seconds": 63.28284049034119
+      },
+      "scores": {
+        "shot1": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 28,
+            "unresolved_pairs": 125,
+            "exempt_pairs": 37,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot2": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 10,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 1,
+            "unresolved_pairs": 2,
+            "exempt_pairs": 7,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot3": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 136,
+            "unresolved_pairs": 35,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "pair_000": {
+          "presence": {
+            "score": 83.33333333333334,
+            "coverage": 0.8333333333333334,
+            "N": 12,
+            "C": 8,
+            "K": 2,
+            "U": 2,
+            "E": 18,
+            "identification_interval": [
+              66.66666666666667,
+              83.33333333333333
+            ]
+          },
+          "spatial": {
+            "score": 97.22222222222221,
+            "total_pairs": 36,
+            "confirmed_conflict_pairs": 1,
+            "anomaly_ratio": 0.027777777777777776,
+            "no_conflict_pairs": 24,
+            "unresolved_pairs": 11,
+            "exempt_pairs": 0,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "entity_counts": {
+        "shot1": 20,
+        "shot2": 5,
+        "shot3": 20
+      },
+      "source_hashes_unchanged": true
+    },
+    {
+      "study": "study3",
+      "elapsed_seconds": 1301.846211194992,
+      "calls": 14,
+      "usage": {
+        "input": 794974,
+        "output": 37302,
+        "cached": 37632,
+        "tokens": 832276,
+        "usd": 9.476151999999999,
+        "model_seconds": 1159.748187303543
+      },
+      "within_usage": {
+        "input": 74739,
+        "output": 1736,
+        "cached": 0,
+        "tokens": 76475,
+        "usd": 0.83419,
+        "model_seconds": 65.50074601173401
+      },
+      "scores": {
+        "shot1": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 28,
+            "unresolved_pairs": 125,
+            "exempt_pairs": 37,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot2": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 10,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 1,
+            "unresolved_pairs": 2,
+            "exempt_pairs": 7,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot3": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 78,
+            "unresolved_pairs": 93,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "pair_000": {
+          "presence": {
+            "score": 91.66666666666666,
+            "coverage": 0.8333333333333334,
+            "N": 12,
+            "C": 9,
+            "K": 1,
+            "U": 2,
+            "E": 18,
+            "identification_interval": [
+              75.0,
+              91.66666666666667
+            ]
+          },
+          "spatial": {
+            "score": 97.77777777777777,
+            "total_pairs": 45,
+            "confirmed_conflict_pairs": 1,
+            "anomaly_ratio": 0.022222222222222223,
+            "no_conflict_pairs": 32,
+            "unresolved_pairs": 12,
+            "exempt_pairs": 0,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "entity_counts": {
+        "shot1": 20,
+        "shot2": 5,
+        "shot3": 20
+      },
+      "source_hashes_unchanged": true
+    },
+    {
+      "study": "study4",
+      "elapsed_seconds": 1014.8294053077698,
+      "calls": 11,
+      "usage": {
+        "input": 479943,
+        "output": 26369,
+        "cached": 22912,
+        "tokens": 506312,
+        "usd": 5.911672,
+        "model_seconds": 807.2147250175476
+      },
+      "within_usage": {
+        "input": 61615,
+        "output": 2407,
+        "cached": 7680,
+        "tokens": 64022,
+        "usd": 0.66738,
+        "model_seconds": 83.96795725822449
+      },
+      "scores": {
+        "shot1": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 136,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 36,
+            "unresolved_pairs": 84,
+            "exempt_pairs": 16,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot2": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 28,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 0,
+            "unresolved_pairs": 21,
+            "exempt_pairs": 7,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "shot3": {
+          "presence": null,
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 55,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 20,
+            "unresolved_pairs": 16,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        },
+        "pair_000": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.2222222222222222,
+            "N": 9,
+            "C": 2,
+            "K": 0,
+            "U": 7,
+            "E": 13,
+            "identification_interval": [
+              22.22222222222222,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 3,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 2,
+            "unresolved_pairs": 1,
+            "exempt_pairs": 0,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "entity_counts": {
+        "shot1": 17,
+        "shot2": 8,
+        "shot3": 11
+      },
+      "source_hashes_unchanged": true
+    }
+  ],
+  "fresh_total": {
+    "input": 2075746,
+    "output": 99081,
+    "cached": 67968,
+    "tokens": 2174827,
+    "usd": 25.099798,
+    "model_seconds": 3084.0475132465363
+  },
+  "screen": {
+    "scope": "Frozen upstream; fresh simplified within review. Before includes109 presence events; after only16 negative spatial events.",
+    "cases": [
+      {
+        "study": "study2",
+        "before": {
+          "input": 215585,
+          "output": 10153,
+          "cached": 15360,
+          "tokens": 225738,
+          "usd": 2.52526,
+          "model_seconds": 331.0010817050934
+        },
+        "after": {
+          "input": 38728,
+          "output": 609,
+          "cached": 0,
+          "tokens": 39337,
+          "usd": 0.41773,
+          "model_seconds": 26.339539051055908
+        }
+      },
+      {
+        "study": "study3",
+        "before": {
+          "input": 213226,
+          "output": 14697,
+          "cached": 15360,
+          "tokens": 227923,
+          "usd": 2.72887,
+          "model_seconds": 489.74982166290283
+        },
+        "after": {
+          "input": 38564,
+          "output": 966,
+          "cached": 0,
+          "tokens": 39530,
+          "usd": 0.43394,
+          "model_seconds": 34.2340886592865
+        }
+      },
+      {
+        "study": "study4",
+        "before": {
+          "input": 188528,
+          "output": 19658,
+          "cached": 0,
+          "tokens": 208186,
+          "usd": 2.86818,
+          "model_seconds": 612.1141958236694
+        },
+        "after": {
+          "input": 64720,
+          "output": 2336,
+          "cached": 0,
+          "tokens": 67056,
+          "usd": 0.764,
+          "model_seconds": 83.34822535514832
+        }
+      }
+    ],
+    "before": {
+      "input": 617339,
+      "output": 44508,
+      "cached": 30720,
+      "tokens": 661847,
+      "usd": 8.12231,
+      "model_seconds": 1432.8650991916656
+    },
+    "after": {
+      "input": 142012,
+      "output": 3911,
+      "cached": 0,
+      "tokens": 145923,
+      "usd": 1.61567,
+      "model_seconds": 143.92185306549072
+    }
+  },
+  "composition": [
+    {
+      "study": "study2",
+      "before": {
+        "input": 934721,
+        "output": 44241,
+        "cached": 45568,
+        "tokens": 978962,
+        "usd": 11.149148,
+        "model_seconds": 1391.7630319595337
+      },
+      "after": {
+        "input": 757864,
+        "output": 34697,
+        "cached": 30208,
+        "tokens": 792561,
+        "usd": 9.041618000000001,
+        "model_seconds": 1087.1014893054962
+      }
+    },
+    {
+      "study": "study3",
+      "before": {
+        "input": 925344,
+        "output": 47950,
+        "cached": 30720,
+        "tokens": 973294,
+        "usd": 11.37446,
+        "model_seconds": 1517.5097060203552
+      },
+      "after": {
+        "input": 750682,
+        "output": 34219,
+        "cached": 15360,
+        "tokens": 784901,
+        "usd": 9.079529999999998,
+        "model_seconds": 1061.993973016739
+      }
+    },
+    {
+      "study": "study4",
+      "before": {
+        "input": 787405,
+        "output": 50180,
+        "cached": 7680,
+        "tokens": 837585,
+        "usd": 10.31393,
+        "model_seconds": 1532.6946425437927
+      },
+      "after": {
+        "input": 663597,
+        "output": 32858,
+        "cached": 7680,
+        "tokens": 696455,
+        "usd": 8.209749999999998,
+        "model_seconds": 1003.9286720752716
+      }
+    }
+  ],
+  "all_validation": {
+    "input": 2217758,
+    "output": 102992,
+    "cached": 67968,
+    "tokens": 2320750,
+    "usd": 26.715467999999998,
+    "model_seconds": 3227.969366312027
+  },
+  "pricing": {
+    "model": "gpt-6-astra",
+    "uncached_input_usd_per_M": 10,
+    "cached_input_usd_per_M": 1,
+    "output_usd_per_M": 50,
+    "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+    "actual_billing": false
+  },
+  "events": [
+    {
+      "study": "study2",
+      "scope": "shot1",
+      "event_id": "spatial_00021",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Pen holder | Group of pens and pencils",
+      "cosine": -0.8620013936591072,
+      "reason": "The exposed arrangement remains stable against tabletop grain, but hidden pen lengths prevent verifying the directed full-center depth relation. Picking up only the notebook does not explain a physical reversal here.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "shot1",
+      "event_id": "spatial_00022",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Pen holder | Group of pens and pencils",
+      "cosine": -0.878337376959304,
+      "reason": "Both targets show the same exposed arrangement relative to tabletop grain, without independently observable full-center depth ordering. The authorized notebook pickup supplies no cause for this pair to reverse.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "shot1",
+      "event_id": "spatial_00023",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Pen holder | Group of pens and pencils",
+      "cosine": -0.8023884609248374,
+      "reason": "Tabletop grain supports a stable exposed arrangement; the nearby hand shows no displacement. Hidden portions prevent verifying full-center ordering, and standing with the notebook does not explain a reversal.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "shot3",
+      "event_id": "spatial_00002",
+      "kind": "spatial",
+      "status": "exempt",
+      "entities": "wooden console table | trailing plant on console table",
+      "cosine": -0.032562398786344204,
+      "reason": "At frame 48 the returning woman visibly covers both endpoints, changing the available fragments and preventing comparable full-center ordering. Her return in p10 explains this occlusion; p07 supplies no rearrangement cause.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "shot3",
+      "event_id": "spatial_00003",
+      "kind": "spatial",
+      "status": "exempt",
+      "entities": "wooden console table | trailing plant on console table",
+      "cosine": -0.23131777090634262,
+      "reason": "The clear pair at frame 24 becomes partially hidden behind the woman at frame 48, while exposed portions retain their wall alignment. The return in p10 explains the changed visibility; p07 does not justify physical rearrangement.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g01_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Framed landscape painting",
+      "cosine": null,
+      "reason": "The frozen unmatched identity is preserved. The second endpoint provides no empty witness of its original wall location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g01_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "framed landscape painting",
+      "cosine": null,
+      "reason": "This distinct painting is newly in view, not demonstrably newly introduced.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g02",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Dark green mug | dark mug",
+      "cosine": null,
+      "reason": "Positive original-pixel presence at both endpoints.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g03",
+      "kind": "presence",
+      "status": "conflict",
+      "entities": "Desk lamp",
+      "cosine": null,
+      "reason": "The common desk is identifiable and its tabletop is visible across the reverse endpoint. No person or foreground object hides a lamp-sized object. Absence is established from pixels, not the unmatched detector entry or registration.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g04",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Woman wearing a gray sweater | woman in gray sweater",
+      "cosine": null,
+      "reason": "Endpoint absence is visually supported and causally explained by the depicted departure and subsequent entrance, not by her motion class alone.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g05",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Wooden desk | large wooden table",
+      "cosine": null,
+      "reason": "The desk has positive endpoint presence on both sides.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g06",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Small framed picture on bookshelf",
+      "cosine": null,
+      "reason": "No corresponding empty shelf region is shown.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g07",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Pen holder | pen holder",
+      "cosine": null,
+      "reason": "Visible container pixels confirm presence at both targets despite partial overlap.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g08",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Group of books on lower shelf",
+      "cosine": null,
+      "reason": "The group's disappearance from the inventory is explained by field of view.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g09",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Trailing plant by window | trailing plant by window",
+      "cosine": null,
+      "reason": "Positive presence is supported by foliage and its fixed window setting.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g10",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Bookcase",
+      "cosine": null,
+      "reason": "The frozen unmatched classification is retained: the fragment does not establish complete-instance presence, but cropping explains why full-scope observation is unavailable.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g12",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Red book",
+      "cosine": null,
+      "reason": "The missing endpoint observations agree with visible empty desk regions and a specifically authorized departure.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g13",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Wooden chair | wooden chair",
+      "cosine": null,
+      "reason": "Chair presence is positively supported, independently of its unreliable reconstructed lower extent.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g14",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Radiator | radiator",
+      "cosine": null,
+      "reason": "Positive radiator presence at both endpoints.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g15",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Group of books on top shelf",
+      "cosine": null,
+      "reason": "No visible empty region supports removal of the group.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g16",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Plant pot by window | plant pot by window",
+      "cosine": null,
+      "reason": "Original pixels confirm pot presence on both sides.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g17",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "Group of pens and pencils | group of pens",
+      "cosine": null,
+      "reason": "Group presence is clear despite weak depth estimates; no geometry replacement is needed.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g18",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "Small ceramic pot on bookshelf",
+      "cosine": null,
+      "reason": "The first missing box is not absence. The second endpoint cannot verify this vessel's state; detector failure remains unknown under the requested rule.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g19_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Small wooden side table",
+      "cosine": null,
+      "reason": "The rejected table match is not reused. No empty corresponding support region is available.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g19_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "wooden console table",
+      "cosine": null,
+      "reason": "New visibility is explained without introducing or moving furniture.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g20_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Plant on side table",
+      "cosine": null,
+      "reason": "The plant is not matched to the distinct large console plant, and its absence is not visually established.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g20_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "trailing plant on console table",
+      "cosine": null,
+      "reason": "The fixed distinct identity is retained; first-endpoint absence cannot be inferred from the other small plant.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g21",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "framed picture in hallway",
+      "cosine": null,
+      "reason": "Its support wall was not observable in the preceding endpoint.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g22",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "framed botanical picture",
+      "cosine": null,
+      "reason": "A newly exposed wall decoration is not an unexplained addition.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g23",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "small framed picture beside doorway",
+      "cosine": null,
+      "reason": "No first-endpoint empty wall witness exists for this picture.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g24",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "small hallway cabinet",
+      "cosine": null,
+      "reason": "Its appearance is a visibility change, with no observable preceding empty location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g25",
+      "kind": "presence",
+      "status": "conflict",
+      "entities": "tissue packet",
+      "cosine": null,
+      "reason": "The common tabletop and central exposed region support the comparison without exact registration. The first endpoint has no person obscuring it; the packet-sized object and upright tissue could not be concealed by the small mug/holder overlap at this central location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g26",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "stack of books",
+      "cosine": null,
+      "reason": "The stack's preceding location is not observable; no addition or notebook return is established.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "presence_g27",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "plant pot on console table",
+      "cosine": null,
+      "reason": "Its presence is newly observable; no prior empty support witness exists. No portion of shot1/e20 is reassigned to this identity.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g05",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Dark green mug | Wooden desk | dark mug | large wooden table",
+      "cosine": -0.23174138884694712,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g07",
+      "kind": "spatial",
+      "status": "conflict",
+      "entities": "Dark green mug | Pen holder | dark mug | pen holder",
+      "cosine": -0.26045072315104506,
+      "reason": "The same desk–radiator anchors plus up establish camera-invariant u; mug-minus-holder changes from negative to positive, while v remains negative and vertical order remains unknown. Body extents and support corroborate the independent horizontal observations, so a fixed physical arrangement cannot explain both views.",
+      "gate": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g17",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Dark green mug | Group of pens and pencils | dark mug | group of pens",
+      "cosine": -0.3820823615780845,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study2",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g05_g07",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Wooden desk | Pen holder | large wooden table | pen holder",
+      "cosine": -0.1395147966260525,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study3",
+      "scope": "shot1",
+      "event_id": "spatial_00021",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "pen holder | group of pens and pencils",
+      "cosine": -0.8616767584013431,
+      "reason": "Visible parts retain their desk-relative arrangement, but concealed full centers prevent verification of the depth reversal. Taking only the notebook and leaving the study unrearranged do not explain a physical change here.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "shot1",
+      "event_id": "spatial_00022",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "pen holder | group of pens and pencils",
+      "cosine": -0.8780422990213567,
+      "reason": "Both targets show matching exposed placement against desk grain, without independently observable full-center ordering. The notebook-only action provides no cause for changing this pair's relation.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "shot1",
+      "event_id": "spatial_00023",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "pen holder | group of pens and pencils",
+      "cosine": -0.8016672609097448,
+      "reason": "The nearby hand shows no manipulation, and exposed parts retain their desk-relative placement. Concealed centers leave the reversal unverified; standing and leaving with only the notebook do not explain it.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "shot3",
+      "event_id": "spatial_00008",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Trailing plant on console table | Plant pot on console table",
+      "cosine": -0.8183071463288707,
+      "reason": "Console-relative placement appears stable, but frame 72 overlap and unresolved foliage-center depth prevent verifying the physical reversal. The prescribed empty-handed return supplies no rearrangement cause.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "shot3",
+      "event_id": "spatial_00009",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Trailing plant on console table | Plant pot on console table",
+      "cosine": -0.6643029868148417,
+      "reason": "Both targets show the pot and vines at corresponding console locations; frame 72 partly hides the foliage extent. The woman's return explains the overlap, but establishes no physical center-order change or rearrangement.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "shot3",
+      "event_id": "spatial_00010",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Trailing plant on console table | Plant pot on console table",
+      "cosine": -0.5989510268412064,
+      "reason": "The exposed console reference supports stable visible placement as the woman clears the plant, but cannot establish full foliage-center depth at frame 72. Her return does not explain a physical rearrangement.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "shot3",
+      "event_id": "spatial_00011",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Trailing plant on console table | Plant pot on console table",
+      "cosine": -0.828188758912114,
+      "reason": "Pot and trailing vines retain their alignment with the console; the partly hidden frame 72 foliage prevents independent full-center ordering. Standing beside the chair provides no cause for moving this pair.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g01_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "framed landscape painting",
+      "cosine": null,
+      "reason": "The fixed unmatched identity is retained. No corresponding empty wall location is visible.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g01_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Framed landscape painting",
+      "cosine": null,
+      "reason": "This painting is not matched to the first painting and its prior location is outside the preceding view.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g02",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "dark mug | Dark mug",
+      "cosine": null,
+      "reason": "Positive endpoint pixels establish presence on both sides. This does not certify position continuity.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g03",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "desk lamp | White desk lamp",
+      "cosine": null,
+      "reason": "Both endpoint images contain the matched lamp. Presence compatibility does not resolve its appearance or spatial differences.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g04",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "woman | Woman in gray sweater and dark trousers",
+      "cosine": null,
+      "reason": "Endpoint nonvisibility is causally supported by the departure and subsequent entry, not inferred merely from missing boxes.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g05",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "wooden desk | Large wooden table",
+      "cosine": null,
+      "reason": "Direct endpoint evidence supports continued presence.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g06",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "small framed picture",
+      "cosine": null,
+      "reason": "No observable empty corresponding shelf supports disappearance.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g07",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "pen holder | Pen holder",
+      "cosine": null,
+      "reason": "Visible portions positively establish both endpoint presences despite partial mug occlusion.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g08",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "group of books on lower shelf",
+      "cosine": null,
+      "reason": "Unmatched detections across different visible wall segments do not establish missing books.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g09",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "plant by window | Trailing plant on windowsill",
+      "cosine": null,
+      "reason": "Both endpoint images positively show the fixed matched plant.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g10",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "bookcase",
+      "cosine": null,
+      "reason": "The target view does not expose an empty bookcase location. The sliver is not added as a new entity or match.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g11",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "plant on bookshelf",
+      "cosine": null,
+      "reason": "No corresponding empty shelf is shown, and other plants retain their separate identities.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g12",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "red book",
+      "cosine": null,
+      "reason": "Endpoint nonvisibility follows an observed pickup and explicitly prescribed removal.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g13",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "wooden chair | Wooden chair",
+      "cosine": null,
+      "reason": "Positive endpoint presence is supported despite desk occlusion of lower portions.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g14",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "radiator | Radiator",
+      "cosine": null,
+      "reason": "Presence is directly supported at both endpoints.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g15",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "group of books on top shelf",
+      "cosine": null,
+      "reason": "The expected shelf is not observable in the second endpoint.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g16",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "plant pot by window | Plant pot on windowsill",
+      "cosine": null,
+      "reason": "Direct pixels establish both endpoint presences.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g17",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "group of pens and pencils | Group of pens and pencils",
+      "cosine": null,
+      "reason": "Collection-level presence is supported, regardless of the rejected reconstructed center.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g18",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "small ceramic pot on bookshelf",
+      "cosine": null,
+      "reason": "The missing observation is not evidence of absence. Detector failure and unavailable opposite-endpoint visibility prevent a complete presence comparison.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g19_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "wooden side table",
+      "cosine": null,
+      "reason": "The wide console is a separate fixed identity and cannot serve as evidence of replacement.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g19_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Wooden console table",
+      "cosine": null,
+      "reason": "No prior empty corresponding location is observable.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g20_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "plant on side table",
+      "cosine": null,
+      "reason": "The other console plant is a distinct frozen identity, not a replacement witness.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g20_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Trailing plant on console table",
+      "cosine": null,
+      "reason": "There is no observable prior empty support location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g21",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Framed picture on left hallway wall",
+      "cosine": null,
+      "reason": "No corresponding empty hallway wall is visible in the preceding endpoint.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g22",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Framed botanical picture",
+      "cosine": null,
+      "reason": "The unmatched picture is newly visible, without evidence of physical addition.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g23",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Small framed picture beside doorway",
+      "cosine": null,
+      "reason": "No prior empty corresponding wall witness exists.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g24",
+      "kind": "presence",
+      "status": "conflict",
+      "entities": "Tissue packet",
+      "cosine": null,
+      "reason": "The same desk provides a visible expected support region in both endpoints. The packet's conspicuous body and tissue are absent from the preceding exposed surface; existing props do not conceal that region. This is original-pixel absence evidence, not an empty detector result or a registered-coordinate inference.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g25",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Plant pot on console table",
+      "cosine": null,
+      "reason": "The pot remains a separate unmatched entity; no prior empty support location is shown.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g26",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Stack of books",
+      "cosine": null,
+      "reason": "These books are not matched to the bookshelf collections or notebook. Their prior support location is unobservable.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "presence_g27",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "Small hallway cabinet",
+      "cosine": null,
+      "reason": "The target image supports a detector miss, not absence. There is no observable preceding corresponding location, so the boundary presence comparison remains unknown.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g05",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "dark mug | wooden desk | Dark mug | Large wooden table",
+      "cosine": -0.2651937155657584,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g07",
+      "kind": "spatial",
+      "status": "conflict",
+      "entities": "dark mug | pen holder | Dark mug | Pen holder",
+      "cosine": -0.38495161179546666,
+      "reason": "Matched desk-to-radiator anchors and physical up define a common local reference: mug-minus-holder u changes from negative to positive, while v remains negative and vertical order remains unknown. Upright body extents and support-plane separation corroborate the independent horizontal observations beyond occlusion alone. A camera rotation preserves this local sign, so one unchanged physical placement cannot explain both targets; at least one endpoint placement is inconsistent.",
+      "gate": "negative_cosine_and_independent_local_opposite_order_and_visual_gates_and_prompt_motion_excluded"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g02_g17",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "dark mug | group of pens and pencils | Dark mug | Group of pens and pencils",
+      "cosine": -0.43328251011066254,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study3",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g05_g07",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "wooden desk | pen holder | Large wooden table | Pen holder",
+      "cosine": -0.15442423755265597,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    },
+    {
+      "study": "study4",
+      "scope": "shot1",
+      "event_id": "spatial_00016",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "outdoor plant pot | outdoor flowering plant",
+      "cosine": -0.3756260357961276,
+      "reason": "Jamb and patio correspondence shows no clear displacement, but foliage-only versus pot-inclusive centers and partial overlap prevent verification of the physical reversal. The prescribed doorway exit does not authorize plant relocation.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "shot1",
+      "event_id": "spatial_00017",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "outdoor plant pot | outdoor flowering plant",
+      "cosine": -0.3256255437879986,
+      "reason": "Both targets place the pair beside the same jamb and patio, but frame 192 hides part of the foliage and narrows its represented extent. Separate depth ordering is unresolved; the prescribed exit does not explain physical plant relocation.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "shot1",
+      "event_id": "spatial_00018",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "outdoor plant pot | outdoor flowering plant",
+      "cosine": -0.1727580135478897,
+      "reason": "Placement against the jamb and patio appears stable, while the later woman overlap prevents consistent full plant centers and independent depth ordering. Walking outside supplies no cause for relocating either endpoint.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "shot1",
+      "event_id": "spatial_00019",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "outdoor plant pot | outdoor flowering plant",
+      "cosine": -0.3610528557091307,
+      "reason": "The pot stays at the same patio reference, but the plant extent changes from foliage-only to pot-inclusive as the woman passes. This prevents a verified center reversal; the prompt explains her passage, not plant relocation.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "shot3",
+      "event_id": "spatial_00007",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Group of throw pillows | Beige sofa",
+      "cosine": -0.873461539571497,
+      "reason": "Target pixels show stable pillow placement against the lamp and curtain, but the supplied group center samples different individual pillows. The prompt requires unchanged furniture and supplies no pillow movement; the fixed group's physical center relation is unverified.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "shot3",
+      "event_id": "spatial_00008",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Group of throw pillows | Beige sofa",
+      "cosine": -0.8923540403980975,
+      "reason": "The pillow regions sample opposite ends of the group, while the woman hides the right sofa at frame 134. Her prescribed walk explains that occlusion, but cannot establish the full-center relation or explain the entire reported reversal.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "shot3",
+      "event_id": "spatial_00009",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Group of throw pillows | Beige sofa",
+      "cosine": -0.929068624091732,
+      "reason": "The left pillow stays aligned with the independent lamp/curtain reference, but group coverage changes and frame 202 samples a right sofa fragment. The prescribed approach and reach explain obstruction, not a verified change between consistent physical centers.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "shot3",
+      "event_id": "spatial_00010",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Group of throw pillows | Beige sofa",
+      "cosine": -0.9342775433921874,
+      "reason": "Visible left-side placement remains stable against the lamp and curtain, but pillow-group coverage differs and the sofa region becomes a narrow fragment. The prompted cup lift explains the woman's obstruction; it does not resolve the inconsistent center semantics.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "shot3",
+      "event_id": "spatial_00011",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "Group of throw pillows | Beige sofa",
+      "cosine": -0.9315410990687117,
+      "reason": "The lamp and curtain anchor unchanged visible left-side placement, while the group regions differ and the sofa center is hidden. The prescribed drinking pose explains obstruction, but the same full-object ordering cannot be independently verified.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g02",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "framed wall picture",
+      "cosine": null,
+      "reason": "The picture's expected mounting location is not observable in the following endpoint.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g03",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "woman | Woman wearing a gray cardigan and jeans",
+      "cosine": null,
+      "reason": "Both endpoint states are positively visible and fit the specified departure and return. Outside does not mean absent from the image.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g04",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "wooden coffee table | Wooden coffee table",
+      "cosine": null,
+      "reason": "Original pixels establish table presence at both endpoints.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g05",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "television",
+      "cosine": null,
+      "reason": "There is no visible empty witness at the television's physical location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g06",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "wooden television cabinet",
+      "cosine": null,
+      "reason": "The unmatched detection reflects nonoverlapping room coverage.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g07",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "potted plant on television cabinet",
+      "cosine": null,
+      "reason": "The television cabinet support is outside the following view; the other plant is not substituted for it.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g08",
+      "kind": "presence",
+      "status": "compatible",
+      "entities": "sofa | Beige sofa",
+      "cosine": null,
+      "reason": "Both endpoint images positively support the frozen sofa identity.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g09_a",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "outdoor plant pot",
+      "cosine": null,
+      "reason": "Neither a supported endpoint presence nor a clearly empty corresponding location is available.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g09_b",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "Outdoor flowerpot",
+      "cosine": null,
+      "reason": "The following detector gap is not absence; the preceding state of this separate pot is unsupported.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g10",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "bookshelf",
+      "cosine": null,
+      "reason": "The following image does not expose a corresponding empty bookshelf location. The wooden surface is not rematched.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g11",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "trailing plant on mantel",
+      "cosine": null,
+      "reason": "Nonvisibility follows the excluded support location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g12",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "small picture frame on mantel",
+      "cosine": null,
+      "reason": "Its physical support is outside the following field of view.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g13_a",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "outdoor flowering plant",
+      "cosine": null,
+      "reason": "Missing endpoint detection does not prove disappearance, and the separate sofa-side plant cannot substitute.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g13_b",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "Outdoor flowering plant",
+      "cosine": null,
+      "reason": "Neither the null observation nor later fuller detections establish a boundary appearance.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g14",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "plant beside bookshelf",
+      "cosine": null,
+      "reason": "There is no observable corresponding empty location, and the lamp-side plant remains a separate identity.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g15",
+      "kind": "presence",
+      "status": "unknown",
+      "entities": "small vase on mantel",
+      "cosine": null,
+      "reason": "A detector failure is present; no disappearance is demonstrated and the following physical state is unobservable.",
+      "gate": "uncertain_prompt_cause"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g17_a",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "curtain",
+      "cosine": null,
+      "reason": "The two curtain instances remain separate; absence of a match is explained by field of view.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g17_b",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Patterned curtain",
+      "cosine": null,
+      "reason": "New visibility of this distinct curtain is supported by the camera change, without evidence of physical addition.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g18",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Floor lamp",
+      "cosine": null,
+      "reason": "The preceding endpoint supplies no empty witness at the lamp's support location.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "presence_g19",
+      "kind": "presence",
+      "status": "exempt",
+      "entities": "Indoor leafy plant",
+      "cosine": null,
+      "reason": "Its newly visible support area explains the unmatched observation; other plants are not rematched.",
+      "gate": "accepted"
+    },
+    {
+      "study": "study4",
+      "scope": "pair_000",
+      "event_id": "spatial_pair_g03_g04",
+      "kind": "spatial",
+      "status": "unknown",
+      "entities": "woman | wooden coffee table | Woman wearing a gray cardigan and jeans | Wooden coffee table",
+      "cosine": -0.33649644341300994,
+      "reason": "No independently verified common support/reference.",
+      "gate": "no_verified_common_support_or_reference"
+    }
+  ]
+}

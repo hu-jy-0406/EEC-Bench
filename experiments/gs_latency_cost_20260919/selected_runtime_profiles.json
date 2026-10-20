@@ -1,0 +1,63 @@
+{
+  "selected": "safe_spatial_medium",
+  "profiles": {
+    "baseline": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "configured",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": false,
+      "status": "validated_study2"
+    },
+    "efficient_astra_low": {
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_not_selected_presence_classification_drift"
+    },
+    "efficient_astra_medium": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_not_selected_presence_classification_drift",
+      "efficient_call_stages": [
+        "identity_review",
+        "presence_1",
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ]
+    },
+    "baseline_parallel": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "configured",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "scheduler_unit_validated_numerical_algorithm_unchanged"
+    },
+    "safe_spatial_medium": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "validated_study2_fixed_upstream_spatial_replay",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md"
+    }
+  }
+}

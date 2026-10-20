@@ -1,0 +1,200 @@
+[
+  {
+    "stage": "detection_and_clustering",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+      "--manifest",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created/raw_manifest.json",
+      "--output",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created/entities",
+      "--gpu",
+      "0",
+      "--model",
+      "gpt-6-astra",
+      "--reasoning",
+      "medium",
+      "--shot-workers",
+      "2",
+      "--codex-bin",
+      "/vast/users/guangyi.chen/.local/bin/codex",
+      "--timeout",
+      "1800"
+    ]
+  },
+  {
+    "stage": "geocalib",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "calibrate"
+    ]
+  },
+  {
+    "stage": "prepare_shot_inputs",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "inputs"
+    ]
+  },
+  {
+    "stage": "pi3x_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot1"
+    ]
+  },
+  {
+    "stage": "boxer_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot1"
+    ]
+  },
+  {
+    "stage": "pi3x_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot3"
+    ]
+  },
+  {
+    "stage": "boxer_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot3"
+    ]
+  },
+  {
+    "stage": "motion_and_fusion",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_motion_fusion.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "--runtime-profile",
+      "safe_spatial_medium"
+    ]
+  },
+  {
+    "stage": "initial_identity",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "match",
+      "--runtime-profile",
+      "safe_spatial_medium"
+    ]
+  },
+  {
+    "stage": "roma_matches",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-test",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+      "--method",
+      "roma"
+    ]
+  },
+  {
+    "stage": "lift_correspondences",
+    "command": [
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+      "--method",
+      "roma"
+    ]
+  },
+  {
+    "stage": "registration",
+    "command": [
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+      "--method",
+      "roma",
+      "--sampling",
+      "fps",
+      "--sample-count",
+      "32"
+    ]
+  },
+  {
+    "stage": "aligned_identity_review",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "review_identity",
+      "--runtime-profile",
+      "safe_spatial_medium"
+    ]
+  },
+  {
+    "stage": "presence",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "presence",
+      "--runtime-profile",
+      "safe_spatial_medium"
+    ]
+  },
+  {
+    "stage": "spatial",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/temporal_v2_validation_20260920/plan_only_not_created",
+      "spatial",
+      "--runtime-profile",
+      "safe_spatial_medium"
+    ]
+  }
+]

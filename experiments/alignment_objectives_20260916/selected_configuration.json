@@ -1,0 +1,22 @@
+{
+  "version": "user_selected_alignment_v1",
+  "method": "joint_0.01",
+  "selection_basis": "User selected direct estimation and center plus smaller direction weight from reported comparison.",
+  "direction": "shot3_to_shot1",
+  "output_frame": "shot1_opencv_camera",
+  "gravity_constraint": true,
+  "center_loss": "entity Huber",
+  "center_huber_delta": 0.05,
+  "axis_loss": "mean squared sine of undirected horizontal long-axis angle",
+  "axis_weight": 0.01,
+  "minimum_horizontal_aspect_ratio_both": 1.2,
+  "correspondence": "reuse frozen matched static identities",
+  "transform_parameters": [
+    "positive uniform scale",
+    "gravity-constrained rotation",
+    "xyz translation"
+  ],
+  "center_connection_diagnostic_is_additional_loss": false,
+  "perfect_box_coincidence_required": false,
+  "production_gs_scoring_changed": false
+}

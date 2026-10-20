@@ -1,0 +1,594 @@
+[
+  {
+    "status": "success",
+    "shots": {
+      "shot1": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot1/e12",
+            "interval": 0,
+            "field": "expected",
+            "old": "reasonable_motion",
+            "new": "static"
+          },
+          {
+            "entity_id": "shot1/e12",
+            "interval": 0,
+            "field": "observed",
+            "old": "changed",
+            "new": "stationary"
+          },
+          {
+            "entity_id": "shot1/e12",
+            "interval": 0,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 0,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 1,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 2,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 3,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 4,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          }
+        ],
+        "unit_differences": [
+          {
+            "kind": "presence",
+            "unit_id": "shot1/e12",
+            "old": "exempt",
+            "new": "compatible"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e1__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e2__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e3__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e5__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e6__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e7__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e8__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e9__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e10__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e11__shot1/e12",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e13",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e14",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e15",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e16",
+            "old": "exempt",
+            "new": "no_conflict"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e17",
+            "old": "exempt",
+            "new": "unknown"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e18",
+            "old": "exempt",
+            "new": "unknown"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e19",
+            "old": "exempt",
+            "new": "unknown"
+          },
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot1/e12__shot1/e20",
+            "old": "exempt",
+            "new": "unknown"
+          }
+        ],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.6,
+            "N": 15,
+            "C": 9,
+            "K": 0,
+            "U": 6,
+            "E": 5,
+            "identification_interval": [
+              60.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 42,
+            "unresolved_pairs": 129,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot2": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot2/e5",
+            "interval": 2,
+            "field": "expected",
+            "old": "static",
+            "new": "reasonable_motion"
+          },
+          {
+            "entity_id": "shot2/e5",
+            "interval": 2,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          }
+        ],
+        "unit_differences": [],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.8,
+            "N": 5,
+            "C": 4,
+            "K": 0,
+            "U": 1,
+            "E": 1,
+            "identification_interval": [
+              80.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 15,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 6,
+            "unresolved_pairs": 4,
+            "exempt_pairs": 5,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot3": {
+        "expectation_differences": [],
+        "unit_differences": [],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 1.0,
+            "N": 17,
+            "C": 17,
+            "K": 0,
+            "U": 0,
+            "E": 3,
+            "identification_interval": [
+              100.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 135,
+            "unresolved_pairs": 36,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      }
+    },
+    "seconds": 958.7110297679901
+  },
+  {
+    "status": "success",
+    "shots": {
+      "shot1": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot1/e7",
+            "interval": 2,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          },
+          {
+            "entity_id": "shot1/e13",
+            "interval": 2,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 2,
+            "field": "basis",
+            "old": "prompt",
+            "new": "continuity"
+          }
+        ],
+        "unit_differences": [],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.6,
+            "N": 15,
+            "C": 9,
+            "K": 0,
+            "U": 6,
+            "E": 5,
+            "identification_interval": [
+              60.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 42,
+            "unresolved_pairs": 129,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot2": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot2/e5",
+            "interval": 3,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          },
+          {
+            "entity_id": "shot2/e5",
+            "interval": 4,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          }
+        ],
+        "unit_differences": [],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.8,
+            "N": 5,
+            "C": 4,
+            "K": 0,
+            "U": 1,
+            "E": 1,
+            "identification_interval": [
+              80.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 15,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 6,
+            "unresolved_pairs": 4,
+            "exempt_pairs": 5,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot3": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot3/e9",
+            "interval": 2,
+            "field": "observed",
+            "old": "unknown",
+            "new": "stationary"
+          },
+          {
+            "entity_id": "shot3/e9",
+            "interval": 3,
+            "field": "observed",
+            "old": "unknown",
+            "new": "stationary"
+          }
+        ],
+        "unit_differences": [
+          {
+            "kind": "presence",
+            "unit_id": "shot3/e9",
+            "old": "exempt",
+            "new": "unknown"
+          }
+        ],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.8125,
+            "N": 16,
+            "C": 13,
+            "K": 0,
+            "U": 3,
+            "E": 4,
+            "identification_interval": [
+              81.25,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 190,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 78,
+            "unresolved_pairs": 93,
+            "exempt_pairs": 19,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      }
+    },
+    "seconds": 1011.0102188587189
+  },
+  {
+    "status": "success",
+    "shots": {
+      "shot1": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot1/e5",
+            "interval": 0,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          },
+          {
+            "entity_id": "shot1/e5",
+            "interval": 1,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          },
+          {
+            "entity_id": "shot1/e9",
+            "interval": 0,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          },
+          {
+            "entity_id": "shot1/e18",
+            "interval": 0,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          }
+        ],
+        "unit_differences": [],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.7333333333333333,
+            "N": 15,
+            "C": 11,
+            "K": 0,
+            "U": 4,
+            "E": 3,
+            "identification_interval": [
+              73.33333333333333,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 153,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 58,
+            "unresolved_pairs": 95,
+            "exempt_pairs": 0,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot2": {
+        "expectation_differences": [],
+        "unit_differences": [
+          {
+            "kind": "presence",
+            "unit_id": "shot2/e3",
+            "old": "unknown",
+            "new": "exempt"
+          }
+        ],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.16666666666666666,
+            "N": 6,
+            "C": 1,
+            "K": 0,
+            "U": 5,
+            "E": 3,
+            "identification_interval": [
+              16.666666666666668,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 36,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 0,
+            "unresolved_pairs": 28,
+            "exempt_pairs": 8,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      },
+      "shot3": {
+        "expectation_differences": [
+          {
+            "entity_id": "shot3/e2",
+            "interval": 2,
+            "field": "expected",
+            "old": "static",
+            "new": "reasonable_motion"
+          },
+          {
+            "entity_id": "shot3/e2",
+            "interval": 2,
+            "field": "basis",
+            "old": "continuity",
+            "new": "prompt"
+          }
+        ],
+        "unit_differences": [
+          {
+            "kind": "spatial",
+            "unit_id": "pair_shot3/e2__shot3/e7",
+            "old": "unknown",
+            "new": "no_conflict"
+          }
+        ],
+        "scores": {
+          "presence": {
+            "score": 100.0,
+            "coverage": 0.8,
+            "N": 10,
+            "C": 8,
+            "K": 0,
+            "U": 2,
+            "E": 3,
+            "identification_interval": [
+              80.0,
+              100.0
+            ]
+          },
+          "spatial": {
+            "score": 100.0,
+            "total_pairs": 78,
+            "confirmed_conflict_pairs": 0,
+            "anomaly_ratio": 0.0,
+            "no_conflict_pairs": 29,
+            "unresolved_pairs": 37,
+            "exempt_pairs": 12,
+            "scoring_protocol": "confirmed_anomaly_fraction_v1",
+            "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+          }
+        }
+      }
+    },
+    "seconds": 1121.8872599601746
+  }
+]

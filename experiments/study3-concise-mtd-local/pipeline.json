@@ -1,0 +1,1624 @@
+{
+  "schema_version": 1,
+  "source": {
+    "path": "global_prompt.md",
+    "sha256": "854bae5b0605567d0c018bbed4d93de23c071247b320eaf70bdf5a44a8e4242b"
+  },
+  "status": "complete",
+  "settings": {
+    "verification": true,
+    "style": "realistic photography",
+    "frame_aspect_ratio": "16:9",
+    "frame_size_px": [
+      1672,
+      941
+    ],
+    "max_attempts_per_image": 3,
+    "timing": true
+  },
+  "assumptions": [
+    "Shot durations are unspecified; use 10, 6, and 14 seconds to allow natural movement and the required pre-pickup cup reveal.",
+    "Woman is an adult about 35, with shoulder-length brown hair, grey open cardigan over a cream shirt, blue jeans and brown flat shoes; no accessories or carried props.",
+    "The room has cream walls, oak floor, a beige sofa on the south side of a rectangular wooden tea table, and a white glazed outward-opening garden door in the east wall. Garden is a simple lawn bounded by a hedge.",
+    "World coordinates: table center is (0,0), east is +x, north away from sofa is +y. Position A=(0.28,0.12) and B=(0.48,0.30) on the table. Shot 1 tall=A, short=B; shot 3 tall=B, short=A. Under a north-side view looking south, B is nearer and screen-left of A.",
+    "The two white porcelain blue-floral teacups have one handle each, no saucers or spoons; tall cup is 11 cm high and short cup 7 cm. Both have recognizable cobalt flower-and-leaf decoration. Tea is dark amber-black without milk.",
+    "The garden doorway begins closed so she can push it open; it then remains open. The return shot uses an elevated north-side three-quarter angle that includes the east doorway and reveals both cup interiors.",
+    "Built-in background output measures 1672x941, approximately 16:9; use this actual native landscape size consistently for scene frames. Preserve accepted incidental room decor: fireplace, television cabinet, curtains, rug, plants and shelving as fixed set dressing. Door is the active leaf of the white glazed double doorway.",
+    "Shot 1 ends on the exterior paved threshold immediately before the lawn; woman continues onto grass in shot 2.",
+    "Handedness is not specified by source. Final drinking endpoint uses the visible near hand in rear three-quarter profile; free hand is occluded. Video prompt leaves handedness unconstrained. Newly exposed south wall has a tripod lamp and plant; these remain fixed in shot 3.",
+    "Actual accepted library dimensions are recorded per image; the tool chose 1672x941 backgrounds, 1024x1536 character, and 1254x1254 object images. All six scene frames use native 1672x941. No image size repair or crop was applied to canonical PNGs."
+  ],
+  "assets": [
+    {
+      "id": "living_room",
+      "kind": "background",
+      "description": "Ordinary cream-walled living room, oak floor, beige sofa south of rectangular wooden tea table; white glazed garden door on east wall; soft natural daylight.",
+      "source_quotes": [
+        "the ordinary living room, sofa, wooden tea table, garden doorway, daylight"
+      ],
+      "invariants": [
+        "Ordinary cream-walled living room, oak floor, beige sofa south of rectangular wooden tea table; white glazed garden door on east wall; soft natural daylight.",
+        "No text or watermark."
+      ],
+      "anchors": [
+        {
+          "id": "living_room.sofa",
+          "description": "Beige fabric sofa south of table."
+        },
+        {
+          "id": "living_room.table",
+          "description": "Rectangular wooden tea table, long axis east-west; top empty in library image."
+        },
+        {
+          "id": "living_room.door",
+          "description": "White glazed door on east wall opens outward into garden."
+        },
+        {
+          "id": "living_room.position_A",
+          "description": "Unmarked tabletop point east and slightly north of center, nearer southwest than B."
+        },
+        {
+          "id": "living_room.position_B",
+          "description": "Unmarked tabletop point farther east and north than A."
+        },
+        {
+          "id": "living_room.decor",
+          "description": "Fixed set dressing: fireplace and mantel, television on oak cabinet, patterned curtains, neutral rug and plants; retain appearance and position."
+        },
+        {
+          "id": "living_room.south_decor",
+          "description": "Tripod floor lamp and leafy plant beside sofa, first revealed by reverse camera; fixed throughout shot 3."
+        }
+      ],
+      "background_mode": "scene",
+      "transparency_reason": null,
+      "image": {
+        "id": "living_room.image",
+        "path": "assets/backgrounds/living_room/image.png",
+        "prompt_path": "assets/backgrounds/living_room/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1672,
+          941
+        ],
+        "reference_images": [],
+        "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+      }
+    },
+    {
+      "id": "garden",
+      "kind": "background",
+      "description": "Simple green lawn beyond the same east garden doorway; hedge boundary and daylight matching the interior.",
+      "source_quotes": [
+        "She strolls on the outdoor lawn, empty-handed."
+      ],
+      "invariants": [
+        "Simple green lawn beyond the same east garden doorway; hedge boundary and daylight matching the interior.",
+        "No text or watermark."
+      ],
+      "anchors": [
+        {
+          "id": "garden.lawn",
+          "description": "Level green grass outside the east door."
+        },
+        {
+          "id": "garden.threshold",
+          "description": "Exterior side of the same living-room garden doorway."
+        }
+      ],
+      "background_mode": "scene",
+      "transparency_reason": null,
+      "image": {
+        "id": "garden.image",
+        "path": "assets/backgrounds/garden/image.png",
+        "prompt_path": "assets/backgrounds/garden/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1672,
+          941
+        ],
+        "reference_images": [
+          {
+            "path": "assets/backgrounds/living_room/image.png",
+            "role": "Architecture and lighting identity reference",
+            "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+          }
+        ],
+        "sha256": "d7dff91e5df1c96c46db19d3aa84d8919bbbb61df994cd2763915d57a3e8ab18"
+      }
+    },
+    {
+      "id": "woman",
+      "kind": "character",
+      "description": "One adult British woman, shoulder-length brown hair, grey cardigan, cream shirt, blue jeans, brown flat shoes.",
+      "source_quotes": [
+        "the brown-haired British woman in a grey cardigan and jeans"
+      ],
+      "invariants": [
+        "One adult British woman, shoulder-length brown hair, grey cardigan, cream shirt, blue jeans, brown flat shoes.",
+        "No text or watermark."
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "woman.image",
+        "path": "assets/characters/woman/front.png",
+        "prompt_path": "assets/characters/woman/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1024,
+          1536
+        ],
+        "reference_images": [],
+        "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+      }
+    },
+    {
+      "id": "tall_cup",
+      "kind": "object",
+      "description": "One tall 11 cm white porcelain teacup with cobalt blue floral pattern and a single handle. Front is the decorated wall opposite the handle attachment, handle visible to right.",
+      "source_quotes": [
+        "two blue-floral teacups of different heights"
+      ],
+      "invariants": [
+        "One tall 11 cm white porcelain teacup with cobalt blue floral pattern and a single handle. Front is the decorated wall opposite the handle attachment, handle visible to right.",
+        "No text or watermark."
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "tall_cup.image",
+        "path": "assets/objects/tall_cup/front.png",
+        "prompt_path": "assets/objects/tall_cup/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1254,
+          1254
+        ],
+        "reference_images": [],
+        "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+      }
+    },
+    {
+      "id": "short_cup",
+      "kind": "object",
+      "description": "One short 7 cm white porcelain teacup with cobalt blue floral pattern and a single handle. Front is the decorated wall opposite the handle attachment, handle visible to right.",
+      "source_quotes": [
+        "two blue-floral teacups of different heights"
+      ],
+      "invariants": [
+        "One short 7 cm white porcelain teacup with cobalt blue floral pattern and a single handle. Front is the decorated wall opposite the handle attachment, handle visible to right.",
+        "No text or watermark."
+      ],
+      "anchors": [],
+      "background_mode": "opaque",
+      "transparency_reason": null,
+      "image": {
+        "id": "short_cup.image",
+        "path": "assets/objects/short_cup/front.png",
+        "prompt_path": "assets/objects/short_cup/prompt.txt",
+        "status": "accepted",
+        "size_px": [
+          1254,
+          1254
+        ],
+        "reference_images": [
+          {
+            "path": "assets/objects/tall_cup/front.png",
+            "role": "Shared porcelain and floral family reference; generate a distinct shorter cup",
+            "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+          }
+        ],
+        "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+      }
+    }
+  ],
+  "shots": [
+    {
+      "id": "shot_1",
+      "duration_seconds": 10,
+      "background_id": "living_room",
+      "prompt_path": "shot_1/prompt.txt",
+      "action": "She begins seated, stands without touching cups, walks to garden door, pushes it outward, exits empty-handed and leaves door open.",
+      "camera_motion": "Steady elevated composition; no internal cut, zoom or axis crossing.",
+      "invariants": [
+        "One same woman and two same cups; furniture, lighting and clothing remain consistent.",
+        "No text or watermark.",
+        "No filling or swapping shown."
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_1.first",
+            "path": "shot_1/generation_reference_frames/first.png",
+            "prompt_path": "shot_1/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "assets/backgrounds/living_room/image.png",
+                "role": "living_room identity reference",
+                "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              },
+              {
+                "path": "assets/objects/tall_cup/front.png",
+                "role": "tall_cup identity reference",
+                "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+              },
+              {
+                "path": "assets/objects/short_cup/front.png",
+                "role": "short_cup identity reference",
+                "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+              }
+            ],
+            "sha256": "5aa2ca3be4d4a03652252045c111b74d9b8bf2f19bb37b95a510f7ad2fef5974"
+          },
+          "camera": "Elevated sofa-side camera south of table looking north, wide enough for seated woman at left and east garden door at right; tabletop interiors visible. Tall cup in tabletop upper-right, short cup farther right and farther away.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Seated on sofa, hands empty."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Black tea inside, untouched at position A."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty, untouched at position B."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Door closed."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Lawn visible beyond glazing or doorway."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.position_A",
+              "space": "world",
+              "description": "Cup base contacts tabletop at A."
+            },
+            {
+              "subject": "short_cup",
+              "predicate": "on",
+              "object": "living_room.position_B",
+              "space": "world",
+              "description": "Cup base contacts tabletop at B."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "left_of",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Tall is left of short in upper-right tabletop region."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "closer_to_camera_than",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Tall is nearer than short in sofa-side view."
+            },
+            {
+              "subject": "woman",
+              "predicate": "on",
+              "object": "living_room.sofa",
+              "space": "world",
+              "description": "Seated on sofa, hands empty."
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_1.last",
+            "path": "shot_1/generation_reference_frames/last.png",
+            "prompt_path": "shot_1/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "shot_1/generation_reference_frames/first.png",
+                "role": "Edit target: preserve scene and identities",
+                "sha256": "5aa2ca3be4d4a03652252045c111b74d9b8bf2f19bb37b95a510f7ad2fef5974"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              },
+              {
+                "path": "assets/objects/tall_cup/front.png",
+                "role": "tall_cup identity reference",
+                "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+              },
+              {
+                "path": "assets/objects/short_cup/front.png",
+                "role": "short_cup identity reference",
+                "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+              }
+            ],
+            "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+          },
+          "camera": "Elevated sofa-side camera south of table looking north, wide enough for seated woman at left and east garden door at right; tabletop interiors visible. Tall cup in tabletop upper-right, short cup farther right and farther away.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Outside just beyond open garden doorway, empty hands visible."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Black tea inside, untouched at position A."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Empty, untouched at position B."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Door open outward; furniture unchanged."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Lawn visible beyond glazing or doorway."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.position_A",
+              "space": "world",
+              "description": "Cup base contacts tabletop at A."
+            },
+            {
+              "subject": "short_cup",
+              "predicate": "on",
+              "object": "living_room.position_B",
+              "space": "world",
+              "description": "Cup base contacts tabletop at B."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "left_of",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Tall is left of short in upper-right tabletop region."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "closer_to_camera_than",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Tall is nearer than short in sofa-side view."
+            },
+            {
+              "subject": "woman",
+              "predicate": "on",
+              "object": "garden.threshold",
+              "space": "world",
+              "description": "Outside just beyond open garden doorway, empty hands visible."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "shot_2",
+      "duration_seconds": 6,
+      "background_id": "garden",
+      "prompt_path": "shot_2/prompt.txt",
+      "action": "She strolls naturally on the lawn, empty-handed throughout.",
+      "camera_motion": "Gentle lateral tracking.",
+      "invariants": [
+        "One same woman and two same cups; furniture, lighting and clothing remain consistent.",
+        "No text or watermark.",
+        "No filling or swapping shown."
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_2.first",
+            "path": "shot_2/generation_reference_frames/first.png",
+            "prompt_path": "shot_2/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "assets/backgrounds/garden/image.png",
+                "role": "garden identity reference",
+                "sha256": "d7dff91e5df1c96c46db19d3aa84d8919bbbb61df994cd2763915d57a3e8ab18"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              }
+            ],
+            "sha256": "d54e63e7ecb293fe8a71e5d80d75e9e1e257913014a9062d632bfb2d27d17e3f"
+          },
+          "camera": "Eye-level camera on lawn east of house; gentle lateral tracking with woman, keeping her empty hands visible.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Strolling on grass empty-handed; beginning lawn stroll."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Same daylight, lawn and hedge; house door remains open."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Interior unchanged except separately planned off-screen cup discontinuity."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Indoors, out of view, on tabletop at A with black tea; intentional swap occurs before shot 3 opening."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Indoors, out of view, empty on tabletop at B; intentional filling and swap occur before shot 3 opening."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "woman",
+              "predicate": "on",
+              "object": "garden.lawn",
+              "space": "world",
+              "description": "Feet contact grass; hands hold nothing."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.table",
+              "space": "world",
+              "description": "Cup remains inside on table, never on lawn."
+            },
+            {
+              "subject": "short_cup",
+              "predicate": "on",
+              "object": "living_room.table",
+              "space": "world",
+              "description": "Cup remains inside on table, never on lawn."
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_2.last",
+            "path": "shot_2/generation_reference_frames/last.png",
+            "prompt_path": "shot_2/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "shot_2/generation_reference_frames/first.png",
+                "role": "Edit target: preserve scene and identities",
+                "sha256": "d54e63e7ecb293fe8a71e5d80d75e9e1e257913014a9062d632bfb2d27d17e3f"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              }
+            ],
+            "sha256": "ae6918134f6296020a554c148f0d1982638ae44063e351e9d090fa3d341f55ec"
+          },
+          "camera": "Eye-level camera on lawn east of house; gentle lateral tracking with woman, keeping her empty hands visible.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Strolling on grass empty-handed; several steps farther along lawn."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Same daylight, lawn and hedge; house door remains open."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Interior unchanged except separately planned off-screen cup discontinuity."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Indoors, out of view, on tabletop at A with black tea; intentional swap occurs before shot 3 opening."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "elsewhere",
+              "visibility": "out_of_frame",
+              "state": "Indoors, out of view, empty on tabletop at B; intentional filling and swap occur before shot 3 opening."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "woman",
+              "predicate": "on",
+              "object": "garden.lawn",
+              "space": "world",
+              "description": "Feet contact grass; hands hold nothing."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.table",
+              "space": "world",
+              "description": "Cup remains inside on table, never on lawn."
+            },
+            {
+              "subject": "short_cup",
+              "predicate": "on",
+              "object": "living_room.table",
+              "space": "world",
+              "description": "Cup remains inside on table, never on lawn."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "shot_3",
+      "duration_seconds": 14,
+      "background_id": "living_room",
+      "prompt_path": "shot_3/prompt.txt",
+      "action": "She starts at open doorway with back to outdoors, walks briskly to north side of table opposite sofa. Hold a clear view of both tea-filled cup interiors and exchanged positions before she lifts only short cup by handle and drinks.",
+      "camera_motion": "Steady elevated composition; no internal cut, zoom or axis crossing.",
+      "invariants": [
+        "One same woman and two same cups; furniture, lighting and clothing remain consistent.",
+        "No text or watermark.",
+        "No filling or swapping shown."
+      ],
+      "frames": {
+        "first": {
+          "image": {
+            "id": "shot_3.first",
+            "path": "shot_3/generation_reference_frames/first.png",
+            "prompt_path": "shot_3/generation_reference_frames/first.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "reviews/shot_3.first/attempt_01.png",
+                "role": "Edit target: preserve successful reverse angle and cup placement, correct wall picture and handle orientation",
+                "sha256": "fc8e747bf3861522d66f45fd32c6a56b88e727b865db5b94cbf43d254951d71f"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              },
+              {
+                "path": "assets/objects/tall_cup/front.png",
+                "role": "tall_cup identity reference",
+                "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+              },
+              {
+                "path": "assets/objects/short_cup/front.png",
+                "role": "short_cup identity reference",
+                "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+              },
+              {
+                "path": "shot_1/generation_reference_frames/last.png",
+                "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+                "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+              }
+            ],
+            "sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505"
+          },
+          "camera": "Elevated camera north of table looking south and slightly east, reverse angle from shot 1; table lower foreground, east doorway at left side. Both cups in tabletop lower-left region, tall cup nearer and farther left than short. Keep both interiors unobstructed during reveal.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing at open doorway, back to outdoors, facing into room, empty-handed."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Black tea inside, on tabletop at B; remains untouched."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Black tea inside at tabletop A."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Door remains open outward, sofa and table unchanged."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Outdoors visible through open doorway."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.position_B",
+              "space": "world",
+              "description": "Tall remains on original short-cup position B."
+            },
+            {
+              "subject": "short_cup",
+              "predicate": "on",
+              "object": "living_room.position_A",
+              "space": "world",
+              "description": "Short now occupies original tall-cup position A."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "left_of",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Both cups lower-left of tabletop; tall farther left."
+            },
+            {
+              "subject": "tall_cup",
+              "predicate": "closer_to_camera_than",
+              "object": "short_cup",
+              "space": "image",
+              "description": "Tall nearer camera; both black tea surfaces clearly visible."
+            }
+          ]
+        },
+        "last": {
+          "image": {
+            "id": "shot_3.last",
+            "path": "shot_3/generation_reference_frames/last.png",
+            "prompt_path": "shot_3/generation_reference_frames/last.prompt.txt",
+            "status": "accepted",
+            "size_px": [
+              1672,
+              941
+            ],
+            "reference_images": [
+              {
+                "path": "shot_3/generation_reference_frames/first.png",
+                "role": "Edit target: preserve scene and identities",
+                "sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505"
+              },
+              {
+                "path": "assets/characters/woman/front.png",
+                "role": "woman identity reference",
+                "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+              },
+              {
+                "path": "assets/objects/tall_cup/front.png",
+                "role": "tall_cup identity reference",
+                "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+              },
+              {
+                "path": "assets/objects/short_cup/front.png",
+                "role": "short_cup identity reference",
+                "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+              },
+              {
+                "path": "shot_1/generation_reference_frames/last.png",
+                "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+                "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+              }
+            ],
+            "sha256": "fc9d448858b9192f0faa4d6c66228b07b6501e6f56367738ea7dae70ecc82e67"
+          },
+          "camera": "Elevated camera north of table looking south and slightly east, reverse angle from shot 1; table lower foreground, east doorway at left side. Both cups in tabletop lower-left region, tall cup nearer and farther left than short. Keep both interiors unobstructed during reveal.",
+          "entities": [
+            {
+              "asset_id": "woman",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Standing upright north of table opposite sofa, holding only short cup by handle at lips with visible near hand and sipping; free hand occluded. Lower legs outside frame."
+            },
+            {
+              "asset_id": "tall_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Black tea inside, on tabletop at B; remains untouched."
+            },
+            {
+              "asset_id": "short_cup",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Lifted from A to lips; tea being sipped, not required to expose interior while tilted."
+            },
+            {
+              "asset_id": "living_room",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Door remains open outward, sofa and table unchanged."
+            },
+            {
+              "asset_id": "garden",
+              "presence": "in_scene",
+              "visibility": "visible",
+              "state": "Outdoors visible through open doorway."
+            }
+          ],
+          "relations": [
+            {
+              "subject": "tall_cup",
+              "predicate": "on",
+              "object": "living_room.position_B",
+              "space": "world",
+              "description": "Tall remains on original short-cup position B."
+            },
+            {
+              "subject": "woman",
+              "predicate": "holding",
+              "object": "short_cup",
+              "space": "world",
+              "description": "Visible near hand grips short-cup handle, rim touches lips; no other prop held."
+            },
+            {
+              "subject": "woman",
+              "predicate": "opposite",
+              "object": "living_room.sofa",
+              "space": "world",
+              "description": "Woman stands on north side of table, sofa remains south."
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "changes": [
+    {
+      "to": "shot_1.last",
+      "entity_ids": [
+        "woman",
+        "living_room"
+      ],
+      "kind": "action",
+      "description": "She begins seated, stands without touching cups, walks to garden door, pushes it outward, exits empty-handed and leaves door open.",
+      "source_quote": "She stands, pushes open the garden door, and walks outside empty-handed, leaving the door open and both cups untouched.",
+      "from": "shot_1.first"
+    },
+    {
+      "to": "shot_2.first",
+      "entity_ids": [
+        "woman",
+        "garden"
+      ],
+      "kind": "camera",
+      "description": "Clean cut from interior to lawn; woman remains outdoors empty-handed.",
+      "source_quote": "Shot 2: She strolls on the outdoor lawn, empty-handed.",
+      "from": "shot_1.last"
+    },
+    {
+      "to": "shot_2.last",
+      "entity_ids": [
+        "woman"
+      ],
+      "kind": "action",
+      "description": "She strolls naturally on the lawn, empty-handed throughout.",
+      "source_quote": "She strolls on the outdoor lawn, empty-handed.",
+      "from": "shot_2.first"
+    },
+    {
+      "to": "shot_3.first",
+      "entity_ids": [
+        "tall_cup",
+        "short_cup"
+      ],
+      "kind": "intentional_discontinuity",
+      "description": "Off-screen while woman is outside: tall moves A to B; short moves B to A and changes from empty to black tea. Tall contents and every other object remain unchanged.",
+      "source_quote": "Only the short cup\u2019s contents and the cups\u2019 positions change off-screen; do not show filling or swapping.",
+      "from": "shot_1.last"
+    },
+    {
+      "to": "shot_3.first",
+      "entity_ids": [
+        "woman"
+      ],
+      "kind": "action",
+      "description": "Woman returns to the open doorway with her back to outdoors.",
+      "source_quote": "She returns to the open doorway with her back to the outdoors",
+      "from": "shot_2.last"
+    },
+    {
+      "to": "shot_3.first",
+      "entity_ids": [
+        "living_room",
+        "tall_cup",
+        "short_cup"
+      ],
+      "kind": "camera",
+      "description": "Clean cut to opposite-side interior view. Camera reversal and physical cup swap are separate changes.",
+      "source_quote": "Viewed from this opposite side, they occupy the lower-left region: the tall cup is nearer and farther left than the short cup.",
+      "from": "shot_2.last"
+    },
+    {
+      "to": "shot_3.last",
+      "entity_ids": [
+        "woman",
+        "short_cup"
+      ],
+      "kind": "action",
+      "description": "She starts at open doorway with back to outdoors, walks briskly to north side of table opposite sofa. Hold a clear view of both tea-filled cup interiors and exchanged positions before she lifts only short cup by handle and drinks.",
+      "source_quote": "Clearly show both interiors and the exchanged positions before she picks up the short cup and drinks from it.",
+      "from": "shot_3.first"
+    }
+  ],
+  "reviews": [
+    {
+      "image_id": "living_room.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Ordinary daylight living room with beige sofa in foreground, bare wooden tea table, closed glazed garden door at right and lawn beyond. No people or cups. Cream walls and oak floor are recognizable; no text or watermark. Incidental fixed decor will be retained as part of the room.",
+      "candidate_path": "reviews/living_room.image/attempt_01.png",
+      "candidate_sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243",
+      "prompt_path": "reviews/living_room.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Ordinary daylight living room with beige sofa in foreground, bare wooden tea table, closed glazed garden door at right and lawn beyond. No people or cups. Cream walls and oak floor are recognizable; no text or watermark. Incidental fixed decor will be retained as part of the room."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "garden.image",
+      "attempt": 1,
+      "decision": "retry",
+      "notes": "Garden view opens both door leaves and reverses interior furniture positions; restrict view to lawn and doorway edge and open only the active leaf.",
+      "candidate_path": "reviews/garden.image/attempt_01.png",
+      "candidate_sha256": "afa42aa246eb1a870ebdce7c8b2a3d8dfad1b4640e02b3e4a6bdcfa3a335f623",
+      "prompt_path": "reviews/garden.image/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "Architecture and lighting identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Same furniture world layout and single active door leaf",
+          "result": "fail",
+          "evidence": "Sofa appears on exterior-view right and both glazed leaves open."
+        }
+      ],
+      "correction": "Regenerate exterior view with house at far right edge, interior out of view, only active door leaf open."
+    },
+    {
+      "image_id": "garden.image",
+      "attempt": 2,
+      "decision": "accept",
+      "notes": "Level lawn, hedge and garden plants in daylight; open glazed leaf at right edge, interior out of frame. No woman or cups, no text. Compatible garden identity without contradictory furniture visible.",
+      "candidate_path": "reviews/garden.image/attempt_02.png",
+      "candidate_sha256": "d7dff91e5df1c96c46db19d3aa84d8919bbbb61df994cd2763915d57a3e8ab18",
+      "prompt_path": "reviews/garden.image/attempt_02.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "Architecture and lighting identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Level lawn, hedge and garden plants in daylight; open glazed leaf at right edge, interior out of frame. No woman or cups, no text. Compatible garden identity without contradictory furniture visible."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "woman.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "One front-facing adult woman, brown shoulder-length hair, grey cardigan, cream shirt, blue jeans and brown flats. Entire head and both feet visible, empty relaxed hands, neutral opaque backdrop; no props or text.",
+      "candidate_path": "reviews/woman.image/attempt_01.png",
+      "candidate_sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b",
+      "prompt_path": "reviews/woman.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "One front-facing adult woman, brown shoulder-length hair, grey cardigan, cream shirt, blue jeans and brown flats. Entire head and both feet visible, empty relaxed hands, neutral opaque backdrop; no props or text."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1024, 1536]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "tall_cup.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Single tall tapered white porcelain cup, one curved handle on right, cobalt flowers and leaves, empty white interior visible; complete silhouette on opaque neutral square backdrop; no saucer or spoon or text.",
+      "candidate_path": "reviews/tall_cup.image/attempt_01.png",
+      "candidate_sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef",
+      "prompt_path": "reviews/tall_cup.image/attempt_01.prompt.txt",
+      "reference_images": [],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Single tall tapered white porcelain cup, one curved handle on right, cobalt flowers and leaves, empty white interior visible; complete silhouette on opaque neutral square backdrop; no saucer or spoon or text."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1254, 1254]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "short_cup.image",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Single short wider bowl-shaped white porcelain cup with one right handle, recognizable shared cobalt floral family, empty interior visible; distinctly lower silhouette than tall reference. Neutral opaque square background and no extra props or text.",
+      "candidate_path": "reviews/short_cup.image/attempt_01.png",
+      "candidate_sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b",
+      "prompt_path": "reviews/short_cup.image/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "Shared porcelain and floral family reference; generate a distinct shorter cup",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Single short wider bowl-shaped white porcelain cup with one right handle, recognizable shared cobalt floral family, empty interior visible; distinctly lower silhouette than tall reference. Neutral opaque square background and no extra props or text."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1254, 1254]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_1.first",
+      "attempt": 1,
+      "decision": "retry",
+      "notes": "Both cup bases are too near the front of tabletop, and short cup is not clearly farther away. Move both to far-right quadrant, with short base visibly higher and farther right than tall base.",
+      "candidate_path": "reviews/shot_1.first/attempt_01.png",
+      "candidate_sha256": "c90ed9d6645e2af091599158ee8eeb724650a814c16b093f96c20bbf9095ea4b",
+      "prompt_path": "reviews/shot_1.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "living_room identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Required source spatial relationships and continuity",
+          "result": "fail",
+          "evidence": "Both cup bases are too near the front of tabletop, and short cup is not clearly farther away. Move both to far-right quadrant, with short base visibly higher and farther right than tall base."
+        }
+      ],
+      "correction": "Both cup bases are too near the front of tabletop, and short cup is not clearly farther away. Move both to far-right quadrant, with short base visibly higher and farther right than tall base."
+    },
+    {
+      "image_id": "shot_1.first",
+      "attempt": 2,
+      "decision": "accept",
+      "notes": "Same woman seated on sofa at left, hands empty; same room and closed glazed doorway. Exactly two blue-floral cups on right/far half of tabletop: taller cup left and nearer with dark tea visible, short bowl-shaped cup farther right and back with clearly empty white interior. Both contact tabletop with natural shadows, no text or extra cups.",
+      "candidate_path": "reviews/shot_1.first/attempt_02.png",
+      "candidate_sha256": "5aa2ca3be4d4a03652252045c111b74d9b8bf2f19bb37b95a510f7ad2fef5974",
+      "prompt_path": "reviews/shot_1.first/attempt_02.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "living_room identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Same woman seated on sofa at left, hands empty; same room and closed glazed doorway. Exactly two blue-floral cups on right/far half of tabletop: taller cup left and nearer with dark tea visible, short bowl-shaped cup farther right and back with clearly empty white interior. Both contact tabletop with natural shadows, no text or extra cups."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_1.last",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Woman now outside facing garden with both hands empty; grey cardigan, jeans, hair and shoes retained. Left glazed leaf open, right leaf closed. Cups remain at matching tabletop positions: tall with dark tea nearer-left, short empty farther-right. Same sofa, table and room anchors; natural contact and daylight.",
+      "candidate_path": "reviews/shot_1.last/attempt_01.png",
+      "candidate_sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba",
+      "prompt_path": "reviews/shot_1.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_1/generation_reference_frames/first.png",
+          "role": "Edit target: preserve scene and identities",
+          "sha256": "5aa2ca3be4d4a03652252045c111b74d9b8bf2f19bb37b95a510f7ad2fef5974"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Woman now outside facing garden with both hands empty; grey cardigan, jeans, hair and shoes retained. Left glazed leaf open, right leaf closed. Cups remain at matching tabletop positions: tall with dark tea nearer-left, short empty farther-right. Same sofa, table and room anchors; natural contact and daylight."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_2.first",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Same recognizable woman walking on lawn, full body and empty hands visible, consistent brown flats, jeans and cardigan. Garden hedge, flowers and open doorway edge match background. No cups outside, no text; feet naturally contact grass.",
+      "candidate_path": "reviews/shot_2.first/attempt_01.png",
+      "candidate_sha256": "d54e63e7ecb293fe8a71e5d80d75e9e1e257913014a9062d632bfb2d27d17e3f",
+      "prompt_path": "reviews/shot_2.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/garden/image.png",
+          "role": "garden identity reference",
+          "sha256": "d7dff91e5df1c96c46db19d3aa84d8919bbbb61df994cd2763915d57a3e8ab18"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Same recognizable woman walking on lawn, full body and empty hands visible, consistent brown flats, jeans and cardigan. Garden hedge, flowers and open doorway edge match background. No cups outside, no text; feet naturally contact grass."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_2.last",
+      "attempt": 1,
+      "decision": "accept",
+      "notes": "Same woman several steps farther screen-left on lawn with both hands empty and full body visible. Camera tracks left so doorway exits frame; consistent hedge, hydrangeas and daylight. No cups, no extra people, no text.",
+      "candidate_path": "reviews/shot_2.last/attempt_01.png",
+      "candidate_sha256": "ae6918134f6296020a554c148f0d1982638ae44063e351e9d090fa3d341f55ec",
+      "prompt_path": "reviews/shot_2.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_2/generation_reference_frames/first.png",
+          "role": "Edit target: preserve scene and identities",
+          "sha256": "d54e63e7ecb293fe8a71e5d80d75e9e1e257913014a9062d632bfb2d27d17e3f"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Same woman several steps farther screen-left on lawn with both hands empty and full body visible. Camera tracks left so doorway exits frame; consistent hedge, hydrangeas and daylight. No cups, no extra people, no text."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_3.first",
+      "attempt": 1,
+      "decision": "retry",
+      "notes": "Landscape picture from fireplace wall appears relocated above sofa in reverse view. Remove that duplicated/relocated picture from sofa wall. Preserve all passing cup counts, filled interiors, reverse view and woman at doorway. Cup handles should project left when camera reverses while their world orientation stays fixed.",
+      "candidate_path": "reviews/shot_3.first/attempt_01.png",
+      "candidate_sha256": "fc8e747bf3861522d66f45fd32c6a56b88e727b865db5b94cbf43d254951d71f",
+      "prompt_path": "reviews/shot_3.first/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "living_room identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Required source spatial relationships and continuity",
+          "result": "fail",
+          "evidence": "Landscape picture from fireplace wall appears relocated above sofa in reverse view. Remove that duplicated/relocated picture from sofa wall. Preserve all passing cup counts, filled interiors, reverse view and woman at doorway. Cup handles should project left when camera reverses while their world orientation stays fixed."
+        }
+      ],
+      "correction": "Landscape picture from fireplace wall appears relocated above sofa in reverse view. Remove that duplicated/relocated picture from sofa wall. Preserve all passing cup counts, filled interiors, reverse view and woman at doorway. Cup handles should project left when camera reverses while their world orientation stays fixed."
+    },
+    {
+      "image_id": "shot_3.first",
+      "attempt": 2,
+      "decision": "retry",
+      "notes": "Tool rejected six references before generation: referenced_image_paths must contain at most 5 paths. No candidate returned.",
+      "candidate_path": null,
+      "candidate_sha256": null,
+      "prompt_path": "reviews/shot_3.first/attempt_02.prompt.txt",
+      "reference_images": [
+        {
+          "path": "reviews/shot_3.first/attempt_01.png",
+          "role": "Edit target: preserve successful reverse angle and cup placement, correct wall picture and handle orientation",
+          "sha256": "fc8e747bf3861522d66f45fd32c6a56b88e727b865db5b94cbf43d254951d71f"
+        },
+        {
+          "path": "assets/backgrounds/living_room/image.png",
+          "role": "living_room identity reference",
+          "sha256": "6aa67051b91b61b69951d72accef8a76b6628a9005579b7f443468307e720243"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Tool accepts image reference list",
+          "result": "fail",
+          "evidence": "At most five reference paths supported; six submitted."
+        }
+      ],
+      "correction": "Remove redundant room library image; accepted shot 1 ending frame still provides room continuity reference."
+    },
+    {
+      "image_id": "shot_3.first",
+      "attempt": 3,
+      "decision": "accept",
+      "notes": "Reverse angle places sofa behind table and open garden doorway at left. Same woman stands at threshold facing inward, back to outdoors and empty-handed. Two blue-floral cups with clearly visible dark tea interiors: tall nearer-left at B, short farther-right at A, in lower-left tabletop region; handles project left. No relocated landscape picture. Room materials and table identity remain recognizable.",
+      "candidate_path": "reviews/shot_3.first/attempt_03.png",
+      "candidate_sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505",
+      "prompt_path": "reviews/shot_3.first/attempt_03.prompt.txt",
+      "reference_images": [
+        {
+          "path": "reviews/shot_3.first/attempt_01.png",
+          "role": "Edit target: preserve successful reverse angle and cup placement, correct wall picture and handle orientation",
+          "sha256": "fc8e747bf3861522d66f45fd32c6a56b88e727b865db5b94cbf43d254951d71f"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Reverse angle places sofa behind table and open garden doorway at left. Same woman stands at threshold facing inward, back to outdoors and empty-handed. Two blue-floral cups with clearly visible dark tea interiors: tall nearer-left at B, short farther-right at A, in lower-left tabletop region; handles project left. No relocated landscape picture. Room materials and table identity remain recognizable."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    },
+    {
+      "image_id": "shot_3.last",
+      "attempt": 1,
+      "decision": "retry",
+      "notes": "Woman is between sofa and table rather than on side opposite sofa; camera framing and table geometry also changed. Regenerate from accepted opening frame with woman in foreground on camera side, table behind her body and sofa beyond table. Preserve camera and tall cup position.",
+      "candidate_path": "reviews/shot_3.last/attempt_01.png",
+      "candidate_sha256": "153d18bf9f1dba4b48a6da96370bf294be3bc97466049b78cb2c731ff6ff2c68",
+      "prompt_path": "reviews/shot_3.last/attempt_01.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_3/generation_reference_frames/first.png",
+          "role": "Edit target: preserve scene and identities",
+          "sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Required source spatial relationships and continuity",
+          "result": "fail",
+          "evidence": "Woman is between sofa and table rather than on side opposite sofa; camera framing and table geometry also changed. Regenerate from accepted opening frame with woman in foreground on camera side, table behind her body and sofa beyond table. Preserve camera and tall cup position."
+        }
+      ],
+      "correction": "Woman is between sofa and table rather than on side opposite sofa; camera framing and table geometry also changed. Regenerate from accepted opening frame with woman in foreground on camera side, table behind her body and sofa beyond table. Preserve camera and tall cup position."
+    },
+    {
+      "image_id": "shot_3.last",
+      "attempt": 2,
+      "decision": "retry",
+      "notes": "Correct near-side position and stationary tall cup, but visible bent horizontal knee makes the woman appear seated instead of standing after her walk. Final correction: stand upright with straight vertical legs, no bent knee or seat, preserve composition and drinking action.",
+      "candidate_path": "reviews/shot_3.last/attempt_02.png",
+      "candidate_sha256": "708275f692021a4d4e0c195b0b6a06f12b3a829752b2dd39191460d38c007161",
+      "prompt_path": "reviews/shot_3.last/attempt_02.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_3/generation_reference_frames/first.png",
+          "role": "Edit target: preserve scene and identities",
+          "sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Required source spatial relationships and continuity",
+          "result": "fail",
+          "evidence": "Correct near-side position and stationary tall cup, but visible bent horizontal knee makes the woman appear seated instead of standing after her walk. Final correction: stand upright with straight vertical legs, no bent knee or seat, preserve composition and drinking action."
+        }
+      ],
+      "correction": "Correct near-side position and stationary tall cup, but visible bent horizontal knee makes the woman appear seated instead of standing after her walk. Final correction: stand upright with straight vertical legs, no bent knee or seat, preserve composition and drinking action."
+    },
+    {
+      "image_id": "shot_3.last",
+      "attempt": 3,
+      "decision": "accept",
+      "notes": "Woman upright in right foreground on camera side opposite sofa, recognizable brown hair and grey cardigan, drinking from the short blue-floral cup held by its handle. Only tall cup remains on table at matching near-left position with tea. Table, sofa and open doorway unchanged; no bent knee or seat. Free hand is occluded, lower legs and top of hair cropped by endpoint framing; action and source requirements visible.",
+      "candidate_path": "reviews/shot_3.last/attempt_03.png",
+      "candidate_sha256": "fc9d448858b9192f0faa4d6c66228b07b6501e6f56367738ea7dae70ecc82e67",
+      "prompt_path": "reviews/shot_3.last/attempt_03.prompt.txt",
+      "reference_images": [
+        {
+          "path": "shot_3/generation_reference_frames/first.png",
+          "role": "Edit target: preserve scene and identities",
+          "sha256": "f07bba6524fda046713e2bd5bddde88ed2f5d8a62f268796f711b251f5a94505"
+        },
+        {
+          "path": "assets/characters/woman/front.png",
+          "role": "woman identity reference",
+          "sha256": "fabdbb598db66dd95a44f2e960a7c8c9253e1bc20a8693872704977f966ef89b"
+        },
+        {
+          "path": "assets/objects/tall_cup/front.png",
+          "role": "tall_cup identity reference",
+          "sha256": "93d3e9ad00ddf2711af1503939c98317ab28c3d89fec25dc4377905ec451dfef"
+        },
+        {
+          "path": "assets/objects/short_cup/front.png",
+          "role": "short_cup identity reference",
+          "sha256": "ba28a14034b24d11a6a5f4af257ca9e4dd78f6256fbdadba7f62bc248309e67b"
+        },
+        {
+          "path": "shot_1/generation_reference_frames/last.png",
+          "role": "Room continuity; reverse viewpoint and apply only planned cup discontinuity",
+          "sha256": "d84dc8e6dd42152e3135b177e0cb02cfe9122a285496fc4b412d1546fbf790ba"
+        }
+      ],
+      "tool": "image_gen.imagegen",
+      "model": null,
+      "checks": [
+        {
+          "requirement": "Visual identity, count, material, pose, framing, spatial relationships and source-specific exclusions",
+          "result": "pass",
+          "evidence": "Woman upright in right foreground on camera side opposite sofa, recognizable brown hair and grey cardigan, drinking from the short blue-floral cup held by its handle. Only tall cup remains on table at matching near-left position with tea. Table, sofa and open doorway unchanged; no bent knee or seat. Free hand is occluded, lower legs and top of hair cropped by endpoint framing; action and source requirements visible."
+        },
+        {
+          "requirement": "Saved PNG decodes and measured size is recorded",
+          "result": "pass",
+          "evidence": "PNG opens with Pillow; dimensions [1672, 941]; SHA-256 measured from candidate and canonical copy."
+        }
+      ],
+      "correction": null
+    }
+  ],
+  "sequence_review": {
+    "decision": "accept",
+    "notes": "Reopened all six saved canonical PNGs in chronological order using review-only 1000-pixel previews after decoding the originals. Identities and room are broadly consistent at normal viewing size. Required cup states, intentional off-screen swap/fill, empty-handed exit and lawn walk, reverse viewpoint and final short-cup drinking action pass. Exact video motion is specified in prompts; no video was rendered.",
+    "checks": [
+      {
+        "from": "shot_1.first",
+        "to": "shot_1.last",
+        "requirement": "Woman exits empty-handed; door opens; cups and room stay unchanged.",
+        "result": "pass",
+        "evidence": "Same tabletop cup bases and recognizable floral cups: tall with dark tea left/near, short empty right/far. Seated woman becomes exterior walking woman; sofa empty and active door leaf open."
+      },
+      {
+        "from": "shot_1.last",
+        "to": "shot_2.first",
+        "requirement": "Clean cut maintains outdoor location, identity, empty hands and open doorway.",
+        "result": "pass",
+        "evidence": "Same brown hair, cardigan, cream shirt, jeans and brown flats. Exterior threshold exit leads to lawn walk; hands visibly empty and open leaf at right."
+      },
+      {
+        "from": "shot_2.first",
+        "to": "shot_2.last",
+        "requirement": "Natural lawn movement and camera tracking preserve identity and absence of cups.",
+        "result": "pass",
+        "evidence": "Woman advances left with changed walking pose; hedge/flowers remain recognizable; doorway moves out of frame as planned. Both hands empty."
+      },
+      {
+        "from": "shot_2.last",
+        "to": "shot_3.first",
+        "requirement": "Return to doorway with back to outdoors; reverse room view.",
+        "result": "pass",
+        "evidence": "Woman now faces into room at open threshold; sofa beyond table, doorway on image-left. Same appearance and daylight; new visible south-wall furnishings do not replace known anchors."
+      },
+      {
+        "from": "shot_1.last",
+        "to": "shot_3.first",
+        "requirement": "Only planned off-screen cup position exchange and short-cup contents change.",
+        "result": "pass",
+        "evidence": "Tall and short identities preserved; short changes from white empty interior to visible dark tea. Under reverse view tall sits nearer and farther left in lower-left tabletop area, short farther/right. No filling or swapping depicted. Handles reverse screen projection consistently."
+      },
+      {
+        "from": "shot_3.first",
+        "to": "shot_3.last",
+        "requirement": "Walk to opposite-sofa side, lift and drink only short cup; tall cup and room fixed.",
+        "result": "pass",
+        "evidence": "Woman moves from threshold to upright near-side foreground opposite sofa. Short cup at lips, its former tabletop spot empty. Tall tea-filled cup stays at same base location and remains visible. Door, sofa and table stay fixed."
+      }
+    ]
+  },
+  "blockers": []
+}

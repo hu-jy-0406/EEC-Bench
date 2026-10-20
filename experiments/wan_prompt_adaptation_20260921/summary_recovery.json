@@ -1,0 +1,15 @@
+{
+  "event": "post_batch_usage_summary_inflight_race",
+  "main_script_exit_code": 1,
+  "data_loss": false,
+  "all_100_batches_final_files_present": true,
+  "cause": "Main batch summary glob included concurrently running corrective review status, which has no final seconds field yet. KeyError seconds after all batches had successfully saved final.json.",
+  "recovery_plan": "Wait for targeted corrections, then rerun cached validation only and final export/audit. No video/model regeneration required.",
+  "recorded_at": 1790022767.020806,
+  "recovered": true,
+  "recovery": "Cached-only full100batch validation and cost summary succeeded",
+  "cached_validation_seconds": 13.180075883865356,
+  "new_model_calls_for_recovery": 0,
+  "new_billable_tokens_for_recovery": 0,
+  "new_api_usd_for_recovery": 0
+}

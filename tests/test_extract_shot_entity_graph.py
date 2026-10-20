@@ -439,7 +439,7 @@ class ExtractShotEntityGraphTest(unittest.TestCase):
                 "name": "cup",
                 "attributes": [],
                 "entity_confidence": 0.9,
-                "evidence_frame_ids": frame_ids,
+                "evidence_frame_ids": [0],
             },
         ]
         wrong = {"bbox": (0, 0, 80, 80), "confidence": 0.90}
@@ -476,6 +476,7 @@ class ExtractShotEntityGraphTest(unittest.TestCase):
                 box_threshold=0.25,
                 text_threshold=0.20,
                 max_query_attributes=0,
+                grounding_frame_ids_by_entity={"e1": frame_ids},
             )
 
         self.assertEqual(n_calls, 2)

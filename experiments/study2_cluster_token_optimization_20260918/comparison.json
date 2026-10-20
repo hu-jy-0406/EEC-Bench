@@ -1,0 +1,2038 @@
+{
+  "baseline": {
+    "shots": [
+      {
+        "shot": "shot1",
+        "input_tokens": 20313,
+        "output_tokens": 1262,
+        "cached_input_tokens": 0,
+        "seconds": 43.788782358169556,
+        "prompt_bytes": 23538,
+        "total_tokens": 21575
+      },
+      {
+        "shot": "shot3",
+        "input_tokens": 21708,
+        "output_tokens": 1209,
+        "cached_input_tokens": 0,
+        "seconds": 43.78706336021423,
+        "prompt_bytes": 26584,
+        "total_tokens": 22917
+      }
+    ],
+    "total_tokens": 44492,
+    "input_tokens": 42021,
+    "output_tokens": 2471,
+    "seconds": 43.797091007232666
+  },
+  "runs": [
+    {
+      "run": "compact_run01",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 15033,
+            "output_tokens": 701,
+            "cached_input_tokens": 0,
+            "seconds": 28.492893934249878,
+            "prompt_bytes": 9123,
+            "total_tokens": 15734
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 15571,
+            "output_tokens": 618,
+            "cached_input_tokens": 0,
+            "seconds": 31.949052333831787,
+            "prompt_bytes": 10222,
+            "total_tokens": 16189
+          }
+        ],
+        "total_tokens": 31923,
+        "input_tokens": 30604,
+        "output_tokens": 1319,
+        "seconds": 31.954805612564087
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 21,
+          "clusters_equal": false,
+          "rejected_candidates_equal": false,
+          "all_derived_observations_equal": true,
+          "old_only": [
+            {
+              "name": "Black pen in pencil holder",
+              "ids": [
+                "f72:d18",
+                "f72:d19"
+              ]
+            }
+          ],
+          "new_only": [
+            {
+              "name": "Pencils and pens",
+              "ids": [
+                "f0:d20",
+                "f120:d14",
+                "f24:d21",
+                "f72:d17",
+                "f72:d18",
+                "f72:d19"
+              ]
+            }
+          ],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": [
+              "f0:d20",
+              "f120:d14",
+              "f24:d21",
+              "f72:d17"
+            ]
+          },
+          "names": [
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Plant pot by window"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Books on lower shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on upper shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small ceramic pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Bookcase"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman in gray sweater"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Writing utensil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot on windowsill"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical print"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small wooden hallway cabinet"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small framed picture beside doorway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned rug beneath large table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books on console table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Plant at far left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Framed picture on left hallway wall"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant on windowsill"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing utensils in pencil cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": false,
+      "reduction_fraction": 0.2825002247595073
+    },
+    {
+      "run": "compact_run02",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 15097,
+            "output_tokens": 624,
+            "cached_input_tokens": 0,
+            "seconds": 30.286414861679077,
+            "prompt_bytes": 9416,
+            "total_tokens": 15721
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 15619,
+            "output_tokens": 716,
+            "cached_input_tokens": 0,
+            "seconds": 31.778173208236694,
+            "prompt_bytes": 10515,
+            "total_tokens": 16335
+          }
+        ],
+        "total_tokens": 32056,
+        "input_tokens": 30716,
+        "output_tokens": 1340,
+        "seconds": 31.78410291671753
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 19,
+          "clusters_equal": false,
+          "rejected_candidates_equal": false,
+          "all_derived_observations_equal": true,
+          "old_only": [
+            {
+              "name": "Row of books on lower bookshelf",
+              "ids": [
+                "f0:d8",
+                "f120:d9",
+                "f24:d8",
+                "f48:d9",
+                "f72:d8",
+                "f96:d13"
+              ]
+            },
+            {
+              "name": "Books on top bookshelf",
+              "ids": [
+                "f0:d17",
+                "f120:d18",
+                "f24:d19",
+                "f48:d19",
+                "f72:d16",
+                "f96:d10"
+              ]
+            }
+          ],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [
+              "f0:d17",
+              "f0:d8",
+              "f120:d18",
+              "f120:d9",
+              "f24:d19",
+              "f24:d8",
+              "f48:d19",
+              "f48:d9",
+              "f72:d16",
+              "f72:d8",
+              "f96:d10",
+              "f96:d13"
+            ],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil holder"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed photograph on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Terracotta plant pot by window"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Trailing plant on side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "Radiator beneath window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small ceramic pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark bookcase"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Ceramic pencil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 20,
+          "clusters_equal": false,
+          "rejected_candidates_equal": false,
+          "all_derived_observations_equal": true,
+          "old_only": [
+            {
+              "name": "Stack of books on console table",
+              "ids": [
+                "f0:d16",
+                "f120:d21",
+                "f24:d17",
+                "f72:d16",
+                "f96:d17"
+              ]
+            },
+            {
+              "name": "Writing utensils in pencil cup",
+              "ids": [
+                "f0:d19",
+                "f120:d20",
+                "f24:d19",
+                "f48:d18",
+                "f72:d19",
+                "f96:d20"
+              ]
+            }
+          ],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [
+              "f0:d16",
+              "f0:d19",
+              "f120:d20",
+              "f120:d21",
+              "f24:d17",
+              "f24:d19",
+              "f48:d18",
+              "f72:d16",
+              "f72:d19",
+              "f96:d17",
+              "f96:d20"
+            ],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot by window"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical picture"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small wooden hallway cabinet"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small framed picture beside doorway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Large patterned rug beneath table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Plant at left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Framed picture on left hallway wall"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman in gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": false,
+      "reduction_fraction": 0.27951092331205607
+    },
+    {
+      "run": "conservative_run01",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 16841,
+            "output_tokens": 1362,
+            "cached_input_tokens": 0,
+            "seconds": 51.20314598083496,
+            "prompt_bytes": 16412,
+            "total_tokens": 18203
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 17482,
+            "output_tokens": 1174,
+            "cached_input_tokens": 0,
+            "seconds": 45.317076206207275,
+            "prompt_bytes": 17908,
+            "total_tokens": 18656
+          }
+        ],
+        "total_tokens": 36859,
+        "input_tokens": 34323,
+        "output_tokens": 2536,
+        "seconds": 51.20836567878723
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 21,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil cup"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting on wall"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant beside window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden plant stand"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Plant pot on windowsill"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Row of books on lower open shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on top shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on wooden stand"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "Radiator beneath window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small light-colored vessel on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark wooden bookcase"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Light-colored pencil cup"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair beside window"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot on the windowsill"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden dining chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "White radiator beneath the window"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Hallway runner rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical picture beside the window"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden dining table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small dark wooden cabinet in the hallway"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small narrow framed picture in the hallway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White cup holding writing utensils"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table against the back wall"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned rug beneath the dining table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books on the console table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Partially visible plant at the left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Larger framed picture in the hallway"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on the console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on the console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant on the windowsill"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with a protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing utensils in the white cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": true,
+      "reduction_fraction": 0.17155893194282124
+    },
+    {
+      "run": "conservative_run02",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 16841,
+            "output_tokens": 1083,
+            "cached_input_tokens": 0,
+            "seconds": 42.37898659706116,
+            "prompt_bytes": 16412,
+            "total_tokens": 17924
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 17490,
+            "output_tokens": 1210,
+            "cached_input_tokens": 7424,
+            "seconds": 46.55730581283569,
+            "prompt_bytes": 17908,
+            "total_tokens": 18700
+          }
+        ],
+        "total_tokens": 36624,
+        "input_tokens": 34331,
+        "output_tokens": 2293,
+        "seconds": 46.56306743621826
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 22,
+          "clusters_equal": false,
+          "rejected_candidates_equal": false,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [
+            {
+              "name": "Pencils in pencil cup",
+              "ids": [
+                "f0:d20",
+                "f120:d14",
+                "f24:d21",
+                "f72:d17"
+              ]
+            }
+          ],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": [
+              "f0:d20",
+              "f120:d14",
+              "f24:d21",
+              "f72:d17"
+            ]
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil cup"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting on wall"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book carried by woman"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table against wall"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Terracotta plant pot by window"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Row of books on lower open shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on upper shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on small side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "White radiator beneath window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small pale pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark bookcase with lower cabinet"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman in gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Light-colored pencil cup"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair behind desk"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot on windowsill"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden dining chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "White radiator"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Patterned hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical picture beside window"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden dining table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small dark wooden hallway cabinet"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Narrow framed hallway picture"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned rug beneath dining table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books on console table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Plant at far left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Larger framed hallway picture"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant on windowsill"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing implements in pencil cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": false,
+      "reduction_fraction": 0.1768407803650094
+    },
+    {
+      "run": "minimal_run01",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 18768,
+            "output_tokens": 1124,
+            "cached_input_tokens": 0,
+            "seconds": 44.05018877983093,
+            "prompt_bytes": 21740,
+            "total_tokens": 19892
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 19883,
+            "output_tokens": 1206,
+            "cached_input_tokens": 0,
+            "seconds": 49.656922340393066,
+            "prompt_bytes": 24511,
+            "total_tokens": 21089
+          }
+        ],
+        "total_tokens": 40981,
+        "input_tokens": 38651,
+        "output_tokens": 2330,
+        "seconds": 49.668415546417236
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 22,
+          "clusters_equal": false,
+          "rejected_candidates_equal": false,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [
+            {
+              "name": "Wooden pencils in holder",
+              "ids": [
+                "f0:d20",
+                "f120:d14",
+                "f24:d21",
+                "f72:d17"
+              ]
+            }
+          ],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": [
+              "f0:d20",
+              "f120:d14",
+              "f24:d21",
+              "f72:d17"
+            ]
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in holder"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Plant pot on windowsill"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Row of books on lower shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on upper shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "White radiator below window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small pale pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark bookshelf cabinet"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman in gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Light-colored pencil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot on the windowsill"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden dining chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "White radiator beneath the window"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Patterned hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical picture beside the window"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden dining table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small dark wooden cabinet in the hallway"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small narrow framed picture beside the doorway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table against the back wall"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting above the console table"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned area rug beneath the dining table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books on the console table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Partially visible plant at the left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Framed picture on the far left hallway wall"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on the console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on the console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant on the windowsill"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with a protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing implements in the pencil cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": false,
+      "reduction_fraction": 0.07891306302256584
+    },
+    {
+      "run": "baseline_control",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 20305,
+            "output_tokens": 1297,
+            "cached_input_tokens": 0,
+            "seconds": 50.93889045715332,
+            "prompt_bytes": 23538,
+            "total_tokens": 21602
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 21716,
+            "output_tokens": 1204,
+            "cached_input_tokens": 0,
+            "seconds": 45.731802463531494,
+            "prompt_bytes": 26584,
+            "total_tokens": 22920
+          }
+        ],
+        "total_tokens": 44522,
+        "input_tokens": 42021,
+        "output_tokens": 2501,
+        "seconds": 50.94514799118042
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 21,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil holder"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting on wall"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant beside window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Terracotta plant pot beside window"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Row of books on lower open shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Row of books on top shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Trailing plant on side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "White radiator beneath window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small light-colored vessel on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark wooden bookshelf cabinet"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Light-colored pencil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden slat-back chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot on windowsill"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden dining chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "White radiator beneath window"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Patterned hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical print beside window"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden dining table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small dark wooden cabinet in hallway"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Narrow framed picture in hallway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "Light-colored pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table against back wall"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned area rug beneath dining table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books on console table"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Partially visible plant at left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Larger framed picture in hallway"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant on windowsill"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing implements in pencil cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": true,
+      "reduction_fraction": -0.0006742785219815417
+    },
+    {
+      "run": "compact_scope_run01",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 15113,
+            "output_tokens": 576,
+            "cached_input_tokens": 0,
+            "seconds": 28.815073013305664,
+            "prompt_bytes": 9595,
+            "total_tokens": 15689
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 15659,
+            "output_tokens": 704,
+            "cached_input_tokens": 0,
+            "seconds": 33.087425231933594,
+            "prompt_bytes": 10694,
+            "total_tokens": 16363
+          }
+        ],
+        "total_tokens": 32052,
+        "input_tokens": 30772,
+        "output_tokens": 1280,
+        "seconds": 33.097556591033936
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 21,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil holder"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug beneath desk"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant beside window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden plant stand"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Terracotta plant pot beside window"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Books on middle bookshelf shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on upper bookshelf shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on wooden stand"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "Radiator beneath window"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small pale pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark bookcase"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Black desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman wearing a gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Pencil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot by window"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical print"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden dining table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small wooden hallway cabinet"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small framed picture beside doorway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned rug beneath dining table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Plant at far left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Framed picture on left hallway wall"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark ceramic mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing implements in pencil cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": true,
+      "reduction_fraction": 0.279600827114987
+    },
+    {
+      "run": "compact_scope_run02",
+      "stats": {
+        "shots": [
+          {
+            "shot": "shot1",
+            "input_tokens": 15121,
+            "output_tokens": 548,
+            "cached_input_tokens": 0,
+            "seconds": 26.50502896308899,
+            "prompt_bytes": 9595,
+            "total_tokens": 15669
+          },
+          {
+            "shot": "shot3",
+            "input_tokens": 15643,
+            "output_tokens": 674,
+            "cached_input_tokens": 7424,
+            "seconds": 32.183736085891724,
+            "prompt_bytes": 10694,
+            "total_tokens": 16317
+          }
+        ],
+        "total_tokens": 31986,
+        "input_tokens": 30764,
+        "output_tokens": 1222,
+        "seconds": 32.18921995162964
+      },
+      "quality": [
+        {
+          "shot": "shot1",
+          "old_entities": 21,
+          "new_entities": 21,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Black pen in pencil holder",
+              "new": "Black pen in pencil holder"
+            },
+            {
+              "old": "Patterned rug beneath desk",
+              "new": "Patterned rug"
+            },
+            {
+              "old": "Framed landscape painting on wall",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Trailing plant on bookshelf",
+              "new": "Trailing plant on bookshelf"
+            },
+            {
+              "old": "Small framed picture on bookcase",
+              "new": "Small framed picture on bookshelf"
+            },
+            {
+              "old": "Red hardcover book carried by woman",
+              "new": "Red hardcover book"
+            },
+            {
+              "old": "Small wooden side table",
+              "new": "Small wooden side table"
+            },
+            {
+              "old": "Terracotta plant pot on windowsill",
+              "new": "Plant pot by window"
+            },
+            {
+              "old": "Row of books on lower bookshelf",
+              "new": "Books on lower shelf"
+            },
+            {
+              "old": "Large wooden desk",
+              "new": "Large wooden desk"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Books on top bookshelf",
+              "new": "Books on top shelf"
+            },
+            {
+              "old": "Trailing plant on side table",
+              "new": "Plant on side table"
+            },
+            {
+              "old": "Radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Small light-colored pot on bookshelf",
+              "new": "Small pot on bookshelf"
+            },
+            {
+              "old": "Dark bookcase with lower cabinet",
+              "new": "Dark bookcase"
+            },
+            {
+              "old": "Black desk lamp",
+              "new": "Desk lamp"
+            },
+            {
+              "old": "Woman wearing a gray sweater and dark trousers",
+              "new": "Woman in a gray sweater and dark trousers"
+            },
+            {
+              "old": "Light-colored pencil holder",
+              "new": "Pencil holder"
+            },
+            {
+              "old": "Wooden slat-back chair",
+              "new": "Wooden chair"
+            }
+          ]
+        },
+        {
+          "shot": "shot3",
+          "old_entities": 22,
+          "new_entities": 22,
+          "clusters_equal": true,
+          "rejected_candidates_equal": true,
+          "all_derived_observations_equal": true,
+          "old_only": [],
+          "new_only": [],
+          "rejection_change": {
+            "newly_rejected": [],
+            "newly_retained": []
+          },
+          "names": [
+            {
+              "old": "Plant pot on windowsill",
+              "new": "Plant pot by window"
+            },
+            {
+              "old": "Wooden dining chair",
+              "new": "Wooden chair"
+            },
+            {
+              "old": "White radiator beneath window",
+              "new": "Radiator"
+            },
+            {
+              "old": "Patterned hallway rug",
+              "new": "Hallway rug"
+            },
+            {
+              "old": "Framed botanical print beside window",
+              "new": "Framed botanical picture"
+            },
+            {
+              "old": "Large wooden dining table",
+              "new": "Large wooden table"
+            },
+            {
+              "old": "Small dark wooden hallway cabinet",
+              "new": "Small cabinet in hallway"
+            },
+            {
+              "old": "Narrow framed picture in hallway",
+              "new": "Small framed picture beside doorway"
+            },
+            {
+              "old": "White pencil cup",
+              "new": "White pencil cup"
+            },
+            {
+              "old": "Wooden console table against back wall",
+              "new": "Wooden console table"
+            },
+            {
+              "old": "Framed landscape painting",
+              "new": "Framed landscape painting"
+            },
+            {
+              "old": "Patterned rug beneath dining table",
+              "new": "Patterned rug beneath large table"
+            },
+            {
+              "old": "Stack of books on console table",
+              "new": "Stack of books"
+            },
+            {
+              "old": "Partially visible plant at left edge",
+              "new": "Partially visible plant at left edge"
+            },
+            {
+              "old": "Larger framed picture in hallway",
+              "new": "Framed picture on far left wall"
+            },
+            {
+              "old": "Dark green mug",
+              "new": "Dark green mug"
+            },
+            {
+              "old": "Trailing plant on console table",
+              "new": "Trailing plant on console table"
+            },
+            {
+              "old": "Plant pot on console table",
+              "new": "Plant pot on console table"
+            },
+            {
+              "old": "Trailing plant on windowsill",
+              "new": "Trailing plant by window"
+            },
+            {
+              "old": "Tissue packet with protruding tissue",
+              "new": "Tissue packet with protruding tissue"
+            },
+            {
+              "old": "Writing utensils in pencil cup",
+              "new": "Writing utensils in cup"
+            },
+            {
+              "old": "Woman in gray sweater and dark trousers",
+              "new": "Woman wearing gray sweater and dark trousers"
+            }
+          ]
+        }
+      ],
+      "structural_quality_gate_passed": true,
+      "reduction_fraction": 0.2810842398633462
+    }
+  ],
+  "detector_functions_unchanged": {
+    "detect": true,
+    "load_detections": true,
+    "make_payload": true,
+    "check_gpu": true
+  },
+  "limitations": "Fixed Study2 Shot1/Shot3 replay tests observed equivalence, not universal accuracy or stability guarantee. No detector inference was repeated because detector code/settings/data were held fixed."
+}

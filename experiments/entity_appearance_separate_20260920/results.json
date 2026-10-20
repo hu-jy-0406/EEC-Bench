@@ -1,0 +1,1375 @@
+{
+  "studies": {
+    "study2": {
+      "protocol": "entity_appearance_separate_v1",
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study2",
+      "aggregation": "Equal entity mean separately for each available metric; additionally report multi-shot and single-shot entity subsets; null excluded with counts.",
+      "all_entities": {
+        "entities": 36,
+        "appearances": 240,
+        "codex": {
+          "score": 98.34558823529412,
+          "scored_entities": 34,
+          "unscored_entities": 2
+        },
+        "dino": {
+          "score": 0.910026200901314,
+          "scored_entities": 34,
+          "unscored_entities": 2
+        }
+      },
+      "multi_shot_entities": {
+        "entities": 9,
+        "appearances": 100,
+        "codex": {
+          "score": 94.44444444444446,
+          "scored_entities": 9,
+          "unscored_entities": 0
+        },
+        "dino": {
+          "score": 0.8655302603210049,
+          "scored_entities": 9,
+          "unscored_entities": 0
+        }
+      },
+      "single_shot_entities": {
+        "entities": 27,
+        "appearances": 140,
+        "codex": {
+          "score": 99.75,
+          "scored_entities": 25,
+          "unscored_entities": 2
+        },
+        "dino": {
+          "score": 0.9260447395102253,
+          "scored_entities": 25,
+          "unscored_entities": 2
+        }
+      },
+      "failed_entities": [],
+      "usage": {
+        "input_tokens": 565866,
+        "cached_input_tokens": 69120,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28274,
+        "reasoning_output_tokens": 1035,
+        "total_input_plus_output_tokens": 594140
+      },
+      "entities": [
+        {
+          "global_entity_id": "ge0001",
+          "name": "Framed landscape painting",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "bc6fa293f08913efdb1a4fd9f066e96b4bf4e3336c366a5ad7ae0cd7b0450d7e",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9024997170683826,
+          "codex_reason": "五次出现中，画框构造、色调、局部比例及风景布局均无可见实质变化；中间帧的局部缺失由人物遮挡解释。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。各帧均截去画框顶部，完整高宽比、背面及侧面不可判断；分辨率不足以核验细微笔触、木纹或签名。"
+        },
+        {
+          "global_entity_id": "ge0002",
+          "name": "Dark green mug",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "83f5f0d13656419c7e47c71f4ff675b76c71c6f4dea4dbdb4a6af06b03d0da9f",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9598985137921086,
+          "codex_reason": "全部十一处外观的杯身、杯口、把手及深绿色釉面一致，跨镜头也未见可确认的外观矛盾。",
+          "limitations": "跨镜头支持主要结构、整体比例及可见釉面的比较；裁图较小，底面、细微接缝及不可见表面无法核对。无纹理杯壁不能可靠确定同一周向表面，也不能凭叙事认定实际反向视角。"
+        },
+        {
+          "global_entity_id": "ge0003",
+          "name": "Desk lamp",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "9c914728f59505a3410fbdd0b78606513ca96a811ac63ecffa72879dc39b7d01",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9326649472534461,
+          "codex_reason": "全部可比部位保持一致，未见形状、材质、比例或识别细节漂移。f96的可见范围缩小由前景书本遮挡造成，露出的灯头仍与其他帧吻合。",
+          "limitations": "仅提供shot1，无法检验跨镜头一致性。f96不能核查完整支杆、底座及整体比例；灯罩内部、背面和微小表面细节缺乏可比证据。"
+        },
+        {
+          "global_entity_id": "ge0004",
+          "name": "Woman wearing a gray sweater",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 10,
+          "unknown_observations": 2,
+          "input_sha256": "45cefc466b702f70ab7948cbf40000c117b9595c6d984ea3aae141bb653fe625",
+          "codex_score": 75,
+          "codex_status": "success",
+          "dino_score": 0.7398865153772393,
+          "codex_reason": "跨镜头的头脸、发型、毛衣及身体比例基本一致；主要不一致集中在裤装腰髋部的剪裁、表面质感和缝褶细节。站起及手臂动作可以解释衣物褶皱变化，但不足以解释整套裤装构造差异。",
+          "limitations": "跨shot1与shot3可比较头脸、毛衣正面和裤装腰髋部；背面、完整裤腿与鞋履不可核验。shot1_f72、shot1_f96缺少头部，后者模糊；shot3早期人物较小，不能用于精细五官比较。裤装纤维材质仅能判断视觉质感，无法确证。"
+        },
+        {
+          "global_entity_id": "ge0005",
+          "name": "Wooden desk",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "46d6eb1a0c4fefd747a3aafdfa8b75a52fb3731e2a21e448cb62ee3fafbe0214",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.7992627466190985,
+          "codex_reason": "全部外观中，可比较的桌体构造、棕色磨损木面、边沿处理及部件比例未见实质矛盾。人物遮挡与观察方向变化解释了可见区域和反光的差别。",
+          "limitations": "跨镜头支持桌面材质、边沿构造和可见桌架比例比较；无法可靠定位同一处细木纹或划痕。不同侧围板不能视为同一物理表面，桌底、隐藏桌腿及画外下端未知。评分不涉及桌上物品变化。"
+        },
+        {
+          "global_entity_id": "ge0006",
+          "name": "Small framed picture on bookshelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "ba97dec9ddb185b6807ce852bc81df5a919dbae5bd72cbd8f60c28f531c74425",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9605604924689387,
+          "codex_reason": "六次出现中，相框可比较的轮廓、比例及主要配色一致；未发现实际外观漂移。叙事没有授权该相框发生外观变化。",
+          "limitations": "仅提供shot1，无跨镜头证据。目标尺寸小且下部持续被灯具遮挡，背面、底边完整结构、真实材质及精细画面内容无法核实；评分仅覆盖可见属性。"
+        },
+        {
+          "global_entity_id": "ge0007",
+          "name": "Pen holder",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "00c0b0d60f064d48b4662a9b5c6a3b92c41a5e02848fc81b827623cbbadfa7ea",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8999544390851896,
+          "codex_reason": "全部外观中可比较的筒口、上段形状和浅灰米色表面一致，未发现明确漂移。总分仅反映可评估的结构与表面属性。",
+          "limitations": "跨镜头支持比较口沿和上段筒壁；完整高度、底部结构及背面细节仍不可核验。第三镜头露出的筒壁较长，但第一镜头对应部分被杯遮挡，不能据此认定变高。附近深色杯及伸出的笔不作为筒身外观评分依据。"
+        },
+        {
+          "global_entity_id": "ge0008",
+          "name": "Group of books on lower shelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "a4cd7d0dc95599e6cd70f74104b4d5c472865f41e4af0bbc983bef4fa720cadf",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9597386437612234,
+          "codex_reason": "六次出现中，可比较书脊的形状、配色、比例和横带细节均无可见矛盾。f96的可见范围缩小由人物遮挡造成，不表示书群组成变化。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。灯罩持续遮挡部分书籍，f96另有严重人物遮挡；完整成员数量、隐藏封面及细小书名文字不可核验，评分限于可见对应部分。"
+        },
+        {
+          "global_entity_id": "ge0009",
+          "name": "Trailing plant by window",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "99a506cde5af1e5a5eafd927a5ee096c9669ab6feeb994663517f5796a7fc2a0",
+          "codex_score": 91.66666666666667,
+          "codex_status": "success",
+          "dino_score": 0.9350232007971702,
+          "codex_reason": "所有帧中植物在各自镜头内稳定；跨镜头保留褐色圆盆、绿色小叶和长垂藤组合，主要可见差异是盆体略变宽矮。叙事未授权植物外观变化。",
+          "limitations": "跨镜头可比较盆体、叶色及整体垂藤结构；无法逐一对应枝叶，也无法检查背面盆壁。第一镜头窗帘持续遮挡左缘，shot1_f72另有人物局部遮挡；不依据叙事假定实际完成了指定反向机位。"
+        },
+        {
+          "global_entity_id": "ge0010",
+          "name": "Bookcase",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "8353c75b08836ef4a023748b8893d32d620096f08238cdd7e4d355139e064e97",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9964805755471506,
+          "codex_reason": "全部五次出现的书柜可见正面具有充分对应证据，结构、涂漆外观、局部比例及门钮细节均无实质矛盾。",
+          "limitations": "仅提供shot1的近乎相同视角，无法验证跨镜头一致性。柜顶、底部、背面及被台灯遮挡区域不可比较，细微木纹也无法可靠辨认；书籍、植物和台灯不作为柜体细节评分。"
+        },
+        {
+          "global_entity_id": "ge0011",
+          "name": "Trailing plant on bookshelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "3ab8866ec23a523dda0a0a73e2e91ea03a09e731a8f73985082b91036ea17340",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8984875332659769,
+          "codex_reason": "六次出现中，可比较的叶丛轮廓、垂蔓结构、比例及绿色外观一致；f96的范围缩小由人物遮挡解释，未见实际外观漂移。",
+          "limitations": "仅有shot1同一视角，无法进行跨镜头或背面比较。植物像素较少且偏暗，盆体被枝叶掩盖，细部材质与单叶特征不可可靠判断；f96不支持整体形状或比例比较。"
+        },
+        {
+          "global_entity_id": "ge0012",
+          "name": "Red book",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 4,
+          "unknown_observations": 2,
+          "input_sha256": "a9ecc893157c55f83c701370087b5f882011c75ba15a15ec64f559ceabc71ebe",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.7647197142069833,
+          "codex_reason": "四次出现的红色硬壳、米白书口和矩形薄册结构一致；可见变化由拿取、转动及手部遮挡解释。",
+          "limitations": "仅提供同一镜头，无法进行跨镜头比较。早期书本较小且透视压缩，书脊、背面及细微纹理缺乏充分对应证据；未保留检测的后续帧不参与判断。"
+        },
+        {
+          "global_entity_id": "ge0013",
+          "name": "Wooden chair",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "aaf1d7ca1e2efe817bb79fe24320422c247e0d0d6948b7299cadca860319a4ac",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8389129738845685,
+          "codex_reason": "全部出现中可比较的椅背构造、木质颜色和相对比例一致；人物遮挡变化与斜视投影没有提供实际外观漂移证据。",
+          "limitations": "跨shot1与shot3的比较主要支持椅背构造和整体木质外观；无法可靠追踪同一面的细小纹理。座面、椅腿及底部连接长期被桌子遮挡，其一致性未知。评分仅针对可观察属性，不代表整椅所有表面均已验证。"
+        },
+        {
+          "global_entity_id": "ge0014",
+          "name": "Radiator",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "5cea03e12fe5be4fe2362cea8fed230ed322b425e83bfa3e642b81e71ceb5416",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.852731483800034,
+          "codex_reason": "全部出现中，可比较的散热柱形状、局部比例与暖白漆面保持一致，没有明确外观矛盾。",
+          "limitations": "跨镜头支持比较柱体构造和表面，但第一镜头受桌椅遮挡，第三镜头右端截断，无法核实总柱数、整体宽高比、完整端部及背面；不能逐根确认物理对应。"
+        },
+        {
+          "global_entity_id": "ge0015",
+          "name": "Group of books on top shelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "58e02c8db65337e007d0286a749dbe8e9fedad4586e28a99ad81ba09f546e8cc",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9257070746776955,
+          "codex_reason": "六次出现中，可比较的书脊组合、相对宽度及颜色分布一致。f96的可见范围减少有明确人物遮挡支持，未见实际外观漂移。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。所有帧均裁掉书本上部，无法核验整组完整构成、书本全高及高宽比、封面或精细材质；评分仅适用于实际可见的对应书脊下段。"
+        },
+        {
+          "global_entity_id": "ge0016",
+          "name": "Plant pot by window",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "c54c681cb05e502d67eb965d0079ec9de0fdeedfab4c7068c819a758d1f6e6ff",
+          "codex_score": 83.33333333333333,
+          "codex_status": "success",
+          "dino_score": 0.8636639151524796,
+          "codex_reason": "全部帧中盆体在各自镜头内稳定，跨镜头保留锥形陶盆构造和土褐色外观，但盆身由细长变得较宽矮，存在明显比例漂移。",
+          "limitations": "目标仅为框定花盆，不评价整株植物。跨镜头可比较盆体外轮廓及粗略材质，无法对应被叶片遮挡的具体侧壁细节；低分辨率和观察角度限制精确比例测量。"
+        },
+        {
+          "global_entity_id": "ge0017",
+          "name": "Group of pens and pencils",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 10,
+          "unknown_observations": 2,
+          "input_sha256": "cd1d2c3b439b3bd0a19c32d45d40053312fae273d805d79cfa8966cdc34abcaf",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9004385543811557,
+          "codex_reason": "全部十次观察中，笔组可见上段的基本构造及棕色、深色材质组合一致，未发现明确外观矛盾；评分仅覆盖可比较属性。",
+          "limitations": "跨镜头支持比较笔组露出部分的整体构造及配色，不能确认完整成员数量、逐支身份、全长比例或精细特征。笔筒与附近杯子不属于评分目标；缺失检测帧不用于推断变化。"
+        },
+        {
+          "global_entity_id": "ge0018",
+          "name": "Small ceramic pot on bookshelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 3,
+          "unknown_observations": 3,
+          "input_sha256": "3b92dbd5e458f23e488d2c1e5d17a9cf2bb782262fbcd4c244bc57f25e9a3e3b",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9630428476539097,
+          "codex_reason": "三次同镜头观察中，小盆的可辨轮廓、比例与灰褐色表面保持一致，未见实际外观漂移。",
+          "limitations": "仅有shot1近乎相同视角，无法进行跨镜头或背面比较。目标很小，评分仅覆盖粗略可见属性，精细纹理及材质细节无法核实。"
+        },
+        {
+          "global_entity_id": "ge0019",
+          "name": "Small wooden side table",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 1,
+          "unknown_observations": 5,
+          "input_sha256": "52e57f3de2a8bb3361d37be2dc59829272d39eb39114c8e953544af04530d8ae",
+          "codex_score": null,
+          "codex_status": "not_assessable",
+          "dino_score": null,
+          "codex_reason": "Fewer than two observed keyframes",
+          "limitations": ""
+        },
+        {
+          "global_entity_id": "ge0020",
+          "name": "Plant on side table",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 1,
+          "unknown_observations": 5,
+          "input_sha256": "41d83460e6ab8e82e0c04f1261ff6c071f74ab6bc453ff0c87fb6c311a6dd96e",
+          "codex_score": null,
+          "codex_status": "not_assessable",
+          "dino_score": null,
+          "codex_reason": "Fewer than two observed keyframes",
+          "limitations": ""
+        },
+        {
+          "global_entity_id": "ge0021",
+          "name": "Group of framed botanical prints",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "9ca5b3e7fe89043b6718a4979ab62078a6dd16aac76b5338ba13e7ddf25348af",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9949364887576683,
+          "codex_reason": "全部六帧中，两幅画的可见结构、色材、比例及植物图案均一致，没有可见的实质外观漂移。",
+          "limitations": "仅提供shot2内近乎相同视角，无法验证跨镜头一致性。右侧画框顶端始终截断；背面、精细木纹及微小印刷文字无法比较。结论仅覆盖这两个已指派成员的可见部分。"
+        },
+        {
+          "global_entity_id": "ge0022",
+          "name": "Woman wearing a gray sweater and dark trousers",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "2d97836ede0c82ab7077cc1377c78bf18b4d4096b6f417ddd24acdddb3a73f5e",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8635335268168682,
+          "codex_reason": "六次出现中，可比较的发型、服装、身体比例及细节一致。可见差异主要来自弯腰、伸臂、转头和相应衣料变形，没有明确的外观矛盾。",
+          "limitations": "仅提供shot2，无法评估跨镜头一致性。脚部、完整裤脚及背面不可比较；shot2_f96的运动模糊限制面部细节判断，微小纹理和逐根发丝不具备可靠比较条件。"
+        },
+        {
+          "global_entity_id": "ge0023",
+          "name": "Wooden console table",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "da7598c327bc54f69a9143a58f28ade580a3a639fdfdf50c2573cfb5a162368d",
+          "codex_score": 93.75,
+          "codex_status": "success",
+          "dino_score": 0.9202346354570646,
+          "codex_reason": "六次出现的可见构造和比例一致，主要偏差是末帧木纹变淡、表面趋于平滑。放书及手部遮挡不构成桌体自身变化。",
+          "limitations": "仅提供shot2同侧近似固定视角，无跨镜头比较；桌腿全长、脚部、背面及书下表面无法核验。分辨率限制逐条木纹与细小瑕疵的对应判断。"
+        },
+        {
+          "global_entity_id": "ge0024",
+          "name": "Red hardcover book",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "eb7c5bba0282a54eaf5a46d68dc8af41f39caf5903806acafbdeb6c599496a03",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8916737551996258,
+          "codex_reason": "六次出现中可比较的红色硬封皮、米白书芯和闭合矩形结构一致。手持到落桌的投影变化及局部手部遮挡未构成外观矛盾。",
+          "limitations": "仅提供shot2，无法进行跨镜头比较。书背、底面及细微纹理缺乏可比证据；目标较小，移动帧模糊，结论限于可辨的整体结构、颜色和比例。"
+        },
+        {
+          "global_entity_id": "ge0025",
+          "name": "Door strike plate",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 3,
+          "unknown_observations": 3,
+          "input_sha256": "fbb109ffcbad13b8c38c56a2dc014ab45d467052d24b355b76f6a99818b7f89b",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9387309608110374,
+          "codex_reason": "全部三次出现中，目标可比较的轮廓、粗略色块及比例均一致，未见实际外观漂移。",
+          "limitations": "仅提供shot2内的近重复视角，无跨镜头证据。评分限于低分辨率下可辨的外观；背面、厚度、精细结构和材质纹理均无法核验。"
+        },
+        {
+          "global_entity_id": "ge0026",
+          "name": "framed landscape painting",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "7c085b81f3400c0122e9e72db057b030e9e98761b6192296595f05344093b4dc",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9337524472246281,
+          "codex_reason": "六次出现的可比部分均保持相同框体、色调、比例及风景构图；f48的差别来自人物遮挡，未见实际外观矛盾。",
+          "limitations": "仅有shot3内近似同视角证据，无法进行跨镜头比较。分辨率不足以核验细微笔触、框面纹理或签名；背面及被遮挡部分不可判断。"
+        },
+        {
+          "global_entity_id": "ge0027",
+          "name": "framed picture in hallway",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "4e1d9f294eb775cda634e7f5f63285d298f1f9161afa84bd340f187bdb543c17",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9846166592417125,
+          "codex_reason": "全部六帧中，对应可见框体、衬边和画面主要色块保持一致，未发现可支持的外观漂移。",
+          "limitations": "仅提供shot3同一视角，无法进行跨镜头比较。左缘持续遮挡，完整宽高比、背面、实际材质及精细画面内容无法核验；评分仅覆盖可比较区域。"
+        },
+        {
+          "global_entity_id": "ge0028",
+          "name": "framed botanical picture",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "37e19844a2ec253403b028b9b8aabcf0b8f8916e74dd9afef72469ba397c0dc8",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8328790378192714,
+          "codex_reason": "全部六次出现均支持同一棕色竖框植物画的外观一致性；后两帧只有人物遮挡，未见可比较部分发生实质变化。",
+          "limitations": "仅提供shot3，无法评价跨镜头一致性。画作分辨率低，细小叶脉、笔触及木纹不可核验；末两帧被遮挡部分和画框背面未知。"
+        },
+        {
+          "global_entity_id": "ge0029",
+          "name": "small framed picture beside doorway",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "0290c90d7ef129ab02a4a0615945b1593c98210922d2974ae97d28251c2bd209",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9526962886443366,
+          "codex_reason": "全部六次观察中，可比较的画框外形、相对比例与主要配色一致，无可见外观矛盾。",
+          "limitations": "仅提供shot3内近乎固定视角的观察，无跨镜头证据。目标约18–19×48–49像素，评分限于粗略可见属性；画作内容、框面纹理、厚度及背面无法核验。"
+        },
+        {
+          "global_entity_id": "ge0030",
+          "name": "wooden console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "9eda7e2db522d3daac06d5d802962b5752f06c38ffa5866c3a526e85299a5708",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.917781064247737,
+          "codex_reason": "六次出现中的可比部位外观一致。f48的显著可见性变化来自人物遮挡，露出的右端仍与其余帧对应。",
+          "limitations": "仅提供shot3，无跨镜头比较证据。植物、人物及前景桌遮挡部分结构，背面、完整腿底及细微木纹无法核验；评分仅涵盖可见对应部位。"
+        },
+        {
+          "global_entity_id": "ge0031",
+          "name": "trailing plant on console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "a99ebd899f18aa99423e7f36756572122eccd63ce34c638a517f289366330788",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8868387631145038,
+          "codex_reason": "六次出现中，可比较的叶冠轮廓、枝蔓分布、颜色和比例一致；唯一显著可见范围变化来自f48的人物遮挡。",
+          "limitations": "仅提供shot3同侧视图，无法评价其他镜头或背面。图像较小且模糊，叶脉、单叶微小纹理及盆体具体材质不可可靠核验；f48被遮挡部分不作为一致性证据。"
+        },
+        {
+          "global_entity_id": "ge0032",
+          "name": "small hallway cabinet",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "574422aee07a0495cec51725396d4b1db14fbed0c75e8c3ab9ab894978ec6283",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9665473790375704,
+          "codex_reason": "全部六次出现中，柜体对应可见部分的形状、比例和深棕色表面均稳定，未发现实际外观漂移。",
+          "limitations": "仅提供shot3同一视角，无法进行跨镜头或背面比较。柜体约43×60像素，门框遮挡左缘，暗部及细小纹理不可可靠判断；评分仅覆盖可辨的对应部分。"
+        },
+        {
+          "global_entity_id": "ge0033",
+          "name": "plant at left edge",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "862d3c4fc42832a1cc49e00c1fb5bbdaf676fe23d624820800f3e27356f9701f",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9376599424032616,
+          "codex_reason": "六次出现中，可见的局部枝叶结构与颜色一致，没有可确认的外观漂移；评分仅覆盖可比较部分。",
+          "limitations": "仅提供shot3，不能进行跨镜头比较。目标始终位于左边界且大部分在画外，裁剪宽度仅约29至30像素；完整株形、盆形、整体比例与精细纹理均不可判断。"
+        },
+        {
+          "global_entity_id": "ge0034",
+          "name": "tissue packet",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "83a2f8734d1c7292baffd84cda0f1c81ab1043901dd681ebdeeaa9bb48595824",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.975440124606115,
+          "codex_reason": "全部六次出现的对应可见表面一致：浅蓝白软包装、露出纸巾的轮廓与折痕及相对比例均未见实质变化。",
+          "limitations": "仅提供shot3内近乎固定视角的观察，无跨镜头证据。目标像素较少，无法核验微小印刷、封口细节及背面、底面。"
+        },
+        {
+          "global_entity_id": "ge0035",
+          "name": "stack of books",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "c018a9240fc2d56b595c24aa9f69895c41386086efb6aa26d225227bd471464c",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9411138020520211,
+          "codex_reason": "全部五次出现的可见书堆轮廓、叠层比例和深棕封面与浅色页边组合一致，没有可见外观漂移。",
+          "limitations": "仅提供shot3同一视角，不能检验跨镜头或背面外观。目标约45×20像素，精确册数、材质细纹及标识不可可靠确认；评分仅覆盖可辨属性。"
+        },
+        {
+          "global_entity_id": "ge0036",
+          "name": "plant pot on console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "26fad292b5e7579c4de676db1d5663246f56346118c92599cf736a1eb7380642",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.908782066418505,
+          "codex_reason": "所有五次观察中，可比较的盆身轮廓、比例和褐色表面一致，未发现可见外观漂移；评分仅覆盖可辨认属性。",
+          "limitations": "仅提供shot3内近似相同视角，无法进行跨镜头比较。目标为检测框内花盆，不包括整株植物；盆口、内部与背面不可比较，低分辨率限制材质及细节判断。"
+        }
+      ],
+      "cost": {
+        "status": "standard_api_equivalent_estimate_not_invoice",
+        "currency": "USD",
+        "estimate": 6.45028,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "verified_date": "2026-09-20",
+        "per_million_tokens": {
+          "uncached_input": 10,
+          "cached_input": 1,
+          "cache_write_input": 12.5,
+          "output": 50
+        },
+        "long_context": "input>272000: input/cache/write x2, output x1.5",
+        "excludes": "This interactive conversation, GPU and any subscription-specific billing"
+      },
+      "timing": {
+        "calls": 34,
+        "summed_call_seconds": 1042.9699866771698,
+        "first_call_started": 1789930712.5532708,
+        "last_call_ended": 1789931068.1695259,
+        "call_span_seconds": 355.61625504493713,
+        "dino": {
+          "seconds_since_shared_start": 4.245754957199097,
+          "model": "facebook/dinov2-base",
+          "model_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/entitybench-wan21-smoke/cache/models/dinov2-base",
+          "model_hashes": {
+            "config.json": "f7ff4cfa73d2f70647dbf6950541ad25d73082d54c2e7e9bded160c7656b2a70",
+            "model.safetensors": "d73036b56966966d07975d696bde331762f37297e2f095de8cea0040c3aa0841",
+            "preprocessor_config.json": "14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828"
+          },
+          "processor": {
+            "crop_size": {
+              "height": 224,
+              "width": 224
+            },
+            "do_center_crop": true,
+            "do_convert_rgb": true,
+            "do_normalize": true,
+            "do_rescale": true,
+            "do_resize": true,
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_processor_type": "BitImageProcessor",
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "resample": 3,
+            "rescale_factor": 0.00392156862745098,
+            "size": {
+              "shortest_edge": 256
+            }
+          },
+          "torch": "2.7.1+rocm6.3",
+          "device": "AMD Instinct MI210",
+          "uuid": "GPU-b3268cdb8701c73e",
+          "batch_size": 16,
+          "appearance_count": 240
+        }
+      }
+    },
+    "study3": {
+      "protocol": "entity_appearance_separate_v1",
+      "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study3",
+      "aggregation": "Equal entity mean separately for each available metric; additionally report multi-shot and single-shot entity subsets; null excluded with counts.",
+      "all_entities": {
+        "entities": 35,
+        "appearances": 234,
+        "codex": {
+          "score": 96.6540404040404,
+          "scored_entities": 33,
+          "unscored_entities": 2
+        },
+        "dino": {
+          "score": 0.9116231489986942,
+          "scored_entities": 33,
+          "unscored_entities": 2
+        }
+      },
+      "multi_shot_entities": {
+        "entities": 10,
+        "appearances": 112,
+        "codex": {
+          "score": 89.58333333333334,
+          "scored_entities": 10,
+          "unscored_entities": 0
+        },
+        "dino": {
+          "score": 0.8584378157283427,
+          "scored_entities": 10,
+          "unscored_entities": 0
+        }
+      },
+      "single_shot_entities": {
+        "entities": 25,
+        "appearances": 122,
+        "codex": {
+          "score": 99.72826086956522,
+          "scored_entities": 23,
+          "unscored_entities": 2
+        },
+        "dino": {
+          "score": 0.9347472069423253,
+          "scored_entities": 23,
+          "unscored_entities": 2
+        }
+      },
+      "failed_entities": [],
+      "usage": {
+        "input_tokens": 549351,
+        "cached_input_tokens": 184320,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 28660,
+        "reasoning_output_tokens": 1266,
+        "total_input_plus_output_tokens": 578011
+      },
+      "entities": [
+        {
+          "global_entity_id": "ge0001",
+          "name": "framed landscape painting",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "69b852568e075516c764affb4f8003f5c24eefc99333224e0a5c956e249420b2",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9024997170683826,
+          "codex_reason": "全部五次外观中，可见画框构造、配色与风景图案一致。中间一次的局部遮挡来自人物经过，没有可见的实体外观漂移。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。画框顶部始终被裁切，背面不可见；图像较小，无法核验细微笔触、木纹或签名。shot1_f48左下部分受遮挡，缺失检测帧不作为缺席证据。"
+        },
+        {
+          "global_entity_id": "ge0002",
+          "name": "dark mug",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "0f9bf9efbd20c04d3fbdbae980f25d5ccc83b5636d39ac11c71b1d3016e24f9b",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9578925394058044,
+          "codex_reason": "所有供图中的杯子均保留相同的圆柱杯身、单环把手、深色光滑釉面和相近比例；镜头内及跨镜头可见属性没有实质矛盾。",
+          "limitations": "跨镜头可比较整体构造、比例及可见釉面，但无法逐点确认杯壁是否为同一侧表面；杯底、背面和微小标记不可核验。第二镜头杯身仅约数十像素，限制细节判断；未据叙述假定反向机位已实现。"
+        },
+        {
+          "global_entity_id": "ge0003",
+          "name": "desk lamp",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "ef859f96fe0007f5f821ea23483bd9af1e05ba97cb9b3c9e8304055f89c33aa0",
+          "codex_score": 62.5,
+          "codex_status": "success",
+          "dino_score": 0.8380229542292897,
+          "codex_reason": "各镜头内部外观稳定，但跨镜头可对应的灯罩、顶颈和底座出现显著黑白变色，并伴随底座形态及细节的小幅变化。叙事没有授权这些外观改变。",
+          "limitations": "跨镜头可比较灯罩外表面、支杆、顶颈及底座；灯罩内部、底面和隐藏连接件不可核验。分辨率限制精细接缝与材质判断，shot1_f96仅贡献局部证据。"
+        },
+        {
+          "global_entity_id": "ge0004",
+          "name": "woman",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 10,
+          "unknown_observations": 2,
+          "input_sha256": "6553d7be4a0174efe4b7216b5c2e4d4202258a7cd1e10cc06a9e3de3be256068",
+          "codex_score": 75,
+          "codex_status": "success",
+          "dino_score": 0.7108683965133802,
+          "codex_reason": "人物面部、发型、毛衣和身体比例总体连贯，主要不一致集中在跨镜头裤装的构造、面料观感及前片细节。叙事未授权换装。",
+          "limitations": "跨镜头可比较头脸、毛衣和腰髋前侧；shot1后段头部出框，shot3早段人物较小。多数帧下腿被遮挡，鞋履及裤脚缺少跨镜头证据，背面和精细织纹也无法充分核验。"
+        },
+        {
+          "global_entity_id": "ge0005",
+          "name": "wooden desk",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "9859c54ad1a1e9cd725632478bcc1fbb48fc294f794dc41bb66d3b06c7295d88",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.7903356348832903,
+          "codex_reason": "全部出现中，可比较的桌面、边沿、围板和方腿保持一致。跨镜头仍支持相同构造、木质表面和相对比例；人物遮挡及反光变化没有形成实际外观矛盾。",
+          "limitations": "桌底、全部桌腿及其下端并非始终可见；跨镜头无法逐一定位同一条细木纹或划痕，故不确认微观纹理精确一致。两侧围板不能仅凭画面左右位置视为同一物理表面；桌上物品不属于本实体评分范围。"
+        },
+        {
+          "global_entity_id": "ge0006",
+          "name": "small framed picture",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "d246b587e73292f3e3c0d4d9ca601970b58b75cfa09fbf77a3024b5b5dcc83c7",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9605605380205138,
+          "codex_reason": "六次观察中的相框外形、比例、框边颜色及可辨风景图案均一致，没有可见的实质外观矛盾。",
+          "limitations": "仅提供shot1，不能评价跨镜头一致性。目标较小且下部持续被灯具遮挡；背面、完整底边、框面纹理及画作微细内容均无法核验。"
+        },
+        {
+          "global_entity_id": "ge0007",
+          "name": "pen holder",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "bc67965661e4f746e2b42ef72b51e1bc9dfa775948bc212cfa4b5aac41569140",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8919983181316067,
+          "codex_reason": "全部出现中，可比较的笔筒开口、上段筒壁形状及灰米色素面外观一致，未发现明确漂移。总分仅反映可评分的形状与表面属性。",
+          "limitations": "跨镜头支持比较筒口与上段外壁；完整高度、底部构造及背面细节不可确认。裁剪中的深色杯是遮挡物，不属于目标；露出的笔杆不作为笔筒自身的识别细节。"
+        },
+        {
+          "global_entity_id": "ge0008",
+          "name": "group of books on lower shelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "4c3330ae7b7abb3faf7ddc23f28628f76419568f9337d6724d663c2afaa2c0f0",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9597386904591605,
+          "codex_reason": "全部六次出现中，可比较书脊的结构、配色、比例及条带细节保持一致。f96仅因人物经过而显著减少可见范围，没有可见的外观矛盾。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。书名文字与细微纹理不可辨；台灯、垂叶及人物遮挡后的书本、封面和完整组内数量无法确认，评分仅覆盖可见对应部分。"
+        },
+        {
+          "global_entity_id": "ge0009",
+          "name": "plant by window",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "f519d9e8fa8777cebcf740141b0a30f1b21e2d43a3ba9546ecab3d235f2c0348",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9393167635464329,
+          "codex_reason": "所有帧的可比盆体、叶形和垂藤形态保持一致，镜头内部未见明显漂移；跨镜头可观察的结构、色系和比例也无明确矛盾。",
+          "limitations": "跨镜头支持盆体及植株主要形态比较，不能逐一确认枝叶对应关系或隐藏侧面。shot1_f72存在局部人物遮挡；所有裁剪尺寸较小，细纹和微小枝叶变化无法可靠判断。"
+        },
+        {
+          "global_entity_id": "ge0010",
+          "name": "bookcase",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "2ad18e9c7add173fddb20c3a63edbcbd939fcdb0f33b2203ad6a07f3be3e427b",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9964805643195578,
+          "codex_reason": "全部五次出现中，书架可比较的正面构造、深色漆面、局部比例与柜门细节均稳定，未发现实际外观矛盾。",
+          "limitations": "仅提供shot1同一视角，无法进行跨镜头比较。书架顶部截断、底部被桌面遮挡，右侧局部被台灯遮挡；背面、完整侧面及细微木纹不可评估。书籍、植物和台灯不作为书架自身细节评分。"
+        },
+        {
+          "global_entity_id": "ge0011",
+          "name": "plant on bookshelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "42939b5f2550ee1ba098237e13164f9c06c9f1778bdde6b7704a26033a15f4cd",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.89848745682415,
+          "codex_reason": "所有可比较的叶丛轮廓、绿色外观及整体比例保持一致。f96的可见范围缩小由人物遮挡解释，未发现实际外观漂移。",
+          "limitations": "仅提供shot1，无法评价跨镜头一致性。植株较小且模糊，盆体、细枝及单叶细节无法可靠核对；f96不支持整体结构和比例比较。"
+        },
+        {
+          "global_entity_id": "ge0012",
+          "name": "red book",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 4,
+          "unknown_observations": 2,
+          "input_sha256": "4f361b4be5d686c3f1c08d3fafb62e73ead09e0f97edca8744d16813b08799f8",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.7647196339787202,
+          "codex_reason": "四次出现的红色硬壳、浅色页块及矩形薄书结构一致，变化主要来自平放到竖持的旋转和手部遮挡，未见明确外观漂移。",
+          "limitations": "仅提供 shot1，无法进行跨镜头比较。早期书本较小且倾斜，精细纹理、书脊及封面正反面的对应关系无法可靠核验；缺失检测帧不作为缺席证据。"
+        },
+        {
+          "global_entity_id": "ge0013",
+          "name": "wooden chair",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "2df1dcaf4f30a6338e155ec591927cb08f4e3b3256e6482f7db5f52de7626419",
+          "codex_score": 83.33333333333333,
+          "codex_status": "success",
+          "dino_score": 0.8520445551500463,
+          "codex_reason": "各镜头内部可见部分稳定，跨镜头保留棕色木材和椅背主要轮廓，但内竖条数量及开口布局出现明显变化。叙事未授权椅子结构改变。",
+          "limitations": "跨镜头比较仅支持露出的椅背；座面、椅腿及背面细节无法充分核验。早期和末期人物遮挡限制局部比较，不能将桌面或桌腿计入椅子。"
+        },
+        {
+          "global_entity_id": "ge0014",
+          "name": "radiator",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 11,
+          "unknown_observations": 1,
+          "input_sha256": "7145e970395fe340260ad19ccfc0fe8942b97d3fffb500e64a14d59dcbb1a6e7",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8460981434091235,
+          "codex_reason": "全部出现中的可见散热片结构、乳白涂层及局部比例一致，未见实质外观矛盾。跨镜头结论仅覆盖可比较的片体表面与构造。",
+          "limitations": "shot1受窗帘和家具遮挡，shot3右端出框且有藤叶遮挡，无法核对完整片数、总宽度、全部端部或背面。跨镜头支持局部构造与表面比较，不能逐片建立对应关系；未凭叙事中的反向机位要求推定不可见外观。"
+        },
+        {
+          "global_entity_id": "ge0015",
+          "name": "group of books on top shelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "eab65948ab7312ec836acbfe72fa0942aa1d7fa3e0733b500f9b955ae9c80d15",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9257071010302953,
+          "codex_reason": "六次出现中，可见对应书脊的排列、色块及相对宽度一致。f96的范围收窄由人物遮挡造成，未见实际外观漂移。",
+          "limitations": "仅提供shot1，无法进行跨镜头比较。所有观察均截断书本上部，不能验证完整成员构成、书本全高与高宽比、封面或精细材质；评分仅适用于可比较的书脊下段。"
+        },
+        {
+          "global_entity_id": "ge0016",
+          "name": "plant pot by window",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 12,
+          "unknown_observations": 0,
+          "input_sha256": "8318a86f9d4afa788fd8e38b0b141b65ddaabd19f5c7a650873ea44a933effcb",
+          "codex_score": 75,
+          "codex_status": "success",
+          "dino_score": 0.8497130444346392,
+          "codex_reason": "各镜头内部花盆外观稳定；跨镜头保留收底陶盆构造，但盆身高宽比例出现明显变化，并有轻度色调差异。叙事未授权花盆外观改变。",
+          "limitations": "目标仅为候选框内花盆，不评价整株植物。跨镜头可比较盆体轮廓和大面积盆壁外观，但图像尺寸小且有藤叶遮挡，无法对应具体表面纹理或核实背面；实际受光差异也限制精确颜色判断。"
+        },
+        {
+          "global_entity_id": "ge0017",
+          "name": "group of pens and pencils",
+          "observed_shot_ids": [
+            "shot1",
+            "shot3"
+          ],
+          "appearances": 10,
+          "unknown_observations": 2,
+          "input_sha256": "fa26651bedc2ae9a7dcbd51ec4ea526721a40bd8f09702dc0aa9d8963816d07a",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9080878075798126,
+          "codex_reason": "全部十次观察中，可比较的笔杆形态及浅木色／深色组合保持一致，没有明确的外观矛盾。评分仅涉及可见的粗略结构与配色。",
+          "limitations": "跨镜头支持笔组露出部分的结构和配色比较，不支持逐支确认、完整数量或全长比例比较。画面中的观看方向有所变化，但不能据此假定实现了叙述指定的旋转角度。笔筒与邻近杯子不属于本次评价目标；缺失检测帧不作为缺席证据。"
+        },
+        {
+          "global_entity_id": "ge0018",
+          "name": "small ceramic pot on bookshelf",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 3,
+          "unknown_observations": 3,
+          "input_sha256": "c5fc95327a3e25f18fb4851b39f005cfb18c27416aacf9831c5bbfecf977a0c0",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9630427468081072,
+          "codex_reason": "三次出现中，小罐可见外形、比例和灰褐色表面一致，未见实际外观漂移；叙事未授权该物体发生外观变化。",
+          "limitations": "仅提供shot1内近乎相同视角，无法进行跨镜头比较。目标很小，背面、内部及精细纹理不可判断；评分仅覆盖可辨认的整体属性。"
+        },
+        {
+          "global_entity_id": "ge0019",
+          "name": "wooden side table",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 1,
+          "unknown_observations": 5,
+          "input_sha256": "6753add88a723de58481201708d53f27e5425e04c93cd6ec243d97313e6b1e41",
+          "codex_score": null,
+          "codex_status": "not_assessable",
+          "dino_score": null,
+          "codex_reason": "Fewer than two observed keyframes",
+          "limitations": ""
+        },
+        {
+          "global_entity_id": "ge0020",
+          "name": "plant on side table",
+          "observed_shot_ids": [
+            "shot1"
+          ],
+          "appearances": 1,
+          "unknown_observations": 5,
+          "input_sha256": "7f42599646afafa878660bcc4d503fb0318f46e95d6c93d32a5f002a4ae2fcd8",
+          "codex_score": null,
+          "codex_status": "not_assessable",
+          "dino_score": null,
+          "codex_reason": "Fewer than two observed keyframes",
+          "limitations": ""
+        },
+        {
+          "global_entity_id": "ge0021",
+          "name": "Group of framed botanical prints",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "a79b7f7fb102dba61f655d8a678e6d2f79e615be1317b41194a42079dbc48633",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9949365020209023,
+          "codex_reason": "六次出现中，两幅植物画的对应可见框体、配色、比例及主要图案均稳定，未见实质外观漂移。",
+          "limitations": "仅提供shot2，无法进行跨镜头比较。右幅顶部始终截断，背面不可见；分辨率不足以核验细小文字、精细叶脉或木纹，评分仅覆盖可辨部分。"
+        },
+        {
+          "global_entity_id": "ge0022",
+          "name": "Woman wearing a gray sweater and black trousers",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "7bc837a336d56d37c2545a01c2e3ef7dc187d24ffae48e53988577678b65ab6a",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.863533532552683,
+          "codex_reason": "六次出现中，可见的人体特征、发型和服装均无实质矛盾。姿势变化及衣物自然变形能够解释轮廓差异，转身帧的模糊未被当作细节改变。",
+          "limitations": "仅提供shot2，无法评价跨镜头一致性。脚部和小腿下部未完整展示，背面及被遮挡细节无法比较；shot2_f96不能支持精细面部比较。"
+        },
+        {
+          "global_entity_id": "ge0023",
+          "name": "Wooden console table",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "07dc0fb25f8c8b0fae57aae3fd2bac583d5f89f289656746c7a577cf2928eb45",
+          "codex_score": 93.75,
+          "codex_status": "success",
+          "dino_score": 0.9202346932501597,
+          "codex_reason": "六次出现中的桌体构造和比例稳定，主要差异是末帧木纹变得较平滑。放置书本仅造成局部遮挡，并未授权桌体外观改变。",
+          "limitations": "全部证据来自shot2的近似同一视角，无跨镜头比较；腿脚、背面和底面不可核验，也无法可靠逐条追踪细小木纹。"
+        },
+        {
+          "global_entity_id": "ge0024",
+          "name": "Red hardcover book",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "a5123a2a114faa558f2c19325f17fadce19624b2c8d4797e20cf6e6748d2f4ec",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8916737660827336,
+          "codex_reason": "六次出现中，红色硬封皮、乳白页块及整体构造保持一致。拿持、移动和放平引起的投影与遮挡变化未构成可确认的外观漂移。",
+          "limitations": "仅提供shot2，无法进行跨镜头比较。书脊、底面及被手遮住的局部缺乏充分对应证据；移动帧模糊，所有裁剪均较小，细节一致性未知。"
+        },
+        {
+          "global_entity_id": "ge0025",
+          "name": "Door strike plate",
+          "observed_shot_ids": [
+            "shot2"
+          ],
+          "appearances": 3,
+          "unknown_observations": 3,
+          "input_sha256": "71bc0205317ea57630bd565e87af0ac5ec0429536085252406b4135186ec54f8",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9387312432995221,
+          "codex_reason": "三次出现中，可观察的狭长外形、分段比例与暗色金属表观均一致，没有可见的实质外观漂移。",
+          "limitations": "仅有shot2内相近视角的比较，不支持跨镜头结论。目标极小，评分仅涵盖可辨粗略属性；精细构造、真实材质及未展示表面仍未知。"
+        },
+        {
+          "global_entity_id": "ge0026",
+          "name": "Framed landscape painting",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "c78cca7817bdcb27840398fbf32c524386a65c866ba82a5817348665ffcc9000",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.958721051199639,
+          "codex_reason": "六次出现中的画框构造、色调、比例与风景构图一致；唯一明显可见性变化是f72人物造成的右下部遮挡。",
+          "limitations": "仅提供shot3，无法评价跨镜头一致性。画作分辨率较低，细微笔触、签名和框面纹理不可辨；顶部外缘紧贴画面边界，背面与侧面未展示。"
+        },
+        {
+          "global_entity_id": "ge0027",
+          "name": "Framed picture on left hallway wall",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "09e771e182f0c7ac0e356318c01b0656cedc8a4fb4ccd6ea59d8278ef2163ffc",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9760485691630828,
+          "codex_reason": "全部五次观察中的画框轮廓、内部层次、配色和相对比例一致，未见可辨外观漂移；评分仅覆盖可比较属性。",
+          "limitations": "仅提供shot3内的近似同视角观察，无跨镜头比较依据。目标约37×53像素，左缘紧邻门框，细部及真实材质无法确认，背面不可见。"
+        },
+        {
+          "global_entity_id": "ge0028",
+          "name": "Framed botanical picture",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "856a16ea4201fe8a2e441107162ab76e0eb09f0c37c6731e42014d98970d5d67",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.8684519670776879,
+          "codex_reason": "全部六次出现中，可比较的画框、内衬和植物构图一致；末帧仅增加人物遮挡，没有可见外观矛盾。",
+          "limitations": "仅提供shot3，无法进行跨镜头比较。画框紧邻图像上沿，顶部完整性有限；低分辨率无法核验细小笔触、木纹或玻璃表面，背面亦不可见。"
+        },
+        {
+          "global_entity_id": "ge0029",
+          "name": "Small framed picture beside doorway",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "993824a0f20228453a29a1bac68c9c01a8db1bddbb1c359d1934098ae3b1df7a",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9649340964609044,
+          "codex_reason": "全部五次观察中的画框轮廓、主要配色和可见比例一致，未发现可辨认的外观漂移；评分仅针对能比较的粗粒度属性。",
+          "limitations": "目标约为20×50像素，无法核验画中细节、木纹或确切材质。仅提供shot3的近同视角观察，不支持跨镜头或其他表面的比较；未保留检测的帧不作为缺失证据。"
+        },
+        {
+          "global_entity_id": "ge0030",
+          "name": "Wooden console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "4a2d3c0143dd3517913cf9d951acabeb472a80cf88ef033dcc138a44d62d39e6",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9870084147328846,
+          "codex_reason": "五次出现中，控制台桌可见的结构、木质色泽、比例及正面细节一致；人物经过仅增加局部遮挡，没有可见的外观变化。",
+          "limitations": "仅提供shot3内近似固定视角，无法进行跨镜头比较。左侧、腿部下端及背面不可充分观察；图像较小，细木纹、微小磨损和具体五金形状无法核验。"
+        },
+        {
+          "global_entity_id": "ge0031",
+          "name": "Trailing plant on console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "cdef2fec1073ed1004448fde1c81631a1da04bb7e557ed3c899a16ff31292160",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9035126764155053,
+          "codex_reason": "六次出现中可对应的盆体、冠部和垂藤外观一致；人物经过造成短暂局部遮挡，未见实际外观漂移。",
+          "limitations": "仅提供shot3同侧视图，无法评价背面或跨镜头一致性。植物尺寸较小且略模糊，叶脉、单叶精细形状及盆体细微纹理不可核验；细节评分仅依据可辨枝叶布局。"
+        },
+        {
+          "global_entity_id": "ge0032",
+          "name": "Tissue packet",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 6,
+          "unknown_observations": 0,
+          "input_sha256": "263e1b7daa976f91b77ce20ff9c5a6ac03ab872e674d784d9abe294090cf86d6",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9669271273475458,
+          "codex_reason": "全部六次出现的可见包体、蓝白色块及纸巾折角一致，未发现可比较部位的外观漂移。",
+          "limitations": "仅提供shot3同一视角，无法进行跨镜头比较。灯杆持续遮挡中部，背面、底面及细小印刷不可检查；细节评分仅覆盖可辨识的折角与色块边缘。"
+        },
+        {
+          "global_entity_id": "ge0033",
+          "name": "Plant pot on console table",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "c868e6f2329349c41340e4feff854c42a51a145c1805a9c6c5e37ad546551f48",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9569584644196317,
+          "codex_reason": "所有提供帧中的可见盆体轮廓、比例和棕褐色表面保持一致，未发现实际外观漂移；评分仅覆盖可比较的粗略属性。",
+          "limitations": "仅提供shot3的近似同视角证据，无法评价跨镜头或背面一致性。目标约30×25像素，盆口被叶片遮挡，底部边界模糊，无法核验细节及具体材质；周围植株不作为盆体结构评分依据。"
+        },
+        {
+          "global_entity_id": "ge0034",
+          "name": "Stack of books",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 5,
+          "unknown_observations": 1,
+          "input_sha256": "4ee6cfbff4ad8aac8d014c5e52bad53610e62bbef4208c576e6e619f4722e723",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9471083818290101,
+          "codex_reason": "五次观察中，书堆可比较的外形、叠层比例和表面色块一致，未见明确外观漂移；评分仅覆盖可辨认属性。",
+          "limitations": "仅提供shot3同一视角，无法进行跨镜头比较。目标约47×18至20像素，无法可靠核实精确册数、细微材质或隐藏表面；缺失检测帧不作为缺席证据。"
+        },
+        {
+          "global_entity_id": "ge0035",
+          "name": "Small hallway cabinet",
+          "observed_shot_ids": [
+            "shot3"
+          ],
+          "appearances": 3,
+          "unknown_observations": 3,
+          "input_sha256": "3d088ed7132c800beb6496b98ce4b6c1c56d6bab54644873902a32abfa3e71d4",
+          "codex_score": 100,
+          "codex_status": "success",
+          "dino_score": 0.9891688253127021,
+          "codex_reason": "三次出现中，可比较的柜体轮廓、分区比例和深棕色木质表面一致，未发现可见外观矛盾。",
+          "limitations": "仅有shot3内近乎相同视角的证据，无跨镜头比较。柜体像素少、偏暗且左缘遮挡；隐藏部分、精细木纹与五金细节无法判断。"
+        }
+      ],
+      "cost": {
+        "status": "standard_api_equivalent_estimate_not_invoice",
+        "currency": "USD",
+        "estimate": 5.267630000000001,
+        "source": "https://developers.openai.com/api/docs/models/gpt-6-astra",
+        "verified_date": "2026-09-20",
+        "per_million_tokens": {
+          "uncached_input": 10,
+          "cached_input": 1,
+          "cache_write_input": 12.5,
+          "output": 50
+        },
+        "long_context": "input>272000: input/cache/write x2, output x1.5",
+        "excludes": "This interactive conversation, GPU and any subscription-specific billing"
+      },
+      "timing": {
+        "calls": 33,
+        "summed_call_seconds": 1068.395448923111,
+        "first_call_started": 1789931055.6441097,
+        "last_call_ended": 1789931418.0105476,
+        "call_span_seconds": 362.3664379119873,
+        "dino": {
+          "seconds_since_shared_start": 5.9393837451934814,
+          "model": "facebook/dinov2-base",
+          "model_path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/entitybench-wan21-smoke/cache/models/dinov2-base",
+          "model_hashes": {
+            "config.json": "f7ff4cfa73d2f70647dbf6950541ad25d73082d54c2e7e9bded160c7656b2a70",
+            "model.safetensors": "d73036b56966966d07975d696bde331762f37297e2f095de8cea0040c3aa0841",
+            "preprocessor_config.json": "14e780d86fa1861f8751f868d7f45425b5feb55c38ca26f152ca5097ab30f828"
+          },
+          "processor": {
+            "crop_size": {
+              "height": 224,
+              "width": 224
+            },
+            "do_center_crop": true,
+            "do_convert_rgb": true,
+            "do_normalize": true,
+            "do_rescale": true,
+            "do_resize": true,
+            "image_mean": [
+              0.485,
+              0.456,
+              0.406
+            ],
+            "image_processor_type": "BitImageProcessor",
+            "image_std": [
+              0.229,
+              0.224,
+              0.225
+            ],
+            "resample": 3,
+            "rescale_factor": 0.00392156862745098,
+            "size": {
+              "shortest_edge": 256
+            }
+          },
+          "torch": "2.7.1+rocm6.3",
+          "device": "AMD Instinct MI210",
+          "uuid": "GPU-b3268cdb8701c73e",
+          "batch_size": 16,
+          "appearance_count": 234
+        }
+      }
+    }
+  },
+  "total": {
+    "calls": 67,
+    "tokens": 1172151,
+    "api_equivalent_usd": 11.717910000000002,
+    "codex_wall_seconds": 705.4572768211365
+  },
+  "audit": {
+    "study2": {
+      "passed": true,
+      "entities": 36,
+      "positive_appearances": 240,
+      "unknown_observations": 30,
+      "codex_calls": 34,
+      "complete_frozen_population": true,
+      "original_boxes_and_hashes_unchanged": true,
+      "all_attachments_accounted": true,
+      "dimension_and_entity_means_valid": true,
+      "dino_independently_recomputed": true
+    },
+    "study3": {
+      "passed": true,
+      "entities": 35,
+      "positive_appearances": 234,
+      "unknown_observations": 36,
+      "codex_calls": 33,
+      "complete_frozen_population": true,
+      "original_boxes_and_hashes_unchanged": true,
+      "all_attachments_accounted": true,
+      "dimension_and_entity_means_valid": true,
+      "dino_independently_recomputed": true
+    },
+    "implementation_unchanged": true
+  },
+  "manual_review_flags": [
+    {
+      "study": "study2",
+      "entity": "ge0009",
+      "related_entity": "ge0016",
+      "status": "potential_scope_leakage_requires_review",
+      "description": "Plant score91.6667 is reduced mainly for planter proportions, while planter is separately scored as ge0016. Possible duplicate attribution of the same container change; not a confirmed false positive without explicit entity-scope annotation.",
+      "action": "Preserve original prompt and all raw scores for this first run; no outcome-driven rerun or manual score override."
+    }
+  ]
+}

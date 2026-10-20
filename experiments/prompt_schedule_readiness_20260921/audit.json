@@ -1,0 +1,53 @@
+{
+  "status": "structural_audit_complete_formal_schedule_and_claims_missing",
+  "checked_utc": "2026-09-21T19:09:14.858595+00:00",
+  "input": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/source_video_400_20260920/deliverables/candidates_400.jsonl",
+  "input_sha256": "e124ff566333309b1c1a667408b8aaabb506f4ae9f224253f9f2d6e200c08fb9",
+  "counts": {
+    "episodes": 400,
+    "shots": 2000,
+    "source_entities": 1813,
+    "global_prompts": 400,
+    "entity_shot_cells_if_existing_source_population_is_retained": 9236,
+    "episodes_with_entity_schedule": 0,
+    "episodes_with_registry": 0,
+    "episodes_with_prompt_registry": 0,
+    "episodes_with_claims": 0,
+    "episodes_with_contract": 0,
+    "source_entities_with_schedule": 0,
+    "per_shot_prompts": 2000,
+    "shots_with_entity_schedule": 0,
+    "shots_with_prompt_entity_ids": 2000,
+    "shots_with_visible_entity_ids": 2000
+  },
+  "structural_errors": [],
+  "study3_reference": {
+    "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/prompt_alignment_four_dimensions_20260921/frozen/contract.json",
+    "sha256": "edc6634cfd264f0933e7c46c7289d966277e29ecfb8e938b34570c1f307e812d",
+    "registry_schema": "prompt_registry_v1",
+    "contract_schema": "prompt_alignment_b_v1",
+    "dimension_profile": "four_dimensions_v1",
+    "prompt_entities": 9,
+    "claims": 79,
+    "claim_counts": {
+      "presence": 18,
+      "appearance": 28,
+      "spatial": 17,
+      "motion": 16
+    },
+    "claims_source": "Text-only inventory with ordinary appearance scoped to visible observations; correction documented before fresh evaluation"
+  },
+  "scope": "Published 400-record package and selected Study3 reference; source metadata is not a text-only evaluation contract.",
+  "semantic_coverage_validated": false,
+  "model_calls": 0,
+  "tokens": 0,
+  "api_usd": 0,
+  "production_files_changed": false,
+  "limitations": [
+    "Referential checks do not establish that every prompt-mentioned entity or requirement is represented.",
+    "Source-frame facts, visible entities and occurrences must not silently become generation requirements.",
+    "Unlisted source entities do not imply forbidden or physically absent entities.",
+    "Study3's human-authored claims and fresh scoring do not validate automatic compilation of this dataset.",
+    "No registry, schedule, claim, prompt, scoring rule or generated video was modified by this audit."
+  ]
+}

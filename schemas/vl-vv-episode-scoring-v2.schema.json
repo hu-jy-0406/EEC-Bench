@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV episode scoring agent response v2",
+  "type": "object",
+  "required": ["protocol", "assessments"],
+  "properties": {
+    "protocol": {"type": "string", "const": "vl_vv_episode_scoring_v2"},
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["issue_id", "severity", "duplicate_of", "reason"],
+        "properties": {
+          "issue_id": {"type": "string", "minLength": 1},
+          "severity": {"type": "string", "enum": ["none", "minor", "moderate", "major", "critical"]},
+          "duplicate_of": {"type": ["string", "null"]},
+          "reason": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

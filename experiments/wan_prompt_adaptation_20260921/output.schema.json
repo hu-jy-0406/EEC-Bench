@@ -1,0 +1,91 @@
+{
+  "type": "object",
+  "properties": {
+    "episodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "episode_id": {
+            "type": "string"
+          },
+          "shots": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "shot_id": {
+                  "type": "string"
+                },
+                "additions": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "text": {
+                        "type": "string"
+                      },
+                      "target_quote": {
+                        "type": "string"
+                      },
+                      "evidence": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "source_shot_id": {
+                              "type": "string"
+                            },
+                            "quote": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "source_shot_id",
+                            "quote"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "reason": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "text",
+                      "target_quote",
+                      "evidence",
+                      "reason"
+                    ],
+                    "additionalProperties": false
+                  }
+                },
+                "unresolved_dependencies": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "shot_id",
+                "additions",
+                "unresolved_dependencies"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "episode_id",
+          "shots"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "episodes"
+  ],
+  "additionalProperties": false
+}

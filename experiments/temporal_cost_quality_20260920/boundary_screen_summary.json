@@ -1,0 +1,139 @@
+{
+  "seconds": 430.10136890411377,
+  "results": [
+    {
+      "status": "success",
+      "started": 1789915093.6131477,
+      "status_differences": [
+        {
+          "event_id": "presence_g10",
+          "old": {
+            "status": "unknown",
+            "gate_reason": "uncertain_prompt_cause"
+          },
+          "new": {
+            "status": "exempt",
+            "gate_reason": "accepted"
+          }
+        }
+      ],
+      "exact_event_status_match": false,
+      "scores": {
+        "presence": {
+          "score": 83.33333333333334,
+          "coverage": 0.75,
+          "N": 12,
+          "C": 7,
+          "K": 2,
+          "U": 3,
+          "E": 18,
+          "identification_interval": [
+            58.333333333333336,
+            83.33333333333333
+          ]
+        },
+        "spatial": {
+          "score": 96.42857142857143,
+          "total_pairs": 28,
+          "confirmed_conflict_pairs": 1,
+          "anomaly_ratio": 0.03571428571428571,
+          "no_conflict_pairs": 18,
+          "unresolved_pairs": 9,
+          "exempt_pairs": 0,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "seconds": 378.6641411781311
+    },
+    {
+      "status": "success",
+      "started": 1789915093.6141977,
+      "status_differences": [
+        {
+          "event_id": "presence_g17",
+          "old": {
+            "status": "unknown",
+            "gate_reason": "uncertain_prompt_cause"
+          },
+          "new": {
+            "status": "exempt",
+            "gate_reason": "accepted"
+          }
+        },
+        {
+          "event_id": "presence_g27",
+          "old": {
+            "status": "unknown",
+            "gate_reason": "uncertain_prompt_cause"
+          },
+          "new": {
+            "status": "exempt",
+            "gate_reason": "accepted"
+          }
+        }
+      ],
+      "exact_event_status_match": false,
+      "scores": {
+        "presence": {
+          "score": 90.0,
+          "coverage": 0.9,
+          "N": 10,
+          "C": 8,
+          "K": 1,
+          "U": 1,
+          "E": 20,
+          "identification_interval": [
+            80.0,
+            90.0
+          ]
+        },
+        "spatial": {
+          "score": 97.22222222222221,
+          "total_pairs": 36,
+          "confirmed_conflict_pairs": 1,
+          "anomaly_ratio": 0.027777777777777776,
+          "no_conflict_pairs": 25,
+          "unresolved_pairs": 10,
+          "exempt_pairs": 0,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "seconds": 411.4165484905243
+    },
+    {
+      "status": "success",
+      "started": 1789915093.6112947,
+      "status_differences": [],
+      "exact_event_status_match": true,
+      "scores": {
+        "presence": {
+          "score": 100.0,
+          "coverage": 0.5,
+          "N": 10,
+          "C": 5,
+          "K": 0,
+          "U": 5,
+          "E": 15,
+          "identification_interval": [
+            50.0,
+            100.0
+          ]
+        },
+        "spatial": {
+          "score": 100.0,
+          "total_pairs": 15,
+          "confirmed_conflict_pairs": 0,
+          "anomaly_ratio": 0.0,
+          "no_conflict_pairs": 11,
+          "unresolved_pairs": 3,
+          "exempt_pairs": 1,
+          "scoring_protocol": "confirmed_anomaly_fraction_v1",
+          "formula": "100*(1-confirmed_conflict_pairs/total_pairs)"
+        }
+      },
+      "seconds": 427.516104221344
+    }
+  ]
+}

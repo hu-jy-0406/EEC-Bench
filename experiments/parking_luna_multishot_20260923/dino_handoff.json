@@ -1,0 +1,29 @@
+{
+  "worker": "node251_gpu2",
+  "pid": 487408,
+  "uuid": "GPU-f3891072d8a2dde1",
+  "job": "214135",
+  "started": 1790176792.2651963,
+  "status": "failed",
+  "worker_before": {
+    "worker": "node251_gpu2",
+    "node": "auh7-1b-gpu-251",
+    "pid": 487408,
+    "job": "214135",
+    "uuid": "GPU-f3891072d8a2dde1",
+    "mode": "mapped",
+    "transport": "local_staged_mmap_v4",
+    "cpus": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "state": "waiting_for_phase_barrier",
+    "started": 1790175549.9460945,
+    "loaded": 1790175567.9639108,
+    "heartbeat": 1790176790.428982
+  },
+  "error": "CalledProcessError(1, ['/vast/users/guangyi.chen/anaconda3/bin/python', '/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_entity_appearance_scoring.py', 'report', '--runs', '/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/appearance/compact', '--out', '/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/parking_luna_multishot_20260923/shared/parking4/appearance/report'])",
+  "finished": 1790176818.646441
+}

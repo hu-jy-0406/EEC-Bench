@@ -1,0 +1,95 @@
+{
+  "version": "gs-consistency-v1.1",
+  "status": "success",
+  "host": "auh7-1b-gpu-241",
+  "allocation": "185272",
+  "started": 1789406517.4952343,
+  "score": 88.88888888888889,
+  "coverage": 0.2222222222222222,
+  "ended": 1789406588.2421637,
+  "calls": [
+    {
+      "stage": "matching",
+      "status": "success",
+      "started": 1789405692.5447083,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 89227,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2944,
+          "reasoning_output_tokens": 226
+        }
+      ],
+      "ended": 1789405789.566952,
+      "seconds": 97.02224397659302
+    },
+    {
+      "stage": "recheck",
+      "status": "success",
+      "started": 1789406517.7897987,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 97571,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2059,
+          "reasoning_output_tokens": 88
+        }
+      ],
+      "ended": 1789406588.1621408,
+      "seconds": 70.37234234809875
+    },
+    {
+      "stage": "verification",
+      "status": "success",
+      "started": 1789406083.0056944,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 95785,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 8913,
+          "reasoning_output_tokens": 209
+        }
+      ],
+      "ended": 1789406358.235875,
+      "seconds": 275.23018050193787
+    },
+    {
+      "stage": "witness",
+      "status": "success",
+      "started": 1789405789.6181958,
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "usage": [
+        {
+          "input_tokens": 95771,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 9532,
+          "reasoning_output_tokens": 333
+        }
+      ],
+      "ended": 1789406082.978822,
+      "seconds": 293.3606264591217
+    }
+  ],
+  "reused_stages_from": "../run01",
+  "reused_stage_names": [
+    "matching",
+    "witness",
+    "verification"
+  ],
+  "new_model_calls": 1,
+  "total_unique_model_calls_in_experiment": 4,
+  "geometry_release": "EECBench/releases/static-geometry-20260914-v1",
+  "geometry_manifest_sha256": "16be1d39a31eca6f275f046651f1c3864a8d2d5f8e572ee6c0f653de51453c99",
+  "scoring_revision": "v1.1 fixed non-complementary universe; one bounded witness recheck"
+}

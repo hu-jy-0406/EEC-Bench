@@ -1,0 +1,353 @@
+{
+  "updated": 1790012559.85532,
+  "status": "complete_with_recorded_first_quality_and_concat_recoveries",
+  "init_seconds": {
+    "t2v": 223.194819,
+    "m2v": 183.35688
+  },
+  "shots": [
+    {
+      "shot": 1,
+      "frames": 81,
+      "width": 832,
+      "height": 480,
+      "seed": 20260921,
+      "cpu_binding": [
+        0,
+        1,
+        64,
+        65
+      ],
+      "generate_seconds": 1608.71196,
+      "input_memory_count": 0,
+      "keyframe_selection_seconds": 823.6880781999789,
+      "keyframe_selection_cpu_binding": "original contended binding; separate recovery after loader repair",
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_01.mp4",
+      "tensor_stats": {
+        "shape": [
+          1,
+          3,
+          81,
+          480,
+          832
+        ],
+        "finite": true,
+        "min": -1.0,
+        "max": 0.98058879,
+        "std": 0.51918256
+      },
+      "retained_memory_files": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_01_keyframe0.jpg"
+      ]
+    },
+    {
+      "shot": 2,
+      "frames": 81,
+      "width": 832,
+      "height": 480,
+      "seed": 20260922,
+      "cpu_binding": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "generate_seconds": 1747.266293,
+      "input_memory_count": 1,
+      "encode_seconds": 10.084112,
+      "keyframe_selection_seconds": 49.320674,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_02.mp4",
+      "tensor_stats": {
+        "shape": [
+          1,
+          3,
+          81,
+          480,
+          832
+        ],
+        "finite": true,
+        "min": -1.0,
+        "max": 1.0,
+        "std": 0.55506778
+      },
+      "retained_memory_files": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_02_keyframe0.jpg"
+      ]
+    },
+    {
+      "shot": 3,
+      "frames": 81,
+      "width": 832,
+      "height": 480,
+      "seed": 20260923,
+      "cpu_binding": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "generate_seconds": 1899.619174,
+      "input_memory_count": 2,
+      "encode_seconds": 10.255486,
+      "keyframe_selection_seconds": 49.301902,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_03.mp4",
+      "tensor_stats": {
+        "shape": [
+          1,
+          3,
+          81,
+          480,
+          832
+        ],
+        "finite": true,
+        "min": -1.0,
+        "max": 1.0,
+        "std": 0.51419801
+      },
+      "retained_memory_files": []
+    },
+    {
+      "shot": 4,
+      "frames": 81,
+      "width": 832,
+      "height": 480,
+      "seed": 20260924,
+      "cpu_binding": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "generate_seconds": 1851.253911,
+      "input_memory_count": 2,
+      "encode_seconds": 9.866292,
+      "keyframe_selection_seconds": 71.229506,
+      "video": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_04.mp4",
+      "tensor_stats": {
+        "shape": [
+          1,
+          3,
+          81,
+          480,
+          832
+        ],
+        "finite": true,
+        "min": -1.0,
+        "max": 1.0,
+        "std": 0.56021243
+      },
+      "retained_memory_files": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_04_keyframe0.jpg",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_04_keyframe1.jpg"
+      ]
+    }
+  ],
+  "phase_status": {
+    "first": {
+      "phase": "first",
+      "start": 1790003568.7818005,
+      "end": 1790005547.835972,
+      "seconds": 1979.054172039032,
+      "returncode": 1
+    },
+    "memory": {
+      "phase": "memory",
+      "start": 1790006539.2624252,
+      "end": 1790012447.1808622,
+      "seconds": 5907.9184374809265,
+      "returncode": 1,
+      "cpus": [
+        24,
+        25,
+        26,
+        27
+      ],
+      "job": 206117
+    }
+  },
+  "api_calls": 0,
+  "api_tokens": 0,
+  "api_cost_usd": 0,
+  "cluster_cost": "unavailable; local compute is not free",
+  "notes": [
+    "First-shot encode duration unavailable; instrumented directly for memory phase.",
+    "First original phase failed after successful video generation; keyframe-only recovery succeeded.",
+    "First keyframe selection used contended CPU binding; subsequent phase uses dedicated CPUs24\u201327.",
+    "Only actual observed memory counts are measured; cap10 performance is not inferred as validated."
+  ],
+  "official_model_load_projection_400episodes": {
+    "t2v_loads": 400,
+    "m2v_loads": 400,
+    "model_load_hours": 45.172411000000004,
+    "scope": "official per-episode two-invocation lifecycle; excludes interpreter/guard startup; no persistent-worker optimization assumed"
+  },
+  "corrected_cpu_first_quality_timing_validation": {
+    "seconds": 50.1680968850269,
+    "cpu_binding": [
+      28,
+      29,
+      30,
+      31
+    ],
+    "video_sha256": "3bb7b74b0b873e115a0102239ff8b1c0fca944e5cd820f915a9d44c70ad7abb8",
+    "copy_sha256": "3bb7b74b0b873e115a0102239ff8b1c0fca944e5cd820f915a9d44c70ad7abb8",
+    "retained": [
+      "01_01_keyframe0.jpg"
+    ],
+    "same_retained_files_and_hashes": true,
+    "scope": "unchanged official selector on identical completed first video, empty isolated memory bank, corrected CPU binding; original chain untouched; no diffusion"
+  },
+  "generation_only_projection_400episodes": {
+    "first_shots": 400,
+    "memory_shots": 1600,
+    "observed_memory_shots": 3,
+    "input_memory_counts": [
+      1,
+      2,
+      2
+    ],
+    "gpu_hours_mean": 993.2849404444444,
+    "gpu_hours_observed_min": 955.3085702222222,
+    "gpu_hours_observed_max": 1023.0209617777778,
+    "scope": "measured-low-memory generation proxy only; excludes load, encode, HPS/CLIP and unmeasured higher-memory costs; min/max are scenarios, not confidence bounds"
+  },
+  "capacity10_diagnostic_projection": {
+    "kind": "compute-shape extrapolation only; no 40-step cap10 run",
+    "unipc_steps": 40,
+    "shift": 4,
+    "high_steps": 13,
+    "low_steps": 27,
+    "measured_high_step_cfg_seconds": 78.92816261504777,
+    "measured_low_step_cfg_seconds": 69.24017818301218,
+    "fixed_generation_seconds": 166.48093929997412,
+    "projected_generation_seconds": 3062.031864236924,
+    "limits": [
+      "2-step diagnostic bypassed selector using ten distinct real generated frames",
+      "Both measured steps already include conditional and unconditional forward; do not double CFG again",
+      "Fixed generation includes memory encoding and original decoding once",
+      "Excludes model initialization, video encoding and quality selection",
+      "Cold kernels, expert imbalance and per-step timing variation prevent a strict upper bound"
+    ]
+  },
+  "composition_projection_400episodes": {
+    "episodes": 400,
+    "shots": 2000,
+    "first_shots": 400,
+    "memory_shots": 1600,
+    "observed_memory_encode_mean_seconds": 10.068629999999999,
+    "missing_first_encode_proxy_additional_hours": 1.1187366666666665,
+    "assumed_first_quality_seconds": 50.1680968850269,
+    "observed_memory_quality_mean_seconds": 56.61736066666666,
+    "load_encode_quality_hours": 80.38486206129929,
+    "low_memory_mean_hours": 1073.6698025057437,
+    "low_memory_observed_min_scenario_hours": 1035.6934322835216,
+    "low_memory_observed_max_scenario_hours": 1103.4058238390771,
+    "cap10_compute_shape_scenario_hours": 1620.033686166599,
+    "scope": "single-device sequential composition estimate, not measured batch walltime; first encode omitted because unmeasured, its optional mean-encode proxy is separately reported; excludes interpreter/guard/concat/manual/recovery overhead; cap10 extrapolated from 2 steps with 13/27 expert weighting, not upper bound"
+  },
+  "concat_recovery": {
+    "returncode": 0,
+    "seconds": 0.11212880996754393,
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/envs/vace/lib/python3.12/site-packages/imageio_ffmpeg/binaries/ffmpeg-linux-x86_64-v7.0.2",
+      "-f",
+      "concat",
+      "-safe",
+      "0",
+      "-i",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/concat_list.txt",
+      "-c",
+      "copy",
+      "-y",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/storymem_official.mp4"
+    ],
+    "scope": "postprocess only; reuses four completed original videos"
+  },
+  "full_decode_audit": [
+    {
+      "file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_01.mp4",
+      "advertised_frames": 81,
+      "decoded_frames": 81,
+      "expected_frames": 81,
+      "fps": 16.0,
+      "duration_seconds": 5.0625,
+      "shapes": [
+        [
+          480,
+          832,
+          3
+        ]
+      ],
+      "seconds": 0.13526000804267824,
+      "passed": true
+    },
+    {
+      "file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_02.mp4",
+      "advertised_frames": 81,
+      "decoded_frames": 81,
+      "expected_frames": 81,
+      "fps": 16.0,
+      "duration_seconds": 5.0625,
+      "shapes": [
+        [
+          480,
+          832,
+          3
+        ]
+      ],
+      "seconds": 0.19335985003272071,
+      "passed": true
+    },
+    {
+      "file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_03.mp4",
+      "advertised_frames": 81,
+      "decoded_frames": 81,
+      "expected_frames": 81,
+      "fps": 16.0,
+      "duration_seconds": 5.0625,
+      "shapes": [
+        [
+          480,
+          832,
+          3
+        ]
+      ],
+      "seconds": 0.16445169696817175,
+      "passed": true
+    },
+    {
+      "file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/01_04.mp4",
+      "advertised_frames": 81,
+      "decoded_frames": 81,
+      "expected_frames": 81,
+      "fps": 16.0,
+      "duration_seconds": 5.0625,
+      "shapes": [
+        [
+          480,
+          832,
+          3
+        ]
+      ],
+      "seconds": 0.16179386898875237,
+      "passed": true
+    },
+    {
+      "file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/generation_feasibility_20260921/outputs/storymem_official/storymem_official.mp4",
+      "advertised_frames": 324,
+      "decoded_frames": 324,
+      "expected_frames": 324,
+      "fps": 16.0,
+      "duration_seconds": 20.25,
+      "shapes": [
+        [
+          480,
+          832,
+          3
+        ]
+      ],
+      "seconds": 0.6158996499725617,
+      "passed": true
+    }
+  ]
+}

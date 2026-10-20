@@ -1,0 +1,2683 @@
+{
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4",
+  "source_graph": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/within_negative_review_20260920/full/study4/selected/shot1_scene.json",
+  "source_sha256": "b6489d73688f54fb50fd59f4c482bac3a81fb3f1b4b4a757175509a29fd4fd9f",
+  "shot_id": "shot1",
+  "frame_ids": [
+    0,
+    48,
+    96,
+    144,
+    192,
+    240
+  ],
+  "coordinate_system": {
+    "world_frame_id": "shot1/pi3x_scene",
+    "origin": "fixed own-shot scene cloud median",
+    "z_axis": "up",
+    "per_frame_camera_poses": true,
+    "scale": "model metric prior, not calibrated ground truth"
+  },
+  "units": "Shot1 model coordinate units; not calibrated meters",
+  "formula": "mean = sum_{i<j} ||c_i-c_j||_2 / C(n,2); max = max_{i<j} ||c_i-c_j||_2",
+  "population": "Frozen whole-shot static labels; every visible original observation with box and finite center, regardless of fusion selection or residual",
+  "n_less_than_two": "mean and max null, not zero",
+  "entities": [
+    {
+      "entity_id": "shot1/e9",
+      "name": "outdoor plant pot",
+      "name_zh": "室外花盆",
+      "m": 6,
+      "n": 5,
+      "pair_count": 10,
+      "mean_distance": 0.5812294766395165,
+      "max_distance": 1.2928712949946628,
+      "max_frame_pair": [
+        0,
+        192
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192
+      ],
+      "missing_frame_ids": [
+        240
+      ]
+    },
+    {
+      "entity_id": "shot1/e13",
+      "name": "outdoor flowering plant",
+      "name_zh": "室外开花植物",
+      "m": 6,
+      "n": 5,
+      "pair_count": 10,
+      "mean_distance": 0.3128487858883297,
+      "max_distance": 0.5328155276368118,
+      "max_frame_pair": [
+        96,
+        144
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192
+      ],
+      "missing_frame_ids": [
+        240
+      ]
+    },
+    {
+      "entity_id": "shot1/e2",
+      "name": "framed wall picture",
+      "name_zh": "墙上装框画",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.1000954686321761,
+      "max_distance": 0.25502068942641654,
+      "max_frame_pair": [
+        48,
+        96
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e11",
+      "name": "trailing plant on mantel",
+      "name_zh": "壁炉台垂蔓植物",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.0705949438664917,
+      "max_distance": 0.1683433694144027,
+      "max_frame_pair": [
+        0,
+        48
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e8",
+      "name": "sofa",
+      "name_zh": "沙发",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.06277395414454878,
+      "max_distance": 0.09926542676796528,
+      "max_frame_pair": [
+        0,
+        96
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e15",
+      "name": "small vase on mantel",
+      "name_zh": "壁炉台小花瓶",
+      "m": 6,
+      "n": 3,
+      "pair_count": 3,
+      "mean_distance": 0.05116898420899805,
+      "max_distance": 0.0764044390051744,
+      "max_frame_pair": [
+        96,
+        144
+      ],
+      "valid_frame_ids": [
+        96,
+        144,
+        192
+      ],
+      "missing_frame_ids": [
+        0,
+        48,
+        240
+      ]
+    },
+    {
+      "entity_id": "shot1/e7",
+      "name": "potted plant on television cabinet",
+      "name_zh": "电视柜上的盆栽",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.04327771726727905,
+      "max_distance": 0.11195379186330907,
+      "max_frame_pair": [
+        96,
+        144
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e6",
+      "name": "wooden television cabinet",
+      "name_zh": "木电视柜",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.03476871183014216,
+      "max_distance": 0.07232948772862723,
+      "max_frame_pair": [
+        0,
+        144
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e12",
+      "name": "small picture frame on mantel",
+      "name_zh": "壁炉台小相框",
+      "m": 6,
+      "n": 5,
+      "pair_count": 10,
+      "mean_distance": 0.03110303861258833,
+      "max_distance": 0.07532545227563668,
+      "max_frame_pair": [
+        48,
+        192
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": [
+        96
+      ]
+    },
+    {
+      "entity_id": "shot1/e10",
+      "name": "bookshelf",
+      "name_zh": "书架",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.02556177054828596,
+      "max_distance": 0.043187107225578364,
+      "max_frame_pair": [
+        48,
+        96
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e14",
+      "name": "plant beside bookshelf",
+      "name_zh": "书架旁植物",
+      "m": 6,
+      "n": 5,
+      "pair_count": 10,
+      "mean_distance": 0.02538299784187211,
+      "max_distance": 0.03910862819192082,
+      "max_frame_pair": [
+        48,
+        192
+      ],
+      "valid_frame_ids": [
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": [
+        0
+      ]
+    },
+    {
+      "entity_id": "shot1/e5",
+      "name": "television",
+      "name_zh": "电视",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.013752508201299269,
+      "max_distance": 0.03327990893871886,
+      "max_frame_pair": [
+        0,
+        144
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e1",
+      "name": "group of blue-and-white cups",
+      "name_zh": "青花杯组",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.011293639582328457,
+      "max_distance": 0.022254300084782894,
+      "max_frame_pair": [
+        48,
+        240
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e4",
+      "name": "wooden coffee table",
+      "name_zh": "木茶几",
+      "m": 6,
+      "n": 6,
+      "pair_count": 15,
+      "mean_distance": 0.011107018790140631,
+      "max_distance": 0.023087100200614157,
+      "max_frame_pair": [
+        48,
+        144
+      ],
+      "valid_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192,
+        240
+      ],
+      "missing_frame_ids": []
+    },
+    {
+      "entity_id": "shot1/e16",
+      "name": "patterned throw pillow",
+      "name_zh": "花纹靠垫",
+      "m": 6,
+      "n": 2,
+      "pair_count": 1,
+      "mean_distance": 0.0020849785859458365,
+      "max_distance": 0.0020849785859458365,
+      "max_frame_pair": [
+        192,
+        240
+      ],
+      "valid_frame_ids": [
+        192,
+        240
+      ],
+      "missing_frame_ids": [
+        0,
+        48,
+        96,
+        144
+      ]
+    },
+    {
+      "entity_id": "shot1/e17",
+      "name": "curtain",
+      "name_zh": "窗帘",
+      "m": 6,
+      "n": 1,
+      "pair_count": 0,
+      "mean_distance": null,
+      "max_distance": null,
+      "max_frame_pair": null,
+      "valid_frame_ids": [
+        240
+      ],
+      "missing_frame_ids": [
+        0,
+        48,
+        96,
+        144,
+        192
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.011393788937831
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.005682323861076116
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.008855948808080919
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.011550167019453364
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.010894415120824123
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.010095088346535067
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.007577343213998577
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.004368312397534582
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.022254300084782894
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.00433889467220014
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.010392082990968119
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.014144473842596421
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.007404195062321215
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.01828115939217614
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.022172099984548183
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.049644394317935645
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.2528075792086145
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.04125080484469479
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.03000530755121224
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.03180750469865451
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.25502068942641654
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.021469216760444058
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.025439472217731265
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.02270299383330815
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.2512710061214292
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.2434110765641042
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.24506135881125413
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.015339048444721256
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.013322877811293564
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.002878698870827508
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.017366409602583698
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.008141404139253043
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.006585308807220453
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.0061809461549119085
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.01028057237594956
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.01997042251410742
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.023087100200614157
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.01583778232026809
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.015401629822869736
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.007669062529883895
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.004366232947601791
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.005898618547091414
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.008734946302493458
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.012644579980201142
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.004440265607059696
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.006673702077830221
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.0077897235698097455
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.03327990893871886
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.009550983180161697
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.008716445898113366
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.009267045920062054
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.02777947264671822
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.00621865309074507
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.004883114392340451
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.02868689329259971
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.006006468338064576
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.0066657414892393385
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.023908751691205998
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.024767882056652667
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.0020928364372270365
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.011513974115620672
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.011794975326676746
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.07232948772862723
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.03793340726593928
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.04452828933007688
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.0030420971305488
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.06651332975966201
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.033152060731240086
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.03955198796592543
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.06418601367561129
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.030724094785405786
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.03708048599814817
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.03449535274792969
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.0278621944205423
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.006822926470177949
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.010578660527290656
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.020530087829670352
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.09341004821157863
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.014588899541847545
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.01431874492551972
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.011315583565098574
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.10073293237419179
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.021129458358672956
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.021711337899768614
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.11195379186330907
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.03202221667864351
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.03226497306239469
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.08038293800200237
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.08098385833083903
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.00324222783835833
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.09444371573684159
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.09926542676796528
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.030842684132709713
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.06695771119535118
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.07644961056156473
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.013989169347192496
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.06443962921959855
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.07560476416327967
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.07298871151922252
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.07039399845416505
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.08143315539705956
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.07819344476109355
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.04925445607312816
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.05654426402263627
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.010808570816423422
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.422244586548606
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.49737258157568737
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.18558333969703156
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 1.2928712949946628
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.07588336702408469
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.24107366245702347
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.8717424730740206
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.3160309683395314
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.796823383166689
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 1.1126691095178285
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.024675732991278357
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.03439390665721062
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.0059847651525903895
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.02517752195827604
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.02541902118137212
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.043187107225578364
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.025061542946789306
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.020422988292196447
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.013187655390104667
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.038013586749309276
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.0239500040685856
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.03463407127479813
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.027990143057130306
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.028520737849182583
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.012807773429887204
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.1683433694144027
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.10290335210820842
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.10297953974308088
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.10293418410697187
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.10185566723820168
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.0803220308585643
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.09055723968301813
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.09131854235357136
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.08791465104482765
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.04062356323255913
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.037609767566817824
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.036558083647383846
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.004971605915259115
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.004450324034684844
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.005582237049823833
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.056210585997052344
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.004088911636878978
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.0191845681999775
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 0,
+      "frame_b": 240,
+      "distance": 0.0019778910206661848
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.05308434125817721
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.07532545227563668
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.0556420797202423
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.022542622389696138
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.00321251051982008
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.019761423107735855
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 0,
+      "frame_b": 48,
+      "distance": 0.4318296851574299
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 0,
+      "frame_b": 96,
+      "distance": 0.5176036845072979
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 0,
+      "frame_b": 144,
+      "distance": 0.0301045524398067
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 0,
+      "frame_b": 192,
+      "distance": 0.13698625698088937
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.09298804850860817
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.4486190061957067
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.34787121117233
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.5328155276368118
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.4374613992620259
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.1522084870223906
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 48,
+      "frame_b": 96,
+      "distance": 0.015209160132624272
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 48,
+      "frame_b": 144,
+      "distance": 0.03148431610607671
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 48,
+      "frame_b": 192,
+      "distance": 0.03910862819192082
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 48,
+      "frame_b": 240,
+      "distance": 0.03735168520682362
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.02179644221287984
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.028551394024228138
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 96,
+      "frame_b": 240,
+      "distance": 0.03425277406045789
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.008840808106753223
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 144,
+      "frame_b": 240,
+      "distance": 0.017618328500143422
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.01961644187681319
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_a": 96,
+      "frame_b": 144,
+      "distance": 0.0764044390051744
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_a": 96,
+      "frame_b": 192,
+      "distance": 0.06261121956768587
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_a": 144,
+      "frame_b": 192,
+      "distance": 0.014491294054133902
+    },
+    {
+      "entity_id": "shot1/e16",
+      "frame_a": 192,
+      "frame_b": 240,
+      "distance": 0.0020849785859458365
+    }
+  ],
+  "centers": [
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 0,
+      "x": 0.6566242575645447,
+      "y": -0.5017111301422119,
+      "z": -0.025095582008361816,
+      "box_xyxy": [
+        623.0,
+        240.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 48,
+      "x": 0.6594961285591125,
+      "y": -0.4910109043121338,
+      "z": -0.027755647897720337,
+      "box_xyxy": [
+        623.0,
+        240.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 96,
+      "x": 0.6618946194648743,
+      "y": -0.5007884502410889,
+      "z": -0.027008891105651855,
+      "box_xyxy": [
+        623.0,
+        240.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 144,
+      "x": 0.6639784574508667,
+      "y": -0.4970066547393799,
+      "z": -0.026582688093185425,
+      "box_xyxy": [
+        623.0,
+        240.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 192,
+      "x": 0.6607803702354431,
+      "y": -0.4910416603088379,
+      "z": -0.023580491542816162,
+      "box_xyxy": [
+        623.0,
+        240.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e1",
+      "frame_id": 240,
+      "x": 0.6543543338775635,
+      "y": -0.5122621059417725,
+      "z": -0.023608088493347168,
+      "box_xyxy": [
+        623.0,
+        241.0,
+        676.0,
+        278.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 0,
+      "x": -1.5538548231124878,
+      "y": 1.6819868087768555,
+      "z": 1.1668964624404907,
+      "box_xyxy": [
+        88.0,
+        0.0,
+        206.0,
+        34.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 48,
+      "x": -1.5325461626052856,
+      "y": 1.63742995262146,
+      "z": 1.161877155303955,
+      "box_xyxy": [
+        88.0,
+        0.0,
+        206.0,
+        34.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 96,
+      "x": -1.7316744327545166,
+      "y": 1.5999107360839844,
+      "z": 1.0070359706878662,
+      "box_xyxy": [
+        88.0,
+        0.0,
+        136.0,
+        30.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 144,
+      "x": -1.549235224723816,
+      "y": 1.6417405605316162,
+      "z": 1.1746764183044434,
+      "box_xyxy": [
+        88.0,
+        0.0,
+        206.0,
+        34.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 192,
+      "x": -1.5531967878341675,
+      "y": 1.6521193981170654,
+      "z": 1.1640994548797607,
+      "box_xyxy": [
+        89.0,
+        0.0,
+        206.0,
+        34.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e2",
+      "frame_id": 240,
+      "x": -1.5509752035140991,
+      "y": 1.6503868103027344,
+      "z": 1.1646907329559326,
+      "box_xyxy": [
+        89.0,
+        0.0,
+        206.0,
+        34.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 0,
+      "x": 0.1472780853509903,
+      "y": -0.40996336936950684,
+      "z": -0.2492954432964325,
+      "box_xyxy": [
+        220.0,
+        209.0,
+        752.0,
+        479.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 48,
+      "x": 0.13025803864002228,
+      "y": -0.4104132652282715,
+      "z": -0.25271710753440857,
+      "box_xyxy": [
+        220.0,
+        209.0,
+        752.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 96,
+      "x": 0.14894075691699982,
+      "y": -0.4174377918243408,
+      "z": -0.25206148624420166,
+      "box_xyxy": [
+        224.0,
+        208.0,
+        752.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 144,
+      "x": 0.15330922603607178,
+      "y": -0.4111473560333252,
+      "z": -0.25165972113609314,
+      "box_xyxy": [
+        222.0,
+        208.0,
+        752.0,
+        479.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 192,
+      "x": 0.14545844495296478,
+      "y": -0.4148595333099365,
+      "z": -0.2526000738143921,
+      "box_xyxy": [
+        222.0,
+        208.0,
+        752.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e4",
+      "frame_id": 240,
+      "x": 0.1432427614927292,
+      "y": -0.41869354248046875,
+      "z": -0.252927303314209,
+      "box_xyxy": [
+        222.0,
+        208.0,
+        752.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 0,
+      "x": -0.41487327218055725,
+      "y": 2.5066895484924316,
+      "z": 0.5110300183296204,
+      "box_xyxy": [
+        291.0,
+        41.0,
+        442.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 48,
+      "x": -0.41101595759391785,
+      "y": 2.512014150619507,
+      "z": 0.5098863244056702,
+      "box_xyxy": [
+        291.0,
+        41.0,
+        442.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 96,
+      "x": -0.41969770193099976,
+      "y": 2.5124449729919434,
+      "z": 0.5130987763404846,
+      "box_xyxy": [
+        290.0,
+        41.0,
+        442.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 144,
+      "x": -0.4114076495170593,
+      "y": 2.5397841930389404,
+      "z": 0.5104949474334717,
+      "box_xyxy": [
+        291.0,
+        41.0,
+        442.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 192,
+      "x": -0.41526687145233154,
+      "y": 2.5162150859832764,
+      "z": 0.511604905128479,
+      "box_xyxy": [
+        291.0,
+        41.0,
+        442.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e5",
+      "frame_id": 240,
+      "x": -0.4136591851711273,
+      "y": 2.5151987075805664,
+      "z": 0.5124779939651489,
+      "box_xyxy": [
+        291.0,
+        41.0,
+        443.0,
+        139.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 0,
+      "x": -0.3628493547439575,
+      "y": 2.4681496620178223,
+      "z": -0.13506010174751282,
+      "box_xyxy": [
+        276.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 48,
+      "x": -0.35958489775657654,
+      "y": 2.4736788272857666,
+      "z": -0.1446174681186676,
+      "box_xyxy": [
+        276.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 96,
+      "x": -0.3587925434112549,
+      "y": 2.4760236740112305,
+      "z": -0.14284878969192505,
+      "box_xyxy": [
+        277.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 144,
+      "x": -0.3627982437610626,
+      "y": 2.54008412361145,
+      "z": -0.14260897040367126,
+      "box_xyxy": [
+        276.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 192,
+      "x": -0.36466243863105774,
+      "y": 2.5058767795562744,
+      "z": -0.13857018947601318,
+      "box_xyxy": [
+        276.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e6",
+      "frame_id": 240,
+      "x": -0.3632815182209015,
+      "y": 2.51255464553833,
+      "z": -0.13834327459335327,
+      "box_xyxy": [
+        276.0,
+        135.0,
+        470.0,
+        223.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 0,
+      "x": 0.16624654829502106,
+      "y": 2.3606929779052734,
+      "z": 0.33965128660202026,
+      "box_xyxy": [
+        434.0,
+        97.0,
+        472.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 48,
+      "x": 0.17153331637382507,
+      "y": 2.3515803813934326,
+      "z": 0.3386927843093872,
+      "box_xyxy": [
+        435.0,
+        97.0,
+        472.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 96,
+      "x": 0.16976894438266754,
+      "y": 2.3404688835144043,
+      "z": 0.33990275859832764,
+      "box_xyxy": [
+        435.0,
+        97.0,
+        472.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 144,
+      "x": 0.19528450071811676,
+      "y": 2.449472665786743,
+      "z": 0.33901768922805786,
+      "box_xyxy": [
+        434.0,
+        96.0,
+        473.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 192,
+      "x": 0.17474450170993805,
+      "y": 2.3718907833099365,
+      "z": 0.3435538411140442,
+      "box_xyxy": [
+        435.0,
+        97.0,
+        473.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e7",
+      "frame_id": 240,
+      "x": 0.17238885164260864,
+      "y": 2.372087001800537,
+      "z": 0.34577295184135437,
+      "box_xyxy": [
+        434.0,
+        96.0,
+        473.0,
+        140.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 0,
+      "x": -0.6034553050994873,
+      "y": -1.512045979499817,
+      "z": -0.09210404753684998,
+      "box_xyxy": [
+        0.0,
+        187.0,
+        453.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 48,
+      "x": -0.6900558471679688,
+      "y": -1.4778411388397217,
+      "z": -0.10791513323783875,
+      "box_xyxy": [
+        0.0,
+        188.0,
+        453.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 96,
+      "x": -0.6937718391418457,
+      "y": -1.4710663557052612,
+      "z": -0.09625363349914551,
+      "box_xyxy": [
+        0.0,
+        187.0,
+        454.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 144,
+      "x": -0.6329299211502075,
+      "y": -1.5063509941101074,
+      "z": -0.0991811454296112,
+      "box_xyxy": [
+        0.0,
+        188.0,
+        454.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 192,
+      "x": -0.6613993048667908,
+      "y": -1.54555082321167,
+      "z": -0.09030032157897949,
+      "box_xyxy": [
+        0.0,
+        188.0,
+        454.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e8",
+      "frame_id": 240,
+      "x": -0.6719740033149719,
+      "y": -1.5457128286361694,
+      "z": -0.08806991577148438,
+      "box_xyxy": [
+        0.0,
+        188.0,
+        454.0,
+        480.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_id": 0,
+      "x": 1.3800349235534668,
+      "y": 3.2490882873535156,
+      "z": -0.13687041401863098,
+      "box_xyxy": [
+        583.0,
+        159.0,
+        604.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_id": 48,
+      "x": 1.4532335996627808,
+      "y": 3.6634533405303955,
+      "z": -0.17199942469596863,
+      "box_xyxy": [
+        583.0,
+        159.0,
+        604.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_id": 96,
+      "x": 1.462746024131775,
+      "y": 3.7367262840270996,
+      "z": -0.18928742408752441,
+      "box_xyxy": [
+        583.0,
+        159.0,
+        604.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_id": 144,
+      "x": 1.3855160474777222,
+      "y": 3.434586763381958,
+      "z": -0.13807401061058044,
+      "box_xyxy": [
+        583.0,
+        159.0,
+        604.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e9",
+      "frame_id": 192,
+      "x": 1.665967345237732,
+      "y": 4.5009260177612305,
+      "z": -0.2874065637588501,
+      "box_xyxy": [
+        583.0,
+        160.0,
+        607.0,
+        188.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 0,
+      "x": 2.212397336959839,
+      "y": 0.7596189975738525,
+      "z": 0.05537065863609314,
+      "box_xyxy": [
+        823.0,
+        72.0,
+        852.0,
+        303.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 48,
+      "x": 2.2262284755706787,
+      "y": 0.770392894744873,
+      "z": 0.038006484508514404,
+      "box_xyxy": [
+        823.0,
+        70.0,
+        852.0,
+        304.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 96,
+      "x": 2.206638813018799,
+      "y": 0.7894856929779053,
+      "z": 0.07142558693885803,
+      "box_xyxy": [
+        823.0,
+        70.0,
+        852.0,
+        303.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 144,
+      "x": 2.2089812755584717,
+      "y": 0.7575743198394775,
+      "z": 0.05090218782424927,
+      "box_xyxy": [
+        823.0,
+        71.0,
+        852.0,
+        303.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 192,
+      "x": 2.2192134857177734,
+      "y": 0.7836077213287354,
+      "z": 0.05190816521644592,
+      "box_xyxy": [
+        823.0,
+        71.0,
+        852.0,
+        301.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e10",
+      "frame_id": 240,
+      "x": 2.2297565937042236,
+      "y": 0.7770071029663086,
+      "z": 0.04885631799697876,
+      "box_xyxy": [
+        822.0,
+        72.0,
+        852.0,
+        302.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 0,
+      "x": -1.897715449333191,
+      "y": 0.9329674243927002,
+      "z": 0.5314416289329529,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        66.0,
+        153.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 48,
+      "x": -1.8765982389450073,
+      "y": 0.9111833572387695,
+      "z": 0.36585476994514465,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        65.0,
+        205.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 96,
+      "x": -1.920005202293396,
+      "y": 0.9289455413818359,
+      "z": 0.43106189370155334,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        65.0,
+        205.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 144,
+      "x": -1.921967625617981,
+      "y": 0.8896598815917969,
+      "z": 0.4412137269973755,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        65.0,
+        206.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 192,
+      "x": -1.9255868196487427,
+      "y": 0.8930373191833496,
+      "z": 0.44075414538383484,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        66.0,
+        206.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e11",
+      "frame_id": 240,
+      "x": -1.9200544357299805,
+      "y": 0.893552303314209,
+      "z": 0.44021666049957275,
+      "box_xyxy": [
+        0.0,
+        0.0,
+        66.0,
+        205.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_id": 0,
+      "x": -1.2351857423782349,
+      "y": 2.1360721588134766,
+      "z": 0.8067113757133484,
+      "box_xyxy": [
+        225.0,
+        32.0,
+        244.0,
+        49.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_id": 48,
+      "x": -1.216836929321289,
+      "y": 2.0832817554473877,
+      "z": 0.8007010221481323,
+      "box_xyxy": [
+        225.0,
+        32.0,
+        244.0,
+        49.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_id": 144,
+      "x": -1.2353062629699707,
+      "y": 2.132425546646118,
+      "z": 0.8085571527481079,
+      "box_xyxy": [
+        225.0,
+        32.0,
+        244.0,
+        49.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_id": 192,
+      "x": -1.2397243976593018,
+      "y": 2.1545140743255615,
+      "z": 0.8094213604927063,
+      "box_xyxy": [
+        225.0,
+        32.0,
+        244.0,
+        49.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e12",
+      "frame_id": 240,
+      "x": -1.2344061136245728,
+      "y": 2.135507106781006,
+      "z": 0.8084390759468079,
+      "box_xyxy": [
+        226.0,
+        32.0,
+        244.0,
+        49.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_id": 0,
+      "x": 1.6826571226119995,
+      "y": 4.486422538757324,
+      "z": -0.015253186225891113,
+      "box_xyxy": [
+        583.0,
+        125.0,
+        629.0,
+        164.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_id": 48,
+      "x": 1.5327521562576294,
+      "y": 4.092153549194336,
+      "z": -0.10775908827781677,
+      "box_xyxy": [
+        582.0,
+        126.0,
+        629.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_id": 96,
+      "x": 1.531427025794983,
+      "y": 3.9992852210998535,
+      "z": -0.10323196649551392,
+      "box_xyxy": [
+        582.0,
+        126.0,
+        630.0,
+        187.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_id": 144,
+      "x": 1.712109923362732,
+      "y": 4.492509841918945,
+      "z": -0.013926029205322266,
+      "box_xyxy": [
+        583.0,
+        127.0,
+        629.0,
+        164.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e13",
+      "frame_id": 192,
+      "x": 1.6417840719223022,
+      "y": 4.421817779541016,
+      "z": -0.12892311811447144,
+      "box_xyxy": [
+        582.0,
+        125.0,
+        616.0,
+        188.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_id": 48,
+      "x": 2.1596012115478516,
+      "y": 0.8517181873321533,
+      "z": 0.541113555431366,
+      "box_xyxy": [
+        821.0,
+        6.0,
+        852.0,
+        133.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_id": 96,
+      "x": 2.1667520999908447,
+      "y": 0.8392045497894287,
+      "z": 0.5362563729286194,
+      "box_xyxy": [
+        821.0,
+        7.0,
+        852.0,
+        133.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_id": 144,
+      "x": 2.1566457748413086,
+      "y": 0.8282098770141602,
+      "z": 0.5203798413276672,
+      "box_xyxy": [
+        821.0,
+        13.0,
+        852.0,
+        133.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_id": 192,
+      "x": 2.154755115509033,
+      "y": 0.819645881652832,
+      "z": 0.519264817237854,
+      "box_xyxy": [
+        822.0,
+        13.0,
+        852.0,
+        133.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e14",
+      "frame_id": 240,
+      "x": 2.140078067779541,
+      "y": 0.8322269916534424,
+      "z": 0.5159324407577515,
+      "box_xyxy": [
+        822.0,
+        17.0,
+        852.0,
+        133.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_id": 96,
+      "x": -1.7865941524505615,
+      "y": 1.2991948127746582,
+      "z": 0.7950975894927979,
+      "box_xyxy": [
+        75.0,
+        23.0,
+        96.0,
+        46.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_id": 144,
+      "x": -1.7651262283325195,
+      "y": 1.2260806560516357,
+      "z": 0.7895220518112183,
+      "box_xyxy": [
+        75.0,
+        23.0,
+        97.0,
+        46.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e15",
+      "frame_id": 192,
+      "x": -1.7728914022445679,
+      "y": 1.2382628917694092,
+      "z": 0.7906590700149536,
+      "box_xyxy": [
+        75.0,
+        23.0,
+        97.0,
+        46.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e16",
+      "frame_id": 192,
+      "x": -0.9287418127059937,
+      "y": -1.2493908405303955,
+      "z": 0.1069650948047638,
+      "box_xyxy": [
+        0.0,
+        206.0,
+        48.0,
+        384.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e16",
+      "frame_id": 240,
+      "x": -0.9286817908287048,
+      "y": -1.2505111694335938,
+      "z": 0.10872247815132141,
+      "box_xyxy": [
+        0.0,
+        201.0,
+        48.0,
+        383.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    },
+    {
+      "entity_id": "shot1/e17",
+      "frame_id": 240,
+      "x": 0.5548879504203796,
+      "y": 2.136719226837158,
+      "z": 0.6250466108322144,
+      "box_xyxy": [
+        486.0,
+        0.0,
+        546.0,
+        230.0
+      ],
+      "fusion_selected": true,
+      "geometry_reason": "eligible"
+    }
+  ],
+  "excluded_moving": [
+    "shot1/e3"
+  ],
+  "new_model_calls": 0,
+  "tokens": 0,
+  "api_usd": 0
+}

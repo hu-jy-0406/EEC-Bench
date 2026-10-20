@@ -1,0 +1,122 @@
+{
+  "status": "completed",
+  "calls": 48,
+  "usage": {
+    "input_tokens": 1279047,
+    "cached_input_tokens": 14848,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 17464
+  },
+  "total_tokens": 1296511,
+  "standard_api_equivalent_usd": 13.530038,
+  "pricing": "Recorded verified Astra USD/M: uncached input10, cached input1, output50; cache subset not double-counted; no request exceeds272000 input",
+  "maximum_request_input": 90169,
+  "parallel_launch_to_last_result_seconds": 745.9636669158936,
+  "case_usage": [
+    {
+      "case": "parking4",
+      "tokens": 282205,
+      "usd": 2.99281,
+      "stages": [
+        {
+          "stage": "hip_probe",
+          "seconds": 12.882505416870117,
+          "returncode": 0
+        },
+        {
+          "stage": "frontend",
+          "seconds": 326.00097918510437,
+          "returncode": 0
+        },
+        {
+          "stage": "initial",
+          "seconds": 53.668057441711426,
+          "returncode": 0
+        },
+        {
+          "stage": "optimization",
+          "seconds": 0.24461841583251953,
+          "returncode": 0
+        },
+        {
+          "stage": "direct",
+          "seconds": 65.53672242164612,
+          "returncode": 0
+        }
+      ],
+      "case_seconds": 404.45329904556274
+    },
+    {
+      "case": "bedroom4",
+      "tokens": 338029,
+      "usd": 3.486578,
+      "stages": [
+        {
+          "stage": "hip_probe",
+          "seconds": 12.777688264846802,
+          "returncode": 0
+        },
+        {
+          "stage": "frontend",
+          "seconds": 381.5263776779175,
+          "returncode": 0
+        },
+        {
+          "stage": "direct",
+          "seconds": 46.43046259880066,
+          "returncode": 0
+        },
+        {
+          "stage": "initial",
+          "seconds": 84.42602300643921,
+          "returncode": 0
+        },
+        {
+          "stage": "optimization",
+          "seconds": 138.26915669441223,
+          "returncode": 0
+        }
+      ],
+      "case_seconds": 617.0478188991547
+    },
+    {
+      "case": "diner8",
+      "tokens": 676277,
+      "usd": 7.05065,
+      "stages": [
+        {
+          "stage": "hip_probe",
+          "seconds": 11.222594738006592,
+          "returncode": 0
+        },
+        {
+          "stage": "frontend",
+          "seconds": 505.2456500530243,
+          "returncode": 0
+        },
+        {
+          "stage": "initial",
+          "seconds": 77.49790811538696,
+          "returncode": 0
+        },
+        {
+          "stage": "direct",
+          "seconds": 106.37865734100342,
+          "returncode": 0
+        },
+        {
+          "stage": "optimization",
+          "seconds": 137.07676768302917,
+          "returncode": 0
+        }
+      ],
+      "case_seconds": 731.0812833309174
+    }
+  ],
+  "production_changed": false,
+  "full_scoring_run": false,
+  "optimization_numeric_fits": 0,
+  "direct_numeric_candidates": 2,
+  "all_three_workers_restored": true,
+  "restore_evidence": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/restore/verified.json"
+}

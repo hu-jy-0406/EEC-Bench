@@ -1,0 +1,343 @@
+{
+  "fusion_replay": [
+    {
+      "case": "study0",
+      "shot": "shot1",
+      "max_absolute_float_difference": 2.1094237467877974e-15,
+      "float_tolerance": 1e-10,
+      "discrete_fields_exact": true
+    },
+    {
+      "case": "study0",
+      "shot": "shot3",
+      "max_absolute_float_difference": 2.942091015256665e-15,
+      "float_tolerance": 1e-10,
+      "discrete_fields_exact": true
+    },
+    {
+      "case": "study1",
+      "shot": "shot1",
+      "max_absolute_float_difference": 0.0,
+      "float_tolerance": 1e-10,
+      "discrete_fields_exact": true
+    },
+    {
+      "case": "study1",
+      "shot": "shot3",
+      "max_absolute_float_difference": 0.0,
+      "float_tolerance": 1e-10,
+      "discrete_fields_exact": true
+    }
+  ],
+  "method": "Gs consistency v1.2",
+  "comparison": "within each case shot1 vs shot3",
+  "policy": {
+    "center_radius_fraction": 0.25,
+    "axis_tolerance_deg": 15.0,
+    "normalized_margin": 0.005,
+    "min_frames": 2
+  },
+  "results": [
+    {
+      "case": "study0",
+      "registration_trusted": false,
+      "registration_anchor_count": 2,
+      "raw_review_verdict_counts": {
+        "witness": {
+          "unknown": 16,
+          "compatible": 2
+        },
+        "verification": {
+          "unknown": 18
+        }
+      },
+      "score": null,
+      "coverage": 0.0,
+      "identification_interval": [
+        0.0,
+        100.0
+      ],
+      "weights": {
+        "compatible": 0,
+        "conflict": 0,
+        "unknown": 18,
+        "complement": 0
+      },
+      "confirmed_relation_count": 0,
+      "previous_score": null,
+      "static_counts": [
+        16,
+        18
+      ],
+      "conflicts": [],
+      "camera_assessments": [
+        "六帧中的窗框、墙上画框、书柜竖边和桌角保持对齐，没有可辨认的相机平移、旋转或变焦。视觉支持固定机位，与输入的固定相机坐标约定一致。多件静物的预测深度同时漂移，应视为单目估计波动；这些3D框并非经实测标定的运动轨迹。",
+        "六帧中窗框、门框、书柜竖边及桌面边缘的位置和透视保持一致，未见可辨识的相机平移、旋转或变焦。视觉证据与输入固定相机坐标约定相容；相同的相机参数本身不构成实测证明。3D框来自单目模型先验，深度、尺寸和朝向波动不能直接视为实体运动。"
+      ]
+    },
+    {
+      "case": "study1",
+      "registration_trusted": false,
+      "registration_anchor_count": 3,
+      "raw_review_verdict_counts": {
+        "witness": {
+          "compatible": 9,
+          "conflict": 1,
+          "unknown": 8
+        },
+        "verification": {
+          "compatible": 9,
+          "conflict": 1,
+          "unknown": 8
+        }
+      },
+      "score": 94.44444444444444,
+      "coverage": 0.4444444444444444,
+      "identification_interval": [
+        38.888888888888886,
+        94.44444444444444
+      ],
+      "weights": {
+        "compatible": 7,
+        "conflict": 1,
+        "unknown": 10,
+        "complement": 0
+      },
+      "confirmed_relation_count": 0,
+      "previous_score": 94.44444444444444,
+      "static_counts": [
+        18,
+        17
+      ],
+      "conflicts": [
+        {
+          "group_id": "g02",
+          "names": [
+            "Black desk lamp"
+          ],
+          "mechanism": "presence",
+          "reason": "two_reviews_agree"
+        }
+      ],
+      "camera_assessments": [
+        "六帧中窗框横梁、墙上画框、门把手和书柜边缘位置一致，未见可辨认的相机平移、旋转或变焦，支持固定机位。输入的固定相机外参与此相符；多个静止物体的预测深度却同步漂移，说明单目三维估计存在误差，不能视为实测位移。",
+        "六帧中窗框横梁、门板边缘、墙上画框及书柜层板保持对齐，未见可辨认的相机平移、旋转或缩放。视觉证据与输入的固定相机坐标约定一致；单目3D中心、尺寸和朝向的波动不能视为经标定的实际位移。"
+      ]
+    }
+  ],
+  "calls": [
+    {
+      "case": "study0",
+      "stage": "static/shot3/review",
+      "usage": [
+        {
+          "input_tokens": 34601,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4541,
+          "reasoning_output_tokens": 19
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "static/shot1/review",
+      "usage": [
+        {
+          "input_tokens": 34065,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4356,
+          "reasoning_output_tokens": 25
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "gs_v12/observe_shot1",
+      "usage": [
+        {
+          "input_tokens": 44608,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2101,
+          "reasoning_output_tokens": 114
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "gs_v12/observe_shot3",
+      "usage": [
+        {
+          "input_tokens": 47809,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2026,
+          "reasoning_output_tokens": 77
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "gs_v11/matching",
+      "usage": [
+        {
+          "input_tokens": 82194,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2313,
+          "reasoning_output_tokens": 146
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "gs_v11/verification",
+      "usage": [
+        {
+          "input_tokens": 91577,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6653,
+          "reasoning_output_tokens": 75
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "gs_v11/witness",
+      "usage": [
+        {
+          "input_tokens": 91577,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7338,
+          "reasoning_output_tokens": 242
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "entities/shots/shot1",
+      "usage": [
+        {
+          "input_tokens": 20021,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 6655,
+          "reasoning_output_tokens": 82
+        }
+      ]
+    },
+    {
+      "case": "study0",
+      "stage": "entities/shots/shot3",
+      "usage": [
+        {
+          "input_tokens": 19847,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5066,
+          "reasoning_output_tokens": 130
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "static/shot3/review",
+      "usage": [
+        {
+          "input_tokens": 33659,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4374,
+          "reasoning_output_tokens": 35
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "static/shot1/review",
+      "usage": [
+        {
+          "input_tokens": 36356,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 4766,
+          "reasoning_output_tokens": 64
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "gs_v12/observe_shot1",
+      "usage": [
+        {
+          "input_tokens": 48759,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3965,
+          "reasoning_output_tokens": 185
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "gs_v12/observe_shot3",
+      "usage": [
+        {
+          "input_tokens": 46482,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 3967,
+          "reasoning_output_tokens": 208
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "gs_v11/matching",
+      "usage": [
+        {
+          "input_tokens": 84528,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2372,
+          "reasoning_output_tokens": 119
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "gs_v11/verification",
+      "usage": [
+        {
+          "input_tokens": 97731,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7954,
+          "reasoning_output_tokens": 137
+        }
+      ]
+    },
+    {
+      "case": "study1",
+      "stage": "gs_v11/witness",
+      "usage": [
+        {
+          "input_tokens": 97731,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 7928,
+          "reasoning_output_tokens": 169
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Confirmed-conflict-only upper bound, not established consistency percentage.",
+    "One scene pair per case; same-model visual judgments and heuristic geometry remain uncalibrated.",
+    "No full global 3D registration; local relation coverage depends on common anchors and support evidence."
+  ]
+}

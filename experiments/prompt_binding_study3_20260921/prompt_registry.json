@@ -1,0 +1,196 @@
+{
+  "schema_version": "prompt_registry_v1",
+  "shot_ids": [
+    "shot1",
+    "shot2",
+    "shot3"
+  ],
+  "provenance": {
+    "origin": "manually derived from normal narrative only, before reading visual inventory",
+    "source": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/pipeline_parallel_20260921/run/narrative.json",
+    "sha256": "eb058265808609cf9a0613d4fd66894eed7f16e10860b4e5b21d8858982be724",
+    "limitations": "No preexisting registry/schedule supplied in evaluation inputs. This is a retrospective test fixture, not a preregistered generation contract. Anomaly-injection instructions excluded. Clothes/body parts are attributes; study is scene context, not an object."
+  },
+  "entities": [
+    {
+      "prompt_entity_id": "pe01",
+      "name": "woman",
+      "description": "The same adult woman with brown hair in a loose bun, taupe sweater and dark trousers.",
+      "evidence": [
+        {
+          "fact_id": "p01",
+          "quote": "Preserve the same adult woman with brown hair in a loose bun, taupe sweater and dark trousers, the same red hardcover notebook, warm autumn daylight, walnut desk, wooden chair and study identity."
+        },
+        {
+          "fact_id": "p05",
+          "quote": "The same woman walks a few steps away holding the same red notebook."
+        },
+        {
+          "fact_id": "p10",
+          "quote": "The woman enters empty-handed, returns to her original chair and stops standing beside it, looking at the desk with both empty hands visible."
+        }
+      ],
+      "schedule": [
+        {
+          "shot_id": "shot1",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot2",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot3",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        }
+      ]
+    },
+    {
+      "prompt_entity_id": "pe02",
+      "name": "red notebook",
+      "description": "The same red hardcover notebook carried from the study and left on the hallway console.",
+      "evidence": [
+        {
+          "fact_id": "p01",
+          "quote": "Preserve the same adult woman with brown hair in a loose bun, taupe sweater and dark trousers, the same red hardcover notebook, warm autumn daylight, walnut desk, wooden chair and study identity."
+        },
+        {
+          "fact_id": "p02",
+          "quote": "The woman picks up ONLY the red notebook, stands and leaves the study with it."
+        },
+        {
+          "fact_id": "p05",
+          "quote": "The same woman walks a few steps away holding the same red notebook."
+        },
+        {
+          "fact_id": "p06",
+          "quote": "She leaves it on a narrow hallway console, then turns back toward the study with visibly empty hands."
+        },
+        {
+          "fact_id": "p11",
+          "quote": "The red notebook remains in the hallway."
+        }
+      ],
+      "schedule": [
+        {
+          "shot_id": "shot1",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot2",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot3",
+          "expectation": "not_required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        }
+      ]
+    },
+    {
+      "prompt_entity_id": "pe03",
+      "name": "walnut desk",
+      "description": "The walnut desk in the study.",
+      "evidence": [
+        {
+          "fact_id": "p01",
+          "quote": "Preserve the same adult woman with brown hair in a loose bun, taupe sweater and dark trousers, the same red hardcover notebook, warm autumn daylight, walnut desk, wooden chair and study identity."
+        },
+        {
+          "fact_id": "p08",
+          "quote": "Shot 3 (10–15 s), same study, camera at the opposite/right short end looking leftward, approximately 160–180 degrees around the desk from Shot 1."
+        },
+        {
+          "fact_id": "p10",
+          "quote": "The woman enters empty-handed, returns to her original chair and stops standing beside it, looking at the desk with both empty hands visible."
+        }
+      ],
+      "schedule": [
+        {
+          "shot_id": "shot1",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot2",
+          "expectation": "not_required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot3",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        }
+      ]
+    },
+    {
+      "prompt_entity_id": "pe04",
+      "name": "wooden chair",
+      "description": "The original wooden chair in the study, left where the woman stood up.",
+      "evidence": [
+        {
+          "fact_id": "p01",
+          "quote": "Preserve the same adult woman with brown hair in a loose bun, taupe sweater and dark trousers, the same red hardcover notebook, warm autumn daylight, walnut desk, wooden chair and study identity."
+        },
+        {
+          "fact_id": "p03",
+          "quote": "Leave the chair where she stood up."
+        },
+        {
+          "fact_id": "p10",
+          "quote": "The woman enters empty-handed, returns to her original chair and stops standing beside it, looking at the desk with both empty hands visible."
+        }
+      ],
+      "schedule": [
+        {
+          "shot_id": "shot1",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot2",
+          "expectation": "not_required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot3",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        }
+      ]
+    },
+    {
+      "prompt_entity_id": "pe05",
+      "name": "hallway console",
+      "description": "The narrow hallway console on which she leaves the notebook.",
+      "evidence": [
+        {
+          "fact_id": "p06",
+          "quote": "She leaves it on a narrow hallway console, then turns back toward the study with visibly empty hands."
+        }
+      ],
+      "schedule": [
+        {
+          "shot_id": "shot1",
+          "expectation": "not_required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot2",
+          "expectation": "required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        },
+        {
+          "shot_id": "shot3",
+          "expectation": "not_required",
+          "reason": "Normal narrative shot context; required means appears at some time, not every frame. Unscheduled does not assert physical absence."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "pid": 2573152,
+  "command": [
+    "srun",
+    "-u",
+    "--jobid=206117",
+    "--overlap",
+    "-N1",
+    "-n1",
+    "-c128",
+    "--cpu-bind=none",
+    "env",
+    "TOKENIZERS_PARALLELISM=false",
+    "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+    "5",
+    "GPU-413935505e32b8da",
+    "taskset",
+    "-c",
+    "44-47",
+    "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python",
+    "-u",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/validate_streaming.py"
+  ]
+}

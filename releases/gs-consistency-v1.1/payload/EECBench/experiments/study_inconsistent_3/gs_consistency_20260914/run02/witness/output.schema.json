@@ -1,0 +1,143 @@
+{
+  "type": "object",
+  "properties": {
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "string"
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "compatible",
+              "complement",
+              "conflict",
+              "unknown"
+            ]
+          },
+          "mechanism": {
+            "type": "string",
+            "enum": [
+              "presence",
+              "layout",
+              "shape",
+              "none"
+            ]
+          },
+          "mapping_basis": {
+            "type": "string",
+            "enum": [
+              "global_consensus",
+              "local_visual",
+              "none"
+            ]
+          },
+          "anchor_group_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "identity_supported": {
+            "type": "boolean"
+          },
+          "mapping_supported": {
+            "type": "boolean"
+          },
+          "visibility_supported": {
+            "type": "boolean"
+          },
+          "geometry_uncertainty_excluded": {
+            "type": "boolean"
+          },
+          "occlusion_excluded": {
+            "type": "boolean"
+          },
+          "detector_miss_excluded": {
+            "type": "boolean"
+          },
+          "alternative_mappings_excluded": {
+            "type": "boolean"
+          },
+          "affected_location": {
+            "type": "string"
+          },
+          "gs_evidence": {
+            "type": "string"
+          },
+          "visual_evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "shot_id": {
+                  "type": "string"
+                },
+                "frame_id": {
+                  "type": "integer"
+                },
+                "region_xyxy": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "observation": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "shot_id",
+                "frame_id",
+                "region_xyxy",
+                "observation"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "counterfactual_test": {
+            "type": "string"
+          },
+          "alternative_explanations": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "group_id",
+          "verdict",
+          "mechanism",
+          "mapping_basis",
+          "anchor_group_ids",
+          "identity_supported",
+          "mapping_supported",
+          "visibility_supported",
+          "geometry_uncertainty_excluded",
+          "occlusion_excluded",
+          "detector_miss_excluded",
+          "alternative_mappings_excluded",
+          "affected_location",
+          "gs_evidence",
+          "visual_evidence",
+          "counterfactual_test",
+          "alternative_explanations",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "checks",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

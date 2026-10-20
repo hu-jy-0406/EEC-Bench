@@ -1,0 +1,17 @@
+{
+  "pid": 2643496,
+  "command": [
+    "srun",
+    "-u",
+    "--jobid=200798",
+    "--overlap",
+    "-N1",
+    "-n1",
+    "-c64",
+    "--cpu-bind=none",
+    "python3",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/wan_generation_400_20260921/node_supervisor.py",
+    "--cards",
+    "0,1,2,3,4,5,6,7"
+  ]
+}

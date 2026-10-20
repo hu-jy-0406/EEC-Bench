@@ -1,0 +1,59 @@
+{
+  "type": "object",
+  "properties": {
+    "global_caption": {
+      "type": "string"
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "caption": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "shot_id",
+          "caption"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "aliases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_label": {
+            "type": "string"
+          },
+          "prompt_name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "entity_label",
+          "prompt_name"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "global_caption",
+    "shots",
+    "aliases",
+    "limitations"
+  ],
+  "additionalProperties": false
+}

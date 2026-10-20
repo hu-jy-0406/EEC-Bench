@@ -1,0 +1,104 @@
+- v2_chain p002_wan21 run_a I1 [cross_shot/character_identity] ents: pb0001=Bearded man | Shot4中的人物相较Shot1–3明显换了外观：发型更短且贴头，肤色更浅，脸部观感不同，并从圆领短袖T恤变成有领衬衫，和同一男性的连续设定不符。
+- v2_chain p002_wan21 run_a I2 [cross_shot/object_identity] ents: pb0003=Beige sofa | Shot4座椅呈高大、圆弧包围式的单人椅外形；Shot1–3则是低矮、横向延伸的沙发，形状与尺寸明显不一致。
+- v2_chain p002_wan21 run_a I4 [cross_shot/setting_background] ents: pb0002=Warm room, pb0003=Beige sofa, pb0008=Dark wooden background | Shot4人物背后为大面积深色木质背景并配高圆弧座椅；Shot1与Shot3的可比室内视图呈木门、浅色墙及不同背景布局，无法与Shot4的整片深木背景连贯对应。
+- v2_chain p002_wan21 run_b I1 [cross_shot/character_appearance] ents: pb0001=Bearded man | Shot3人物穿有领门襟衬衫，而Shot1、2、4为圆领T恤；同一人物身份也存在明显不确定差异。
+- v2_chain p002_wan21 run_b I2 [cross_shot/character_identity] ents: pb0001=Bearded man | Shot4人物的脸型及卷发样式与Shot1至3的人物明显不同，像是换成另一名男子。
+- v2_chain p002_wan21 run_b I3 [cross_shot/setting_background] ents: pb0002=Warm room | 同一房间的背景外观跨镜头差异较大：Shot2为满幅横向木板墙，Shot1与Shot3则呈现门框及浅色墙面；未能确认是合理视角变化。
+- v2_chain p002_wan21 run_b I4 [cross_shot/object_identity] ents: pb0003=Beige sofa | Shot4的座椅是高大圆弧背、环绕人物的扶手椅状家具，与前镜头低背横向沙发不相符。
+- v2_chain p002_wan21 run_c I1 [cross_shot/character_appearance] ents: pb0001=Bearded man | 同一男子跨镜发型与服装不一致：第1镜短卷发、浅蓝灰圆领T恤；第2镜卷发更蓬长；第3镜换成深色翻领扣衫；第4镜又为浅灰蓝圆领T恤。
+- v2_chain p002_wan21 run_c I2 [cross_shot/environment_lighting] ents: pb0002=Warm room | 第3镜房间显著明亮，浅色墙面占据背景；与第1镜暖暗的木门室内观感不符，且不符合房间的明暗要求。
+- v2_chain p002_wan21 run_c I3 [cross_shot/object_identity] ents: pb0003=Beige sofa | 第4镜可见座椅为高而圆弧的单人椅状椅背，不像前镜出现的低矮沙发；与指定为同一张沙发的要求不符。
+- v2_chain p014_wan21 run_a I1 [cross_shot/setting_background] ents: pb0002=Courtyard | 四镜都指向同一庭院，但背景建筑的类型、材料与布局显著不一致：Shot1为棕灰石砌旧式建筑，Shot2为奶油色带拱窗门廊的建筑，Shot3则是低矮米色房屋。镜头角度变化不足以解释这些明显不同的场所外观。
+- v2_chain p014_wan21 run_a I2 [cross_shot/character_appearance] ents: pb0001=Woman in gray coat | 女人灰外套跨镜细节不一致：Shot1是系腰带、前襟无明显双排扣的款式；Shot3清楚可见大号双排扣及不同前襟结构，Shot2也呈敞开直身外套。作为同一人物连续出现，外套款式发生变化。
+- v2_chain p014_wan21 run_b I1 [cross_shot/character_appearance] ents: pb0001=Woman in gray coat | 女人的灰外套跨镜款式不一致：Shot1为系带合拢款，Shot2敞开，Shot3又出现显眼黑色双排扣；Shot3的浅棕围巾还遮住了指定清晰可见的桃色领口。
+- v2_chain p014_wan21 run_b I2 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings, pb0012=Pale masonry | Shot3的低矮浅色建筑、木檐和长椅背景，与Shot1的高大棕灰石质多层建筑及Shot2的奶油色拱窗立面明显不同；不同景别不足以解释整体建筑类型与背景格局的变化，与庭院连续性要求冲突。
+- v2_chain p014_wan21 run_c I1 [cross_shot/character_appearance] ents: pb0001=Woman in gray coat | 女子在Shot3换成带黑扣的双排扣灰大衣，并围浅棕色厚围巾；Shot1/2为系带灰外套、露出桃色高领，围巾未见，属于重复人物服饰不连续。
+- v2_chain p014_wan21 run_c I2 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings, pb0012=Pale masonry | 同一雪地庭院的建筑背景差异显著：Shot1/2呈现较高的石质或带拱窗立面，Shot3则出现低矮独立小屋及斜屋顶，难以视为同一庭院背景。
+- v2_chain p014_storymem run_a I1 [cross_shot/character_appearance] ents: pb0007=Older man in earflap hat | Shot2中老人的长围巾呈棕色与浅棕色格纹；Shot4中围巾可见的是宽幅横条，未见格纹，构成同一角色的外观差异。
+- v2_chain p014_storymem run_a I2 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings | 被明确要求保持连续的同一庭院，在不同镜头中呈现出难以协调的建筑背景：Shot1、3为常绿树与浅色水平栏杆背景；Shot2为带拱形门窗和装饰铁艺的古典石质立面；Shot4则出现浅褐色平整墙面和矩形窗。
+- v2_chain p014_storymem run_b I1 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings | 同一庭院的背景建筑风格和布局不协调：Shot2为带柱饰、拱形门窗的宏大石立面，Shot4则呈现朴素浅米色矩形窗立面；与明确的庭院连续性要求不符。
+- v2_chain p014_storymem run_b I2 [within_shot/unintended_cut] ents: pb0002=Courtyard, pb0003=Courtyard trees, pb0007=Older man in earflap hat | Shot4帧1到帧2间取景与镜位突然改变，人物和树的相对画面位置、背景布局明显跳变，之后画面才稳定；镜内未要求切镜。
+- v2_chain p014_storymem run_c I1 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings | 庭院连续性要求下，Shot2呈现浅色石质古典立面、柱饰和拱形门窗；Shot4则呈现米黄色简洁矩形窗建筑，建筑类型、材质观感及立面布局明显不一致。
+- v2_chain p028_wan22 run_a I2 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | 青衣女子跨镜头外观明显变化：Shot2及Shot8为及肩至中长波浪发，Shot4及Shot6为更长、更蓬松卷发；Shot8上衣的棕榈印花也不同于Shot4、Shot6所示零散深色印记。
+- v2_chain p028_wan22 run_a I3 [within_shot/unintended_cut] ents: - | Shot3首帧与紧接帧之间发生明显景别及构图跳变，像同一镜头内部未请求的切换。
+- v2_chain p028_wan22 run_a I4 [cross_shot/object_identity] ents: pb0004=Blue beach chair | 回归蓝椅在Shot1、Shot5中是小型直立沙滩椅，而Shot3、Shot7中变为宽大低矮的躺椅，类型和尺寸不一致。
+- v2_chain p028_wan22 run_b I3 [cross_shot/object_identity] ents: pb0004=Blue beach chair | 同一蓝色沙滩椅在 Shot1、Shot5 是小型直立椅，在 Shot3、Shot7 却成为带木架的大型躺椅，类型与尺寸明显不一致。
+- v2_chain p028_wan22 run_b I4 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | 同一排定绿衣女子的发型、上衣款式和图案跨镜变化：Shot2为及肩挑染波浪发、纯色露肩带上衣；Shot4/8为深色棕榈图案上衣，Shot6另有黑色肩标及白色长袖内搭。
+- v2_chain p028_wan22 run_c I1 [cross_shot/object_identity] ents: pb0004=Blue beach chair | 重复出现的蓝色沙滩椅在Shot3与Shot7成为大型低矮躺椅，形状、尺寸均不同于Shot1与Shot5远处的小型直立蓝椅；Shot7还可见额外相似躺椅。
+- v2_chain p028_wan22 run_c I2 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | 同一青绿色上衣女子跨镜外观不一致：Shot2、4、6、8的发长、纹理及服饰图案明显变化；Shot8的棕榈印花与Shot4的散布暗斑、Shot6的肩部标志也不同。
+- v2_chain p028_wan22 run_c I3 [within_shot/unintended_cut] ents: pb0005=Turquoise woman | Shot6内部镜头构图突然从较宽上身景跳至脸部近景，随后又跳回宽景；变化不似平滑运镜。
+- v2_chain p047_wan21 run_a I2 [cross_shot/character_appearance] ents: pb0008=Ponytailed man | Shot4左侧排定为马尾男子的人物上身赤裸，仅穿黑裤；与其黑色武服外观相矛盾。
+- v2_chain p047_wan21 run_a I4 [cross_shot/setting_background] ents: pb0002=Martial arts training room | 被指定为同一训练室的镜头呈现互不相似的环境布景：Shot2为橙棕木墙和横向深色饰带，Shot4为浅灰绿墙、酒红地面与百叶窗，Shot6为蓝灰下墙，Shot3/5则为浅色镜墙环境；不像同一房间的可解释视角变化。
+- v2_chain p047_wan21 run_b I2 [cross_shot/character_appearance] ents: pb0008=Ponytailed man | Shot4左侧人物是赤膊、浅棕发男子，与Shot3及Shot5的黑衣低马尾男子外观明显不符；尤其Shot4没有穿黑色上衣。
+- v2_chain p047_wan21 run_b I3 [cross_shot/setting_background] ents: pb0002=Martial arts training room | Shot2的背景呈现暖棕木板墙、深色饰带及蓝色标牌，与同一训练室其余镜头中浅色墙、镜墙和不同布置明显不一致。
+- v2_chain p047_wan21 run_b I4 [within_shot/presence_instability] ents: ge0003=Shirtless gray-haired man at the left edge. | Shot6前景持续出现一名赤膊、灰发、白胡须男子，显著占据画面左侧；他不是所描述的穿衣Sleeveless man手臂，也不是其他排定角色的外观。
+- v2_chain p047_wan21 run_c I2 [cross_shot/setting_background] ents: pb0002=Martial arts training room, pb0003=Poster wall | Shot2的训练室背景变为橙棕木板墙、深色横带和蓝色告示牌，与同一训练室入口浅灰海报墙等既有画面明显不一致。
+- v2_chain p047_wan21 run_c I3 [cross_shot/character_appearance] ents: pb0008=Ponytailed man | Shot4左侧被安排为马尾男子的人物却是赤膊、浅棕短发、黑裤赤脚，与Shot3及Shot5的黑色道服马尾男子明显不同。
+- v2_chain p047_wan21 run_c I5 [cross_shot/character_appearance] ents: pb0007=Older man | Shot6老人穿明显较浅的米卡其衬衫，而Shot2、Shot4及Shot8均为较深的橄榄卡其色上衣，缺少换衣原因。
+- v2_chain p032_wan22 run_a I1 [cross_shot/character_appearance] ents: pb0001=Plaid-shirt man | 第6镜的同一男子与厨房五镜相比，发型从较短、明显渐层的短发变为较整齐后梳；胡须及格纹衫图案/尺度也有变化。
+- v2_chain p032_wan22 run_a I3 [cross_shot/setting_background] ents: pb0002=Kitchen, pb0004=Rounded archway | 第1至5镜都指定同一厨房，但背景可见布局和色彩差别显著：第1镜青绿侧柜与大型橙拱，第3镜浅米柜体与橙拱，第2、5镜则以橙墙/橙柜为主；第4镜又是青墙与不同的拱门构图。
+- v2_chain p032_wan22 run_b I1 [within_shot/unintended_cut] ents: pb0001=Plaid-shirt man, pb0003=Built-in oven | Shot1帧2到帧3构图突然改变：从侧面中景、人物与敞开的烤箱门，跳到明显不同的更近/重新取景画面；不是平滑的相机移动。
+- v2_chain p032_wan22 run_b I2 [cross_shot/object_identity] ents: pb0002=Kitchen, pb0003=Built-in oven | Shot4左侧所见为黑色带通风槽的箱状设备，和Shot1、Shot2、Shot3、Shot5中可见的内嵌玻璃烤箱形态明显不同；同一厨房场景的设备/布景不连贯。
+- v2_chain p032_wan22 run_c I1 [cross_shot/character_appearance] ents: pb0001=Plaid-shirt man | Shot6男子的头发变成明显较短、前额有短碎刘海的样式，与Shot1至Shot5较长且顶部蓬起或后梳的短发不一致；文字称为同一男子，但无可见变发原因。
+- v2_chain p032_wan22 run_c I3 [cross_shot/object_identity] ents: pb0003=Built-in oven | Shot4左侧箱状烤箱呈黑色并带显著通风槽，与Shot1、Shot3和Shot5的浅色柜体内宽幅玻璃烤箱外观不相容。
+- v2_chain p047_storymem run_a I1 [within_shot/rendering_instability] ents: pb0002=Martial arts training room | Shot6首帧画面被红橙色模糊色块及深色遮挡覆盖，场景与人物几乎不可辨；后续帧恢复正常。
+- v2_chain p047_storymem run_b I1 [cross_shot/character_appearance] ents: pb0001=White-clad man | 白衣男子在 Shot1 腰间系着显眼的蓝色腰带，与要求的深色腰带不符；Shot4 中腰带呈深色。
+- v2_chain p047_storymem run_b I2 [within_shot/rendering_instability] ents: pb0002=Martial arts training room | Shot6 首帧几乎被贴近镜头的橙色模糊形体和暗色区域遮住，无法辨认预期人物及场景；下一帧立即恢复正常近景，形成突兀异常帧。
+- v2_chain p047_storymem run_c I1 [cross_shot/character_appearance] ents: pb0008=Ponytailed man | Shot4左侧被称为Ponytailed man的人物是短棕发散发，未见颈后马尾；Shot3及Shot5同一人物均为深色后梳并扎起的长发，出现跨镜外观替换。
+- v2_chain p047_storymem run_c I2 [within_shot/rendering_instability] ents: pb0007=Older man | Shot6首帧被大片橙红色模糊形状和黑暗区域占据，Older man及场景几乎不可辨；下一帧立即恢复正常近景，呈明显首帧渲染异常。
+- v2_chain p069_wan21 run_a I1 [cross_shot/character_appearance] ents: pb0001=Red-and-black jacket man, pb0005=Angular firearm | 男主在Shot1穿红黑菱格纹夹克并持大型黑灰色长枪；Shot3回到男主时，上衣变为红黑细条纹款，枪械形状及黄色挂带也显著不同。
+- v2_chain p069_wan21 run_a I2 [cross_shot/character_identity] ents: pb0008=Short dark-clothed figure | Shot2的短身人物是穿棕色外套和棕裤的短发女性；Shot4同一排程角色则呈现为靠砖墙的深色长外套男性，身份外观不连续。
+- v2_chain p069_wan21 run_a I3 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Shot2长外套成人为直发女性，穿灰色外套和暗红长裤；Shot4对应角色变为卷发成人，穿橄榄绿色宽大外套和深色裤装。
+- v2_chain p069_wan21 run_a I4 [cross_shot/setting_background] ents: pb0002=Industrial corridor, pb0007=Corridor brick walls | Shot3画面呈现浅绿色规则砌块楼梯间墙面，而非描述的风化绿漆与裸露砖墙；也明显不同于Shot1的裸露红砖和剥落绿漆走廊。
+- v2_chain p069_wan21 run_b I1 [within_shot/object_instability] ents: pb0005=Angular firearm | Shot1中持枪道具在连续帧间由细长灰色枪身变成带瞄准镜的大型黑灰步枪，形状与部件无动作依据地跳变。
+- v2_chain p069_wan21 run_b I2 [cross_shot/character_appearance] ents: pb0001=Red-and-black jacket man, pb0005=Angular firearm | 同一夹克男在Shot1与Shot3的上衣图案明显不同：Shot1为红黑菱形纹夹克，Shot3为红黑细横纹衣；持枪造型也明显不同。
+- v2_chain p069_wan21 run_b I3 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Shot2与Shot4所指长外套成人的外观不一致：Shot2为灰色外套、酒红裤及直发，Shot4为橄榄绿外套、深色裤及卷发。
+- v2_chain p069_wan21 run_b I4 [cross_shot/character_identity] ents: pb0008=Short dark-clothed figure | Shot4承担Shot2中短身深色衣着人物的镜头，却呈现黑衣成年男性样貌；Shot2可见的是较矮、棕色长裤的女性样貌人物，身份与外观均不连贯。
+- v2_chain p069_wan21 run_b I5 [cross_shot/character_appearance] ents: pb0009=Red-suited masked adult | 同一红衣面具成人跨镜衣服配色改变：Shot2主要为红黑配色，Shot4则出现显著蓝紫色侧片/衣身区域。
+- v2_chain p069_wan21 run_b I6 [cross_shot/setting_background] ents: pb0002=Industrial corridor, pb0003=Worn staircase, pb0007=Corridor brick walls | Shot1/Shot3的夹克男周围是裸砖与剥落绿漆的狭窄通道、后置楼梯；Shot3更明显呈绿色砌块墙与绿色楼梯。与Shot2/Shot4同一走廊的格窗、绿墙裙和帘幕布局难以视为同一连续地点。
+- v2_chain p069_wan21 run_c I1 [cross_shot/character_appearance] ents: pb0001=Red-and-black jacket man | 同一男子在Shot1穿红黑菱形纹夹克，Shot3则为红黑横条纹夹克；纹样发生跨镜头变化。
+- v2_chain p069_wan21 run_c I2 [cross_shot/object_identity] ents: pb0005=Angular firearm | Shot1的大型灰黑色角形枪械与Shot3明显不同：Shot3呈常规长枪外形，并带有醒目的黄色挂带。
+- v2_chain p069_wan21 run_c I4 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Shot2的长外套成人为直发、灰色外套与暗红长裤；Shot4相应搏斗者呈卷曲深发、橄榄绿外套，身份外观存在明显不一致。
+- v4_v5_chain p002_wan21 fresh_1 I1 [cross_shot/character_appearance] ents: pb0001=Bearded man | Shot3人物穿深色有领扣襟衬衫，与Shot1、Shot2的蓝灰圆领T恤不同。
+- v4_v5_chain p002_wan21 fresh_1 I3 [cross_shot/character_appearance] ents: pb0001=Bearded man | Shot4人物的发型和T恤款式与Shot1—3均有差异；身份连续性可疑。
+- v4_v5_chain p002_wan21 fresh_1 I5 [cross_shot/object_identity] ents: pb0003=Beige sofa | Shot4座椅为高大圆弧包围式椅背，与Shot1—3低平横向沙发明显不同。
+- v4_v5_chain p002_wan21 fresh_1 I7 [cross_shot/setting_background] ents: pb0002=Warm room | Shot3房间背景从木质、昏暖室内变为明亮浅色大墙面，整体背景连续性显著不同。
+- v4_v5_chain p002_wan21 fresh_2 I1 [cross_shot/character_appearance] ents: pb0001=Bearded man | 第四镜男子穿深色立领衬衫，与前三镜的蓝灰短袖T恤不一致。
+- v4_v5_chain p002_wan21 fresh_2 I3 [cross_shot/object_identity] ents: pb0003=Beige sofa | 第四镜座椅为高而圆的单人椅状靠背，与前三镜低矮横向的米色沙发明显不同。
+- v4_v5_chain p002_wan21 fresh_3 I1 [cross_shot/character_appearance] ents: pb0001=Bearded man | 同一人物在Shot2相较Shot1、Shot3的发型明显更蓬大、两侧更长；衣着颜色及圆领短袖类型大致延续，未单独据细微色差立项。
+- v4_v5_chain p002_wan21 fresh_3 I3 [cross_shot/object_identity] ents: pb0003=Beige sofa | Shot4的座椅为高圆弧靠背、单人椅状外观，与前三镜横向低靠背沙发不一致。
+- v4_v5_chain p014_wan21 fresh_1 I04 [within_shot/unintended_cut] ents: pb0007=Older man in earflap hat | Shot4 的单镜头内在第2至第3帧间出现明显突然推近/构图跳变：男子尺寸骤增、背景位置与可见范围改变，非平滑小幅转头所能解释。
+- v4_v5_chain p014_wan21 fresh_1 I06 [within_shot/unintended_cut] ents: pb0007=Older man in earflap hat | Shot4 前几帧的男子由背面快速转为侧面再转向镜头；其后构图突变与前段转身衔接不自然，属于同一镜头内的非预期跳切候选。
+- v4_v5_chain p014_wan21 fresh_2 I1 [cross_shot/setting_background] ents: pb0002=Courtyard | 四镜声称为同一庭院，但镜头所示建筑风格和布景明显不统一：Shot1是暗色石砌建筑，Shot3是低矮米色屋舍，Shot2/4则为浅色正式立面。
+- v4_v5_chain p014_wan21 fresh_2 I2 [cross_shot/character_appearance] ents: pb0001=Woman in gray coat | 女子同一灰外套在各镜外观不一致：Shot1为系带、明显腰带的交叠式外套；Shot3变为双排扣、带黑色纽扣的外套，且领口/围脖呈现也不同。
+- v4_v5_chain p014_wan21 fresh_3 I1 [within_shot/unintended_cut] ents: pb0002=Courtyard, pb0005=Courtyard railings | Shot1帧0与帧1之间庭院背景和栏杆构图明显跳变，像未要求的镜头跳切。
+- v4_v5_chain p014_wan21 fresh_3 I2 [cross_shot/setting_background] ents: pb0002=Courtyard, pb0004=Courtyard buildings | 同一庭院在Shot1/3呈棕灰石砌建筑与栏杆景观，Shot2/4却变为浅色拱窗立面及不同布局，庭院背景不相容。
+- v4_v5_chain p014_wan21 fresh_3 I3 [cross_shot/character_appearance] ents: pb0001=Woman in gray coat | 女方灰色大衣款式跨镜头改变：Shot1为系带且扣合的翻领大衣，Shot2为敞开的直筒长外套，Shot3为带黑扣的双排扣大衣。
+- v4_v5_chain p014_wan21 fresh_3 I6 [within_shot/unintended_cut] ents: pb0007=Older man in earflap hat, pb0002=Courtyard | Shot4帧2至3从树旁侧后方构图突然跳为男子正面近景，背景及取景大幅改变，构成镜头内跳切。
+- v4_v5_chain p028_wan22 fresh_1 I1 [cross_shot/character_appearance] ents: pb0001=Robe woman | Robe woman在Shot3和Shot7的银白长发明显松散垂下；Shot1、Shot5则束成后髻，构成跨镜头发型不一致。
+- v4_v5_chain p028_wan22 fresh_1 I3 [cross_shot/object_identity] ents: pb0004=Blue beach chair | 同一蓝色海滩椅在Shot1/5为小型直立椅，在Shot3/7则为大型低矮躺椅，类型和尺寸明显不同。
+- v4_v5_chain p028_wan22 fresh_1 I5 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | Shot8的Turquoise woman上衣出现重复深蓝棕榈图案并增添白色长袖内层；Shot4/6为零散深色斑点的青绿色上衣，未见相同图案或白袖层，存在跨镜头外观变化。
+- v4_v5_chain p028_wan22 fresh_2 I2 [within_shot/unintended_cut] ents: pb0005=Turquoise woman, pb0010=Pale laces, pb0011=Upper visible shoe, pb0012=Lower visible shoe | Shot8内部构图突变：从人物上半身画面跳到鞋子横占画面的近景，再跳回人物画面；关键帧间没有平滑运动或摄像机移动解释该跳变。
+- v4_v5_chain p028_wan22 fresh_2 I3 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | Turquoise woman的上衣图案在反复出现的镜头间明显变化：Shot4/6为散布的深色斑痕，而Shot8为清晰重复的棕榈形印花。
+- v4_v5_chain p028_wan22 fresh_3 I1 [cross_shot/object_identity] ents: pb0004=Blue beach chair | 重复出现的蓝色椅子在Shot1/5为远处小型直立沙滩椅，在Shot3/7却成为大型蓝色躺椅，类型与尺寸明显不同。
+- v4_v5_chain p028_wan22 fresh_3 I4 [within_shot/unintended_cut] ents: - | Shot8帧1至帧2发生未要求的镜内构图跳变：由脸部近景切为较宽、可见持鞋动作的画面；海面背景仍在，但人物尺度与布局骤变。
+- v4_v5_chain p028_wan22 fresh_3 I5 [cross_shot/character_appearance] ents: pb0005=Turquoise woman | 青衣女子上衣在Shot8变为明显重复的深色棕榈树图案；Shot4、Shot6所示为零散深色痕迹，非此类印花。
+- v4_v5_chain p069_wan21 fresh_1 I01 [within_shot/object_instability] ents: pb0005=Angular firearm | Shot1中枪械在前几帧未清楚呈现，随后骤然成为带瞄准镜、横贯画面的长枪；其外形及尺度变化缺乏连续动作解释。
+- v4_v5_chain p069_wan21 fresh_1 I03 [cross_shot/object_identity] ents: pb0005=Angular firearm | Shot1的大型灰黑粗纹枪械与Shot3的细长灰黑枪、明显黄色背带设计不一致。
+- v4_v5_chain p069_wan21 fresh_1 I04 [cross_shot/setting_background] ents: pb0002=Industrial corridor | Shot3的回返场景变成强荧绿砌块墙楼梯间，与Shot1、Shot2所示剥落绿漆和裸砖的工业走廊不一致。
+- v4_v5_chain p069_wan21 fresh_1 I06 [cross_shot/character_appearance] ents: pb0009=Red-suited masked adult | 红衣面罩人物从Shot2的红黑长外套式服装变为Shot4红蓝分区紧身服，外观不一致。
+- v4_v5_chain p069_wan21 fresh_1 I08 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Shot2灰色外套人物与Shot4橄榄绿长外套搏斗者的发型和外套颜色明显不同。
+- v4_v5_chain p069_wan21 fresh_1 I10 [cross_shot/character_appearance] ents: pb0008=Short dark-clothed figure | Shot4左侧暗衣人物与Shot2短身、棕裤、齐肩直发人物看起来不是同一外观；Shot4人物显得更高，且未见棕裤。
+- v4_v5_chain p069_wan21 fresh_2 I2 [within_shot/object_instability] ents: pb0005=Angular firearm | Shot1枪械在帧间呈现无动作依据的显著外观/尺寸改变：从斜向粗大灰黑物体变为带瞄准镜的长枪，至帧5几乎横贯全画面。
+- v4_v5_chain p069_wan21 fresh_2 I3 [cross_shot/object_identity] ents: pb0005=Angular firearm, pb0001=Red-and-black jacket man | 男子在Shot1与Shot3所持枪械设计不一致：Shot1是粗大黑灰长枪并有瞄准镜，Shot3则有醒目的黄色枪带且枪身形状、附件不同。
+- v4_v5_chain p069_wan21 fresh_2 I5 [cross_shot/character_appearance] ents: pb0001=Red-and-black jacket man | 同一男子跨Shot1与Shot3的红黑上衣图案由菱格变为横条纹，且剪裁外观明显不同。
+- v4_v5_chain p069_wan21 fresh_2 I6 [cross_shot/setting_background] ents: pb0002=Industrial corridor, pb0007=Corridor brick walls, pb0003=Worn staircase | Shot3回到被称为同一工业走廊的场景，但背景变成鲜绿砌块墙和绿色楼梯；Shot1/2所见裸露红砖、剥落绿漆与旧门布局不相符。
+- v4_v5_chain p069_wan21 fresh_2 I7 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Long-coat adult在Shot2是直发女性、灰色外套及暗红下装；Shot4则为卷发女性、橄榄绿外套及深色裤装，外观显著不连续。
+- v4_v5_chain p069_wan21 fresh_2 I8 [cross_shot/character_appearance] ents: pb0009=Red-suited masked adult | 红衣蒙面成人跨镜服装外观变化：Shot2为红黑长款全身套装及黑靴，Shot4为红色上衣/裤装并出现明显蓝紫色区域，轮廓和配色不同。
+- v4_v5_chain p069_wan21 fresh_2 I9 [cross_shot/character_identity] ents: pb0008=Short dark-clothed figure | Shot4被称作Short dark-clothed figure的人物外观与Shot2明显不同：Shot2为短身材女性、深棕外套和棕裤；Shot4呈男性外观，穿黑色长外套及深色裤装。
+- v4_v5_chain p069_wan21 fresh_3 I01 [cross_shot/character_appearance] ents: pb0001=Red-and-black jacket man | 同一男子Shot1穿红黑菱格纹夹克，Shot3却穿红黑细条纹夹克，图案显著改变；Shot3的正脸也呈现不同脸型观感。
+- v4_v5_chain p069_wan21 fresh_3 I02 [cross_shot/object_identity] ents: pb0005=Angular firearm | 同一持枪男子在Shot1与Shot3所持枪械外形不同：Shot3出现细长枪身及鲜黄色吊带，Shot1为宽厚棱角枪身，缺少该吊带。
+- v4_v5_chain p069_wan21 fresh_3 I04 [cross_shot/character_identity] ents: pb0008=Short dark-clothed figure | Shot4左侧短身人物看起来是短发男性，穿深色长外套和深色裤；Shot2对应人物是齐耳发女性观感，穿深棕外套、白高领和棕裤，身份外观不一致。
+- v4_v5_chain p069_wan21 fresh_3 I06 [cross_shot/character_appearance] ents: pb0009=Red-suited masked adult | 红面罩角色在Shot2穿红黑全身长款套装与黑靴，Shot4则呈红蓝拼色西装式外套，服装类型及颜色布局明显改变。
+- v4_v5_chain p069_wan21 fresh_3 I07 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | 长外套成人Shot2为直发女性观感、灰色外套和红裤；Shot4搏斗者呈卷发女性观感，穿橄榄绿外套及黑裤，身份外观不一致。
+- v4_v5_chain p069_wan21 fresh_3 I10 [cross_shot/character_appearance] ents: pb0010=Long-coat adult | Shot2与Shot4长外套成人外观不一致：Shot2为灰色外套、短棕发并穿红裤，Shot4为橄榄绿外套、卷曲深发及黑裤。

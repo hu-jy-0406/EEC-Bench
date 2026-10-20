@@ -1,0 +1,470 @@
+{
+  "codex": {
+    "scale": 0.5379226675313188,
+    "rotation": [
+      [
+        -0.8231637576091766,
+        0.5678040402803952,
+        0.0
+      ],
+      [
+        -0.5678040402803952,
+        -0.8231637576091766,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "translation": [
+      -0.22115352001779545,
+      0.4179297920302996,
+      -0.02934222903549278
+    ],
+    "yaw_deg": -145.4027636709322,
+    "mse_xyz": 0.0826442365187347,
+    "mean_squared_corner_distance": 0.2479327095562041,
+    "normalized_mse": 0.19933587288970692,
+    "normalized_rmse_distance": 0.7733095231982604,
+    "target_rms_radius": 0.6438927792396998,
+    "source_rms_radius": 0.7589315728255118,
+    "per_entity_mse": [
+      0.09344872116911318,
+      0.09294301577385777,
+      0.12247572928993417,
+      0.062137165304779085,
+      0.0901761627856615,
+      0.18434234927913848,
+      0.024905778837325584,
+      0.12500643969511788,
+      0.101038680615632,
+      0.010254851605208856,
+      0.0023577073503130803
+    ],
+    "corner_permutation_indices": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "entity_count": 11,
+    "corner_count": 88,
+    "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+    "rotation_constraint": "hard_gravity_yaw_only",
+    "corner_symmetries": 24,
+    "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+    "intervals": 1163,
+    "candidate_angles": 1167,
+    "analytic_mse": 0.08264423651873472,
+    "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances",
+    "reverse": {
+      "scale": 0.7473051529427778,
+      "rotation": [
+        [
+          -0.8231637576091765,
+          -0.5678040402803954,
+          0.0
+        ],
+        [
+          0.5678040402803954,
+          -0.8231637576091765,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        -0.136205945898058,
+        0.5225057215881044,
+        -0.01639925296674269
+      ],
+      "yaw_deg": 145.4027636709322,
+      "mse_xyz": 0.11481290441785724,
+      "mean_squared_corner_distance": 0.3444387132535717,
+      "normalized_mse": 0.19933587288970683,
+      "normalized_rmse_distance": 0.7733095231982602,
+      "target_rms_radius": 0.7589315728255118,
+      "source_rms_radius": 0.6438927792396998,
+      "per_entity_mse": [
+        0.03516333605084467,
+        0.10989318592442325,
+        0.1288301201231112,
+        0.1032432901597475,
+        0.12453039384662386,
+        0.16238819494077103,
+        0.0342958232813416,
+        0.1991018676303704,
+        0.14327062094591134,
+        0.12231549199307727,
+        0.0999096237002076
+      ],
+      "corner_permutation_indices": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "entity_count": 11,
+      "corner_count": 88,
+      "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+      "rotation_constraint": "hard_gravity_yaw_only",
+      "corner_symmetries": 24,
+      "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+      "intervals": 1210,
+      "candidate_angles": 1214,
+      "analytic_mse": 0.11481290441785728,
+      "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances"
+    },
+    "seconds": 0.01678013801574707,
+    "groups": [
+      "g01",
+      "g02",
+      "g04",
+      "g06",
+      "g07",
+      "g10",
+      "g11",
+      "g12",
+      "g13",
+      "g16",
+      "g17"
+    ],
+    "sources": {
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/codex/shot1/Gs_global.json": "e28791f83f0d236121f7241b22d4f1a46c94e8b52cf9d73c3b588ec7fa77c8d3",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/codex/shot3/Gs_global.json": "63ecba006dff94c8db3b205df8a731872fa8ae617d398aae21d8c6744a41b801"
+    },
+    "allocation": "185272",
+    "role": "historical_fixed_camera_baseline_not_new_moving_camera_output"
+  },
+  "boxer_codex_camera": {
+    "scale": 0.5093211413510086,
+    "rotation": [
+      [
+        -0.3650799106153504,
+        0.9309761859817295,
+        0.0
+      ],
+      [
+        -0.9309761859817295,
+        -0.3650799106153504,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "translation": [
+      0.6939334408013691,
+      0.6037929209994566,
+      -0.24501823037517795
+    ],
+    "yaw_deg": -111.41250062121861,
+    "mse_xyz": 0.46499268285261786,
+    "mean_squared_corner_distance": 1.3949780485578536,
+    "normalized_mse": 0.1873910843583108,
+    "normalized_rmse_distance": 0.7497821370737852,
+    "target_rms_radius": 1.5752467681989015,
+    "source_rms_radius": 2.046482514190343,
+    "per_entity_mse": [
+      0.6522192043660779,
+      0.26645579344545794,
+      0.4333236140213638,
+      0.16835797274336195,
+      0.7708966968049307,
+      0.48015493595882125,
+      0.08364020174727255,
+      0.9607426375615898,
+      0.9090400497334518,
+      0.15875469791520821,
+      0.23133370708126053
+    ],
+    "corner_permutation_indices": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      9,
+      3,
+      3,
+      3
+    ],
+    "entity_count": 11,
+    "corner_count": 88,
+    "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+    "rotation_constraint": "hard_gravity_yaw_only",
+    "corner_symmetries": 24,
+    "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+    "intervals": 1581,
+    "candidate_angles": 1584,
+    "analytic_mse": 0.46499268285261797,
+    "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances",
+    "reverse": {
+      "scale": 0.8596280644539956,
+      "rotation": [
+        [
+          -0.3650799106153504,
+          -0.9309761859817295,
+          0.0
+        ],
+        [
+          0.9309761859817295,
+          -0.3650799106153504,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        -1.6436603006663573,
+        0.698081998338766,
+        -0.3268144902820669
+      ],
+      "yaw_deg": 111.41250062121861,
+      "mse_xyz": 0.784810854082319,
+      "mean_squared_corner_distance": 2.354432562246957,
+      "normalized_mse": 0.18739108435831084,
+      "normalized_rmse_distance": 0.7497821370737853,
+      "target_rms_radius": 2.046482514190343,
+      "source_rms_radius": 1.5752467681989015,
+      "per_entity_mse": [
+        1.2058187253060824,
+        0.13745712665394794,
+        0.5498303214524771,
+        0.17340810206166135,
+        1.256012137872437,
+        0.6316165510876305,
+        0.09951347022156704,
+        1.5533377900615049,
+        1.4489021001004538,
+        0.7116618866642531,
+        0.8653611834234928
+      ],
+      "corner_permutation_indices": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        10,
+        3,
+        3,
+        3
+      ],
+      "entity_count": 11,
+      "corner_count": 88,
+      "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+      "rotation_constraint": "hard_gravity_yaw_only",
+      "corner_symmetries": 24,
+      "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+      "intervals": 1579,
+      "candidate_angles": 1582,
+      "analytic_mse": 0.784810854082319,
+      "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances"
+    },
+    "seconds": 0.022577762603759766,
+    "groups": [
+      "g01",
+      "g02",
+      "g04",
+      "g06",
+      "g07",
+      "g10",
+      "g11",
+      "g12",
+      "g13",
+      "g16",
+      "g17"
+    ],
+    "sources": {
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/boxer_codex_camera/shot1/Gs_global.json": "97c48d29d89e1b3389fc11b3cfeccd843a71b1906344bc8299a709bcdcfee2e7",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/boxer_codex_camera/shot3/Gs_global.json": "cd5b5e376679e40679d25d1f74de676e4de939366b49da1585ac349e8d0f5e89"
+    },
+    "allocation": "185272",
+    "role": "historical_fixed_camera_baseline_not_new_moving_camera_output"
+  },
+  "boxer_geocalib": {
+    "scale": 0.520800757974708,
+    "rotation": [
+      [
+        0.9858343883119545,
+        -0.16772167069760102,
+        0.0
+      ],
+      [
+        0.16772167069760102,
+        0.9858343883119545,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "translation": [
+      -0.18236083837947276,
+      1.1453588848628775,
+      -0.23379815273976573
+    ],
+    "yaw_deg": 9.655378512658473,
+    "mse_xyz": 0.5226063023521936,
+    "mean_squared_corner_distance": 1.567818907056581,
+    "normalized_mse": 0.18459175925665994,
+    "normalized_rmse_distance": 0.7441607875788537,
+    "target_rms_radius": 1.6826010939950724,
+    "source_rms_radius": 2.1581735878396944,
+    "per_entity_mse": [
+      0.7488905436202327,
+      0.2884536496245174,
+      0.48169452545297736,
+      0.17270536360109148,
+      0.8581685857605859,
+      0.5276303261066032,
+      0.09844054301243417,
+      1.0316366306147182,
+      1.033201856830846,
+      0.20243607804166877,
+      0.3054112232084541
+    ],
+    "corner_permutation_indices": [
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      3,
+      9,
+      3,
+      3,
+      3
+    ],
+    "entity_count": 11,
+    "corner_count": 88,
+    "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+    "rotation_constraint": "hard_gravity_yaw_only",
+    "corner_symmetries": 24,
+    "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+    "intervals": 1509,
+    "candidate_angles": 1511,
+    "analytic_mse": 0.5226063023521935,
+    "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances",
+    "reverse": {
+      "scale": 0.856805055286979,
+      "rotation": [
+        [
+          0.9858343883119544,
+          0.16772167069760155,
+          0.0
+        ],
+        [
+          -0.16772167069760155,
+          0.9858343883119544,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "translation": [
+        0.10727816424387412,
+        1.3113235740867002,
+        -0.17316686227114186
+      ],
+      "yaw_deg": -9.6553785126585,
+      "mse_xyz": 0.859775480207616,
+      "mean_squared_corner_distance": 2.579326440622848,
+      "normalized_mse": 0.1845917592566599,
+      "normalized_rmse_distance": 0.7441607875788537,
+      "target_rms_radius": 2.1581735878396944,
+      "source_rms_radius": 1.6826010939950724,
+      "per_entity_mse": [
+        1.4902744027310655,
+        0.16905266091054152,
+        0.601206208517757,
+        0.230821579422168,
+        1.4660860405489897,
+        0.6253343828612005,
+        0.07032322527207853,
+        1.6867966614502008,
+        1.6972402474874653,
+        0.5607166114247889,
+        0.8596782616575193
+      ],
+      "corner_permutation_indices": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        10,
+        3,
+        3,
+        3
+      ],
+      "entity_count": 11,
+      "corner_count": 88,
+      "loss": "mean_squared_xyz_error_equal_entity_eight_corners",
+      "rotation_constraint": "hard_gravity_yaw_only",
+      "corner_symmetries": 24,
+      "solver": "complete_pairwise_sinusoid_crossing_intervals_and_stationary_points",
+      "intervals": 1505,
+      "candidate_angles": 1507,
+      "analytic_mse": 0.8597754802076158,
+      "globality": "full_yaw_domain_enumerated_for_declared_model_up_to_float64_tolerances"
+    },
+    "seconds": 0.012841224670410156,
+    "groups": [
+      "g01",
+      "g02",
+      "g04",
+      "g06",
+      "g07",
+      "g10",
+      "g11",
+      "g12",
+      "g13",
+      "g16",
+      "g17"
+    ],
+    "sources": {
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/boxer_geocalib/shot1/Gs_global.json": "5dc1af844867c0579a479430babef3bd3f951f7c8d74e6acc0b7da0bf62b37a3",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/three_method_static_3d_20260914/run01/boxer_geocalib/shot3/Gs_global.json": "7307451c7d28d888c96be73345087bcaaacc05eb7e9bb80d1380ca2a7b284842"
+    },
+    "allocation": "185272",
+    "role": "historical_fixed_camera_baseline_not_new_moving_camera_output"
+  }
+}

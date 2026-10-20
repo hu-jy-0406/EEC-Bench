@@ -1,0 +1,18 @@
+{
+  "kind": "compute-shape extrapolation only; no 40-step cap10 run",
+  "unipc_steps": 40,
+  "shift": 4,
+  "high_steps": 13,
+  "low_steps": 27,
+  "measured_high_step_cfg_seconds": 78.92816261504777,
+  "measured_low_step_cfg_seconds": 69.24017818301218,
+  "fixed_generation_seconds": 166.48093929997412,
+  "projected_generation_seconds": 3062.031864236924,
+  "limits": [
+    "2-step diagnostic bypassed selector using ten distinct real generated frames",
+    "Both measured steps already include conditional and unconditional forward; do not double CFG again",
+    "Fixed generation includes memory encoding and original decoding once",
+    "Excludes model initialization, video encoding and quality selection",
+    "Cold kernels, expert imbalance and per-step timing variation prevent a strict upper bound"
+  ]
+}

@@ -1,0 +1,429 @@
+[
+  {
+    "stage": "detection_and_clustering",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py",
+      "--manifest",
+      "/tmp/binary-plan/raw_manifest.json",
+      "--output",
+      "/tmp/binary-plan/entities",
+      "--gpu",
+      "0",
+      "--model",
+      "gpt-6-astra",
+      "--reasoning",
+      "medium",
+      "--shot-workers",
+      "2",
+      "--codex-bin",
+      "/vast/users/guangyi.chen/.local/bin/codex",
+      "--timeout",
+      "1800"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": []
+  },
+  {
+    "stage": "geocalib",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+      "/tmp/binary-plan",
+      "calibrate",
+      "--all-shots"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "detection_and_clustering"
+    ]
+  },
+  {
+    "stage": "prepare_shot_inputs",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+      "/tmp/binary-plan",
+      "inputs",
+      "--all-shots"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "geocalib"
+    ]
+  },
+  {
+    "stage": "pi3x_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "prepare_shot_inputs"
+    ]
+  },
+  {
+    "stage": "boxer_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "pi3x_shot1"
+    ]
+  },
+  {
+    "stage": "pi3x_shot2",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot2"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "boxer_shot1"
+    ]
+  },
+  {
+    "stage": "boxer_shot2",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot2"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "pi3x_shot2"
+    ]
+  },
+  {
+    "stage": "pi3x_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/geometry.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot3"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "boxer_shot2"
+    ]
+  },
+  {
+    "stage": "boxer_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/boxer.py",
+      "--method",
+      "pi3x",
+      "--shot",
+      "shot3"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": true,
+    "depends": [
+      "pi3x_shot3"
+    ]
+  },
+  {
+    "stage": "expected_motion_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "expectation",
+      "--shot",
+      "shot1",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "boxer_shot3"
+    ]
+  },
+  {
+    "stage": "within_shot1",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "within",
+      "--shot",
+      "shot1",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "expected_motion_shot1"
+    ]
+  },
+  {
+    "stage": "expected_motion_shot2",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "expectation",
+      "--shot",
+      "shot2",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "boxer_shot3"
+    ]
+  },
+  {
+    "stage": "within_shot2",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "within",
+      "--shot",
+      "shot2",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "expected_motion_shot2"
+    ]
+  },
+  {
+    "stage": "expected_motion_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "expectation",
+      "--shot",
+      "shot3",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "boxer_shot3"
+    ]
+  },
+  {
+    "stage": "within_shot3",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "within",
+      "--shot",
+      "shot3",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "expected_motion_shot3"
+    ]
+  },
+  {
+    "stage": "pair_000_prepare",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan",
+      "prepare_pair",
+      "--pair-id",
+      "pair_000",
+      "--shots",
+      "shot1",
+      "shot3"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "expected_motion_shot1",
+      "expected_motion_shot3"
+    ]
+  },
+  {
+    "stage": "pair_000_initial_identity",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/tmp/binary-plan/pairs/pair_000",
+      "match",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": false,
+    "depends": [
+      "pair_000_prepare"
+    ]
+  },
+  {
+    "stage": "pair_000_roma_matches",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_detection_only_fresh_20260918/guard_gpu.py",
+      "0",
+      "GPU-plan",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/run_matching.py",
+      "--method",
+      "roma"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": true,
+    "depends": [
+      "pair_000_prepare"
+    ]
+  },
+  {
+    "stage": "pair_000_lift",
+    "command": [
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+      "--method",
+      "roma"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": false,
+    "depends": [
+      "pair_000_initial_identity",
+      "pair_000_roma_matches"
+    ]
+  },
+  {
+    "stage": "pair_000_registration",
+    "command": [
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/register_gs_3d.py",
+      "--method",
+      "roma",
+      "--sampling",
+      "fps",
+      "--sample-count",
+      "32"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": false,
+    "depends": [
+      "pair_000_lift"
+    ]
+  },
+  {
+    "stage": "pair_000_identity_review",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+      "/tmp/binary-plan/pairs/pair_000",
+      "review_identity",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": false,
+    "depends": [
+      "pair_000_registration"
+    ]
+  },
+  {
+    "stage": "pair_000_boundary",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_temporal_stage.py",
+      "/tmp/binary-plan/pairs/pair_000",
+      "boundary",
+      "--runtime-profile",
+      "temporal_binary_v1"
+    ],
+    "case_root": "/tmp/binary-plan/pairs/pair_000",
+    "gpu": false,
+    "depends": [
+      "pair_000_identity_review"
+    ]
+  },
+  {
+    "stage": "global_entity_table",
+    "command": [
+      "/vast/users/guangyi.chen/anaconda3/bin/python",
+      "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_episode_entities.py",
+      "--case",
+      "/tmp/binary-plan",
+      "--output",
+      "/tmp/binary-plan/global_entities"
+    ],
+    "case_root": "/tmp/binary-plan",
+    "gpu": false,
+    "depends": [
+      "pair_000_identity_review"
+    ]
+  }
+]

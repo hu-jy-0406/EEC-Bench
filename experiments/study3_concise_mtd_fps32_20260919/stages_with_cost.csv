@@ -1,0 +1,16 @@
+stage,label,seconds,input_tokens,cached_input_tokens,output_tokens,total_tokens,standard_api_equivalent_usd
+detection_and_clustering,WeDetect检测＋各shot独立聚类,70.30406260490417,43933,0,1704,45637,0.5245299999999999
+geocalib,GeoCalib标定,40.11751627922058,0,0,0,0,0
+prepare_shot_inputs,准备几何输入,0.2660176753997803,0,0,0,0,0
+pi3x_shot1,Shot1 Pi3X重建,40.44495892524719,0,0,0,0,0
+boxer_shot1,Shot1 3D实体框,12.907135009765625,0,0,0,0,0
+pi3x_shot3,Shot3 Pi3X重建,21.70089864730835,0,0,0,0,0
+boxer_shot3,Shot3 3D实体框,12.023488998413086,0,0,0,0,0
+motion_and_fusion,独立动静判断＋场景融合,155.44183659553528,64073,7552,8705,72778,1.0080120000000001
+roma_matches,RoMA原始匹配（36帧对）,130.66171526908875,0,0,0,0,0
+initial_identity,全实体初始身份匹配＋anchor选择,111.77203273773193,66904,0,3471,70375,0.84259
+lift_correspondences,anchor筛选＋提升3D点对,2.395667552947998,0,0,0,0,0
+registration,FPS32＋配准优化,0.5005321502685547,0,0,0,0,0
+aligned_identity_review,配准后全实体身份复核,352.18576192855835,117587,0,11408,128995,1.74627
+presence,实体存在性判断,230.54176807403564,134963,0,7344,142307,1.71683
+spatial,空间关系计算＋复核,12.728057622909546,64655,15360,406,65061,0.52861

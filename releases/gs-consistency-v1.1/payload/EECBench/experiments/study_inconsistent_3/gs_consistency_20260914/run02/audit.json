@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "failures": [],
+  "calls": [
+    {
+      "stage": "matching",
+      "usage": [
+        {
+          "input_tokens": 89227,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2944,
+          "reasoning_output_tokens": 226
+        }
+      ]
+    },
+    {
+      "stage": "witness",
+      "usage": [
+        {
+          "input_tokens": 95771,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 9532,
+          "reasoning_output_tokens": 333
+        }
+      ]
+    },
+    {
+      "stage": "verification",
+      "usage": [
+        {
+          "input_tokens": 95785,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 8913,
+          "reasoning_output_tokens": 209
+        }
+      ]
+    },
+    {
+      "stage": "recheck",
+      "usage": [
+        {
+          "input_tokens": 97571,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 2059,
+          "reasoning_output_tokens": 88
+        }
+      ]
+    }
+  ],
+  "source_count": 4,
+  "checked": "source and code hashes; sanitized payload; fresh tool-free service calls; identical independent review inputs; exact deterministic score replay",
+  "limitation": "Protocol audit does not independently certify the visual claims, model identity matching, or physical ground truth."
+}

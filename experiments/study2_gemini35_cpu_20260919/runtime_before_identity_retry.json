@@ -1,0 +1,286 @@
+{
+  "status": "failed",
+  "started": 1789832700.0437174,
+  "allocation": "191764",
+  "stages": [
+    {
+      "stage": "detection_and_clustering",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_wedetect_shot_entities.py",
+        "--manifest",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01/raw_manifest.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01/entities",
+        "--device",
+        "cpu",
+        "--model",
+        "gemini-3.5-flash",
+        "--reasoning",
+        "medium",
+        "--shot-workers",
+        "2",
+        "--codex-bin",
+        "/vast/users/guangyi.chen/.local/bin/codex",
+        "--timeout",
+        "1800",
+        "--detector-timeout",
+        "7200"
+      ],
+      "status": "success",
+      "started": 1789832700.0437217,
+      "seconds": 114.65730571746826,
+      "returncode": 0
+    },
+    {
+      "stage": "geocalib",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/calibrate_cpu.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01"
+      ],
+      "status": "success",
+      "started": 1789832814.70108,
+      "seconds": 31.086193799972534,
+      "returncode": 0
+    },
+    {
+      "stage": "prepare_shot_inputs",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/prepare_gs_integrated.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "inputs"
+      ],
+      "status": "success",
+      "started": 1789832845.7873476,
+      "seconds": 2.0753912925720215,
+      "returncode": 0
+    },
+    {
+      "stage": "pi3x_shot1",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/geometry_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot1"
+      ],
+      "status": "success",
+      "started": 1789832847.8628125,
+      "seconds": 158.29932570457458,
+      "returncode": 0
+    },
+    {
+      "stage": "boxer_shot1",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/boxer_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot1"
+      ],
+      "status": "success",
+      "started": 1789833006.1622162,
+      "seconds": 20.701738357543945,
+      "returncode": 0
+    },
+    {
+      "stage": "pi3x_shot3",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/geometry_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot3"
+      ],
+      "status": "success",
+      "started": 1789833026.8639972,
+      "seconds": 153.94010162353516,
+      "returncode": 0
+    },
+    {
+      "stage": "boxer_shot3",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/boxer_cpu.py",
+        "--method",
+        "pi3x",
+        "--shot",
+        "shot3"
+      ],
+      "status": "success",
+      "started": 1789833180.8041387,
+      "seconds": 22.89479422569275,
+      "returncode": 0
+    },
+    {
+      "stage": "motion_and_fusion",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_gs_motion_fusion.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "status": "success",
+      "started": 1789833203.6990018,
+      "seconds": 49.163654804229736,
+      "returncode": 0
+    },
+    {
+      "stage": "initial_identity",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_gs_flow1_stage.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "match",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "status": "success",
+      "started": 1789833252.8627272,
+      "seconds": 51.171133279800415,
+      "returncode": 0
+    },
+    {
+      "stage": "roma_matches",
+      "command": [
+        [
+          "taskset",
+          "-c",
+          "21,22,23,24",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/roma_cpu.py",
+          "--method",
+          "roma",
+          "--part",
+          "0",
+          "--parts",
+          "2"
+        ],
+        [
+          "taskset",
+          "-c",
+          "20,26,27,28",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+          "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study3/cpu_adapters/roma_cpu.py",
+          "--method",
+          "roma",
+          "--part",
+          "1",
+          "--parts",
+          "2"
+        ]
+      ],
+      "started": 1789833252.8627272,
+      "resumed": 1789833951.139201,
+      "status": "success",
+      "prior_attempt_record": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/runtime_before_two_workers.json",
+      "seconds": 1937.9065523147583,
+      "returncode": 0
+    },
+    {
+      "stage": "lift_correspondences",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/prepare_correspondences.py",
+        "--method",
+        "roma"
+      ],
+      "started": 1789835190.7752812,
+      "status": "success",
+      "seconds": 2.0566837787628174,
+      "returncode": 0
+    },
+    {
+      "stage": "registration",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study_inconsistent_3/geocalib_boxer_20260913/venv/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_full_fresh_20260918/register.py",
+        "--method",
+        "roma"
+      ],
+      "started": 1789835192.8384647,
+      "status": "success",
+      "seconds": 2.0546374320983887,
+      "returncode": 0
+    },
+    {
+      "stage": "aligned_identity_review",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_gemini_stage.py",
+        "run_gs_flow1_stage.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/study2_gemini35_cpu_20260919/run01",
+        "review_identity",
+        "--runtime-profile",
+        "safe_spatial_medium"
+      ],
+      "started": 1789835194.8989162,
+      "status": "failed",
+      "seconds": 102.33999228477478
+    }
+  ],
+  "cpu_reschedule": {
+    "status": "rescheduling",
+    "started": 1789833809.6130214,
+    "terminated_own_roma_pid": 986448,
+    "groups": [
+      [
+        21,
+        22,
+        23,
+        24
+      ],
+      [
+        20,
+        26,
+        27,
+        28
+      ],
+      [
+        16,
+        17,
+        18,
+        19
+      ],
+      [
+        11,
+        29,
+        30,
+        31
+      ]
+    ],
+    "reason": "Use additional verified-idle allocated CPU cores; preserve all pairs, precise settings, and per-index seeds"
+  },
+  "cpu_reschedule_two_workers": {
+    "status": "rescheduling",
+    "started": 1789833951.089355,
+    "groups": [
+      [
+        21,
+        22,
+        23,
+        24
+      ],
+      [
+        20,
+        26,
+        27,
+        28
+      ]
+    ],
+    "reason": "Four-worker RSS guard stopped its own workers; resume with two workers under the unchanged 24 GiB cap",
+    "preserves_all_pairs_settings_seeds": true
+  },
+  "error": "RuntimeError('CPU subprocess failed')",
+  "finished": 1789835297.2455947,
+  "seconds": 2597.201877593994
+}

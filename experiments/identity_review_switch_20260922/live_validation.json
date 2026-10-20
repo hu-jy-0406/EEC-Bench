@@ -1,0 +1,533 @@
+{
+  "calls": [
+    {
+      "mode": "minimal",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_review_switch_20260922/live/study3_minimal",
+        "review_identity"
+      ],
+      "returncode": 0,
+      "seconds": 172.57722187042236,
+      "usage": [
+        {
+          "input_tokens": 29267,
+          "cached_input_tokens": 7680,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5334,
+          "reasoning_output_tokens": 120
+        }
+      ],
+      "total_tokens": 34601,
+      "standard_api_equivalent_usd": 0.49025,
+      "image_count": 12,
+      "prompt": "gs_aligned_identity_minimal_v1.txt",
+      "canonical_equal": true,
+      "partitions": [
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e1"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e11"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e13"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e17"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e18"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e20"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e3"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e5"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e8"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e9"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e1"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e10"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e11"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e12"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e13"
+          ],
+          "b": [
+            "shot3/e6"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e14"
+          ],
+          "b": [
+            "shot3/e15"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e15"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e16"
+          ],
+          "b": [
+            "shot3/e14"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e17"
+          ],
+          "b": [
+            "shot3/e16"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e18"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e19"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e2"
+          ],
+          "b": [
+            "shot3/e2"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e20"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e3"
+          ],
+          "b": [
+            "shot3/e4"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e4"
+          ],
+          "b": [
+            "shot3/e19"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e5"
+          ],
+          "b": [
+            "shot3/e7"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e6"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e7"
+          ],
+          "b": [
+            "shot3/e10"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e8"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e9"
+          ],
+          "b": [
+            "shot3/e12"
+          ]
+        }
+      ],
+      "anchors": [
+        "g05",
+        "g14"
+      ],
+      "origin": "g05",
+      "reference": "g14"
+    },
+    {
+      "mode": "full",
+      "command": [
+        "/vast/users/guangyi.chen/anaconda3/bin/python",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_gs_flow1_stage.py",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/identity_review_switch_20260922/live/study3_full",
+        "review_identity",
+        "--identity-review-input",
+        "full"
+      ],
+      "returncode": 0,
+      "seconds": 167.13881182670593,
+      "usage": [
+        {
+          "input_tokens": 128654,
+          "cached_input_tokens": 0,
+          "cache_write_input_tokens": 0,
+          "output_tokens": 5152,
+          "reasoning_output_tokens": 122
+        }
+      ],
+      "total_tokens": 133806,
+      "standard_api_equivalent_usd": 1.54414,
+      "image_count": 13,
+      "prompt": "gs_aligned_identity_scoring_v1.txt",
+      "canonical_equal": true,
+      "partitions": [
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e1"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e13"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e17"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e18"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e20"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e3"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e5"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e8"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [],
+          "b": [
+            "shot3/e9"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e1"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e10"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e11"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e12"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e13"
+          ],
+          "b": [
+            "shot3/e6"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e14"
+          ],
+          "b": [
+            "shot3/e15"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e15"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e16"
+          ],
+          "b": [
+            "shot3/e14"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e17"
+          ],
+          "b": [
+            "shot3/e16"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e18"
+          ],
+          "b": []
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e19"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e2"
+          ],
+          "b": [
+            "shot3/e2"
+          ]
+        },
+        {
+          "identity": "ambiguous",
+          "a": [
+            "shot1/e20"
+          ],
+          "b": [
+            "shot3/e11"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e3"
+          ],
+          "b": [
+            "shot3/e4"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e4"
+          ],
+          "b": [
+            "shot3/e19"
+          ]
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e5"
+          ],
+          "b": [
+            "shot3/e7"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e6"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e7"
+          ],
+          "b": [
+            "shot3/e10"
+          ]
+        },
+        {
+          "identity": "unmatched",
+          "a": [
+            "shot1/e8"
+          ],
+          "b": []
+        },
+        {
+          "identity": "matched",
+          "a": [
+            "shot1/e9"
+          ],
+          "b": [
+            "shot3/e12"
+          ]
+        }
+      ],
+      "anchors": [
+        "g05",
+        "g14"
+      ],
+      "origin": "g05",
+      "reference": "g14"
+    }
+  ],
+  "parallel_seconds": 172.88028192520142,
+  "total_tokens": 168407,
+  "standard_api_equivalent_usd": 2.03439,
+  "partitions_equal": false,
+  "anchors_equal": true,
+  "scope": "Frozen upstream, fresh identity calls only; no full pipeline rerun"
+}

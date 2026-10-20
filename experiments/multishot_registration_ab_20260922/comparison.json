@@ -1,0 +1,568 @@
+{
+  "episodes": [
+    {
+      "name": "parking4",
+      "metrics": {
+        "optimization": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "group_count": 4,
+          "attached_shots": 0,
+          "comparable_shot_pairs": 0,
+          "possible_shot_pairs": 6,
+          "seconds": 0.033498525619506836,
+          "pairs": []
+        },
+        "direct": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot4"
+          ],
+          "group_count": 3,
+          "attached_shots": 1,
+          "comparable_shot_pairs": 1,
+          "possible_shot_pairs": 6,
+          "seconds": 65.26064205169678,
+          "pairs": [
+            {
+              "shot_a": "Shot1",
+              "shot_b": "Shot3",
+              "common_endpoint_entities": 3,
+              "static_endpoint_entities": 1,
+              "static_median_distance": 0.10512914067994579,
+              "cosines": [
+                {
+                  "groups": [
+                    "g01",
+                    "g02"
+                  ],
+                  "cosine": 0.6761492288968326
+                },
+                {
+                  "groups": [
+                    "g01",
+                    "g03"
+                  ],
+                  "cosine": -0.5831894041990784
+                },
+                {
+                  "groups": [
+                    "g02",
+                    "g03"
+                  ],
+                  "cosine": -0.5134101148299722
+                }
+              ],
+              "negative_cosine_proposals": 2
+            }
+          ]
+        }
+      },
+      "point_diagnostics": [],
+      "plot": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/registration_topviews.png"
+    },
+    {
+      "name": "bedroom4",
+      "metrics": {
+        "optimization": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "group_count": 4,
+          "attached_shots": 0,
+          "comparable_shot_pairs": 0,
+          "possible_shot_pairs": 6,
+          "seconds": 138.0167362689972,
+          "pairs": []
+        },
+        "direct": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4"
+          ],
+          "group_count": 4,
+          "attached_shots": 0,
+          "comparable_shot_pairs": 0,
+          "possible_shot_pairs": 6,
+          "seconds": 46.14511561393738,
+          "pairs": []
+        }
+      },
+      "point_diagnostics": [],
+      "plot": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/registration_topviews.png"
+    },
+    {
+      "name": "diner8",
+      "metrics": {
+        "optimization": {
+          "roots": [
+            "Shot1",
+            "Shot2",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "group_count": 8,
+          "attached_shots": 0,
+          "comparable_shot_pairs": 0,
+          "possible_shot_pairs": 28,
+          "seconds": 136.86996126174927,
+          "pairs": []
+        },
+        "direct": {
+          "roots": [
+            "Shot1",
+            "Shot3",
+            "Shot4",
+            "Shot5",
+            "Shot6",
+            "Shot7",
+            "Shot8"
+          ],
+          "group_count": 7,
+          "attached_shots": 1,
+          "comparable_shot_pairs": 1,
+          "possible_shot_pairs": 28,
+          "seconds": 106.15252351760864,
+          "pairs": [
+            {
+              "shot_a": "Shot1",
+              "shot_b": "Shot2",
+              "common_endpoint_entities": 3,
+              "static_endpoint_entities": 1,
+              "static_median_distance": 0.029451999040287065,
+              "cosines": [
+                {
+                  "groups": [
+                    "g01",
+                    "g03"
+                  ],
+                  "cosine": 0.9610723750397886
+                },
+                {
+                  "groups": [
+                    "g01",
+                    "g07"
+                  ],
+                  "cosine": 0.8530656399936706
+                },
+                {
+                  "groups": [
+                    "g03",
+                    "g07"
+                  ],
+                  "cosine": 0.8459302672939956
+                }
+              ],
+              "negative_cosine_proposals": 0
+            }
+          ]
+        }
+      },
+      "point_diagnostics": [],
+      "plot": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/registration_topviews.png"
+    }
+  ],
+  "calls": [
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/direct_Shot2/status.json",
+      "status": "success",
+      "seconds": 20.943872690200806,
+      "tokens": 26990,
+      "standard_api_equivalent_usd": 0.2755
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/direct_Shot3/status.json",
+      "status": "success",
+      "seconds": 21.190494775772095,
+      "tokens": 37463,
+      "standard_api_equivalent_usd": 0.39379
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/direct_Shot4/status.json",
+      "status": "success",
+      "seconds": 22.753299951553345,
+      "tokens": 35532,
+      "standard_api_equivalent_usd": 0.3622
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/expected_motion_Shot1/status.json",
+      "status": "success",
+      "seconds": 17.174318075180054,
+      "tokens": 17909,
+      "standard_api_equivalent_usd": 0.18941
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/expected_motion_Shot2/status.json",
+      "status": "success",
+      "seconds": 15.569905281066895,
+      "tokens": 17559,
+      "standard_api_equivalent_usd": 0.18855
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/expected_motion_Shot3/status.json",
+      "status": "success",
+      "seconds": 19.114102602005005,
+      "tokens": 18905,
+      "standard_api_equivalent_usd": 0.20625
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/expected_motion_Shot4/status.json",
+      "status": "success",
+      "seconds": 26.44929528236389,
+      "tokens": 17424,
+      "standard_api_equivalent_usd": 0.18748
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/calls/global_initial/status.json",
+      "status": "success",
+      "seconds": 53.20953106880188,
+      "tokens": 53868,
+      "standard_api_equivalent_usd": 0.58512
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/entities/shots/Shot1/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14060,
+      "standard_api_equivalent_usd": 0.15052
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/entities/shots/Shot2/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14216,
+      "standard_api_equivalent_usd": 0.15164
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/entities/shots/Shot3/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14233,
+      "standard_api_equivalent_usd": 0.15353
+    },
+    {
+      "case": "parking4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/parking4/entities/shots/Shot4/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14046,
+      "standard_api_equivalent_usd": 0.14882
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/direct_Shot2/status.json",
+      "status": "success",
+      "seconds": 19.414557218551636,
+      "tokens": 33165,
+      "standard_api_equivalent_usd": 0.33601
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/direct_Shot3/status.json",
+      "status": "success",
+      "seconds": 11.402504682540894,
+      "tokens": 44133,
+      "standard_api_equivalent_usd": 0.44701
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/direct_Shot4/status.json",
+      "status": "success",
+      "seconds": 14.93984317779541,
+      "tokens": 56184,
+      "standard_api_equivalent_usd": 0.57024
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/expected_motion_Shot1/status.json",
+      "status": "success",
+      "seconds": 21.47554636001587,
+      "tokens": 18252,
+      "standard_api_equivalent_usd": 0.20124
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/expected_motion_Shot2/status.json",
+      "status": "success",
+      "seconds": 22.769285917282104,
+      "tokens": 20107,
+      "standard_api_equivalent_usd": 0.22319
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/expected_motion_Shot3/status.json",
+      "status": "success",
+      "seconds": 17.980896472930908,
+      "tokens": 18914,
+      "standard_api_equivalent_usd": 0.20466
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/expected_motion_Shot4/status.json",
+      "status": "success",
+      "seconds": 27.121860027313232,
+      "tokens": 21278,
+      "standard_api_equivalent_usd": 0.23526
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/calls/global_initial/status.json",
+      "status": "success",
+      "seconds": 83.85733103752136,
+      "tokens": 68150,
+      "standard_api_equivalent_usd": 0.76866
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/entities/shots/Shot1/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14508,
+      "standard_api_equivalent_usd": 0.16568
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/entities/shots/Shot2/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14300,
+      "standard_api_equivalent_usd": 0.15464
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/entities/shots/Shot3/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14288,
+      "standard_api_equivalent_usd": 0.086344
+    },
+    {
+      "case": "bedroom4",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/bedroom4/entities/shots/Shot4/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14750,
+      "standard_api_equivalent_usd": 0.093644
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot2/status.json",
+      "status": "success",
+      "seconds": 25.326207399368286,
+      "tokens": 31464,
+      "standard_api_equivalent_usd": 0.3384
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot3/status.json",
+      "status": "success",
+      "seconds": 10.864807844161987,
+      "tokens": 31192,
+      "standard_api_equivalent_usd": 0.31728
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot4/status.json",
+      "status": "success",
+      "seconds": 11.823042392730713,
+      "tokens": 38153,
+      "standard_api_equivalent_usd": 0.38757
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot5/status.json",
+      "status": "success",
+      "seconds": 16.950371265411377,
+      "tokens": 45830,
+      "standard_api_equivalent_usd": 0.46454
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot6/status.json",
+      "status": "success",
+      "seconds": 14.391443252563477,
+      "tokens": 54351,
+      "standard_api_equivalent_usd": 0.55043
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot7/status.json",
+      "status": "success",
+      "seconds": 13.076598167419434,
+      "tokens": 62070,
+      "standard_api_equivalent_usd": 0.62682
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/direct_Shot8/status.json",
+      "status": "success",
+      "seconds": 12.987977981567383,
+      "tokens": 68971,
+      "standard_api_equivalent_usd": 0.69523
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot1/status.json",
+      "status": "success",
+      "seconds": 20.69576907157898,
+      "tokens": 21603,
+      "standard_api_equivalent_usd": 0.23431
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot2/status.json",
+      "status": "success",
+      "seconds": 15.486053228378296,
+      "tokens": 17357,
+      "standard_api_equivalent_usd": 0.18445
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot3/status.json",
+      "status": "success",
+      "seconds": 21.639601469039917,
+      "tokens": 17241,
+      "standard_api_equivalent_usd": 0.18249
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot4/status.json",
+      "status": "success",
+      "seconds": 13.035001754760742,
+      "tokens": 16009,
+      "standard_api_equivalent_usd": 0.16681
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot5/status.json",
+      "status": "success",
+      "seconds": 22.243096113204956,
+      "tokens": 16956,
+      "standard_api_equivalent_usd": 0.1774
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot6/status.json",
+      "status": "success",
+      "seconds": 24.978790998458862,
+      "tokens": 17193,
+      "standard_api_equivalent_usd": 0.18141
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot7/status.json",
+      "status": "success",
+      "seconds": 12.440904378890991,
+      "tokens": 16408,
+      "standard_api_equivalent_usd": 0.1718
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/expected_motion_Shot8/status.json",
+      "status": "success",
+      "seconds": 10.694464921951294,
+      "tokens": 15965,
+      "standard_api_equivalent_usd": 0.16497
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/calls/global_initial/status.json",
+      "status": "success",
+      "seconds": 76.93785572052002,
+      "tokens": 92408,
+      "standard_api_equivalent_usd": 1.01364
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot1/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14985,
+      "standard_api_equivalent_usd": 0.16269
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot2/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 13611,
+      "standard_api_equivalent_usd": 0.14031
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot3/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14440,
+      "standard_api_equivalent_usd": 0.15412
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot4/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14013,
+      "standard_api_equivalent_usd": 0.14709
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot5/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 13843,
+      "standard_api_equivalent_usd": 0.14299
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot6/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14047,
+      "standard_api_equivalent_usd": 0.14583
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot7/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14101,
+      "standard_api_equivalent_usd": 0.15037
+    },
+    {
+      "case": "diner8",
+      "call": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/multishot_registration_ab_20260922/shared/diner8/entities/shots/Shot8/status.json",
+      "status": "success",
+      "seconds": null,
+      "tokens": 14066,
+      "standard_api_equivalent_usd": 0.1497
+    }
+  ],
+  "total_tokens": 1296511,
+  "standard_api_equivalent_usd": 13.530038,
+  "actual_bill_available": false
+}

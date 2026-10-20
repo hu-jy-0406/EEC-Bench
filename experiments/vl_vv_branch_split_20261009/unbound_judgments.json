@@ -1,0 +1,21 @@
+{
+  "note": "Assistant reading of every detected issue (pre-review) under the branch chain's definition: the issue involves a prompt-unbound entity when an entity it is about (the inconsistent element, or an unrequested extra) is not referred to by the prompt or contract and is not part of a referenced entity. Same 8 clip videos; v4+v5 covers only 4 of them. Not human annotation.",
+  "v2_chain": {"runs": "8 videos x 3", "detected_issues": 78, "involving_unbound": 7, "share": 0.0897,
+               "issues": {"p047_wan21 run_a I3": "V-L presence_count: unrequested shirtless gray-haired man in Shot6 (ge0003)",
+                          "p047_wan21 run_b I4": "V-L presence_count + V-V presence_instability: the same extra man (ge0003)",
+                          "p047_wan21 run_c I4": "V-L presence_count: the same extra man (ge0003)",
+                          "p047_wan21 run_a I4": "V-V setting: Shot2 wood wall, dark band and blue sign not in the text",
+                          "p047_wan21 run_b I3": "V-V setting: same wood wall / blue sign",
+                          "p047_wan21 run_c I2": "V-V setting: wood wall / blue sign vs the stated poster wall",
+                          "p032_wan22 run_a I3": "V-V setting: unstated teal side cabinet and cabinets (arch is stated)"},
+               "detector_partition_measure": {"cite_ge": 3, "share": 0.0385}},
+  "v4_v5_chain": {"runs": "4 videos x 3 (#002, #014 Wan2.1, #028, #069)", "detected_issues": 80, "involving_unbound": 0, "share": 0.0,
+                  "detector_partition_measure": {"cite_ge": 0, "share": 0.0}},
+  "branch_chain_final": {"runs": "8 videos x 2", "detected_issues": 84, "involving_unbound": 3, "share": 0.0357,
+                         "issues": {"p032_wan22 run_a V2": "kitchen walls and cabinet structure (rejected at review)",
+                                    "p032_wan22 run_b V2": "kitchen walls; kitchen cabinets (split, both confirmed)",
+                                    "p047_wan21 run_a V2": "training-room wood wall (split; Shot2 vs 6/8 confirmed)"},
+                         "reading_adds": 0,
+                         "detector_partition_measure": {"cite_ge": 0, "share": 0.0}},
+  "main_difference": "The unrequested shirtless old man in #047 Wan2.1 Shot6 (reference artifact A2) was reported in 3/3 v2 runs and 0/2 branch runs. The branch V-L template is built from contract entities; only the shot-text catch-all row covers unrequested extras, and V-V does not treat a one-shot extra as an inconsistency."
+}

@@ -1,0 +1,31 @@
+Perform targeted cross-view EVIDENCE CHECKS, not final consistency classification.
+The immutable graphs were extracted independently. The explicit alignment and queries are supplied.
+No tools. Return every query exactly once in input order. Images are original pixels, ordered in payload images.
+Do not alter graph facts to make them match. Do not assume intended errors or infer from absent nodes.
+
+PRESENCE queries: source_shot contains source_entity_id; target_shot has no matched node.
+For each target frame separately ask: IF the source entity retained its source occupancy/state, is its diagnostic region inspectable?
+Provide source evidence frames/regions. Estimate a target expected_region_xyxy only if defensible (original pixels), otherwise null.
+Gates are yes/no/unknown:
+source_presence_reliable, source_location_reliable, anchor_alignment_reliable,
+region_in_view, region_unoccluded, detail_sufficient, all_hypotheses_testable.
+all_hypotheses_testable=yes only if all evidence-allowed source-position/anchor interpretations can be tested. Do not hypothesize arbitrary hidden positions.
+Observation:
+seen = original pixels show the source object or a strong identity candidate despite missing matched inventory node (extraction gap);
+verified_absent = expected occupied region is explicitly empty of that object; requires positive source evidence and nonnull target region. This is scoped occupancy absence, not global disappearance.
+out_of_view/occluded = expected region is outside crop or hidden with supporting correspondence.
+insufficient_detail/unknown = cannot decide.
+Seeing a desk does not establish the lamp's expected region is inspectable. Planar mapping of a base cannot project the entire tall object's silhouette. Detector omission never proves absence.
+Apply the same logic in BOTH directions; target can be chronologically earlier.
+No default assumption that all unmatched nodes are complementary or conflicts.
+
+RELATION queries: compare the stated predicate, support/whole scope and physical/anchor reference.
+entity_groups specifies canonical SUBJECT then OBJECT global group IDs. Resolve to local IDs through alignment groups.
+For axis_order use graph A's aligned physical anchor direction. Graph B's reversed anchor and any reversed local subject/object order must be normalized; a_flip/b_flip describe original-graph-to-canonical sign reversal.
+Output values_a / values_b as allowed value sets in this CANONICAL direction, based on original visual evidence.
+Empty array = no reliable evidence. For physical relations values true/false; for axis order less/overlapping/greater. Multiple values = uncertain/disjunctive, not majority vote. State temporal changes in reason.
+correspondence_reliable=true only when both entity scopes, physical anchor and temporal comparison are defensible. With unresolvable physical ends use false.
+A missing relation in one graph is UNKNOWN: inspect pixels before assigning a value, never set false from omission.
+Camera-facing depth, screen order, projected overlap or a cup occluding a holder cannot by themselves establish fixed-surface footprint order.
+All nonempty values require corresponding frame/region evidence. Reasons must state what visible features support the order or explain uncertainty. Preserve disagreements with independent graph extraction.
+Use concise Chinese explanations. Do not return final conflict/compatible labels; a deterministic program handles that using a separate frozen continuity policy.
