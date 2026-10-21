@@ -30,3 +30,30 @@ EECBench/scripts/openai_api_env.sh <existing-pipeline-command>
 
 Switch back by running the same command normally, or explicitly setting
 `EECBENCH_CODEX_BACKEND=cli`.
+
+## Shot/frame image labels (default since 2026-10-20)
+
+At the owner's direction, the API shim puts a short text label immediately
+before each attached image, for example `Shot3 frame 2`, using the payload's
+own `shot_id` and `frame_id`. Pixels, attachment order, prompts and the
+payload's `image_order` are unchanged. Before this, the model received 24–48
+unlabeled images after the prompt and had to count positions, and it
+attributed images to the wrong shot (#002 Wan2.1: Shot3's collared shirt was
+reported in Shot4 in every unlabeled run).
+
+- Where: `run_wedetect_shot_entities.image_labels()` builds the labels;
+  `gs_prompt_binding.call()` (every VL/VV stage that attaches keyframes:
+  shot prompt binding, global entity matching, discovery, review) and the
+  shot-clustering review pass them to the shim as `--image-label` arguments.
+  Scoring stages attach no images.
+- Labels are sent only for the API backend and only when every attached image
+  has `shot_id` and `frame_id`; otherwise the call is unchanged. The Codex CLI
+  backend (`cli`) cannot interleave text with images and is unchanged.
+- Each call's `request.json` and `api_request.json` record `image_labels`
+  (and `image_label_protocol: shot_frame_v1`); `run_vl_vv_pipeline.py`
+  records the setting in `run.json` and hashes the transport files.
+- `EECBENCH_IMAGE_LABELS=off` sends unlabeled images, only to reproduce
+  historical results. A stored shot-clustering response is reused only if it
+  was made with the same labels.
+- Tests: `tests/test_image_labels.py`. Live check:
+  `experiments/vl_vv_image_labels_20261020/REPORT.md`.

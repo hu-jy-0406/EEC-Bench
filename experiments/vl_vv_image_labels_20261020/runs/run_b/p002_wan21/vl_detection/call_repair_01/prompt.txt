@@ -1,0 +1,21 @@
+VALIDATION REPAIR
+
+Your previous response for this task failed the task's deterministic validator.
+INPUT contains:
+- validation_errors: EVERY problem the validator found in your previous response.
+- previous_output: your complete previous response.
+
+Return one complete corrected response that:
+1. Fixes every listed problem in a single pass.
+2. Uses exactly the same output schema as the previous response.
+3. Keeps every part of previous_output that is not involved in a listed problem unchanged. Do not re-judge, add or drop unrelated items.
+4. Uses only identifiers that exist in the original task input (entity IDs, shot IDs, frame IDs, template row IDs, issue IDs, unit IDs), or identifiers that the original task instructions explicitly let you create (new issue IDs, change IDs, added entity keys such as "n1", split unit IDs such as "V3.1"), following their stated format. Never invent any other identifier.
+5. Continues to follow all original task instructions and evidence rules; they remain fully in force.
+6. Quotes text literally: when a listed problem says a quote was not found in its source, copy the exact words from that source (or the source the problem names).
+
+For each listed problem, prefer correcting the faulty field (for example a wrong identifier, a missing template row, a scope that does not cover its witnesses, a quote that is not literal, or a verdict whose evidence does not meet its criteria). Remove an item or a reference only when no correction is allowed by the original instructions and evidence. Do not fabricate evidence to satisfy the validator.
+
+Return only the corrected JSON response.
+
+INPUT:
+{"protocol":"vl_vv_validation_repair_v1","repair_round":1,"validation_errors":["checks is missing 30 of 30 template rows: ['EN:Character 1@Shot1', 'EN:Location 1@Shot1', 'EN:Object 1@Shot1', 'EN:Object 2@Shot1', 'EN:Object 3@Shot1', 'RL:Shot1', 'SP:Shot1', 'EN:Character 1@Shot2', 'EN:Location 1@Shot2', 'EN:Object 1@Shot2', 'EN:Object 4@Shot2', 'RL:Shot2', 'SP:Shot2', 'TR:Shot1->Shot2', 'EN:Character 1@Shot3', 'EN:Location 1@Shot3', 'EN:Object 1@Shot3', 'EN:Object 2@Shot3', 'EN:Object 3@Shot3', 'EN:Object 5@Shot3', 'RL:Shot3', 'SP:Shot3', 'TR:Shot2->Shot3', 'EN:Character 1@Shot4', 'EN:Location 1@Shot4', 'EN:Object 1@Shot4', 'EN:Object 6@Shot4', 'RL:Shot4', 'SP:Shot4', 'TR:Shot3->Shot4']; give exactly one entry per row_id, including satisfied rows"],"previous_output":{"protocol":"vl_vv_issue_discovery_v5_vl","checks":[],"added_entities":[],"issues":[]}}

@@ -1,0 +1,5591 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "candidate_issues": [
+    {
+      "issue_id": "L1",
+      "subcategory": "interaction",
+      "summary": "Shot1中枪未曾举到男子脸前。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+        }
+      ],
+      "expected": "男子前进时将枪举在脸前。",
+      "occurrences": [
+        {
+          "shot_id": "Shot1",
+          "row_ids": [
+            "RL:Shot1"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot1",
+              "frame_id": 1
+            },
+            {
+              "shot_id": "Shot1",
+              "frame_id": 4
+            }
+          ],
+          "observed": "枪在男子胸前及身体下方，没有举至脸前。",
+          "mismatch": "实际枪位低于脸部，未达到脸前位置。"
+        }
+      ],
+      "entity_keys": [
+        "pb0001",
+        "pb0005"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "RL:Shot1",
+          "kind": "relations",
+          "shot_id": "Shot1",
+          "items": [
+            {
+              "item_id": "s02",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "behind",
+              "expected": "The staircase rises behind the man.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 1",
+                "Character 1"
+              ],
+              "depends_on": [
+                "p03",
+                "p01"
+              ],
+              "quotes": [
+                "A worn staircase rises behind him"
+              ]
+            },
+            {
+              "item_id": "s05",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "raised_firearm",
+              "expected": "As he advances, the man holds the firearm raised before his face.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 3"
+              ],
+              "depends_on": [
+                "p01",
+                "p05"
+              ],
+              "quotes": [
+                "he moves forward with the large gray-and-black Angular firearm raised before his face"
+              ]
+            },
+            {
+              "item_id": "m02",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "lower_firearm",
+              "expected": "The man lowers the firearm's casing toward his chest.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 3"
+              ],
+              "depends_on": [
+                "p01",
+                "p05"
+              ],
+              "quotes": [
+                "then lowers its bulky textured casing toward his chest"
+              ]
+            },
+            {
+              "item_id": "s06",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "side_position",
+              "expected": "The openings are at the corridor's sides.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 4",
+                "Location 1"
+              ],
+              "depends_on": [
+                "p06",
+                "p02"
+              ],
+              "quotes": [
+                "the side openings"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L2",
+      "subcategory": "attribute",
+      "summary": "Shot4结尾没有呈现绿砖楼梯井。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "in the narrow green-brick stairwell"
+        }
+      ],
+      "expected": "结尾在狭窄的绿砖楼梯井内。",
+      "occurrences": [
+        {
+          "shot_id": "Shot4",
+          "row_ids": [
+            "EN:Location 2@Shot4",
+            "SP:Shot4"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot4",
+              "frame_id": 4
+            },
+            {
+              "shot_id": "Shot4",
+              "frame_id": 5
+            }
+          ],
+          "observed": "结尾显示绿色涂漆的平台隔墙与左侧砖墙，不是绿砖楼梯井。",
+          "mismatch": "画面未呈现要求的绿砖楼梯井环境。"
+        }
+      ],
+      "entity_keys": [
+        "pb0015"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Location 2@Shot4",
+          "kind": "entity",
+          "shot_id": "Shot4",
+          "entity_label": "Location 2",
+          "name": "Green-brick stairwell",
+          "ledger_entity_ids": [
+            "pb0015"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Narrow green-brick stairwell reached by the struggle."
+            },
+            {
+              "item_id": "p31",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The green-brick stairwell is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Location 2"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "in the narrow green-brick stairwell"
+              ]
+            },
+            {
+              "item_id": "a43",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "narrow_shape",
+              "expected": "The stairwell is narrow.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Location 2"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "the narrow green-brick stairwell"
+              ]
+            },
+            {
+              "item_id": "a44",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "brick_material",
+              "expected": "The stairwell has brick surfaces.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Location 2"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "green-brick stairwell"
+              ]
+            },
+            {
+              "item_id": "a45",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "green_color",
+              "expected": "The stairwell's brick surfaces are green.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Location 2"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "green-brick stairwell"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot4",
+          "kind": "shot_text",
+          "shot_id": "Shot4",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "Farther down the same corridor, the Long-coat adult and the Red-suited masked adult grapple beside the green stair partition. The Short dark-clothed figure steps aside against the left brick wall. The two adults turn and stagger together toward the opening on the right, their bodies locked close, then tumble below the landing. Move closer with the struggle and follow it right and downward, ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail. Warm daylight glows through the loose sheet hanging beside the opening."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    },
+    {
+      "issue_id": "L3",
+      "subcategory": "presence_count",
+      "summary": "Shot4未见要求的金属扶手。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "beside its diagonal metal handrail"
+        }
+      ],
+      "expected": "结尾可见斜向金属扶手。",
+      "occurrences": [
+        {
+          "shot_id": "Shot4",
+          "row_ids": [
+            "EN:Object 12@Shot4"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot4",
+              "frame_id": 4
+            },
+            {
+              "shot_id": "Shot4",
+              "frame_id": 5
+            }
+          ],
+          "observed": "右侧仅见绿色隔墙边缘，未见金属扶手。",
+          "mismatch": "要求的金属扶手缺失。"
+        }
+      ],
+      "entity_keys": [
+        "pb0018"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Object 12@Shot4",
+          "kind": "entity",
+          "shot_id": "Shot4",
+          "entity_label": "Object 12",
+          "name": "Diagonal metal handrail",
+          "ledger_entity_ids": [
+            "pb0018"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Diagonal metal handrail in the stairwell."
+            },
+            {
+              "item_id": "p32",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The handrail is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 12"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "beside its diagonal metal handrail"
+              ]
+            },
+            {
+              "item_id": "s36",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "diagonal_orientation",
+              "expected": "The handrail is diagonal in the view.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 12"
+              ],
+              "depends_on": [
+                "p32"
+              ],
+              "quotes": [
+                "its diagonal metal handrail"
+              ]
+            },
+            {
+              "item_id": "a46",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "material",
+              "expected": "The handrail is metal.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 12"
+              ],
+              "depends_on": [
+                "p32"
+              ],
+              "quotes": [
+                "its diagonal metal handrail"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L4",
+      "subcategory": "action_state",
+      "summary": "Shot4两人未翻滚至平台下，结尾也未呈现纠缠倒地状态。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "then tumble below the landing"
+        },
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "ending on their tangled bodies"
+        }
+      ],
+      "expected": "两人翻滚至平台下，镜头结束于纠缠身体。",
+      "occurrences": [
+        {
+          "shot_id": "Shot4",
+          "row_ids": [
+            "RL:Shot4",
+            "SP:Shot4"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot4",
+              "frame_id": 3
+            },
+            {
+              "shot_id": "Shot4",
+              "frame_id": 5
+            }
+          ],
+          "observed": "两人虽有搏斗并下降，但末帧仍在平台上蹲伏、互相搂持。",
+          "mismatch": "没有显示翻滚至平台下，末帧也不是纠缠倒地的身体。"
+        }
+      ],
+      "entity_keys": [
+        "pb0009",
+        "pb0010",
+        "pb0017"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "RL:Shot4",
+          "kind": "relations",
+          "shot_id": "Shot4",
+          "items": [
+            {
+              "item_id": "m11",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "grapple",
+              "expected": "The long-coat adult and masked adult grapple with each other.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3"
+              ],
+              "depends_on": [
+                "p24",
+                "p25"
+              ],
+              "quotes": [
+                "the Long-coat adult and the Red-suited masked adult grapple"
+              ]
+            },
+            {
+              "item_id": "s28",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "beside_partition",
+              "expected": "The adults grapple beside the stair partition.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3",
+                "Object 10"
+              ],
+              "depends_on": [
+                "p24",
+                "p25",
+                "p27"
+              ],
+              "quotes": [
+                "grapple beside the green stair partition"
+              ]
+            },
+            {
+              "item_id": "s29",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "against_wall",
+              "expected": "The short figure is against the left brick wall as they step aside.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 2",
+                "Object 9"
+              ],
+              "depends_on": [
+                "p26",
+                "p28"
+              ],
+              "quotes": [
+                "steps aside against the left brick wall"
+              ]
+            },
+            {
+              "item_id": "m13",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "turn",
+              "expected": "Both grappling adults turn.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3"
+              ],
+              "depends_on": [
+                "p24",
+                "p25"
+              ],
+              "quotes": [
+                "The two adults turn"
+              ]
+            },
+            {
+              "item_id": "m14",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "stagger_toward_opening",
+              "expected": "The adults stagger together toward the opening on the right.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3",
+                "Object 8"
+              ],
+              "depends_on": [
+                "p24",
+                "p25",
+                "p29"
+              ],
+              "quotes": [
+                "stagger together toward the opening on the right"
+              ]
+            },
+            {
+              "item_id": "s32",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "locked_close",
+              "expected": "The adults' bodies are locked close while they stagger together.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3"
+              ],
+              "depends_on": [
+                "p24",
+                "p25"
+              ],
+              "quotes": [
+                "their bodies locked close"
+              ]
+            },
+            {
+              "item_id": "m15",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "tumble_below_landing",
+              "expected": "Both adults tumble below the landing.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 4",
+                "Character 3",
+                "Object 11"
+              ],
+              "depends_on": [
+                "p24",
+                "p25",
+                "p30"
+              ],
+              "quotes": [
+                "then tumble below the landing"
+              ]
+            },
+            {
+              "item_id": "s33",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "tangled_bodies",
+              "expected": "The shot ends with the adults' bodies tangled together.",
+              "quantifier": "end",
+              "entity_labels": [
+                "Character 4",
+                "Character 3"
+              ],
+              "depends_on": [
+                "p24",
+                "p25"
+              ],
+              "quotes": [
+                "ending on their tangled bodies"
+              ]
+            },
+            {
+              "item_id": "s34",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "in_stairwell",
+              "expected": "At the end, both adults are in the stairwell.",
+              "quantifier": "end",
+              "entity_labels": [
+                "Character 4",
+                "Character 3",
+                "Location 2"
+              ],
+              "depends_on": [
+                "p24",
+                "p25",
+                "p31"
+              ],
+              "quotes": [
+                "ending on their tangled bodies in the narrow green-brick stairwell"
+              ]
+            },
+            {
+              "item_id": "s35",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "beside_handrail",
+              "expected": "At the end, the tangled adults are beside the stairwell handrail.",
+              "quantifier": "end",
+              "entity_labels": [
+                "Character 4",
+                "Character 3",
+                "Object 12"
+              ],
+              "depends_on": [
+                "p24",
+                "p25",
+                "p32"
+              ],
+              "quotes": [
+                "ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail"
+              ]
+            },
+            {
+              "item_id": "s38",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "beside_opening",
+              "expected": "The loose sheet hangs beside the opening.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 6",
+                "Object 8"
+              ],
+              "depends_on": [
+                "p33",
+                "p29"
+              ],
+              "quotes": [
+                "the loose sheet hanging beside the opening"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot4",
+          "kind": "shot_text",
+          "shot_id": "Shot4",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "Farther down the same corridor, the Long-coat adult and the Red-suited masked adult grapple beside the green stair partition. The Short dark-clothed figure steps aside against the left brick wall. The two adults turn and stagger together toward the opening on the right, their bodies locked close, then tumble below the landing. Move closer with the struggle and follow it right and downward, ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail. Warm daylight glows through the loose sheet hanging beside the opening."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    }
+  ],
+  "entity_index": [
+    {
+      "entity_key": "pb0001",
+      "name": "Red-and-black jacket man",
+      "description": "Man with short swept-back dark hair and a fitted high-collared red-and-black patterned jacket.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Character 1"
+    },
+    {
+      "entity_key": "pb0005",
+      "name": "Angular firearm",
+      "description": "Large gray-and-black angular firearm with bulky textured casing.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 3"
+    },
+    {
+      "entity_key": "pb0015",
+      "name": "Green-brick stairwell",
+      "description": "Narrow green-brick stairwell reached by the struggle.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Location 2"
+    },
+    {
+      "entity_key": "pb0018",
+      "name": "Diagonal metal handrail",
+      "description": "Diagonal metal handrail in the stairwell.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 12"
+    },
+    {
+      "entity_key": "pb0009",
+      "name": "Red-suited masked adult",
+      "description": "Masked adult in a fitted red-and-dark full suit and dark boots.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Character 3"
+    },
+    {
+      "entity_key": "pb0010",
+      "name": "Long-coat adult",
+      "description": "Adult wearing a loose gray-brown coat over dark trousers.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Character 4"
+    },
+    {
+      "entity_key": "pb0017",
+      "name": "Stair landing",
+      "description": "Landing below which the adults tumble.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 11"
+    }
+  ],
+  "original_prompt": {
+    "global_prompt": "Four five-second shots alternate between the armed man's approach and the corridor ahead, ending with a struggle moving into the stairwell.",
+    "shots": [
+      {
+        "shot_id": "Shot1",
+        "schedule_key": "1:1",
+        "text": "In a dim industrial corridor of exposed brick and peeling green paint, the Red-and-black jacket man faces us: short swept-back dark hair, a fitted high-collared red-and-black patterned jacket and a tense expression. A worn staircase rises behind him on the left, with a battered green door to the right. In a frontal medium view, he moves forward with the large gray-and-black Angular firearm raised before his face, then lowers its bulky textured casing toward his chest. Keep the murky green shadows and warm light from the side openings."
+      },
+      {
+        "shot_id": "Shot2",
+        "schedule_key": "1:2",
+        "text": "Look down the same industrial corridor past the Red-and-black jacket man's back at the left foreground as he advances with his arms bent and raised. Follow forward gently, retaining the corridor's deep perspective: pale windows on the left, loose translucent sheets on the right and tangled cables overhead. Near the far stair opening, the Short dark-clothed figure, wearing brownish trousers, stands beside the Red-suited masked adult in a fitted red-and-dark full suit and dark boots. The Long-coat adult, wearing a loose gray-brown coat over dark trousers, shifts toward the right-hand sheets while the other two adjust their positions nearby."
+      },
+      {
+        "shot_id": "Shot3",
+        "schedule_key": "1:3",
+        "text": "Back in a frontal waist-up view, the Red-and-black jacket man holds the Angular firearm diagonally across his torso with one hand. Beneath drooping yellowish cables, he thrusts his free hand forward and holds it extended, fingers shifting slightly. His brow tightens and his mouth opens wide. The weathered green-and-bare brick wall runs beside him, with the staircase receding behind. Preserve the low, warm-green industrial light and his tense posture."
+      },
+      {
+        "shot_id": "Shot4",
+        "schedule_key": "1:4",
+        "text": "Farther down the same corridor, the Long-coat adult and the Red-suited masked adult grapple beside the green stair partition. The Short dark-clothed figure steps aside against the left brick wall. The two adults turn and stagger together toward the opening on the right, their bodies locked close, then tumble below the landing. Move closer with the struggle and follow it right and downward, ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail. Warm daylight glows through the loose sheet hanging beside the opening."
+      }
+    ]
+  },
+  "contract_json": {
+    "schema_version": "episode_schedule_claims_v1",
+    "episode_id": "pwSkfvXD_ug_s00037_n4_clean_v2",
+    "entity_descriptions": {
+      "Character 1": {
+        "label": "Character 1",
+        "name": "Red-and-black jacket man",
+        "description": "Man with short swept-back dark hair and a fitted high-collared red-and-black patterned jacket.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Red-and-black jacket man faces us: short swept-back dark hair, a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      "Character 2": {
+        "label": "Character 2",
+        "name": "Short dark-clothed figure",
+        "description": "Short figure in dark clothing and brownish trousers.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Short dark-clothed figure, wearing brownish trousers"
+          }
+        ]
+      },
+      "Character 3": {
+        "label": "Character 3",
+        "name": "Red-suited masked adult",
+        "description": "Masked adult in a fitted red-and-dark full suit and dark boots.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Red-suited masked adult in a fitted red-and-dark full suit and dark boots"
+          }
+        ]
+      },
+      "Character 4": {
+        "label": "Character 4",
+        "name": "Long-coat adult",
+        "description": "Adult wearing a loose gray-brown coat over dark trousers.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The Long-coat adult, wearing a loose gray-brown coat over dark trousers"
+          }
+        ]
+      },
+      "Location 1": {
+        "label": "Location 1",
+        "name": "Industrial corridor",
+        "description": "Industrial corridor with exposed brick and peeling green paint.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim industrial corridor of exposed brick and peeling green paint"
+          }
+        ]
+      },
+      "Location 2": {
+        "label": "Location 2",
+        "name": "Green-brick stairwell",
+        "description": "Narrow green-brick stairwell reached by the struggle.",
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the narrow green-brick stairwell"
+          }
+        ]
+      },
+      "Object 1": {
+        "label": "Object 1",
+        "name": "Worn staircase",
+        "description": "Worn staircase behind the jacketed man.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase rises behind him on the left"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "the staircase receding behind"
+          }
+        ]
+      },
+      "Object 2": {
+        "label": "Object 2",
+        "name": "Green door",
+        "description": "Battered green door.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a battered green door"
+          }
+        ]
+      },
+      "Object 3": {
+        "label": "Object 3",
+        "name": "Angular firearm",
+        "description": "Large gray-and-black angular firearm with bulky textured casing.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "its bulky textured casing"
+          }
+        ]
+      },
+      "Object 4": {
+        "label": "Object 4",
+        "name": "Side openings",
+        "description": "Corridor side openings admitting warm light.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "warm light from the side openings"
+          }
+        ]
+      },
+      "Object 5": {
+        "label": "Object 5",
+        "name": "Pale windows",
+        "description": "Pale corridor windows.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "pale windows on the left"
+          }
+        ]
+      },
+      "Object 6": {
+        "label": "Object 6",
+        "name": "Loose corridor sheets",
+        "description": "Collective loose translucent sheets on the corridor's right; a loose sheet hangs beside the stair opening in Shot4.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets on the right"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "the loose sheet hanging beside the opening"
+          }
+        ]
+      },
+      "Object 7": {
+        "label": "Object 7",
+        "name": "Corridor cables",
+        "description": "Collective corridor cables, described overhead in Shot2 and above the man in Shot3.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tangled cables overhead"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "drooping yellowish cables"
+          }
+        ]
+      },
+      "Object 8": {
+        "label": "Object 8",
+        "name": "Stair opening",
+        "description": "Far stair opening approached by the struggling adults.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the far stair opening"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "toward the opening on the right"
+          }
+        ]
+      },
+      "Object 9": {
+        "label": "Object 9",
+        "name": "Corridor brick walls",
+        "description": "Collective brick walls of the corridor, with exposed brick and peeling green paint; includes the wall beside the man and the left wall beside the short figure.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "exposed brick and peeling green paint"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "The weathered green-and-bare brick wall"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "the left brick wall"
+          }
+        ]
+      },
+      "Object 10": {
+        "label": "Object 10",
+        "name": "Green stair partition",
+        "description": "Green partition beside the struggle.",
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the green stair partition"
+          }
+        ]
+      },
+      "Object 11": {
+        "label": "Object 11",
+        "name": "Stair landing",
+        "description": "Landing below which the adults tumble.",
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "below the landing"
+          }
+        ]
+      },
+      "Object 12": {
+        "label": "Object 12",
+        "name": "Diagonal metal handrail",
+        "description": "Diagonal metal handrail in the stairwell.",
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "its diagonal metal handrail"
+          }
+        ]
+      }
+    },
+    "entity_schedule": {
+      "1:1": {
+        "characters": [
+          "Red-and-black jacket man"
+        ],
+        "places": [
+          "Industrial corridor"
+        ],
+        "objects": [
+          "Worn staircase",
+          "Green door",
+          "Angular firearm",
+          "Side openings",
+          "Corridor brick walls"
+        ]
+      },
+      "1:2": {
+        "characters": [
+          "Red-and-black jacket man",
+          "Short dark-clothed figure",
+          "Red-suited masked adult",
+          "Long-coat adult"
+        ],
+        "places": [
+          "Industrial corridor"
+        ],
+        "objects": [
+          "Pale windows",
+          "Loose corridor sheets",
+          "Corridor cables",
+          "Stair opening"
+        ]
+      },
+      "1:3": {
+        "characters": [
+          "Red-and-black jacket man"
+        ],
+        "places": [
+          "Industrial corridor"
+        ],
+        "objects": [
+          "Angular firearm",
+          "Corridor cables",
+          "Corridor brick walls",
+          "Worn staircase"
+        ]
+      },
+      "1:4": {
+        "characters": [
+          "Long-coat adult",
+          "Red-suited masked adult",
+          "Short dark-clothed figure"
+        ],
+        "places": [
+          "Industrial corridor",
+          "Green-brick stairwell"
+        ],
+        "objects": [
+          "Green stair partition",
+          "Corridor brick walls",
+          "Stair opening",
+          "Stair landing",
+          "Diagonal metal handrail",
+          "Loose corridor sheets"
+        ]
+      }
+    },
+    "claims": [
+      {
+        "claim_id": "p01",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The Red-and-black jacket man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Red-and-black jacket man faces us"
+          }
+        ]
+      },
+      {
+        "claim_id": "p02",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The industrial corridor is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "In a dim industrial corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "p03",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The staircase is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase rises behind him on the left"
+          }
+        ]
+      },
+      {
+        "claim_id": "p04",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The green door is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a battered green door to the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "p05",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The Angular firearm is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "p06",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The side openings are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "warm light from the side openings"
+          }
+        ]
+      },
+      {
+        "claim_id": "p07",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The corridor's brick walls are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim industrial corridor of exposed brick and peeling green paint"
+          }
+        ]
+      },
+      {
+        "claim_id": "p08",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The jacketed man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Red-and-black jacket man's back"
+          }
+        ]
+      },
+      {
+        "claim_id": "p09",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The same industrial corridor is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the same industrial corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "p10",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The windows are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "pale windows on the left"
+          }
+        ]
+      },
+      {
+        "claim_id": "p11",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The loose sheets are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "p12",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The cables are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tangled cables overhead"
+          }
+        ]
+      },
+      {
+        "claim_id": "p13",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The stair opening is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the far stair opening"
+          }
+        ]
+      },
+      {
+        "claim_id": "p14",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The short dark-clothed figure is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "p15",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The red-suited masked adult is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "p16",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The long-coat adult is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The Long-coat adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "p17",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The jacketed man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the Red-and-black jacket man"
+          }
+        ]
+      },
+      {
+        "claim_id": "p18",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The industrial corridor is visible again.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Back in a frontal waist-up view"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "The weathered green-and-bare brick wall runs beside him, with the staircase receding behind."
+          }
+        ]
+      },
+      {
+        "claim_id": "p19",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The Angular firearm is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "holds the Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "p20",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "Cables are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Beneath drooping yellowish cables"
+          }
+        ]
+      },
+      {
+        "claim_id": "p21",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The corridor brick wall is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The weathered green-and-bare brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "p22",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The staircase is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the staircase receding behind"
+          }
+        ]
+      },
+      {
+        "claim_id": "p23",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The same corridor is visible farther down.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "Farther down the same corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "p24",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The long-coat adult is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the Long-coat adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "p25",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The red-suited masked adult is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "p26",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The short dark-clothed figure is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "p27",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The stair partition is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the green stair partition"
+          }
+        ]
+      },
+      {
+        "claim_id": "p28",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The left corridor brick wall is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the left brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "p29",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The stair opening is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the opening on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "p30",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The landing is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "then tumble below the landing"
+          }
+        ]
+      },
+      {
+        "claim_id": "p31",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The green-brick stairwell is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "in the narrow green-brick stairwell"
+          }
+        ]
+      },
+      {
+        "claim_id": "p32",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 12"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The handrail is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "beside its diagonal metal handrail"
+          }
+        ]
+      },
+      {
+        "claim_id": "p33",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "A loose corridor sheet is visible beside the opening.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the loose sheet hanging beside the opening"
+          }
+        ]
+      },
+      {
+        "claim_id": "a01",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "industrial_setting",
+        "expected": "The corridor has an industrial appearance.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p02"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "industrial corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "a02",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "exposed_brick",
+        "expected": "The corridor walls show exposed brick.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p07"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "exposed brick"
+          }
+        ]
+      },
+      {
+        "claim_id": "a03",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "paint_color",
+        "expected": "The wall paint is green.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p07"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "peeling green paint"
+          }
+        ]
+      },
+      {
+        "claim_id": "a04",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "paint_condition",
+        "expected": "The paint is peeling.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p07"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "peeling green paint"
+          }
+        ]
+      },
+      {
+        "claim_id": "s01",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "faces_camera",
+        "expected": "The man faces the viewer.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Red-and-black jacket man faces us"
+          }
+        ]
+      },
+      {
+        "claim_id": "a05",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_length",
+        "expected": "His hair is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a06",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_arrangement",
+        "expected": "His hair is swept back.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a07",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_color",
+        "expected": "His hair is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a08",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "jacket_fit",
+        "expected": "He wears a fitted jacket.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a09",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "jacket_collar",
+        "expected": "His jacket has a high collar.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a10",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "jacket_colors",
+        "expected": "His jacket is red and black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a11",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "jacket_pattern",
+        "expected": "His jacket is patterned.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a12",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "expression",
+        "expected": "He has a tense expression.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a tense expression"
+          }
+        ]
+      },
+      {
+        "claim_id": "a13",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "condition",
+        "expected": "The staircase is worn.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p03"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase"
+          }
+        ]
+      },
+      {
+        "claim_id": "s02",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "behind",
+        "expected": "The staircase rises behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p03",
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase rises behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "s03",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "screen_side",
+        "expected": "The staircase is on the left.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p03"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase rises behind him on the left"
+          }
+        ]
+      },
+      {
+        "claim_id": "a14",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "condition",
+        "expected": "The door is battered.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p04"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a battered green door"
+          }
+        ]
+      },
+      {
+        "claim_id": "a15",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "color",
+        "expected": "The door is green.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p04"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a battered green door"
+          }
+        ]
+      },
+      {
+        "claim_id": "s04",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "screen_side",
+        "expected": "The door is on the right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p04"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a battered green door to the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "m01",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "advance",
+        "expected": "The man moves forward.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p01"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "he moves forward"
+          }
+        ]
+      },
+      {
+        "claim_id": "a16",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "size",
+        "expected": "The firearm is large.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a17",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "colors",
+        "expected": "The firearm is gray and black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a18",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shape",
+        "expected": "The firearm is angular.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a19",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "casing_bulk",
+        "expected": "The firearm's casing is bulky.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "its bulky textured casing"
+          }
+        ]
+      },
+      {
+        "claim_id": "a20",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "casing_texture",
+        "expected": "The firearm's casing is textured.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "its bulky textured casing"
+          }
+        ]
+      },
+      {
+        "claim_id": "s05",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "raised_firearm",
+        "expected": "As he advances, the man holds the firearm raised before his face.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p01",
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+          }
+        ]
+      },
+      {
+        "claim_id": "m02",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "lower_firearm",
+        "expected": "The man lowers the firearm's casing toward his chest.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p01",
+          "p05"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "then lowers its bulky textured casing toward his chest"
+          }
+        ]
+      },
+      {
+        "claim_id": "s06",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 4",
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "side_position",
+        "expected": "The openings are at the corridor's sides.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p06",
+          "p02"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the side openings"
+          }
+        ]
+      },
+      {
+        "claim_id": "s07",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "back_to_camera",
+        "expected": "The man's back faces the camera.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "past the Red-and-black jacket man's back"
+          }
+        ]
+      },
+      {
+        "claim_id": "s08",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "foreground_position",
+        "expected": "The man is in the left foreground.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "at the left foreground"
+          }
+        ]
+      },
+      {
+        "claim_id": "m03",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "advance",
+        "expected": "The man advances down the corridor.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "as he advances"
+          }
+        ]
+      },
+      {
+        "claim_id": "s09",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "arms_bent",
+        "expected": "His arms are bent as he advances.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "as he advances with his arms bent and raised"
+          }
+        ]
+      },
+      {
+        "claim_id": "s10",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "arms_raised",
+        "expected": "His arms are raised as he advances.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "as he advances with his arms bent and raised"
+          }
+        ]
+      },
+      {
+        "claim_id": "s11",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "deep_perspective",
+        "expected": "The corridor is depicted with deep perspective.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p09"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "retaining the corridor's deep perspective"
+          }
+        ]
+      },
+      {
+        "claim_id": "a21",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "pale_appearance",
+        "expected": "The windows are pale.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p10"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "pale windows"
+          }
+        ]
+      },
+      {
+        "claim_id": "s12",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "screen_side",
+        "expected": "The windows are on the left.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p10"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "pale windows on the left"
+          }
+        ]
+      },
+      {
+        "claim_id": "a22",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "loose_condition",
+        "expected": "The sheets are loose.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets"
+          }
+        ]
+      },
+      {
+        "claim_id": "a23",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "translucency",
+        "expected": "The sheets are translucent.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets"
+          }
+        ]
+      },
+      {
+        "claim_id": "s13",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "screen_side",
+        "expected": "The sheets are on the right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "a24",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "tangled_condition",
+        "expected": "The cables are tangled.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p12"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tangled cables overhead"
+          }
+        ]
+      },
+      {
+        "claim_id": "s14",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "overhead",
+        "expected": "The cables are overhead.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p12"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tangled cables overhead"
+          }
+        ]
+      },
+      {
+        "claim_id": "s15",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "far_position",
+        "expected": "The stair opening is far down the corridor in the view.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p13"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the far stair opening"
+          }
+        ]
+      },
+      {
+        "claim_id": "s16",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2",
+          "Character 3",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "near_opening",
+        "expected": "The short figure and masked adult are near the far stair opening.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14",
+          "p15",
+          "p13"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "Near the far stair opening, the Short dark-clothed figure, wearing brownish trousers, stands beside the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "s17",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2",
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "beside",
+        "expected": "The short figure is beside the masked adult.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14",
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "stands beside the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "s18",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "standing_pose",
+        "expected": "The short figure stands.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Short dark-clothed figure, wearing brownish trousers, stands"
+          }
+        ]
+      },
+      {
+        "claim_id": "a25",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "stature",
+        "expected": "The figure is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "a26",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "dark_clothing",
+        "expected": "The figure wears dark clothing.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "a27",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "trousers_color",
+        "expected": "The figure wears brownish trousers.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "wearing brownish trousers"
+          }
+        ]
+      },
+      {
+        "claim_id": "a28",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "masked",
+        "expected": "The red-suited adult is masked.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "a29",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "suit_fit",
+        "expected": "The adult's suit is fitted.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a fitted red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a30",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "suit_colors",
+        "expected": "The suit is red and dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a31",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "full_suit",
+        "expected": "The adult wears a full suit.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a fitted red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a32",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "boots",
+        "expected": "The adult wears dark boots.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "dark boots"
+          }
+        ]
+      },
+      {
+        "claim_id": "a33",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "coat_length",
+        "expected": "The adult wears a long coat.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p16"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The Long-coat adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "a34",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "coat_fit",
+        "expected": "The coat is loose.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p16"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat"
+          }
+        ]
+      },
+      {
+        "claim_id": "a35",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "coat_color",
+        "expected": "The coat is gray-brown.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p16"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat"
+          }
+        ]
+      },
+      {
+        "claim_id": "a36",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "trousers",
+        "expected": "The adult wears dark trousers beneath the coat.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p16"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat over dark trousers"
+          }
+        ]
+      },
+      {
+        "claim_id": "m04",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 4",
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "shift_toward_sheets",
+        "expected": "The long-coat adult shifts toward the right-hand sheets.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p16",
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "shifts toward the right-hand sheets"
+          }
+        ]
+      },
+      {
+        "claim_id": "m05",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "adjust_position",
+        "expected": "The short figure adjusts position nearby.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "while the other two adjust their positions nearby"
+          }
+        ]
+      },
+      {
+        "claim_id": "m06",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "adjust_position",
+        "expected": "The masked adult adjusts position nearby.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "while the other two adjust their positions nearby"
+          }
+        ]
+      },
+      {
+        "claim_id": "s19",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2",
+          "Character 3",
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "nearby",
+        "expected": "The short figure and masked adult remain nearby the shifting long-coat adult during their adjustments.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14",
+          "p15",
+          "p16"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The Long-coat adult, wearing a loose gray-brown coat over dark trousers, shifts toward the right-hand sheets while the other two adjust their positions nearby"
+          }
+        ]
+      },
+      {
+        "claim_id": "s20",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "frontal_orientation",
+        "expected": "The man is shown from the front.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Back in a frontal waist-up view"
+          }
+        ]
+      },
+      {
+        "claim_id": "s21",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "diagonal_across_torso",
+        "expected": "The firearm is held diagonally across the man's torso.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17",
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "holds the Angular firearm diagonally across his torso"
+          }
+        ]
+      },
+      {
+        "claim_id": "s22",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "one_handed_hold",
+        "expected": "The man holds the firearm with one hand.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17",
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "holds the Angular firearm diagonally across his torso with one hand"
+          }
+        ]
+      },
+      {
+        "claim_id": "a37",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "color",
+        "expected": "The cables are yellowish.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p20"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "drooping yellowish cables"
+          }
+        ]
+      },
+      {
+        "claim_id": "s23",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "drooping",
+        "expected": "The cables droop.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p20"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "drooping yellowish cables"
+          }
+        ]
+      },
+      {
+        "claim_id": "s24",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "beneath_cables",
+        "expected": "The man is beneath the cables.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17",
+          "p20"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Beneath drooping yellowish cables, he thrusts his free hand forward"
+          }
+        ]
+      },
+      {
+        "claim_id": "m07",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "thrust_free_hand",
+        "expected": "The man thrusts his free hand forward.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "he thrusts his free hand forward"
+          }
+        ]
+      },
+      {
+        "claim_id": "s25",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "hold_hand_extended",
+        "expected": "He holds his free hand extended.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "holds it extended"
+          }
+        ]
+      },
+      {
+        "claim_id": "m08",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "finger_motion",
+        "expected": "The extended hand's fingers shift slightly.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "fingers shifting slightly"
+          }
+        ]
+      },
+      {
+        "claim_id": "m09",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "tighten_brow",
+        "expected": "His brow tightens.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "His brow tightens"
+          }
+        ]
+      },
+      {
+        "claim_id": "m10",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "open_mouth",
+        "expected": "His mouth opens wide.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "his mouth opens wide"
+          }
+        ]
+      },
+      {
+        "claim_id": "a38",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "condition",
+        "expected": "The wall is weathered.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The weathered green-and-bare brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "a39",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "surface",
+        "expected": "The wall has green areas and bare brick.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "green-and-bare brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "s26",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 9",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "wall_beside_man",
+        "expected": "The wall runs beside the man.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21",
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The weathered green-and-bare brick wall runs beside him"
+          }
+        ]
+      },
+      {
+        "claim_id": "s27",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "recedes_behind",
+        "expected": "The staircase recedes behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p22",
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "with the staircase receding behind"
+          }
+        ]
+      },
+      {
+        "claim_id": "a40",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "tense_posture",
+        "expected": "The man's posture is tense.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "his tense posture"
+          }
+        ]
+      },
+      {
+        "claim_id": "m11",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 4",
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "grapple",
+        "expected": "The long-coat adult and masked adult grapple with each other.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the Long-coat adult and the Red-suited masked adult grapple"
+          }
+        ]
+      },
+      {
+        "claim_id": "s28",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 4",
+          "Character 3",
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "beside_partition",
+        "expected": "The adults grapple beside the stair partition.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25",
+          "p27"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "grapple beside the green stair partition"
+          }
+        ]
+      },
+      {
+        "claim_id": "a41",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "color",
+        "expected": "The stair partition is green.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p27"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "green stair partition"
+          }
+        ]
+      },
+      {
+        "claim_id": "m12",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "step_aside",
+        "expected": "The short figure steps aside.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p26"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Short dark-clothed figure steps aside"
+          }
+        ]
+      },
+      {
+        "claim_id": "s29",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2",
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "against_wall",
+        "expected": "The short figure is against the left brick wall as they step aside.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p26",
+          "p28"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "steps aside against the left brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "s30",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "screen_side",
+        "expected": "The wall beside the short figure is on the left.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p28"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the left brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "a42",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "material",
+        "expected": "The left wall is brick.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p28"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the left brick wall"
+          }
+        ]
+      },
+      {
+        "claim_id": "m13",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 4",
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "turn",
+        "expected": "Both grappling adults turn.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The two adults turn"
+          }
+        ]
+      },
+      {
+        "claim_id": "m14",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 4",
+          "Character 3",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "stagger_toward_opening",
+        "expected": "The adults stagger together toward the opening on the right.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25",
+          "p29"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "stagger together toward the opening on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "s31",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "screen_side",
+        "expected": "The opening is on the right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p29"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the opening on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "s32",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 4",
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "locked_close",
+        "expected": "The adults' bodies are locked close while they stagger together.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "their bodies locked close"
+          }
+        ]
+      },
+      {
+        "claim_id": "m15",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 4",
+          "Character 3",
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "tumble_below_landing",
+        "expected": "Both adults tumble below the landing.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p25",
+          "p30"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "then tumble below the landing"
+          }
+        ]
+      },
+      {
+        "claim_id": "s33",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 4",
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "tangled_bodies",
+        "expected": "The shot ends with the adults' bodies tangled together.",
+        "coordinate_frame": "world",
+        "quantifier": "end",
+        "depends_on": [
+          "p24",
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "ending on their tangled bodies"
+          }
+        ]
+      },
+      {
+        "claim_id": "s34",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 4",
+          "Character 3",
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "in_stairwell",
+        "expected": "At the end, both adults are in the stairwell.",
+        "coordinate_frame": "world",
+        "quantifier": "end",
+        "depends_on": [
+          "p24",
+          "p25",
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "ending on their tangled bodies in the narrow green-brick stairwell"
+          }
+        ]
+      },
+      {
+        "claim_id": "a43",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "narrow_shape",
+        "expected": "The stairwell is narrow.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the narrow green-brick stairwell"
+          }
+        ]
+      },
+      {
+        "claim_id": "a44",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "brick_material",
+        "expected": "The stairwell has brick surfaces.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "green-brick stairwell"
+          }
+        ]
+      },
+      {
+        "claim_id": "a45",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "green_color",
+        "expected": "The stairwell's brick surfaces are green.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "green-brick stairwell"
+          }
+        ]
+      },
+      {
+        "claim_id": "s35",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 4",
+          "Character 3",
+          "Object 12"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "beside_handrail",
+        "expected": "At the end, the tangled adults are beside the stairwell handrail.",
+        "coordinate_frame": "world",
+        "quantifier": "end",
+        "depends_on": [
+          "p24",
+          "p25",
+          "p32"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail"
+          }
+        ]
+      },
+      {
+        "claim_id": "s36",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 12"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "diagonal_orientation",
+        "expected": "The handrail is diagonal in the view.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p32"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "its diagonal metal handrail"
+          }
+        ]
+      },
+      {
+        "claim_id": "a46",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 12"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "material",
+        "expected": "The handrail is metal.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p32"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "its diagonal metal handrail"
+          }
+        ]
+      },
+      {
+        "claim_id": "a47",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "loose_condition",
+        "expected": "The sheet beside the opening is loose.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p33"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the loose sheet"
+          }
+        ]
+      },
+      {
+        "claim_id": "s37",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "hanging",
+        "expected": "The sheet hangs.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p33"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the loose sheet hanging"
+          }
+        ]
+      },
+      {
+        "claim_id": "s38",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 6",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "beside_opening",
+        "expected": "The loose sheet hangs beside the opening.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p33",
+          "p29"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the loose sheet hanging beside the opening"
+          }
+        ]
+      },
+      {
+        "claim_id": "a48",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "hair_length",
+        "expected": "His hair is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a49",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "hair_arrangement",
+        "expected": "His hair is swept back.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a50",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "hair_color",
+        "expected": "His hair is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a51",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "jacket_fit",
+        "expected": "He wears a fitted jacket.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a52",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "jacket_collar",
+        "expected": "His jacket has a high collar.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a53",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "jacket_colors",
+        "expected": "His jacket is red and black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a54",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "jacket_pattern",
+        "expected": "His jacket is patterned.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p08"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a55",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "hair_length",
+        "expected": "His hair is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a56",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "hair_arrangement",
+        "expected": "His hair is swept back.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a57",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "hair_color",
+        "expected": "His hair is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short swept-back dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "a58",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "jacket_fit",
+        "expected": "He wears a fitted jacket.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a59",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "jacket_collar",
+        "expected": "His jacket has a high collar.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a fitted high-collared red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a60",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "jacket_colors",
+        "expected": "His jacket is red and black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a61",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "jacket_pattern",
+        "expected": "His jacket is patterned.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p17"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "red-and-black patterned jacket"
+          }
+        ]
+      },
+      {
+        "claim_id": "a62",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "size",
+        "expected": "The firearm is large.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a63",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "colors",
+        "expected": "The firearm is gray and black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the large gray-and-black Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a64",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "shape",
+        "expected": "The firearm is angular.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Angular firearm"
+          }
+        ]
+      },
+      {
+        "claim_id": "a65",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "casing_bulk",
+        "expected": "The firearm's casing is bulky.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "its bulky textured casing"
+          }
+        ]
+      },
+      {
+        "claim_id": "a66",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "casing_texture",
+        "expected": "The firearm's casing is textured.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p19"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "its bulky textured casing"
+          }
+        ]
+      },
+      {
+        "claim_id": "a67",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "condition",
+        "expected": "The staircase is worn.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p22"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "A worn staircase"
+          }
+        ]
+      },
+      {
+        "claim_id": "a68",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "stature",
+        "expected": "The figure is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p26"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "a69",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "dark_clothing",
+        "expected": "The figure wears dark clothing.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p26"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Short dark-clothed figure"
+          }
+        ]
+      },
+      {
+        "claim_id": "a70",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "trousers_color",
+        "expected": "The figure wears brownish trousers.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p26"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "wearing brownish trousers"
+          }
+        ]
+      },
+      {
+        "claim_id": "a71",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "masked",
+        "expected": "The red-suited adult is masked.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the Red-suited masked adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "a72",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "suit_fit",
+        "expected": "The adult's suit is fitted.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a fitted red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a73",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "suit_colors",
+        "expected": "The suit is red and dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a74",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "full_suit",
+        "expected": "The adult wears a full suit.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a fitted red-and-dark full suit"
+          }
+        ]
+      },
+      {
+        "claim_id": "a75",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 3"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "boots",
+        "expected": "The adult wears dark boots.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p25"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "dark boots"
+          }
+        ]
+      },
+      {
+        "claim_id": "a76",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "coat_length",
+        "expected": "The adult wears a long coat.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p24"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the Long-coat adult"
+          }
+        ]
+      },
+      {
+        "claim_id": "a77",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "coat_fit",
+        "expected": "The coat is loose.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p24"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat"
+          }
+        ]
+      },
+      {
+        "claim_id": "a78",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "coat_color",
+        "expected": "The coat is gray-brown.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p24"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat"
+          }
+        ]
+      },
+      {
+        "claim_id": "a79",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "trousers",
+        "expected": "The adult wears dark trousers beneath the coat.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p24"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "a loose gray-brown coat over dark trousers"
+          }
+        ]
+      },
+      {
+        "claim_id": "a80",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "industrial_setting",
+        "expected": "The corridor has an industrial appearance.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p09"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the same industrial corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "a81",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "industrial_setting",
+        "expected": "The returning corridor has an industrial appearance.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p18"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "industrial corridor"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "Back in a frontal waist-up view"
+          }
+        ]
+      },
+      {
+        "claim_id": "a82",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "industrial_setting",
+        "expected": "The corridor has an industrial appearance.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p23"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "industrial corridor"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "Farther down the same corridor"
+          }
+        ]
+      },
+      {
+        "claim_id": "a83",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "translucency",
+        "expected": "The loose sheet beside the opening is translucent.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p33"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "loose translucent sheets"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "Warm daylight glows through the loose sheet hanging beside the opening."
+          }
+        ]
+      }
+    ],
+    "prompt": {
+      "global_prompt": "Four five-second shots alternate between the armed man's approach and the corridor ahead, ending with a struggle moving into the stairwell.",
+      "shots": [
+        {
+          "shot_id": "Shot1",
+          "schedule_key": "1:1",
+          "text": "In a dim industrial corridor of exposed brick and peeling green paint, the Red-and-black jacket man faces us: short swept-back dark hair, a fitted high-collared red-and-black patterned jacket and a tense expression. A worn staircase rises behind him on the left, with a battered green door to the right. In a frontal medium view, he moves forward with the large gray-and-black Angular firearm raised before his face, then lowers its bulky textured casing toward his chest. Keep the murky green shadows and warm light from the side openings."
+        },
+        {
+          "shot_id": "Shot2",
+          "schedule_key": "1:2",
+          "text": "Look down the same industrial corridor past the Red-and-black jacket man's back at the left foreground as he advances with his arms bent and raised. Follow forward gently, retaining the corridor's deep perspective: pale windows on the left, loose translucent sheets on the right and tangled cables overhead. Near the far stair opening, the Short dark-clothed figure, wearing brownish trousers, stands beside the Red-suited masked adult in a fitted red-and-dark full suit and dark boots. The Long-coat adult, wearing a loose gray-brown coat over dark trousers, shifts toward the right-hand sheets while the other two adjust their positions nearby."
+        },
+        {
+          "shot_id": "Shot3",
+          "schedule_key": "1:3",
+          "text": "Back in a frontal waist-up view, the Red-and-black jacket man holds the Angular firearm diagonally across his torso with one hand. Beneath drooping yellowish cables, he thrusts his free hand forward and holds it extended, fingers shifting slightly. His brow tightens and his mouth opens wide. The weathered green-and-bare brick wall runs beside him, with the staircase receding behind. Preserve the low, warm-green industrial light and his tense posture."
+        },
+        {
+          "shot_id": "Shot4",
+          "schedule_key": "1:4",
+          "text": "Farther down the same corridor, the Long-coat adult and the Red-suited masked adult grapple beside the green stair partition. The Short dark-clothed figure steps aside against the left brick wall. The two adults turn and stagger together toward the opening on the right, their bodies locked close, then tumble below the landing. Move closer with the struggle and follow it right and downward, ending on their tangled bodies in the narrow green-brick stairwell beside its diagonal metal handrail. Warm daylight glows through the loose sheet hanging beside the opening."
+        }
+      ]
+    },
+    "coverage": [
+      {
+        "unit_id": "global.u01",
+        "claim_ids": [
+          "m01",
+          "m03",
+          "m11",
+          "m14",
+          "m15",
+          "s34"
+        ],
+        "unscored": [
+          {
+            "quote": "Four five-second shots alternate between the armed man's approach and the corridor ahead",
+            "reason": "Shot count, duration and alternating editorial viewpoints are filmmaking requirements; the approach is scored in its specified shots."
+          },
+          {
+            "quote": "ending with a struggle moving into the stairwell.",
+            "reason": "Summary of the Shot4 struggle and stairwell outcome, covered by the referenced claims rather than duplicate scoring."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u01",
+        "claim_ids": [
+          "p01",
+          "p02",
+          "p07",
+          "a01",
+          "a02",
+          "a03",
+          "a04",
+          "s01",
+          "a05",
+          "a06",
+          "a07",
+          "a08",
+          "a09",
+          "a10",
+          "a11",
+          "a12",
+          "a48",
+          "a49",
+          "a50",
+          "a51",
+          "a52",
+          "a53",
+          "a54",
+          "a55",
+          "a56",
+          "a57",
+          "a58",
+          "a59",
+          "a60",
+          "a61",
+          "a81",
+          "a82"
+        ],
+        "unscored": [
+          {
+            "quote": "dim",
+            "reason": "Lighting requirement outside the four entity dimensions."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u02",
+        "claim_ids": [
+          "p03",
+          "p04",
+          "a13",
+          "s02",
+          "s03",
+          "a14",
+          "a15",
+          "s04",
+          "a67"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot1.u03",
+        "claim_ids": [
+          "p05",
+          "s01",
+          "m01",
+          "a16",
+          "a17",
+          "a18",
+          "a19",
+          "a20",
+          "s05",
+          "m02",
+          "a62",
+          "a63",
+          "a65",
+          "a66"
+        ],
+        "unscored": [
+          {
+            "quote": "In a frontal medium view",
+            "reason": "Medium framing is filmmaking; frontal orientation is covered by s01."
+          },
+          {
+            "quote": "then",
+            "reason": "Action ordering is not separately scored in the permitted dimensions."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u04",
+        "claim_ids": [
+          "p06",
+          "s06"
+        ],
+        "unscored": [
+          {
+            "quote": "Keep the murky green shadows and warm light from the side openings.",
+            "reason": "Shadow color and warm illumination are lighting requirements; the openings and their side position are scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u01",
+        "claim_ids": [
+          "p08",
+          "p09",
+          "s07",
+          "s08",
+          "m03",
+          "s09",
+          "s10",
+          "a48",
+          "a49",
+          "a50",
+          "a51",
+          "a52",
+          "a53",
+          "a54",
+          "a80"
+        ],
+        "unscored": [
+          {
+            "quote": "Look down",
+            "reason": "View-direction instruction; the grounded back view and foreground composition are scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u02",
+        "claim_ids": [
+          "p10",
+          "p11",
+          "p12",
+          "s11",
+          "a21",
+          "s12",
+          "a22",
+          "a23",
+          "s13",
+          "a24",
+          "s14",
+          "a83"
+        ],
+        "unscored": [
+          {
+            "quote": "Follow forward gently",
+            "reason": "Camera movement, not entity motion."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u03",
+        "claim_ids": [
+          "p13",
+          "p14",
+          "p15",
+          "s15",
+          "s16",
+          "s17",
+          "s18",
+          "a25",
+          "a26",
+          "a27",
+          "a28",
+          "a29",
+          "a30",
+          "a31",
+          "a32",
+          "a70",
+          "a72",
+          "a73",
+          "a74",
+          "a75"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot2.u04",
+        "claim_ids": [
+          "p16",
+          "a33",
+          "a34",
+          "a35",
+          "a36",
+          "m04",
+          "m05",
+          "m06",
+          "s13",
+          "s19",
+          "a77",
+          "a78",
+          "a79"
+        ],
+        "unscored": [
+          {
+            "quote": "while",
+            "reason": "Concurrent timing is not separately scored; all constituent actions and nearby positions are represented."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u01",
+        "claim_ids": [
+          "p17",
+          "p18",
+          "p19",
+          "s20",
+          "s21",
+          "s22",
+          "a55",
+          "a56",
+          "a57",
+          "a58",
+          "a59",
+          "a60",
+          "a61",
+          "a62",
+          "a63",
+          "a64",
+          "a65",
+          "a66",
+          "a81"
+        ],
+        "unscored": [
+          {
+            "quote": "Back in a frontal waist-up view",
+            "reason": "Return edit and waist-up framing are filmmaking instructions; frontal orientation and the established return location are represented."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u02",
+        "claim_ids": [
+          "p20",
+          "a37",
+          "s23",
+          "s24",
+          "m07",
+          "s25",
+          "m08"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot3.u03",
+        "claim_ids": [
+          "m09",
+          "m10"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot3.u04",
+        "claim_ids": [
+          "p18",
+          "p21",
+          "p22",
+          "a38",
+          "a39",
+          "s26",
+          "s27",
+          "a67"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot3.u05",
+        "claim_ids": [
+          "a40"
+        ],
+        "unscored": [
+          {
+            "quote": "Preserve the low, warm-green industrial light",
+            "reason": "Lighting direction outside the four entity dimensions."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u01",
+        "claim_ids": [
+          "p23",
+          "p24",
+          "p25",
+          "p27",
+          "m11",
+          "s28",
+          "a41",
+          "a71",
+          "a72",
+          "a73",
+          "a74",
+          "a75",
+          "a76",
+          "a77",
+          "a78",
+          "a79",
+          "a82"
+        ],
+        "unscored": [
+          {
+            "quote": "Farther down the same corridor",
+            "reason": "Establishes the reused corridor and a changed shot vantage, not a separate location or additional actor movement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u02",
+        "claim_ids": [
+          "p26",
+          "p28",
+          "m12",
+          "s29",
+          "s30",
+          "a42",
+          "a68",
+          "a69",
+          "a70"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot4.u03",
+        "claim_ids": [
+          "p29",
+          "p30",
+          "m13",
+          "m14",
+          "s31",
+          "s32",
+          "m15"
+        ],
+        "unscored": [
+          {
+            "quote": "then",
+            "reason": "Action ordering is not separately scored; turning, staggering and tumbling are individually represented."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u04",
+        "claim_ids": [
+          "p31",
+          "p32",
+          "s33",
+          "s34",
+          "a43",
+          "a44",
+          "a45",
+          "s35",
+          "s36",
+          "a46"
+        ],
+        "unscored": [
+          {
+            "quote": "Move closer with the struggle and follow it right and downward",
+            "reason": "Camera tracking instructions, not additional motion requirements for the adults."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u05",
+        "claim_ids": [
+          "p33",
+          "a47",
+          "s37",
+          "s38",
+          "a83"
+        ],
+        "unscored": [
+          {
+            "quote": "Warm daylight glows through",
+            "reason": "Warm daylight illumination is a lighting requirement; the sheet's translucency is separately represented."
+          }
+        ]
+      }
+    ],
+    "unresolved": [],
+    "provenance": {
+      "source_sha256": "71289cd31eab0b92e1ba12f00423b8682897bfd2cd630287a3db0bd78e6a4547",
+      "prompt_input_sha256": "36995237f9b20a372526bdd3c8fbcda39619c378d4d0d77c3ac7f7066507acf1",
+      "semantic_review": "independent configured Astra/medium text audit; not human annotation"
+    }
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    }
+  ],
+  "shot_sources": [
+    {
+      "shot_id": "Shot1",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot2",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot3",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot4",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    }
+  ],
+  "image_order": [
+    {
+      "index": 0,
+      "shot_id": "Shot1",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 1,
+      "shot_id": "Shot1",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 2,
+      "shot_id": "Shot1",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 3,
+      "shot_id": "Shot1",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 4,
+      "shot_id": "Shot1",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 5,
+      "shot_id": "Shot1",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 6,
+      "shot_id": "Shot2",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 7,
+      "shot_id": "Shot2",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 8,
+      "shot_id": "Shot2",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 9,
+      "shot_id": "Shot2",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 10,
+      "shot_id": "Shot2",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 11,
+      "shot_id": "Shot2",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 12,
+      "shot_id": "Shot3",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 13,
+      "shot_id": "Shot3",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 14,
+      "shot_id": "Shot3",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 15,
+      "shot_id": "Shot3",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 16,
+      "shot_id": "Shot3",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 17,
+      "shot_id": "Shot3",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 18,
+      "shot_id": "Shot4",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 19,
+      "shot_id": "Shot4",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 20,
+      "shot_id": "Shot4",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 21,
+      "shot_id": "Shot4",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 22,
+      "shot_id": "Shot4",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 23,
+      "shot_id": "Shot4",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    }
+  ],
+  "input_notes": [
+    "candidate_issues are hypotheses from the detection agent of this branch only, not accepted findings.",
+    "Every supplied image is an original keyframe; image_order matches attachment order."
+  ]
+}

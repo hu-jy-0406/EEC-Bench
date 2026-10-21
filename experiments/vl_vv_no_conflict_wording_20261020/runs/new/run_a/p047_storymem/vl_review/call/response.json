@@ -1,0 +1,46 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "reviews": [
+    {
+      "issue_id": "L1",
+      "action": "keep",
+      "split_reason": "",
+      "units": [
+        {
+          "unit_id": "L1",
+          "description": "Shot8中，无袖男子举起的裸臂被裁切在画面右上缘；文字要求该手臂裁切于左上缘，位置相反。",
+          "revision": "unchanged",
+          "revision_note": "",
+          "subcategory": "spatial_orientation",
+          "shot_ids": [
+            "Shot8"
+          ],
+          "requirement_quote": {
+            "source": "shot_prompt",
+            "shot_id": "Shot8",
+            "quote": "stays softly cropped at the upper-left edge"
+          },
+          "requirement_applies": "该要求是Shot8的镜头文本对无袖男子举起裸臂的位置与裁切方式的明确描述，适用于Shot8。",
+          "verdict": "confirmed",
+          "basis": "requirement_violated",
+          "confidence": "high",
+          "evidence": [
+            {
+              "shot_id": "Shot8",
+              "frame_id": 0,
+              "role": "supports",
+              "observation": "无袖男子的裸臂从画面右上缘伸入，未出现在左上缘。"
+            },
+            {
+              "shot_id": "Shot8",
+              "frame_id": 5,
+              "role": "supports",
+              "observation": "裸臂仍从画面右上缘进入画面，与要求的左上缘位置相反。"
+            }
+          ],
+          "assessment": "Shot8第0帧与第5帧均显示裸臂位于右上缘，直接违背文本所要求的左上缘裁切位置。"
+        }
+      ]
+    }
+  ]
+}

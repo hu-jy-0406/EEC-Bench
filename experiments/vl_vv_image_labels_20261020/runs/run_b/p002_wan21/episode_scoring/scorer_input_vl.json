@@ -1,0 +1,170 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vl",
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中男子的头发明显蓬松、向两侧扩展，长度并非要求的短发，与“short curly black hair”不符。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "Shot2可见男子头发明显不短，违反适用于该镜头的合约描述。",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子的黑色卷发蓬松宽阔，明显延伸至头部两侧；不是短发。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "头发仍呈向两侧扩展的蓬松长卷发状。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+      }
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "scope": "v_l",
+      "subcategory": "camera_composition",
+      "description": "Shot2虽为近景，但机位基本正对男子，未呈现“A closer oblique view”所要求的斜向视角。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "high",
+      "assessment": "候选准确指出画面近似正面，但“oblique”明确要求斜向视角；画面未满足该词，因此这是要求违反而非合规证据？",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "refutes",
+          "observation": "近景构图中男子正面朝向镜头，面部左右两侧大致对称，呈正面视角。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "仍是近似正面近景，并无明显斜向机位。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot2",
+        "quote": "A closer oblique view"
+      }
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3男子穿着深色蓝调、有领且带门襟的长袖衬衫，不是合约要求的褪色蓝灰色T恤。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "合约实体描述适用于Shot3；可见服装款式与颜色均与要求的褪色蓝灰色T恤不符。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿深色蓝调、有领门襟的长袖衬衫，与褪色蓝灰色T恤不符。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "衣物仍可见为深色、有领长袖衬衫。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+      }
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot3中男子睁眼后朝画面右侧瞥视，而要求是“glances toward screen left”，该瞥视方向相反。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "关键帧显示瞥视朝画面右侧，与明确要求的画面左侧相反。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "男子头部与视线明显转向画面右侧。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "视线仍朝画面右侧，而非画面左侧。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot3",
+        "quote": "glances toward screen left"
+      }
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3画面右侧前景边缘未见模糊暗色形状，只有浅色墙面及沙发，与“the blurred dark shape stays at the right foreground edge”不符。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "Shot3多个关键帧均未显示要求持续出现的右侧暗色前景形状，构成缺失。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧是浅色墙面和沙发，右前景边缘没有可见的暗色形状。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧仍可见浅色墙面与沙发，没有暗色前景形状。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot3",
+        "quote": "the blurred dark shape stays at the right foreground edge"
+      }
+    }
+  ]
+}

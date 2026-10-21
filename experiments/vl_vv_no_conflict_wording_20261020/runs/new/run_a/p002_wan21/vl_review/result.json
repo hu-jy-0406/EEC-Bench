@@ -1,0 +1,413 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p002_wan21/vl_detection/result.json",
+  "source_detection_sha256": "0a82b388240eb92bb300b462f551ab476f8dee29876312d20b52cb49d0aa5323",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot3要求“the blurred dark shape stays at the right foreground edge”，但所示画面右侧前景边缘没有可见的暗色虚焦形状，主要是浅色墙面和沙发。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "presence_count",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "the blurred dark shape stays at the right foreground edge"
+            },
+            "requirement_applies": "这是Shot3自身的明确要求，适用于Shot3。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧边缘呈浅色墙面和沙发，没有暗色前景形状。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "画面右侧前景边缘仍未见暗色形状。"
+              }
+            ],
+            "assessment": "Shot3多帧均未显示文字明确要求留在右前景边缘的暗色形状，构成可见缺失。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot4中男子穿深蓝灰色有领、带扣襟的衬衫，而合同要求该男子穿“faded blue-gray T-shirt with small outlined chest lettering.”；可见的有领扣襟衣物不是要求的T恤。",
+            "revision": "clarified",
+            "revision_note": "将候选的服装不符明确为可见的有领扣襟衬衫与要求的T恤类型不符；保留核心问题。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+            },
+            "requirement_applies": "合同将该衣着描述列为全片同一男子的 episode-wide 属性；Shot4文本仅称他为Bearded man，并未给出不同服装描述，因此该要求适用。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿深蓝灰色有领上衣，衣襟可见纽扣。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍穿有领扣襟的深色上衣，而非T恤。"
+              }
+            ],
+            "assessment": "Shot4画面明确显示有领扣襟衬衫，违反合同对同一男子T恤类型的明确要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3未见文字要求位于右前景边缘的暗色虚焦形状。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右侧画面边缘只有浅墙和沙发，没有暗色前景遮挡。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右侧画面边缘只有浅墙和沙发，没有暗色前景遮挡。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ],
+        "expected": "右侧前景边缘持续可见暗色形状。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 3@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧画面边缘只有浅墙和沙发，没有暗色前景遮挡。",
+            "mismatch": "要求暗色形状留在右前景边缘，但该处各帧均未见该形状。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 3@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4男子穿深色有领衬衫，与全片要求的褪色蓝灰T恤不符。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰有领衬衫，前襟有扣子。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰有领衬衫，前襟有扣子。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+          }
+        ],
+        "expected": "同一男子穿褪色蓝灰T恤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 1@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子穿深蓝灰有领衬衫，前襟有扣子。",
+            "mismatch": "有领扣襟衬衫不是要求的T恤，且不是描述的褪色蓝灰T恤。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Dark foreground shape",
+      "description": "Unidentified dark shape at the right foreground edge in Shots1 and 3.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3要求“the blurred dark shape stays at the right foreground edge”，但所示画面右侧前景边缘没有可见的暗色虚焦形状，主要是浅色墙面和沙发。",
+      "original_description": "Shot3未见文字要求位于右前景边缘的暗色虚焦形状。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧边缘呈浅色墙面和沙发，没有暗色前景形状。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "画面右侧前景边缘仍未见暗色形状。"
+        }
+      ],
+      "assessment": "Shot3多帧均未显示文字明确要求留在右前景边缘的暗色形状，构成可见缺失。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "the blurred dark shape stays at the right foreground edge"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是Shot3自身的明确要求，适用于Shot3。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4中男子穿深蓝灰色有领、带扣襟的衬衫，而合同要求该男子穿“faded blue-gray T-shirt with small outlined chest lettering.”；可见的有领扣襟衣物不是要求的T恤。",
+      "original_description": "Shot4男子穿深色有领衬衫，与全片要求的褪色蓝灰T恤不符。",
+      "revision": "clarified",
+      "revision_note": "将候选的服装不符明确为可见的有领扣襟衬衫与要求的T恤类型不符；保留核心问题。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿深蓝灰色有领上衣，衣襟可见纽扣。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍穿有领扣襟的深色上衣，而非T恤。"
+        }
+      ],
+      "assessment": "Shot4画面明确显示有领扣襟衬衫，违反合同对同一男子T恤类型的明确要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同将该衣着描述列为全片同一男子的 episode-wide 属性；Shot4文本仅称他为Bearded man，并未给出不同服装描述，因此该要求适用。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 2,
+    "units": 2,
+    "split_candidates": 0,
+    "clarified_units": 1,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 2,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 2
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 27973,
+      "cached_input_tokens": 0,
+      "output_tokens": 745,
+      "reasoning_output_tokens": 94
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 27973,
+    "cached_input_tokens": 0,
+    "output_tokens": 745,
+    "api_calls": 1,
+    "estimated_usd": 0.0031698,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

@@ -1,0 +1,233 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p014_storymem/vl_detection/result.json",
+  "source_detection_sha256": "fafdecdf9ce0d5d4f740bc422510f196b457a1f7284c49ce5bfd032c8c80ab07",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中，文字要求背景有“thick pollarded trees”，但画面可见覆雪的常绿针叶树，枝叶自然伸展，未见修剪成形的树冠；树木未呈现要求的 pollarded 形态。",
+            "revision": "clarified",
+            "revision_note": "将问题明确为 pollarded 树形不符；保留候选所指的 Shot1 背景树木不符合文字要求这一核心问题。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "thick pollarded trees"
+            },
+            "requirement_applies": "该要求出自 Shot1 的镜头文字，适用于 Shot1 中作为背景出现的树木。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "背景树木是覆雪常绿针叶树，枝叶向外自然伸展，未见 pollarded 树冠形态。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "背景仍可见枝叶自然伸展的覆雪常绿树，没有修剪成形的 pollarded 树冠。"
+              }
+            ],
+            "assessment": "Shot1 明确要求 pollarded trees；所示树木枝叶自然伸展，未呈现修剪树形，故违反该明确要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot1背景树木不是文字要求的修剪树形。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "背景为覆雪常绿针叶树，枝叶自然伸展，未见修剪成形的树冠。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "背景为覆雪常绿针叶树，枝叶自然伸展，未见修剪成形的树冠。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "thick pollarded trees"
+          }
+        ],
+        "expected": "背景应为粗壮的修剪树。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "EN:Object 1@Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5
+              }
+            ],
+            "observed": "背景为覆雪常绿针叶树，枝叶自然伸展，未见修剪成形的树冠。",
+            "mismatch": "可见自然常绿树而非修剪树形。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 1@Shot1"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0003",
+      "global_entity_id": "pb0003",
+      "source": "detection_ledger",
+      "name": "Courtyard trees",
+      "description": "Collective courtyard trees, including the trunks and individual trees specified in particular views; individual tree identity across views is unspecified.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot1中，文字要求背景有“thick pollarded trees”，但画面可见覆雪的常绿针叶树，枝叶自然伸展，未见修剪成形的树冠；树木未呈现要求的 pollarded 形态。",
+      "original_description": "Shot1背景树木不是文字要求的修剪树形。",
+      "revision": "clarified",
+      "revision_note": "将问题明确为 pollarded 树形不符；保留候选所指的 Shot1 背景树木不符合文字要求这一核心问题。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "背景树木是覆雪常绿针叶树，枝叶向外自然伸展，未见 pollarded 树冠形态。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "背景仍可见枝叶自然伸展的覆雪常绿树，没有修剪成形的 pollarded 树冠。"
+        }
+      ],
+      "assessment": "Shot1 明确要求 pollarded trees；所示树木枝叶自然伸展，未呈现修剪树形，故违反该明确要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "thick pollarded trees"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该要求出自 Shot1 的镜头文字，适用于 Shot1 中作为背景出现的树木。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 1,
+    "units": 1,
+    "split_candidates": 0,
+    "clarified_units": 1,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 1,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 30309,
+      "cached_input_tokens": 0,
+      "output_tokens": 573,
+      "reasoning_output_tokens": 92
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 30309,
+    "cached_input_tokens": 0,
+    "output_tokens": 573,
+    "api_calls": 1,
+    "estimated_usd": 0.0033174,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

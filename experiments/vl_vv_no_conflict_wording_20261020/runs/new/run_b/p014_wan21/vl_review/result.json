@@ -1,0 +1,726 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p014_wan21/vl_detection/result.json",
+  "source_detection_sha256": "246ed41ea0c4b6fb582006012cc3b2bf88663ea33d6fc86a01dc9b7f53806b78",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot2中男子戴的是黑色宽檐帽，未见耳罩，与“a black earflap hat”的要求不符。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "a black earflap hat"
+            },
+            "requirement_applies": "Shot2直接要求年长男子戴黑色耳罩帽；该男子在本镜头中可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子头戴黑色帽子，可见宽帽檐，未见耳罩。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍戴黑色宽檐帽，帽侧没有可见耳罩。"
+              }
+            ],
+            "assessment": "帧中帽型为宽檐帽而非耳罩帽，直接违反明示属性。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2末段男子抬起一只手并碰到帽边，手离开口袋，违反“全程把手留在口袋”的要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "He keeps his hands in his pockets"
+            },
+            "requirement_applies": "Shot2对该男子的手部姿态作出持续要求；男子及其手部在本镜头末帧可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子一只手抬起，碰到帽边，手不在口袋中。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "context",
+                "observation": "男子起初双手在口袋附近。"
+              }
+            ],
+            "assessment": "末帧清楚显示一只手离开口袋并触碰帽子，违反全程手在口袋的要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot4中男子戴黑色宽檐帽，未见耳罩，与“Older man in earflap hat”的要求不符。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Older man in earflap hat"
+            },
+            "requirement_applies": "Shot4直接称该人物为“Older man in earflap hat”，且该男子在镜头中可见；镜头文字未给出不同帽型。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子头戴黑色宽檐帽，未见耳罩。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍戴黑色宽檐帽，没有可见耳罩。"
+              }
+            ],
+            "assessment": "镜头中的黑帽有宽帽檐而无耳罩，和镜头要求的人物帽型描述冲突。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot4起始帧中男子背向镜头，主要可见后脑与背部，脸并非处于低垂的屏幕左侧面；这不符合起始姿态要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Starting with his face lowered in screen-left profile"
+            },
+            "requirement_applies": "该句明确规定Shot4起始姿态；帧0是本镜头的起始帧。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子背对镜头，脸不可见，身体朝向树干。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 1,
+                "role": "context",
+                "observation": "男子转到侧面后可见低头姿态；该帧不是镜头起始帧。"
+              }
+            ],
+            "assessment": "起始帧呈背面而非低垂的屏幕左侧面；后续转到侧面不能满足起始姿态要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2男子戴黑色宽檐帽而非耳罩帽。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，未见耳罩。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，未见耳罩。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "a black earflap hat"
+          }
+        ],
+        "expected": "男子戴黑色耳罩帽。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 2@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子戴黑色宽檐帽，未见耳罩。",
+            "mismatch": "帽型不是要求的耳罩帽。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2男子后段抬手碰帽，未全程把手留在口袋。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "末帧男子一手抬到帽边。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "末帧男子一手抬到帽边。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "He keeps his hands in his pockets"
+          }
+        ],
+        "expected": "男子双手全程在口袋。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 2@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "末帧男子一手抬到帽边。",
+            "mismatch": "末段手离开口袋并碰帽。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4男子戴黑色宽檐帽而非耳罩帽。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "各帧均为黑色宽檐帽，无耳罩。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "各帧均为黑色宽檐帽，无耳罩。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Older man in earflap hat"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "the black hat"
+          }
+        ],
+        "expected": "男子戴黑色耳罩帽。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 2@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "各帧均为黑色宽檐帽，无耳罩。",
+            "mismatch": "帽型与耳罩帽要求不符。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4起始为男子背对镜头，而非低头的左侧面。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "起始两帧主要见男子后脑和背部，他面向树干。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "起始两帧主要见男子后脑和背部，他面向树干。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Starting with his face lowered in screen-left profile"
+          }
+        ],
+        "expected": "起始脸部低垂、呈屏幕左侧面。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 2@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 1
+              }
+            ],
+            "observed": "起始两帧主要见男子后脑和背部，他面向树干。",
+            "mismatch": "起始并非可见的低头左侧面。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0007",
+      "global_entity_id": "pb0007",
+      "source": "detection_ledger",
+      "name": "Older man in earflap hat",
+      "description": "Older man with wispy gray hair wearing an earflap hat and checked scarf.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中男子戴的是黑色宽檐帽，未见耳罩，与“a black earflap hat”的要求不符。",
+      "original_description": "Shot2男子戴黑色宽檐帽而非耳罩帽。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子头戴黑色帽子，可见宽帽檐，未见耳罩。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍戴黑色宽檐帽，帽侧没有可见耳罩。"
+        }
+      ],
+      "assessment": "帧中帽型为宽檐帽而非耳罩帽，直接违反明示属性。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "a black earflap hat"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2直接要求年长男子戴黑色耳罩帽；该男子在本镜头中可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2末段男子抬起一只手并碰到帽边，手离开口袋，违反“全程把手留在口袋”的要求。",
+      "original_description": "Shot2男子后段抬手碰帽，未全程把手留在口袋。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子一只手抬起，碰到帽边，手不在口袋中。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "context",
+          "observation": "男子起初双手在口袋附近。"
+        }
+      ],
+      "assessment": "末帧清楚显示一只手离开口袋并触碰帽子，违反全程手在口袋的要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "He keeps his hands in his pockets"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2对该男子的手部姿态作出持续要求；男子及其手部在本镜头末帧可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4中男子戴黑色宽檐帽，未见耳罩，与“Older man in earflap hat”的要求不符。",
+      "original_description": "Shot4男子戴黑色宽檐帽而非耳罩帽。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子头戴黑色宽檐帽，未见耳罩。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍戴黑色宽檐帽，没有可见耳罩。"
+        }
+      ],
+      "assessment": "镜头中的黑帽有宽帽檐而无耳罩，和镜头要求的人物帽型描述冲突。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Older man in earflap hat"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4直接称该人物为“Older man in earflap hat”，且该男子在镜头中可见；镜头文字未给出不同帽型。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot4起始帧中男子背向镜头，主要可见后脑与背部，脸并非处于低垂的屏幕左侧面；这不符合起始姿态要求。",
+      "original_description": "Shot4起始为男子背对镜头，而非低头的左侧面。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子背对镜头，脸不可见，身体朝向树干。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 1,
+          "role": "context",
+          "observation": "男子转到侧面后可见低头姿态；该帧不是镜头起始帧。"
+        }
+      ],
+      "assessment": "起始帧呈背面而非低垂的屏幕左侧面；后续转到侧面不能满足起始姿态要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Starting with his face lowered in screen-left profile"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该句明确规定Shot4起始姿态；帧0是本镜头的起始帧。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 4,
+    "split_candidates": 0,
+    "clarified_units": 0,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 4,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 4
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 35025,
+      "cached_input_tokens": 0,
+      "output_tokens": 1278,
+      "reasoning_output_tokens": 178
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 35025,
+    "cached_input_tokens": 0,
+    "output_tokens": 1278,
+    "api_calls": 1,
+    "estimated_usd": 0.0041415,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

@@ -1,0 +1,1104 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_028_N39I1LM-HGY_s00208_n8_clean_v3_alt8/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p028_wan22/vl_detection/result.json",
+  "source_detection_sha256": "83d95982329a5c85400e4a41d5018e8d76582da878e9dfd68bdbc5f2663ec4e8",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中女子的手指并非未靠近下巴：画面中手在耳旁，后续帧手指位于下巴附近，符合“a finger near her chin in a telephone-like pose”的要求。",
+            "revision": "clarified",
+            "revision_note": "纠正候选所称手指未靠近下巴；后续关键帧可见手指靠近下巴。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "a finger near her chin in a telephone-like pose"
+            },
+            "requirement_applies": "该姿势要求明确写在Shot1提示中，适用于Shot1。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "女子的手仍在耳旁，手指伸至下巴附近。"
+              }
+            ],
+            "assessment": "末帧显示手指靠近下巴，符合所引姿势要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2中女子没有用自己的抬起的手轻托来手的手腕；画面显示来手接触她的脸颊，但未见女子的手在腕下支撑。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "interaction",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "She lightly supports the wrist with her own raised hand."
+            },
+            "requirement_applies": "该手腕支撑关系明确写在Shot2提示中，适用于Shot2。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "来手位于女子耳旁，女子可见的手没有托在来手手腕下方。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "来手仍贴近女子脸颊，画面中未见女子以自己的手支撑其手腕。"
+              }
+            ],
+            "assessment": "两帧均未显示文字要求的女子手部托腕接触关系，构成明确违背。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot3右侧的蓝色沙滩椅在画面中尺寸显著、清晰可辨，不符合契约要求的远处小型蓝色沙滩椅。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+            },
+            "requirement_applies": "契约中的蓝椅描述适用于Robe woman出现的镜头；Shot3提示也称其为熟悉的椅子并明确说仍在远处，未对尺寸或距离作不同描述。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧可见占画面较大、轮廓清晰的蓝色躺椅。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "右侧蓝色躺椅仍显著且清晰，并非小型远景物体。"
+              }
+            ],
+            "assessment": "椅子虽在右侧且为蓝色，但其显著尺寸及清晰程度与契约所述小型远处椅不符。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot6中女子多帧嘴唇明显分开，没有按要求在五秒镜头中保持闭唇。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot6"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot6",
+              "quote": "Over five seconds she holds her lips closed"
+            },
+            "requirement_applies": "闭唇要求明确写在Shot6提示中，且要求持续五秒，适用于Shot6全镜头。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "女子嘴唇可见缝隙，呈微张状态。"
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "女子嘴唇仍明显分开。"
+              }
+            ],
+            "assessment": "镜头首尾帧都能看到嘴唇未闭合，直接违反全程闭唇要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L5",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L5",
+            "description": "Shot7中女子张开嘴后，在所示镜头末段仍保持明显张口；没有呈现要求的随后闭嘴。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot7"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot7",
+              "quote": "then lets it close again"
+            },
+            "requirement_applies": "张嘴后再闭嘴的动作顺序明确写在Shot7提示中，适用于Shot7。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "女子嘴巴大幅张开。"
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "末帧女子嘴巴仍大幅张开，没有闭合。"
+              }
+            ],
+            "assessment": "末帧仍明显张口，未实现提示要求的随后闭嘴。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L6",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L6",
+            "description": "Shot7远右背景中的蓝色椅子尺寸显著且轮廓清晰，不符合契约要求的远处小椅，也不符合镜头文字所说的模糊远右背景椅。",
+            "revision": "clarified",
+            "revision_note": "补充指出该画面还与Shot7明确要求的模糊远右背景相悖；核心仍是椅子在画面中并非小型远景。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot7"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+            },
+            "requirement_applies": "契约中的蓝椅描述适用于Robe woman出现的镜头；Shot7称椅子在远右背景且模糊，并未改变其小型、远处的契约描述。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "右侧背景中的蓝色躺椅较大且轮廓清晰。"
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "蓝色椅子仍显著可见、清晰可辨，不像小型远景椅。"
+              }
+            ],
+            "assessment": "椅子在多帧中都显著且清晰，既不符合契约的小型远处描述，也不符合镜头文字的模糊远景描述。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1中女子手指未靠近下巴，未形成文字要求的姿势。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "女子手在耳旁，手指未靠近下巴。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "女子手在耳旁，手指未靠近下巴。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "a finger near her chin in a telephone-like pose"
+          }
+        ],
+        "expected": "手指靠近下巴，呈电话姿势。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "EN:Character 1@Shot1",
+              "SP:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5
+              }
+            ],
+            "observed": "女子手在耳旁，手指未靠近下巴。",
+            "mismatch": "要求手指靠近下巴，画面中未出现该手指位置。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot1",
+          "SP:Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot2中女子没有以自己的手托住来手手腕。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0006",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005",
+            "pb0006"
+          ],
+          "observation": "画面只见来手触及女子脸颊，未见女子另一只手托腕。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005",
+            "pb0006"
+          ],
+          "observation": "画面只见来手触及女子脸颊，未见女子另一只手托腕。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "She lightly supports the wrist with her own raised hand."
+          }
+        ],
+        "expected": "女子抬起自己的手轻托来手手腕。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "RL:Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "画面只见来手触及女子脸颊，未见女子另一只手托腕。",
+            "mismatch": "缺少女子自己的手托住来手手腕这一接触关系。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3右侧蓝椅明显较大，不符合描述的小椅。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右侧蓝色躺椅面积较大、轮廓清晰。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右侧蓝色躺椅面积较大、轮廓清晰。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+          }
+        ],
+        "expected": "远处右侧为小型蓝色沙滩椅。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 2@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧蓝色躺椅面积较大、轮廓清晰。",
+            "mismatch": "画面中的椅子不是描述的小型远景椅。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 2@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot6女子多帧嘴唇张开，未保持闭唇。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "若干帧可见嘴唇张开。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "若干帧可见嘴唇张开。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "Over five seconds she holds her lips closed"
+          }
+        ],
+        "expected": "整个镜头持续闭唇。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "EN:Character 2@Shot6",
+              "SP:Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "若干帧可见嘴唇张开。",
+            "mismatch": "嘴唇未在整个镜头中保持闭合。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot6",
+          "SP:Shot6"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot7女子张嘴后没有闭合，未实现所述嘴部动作。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "从首帧到末帧嘴均明显张开。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "从首帧到末帧嘴均明显张开。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot7",
+            "quote": "then lets it close again"
+          }
+        ],
+        "expected": "张嘴后再让嘴闭合。",
+        "occurrences": [
+          {
+            "shot_id": "Shot7",
+            "row_ids": [
+              "EN:Character 1@Shot7",
+              "SP:Shot7"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5
+              }
+            ],
+            "observed": "从首帧到末帧嘴均明显张开。",
+            "mismatch": "文字要求随后闭嘴，末帧仍张嘴。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot7",
+          "SP:Shot7"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L6",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot7远右蓝椅尺寸显著，不符合远处小椅描述。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右后方蓝色躺椅较大且轮廓清楚。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右后方蓝色躺椅较大且轮廓清楚。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+          }
+        ],
+        "expected": "远处右侧为小型蓝色沙滩椅。",
+        "occurrences": [
+          {
+            "shot_id": "Shot7",
+            "row_ids": [
+              "EN:Object 2@Shot7",
+              "SP:Shot7"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右后方蓝色躺椅较大且轮廓清楚。",
+            "mismatch": "画面中的椅子明显不小，且不呈模糊小远景。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 2@Shot7",
+          "SP:Shot7"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Robe woman",
+      "description": "Older fair-skinned woman with pale blonde-gray hair pulled back, wearing a white bathrobe tied at the waist.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Turquoise woman",
+      "description": "Younger adult with medium skin and shoulder-length wavy brown hair with lighter strands, wearing a loose turquoise top.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0006",
+      "global_entity_id": "pb0006",
+      "source": "detection_ledger",
+      "name": "Incoming hand owner",
+      "description": "Partially visible person identified by the Incoming hand; a white sleeve is visible in later shoreline shots. Identity is unspecified.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0004",
+      "global_entity_id": "pb0004",
+      "source": "detection_ledger",
+      "name": "Blue beach chair",
+      "description": "Small blue beach chair distant on the right in the Robe woman's views.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1中女子的手指并非未靠近下巴：画面中手在耳旁，后续帧手指位于下巴附近，符合“a finger near her chin in a telephone-like pose”的要求。",
+      "original_description": "Shot1中女子手指未靠近下巴，未形成文字要求的姿势。",
+      "revision": "clarified",
+      "revision_note": "纠正候选所称手指未靠近下巴；后续关键帧可见手指靠近下巴。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "女子的手仍在耳旁，手指伸至下巴附近。"
+        }
+      ],
+      "assessment": "末帧显示手指靠近下巴，符合所引姿势要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "a finger near her chin in a telephone-like pose"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该姿势要求明确写在Shot1提示中，适用于Shot1。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot2中女子没有用自己的抬起的手轻托来手的手腕；画面显示来手接触她的脸颊，但未见女子的手在腕下支撑。",
+      "original_description": "Shot2中女子没有以自己的手托住来手手腕。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "来手位于女子耳旁，女子可见的手没有托在来手手腕下方。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "来手仍贴近女子脸颊，画面中未见女子以自己的手支撑其手腕。"
+        }
+      ],
+      "assessment": "两帧均未显示文字要求的女子手部托腕接触关系，构成明确违背。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "She lightly supports the wrist with her own raised hand."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该手腕支撑关系明确写在Shot2提示中，适用于Shot2。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0006",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3右侧的蓝色沙滩椅在画面中尺寸显著、清晰可辨，不符合契约要求的远处小型蓝色沙滩椅。",
+      "original_description": "Shot3右侧蓝椅明显较大，不符合描述的小椅。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧可见占画面较大、轮廓清晰的蓝色躺椅。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧蓝色躺椅仍显著且清晰，并非小型远景物体。"
+        }
+      ],
+      "assessment": "椅子虽在右侧且为蓝色，但其显著尺寸及清晰程度与契约所述小型远处椅不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "契约中的蓝椅描述适用于Robe woman出现的镜头；Shot3提示也称其为熟悉的椅子并明确说仍在远处，未对尺寸或距离作不同描述。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot6中女子多帧嘴唇明显分开，没有按要求在五秒镜头中保持闭唇。",
+      "original_description": "Shot6女子多帧嘴唇张开，未保持闭唇。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "女子嘴唇可见缝隙，呈微张状态。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "女子嘴唇仍明显分开。"
+        }
+      ],
+      "assessment": "镜头首尾帧都能看到嘴唇未闭合，直接违反全程闭唇要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot6",
+          "quote": "Over five seconds she holds her lips closed"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "闭唇要求明确写在Shot6提示中，且要求持续五秒，适用于Shot6全镜头。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot7中女子张开嘴后，在所示镜头末段仍保持明显张口；没有呈现要求的随后闭嘴。",
+      "original_description": "Shot7女子张嘴后没有闭合，未实现所述嘴部动作。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "女子嘴巴大幅张开。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "末帧女子嘴巴仍大幅张开，没有闭合。"
+        }
+      ],
+      "assessment": "末帧仍明显张口，未实现提示要求的随后闭嘴。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot7",
+          "quote": "then lets it close again"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "张嘴后再闭嘴的动作顺序明确写在Shot7提示中，适用于Shot7。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L6",
+      "parent_issue_id": "L6",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot7远右背景中的蓝色椅子尺寸显著且轮廓清晰，不符合契约要求的远处小椅，也不符合镜头文字所说的模糊远右背景椅。",
+      "original_description": "Shot7远右蓝椅尺寸显著，不符合远处小椅描述。",
+      "revision": "clarified",
+      "revision_note": "补充指出该画面还与Shot7明确要求的模糊远右背景相悖；核心仍是椅子在画面中并非小型远景。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "右侧背景中的蓝色躺椅较大且轮廓清晰。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "蓝色椅子仍显著可见、清晰可辨，不像小型远景椅。"
+        }
+      ],
+      "assessment": "椅子在多帧中都显著且清晰，既不符合契约的小型远处描述，也不符合镜头文字的模糊远景描述。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "契约中的蓝椅描述适用于Robe woman出现的镜头；Shot7称椅子在远右背景且模糊，并未改变其小型、远处的契约描述。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 6,
+    "units": 6,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 5,
+        "rejected": 1,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_satisfied": 1,
+      "requirement_violated": 5
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 55945,
+      "cached_input_tokens": 0,
+      "output_tokens": 1983,
+      "reasoning_output_tokens": 260
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 55945,
+    "cached_input_tokens": 0,
+    "output_tokens": 1983,
+    "api_calls": 1,
+    "estimated_usd": 0.006586,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

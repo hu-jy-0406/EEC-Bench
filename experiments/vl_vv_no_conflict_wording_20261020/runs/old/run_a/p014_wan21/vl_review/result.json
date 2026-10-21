@@ -1,0 +1,968 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p014_wan21/vl_detection/result.json",
+  "source_detection_sha256": "aa07aa0f70e453deeefc7ea7c02d6e96ff31027ef7b5c3f998068110d6567405",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "split",
+        "split_reason": "Shot2与Shot4是分别适用、可独立判断的帽型要求，因此拆成两个按镜头判定的单元。",
+        "units": [
+          {
+            "unit_id": "L1.1",
+            "description": "Shot2中男子戴黑色宽檐帽，未见耳罩；这与要求的黑色耳罩帽不符。",
+            "revision": "clarified",
+            "revision_note": "明确限定为Shot2，并将观察表述为未见耳罩的黑色宽檐帽。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "a black earflap hat"
+            },
+            "requirement_applies": "Shot2文字直接要求男子戴黑色耳罩帽，且男子在该镜头中可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子头戴黑色帽子，帽檐宽且无耳罩。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍戴同一宽檐黑帽，未见耳罩。"
+              }
+            ],
+            "assessment": "Shot2画面中的宽檐黑帽不符合明确要求的黑色耳罩帽。"
+          },
+          {
+            "unit_id": "L1.2",
+            "description": "Shot4中男子戴黑色宽檐帽，未见耳罩；这与要求的耳罩帽及黑帽不符。",
+            "revision": "clarified",
+            "revision_note": "明确限定为Shot4，并保留帽型不符这一核心问题。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Older man in earflap hat"
+            },
+            "requirement_applies": "Shot4文字将男子称为戴耳罩帽的老人，并另有“the black hat”的描述；该男子在Shot4可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子戴黑色宽檐帽，无可见耳罩。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍戴黑色宽檐帽，无可见耳罩。"
+              }
+            ],
+            "assessment": "男子的帽子是宽檐黑帽而非耳罩帽，违反Shot4对耳罩帽的明确描述。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2中男子后段将一只手从口袋抬起并触到帽边，未能始终保持双手在口袋里。",
+            "revision": "clarified",
+            "revision_note": "明确手抬至帽边的可见动作及其对持续要求的违反。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "He keeps his hands in his pockets"
+            },
+            "requirement_applies": "Shot2文字对该男子提出持续保持双手在口袋里的要求，男子在镜头中可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "context",
+                "observation": "男子双手在口袋中。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "男子一只手已离开口袋并抬向帽边。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子一只手抬至帽边，另一只手仍在口袋附近。"
+              }
+            ],
+            "assessment": "后段可见一只手离开口袋，违背“keeps”所要求的持续状态。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "split",
+        "split_reason": "嘴唇闭合动作与头部倾斜是两个可以独立成立或不成立的动作要求，分别判定。",
+        "units": [
+          {
+            "unit_id": "L3.1",
+            "description": "Shot3中女子的嘴唇在所示帧中保持闭合，未呈现从微张到闭合的动作。",
+            "revision": "clarified",
+            "revision_note": "将原描述改为聚焦于未呈现“微张后闭合”的动作过程。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "Her slightly parted lips close"
+            },
+            "requirement_applies": "Shot3文字直接要求女子微张的嘴唇闭合，女子面部在该镜头中清晰可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "女子嘴唇呈闭合状态。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "女子嘴唇仍呈闭合状态；所示帧未显示由微张到闭合的动作。"
+              }
+            ],
+            "assessment": "可见序列没有呈现文字要求的微张嘴唇闭合过程。"
+          },
+          {
+            "unit_id": "L3.2",
+            "description": "Shot3中女子头部在所示序列中几乎保持同一姿态，未见文字要求的轻微倾头。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "her head tilts subtly"
+            },
+            "requirement_applies": "Shot3文字直接要求女子轻微倾头，女子头部在各帧中清晰可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "context",
+                "observation": "女子头部处于轻微朝向画面左侧的姿态。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "与开头相比头部姿态基本不变，未见明确的倾头动作。"
+              }
+            ],
+            "assessment": "所示帧中未见要求的轻微倾头；头部姿态基本维持不变。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot4开头男子背对镜头，脸不可见；这不符合起始时脸朝下、呈屏幕左向侧面的要求。",
+            "revision": "clarified",
+            "revision_note": "以开头帧实际可见的背对镜头姿态，替换笼统的“起始姿态”描述。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Starting with his face lowered in screen-left profile"
+            },
+            "requirement_applies": "Shot4文字明确规定男子起始时的脸部朝向与姿态；第0帧呈现该镜头开头。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子背对镜头，只见后脑和背部，脸不可见，未呈现屏幕左向侧面。"
+              }
+            ],
+            "assessment": "第0帧男子背对镜头，与起始时应呈现的低头屏幕左向侧面不符。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2与Shot4男子均戴宽檐帽，不符合耳罩帽要求。",
+      "shot_ids": [
+        "Shot2",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，无耳罩。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，无耳罩。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，无耳罩。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "男子戴黑色宽檐帽，无耳罩。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "a black earflap hat"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Older man in earflap hat"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "the black hat"
+          }
+        ],
+        "expected": "男子戴黑色耳罩帽。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 2@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子戴黑色宽檐帽，无耳罩。",
+            "mismatch": "宽檐帽不是要求的黑色耳罩帽。"
+          },
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 2@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子戴黑色宽檐帽，无耳罩。",
+            "mismatch": "帽型与要求的耳罩帽不符。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot2",
+          "SP:Shot2",
+          "EN:Character 2@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2男子后段将手从口袋抬起，未能全程保持双手在口袋里。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "前段双手在口袋，后段一手抬至帽边。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "前段双手在口袋，后段一手抬至帽边。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "He keeps his hands in his pockets"
+          }
+        ],
+        "expected": "男子全程双手放在口袋里。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 2@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "前段双手在口袋，后段一手抬至帽边。",
+            "mismatch": "后段一手离开口袋，违反全程保持的要求。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot3女子嘴唇未呈现先微张再闭合，头部也未见所述倾斜。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "六帧嘴唇均闭合，头部姿态几乎不变。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "六帧嘴唇均闭合，头部姿态几乎不变。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "Her slightly parted lips close"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "her head tilts subtly"
+          }
+        ],
+        "expected": "女子嘴唇微张后闭合，并轻微倾头。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Character 1@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "六帧嘴唇均闭合，头部姿态几乎不变。",
+            "mismatch": "没有可见的嘴唇闭合动作或轻微倾头。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4男子起始背对镜头，并非低头的左侧面。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "开头可见男子后脑与背部，脸未朝屏幕左侧展示。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "开头可见男子后脑与背部，脸未朝屏幕左侧展示。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Starting with his face lowered in screen-left profile"
+          }
+        ],
+        "expected": "起始时男子低头，呈屏幕左向侧面。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 2@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 1
+              }
+            ],
+            "observed": "开头可见男子后脑与背部，脸未朝屏幕左侧展示。",
+            "mismatch": "起始姿态是背对镜头，不是低头的屏幕左向侧面。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0007",
+      "global_entity_id": "pb0007",
+      "source": "detection_ledger",
+      "name": "Older man in earflap hat",
+      "description": "Older man with wispy gray hair wearing an earflap hat and checked scarf.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Woman in gray coat",
+      "description": "Woman wearing a gray winter coat and white beanie.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1.1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中男子戴黑色宽檐帽，未见耳罩；这与要求的黑色耳罩帽不符。",
+      "original_description": "Shot2与Shot4男子均戴宽檐帽，不符合耳罩帽要求。",
+      "revision": "clarified",
+      "revision_note": "明确限定为Shot2，并将观察表述为未见耳罩的黑色宽檐帽。",
+      "split": true,
+      "split_reason": "Shot2与Shot4是分别适用、可独立判断的帽型要求，因此拆成两个按镜头判定的单元。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子头戴黑色帽子，帽檐宽且无耳罩。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍戴同一宽檐黑帽，未见耳罩。"
+        }
+      ],
+      "assessment": "Shot2画面中的宽檐黑帽不符合明确要求的黑色耳罩帽。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "a black earflap hat"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2文字直接要求男子戴黑色耳罩帽，且男子在该镜头中可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L1.2",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4中男子戴黑色宽檐帽，未见耳罩；这与要求的耳罩帽及黑帽不符。",
+      "original_description": "Shot2与Shot4男子均戴宽檐帽，不符合耳罩帽要求。",
+      "revision": "clarified",
+      "revision_note": "明确限定为Shot4，并保留帽型不符这一核心问题。",
+      "split": true,
+      "split_reason": "Shot2与Shot4是分别适用、可独立判断的帽型要求，因此拆成两个按镜头判定的单元。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子戴黑色宽檐帽，无可见耳罩。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍戴黑色宽檐帽，无可见耳罩。"
+        }
+      ],
+      "assessment": "男子的帽子是宽檐黑帽而非耳罩帽，违反Shot4对耳罩帽的明确描述。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Older man in earflap hat"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4文字将男子称为戴耳罩帽的老人，并另有“the black hat”的描述；该男子在Shot4可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2中男子后段将一只手从口袋抬起并触到帽边，未能始终保持双手在口袋里。",
+      "original_description": "Shot2男子后段将手从口袋抬起，未能全程保持双手在口袋里。",
+      "revision": "clarified",
+      "revision_note": "明确手抬至帽边的可见动作及其对持续要求的违反。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "context",
+          "observation": "男子双手在口袋中。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子一只手已离开口袋并抬向帽边。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子一只手抬至帽边，另一只手仍在口袋附近。"
+        }
+      ],
+      "assessment": "后段可见一只手离开口袋，违背“keeps”所要求的持续状态。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "He keeps his hands in his pockets"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2文字对该男子提出持续保持双手在口袋里的要求，男子在镜头中可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3.1",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot3中女子的嘴唇在所示帧中保持闭合，未呈现从微张到闭合的动作。",
+      "original_description": "Shot3女子嘴唇未呈现先微张再闭合，头部也未见所述倾斜。",
+      "revision": "clarified",
+      "revision_note": "将原描述改为聚焦于未呈现“微张后闭合”的动作过程。",
+      "split": true,
+      "split_reason": "嘴唇闭合动作与头部倾斜是两个可以独立成立或不成立的动作要求，分别判定。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "女子嘴唇呈闭合状态。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "女子嘴唇仍呈闭合状态；所示帧未显示由微张到闭合的动作。"
+        }
+      ],
+      "assessment": "可见序列没有呈现文字要求的微张嘴唇闭合过程。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "Her slightly parted lips close"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot3文字直接要求女子微张的嘴唇闭合，女子面部在该镜头中清晰可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3.2",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot3中女子头部在所示序列中几乎保持同一姿态，未见文字要求的轻微倾头。",
+      "original_description": "Shot3女子嘴唇未呈现先微张再闭合，头部也未见所述倾斜。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": true,
+      "split_reason": "嘴唇闭合动作与头部倾斜是两个可以独立成立或不成立的动作要求，分别判定。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "context",
+          "observation": "女子头部处于轻微朝向画面左侧的姿态。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "与开头相比头部姿态基本不变，未见明确的倾头动作。"
+        }
+      ],
+      "assessment": "所示帧中未见要求的轻微倾头；头部姿态基本维持不变。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "her head tilts subtly"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot3文字直接要求女子轻微倾头，女子头部在各帧中清晰可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot4开头男子背对镜头，脸不可见；这不符合起始时脸朝下、呈屏幕左向侧面的要求。",
+      "original_description": "Shot4男子起始背对镜头，并非低头的左侧面。",
+      "revision": "clarified",
+      "revision_note": "以开头帧实际可见的背对镜头姿态，替换笼统的“起始姿态”描述。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子背对镜头，只见后脑和背部，脸不可见，未呈现屏幕左向侧面。"
+        }
+      ],
+      "assessment": "第0帧男子背对镜头，与起始时应呈现的低头屏幕左向侧面不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Starting with his face lowered in screen-left profile"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4文字明确规定男子起始时的脸部朝向与姿态；第0帧呈现该镜头开头。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 6,
+    "split_candidates": 2,
+    "clarified_units": 5,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 6,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 6
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 36805,
+      "cached_input_tokens": 0,
+      "output_tokens": 1994,
+      "reasoning_output_tokens": 277
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 36805,
+    "cached_input_tokens": 0,
+    "output_tokens": 1994,
+    "api_calls": 1,
+    "estimated_usd": 0.0046775,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

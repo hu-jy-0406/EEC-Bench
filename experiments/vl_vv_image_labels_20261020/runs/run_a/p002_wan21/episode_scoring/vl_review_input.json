@@ -1,0 +1,937 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_a/p002_wan21/vl_detection/result.json",
+  "source_detection_sha256": "a3b6e4cd6e8d27e79301e71aff155f0fed295b368a13a7897297cba3469bed6e",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot2中男子的卷曲黑发蓬松并明显延伸至头部两侧，与契约要求的“short curly black hair”中的短发不符。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "short curly black hair"
+            },
+            "requirement_applies": "这是契约中同一男子的跨镜头描述；Shot2出现该男子，且Shot2没有对其头发长度作不同描述。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子的黑色卷发蓬松，明显向头部两侧扩展。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "头发仍蓬松并延伸至头部两侧，呈现较长发量。"
+              }
+            ],
+            "assessment": "Shot2画面中的卷发明显蓬松且较长，违反契约明确要求的短卷黑发。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2与Shot3中房间均显得明亮，不符合契约对同一房间“described as dim and warmly lit”的昏暗要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "setting_environment",
+            "shot_ids": [
+              "Shot2",
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "described as dim and warmly lit"
+            },
+            "requirement_applies": "这是契约中同一房间的跨镜头描述；Shot2和Shot3均出现该房间，且各自镜头文本没有将昏暗要求改为明亮。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子、浅色沙发及木质背景均被明亮照亮，整体并不昏暗。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子和浅色墙面处于明亮、清晰的照明下，整体并不昏暗。"
+              }
+            ],
+            "assessment": "两镜头各自呈现的室内画面都明显明亮；Shot3虽写明温暖、浅色墙面，但没有取代契约中的昏暗要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot2虽然是近景，但画面中男子正面朝向镜头，未呈现提示要求的斜角视图“A closer oblique view”。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "camera_composition",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "A closer oblique view"
+            },
+            "requirement_applies": "该要求直接出现在Shot2镜头提示中，适用于Shot2。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子面部与肩部正对镜头，画面为正面近景。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "构图仍为男子正面朝向镜头的近景，而非斜角视图。"
+              }
+            ],
+            "assessment": "近景满足closer，但可见视角为正面，缺少明确要求的oblique斜角。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot3男子穿深蓝灰色、有领且带门襟的衬衫，不符合契约要求的“faded blue-gray T-shirt with small outlined chest lettering”。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "faded blue-gray T-shirt with small outlined chest lettering"
+            },
+            "requirement_applies": "这是契约中同一男子的跨镜头服装描述；Shot3出现该男子，且Shot3仅称其为蓝灰色衬衫，并未要求或说明更换服装。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿有领、前襟带扣的深蓝灰色上衣。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "可见上衣仍为有领、带门襟的衬衫样式。"
+              }
+            ],
+            "assessment": "Shot3可见的是有领带门襟的衬衫，而非契约所要求的T恤，违反服装类型要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L5",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L5",
+            "description": "Shot3右侧前景边缘未见提示要求的模糊暗色形状；可见区域为浅色墙面。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "presence_count",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "the blurred dark shape stays at the right foreground edge"
+            },
+            "requirement_applies": "该要求直接出现在Shot3镜头提示中，明确要求暗色形状留在Shot3画面右侧前景边缘。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧是开阔的浅色墙面，未见暗色前景形状。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "右侧仍是浅色墙面，没有暗色形状出现在前景边缘。"
+              }
+            ],
+            "assessment": "提示要求暗色形状留在右侧前景边缘，但所示关键帧的该处只有浅色墙面，要求的对象缺失。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2男子头发长度不符跨镜头描述。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "黑卷发明显蓬松且长度较长，扩展至头部两侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "黑卷发明显蓬松且长度较长，扩展至头部两侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "short curly black hair"
+          }
+        ],
+        "expected": "男子为短卷黑发。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 1@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "黑卷发明显蓬松且长度较长，扩展至头部两侧。",
+            "mismatch": "可见头发较长蓬松，不符合短发描述。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot2、Shot3室内画面明亮，不符合房间昏暗描述。",
+      "shot_ids": [
+        "Shot2",
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0002",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "木板及人物被明亮、均匀照亮。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "木板及人物被明亮、均匀照亮。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "浅墙及人物被明亮照亮。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "浅墙及人物被明亮照亮。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "described as dim and warmly lit"
+          }
+        ],
+        "expected": "同一室内为昏暗暖光。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Location 1@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "木板及人物被明亮、均匀照亮。",
+            "mismatch": "室内明显明亮而非昏暗。"
+          },
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Location 1@Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "浅墙及人物被明亮照亮。",
+            "mismatch": "室内明显明亮而非昏暗。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Location 1@Shot2",
+          "EN:Location 1@Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "camera_composition",
+      "description": "Shot2为正面近景，未呈现提示要求的斜角视图。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [],
+          "observation": "人物正对镜头，构图近景。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [],
+          "observation": "人物正对镜头，构图近景。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "A closer oblique view"
+          }
+        ],
+        "expected": "近距离斜角视图。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "人物正对镜头，构图近景。",
+            "mismatch": "近景符合，但镜头为正面而非斜角。"
+          }
+        ],
+        "template_row_ids": [
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3男子穿深色有领衬衫，不符合描述的褪色蓝灰T恤。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰色有领、带门襟的衬衫。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰色有领、带门襟的衬衫。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "faded blue-gray T-shirt with small outlined chest lettering"
+          }
+        ],
+        "expected": "男子穿褪色蓝灰T恤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Character 1@Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子穿深蓝灰色有领、带门襟的衬衫。",
+            "mismatch": "衣物是有领衬衫，不是蓝灰T恤。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3右前景未见要求的暗色虚影。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右侧区域为无遮挡的浅色墙面，未见暗色前景物。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右侧区域为无遮挡的浅色墙面，未见暗色前景物。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ],
+        "expected": "画面右侧前景持续有暗色虚影。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 3@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧区域为无遮挡的浅色墙面，未见暗色前景物。",
+            "mismatch": "要求的暗色右前景形状缺失。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 3@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0002",
+      "global_entity_id": "pb0002",
+      "source": "detection_ledger",
+      "name": "Warm room",
+      "description": "The same room across all four shots; described as dim and warmly lit, with pale walls.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Location 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Dark foreground shape",
+      "description": "Unidentified dark shape at the right foreground edge in Shots1 and 3.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中男子的卷曲黑发蓬松并明显延伸至头部两侧，与契约要求的“short curly black hair”中的短发不符。",
+      "original_description": "Shot2男子头发长度不符跨镜头描述。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子的黑色卷发蓬松，明显向头部两侧扩展。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "头发仍蓬松并延伸至头部两侧，呈现较长发量。"
+        }
+      ],
+      "assessment": "Shot2画面中的卷发明显蓬松且较长，违反契约明确要求的短卷黑发。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "short curly black hair"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是契约中同一男子的跨镜头描述；Shot2出现该男子，且Shot2没有对其头发长度作不同描述。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot2与Shot3中房间均显得明亮，不符合契约对同一房间“described as dim and warmly lit”的昏暗要求。",
+      "original_description": "Shot2、Shot3室内画面明亮，不符合房间昏暗描述。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2",
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子、浅色沙发及木质背景均被明亮照亮，整体并不昏暗。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子和浅色墙面处于明亮、清晰的照明下，整体并不昏暗。"
+        }
+      ],
+      "assessment": "两镜头各自呈现的室内画面都明显明亮；Shot3虽写明温暖、浅色墙面，但没有取代契约中的昏暗要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "described as dim and warmly lit"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是契约中同一房间的跨镜头描述；Shot2和Shot3均出现该房间，且各自镜头文本没有将昏暗要求改为明亮。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0002",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "camera_composition",
+      "description": "Shot2虽然是近景，但画面中男子正面朝向镜头，未呈现提示要求的斜角视图“A closer oblique view”。",
+      "original_description": "Shot2为正面近景，未呈现提示要求的斜角视图。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子面部与肩部正对镜头，画面为正面近景。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "构图仍为男子正面朝向镜头的近景，而非斜角视图。"
+        }
+      ],
+      "assessment": "近景满足closer，但可见视角为正面，缺少明确要求的oblique斜角。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "A closer oblique view"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该要求直接出现在Shot2镜头提示中，适用于Shot2。"
+      },
+      "v_v_detail": null,
+      "entity_refs": []
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3男子穿深蓝灰色、有领且带门襟的衬衫，不符合契约要求的“faded blue-gray T-shirt with small outlined chest lettering”。",
+      "original_description": "Shot3男子穿深色有领衬衫，不符合描述的褪色蓝灰T恤。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿有领、前襟带扣的深蓝灰色上衣。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "可见上衣仍为有领、带门襟的衬衫样式。"
+        }
+      ],
+      "assessment": "Shot3可见的是有领带门襟的衬衫，而非契约所要求的T恤，违反服装类型要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "faded blue-gray T-shirt with small outlined chest lettering"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是契约中同一男子的跨镜头服装描述；Shot3出现该男子，且Shot3仅称其为蓝灰色衬衫，并未要求或说明更换服装。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3右侧前景边缘未见提示要求的模糊暗色形状；可见区域为浅色墙面。",
+      "original_description": "Shot3右前景未见要求的暗色虚影。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧是开阔的浅色墙面，未见暗色前景形状。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧仍是浅色墙面，没有暗色形状出现在前景边缘。"
+        }
+      ],
+      "assessment": "提示要求暗色形状留在右侧前景边缘，但所示关键帧的该处只有浅色墙面，要求的对象缺失。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "the blurred dark shape stays at the right foreground edge"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该要求直接出现在Shot3镜头提示中，明确要求暗色形状留在Shot3画面右侧前景边缘。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 5,
+    "units": 5,
+    "split_candidates": 0,
+    "clarified_units": 0,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 5,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 5
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 30028,
+      "cached_input_tokens": 0,
+      "output_tokens": 2106,
+      "reasoning_output_tokens": 159
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 30028,
+    "cached_input_tokens": 0,
+    "output_tokens": 2106,
+    "api_calls": 1,
+    "estimated_usd": 0.0040558,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

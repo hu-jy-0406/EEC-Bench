@@ -1,0 +1,741 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "repair_round": 2,
+  "validation_errors": [
+    "checks[18] EN:Object 3@Shot3: a presence item is violated (the entity is absent), so its other items cannot be judged; list only the presence item(s) in violated_items so one absence is reported once",
+    "issues[2] L3 requirement_quotes[0]: quote 'faded blue-gray T-shirt' is not a literal quote of global_prompt; the words occur in ['shot_prompt', 'contract']: set source accordingly"
+  ],
+  "previous_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vl",
+    "checks": [
+      {
+        "row_id": "EN:Character 1@Shot1",
+        "observed": "男子短卷黑发、浓密胡须，穿褪色蓝灰色短袖T恤及小胸前字样；坐在画面中部偏左，双臂向两侧搭在沙发上，视线由低略抬向右。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot1",
+        "observed": "可见暖色木门和浅色墙面，室内光线偏暗且偏暖。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot1",
+        "observed": "男子身后及下方可见米 beige 色软垫沙发。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 2@Shot1",
+        "observed": "男子后方可见棕色木门及门框。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 3@Shot1",
+        "observed": "画面右侧前景边缘有大型暗色模糊区域。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot1",
+        "observed": "男子坐靠在沙发上；木门位于其后方。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot1",
+        "observed": "写实中景，机位固定；男子大致居中偏左，画面右前景有暗影，背景为暗暖色室内与木门。男子躯干放松，手臂搭在沙发靠背上，嘴闭合，视线略向右抬起。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 1@Shot2",
+        "observed": "男子深色蓬松卷发明显较长，浓密胡须，穿蓝灰色短袖T恤；由正视转为低头，双臂最终交叠胸前。",
+        "status": "violated",
+        "violated_items": [
+          "description"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L1"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot2",
+        "observed": "人物后方可见暖棕色木板背景，光线明亮偏暖。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot2",
+        "observed": "人物身后可见浅米色布面沙发靠背。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 4@Shot2",
+        "observed": "人物后方是可见木纹的暖棕色板面。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot2",
+        "observed": "男子坐在沙发前；暖棕木板位于人物后方。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot2",
+        "observed": "写实近景，正面视角而非明显斜向机位；男子居中，木板背景清晰。嘴部有轻微变化，视线转低，头和上身略倾，双臂逐渐交叠，末帧嘴闭合、手臂交叉。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L2"
+        ]
+      },
+      {
+        "row_id": "TR:Shot1->Shot2",
+        "observed": "Shot1末帧为宽些的沙发场景；Shot2首帧切换为人物居中的近景木板背景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 1@Shot3",
+        "observed": "男子短卷黑发、浓胡须，穿深蓝色长袖翻领衬衫；从低头闭眼转为睁眼并朝画面右侧看，双臂保持交叉。",
+        "status": "violated",
+        "violated_items": [
+          "description",
+          "c315"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L3",
+          "L4"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot3",
+        "observed": "室内可见浅色墙壁，光线偏暖；左侧有木门。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot3",
+        "observed": "人物身后可见浅米色沙发靠背。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 2@Shot3",
+        "observed": "左侧画面边缘可见木质门及门框。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 3@Shot3",
+        "observed": "画面右侧无明显独立暗色前景物；该处主要是浅色墙面及沙发。",
+        "status": "violated",
+        "violated_items": [
+          "p35",
+          "c311",
+          "c312"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L5"
+        ]
+      },
+      {
+        "row_id": "EN:Object 5@Shot3",
+        "observed": "人物右后方及画面上方可见浅色墙面。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot3",
+        "observed": "男子坐在沙发前；木门在其左后方。人物与墙面同处室内，手臂交叉。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot3",
+        "observed": "固定中景写实画面，男子坐在沙发前，手臂交叉。眼睛由闭合变为睁开，随后明显朝画面右方看；画面右侧没有暗色前景形。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L4",
+          "L5"
+        ]
+      },
+      {
+        "row_id": "TR:Shot2->Shot3",
+        "observed": "Shot2末帧为木板背景近景；Shot3首帧切换为浅墙、门和沙发的中景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 1@Shot4",
+        "observed": "男子短卷黑发、浓密胡须，穿浅蓝灰色短袖T恤；起始手臂交叉且低头，之后有小幅嘴部动作，末段头和上身前倾。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot4",
+        "observed": "暗色木质背景和暖色照明，画面整体较暗。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot4",
+        "observed": "男子身后是大型圆弧形浅米色沙发靠背。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 6@Shot4",
+        "observed": "男子后方为暗棕色木质背景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot4",
+        "observed": "男子靠坐在沙发上，末帧向前倾身；沙发靠背位于其后。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot4",
+        "observed": "写实近景、斜向视角，圆弧沙发背及模糊深色木背景可见。人物起始低头交臂，随后略抬头并有嘴部动作，末帧上身前倾。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "TR:Shot3->Shot4",
+        "observed": "Shot3末帧为浅墙和木门中景；Shot4首帧切换为暗木背景与圆弧沙发的近景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      }
+    ],
+    "added_entities": [],
+    "issues": [
+      {
+        "issue_id": "L1",
+        "subcategory": "attribute",
+        "summary": "Shot2男子头发长度不符合短发描述。",
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "short curly black hair"
+          }
+        ],
+        "expected": "男子为短卷黑发。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 1@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "头发蓬松卷曲并明显较长，向两侧扩展。",
+            "mismatch": "可见头发并非短发。"
+          }
+        ],
+        "entity_keys": [
+          "pb0001"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L2",
+        "subcategory": "camera_composition",
+        "summary": "Shot2为正面近景，未呈现要求的斜向视角。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "A closer oblique view"
+          }
+        ],
+        "expected": "近景斜向视角。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "人物面向镜头，近似正面近景。",
+            "mismatch": "画面没有呈现明显的斜向机位。"
+          }
+        ],
+        "entity_keys": [],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L3",
+        "subcategory": "attribute",
+        "summary": "Shot3男子穿深蓝色翻领长袖衬衫，而非描述的蓝灰色T恤。",
+        "requirement_quotes": [
+          {
+            "source": "global_prompt",
+            "shot_id": null,
+            "quote": "faded blue-gray T-shirt"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "his blue-gray shirt"
+          }
+        ],
+        "expected": "男子穿褪色蓝灰色T恤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Character 1@Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子穿深蓝色翻领长袖衬衫。",
+            "mismatch": "衣物是深蓝色有领衬衫，不是褪色蓝灰色T恤。"
+          }
+        ],
+        "entity_keys": [
+          "pb0001"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L4",
+        "subcategory": "action_state",
+        "summary": "Shot3男子朝画面右方看，没有按要求朝画面左方瞥视。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "glances toward screen left"
+          }
+        ],
+        "expected": "男子朝画面左方瞥视。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Character 1@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 2
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "睁眼后视线朝画面右侧，后续仍朝前偏右。",
+            "mismatch": "可见视线方向与要求的画面左侧相反。"
+          }
+        ],
+        "entity_keys": [
+          "pb0001"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L5",
+        "subcategory": "presence_count",
+        "summary": "Shot3右侧未见要求持续出现在右前景边缘的暗色形状。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ],
+        "expected": "暗色形状持续位于画面右侧前景边缘。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 3@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "画面右侧为浅色墙面和沙发，没有明显暗色前景形状。",
+            "mismatch": "要求的暗色前景形状缺失。"
+          }
+        ],
+        "entity_keys": [
+          "pb0005"
+        ],
+        "confidence": "high"
+      }
+    ]
+  }
+}

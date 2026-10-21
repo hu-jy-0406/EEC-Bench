@@ -2,7 +2,8 @@
 
 Status: **proposal, 2026-10-06. Not implemented.** No prompts, gates, schemas
 or scores have been changed. Section 10 lists the judgment calls that need the
-owner's confirmation before implementation.
+owner's confirmation before implementation; section 11 records the owner's
+decisions of 2026-10-20 (all four judgment calls resolved; the B/U rows are not adopted).
 
 ## 0. Summary
 
@@ -455,3 +456,34 @@ then check:
    quote-checked gates. The alternative is a separate text-only binding call
    after review.
 4. **Review of N/A claims is phase 2**, not included in v1.
+
+## 11. Owner decisions (2026-10-20)
+
+These decisions replace the corresponding proposals above. With decisions 3
+and 4 the per-issue B/U rows, their support audits and N/A machinery
+(sections 2, 3, 5 and 7 as far as they concern U) are **not adopted**; the
+document is kept as history. Nothing here is implemented.
+
+1. **A missed required transition is a V-L issue** (replaces the dual
+   counting in section 3). A required cut that does not happen, or a broken
+   required continue, means the video did not follow the prompt's shot plan:
+   V-L `shot_structure` only, not also V-V `transition_realization`. The
+   current branch pipeline still reports it in both branches; changing that
+   awaits the owner's go-ahead. Whether an unrequested extra cut inside a
+   shot (`unintended_cut`) should also be V-L was not decided.
+2. **Entity provenance is decided per entity, by mention.** An entity is
+   prompt-bound if it appears in the prompt or contract (by name or by the
+   role it plays) and prompt-unbound otherwise. Its attributes do not change
+   this. V-L assessment is attribute-specific: only what the text states
+   about an entity can be violated. (An earlier note in this section, also
+   dated 2026-10-20, read the owner's answer as attribute-level binding; the
+   owner corrected that reading the same day.)
+3. **Detected issues are not classified as prompt-bound or prompt-unbound**
+   (resolves judgment call 10.3: no per-issue binding, no quote-checked
+   binding gate). The prompt's role in V-V is to decide whether a detected
+   change is a real problem, so that changes the prompt allows are not
+   flagged, not to categorize issues. The existing branch pipeline (V-V
+   normal-change test with text-supported causes; entity register with
+   per-entity provenance; scoring v5 unintentional subset) is sufficient.
+4. **No review of N/A claims** (judgment call 10.4). It was proposed only as
+   an optional later step for the U cells, which are not adopted.

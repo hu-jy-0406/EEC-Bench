@@ -23,6 +23,8 @@ def parse(argv):
     parser.add_argument('--output-schema', required=True)
     parser.add_argument('--output-last-message', required=True)
     parser.add_argument('--image', action='append', default=[])
+    # Optional text label sent immediately before each image (same order).
+    parser.add_argument('--image-label', action='append', default=[])
     parser.add_argument('--previous-response-id')
     parser.add_argument('-c', action='append', default=[])
     parser.add_argument('rest', nargs='*')
@@ -42,6 +44,19 @@ def output_text(response):
                 return part['text']
     raise RuntimeError('Responses API returned no output text')
 
+def build_content(prompt, images, labels):
+    if labels and len(labels) != len(images):
+        raise ValueError(f'{len(labels)} image labels for {len(images)} images')
+    content = [dict(type='input_text', text=prompt)]
+    for index, image in enumerate(images):
+        if labels:
+            content.append(dict(type='input_text', text=labels[index]))
+        path = Path(image)
+        mime = 'image/jpeg' if path.suffix.lower() in ('.jpg', '.jpeg') else 'image/png'
+        encoded = base64.b64encode(path.read_bytes()).decode('ascii')
+        content.append(dict(type='input_image', image_url=f'data:{mime};base64,{encoded}', detail='high'))
+    return content
+
 def main():
     argv = sys.argv[1:]
     if 'exec' in argv:
@@ -49,19 +64,15 @@ def main():
     args, effort = parse(argv)
     prompt = sys.stdin.read()
     schema = json.loads(Path(args.output_schema).read_text())
-    content = [dict(type='input_text', text=prompt)]
-    for image in args.image:
-        path = Path(image)
-        mime = 'image/jpeg' if path.suffix.lower() in ('.jpg', '.jpeg') else 'image/png'
-        encoded = base64.b64encode(path.read_bytes()).decode('ascii')
-        content.append(dict(type='input_image', image_url=f'data:{mime};base64,{encoded}', detail='high'))
+    content = build_content(prompt, args.image, args.image_label)
     model = os.environ.get('EECBENCH_API_MODEL', 'gpt-6-luna')
     body = dict(model=model, input=[dict(role='user', content=content)], reasoning=dict(effort=effort),
                 text=dict(format=dict(type='json_schema', name='eec_stage_output', schema=schema, strict=True)))
     if args.previous_response_id:
         body['previous_response_id'] = args.previous_response_id
     Path(args.output_last_message).with_name('api_request.json').write_text(json.dumps(dict(
-        backend='openai_api', model=model, reasoning=effort, image_count=len(args.image), previous_response_id=args.previous_response_id,
+        backend='openai_api', model=model, reasoning=effort, image_count=len(args.image), image_labels=args.image_label or None,
+        previous_response_id=args.previous_response_id,
         schema_path=str(Path(args.output_schema).resolve())), indent=2))
     request = urllib.request.Request('https://api.openai.com/v1/responses', data=json.dumps(body).encode(),
         headers={'Authorization':'Bearer '+key(), 'Content-Type':'application/json'}, method='POST')

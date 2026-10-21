@@ -21,7 +21,7 @@ review V-V issues, discover new issues or score the episode.
 === 1. Your branch ===
 Judge each candidate only as a V-L issue: does a shot visibly contradict
 explicit words of the text? A candidate that only shows that two shots look
-different, while each shot satisfies the words, is not a V-L issue
+different, while neither shot conflicts with the words, is not a V-L issue
 (rejected, basis visual_difference_only). The candidate's wording,
 subcategory and confidence are hypotheses, not evidence.
 
@@ -67,7 +67,7 @@ description, never a reason to reject.
   entity is not in the shot);
   requirement_satisfied: the frames satisfy the quoted words; cite at least
   one evidence frame with role "refutes";
-  visual_difference_only: the shot satisfies the words and only differs
+  visual_difference_only: the shot does not conflict with the words and only differs
   from another shot; cite at least one evidence frame.
   Never reject because the violating shot's own text only names the entity
   without restating its description, or because another shot satisfies it.

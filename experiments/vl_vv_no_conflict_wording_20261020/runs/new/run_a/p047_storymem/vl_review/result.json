@@ -1,0 +1,235 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p047_storymem/vl_detection/result.json",
+  "source_detection_sha256": "a0ea9bb07870e946fa88e62865cef19eab88a1aeea3bff6379a1271665a1ccf2",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot8中，无袖男子举起的裸臂被裁切在画面右上缘；文字要求该手臂裁切于左上缘，位置相反。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot8"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot8",
+              "quote": "stays softly cropped at the upper-left edge"
+            },
+            "requirement_applies": "该要求是Shot8的镜头文本对无袖男子举起裸臂的位置与裁切方式的明确描述，适用于Shot8。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot8",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "无袖男子的裸臂从画面右上缘伸入，未出现在左上缘。"
+              },
+              {
+                "shot_id": "Shot8",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "裸臂仍从画面右上缘进入画面，与要求的左上缘位置相反。"
+              }
+            ],
+            "assessment": "Shot8第0帧与第5帧均显示裸臂位于右上缘，直接违背文本所要求的左上缘裁切位置。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot8裸臂出现在右上缘，文字要求左上缘。",
+      "shot_ids": [
+        "Shot8"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot8",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "裸臂持续出现在画面右上边缘。"
+        },
+        {
+          "shot_id": "Shot8",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "裸臂持续出现在画面右上边缘。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot8",
+            "quote": "stays softly cropped at the upper-left edge"
+          }
+        ],
+        "expected": "无袖男子举起的裸臂部分裁切在画面左上缘。",
+        "occurrences": [
+          {
+            "shot_id": "Shot8",
+            "row_ids": [
+              "EN:Character 4@Shot8",
+              "SP:Shot8"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot8",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot8",
+                "frame_id": 5
+              }
+            ],
+            "observed": "裸臂持续出现在画面右上边缘。",
+            "mismatch": "实际位置在右上缘，与要求的左上缘相反。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 4@Shot8",
+          "SP:Shot8"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0011",
+      "global_entity_id": "pb0011",
+      "source": "detection_ledger",
+      "name": "Sleeveless man",
+      "description": "Muscular man with short tousled light-brown hair and a sleeveless black uniform.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot8中，无袖男子举起的裸臂被裁切在画面右上缘；文字要求该手臂裁切于左上缘，位置相反。",
+      "original_description": "Shot8裸臂出现在右上缘，文字要求左上缘。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot8"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot8",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "无袖男子的裸臂从画面右上缘伸入，未出现在左上缘。"
+        },
+        {
+          "shot_id": "Shot8",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "裸臂仍从画面右上缘进入画面，与要求的左上缘位置相反。"
+        }
+      ],
+      "assessment": "Shot8第0帧与第5帧均显示裸臂位于右上缘，直接违背文本所要求的左上缘裁切位置。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot8",
+          "quote": "stays softly cropped at the upper-left edge"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该要求是Shot8的镜头文本对无袖男子举起裸臂的位置与裁切方式的明确描述，适用于Shot8。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 1,
+    "units": 1,
+    "split_candidates": 0,
+    "clarified_units": 0,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 1,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 49772,
+      "cached_input_tokens": 0,
+      "output_tokens": 482,
+      "reasoning_output_tokens": 47
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 49772,
+    "cached_input_tokens": 0,
+    "output_tokens": 482,
+    "api_calls": 1,
+    "estimated_usd": 0.0052182,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

@@ -167,7 +167,10 @@ def call(folder, payload, images, timeout, *, prompt_path=None, schema=None, inp
                 target = Path(tmp) / f'image_{i}.jpg'; shutil.copy2(img['path'], target)
                 if sha(target) != img['sha256']: raise ValueError('Image changed before call')
                 command += ['--image', str(target)]
-            command += ['-']; save(folder / 'request.json', dict(command=command, images=images))
+            labels = io.image_labels(images)
+            for label in labels or []:
+                command += ['--image-label', label]
+            command += ['-']; save(folder / 'request.json', dict(command=command, images=images, **io.image_label_record(labels)))
             io.run_process(command, prompt, Path(tmp), folder / 'events.jsonl', folder / 'stderr.log', timeout)
         state['transport_status'] = 'success'
         state['usage'] = io.audit_events(folder / 'events.jsonl')

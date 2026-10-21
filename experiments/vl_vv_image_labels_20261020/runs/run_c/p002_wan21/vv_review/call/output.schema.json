@@ -1,0 +1,261 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue review v6, V-V branch (confirmed / rejected / uncertain, split and clarify)",
+  "type": "object",
+  "required": [
+    "protocol",
+    "reviews"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_review_v6_vv"
+    },
+    "reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "action",
+          "split_reason",
+          "units"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "keep",
+              "split"
+            ]
+          },
+          "split_reason": {
+            "type": "string"
+          },
+          "units": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "unit_id",
+                "description",
+                "revision",
+                "revision_note",
+                "scope",
+                "subcategory",
+                "shot_ids",
+                "comparison",
+                "normal_cause",
+                "normal_cause_note",
+                "verdict",
+                "basis",
+                "confidence",
+                "evidence",
+                "entities",
+                "assessment"
+              ],
+              "properties": {
+                "unit_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "description": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "revision": {
+                  "type": "string",
+                  "enum": [
+                    "unchanged",
+                    "clarified"
+                  ]
+                },
+                "revision_note": {
+                  "type": "string"
+                },
+                "scope": {
+                  "type": "string",
+                  "enum": [
+                    "within_shot",
+                    "cross_shot"
+                  ]
+                },
+                "subcategory": {
+                  "type": "string",
+                  "enum": [
+                    "identity_drift",
+                    "appearance_drift",
+                    "action_discontinuity",
+                    "object_instability",
+                    "presence_instability",
+                    "background_drift",
+                    "physical_integrity",
+                    "relation_break",
+                    "unintended_cut",
+                    "rendering_instability",
+                    "character_identity",
+                    "character_appearance",
+                    "object_identity",
+                    "setting_background",
+                    "environment_lighting",
+                    "rendering_style",
+                    "instance_count",
+                    "state_action_continuity",
+                    "spatial_continuity",
+                    "transition_realization"
+                  ]
+                },
+                "shot_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                },
+                "comparison": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "normal_cause": {
+                  "type": "string",
+                  "enum": [
+                    "none",
+                    "camera_motion",
+                    "viewpoint_change",
+                    "described_action",
+                    "visible_action",
+                    "occlusion_or_framing",
+                    "lighting_cause",
+                    "time_skip",
+                    "different_entity",
+                    "required_transition",
+                    "cut_timing_offset",
+                    "image_quality"
+                  ]
+                },
+                "normal_cause_note": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "verdict": {
+                  "type": "string",
+                  "enum": [
+                    "confirmed",
+                    "rejected",
+                    "uncertain"
+                  ]
+                },
+                "basis": {
+                  "type": "string",
+                  "enum": [
+                    "inconsistency_confirmed",
+                    "consistent_in_frames",
+                    "normal_change",
+                    "not_expected_to_match",
+                    "text_violation_only",
+                    "not_verifiable"
+                  ]
+                },
+                "confidence": {
+                  "type": "string",
+                  "enum": [
+                    "high",
+                    "medium",
+                    "low"
+                  ]
+                },
+                "evidence": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "shot_id",
+                      "frame_id",
+                      "role",
+                      "observation"
+                    ],
+                    "properties": {
+                      "shot_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "frame_id": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "role": {
+                        "type": "string",
+                        "enum": [
+                          "supports",
+                          "refutes",
+                          "context"
+                        ]
+                      },
+                      "observation": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "entities": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "entity_key",
+                      "role",
+                      "provenance",
+                      "basis_note"
+                    ],
+                    "properties": {
+                      "entity_key": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "role": {
+                        "type": "string",
+                        "enum": [
+                          "subject",
+                          "context"
+                        ]
+                      },
+                      "provenance": {
+                        "type": "string",
+                        "enum": [
+                          "prompt_bound",
+                          "prompt_unbound",
+                          "uncertain"
+                        ]
+                      },
+                      "basis_note": {
+                        "type": "string",
+                        "minLength": 1
+                      }
+                    },
+                    "additionalProperties": false
+                  }
+                },
+                "assessment": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

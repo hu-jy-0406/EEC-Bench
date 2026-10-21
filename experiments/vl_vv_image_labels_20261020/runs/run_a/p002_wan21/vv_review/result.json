@@ -1,0 +1,897 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_a/p002_wan21/vv_detection/result.json",
+  "source_detection_sha256": "4a646b5dce26ba48904a076c40e415ea58594d28674ab3f64e46d2d57f61e08b",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vv",
+    "reviews": [
+      {
+        "issue_id": "V1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V1",
+            "description": "同一男子在Shot1、Shot2、Shot3和Shot4的面部身份特征不一致：Shot1与Shot3较为接近，Shot2和尤其Shot4的脸部比例、肤色及整体面貌明显不同。",
+            "revision": "clarified",
+            "revision_note": "明确为跨四镜身份差异，并保留Shot1/3相近、Shot2及Shot4差异更明显的观察。",
+            "scope": "cross_shot",
+            "subcategory": "character_identity",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "提示明确要求四镜为同一男子；比较各镜可见面部，而非视角造成的轮廓变化。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了镜头角度和光线变化；这些可能改变观感，但不能解释Shot2及Shot4与其他镜头明显不同的面部比例和整体身份特征。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子呈较深肤色，脸型与Shot3相近，面部及胡须轮廓较长。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "正面脸部比例与Shot1/3不同，肤色观感较浅，头脸整体更宽。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "脸部整体较接近Shot1，与Shot2及Shot4所见面貌不完全一致。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "面部比例与Shot1/3不同，肤色更浅；与其他镜头所见并非仅头部转向差异。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "提示明确要求四镜保持同一男子；检测索引所提来源与文本相符。"
+              }
+            ],
+            "assessment": "文本明确要求同一男子。关键帧显示Shot1/3较接近，而Shot2与Shot4的面部比例和肤色观感明显不同；视角和光线不足以解释这些差异，故确认身份不一致。"
+          }
+        ]
+      },
+      {
+        "issue_id": "V2",
+        "action": "split",
+        "split_reason": "候选同时描述服装与发型两项可独立成立或不成立的外观差异，拆为两个单元分别判断。",
+        "units": [
+          {
+            "unit_id": "V2.1",
+            "description": "同一男子在Shot1、Shot2、Shot4穿蓝灰色圆领短袖上衣，而Shot3穿深蓝灰色翻领扣衫；服装款式不一致。",
+            "revision": "clarified",
+            "revision_note": "拆出服装差异，明确各镜可见的衣物款式。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "四镜展示提示指定的同一男子；比较其穿着，不同镜头均可清楚看到上衣款式。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了镜头视角、光照及可见动作；没有脱换衣服的画面或足以解释款式差异的原因。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿蓝灰色圆领短袖T恤。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿蓝灰色圆领短袖上衣。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿深蓝灰色翻领、带扣的衬衫。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿浅蓝灰色圆领短袖上衣。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "文本明确指定同一男子；其所穿衣物是该角色的外观组成部分。"
+              }
+            ],
+            "assessment": "提示规定同一男子且未描述换衣。Shot1/2/4为圆领短袖上衣，Shot3为翻领扣衫，差异清晰且无可见换衣动作，故确认。"
+          },
+          {
+            "unit_id": "V2.2",
+            "description": "同一男子的发型在Shot1、Shot2、Shot3和Shot4之间不一致：Shot1/2头发较蓬松且较长，Shot3较短并向后整理，Shot4为短而密的卷发。",
+            "revision": "clarified",
+            "revision_note": "将发型变化独立成单元，并指出各镜头的具体差异。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "提示指定四镜为同一男子；比较其头发长度、形状和整理方式。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了视角、头部转向和光线；这些会影响可见轮廓，但不能解释Shot2蓬松外扩、Shot3较短整齐及Shot4短密卷发的整体差异。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "黑色卷发蓬松，向两侧及后方扩展。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "头发较长、蓬松，轮廓明显宽于Shot3及Shot4。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "头发较短且较整齐，顶部卷发轮廓紧凑。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "短而密的卷发集中在头顶，发际与发型轮廓不同于Shot1/2。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "文本明确指定同一男子；头发属于角色外观。"
+              }
+            ],
+            "assessment": "同一角色的发型在各镜间有明显变化，且无可见整理或改变发型的动作。该差异超出镜头角度可解释范围，故确认。"
+          }
+        ]
+      },
+      {
+        "issue_id": "V3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V3",
+            "description": "Shot4中的浅米色沙发靠背高大且明显弧形，与Shot1和Shot3中可见的低矮、近直线形浅色沙发靠背不一致。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "scope": "cross_shot",
+            "subcategory": "object_identity",
+            "shot_ids": [
+              "Shot1",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "提示将这些镜头中的座椅指定为同一张浅米色沙发；Shot1/3与Shot4对照的是可见靠背的形状和高度。",
+            "normal_cause": "none",
+            "normal_cause_note": "已考虑Shot4为斜角近景，可能改变所见部分；但Shot4展示的是高大、连续弧形靠背，Shot1/3则是低矮且近直线的靠背，差异不仅是取景范围或透视造成。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子身后可见低矮的浅色沙发靠背，顶部近乎直线。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "沙发靠背低矮、浅色且线条近乎平直。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子身后是高大、占据画面大部的浅米色弧形靠背。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0003",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "提示明确指定同一张Beige sofa；检测索引所提来源与文本相符。"
+              }
+            ],
+            "assessment": "Shot1/3的低直靠背与Shot4的高大弧形靠背存在明显形状及高度差异。尽管机位不同，靠背结构本身仍不相符，因此确认同一沙发的跨镜不一致。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一男子跨镜面部身份不稳定：Shot1/3与Shot2有差异，Shot4脸型及肤色差异明显。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "中棕肤色、较长蓬松卷发，脸部较瘦长。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "正面脸部五官比例与Shot1明显不同。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "脸型、肤色较接近Shot1。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "肤色较浅，面部比例明显不同。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c1"
+        ],
+        "changes": [
+          {
+            "change_id": "c1",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "四镜男子的脸型、五官及肤色不一致，Shot4差异尤其明显。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "切镜与视角变化不能解释明显面部身份差异。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X8",
+          "O1"
+        ]
+      }
+    },
+    {
+      "issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子的发型和上衣跨镜不一致：Shot3穿深色翻领扣衫，其他镜头为蓝灰圆领T恤；发型形状亦变化。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "褪色蓝灰圆领短袖T恤，蓬松卷发。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "蓝灰圆领短袖上衣，蓬松卷发。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "深蓝灰翻领扣衫，发型较短。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "浅蓝灰圆领短袖T恤，短密卷发。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c2"
+        ],
+        "changes": [
+          {
+            "change_id": "c2",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "clothing_hair",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "同一男子的衣服款式/颜色及发型长度在镜头间变化；Shot3为翻领扣衫，其余为圆领T恤。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "无镜头内换衣或发型变化可解释。",
+            "cause_quote": "",
+            "issue_id": "V2"
+          }
+        ],
+        "checklist_items": [
+          "X3",
+          "O1"
+        ]
+      }
+    },
+    {
+      "issue_id": "V3",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "Shot4座椅靠背明显高大弧形，与Shot1-3的低背直线浅色沙发不一致。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "低矮、近直线形浅米色靠背。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "低背浅米色沙发，靠背线条平直。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "大型弧形靠背，覆盖画面大部。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c3"
+        ],
+        "changes": [
+          {
+            "change_id": "c3",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "object",
+            "entity_keys": [
+              "pb0003"
+            ],
+            "description": "Shot4座椅为明显高大的弧形靠背，与Shot1-3低背直线沙发不相符。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "不同机位不足以解释靠背结构差异。",
+            "cause_quote": "",
+            "issue_id": "V3"
+          }
+        ],
+        "checklist_items": [
+          "X5",
+          "O1"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "四镜中被设定为同一男子的角色。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 1",
+      "quote": null,
+      "part_of": null,
+      "note": "角色身份及外观异常主体。"
+    },
+    {
+      "entity_key": "pb0003",
+      "global_entity_id": "pb0003",
+      "source": "detection_ledger",
+      "name": "Beige sofa",
+      "description": "承托男子的浅米色沙发。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 1",
+      "quote": null,
+      "part_of": null,
+      "note": "Shot4靠背结构与前镜不同。"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一男子在Shot1、Shot2、Shot3和Shot4的面部身份特征不一致：Shot1与Shot3较为接近，Shot2和尤其Shot4的脸部比例、肤色及整体面貌明显不同。",
+      "original_description": "同一男子跨镜面部身份不稳定：Shot1/3与Shot2有差异，Shot4脸型及肤色差异明显。",
+      "revision": "clarified",
+      "revision_note": "明确为跨四镜身份差异，并保留Shot1/3相近、Shot2及Shot4差异更明显的观察。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子呈较深肤色，脸型与Shot3相近，面部及胡须轮廓较长。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "正面脸部比例与Shot1/3不同，肤色观感较浅，头脸整体更宽。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "脸部整体较接近Shot1，与Shot2及Shot4所见面貌不完全一致。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "面部比例与Shot1/3不同，肤色更浅；与其他镜头所见并非仅头部转向差异。"
+        }
+      ],
+      "assessment": "文本明确要求同一男子。关键帧显示Shot1/3较接近，而Shot2与Shot4的面部比例和肤色观感明显不同；视角和光线不足以解释这些差异，故确认身份不一致。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "提示明确要求四镜为同一男子；比较各镜可见面部，而非视角造成的轮廓变化。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了镜头角度和光线变化；这些可能改变观感，但不能解释Shot2及Shot4与其他镜头明显不同的面部比例和整体身份特征。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "提示明确要求四镜保持同一男子；检测索引所提来源与文本相符。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2.1",
+      "parent_issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子在Shot1、Shot2、Shot4穿蓝灰色圆领短袖上衣，而Shot3穿深蓝灰色翻领扣衫；服装款式不一致。",
+      "original_description": "同一男子的发型和上衣跨镜不一致：Shot3穿深色翻领扣衫，其他镜头为蓝灰圆领T恤；发型形状亦变化。",
+      "revision": "clarified",
+      "revision_note": "拆出服装差异，明确各镜可见的衣物款式。",
+      "split": true,
+      "split_reason": "候选同时描述服装与发型两项可独立成立或不成立的外观差异，拆为两个单元分别判断。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿蓝灰色圆领短袖T恤。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿蓝灰色圆领短袖上衣。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿深蓝灰色翻领、带扣的衬衫。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿浅蓝灰色圆领短袖上衣。"
+        }
+      ],
+      "assessment": "提示规定同一男子且未描述换衣。Shot1/2/4为圆领短袖上衣，Shot3为翻领扣衫，差异清晰且无可见换衣动作，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "四镜展示提示指定的同一男子；比较其穿着，不同镜头均可清楚看到上衣款式。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了镜头视角、光照及可见动作；没有脱换衣服的画面或足以解释款式差异的原因。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "文本明确指定同一男子；其所穿衣物是该角色的外观组成部分。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2.2",
+      "parent_issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子的发型在Shot1、Shot2、Shot3和Shot4之间不一致：Shot1/2头发较蓬松且较长，Shot3较短并向后整理，Shot4为短而密的卷发。",
+      "original_description": "同一男子的发型和上衣跨镜不一致：Shot3穿深色翻领扣衫，其他镜头为蓝灰圆领T恤；发型形状亦变化。",
+      "revision": "clarified",
+      "revision_note": "将发型变化独立成单元，并指出各镜头的具体差异。",
+      "split": true,
+      "split_reason": "候选同时描述服装与发型两项可独立成立或不成立的外观差异，拆为两个单元分别判断。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "黑色卷发蓬松，向两侧及后方扩展。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "头发较长、蓬松，轮廓明显宽于Shot3及Shot4。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "头发较短且较整齐，顶部卷发轮廓紧凑。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "短而密的卷发集中在头顶，发际与发型轮廓不同于Shot1/2。"
+        }
+      ],
+      "assessment": "同一角色的发型在各镜间有明显变化，且无可见整理或改变发型的动作。该差异超出镜头角度可解释范围，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "提示指定四镜为同一男子；比较其头发长度、形状和整理方式。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了视角、头部转向和光线；这些会影响可见轮廓，但不能解释Shot2蓬松外扩、Shot3较短整齐及Shot4短密卷发的整体差异。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "文本明确指定同一男子；头发属于角色外观。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V3",
+      "parent_issue_id": "V3",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "Shot4中的浅米色沙发靠背高大且明显弧形，与Shot1和Shot3中可见的低矮、近直线形浅色沙发靠背不一致。",
+      "original_description": "Shot4座椅靠背明显高大弧形，与Shot1-3的低背直线浅色沙发不一致。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子身后可见低矮的浅色沙发靠背，顶部近乎直线。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "沙发靠背低矮、浅色且线条近乎平直。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子身后是高大、占据画面大部的浅米色弧形靠背。"
+        }
+      ],
+      "assessment": "Shot1/3的低直靠背与Shot4的高大弧形靠背存在明显形状及高度差异。尽管机位不同，靠背结构本身仍不相符，因此确认同一沙发的跨镜不一致。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "提示将这些镜头中的座椅指定为同一张浅米色沙发；Shot1/3与Shot4对照的是可见靠背的形状和高度。",
+        "normal_cause": "none",
+        "normal_cause_note": "已考虑Shot4为斜角近景，可能改变所见部分；但Shot4展示的是高大、连续弧形靠背，Shot1/3则是低矮且近直线的靠背，差异不仅是取景范围或透视造成。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "提示明确指定同一张Beige sofa；检测索引所提来源与文本相符。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 3,
+    "units": 4,
+    "split_candidates": 1,
+    "clarified_units": 3,
+    "verdicts_by_scope": {
+      "cross_shot": {
+        "confirmed": 4,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "inconsistency_confirmed": 4
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 29634,
+      "cached_input_tokens": 0,
+      "output_tokens": 2173,
+      "reasoning_output_tokens": 180
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 29634,
+    "cached_input_tokens": 0,
+    "output_tokens": 2173,
+    "api_calls": 1,
+    "estimated_usd": 0.0040499,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

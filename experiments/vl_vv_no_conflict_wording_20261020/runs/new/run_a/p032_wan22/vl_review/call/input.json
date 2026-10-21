@@ -1,0 +1,5402 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "candidate_issues": [
+    {
+      "issue_id": "L1",
+      "subcategory": "spatial_orientation",
+      "summary": "Shot1男子位于烤箱右侧，和要求的左侧相反。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "the plaid-shirt man stands left of a pale built-in oven"
+        }
+      ],
+      "expected": "男子位于烤箱左侧。",
+      "occurrences": [
+        {
+          "shot_id": "Shot1",
+          "row_ids": [
+            "RL:Shot1"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot1",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot1",
+              "frame_id": 5
+            }
+          ],
+          "observed": "男子在画面右侧，烤箱在左侧。",
+          "mismatch": "男子实际在烤箱右侧，与要求左侧相反。"
+        }
+      ],
+      "entity_keys": [
+        "pb0001",
+        "pb0003"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "RL:Shot1",
+          "kind": "relations",
+          "shot_id": "Shot1",
+          "items": [
+            {
+              "item_id": "c2",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "left_of",
+              "expected": "The man is left of the oven.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 1"
+              ],
+              "depends_on": [
+                "p1m",
+                "p1o"
+              ],
+              "quotes": [
+                "the plaid-shirt man stands left of a pale built-in oven"
+              ]
+            },
+            {
+              "item_id": "c5",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "beside",
+              "expected": "The oven is beside the archway.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 1",
+                "Object 2"
+              ],
+              "depends_on": [
+                "p1o",
+                "p1a"
+              ],
+              "quotes": [
+                "a pale built-in oven beside a glowing rounded archway"
+              ]
+            },
+            {
+              "item_id": "c21",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "arms_inside",
+              "expected": "His arms begin inside the oven.",
+              "quantifier": "start",
+              "entity_labels": [
+                "Character 1",
+                "Object 1"
+              ],
+              "depends_on": [
+                "p1m",
+                "p1o"
+              ],
+              "quotes": [
+                "arms inside the open oven"
+              ]
+            },
+            {
+              "item_id": "c22",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "open",
+              "expected": "The oven door is open initially.",
+              "quantifier": "start",
+              "entity_labels": [
+                "Object 1",
+                "Object 3"
+              ],
+              "depends_on": [
+                "p1o",
+                "p1d"
+              ],
+              "quotes": [
+                "Begin with him bent forward, arms inside the open oven."
+              ]
+            },
+            {
+              "item_id": "c23",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "withdraw_arms",
+              "expected": "The man withdraws his arms from the oven.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 1"
+              ],
+              "depends_on": [
+                "p1m",
+                "p1o"
+              ],
+              "quotes": [
+                "He withdraws his arms"
+              ]
+            },
+            {
+              "item_id": "c26",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "close_door",
+              "expected": "The man raises the oven door until it closes.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 3"
+              ],
+              "depends_on": [
+                "p1m",
+                "p1d"
+              ],
+              "quotes": [
+                "raises the bottom-hinged glass door until it closes"
+              ]
+            },
+            {
+              "item_id": "c28",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "peer_through",
+              "expected": "The man peers through the oven window.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1",
+                "Object 4"
+              ],
+              "depends_on": [
+                "p1m",
+                "p1w"
+              ],
+              "quotes": [
+                "then bends to peer through its window"
+              ]
+            },
+            {
+              "item_id": "c29",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "behind",
+              "expected": "The archway remains behind the man.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Object 2",
+                "Character 1"
+              ],
+              "depends_on": [
+                "p1a",
+                "p1m"
+              ],
+              "quotes": [
+                "warm archway behind him throughout the five seconds"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L2",
+      "subcategory": "spatial_orientation",
+      "summary": "Shot2烤箱及把手在画面左侧而非要求的右侧。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        }
+      ],
+      "expected": "把手和窗位于画面右侧。",
+      "occurrences": [
+        {
+          "shot_id": "Shot2",
+          "row_ids": [
+            "EN:Object 1@Shot2"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot2",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot2",
+              "frame_id": 5
+            }
+          ],
+          "observed": "烤箱及其把手处于画面左侧。",
+          "mismatch": "烤箱把手在左侧，不在要求的右侧。"
+        }
+      ],
+      "entity_keys": [
+        "pb0003",
+        "pb0007"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Object 1@Shot2",
+          "kind": "entity",
+          "shot_id": "Shot2",
+          "entity_label": "Object 1",
+          "name": "Built-in oven",
+          "ledger_entity_ids": [
+            "pb0003"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Pale built-in oven."
+            },
+            {
+              "item_id": "p2o",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The oven is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 1"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the closed built-in oven"
+              ]
+            },
+            {
+              "item_id": "c34",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "closed",
+              "expected": "The oven is closed.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 1"
+              ],
+              "depends_on": [
+                "p2o"
+              ],
+              "quotes": [
+                "the closed built-in oven"
+              ]
+            },
+            {
+              "item_id": "c35",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "installation",
+              "expected": "The oven is built in.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 1"
+              ],
+              "depends_on": [
+                "p2o"
+              ],
+              "quotes": [
+                "the closed built-in oven"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L3",
+      "subcategory": "spatial_orientation",
+      "summary": "Shot2烤箱窗位于画面左侧而非右侧。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        }
+      ],
+      "expected": "烤箱窗位于画面右侧。",
+      "occurrences": [
+        {
+          "shot_id": "Shot2",
+          "row_ids": [
+            "EN:Object 4@Shot2",
+            "SP:Shot2"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot2",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot2",
+              "frame_id": 5
+            }
+          ],
+          "observed": "发光烤箱窗在画面左侧。",
+          "mismatch": "窗位于左侧，不符合右侧要求。"
+        }
+      ],
+      "entity_keys": [
+        "pb0006"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Object 4@Shot2",
+          "kind": "entity",
+          "shot_id": "Shot2",
+          "entity_label": "Object 4",
+          "name": "Oven window",
+          "ledger_entity_ids": [
+            "pb0006"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Window in the oven door."
+            },
+            {
+              "item_id": "p2w",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The oven window is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 4"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "glowing window on the right"
+              ]
+            },
+            {
+              "item_id": "c40",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "glowing",
+              "expected": "The oven window glows.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 4"
+              ],
+              "depends_on": [
+                "p2w"
+              ],
+              "quotes": [
+                "glowing window"
+              ]
+            },
+            {
+              "item_id": "c42",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "screen_right",
+              "expected": "The window is on the right.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 4"
+              ],
+              "depends_on": [
+                "p2w"
+              ],
+              "quotes": [
+                "with the pale handle and glowing window on the right"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot2",
+          "kind": "shot_text",
+          "shot_id": "Shot2",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "The plaid-shirt man remains bent close to the closed built-in oven in the orange-lit kitchen. His glasses and face are seen in tight profile, with the pale handle and glowing window on the right. Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    },
+    {
+      "issue_id": "L4",
+      "subcategory": "spatial_orientation",
+      "summary": "Shot2把手位于画面左侧而非右侧。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        }
+      ],
+      "expected": "把手位于画面右侧。",
+      "occurrences": [
+        {
+          "shot_id": "Shot2",
+          "row_ids": [
+            "EN:Object 5@Shot2",
+            "SP:Shot2"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot2",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot2",
+              "frame_id": 5
+            }
+          ],
+          "observed": "浅色把手在画面左侧。",
+          "mismatch": "把手位于左侧，不符合右侧要求。"
+        }
+      ],
+      "entity_keys": [
+        "pb0007"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Object 5@Shot2",
+          "kind": "entity",
+          "shot_id": "Shot2",
+          "entity_label": "Object 5",
+          "name": "Oven handle",
+          "ledger_entity_ids": [
+            "pb0007"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Pale oven handle."
+            },
+            {
+              "item_id": "p2h",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The oven handle is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 5"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the pale handle"
+              ]
+            },
+            {
+              "item_id": "c39",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "color",
+              "expected": "The handle is pale.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 5"
+              ],
+              "depends_on": [
+                "p2h"
+              ],
+              "quotes": [
+                "the pale handle"
+              ]
+            },
+            {
+              "item_id": "c41",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "screen_right",
+              "expected": "The handle is on the right.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 5"
+              ],
+              "depends_on": [
+                "p2h"
+              ],
+              "quotes": [
+                "with the pale handle and glowing window on the right"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot2",
+          "kind": "shot_text",
+          "shot_id": "Shot2",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "The plaid-shirt man remains bent close to the closed built-in oven in the orange-lit kitchen. His glasses and face are seen in tight profile, with the pale handle and glowing window on the right. Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    }
+  ],
+  "entity_index": [
+    {
+      "entity_key": "pb0001",
+      "name": "Plaid-shirt man",
+      "description": "Man wearing a dark-and-white plaid shirt, with short dark hair, black rectangular glasses, a moustache and light stubble, dark ear stud, narrow dark tie and wristwatch.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Character 1"
+    },
+    {
+      "entity_key": "pb0003",
+      "name": "Built-in oven",
+      "description": "Pale built-in oven.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 1"
+    },
+    {
+      "entity_key": "pb0007",
+      "name": "Oven handle",
+      "description": "Pale oven handle.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 5"
+    },
+    {
+      "entity_key": "pb0006",
+      "name": "Oven window",
+      "description": "Window in the oven door.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 4"
+    }
+  ],
+  "original_prompt": {
+    "global_prompt": "Five short kitchen shots retain the man's oven interactions and waiting gestures, followed by a wide dining shot with the same man and a white cat.",
+    "shots": [
+      {
+        "shot_id": "Shot1",
+        "schedule_key": "1:1",
+        "text": "In an amber-and-teal kitchen, the plaid-shirt man stands left of a pale built-in oven beside a glowing rounded archway. He has short dark hair, black rectangular glasses, a moustache with light stubble, a dark ear stud, a dark-and-white plaid shirt, narrow dark tie and wristwatch. Begin with him bent forward, arms inside the open oven. He withdraws his arms, raises the bottom-hinged glass door until it closes, then bends to peer through its window. Retain the medium side view and warm archway behind him throughout the five seconds."
+      },
+      {
+        "shot_id": "Shot2",
+        "schedule_key": "1:2",
+        "text": "The plaid-shirt man remains bent close to the closed built-in oven in the orange-lit kitchen. His glasses and face are seen in tight profile, with the pale handle and glowing window on the right. Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+      },
+      {
+        "shot_id": "Shot3",
+        "schedule_key": "1:3",
+        "text": "Beside the same closed built-in oven, the plaid-shirt man stands upright with the amber archway behind him and pale cabinetry above the appliance. He briefly holds his hands together, reaches to grasp one round oven control, then releases it and lowers his arm. Keep his attention on the appliance and let this small interaction occupy five seconds."
+      },
+      {
+        "shot_id": "Shot4",
+        "schedule_key": "1:4",
+        "text": "The plaid-shirt man leans toward the closed oven window, amber light filling the archway behind his teal-shadowed profile. His hands are held near his chest with the round watch visible beneath them. Across five seconds he shifts his clasped fingers and gently rubs his palms together, keeping his eyes toward the oven."
+      },
+      {
+        "shot_id": "Shot5",
+        "schedule_key": "1:5",
+        "text": "A close side view holds the plaid-shirt man's glasses and intent profile opposite the closed built-in oven window. With his torso bent forward and the orange kitchen glowing behind him, he peers through the glass for five seconds, making only slight head movements and briefly parting his lips."
+      },
+      {
+        "shot_id": "Shot6",
+        "schedule_key": "2:1",
+        "text": "In a wide, steady view of a warmly lit dining area, the same plaid-shirt man sits at the left end of a wooden dining table, working with a dining knife and fork over a light-centered, dark-rimmed plate. A short-haired white cat with a raised curved tail walks across the tabletop toward the right-front edge, lowers its head and forequarters over the edge and disappears below the tabletop out of view. The man continues at his plate, then brings a forkful toward his open mouth. A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table; a radiator is behind it and a glowing dark-shaded lamp fills the right foreground. Complete the sequence in five seconds."
+      }
+    ]
+  },
+  "contract_json": {
+    "schema_version": "episode_schedule_claims_v1",
+    "episode_id": "DwiiGopbVNQ_s00017_n6_clean_v2",
+    "entity_descriptions": {
+      "Character 1": {
+        "label": "Character 1",
+        "name": "Plaid-shirt man",
+        "description": "Man wearing a dark-and-white plaid shirt, with short dark hair, black rectangular glasses, a moustache and light stubble, dark ear stud, narrow dark tie and wristwatch.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "He has short dark hair, black rectangular glasses, a moustache with light stubble, a dark ear stud, a dark-and-white plaid shirt, narrow dark tie and wristwatch."
+          }
+        ]
+      },
+      "Character 2": {
+        "label": "Character 2",
+        "name": "White cat",
+        "description": "Short-haired white cat.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A short-haired white cat with a raised curved tail"
+          }
+        ]
+      },
+      "Location 1": {
+        "label": "Location 1",
+        "name": "Kitchen",
+        "description": "Kitchen containing the built-in oven and rounded archway.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "In an amber-and-teal kitchen, the plaid-shirt man stands left of a pale built-in oven beside a glowing rounded archway."
+          }
+        ]
+      },
+      "Location 2": {
+        "label": "Location 2",
+        "name": "Dining area",
+        "description": "Warmly lit dining area.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a warmly lit dining area"
+          }
+        ]
+      },
+      "Object 1": {
+        "label": "Object 1",
+        "name": "Built-in oven",
+        "description": "Pale built-in oven.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a pale built-in oven"
+          }
+        ]
+      },
+      "Object 2": {
+        "label": "Object 2",
+        "name": "Rounded archway",
+        "description": "Glowing rounded kitchen archway.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a glowing rounded archway"
+          }
+        ]
+      },
+      "Object 3": {
+        "label": "Object 3",
+        "name": "Oven door",
+        "description": "Bottom-hinged glass oven door.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the bottom-hinged glass door"
+          }
+        ]
+      },
+      "Object 4": {
+        "label": "Object 4",
+        "name": "Oven window",
+        "description": "Window in the oven door.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "then bends to peer through its window"
+          }
+        ]
+      },
+      "Object 5": {
+        "label": "Object 5",
+        "name": "Oven handle",
+        "description": "Pale oven handle.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the pale handle"
+          }
+        ]
+      },
+      "Object 6": {
+        "label": "Object 6",
+        "name": "Kitchen cabinetry",
+        "description": "Pale cabinetry above the oven.",
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "pale cabinetry above the appliance"
+          }
+        ]
+      },
+      "Object 7": {
+        "label": "Object 7",
+        "name": "Round oven control",
+        "description": "One round oven control grasped by the man.",
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "reaches to grasp one round oven control"
+          }
+        ]
+      },
+      "Object 8": {
+        "label": "Object 8",
+        "name": "Dining table",
+        "description": "Wooden dining table.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a wooden dining table"
+          }
+        ]
+      },
+      "Object 9": {
+        "label": "Object 9",
+        "name": "Dining knife",
+        "description": "Dining knife used by the man.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "working with a dining knife and fork"
+          }
+        ]
+      },
+      "Object 10": {
+        "label": "Object 10",
+        "name": "Fork",
+        "description": "Fork used by the man.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "working with a dining knife and fork"
+          }
+        ]
+      },
+      "Object 11": {
+        "label": "Object 11",
+        "name": "Plate",
+        "description": "Light-centered, dark-rimmed plate.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      "Object 12": {
+        "label": "Object 12",
+        "name": "Drinking glass",
+        "description": "Drinking glass on the dining table.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table"
+          }
+        ]
+      },
+      "Object 13": {
+        "label": "Object 13",
+        "name": "Potted plant",
+        "description": "Broad-leaf potted plant on the dining table.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "broad-leaf potted plant"
+          }
+        ]
+      },
+      "Object 14": {
+        "label": "Object 14",
+        "name": "Fruit bowl",
+        "description": "Clear fruit bowl on the dining table; contents unspecified.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "clear fruit bowl"
+          }
+        ]
+      },
+      "Object 15": {
+        "label": "Object 15",
+        "name": "Radiator",
+        "description": "Radiator behind the dining table.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a radiator is behind it"
+          }
+        ]
+      },
+      "Object 16": {
+        "label": "Object 16",
+        "name": "Lamp",
+        "description": "Glowing lamp with a dark shade.",
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a glowing dark-shaded lamp fills the right foreground"
+          }
+        ]
+      }
+    },
+    "entity_schedule": {
+      "1:1": {
+        "characters": [
+          "Plaid-shirt man"
+        ],
+        "places": [
+          "Kitchen"
+        ],
+        "objects": [
+          "Built-in oven",
+          "Rounded archway",
+          "Oven door",
+          "Oven window"
+        ]
+      },
+      "1:2": {
+        "characters": [
+          "Plaid-shirt man"
+        ],
+        "places": [
+          "Kitchen"
+        ],
+        "objects": [
+          "Built-in oven",
+          "Oven handle",
+          "Oven window"
+        ]
+      },
+      "1:3": {
+        "characters": [
+          "Plaid-shirt man"
+        ],
+        "places": [
+          "Kitchen"
+        ],
+        "objects": [
+          "Built-in oven",
+          "Rounded archway",
+          "Kitchen cabinetry",
+          "Round oven control"
+        ]
+      },
+      "1:4": {
+        "characters": [
+          "Plaid-shirt man"
+        ],
+        "places": [
+          "Kitchen"
+        ],
+        "objects": [
+          "Built-in oven",
+          "Rounded archway",
+          "Oven window"
+        ]
+      },
+      "1:5": {
+        "characters": [
+          "Plaid-shirt man"
+        ],
+        "places": [
+          "Kitchen"
+        ],
+        "objects": [
+          "Built-in oven",
+          "Oven window"
+        ]
+      },
+      "2:1": {
+        "characters": [
+          "Plaid-shirt man",
+          "White cat"
+        ],
+        "places": [
+          "Dining area"
+        ],
+        "objects": [
+          "Dining table",
+          "Dining knife",
+          "Fork",
+          "Plate",
+          "Drinking glass",
+          "Potted plant",
+          "Fruit bowl",
+          "Radiator",
+          "Lamp"
+        ]
+      }
+    },
+    "claims": [
+      {
+        "claim_id": "p1m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the plaid-shirt man stands left of a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "p1k",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The kitchen is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "In an amber-and-teal kitchen"
+          }
+        ]
+      },
+      {
+        "claim_id": "p1o",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The built-in oven is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "p1a",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The archway is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a glowing rounded archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "p1d",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The oven door is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "raises the bottom-hinged glass door until it closes"
+          }
+        ]
+      },
+      {
+        "claim_id": "p1w",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The oven window is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "then bends to peer through its window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p2m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The plaid-shirt man remains bent close to the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "p2k",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The kitchen is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "in the orange-lit kitchen"
+          }
+        ]
+      },
+      {
+        "claim_id": "p2o",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The oven is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "p2h",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The oven handle is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the pale handle"
+          }
+        ]
+      },
+      {
+        "claim_id": "p2w",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The oven window is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "glowing window on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "p3m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the plaid-shirt man stands upright"
+          }
+        ]
+      },
+      {
+        "claim_id": "p3k",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The same kitchen is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Beside the same closed built-in oven, the plaid-shirt man stands upright with the amber archway behind him and pale cabinetry above the appliance."
+          }
+        ]
+      },
+      {
+        "claim_id": "p3o",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The oven is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "p3a",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The archway is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the amber archway behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "p3b",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The cabinetry is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "pale cabinetry above the appliance"
+          }
+        ]
+      },
+      {
+        "claim_id": "p3c",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "One oven control is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "one round oven control"
+          }
+        ]
+      },
+      {
+        "claim_id": "p4m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The plaid-shirt man leans toward the closed oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p4k",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The established kitchen is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "global",
+            "quote": "Five short kitchen shots"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "The plaid-shirt man leans toward the closed oven window, amber light filling the archway behind his teal-shadowed profile."
+          }
+        ]
+      },
+      {
+        "claim_id": "p4o",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The oven is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the closed oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p4a",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The archway is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "amber light filling the archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "p4w",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The oven window is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the closed oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p5m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "present",
+        "expected": "The man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the plaid-shirt man's glasses and intent profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "p5k",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "present",
+        "expected": "The kitchen is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the orange kitchen glowing behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "p5o",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "present",
+        "expected": "The oven is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the closed built-in oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p5w",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "present",
+        "expected": "The oven window is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the closed built-in oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6m",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The same man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "the same plaid-shirt man sits"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6c",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The cat is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A short-haired white cat"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6l",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The dining area is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a warmly lit dining area"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6t",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The dining table is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a wooden dining table"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6n",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 9"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The dining knife is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a dining knife and fork"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6f",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The fork is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a dining knife and fork"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6p",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The plate is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6g",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 12"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The drinking glass is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A drinking glass"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6v",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 13"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The potted plant is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "broad-leaf potted plant"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6b",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 14"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The fruit bowl is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "clear fruit bowl"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6r",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 15"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The radiator is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a radiator is behind it"
+          }
+        ]
+      },
+      {
+        "claim_id": "p6a",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 16"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "present",
+        "expected": "The lamp is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a glowing dark-shaded lamp"
+          }
+        ]
+      },
+      {
+        "claim_id": "c1",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "color",
+        "expected": "The kitchen has amber-and-teal coloration.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1k"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "an amber-and-teal kitchen"
+          }
+        ]
+      },
+      {
+        "claim_id": "c2",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "left_of",
+        "expected": "The man is left of the oven.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m",
+          "p1o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the plaid-shirt man stands left of a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c3",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "color",
+        "expected": "The oven is pale.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c4",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "installation",
+        "expected": "The oven is built in.",
+        "coordinate_frame": "world",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c5",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1",
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "beside",
+        "expected": "The oven is beside the archway.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1o",
+          "p1a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a pale built-in oven beside a glowing rounded archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c6",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shape",
+        "expected": "The archway is rounded.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a glowing rounded archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c7",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "illumination",
+        "expected": "The archway glows with warm light.",
+        "coordinate_frame": "none",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p1a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a glowing rounded archway"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "warm archway behind him throughout the five seconds"
+          }
+        ]
+      },
+      {
+        "claim_id": "c8",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_length",
+        "expected": "The man has short hair.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c9",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_color",
+        "expected": "The man's hair is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short dark hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c10",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "glasses_color",
+        "expected": "The man wears black glasses.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "black rectangular glasses"
+          }
+        ]
+      },
+      {
+        "claim_id": "c11",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "glasses_shape",
+        "expected": "His glasses are rectangular.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "black rectangular glasses"
+          }
+        ]
+      },
+      {
+        "claim_id": "c12",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "moustache",
+        "expected": "The man has a moustache.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a moustache with light stubble"
+          }
+        ]
+      },
+      {
+        "claim_id": "c13",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "stubble",
+        "expected": "The man has light stubble.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a moustache with light stubble"
+          }
+        ]
+      },
+      {
+        "claim_id": "c14",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "ear_stud",
+        "expected": "The man wears a dark ear stud.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark ear stud"
+          }
+        ]
+      },
+      {
+        "claim_id": "c15",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shirt_pattern",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark-and-white plaid shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c16",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shirt_color",
+        "expected": "His shirt is dark and white.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark-and-white plaid shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c17",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "tie_shape",
+        "expected": "The man wears a narrow tie.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "narrow dark tie"
+          }
+        ]
+      },
+      {
+        "claim_id": "c18",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "tie_color",
+        "expected": "His tie is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "narrow dark tie"
+          }
+        ]
+      },
+      {
+        "claim_id": "c19",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "wristwatch",
+        "expected": "The man wears a wristwatch.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "and wristwatch"
+          }
+        ]
+      },
+      {
+        "claim_id": "c20",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "bent_pose",
+        "expected": "The man begins bent forward.",
+        "coordinate_frame": "world",
+        "quantifier": "start",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "Begin with him bent forward"
+          }
+        ]
+      },
+      {
+        "claim_id": "c21",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "arms_inside",
+        "expected": "His arms begin inside the oven.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p1m",
+          "p1o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "arms inside the open oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c22",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "open",
+        "expected": "The oven door is open initially.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p1o",
+          "p1d"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "Begin with him bent forward, arms inside the open oven."
+          }
+        ]
+      },
+      {
+        "claim_id": "c23",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "withdraw_arms",
+        "expected": "The man withdraws his arms from the oven.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m",
+          "p1o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "He withdraws his arms"
+          }
+        ]
+      },
+      {
+        "claim_id": "c24",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "material",
+        "expected": "The oven door is glass.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1d"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the bottom-hinged glass door"
+          }
+        ]
+      },
+      {
+        "claim_id": "c25",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hinge_position",
+        "expected": "The door is hinged at its bottom.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p1d"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the bottom-hinged glass door"
+          }
+        ]
+      },
+      {
+        "claim_id": "c26",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "close_door",
+        "expected": "The man raises the oven door until it closes.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m",
+          "p1d"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "raises the bottom-hinged glass door until it closes"
+          }
+        ]
+      },
+      {
+        "claim_id": "c27",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "bend",
+        "expected": "The man bends forward.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "then bends to peer through its window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c28",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "peer_through",
+        "expected": "The man peers through the oven window.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m",
+          "p1w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "then bends to peer through its window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c29",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "behind",
+        "expected": "The archway remains behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p1a",
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "warm archway behind him throughout the five seconds"
+          }
+        ]
+      },
+      {
+        "claim_id": "c30",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "side_visible",
+        "expected": "The man is shown from the side.",
+        "coordinate_frame": "camera",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "Retain the medium side view and warm archway behind him throughout the five seconds."
+          }
+        ]
+      },
+      {
+        "claim_id": "c31",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "plaid_shirt",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "The plaid-shirt man"
+          }
+        ]
+      },
+      {
+        "claim_id": "c32",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "bent_pose",
+        "expected": "The man is bent forward.",
+        "coordinate_frame": "world",
+        "quantifier": "start",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "remains bent close to the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c33",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "close_to",
+        "expected": "The man is close to the oven.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m",
+          "p2o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "remains bent close to the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c34",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "closed",
+        "expected": "The oven is closed.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c35",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "installation",
+        "expected": "The oven is built in.",
+        "coordinate_frame": "world",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c36",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "illumination",
+        "expected": "The kitchen is orange-lit.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2k"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the orange-lit kitchen"
+          }
+        ]
+      },
+      {
+        "claim_id": "c37",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "glasses",
+        "expected": "The man's glasses are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "His glasses and face are seen in tight profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c38",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "profile",
+        "expected": "The man's face is seen in profile.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "His glasses and face are seen in tight profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c39",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "color",
+        "expected": "The handle is pale.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2h"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the pale handle"
+          }
+        ]
+      },
+      {
+        "claim_id": "c40",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "glowing",
+        "expected": "The oven window glows.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "glowing window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c41",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "screen_right",
+        "expected": "The handle is on the right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2h"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "c42",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "screen_right",
+        "expected": "The window is on the right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ]
+      },
+      {
+        "claim_id": "c43",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "wristwatch",
+        "expected": "The man wears a wristwatch.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "near his wristwatch"
+          }
+        ]
+      },
+      {
+        "claim_id": "c44",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "join_hands",
+        "expected": "The man brings his hands together.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "he briefly brings his hands together near his wristwatch"
+          }
+        ]
+      },
+      {
+        "claim_id": "c45",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "lower_hands",
+        "expected": "The man lowers his hands.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "lowers them"
+          }
+        ]
+      },
+      {
+        "claim_id": "c46",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "raise_face",
+        "expected": "The man raises his face slightly.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "raises his face slightly"
+          }
+        ]
+      },
+      {
+        "claim_id": "c47",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "gaze",
+        "expected": "The man keeps looking toward the oven during his gestures.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p2m",
+          "p2o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "while continuing to look toward the oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c48",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "plaid_shirt",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the plaid-shirt man"
+          }
+        ]
+      },
+      {
+        "claim_id": "c49",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "beside",
+        "expected": "The man is beside the oven.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m",
+          "p3o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Beside the same closed built-in oven, the plaid-shirt man stands upright"
+          }
+        ]
+      },
+      {
+        "claim_id": "c50",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "closed",
+        "expected": "The oven is closed.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c51",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "installation",
+        "expected": "The oven is built in.",
+        "coordinate_frame": "world",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same closed built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c52",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "upright_stance",
+        "expected": "The man stands upright.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the plaid-shirt man stands upright"
+          }
+        ]
+      },
+      {
+        "claim_id": "c53",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "color",
+        "expected": "The archway is amber.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the amber archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c54",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "behind",
+        "expected": "The archway is behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3a",
+          "p3m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the amber archway behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "c55",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "color",
+        "expected": "The cabinetry is pale.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3b"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "pale cabinetry"
+          }
+        ]
+      },
+      {
+        "claim_id": "c56",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 6",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "above",
+        "expected": "The cabinetry is above the oven.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3b",
+          "p3o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "pale cabinetry above the appliance"
+          }
+        ]
+      },
+      {
+        "claim_id": "c57",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "hands_together",
+        "expected": "The man holds his hands together.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "He briefly holds his hands together"
+          }
+        ]
+      },
+      {
+        "claim_id": "c58",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "shape",
+        "expected": "The oven control is round.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p3c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "one round oven control"
+          }
+        ]
+      },
+      {
+        "claim_id": "c59",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "reach",
+        "expected": "The man reaches toward the oven control.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m",
+          "p3c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "reaches to grasp one round oven control"
+          }
+        ]
+      },
+      {
+        "claim_id": "c60",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "release",
+        "expected": "The man releases the control.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m",
+          "p3c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "then releases it"
+          }
+        ]
+      },
+      {
+        "claim_id": "c61",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "lower_arm",
+        "expected": "The man lowers his arm.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "and lowers his arm"
+          }
+        ]
+      },
+      {
+        "claim_id": "c62",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "attention_direction",
+        "expected": "The man's attention remains directed at the oven.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p3m",
+          "p3o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Keep his attention on the appliance"
+          }
+        ]
+      },
+      {
+        "claim_id": "c63",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "plaid_shirt",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The plaid-shirt man"
+          }
+        ]
+      },
+      {
+        "claim_id": "c64",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "lean_toward",
+        "expected": "The man leans toward the oven window.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m",
+          "p4w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The plaid-shirt man leans toward the closed oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c65",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "closed",
+        "expected": "The oven is closed.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p4o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the closed oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c66",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "illumination",
+        "expected": "Amber light fills the archway.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p4a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "amber light filling the archway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c67",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "behind",
+        "expected": "The archway is behind the man's profile.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4a",
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the archway behind his teal-shadowed profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c68",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "shadow_color",
+        "expected": "The man's profile is teal-shadowed.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "his teal-shadowed profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c69",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "profile",
+        "expected": "The man is seen in profile.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "his teal-shadowed profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c70",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "hands_near_chest",
+        "expected": "His hands are held near his chest.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "His hands are held near his chest"
+          }
+        ]
+      },
+      {
+        "claim_id": "c71",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "watch_shape",
+        "expected": "His visible wristwatch is round.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the round watch visible beneath them"
+          }
+        ]
+      },
+      {
+        "claim_id": "c72",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "watch_beneath_hands",
+        "expected": "His watch is visible beneath his hands.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the round watch visible beneath them"
+          }
+        ]
+      },
+      {
+        "claim_id": "c73",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "shift_fingers",
+        "expected": "The man shifts his clasped fingers.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "he shifts his clasped fingers"
+          }
+        ]
+      },
+      {
+        "claim_id": "c74",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "rub_palms",
+        "expected": "The man gently rubs his palms together.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p4m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "gently rubs his palms together"
+          }
+        ]
+      },
+      {
+        "claim_id": "c75",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "gaze",
+        "expected": "The man keeps his eyes toward the oven.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p4m",
+          "p4o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "keeping his eyes toward the oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c76",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "plaid_shirt",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the plaid-shirt man's"
+          }
+        ]
+      },
+      {
+        "claim_id": "c77",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "glasses",
+        "expected": "The man's glasses are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the plaid-shirt man's glasses"
+          }
+        ]
+      },
+      {
+        "claim_id": "c78",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "expression",
+        "expected": "The man's profile appears intent.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "intent profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c79",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "profile",
+        "expected": "The man is shown from the side in profile.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "A close side view holds the plaid-shirt man's glasses and intent profile"
+          }
+        ]
+      },
+      {
+        "claim_id": "c80",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "opposite",
+        "expected": "The man's profile is opposite the oven window.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m",
+          "p5w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "intent profile opposite the closed built-in oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c81",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "closed",
+        "expected": "The oven is closed.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the closed built-in oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c82",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "installation",
+        "expected": "The oven is built in.",
+        "coordinate_frame": "world",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5o"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the closed built-in oven window"
+          }
+        ]
+      },
+      {
+        "claim_id": "c83",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "bent_torso",
+        "expected": "The man's torso is bent forward.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "With his torso bent forward"
+          }
+        ]
+      },
+      {
+        "claim_id": "c84",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "illumination",
+        "expected": "The kitchen glows orange.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5k"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the orange kitchen glowing behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "c85",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Location 1",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "background",
+        "expected": "The kitchen is visible behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5k",
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "the orange kitchen glowing behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "c86",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "peer_through",
+        "expected": "The man peers through the oven window.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m",
+          "p5w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "he peers through the glass for five seconds"
+          }
+        ]
+      },
+      {
+        "claim_id": "c87",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "material",
+        "expected": "The oven window is glass.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p5w"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "he peers through the glass"
+          }
+        ]
+      },
+      {
+        "claim_id": "c88",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "slight_head_movement",
+        "expected": "The man makes head movements that are only slight.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "making only slight head movements"
+          }
+        ]
+      },
+      {
+        "claim_id": "c89",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot5"
+        ],
+        "predicate": "part_lips",
+        "expected": "The man parts his lips.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p5m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot5",
+            "quote": "briefly parting his lips"
+          }
+        ]
+      },
+      {
+        "claim_id": "c90",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "illumination",
+        "expected": "The dining area is warmly lit.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6l"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a warmly lit dining area"
+          }
+        ]
+      },
+      {
+        "claim_id": "c91",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "plaid_shirt",
+        "expected": "The man wears a plaid shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "the same plaid-shirt man"
+          }
+        ]
+      },
+      {
+        "claim_id": "c92",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "seated",
+        "expected": "The man is seated.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "the same plaid-shirt man sits"
+          }
+        ]
+      },
+      {
+        "claim_id": "c93",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "left_end",
+        "expected": "The man is at the left end of the table.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "sits at the left end of a wooden dining table"
+          }
+        ]
+      },
+      {
+        "claim_id": "c94",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "material",
+        "expected": "The dining table is wooden.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a wooden dining table"
+          }
+        ]
+      },
+      {
+        "claim_id": "c95",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 9",
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "work_with_knife",
+        "expected": "The man works with the dining knife over his plate.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m",
+          "p6n",
+          "p6p"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "working with a dining knife and fork over a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      {
+        "claim_id": "c96",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 10",
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "work_with_fork",
+        "expected": "The man works with the fork over his plate.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m",
+          "p6f",
+          "p6p"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "working with a dining knife and fork over a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      {
+        "claim_id": "c97",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "center_color",
+        "expected": "The plate has a light center.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6p"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      {
+        "claim_id": "c98",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 11"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "rim_color",
+        "expected": "The plate has a dark rim.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6p"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a light-centered, dark-rimmed plate"
+          }
+        ]
+      },
+      {
+        "claim_id": "c99",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "coat_length",
+        "expected": "The cat is short-haired.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A short-haired white cat"
+          }
+        ]
+      },
+      {
+        "claim_id": "c100",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "coat_color",
+        "expected": "The cat is white.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A short-haired white cat"
+          }
+        ]
+      },
+      {
+        "claim_id": "c101",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 2",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "tail_raised",
+        "expected": "The cat carries its tail raised while walking on the table.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6c",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "with a raised curved tail walks across the tabletop"
+          }
+        ]
+      },
+      {
+        "claim_id": "c102",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 2"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "tail_shape",
+        "expected": "The cat's tail is curved.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a raised curved tail"
+          }
+        ]
+      },
+      {
+        "claim_id": "c103",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "walk_across_table",
+        "expected": "The cat walks across the tabletop toward its right-front edge.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6c",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "walks across the tabletop toward the right-front edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c104",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "lower_head",
+        "expected": "The cat lowers its head over the table edge.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6c",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "lowers its head and forequarters over the edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c105",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "lower_forequarters",
+        "expected": "The cat lowers its forequarters over the table edge.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6c",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "lowers its head and forequarters over the edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c106",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 2",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "disappear_below_table",
+        "expected": "The cat moves below the tabletop and disappears out of view.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6c",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "disappears below the tabletop out of view"
+          }
+        ]
+      },
+      {
+        "claim_id": "c107",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "raise_forkful",
+        "expected": "The man brings a forkful toward his mouth, without a required completed bite.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m",
+          "p6f"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "brings a forkful toward his open mouth"
+          }
+        ]
+      },
+      {
+        "claim_id": "c108",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 10"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "mouth_open",
+        "expected": "The man's mouth is open as he brings the forkful toward it.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6m",
+          "p6f"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "brings a forkful toward his open mouth"
+          }
+        ]
+      },
+      {
+        "claim_id": "c109",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 12",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "on_table",
+        "expected": "The drinking glass is on the table.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6g",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table"
+          }
+        ]
+      },
+      {
+        "claim_id": "c110",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 13",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "on_table",
+        "expected": "The potted plant is on the table.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6v",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table"
+          }
+        ]
+      },
+      {
+        "claim_id": "c111",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 14",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "on_table",
+        "expected": "The fruit bowl is on the table.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6b",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table"
+          }
+        ]
+      },
+      {
+        "claim_id": "c112",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 13"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "leaf_shape",
+        "expected": "The plant has broad leaves.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6v"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "broad-leaf potted plant"
+          }
+        ]
+      },
+      {
+        "claim_id": "c113",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 13"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "potted",
+        "expected": "The plant is in a pot.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6v"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "broad-leaf potted plant"
+          }
+        ]
+      },
+      {
+        "claim_id": "c114",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 14"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "transparent",
+        "expected": "The fruit bowl is clear.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6b"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "clear fruit bowl"
+          }
+        ]
+      },
+      {
+        "claim_id": "c115",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 15",
+          "Object 8"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "behind",
+        "expected": "The radiator is behind the table.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6r",
+          "p6t"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a radiator is behind it"
+          }
+        ]
+      },
+      {
+        "claim_id": "c116",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 16"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "glowing",
+        "expected": "The lamp glows.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a glowing dark-shaded lamp"
+          }
+        ]
+      },
+      {
+        "claim_id": "c117",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 16"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "shade_color",
+        "expected": "The lamp has a dark shade.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p6a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "a glowing dark-shaded lamp"
+          }
+        ]
+      },
+      {
+        "claim_id": "c118",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 16"
+        ],
+        "shot_ids": [
+          "Shot6"
+        ],
+        "predicate": "right_foreground",
+        "expected": "The lamp fills the right foreground.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p6a"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot6",
+            "quote": "fills the right foreground"
+          }
+        ]
+      },
+      {
+        "claim_id": "c119",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "standing",
+        "expected": "The man is standing, not necessarily upright.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p1m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the plaid-shirt man stands left of a pale built-in oven"
+          }
+        ]
+      },
+      {
+        "claim_id": "c120",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "hands_near_watch",
+        "expected": "His hands are near his wristwatch as he brings them together.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p2m"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "he briefly brings his hands together near his wristwatch"
+          }
+        ]
+      },
+      {
+        "claim_id": "c121",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1",
+          "Object 7"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "grasp",
+        "expected": "The man grasps one oven control.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p3m",
+          "p3c"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "reaches to grasp one round oven control, then releases it"
+          }
+        ]
+      }
+    ],
+    "prompt": {
+      "global_prompt": "Five short kitchen shots retain the man's oven interactions and waiting gestures, followed by a wide dining shot with the same man and a white cat.",
+      "shots": [
+        {
+          "shot_id": "Shot1",
+          "schedule_key": "1:1",
+          "text": "In an amber-and-teal kitchen, the plaid-shirt man stands left of a pale built-in oven beside a glowing rounded archway. He has short dark hair, black rectangular glasses, a moustache with light stubble, a dark ear stud, a dark-and-white plaid shirt, narrow dark tie and wristwatch. Begin with him bent forward, arms inside the open oven. He withdraws his arms, raises the bottom-hinged glass door until it closes, then bends to peer through its window. Retain the medium side view and warm archway behind him throughout the five seconds."
+        },
+        {
+          "shot_id": "Shot2",
+          "schedule_key": "1:2",
+          "text": "The plaid-shirt man remains bent close to the closed built-in oven in the orange-lit kitchen. His glasses and face are seen in tight profile, with the pale handle and glowing window on the right. Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+        },
+        {
+          "shot_id": "Shot3",
+          "schedule_key": "1:3",
+          "text": "Beside the same closed built-in oven, the plaid-shirt man stands upright with the amber archway behind him and pale cabinetry above the appliance. He briefly holds his hands together, reaches to grasp one round oven control, then releases it and lowers his arm. Keep his attention on the appliance and let this small interaction occupy five seconds."
+        },
+        {
+          "shot_id": "Shot4",
+          "schedule_key": "1:4",
+          "text": "The plaid-shirt man leans toward the closed oven window, amber light filling the archway behind his teal-shadowed profile. His hands are held near his chest with the round watch visible beneath them. Across five seconds he shifts his clasped fingers and gently rubs his palms together, keeping his eyes toward the oven."
+        },
+        {
+          "shot_id": "Shot5",
+          "schedule_key": "1:5",
+          "text": "A close side view holds the plaid-shirt man's glasses and intent profile opposite the closed built-in oven window. With his torso bent forward and the orange kitchen glowing behind him, he peers through the glass for five seconds, making only slight head movements and briefly parting his lips."
+        },
+        {
+          "shot_id": "Shot6",
+          "schedule_key": "2:1",
+          "text": "In a wide, steady view of a warmly lit dining area, the same plaid-shirt man sits at the left end of a wooden dining table, working with a dining knife and fork over a light-centered, dark-rimmed plate. A short-haired white cat with a raised curved tail walks across the tabletop toward the right-front edge, lowers its head and forequarters over the edge and disappears below the tabletop out of view. The man continues at his plate, then brings a forkful toward his open mouth. A drinking glass, broad-leaf potted plant and clear fruit bowl furnish the table; a radiator is behind it and a glowing dark-shaded lamp fills the right foreground. Complete the sequence in five seconds."
+        }
+      ]
+    },
+    "coverage": [
+      {
+        "unit_id": "global.u01",
+        "claim_ids": [
+          "p1m",
+          "p1k",
+          "p1o",
+          "p2m",
+          "p2k",
+          "p2o",
+          "p3m",
+          "p3k",
+          "p3o",
+          "p4m",
+          "p4k",
+          "p4o",
+          "p5m",
+          "p5k",
+          "p5o",
+          "p6m",
+          "p6c",
+          "p6l",
+          "c100"
+        ],
+        "unscored": [
+          {
+            "quote": "Five short kitchen shots",
+            "reason": "Shot count and brevity are structural and timing requirements; kitchen presence is scored per shot."
+          },
+          {
+            "quote": "retain the man's oven interactions and waiting gestures",
+            "reason": "Summary of the specific actions scored in the individual shots; waiting is an interpretation, not an additional action."
+          },
+          {
+            "quote": "followed by a wide dining shot",
+            "reason": "Shot order and wide framing are temporal and filmmaking requirements."
+          },
+          {
+            "quote": "the same man",
+            "reason": "Identity is represented by reuse of the man entity, not an additional scored consistency claim."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u01",
+        "claim_ids": [
+          "p1m",
+          "p1k",
+          "p1o",
+          "p1a",
+          "c1",
+          "c2",
+          "c3",
+          "c4",
+          "c5",
+          "c6",
+          "c7",
+          "c15",
+          "c119"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot1.u02",
+        "claim_ids": [
+          "c8",
+          "c9",
+          "c10",
+          "c11",
+          "c12",
+          "c13",
+          "c14",
+          "c15",
+          "c16",
+          "c17",
+          "c18",
+          "c19"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot1.u03",
+        "claim_ids": [
+          "c20",
+          "c21",
+          "c22"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot1.u04",
+        "claim_ids": [
+          "p1d",
+          "p1w",
+          "c23",
+          "c24",
+          "c25",
+          "c26",
+          "c27",
+          "c28"
+        ],
+        "unscored": [
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is not separately scored; the constituent actions are retained."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u05",
+        "claim_ids": [
+          "c7",
+          "c29",
+          "c30"
+        ],
+        "unscored": [
+          {
+            "quote": "medium side view",
+            "reason": "Medium shot size is filmmaking; the depicted side orientation is scored."
+          },
+          {
+            "quote": "throughout the five seconds",
+            "reason": "Five-second duration is unscored; the explicit throughout scope for the visible composition is retained."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u01",
+        "claim_ids": [
+          "p2m",
+          "p2k",
+          "p2o",
+          "c31",
+          "c32",
+          "c33",
+          "c34",
+          "c35",
+          "c36"
+        ],
+        "unscored": [
+          {
+            "quote": "remains",
+            "reason": "Links to the prior pose; no separate temporal-persistence claim is added."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u02",
+        "claim_ids": [
+          "p2h",
+          "p2w",
+          "c37",
+          "c38",
+          "c39",
+          "c40",
+          "c41",
+          "c42"
+        ],
+        "unscored": [
+          {
+            "quote": "tight profile",
+            "reason": "Tight framing is filmmaking; profile orientation is scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u03",
+        "claim_ids": [
+          "c43",
+          "c44",
+          "c45",
+          "c46",
+          "c47",
+          "c120"
+        ],
+        "unscored": [
+          {
+            "quote": "Over five seconds",
+            "reason": "Duration requirement."
+          },
+          {
+            "quote": "briefly",
+            "reason": "Gesture duration is not scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u01",
+        "claim_ids": [
+          "p3m",
+          "p3k",
+          "p3o",
+          "p3a",
+          "p3b",
+          "c48",
+          "c49",
+          "c50",
+          "c51",
+          "c52",
+          "c53",
+          "c54",
+          "c55",
+          "c56"
+        ],
+        "unscored": [
+          {
+            "quote": "same",
+            "reason": "The established oven identity is reused rather than scored again as an identity requirement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u02",
+        "claim_ids": [
+          "p3c",
+          "c57",
+          "c58",
+          "c59",
+          "c121",
+          "c60",
+          "c61"
+        ],
+        "unscored": [
+          {
+            "quote": "briefly",
+            "reason": "Pose duration is not scored."
+          },
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is not separately scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u03",
+        "claim_ids": [
+          "c62"
+        ],
+        "unscored": [
+          {
+            "quote": "let this small interaction occupy five seconds",
+            "reason": "Duration and pacing of the already represented interaction."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u01",
+        "claim_ids": [
+          "p4m",
+          "p4k",
+          "p4o",
+          "p4a",
+          "p4w",
+          "c63",
+          "c64",
+          "c65",
+          "c66",
+          "c67",
+          "c68",
+          "c69"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot4.u02",
+        "claim_ids": [
+          "c70",
+          "c71",
+          "c72"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot4.u03",
+        "claim_ids": [
+          "c73",
+          "c74",
+          "c75"
+        ],
+        "unscored": [
+          {
+            "quote": "Across five seconds",
+            "reason": "Duration requirement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot5.u01",
+        "claim_ids": [
+          "p5m",
+          "p5o",
+          "p5w",
+          "c76",
+          "c77",
+          "c78",
+          "c79",
+          "c80",
+          "c81",
+          "c82"
+        ],
+        "unscored": [
+          {
+            "quote": "A close side view holds",
+            "reason": "Close framing and held camera view are filmmaking requirements; side/profile composition is scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot5.u02",
+        "claim_ids": [
+          "p5k",
+          "c83",
+          "c84",
+          "c85",
+          "c86",
+          "c87",
+          "c88",
+          "c89"
+        ],
+        "unscored": [
+          {
+            "quote": "for five seconds",
+            "reason": "Duration requirement."
+          },
+          {
+            "quote": "briefly",
+            "reason": "Lip gesture duration is not scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot6.u01",
+        "claim_ids": [
+          "p6m",
+          "p6l",
+          "p6t",
+          "p6n",
+          "p6f",
+          "p6p",
+          "c90",
+          "c91",
+          "c92",
+          "c93",
+          "c94",
+          "c95",
+          "c96",
+          "c97",
+          "c98"
+        ],
+        "unscored": [
+          {
+            "quote": "a wide, steady view",
+            "reason": "Shot size and camera steadiness are filmmaking requirements."
+          },
+          {
+            "quote": "the same",
+            "reason": "The established man identity is reused."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot6.u02",
+        "claim_ids": [
+          "p6c",
+          "c99",
+          "c100",
+          "c101",
+          "c102",
+          "c103",
+          "c104",
+          "c105",
+          "c106"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot6.u03",
+        "claim_ids": [
+          "c95",
+          "c96",
+          "c107",
+          "c108"
+        ],
+        "unscored": [
+          {
+            "quote": "continues at his plate",
+            "reason": "Restates the plate work already scored; no separate persistence claim."
+          },
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is not separately scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot6.u04",
+        "claim_ids": [
+          "p6g",
+          "p6v",
+          "p6b",
+          "p6r",
+          "p6a",
+          "c109",
+          "c110",
+          "c111",
+          "c112",
+          "c113",
+          "c114",
+          "c115",
+          "c116",
+          "c117",
+          "c118"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot6.u05",
+        "claim_ids": [],
+        "unscored": [
+          {
+            "quote": "Complete the sequence in five seconds.",
+            "reason": "Overall sequence duration requirement, not an additional entity action."
+          }
+        ]
+      }
+    ],
+    "unresolved": [],
+    "provenance": {
+      "source_sha256": "71289cd31eab0b92e1ba12f00423b8682897bfd2cd630287a3db0bd78e6a4547",
+      "prompt_input_sha256": "3817840cda17896f2fdff4d0f1aaf7abe1437e664c316f4d77f5cd9083d99ea8",
+      "semantic_review": "independent configured Astra/medium text audit; not human annotation"
+    }
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot4",
+      "to_shot": "Shot5",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot5",
+      "to_shot": "Shot6",
+      "required": "cut"
+    }
+  ],
+  "shot_sources": [
+    {
+      "shot_id": "Shot1",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot2",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot3",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot4",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot5",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot6",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    }
+  ],
+  "image_order": [
+    {
+      "index": 0,
+      "shot_id": "Shot1",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 1,
+      "shot_id": "Shot1",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 2,
+      "shot_id": "Shot1",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 3,
+      "shot_id": "Shot1",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 4,
+      "shot_id": "Shot1",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 5,
+      "shot_id": "Shot1",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 6,
+      "shot_id": "Shot2",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 7,
+      "shot_id": "Shot2",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 8,
+      "shot_id": "Shot2",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 9,
+      "shot_id": "Shot2",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 10,
+      "shot_id": "Shot2",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 11,
+      "shot_id": "Shot2",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 12,
+      "shot_id": "Shot3",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 13,
+      "shot_id": "Shot3",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 14,
+      "shot_id": "Shot3",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 15,
+      "shot_id": "Shot3",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 16,
+      "shot_id": "Shot3",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 17,
+      "shot_id": "Shot3",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 18,
+      "shot_id": "Shot4",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 19,
+      "shot_id": "Shot4",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 20,
+      "shot_id": "Shot4",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 21,
+      "shot_id": "Shot4",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 22,
+      "shot_id": "Shot4",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 23,
+      "shot_id": "Shot4",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 24,
+      "shot_id": "Shot5",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 25,
+      "shot_id": "Shot5",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 26,
+      "shot_id": "Shot5",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 27,
+      "shot_id": "Shot5",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 28,
+      "shot_id": "Shot5",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 29,
+      "shot_id": "Shot5",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 30,
+      "shot_id": "Shot6",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 31,
+      "shot_id": "Shot6",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 32,
+      "shot_id": "Shot6",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 33,
+      "shot_id": "Shot6",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 34,
+      "shot_id": "Shot6",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 35,
+      "shot_id": "Shot6",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    }
+  ],
+  "input_notes": [
+    "candidate_issues are hypotheses from the detection agent of this branch only, not accepted findings.",
+    "Every supplied image is an original keyframe; image_order matches attachment order."
+  ]
+}

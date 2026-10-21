@@ -1,0 +1,389 @@
+{
+  "command": [
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/eec_api_codex_shim.py",
+    "--ask-for-approval",
+    "never",
+    "exec",
+    "--ignore-user-config",
+    "-c",
+    "skills.config=[{path=\"/vast/users/guangyi.chen/.agents/skills/autodesign-poster\",enabled=false},{path=\"/vast/users/guangyi.chen/.agents/skills/autodesign-poster/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/plugins/cache/openai-bundled/visualize/1.0.50/skills/visualize\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/plugins/cache/openai-bundled/visualize/1.0.50/skills/visualize/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/imagegen\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/imagegen/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/openai-docs\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/openai-docs/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/review-agent\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/review-agent/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/skill-creator\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/skill-creator/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/skill-installer\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/.system/skill-installer/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/a-evolve\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/a-evolve/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/academic-plotting\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/academic-plotting/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/accelerate\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/accelerate/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/audiocraft\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/audiocraft/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/autogpt\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/autogpt/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/autoresearch\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/autoresearch/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/awq\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/awq/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/axolotl\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/axolotl/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/bigcode-evaluation-harness\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/bigcode-evaluation-harness/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/bitsandbytes\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/bitsandbytes/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/blip-2\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/blip-2/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/brainstorming-research-ideas\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/brainstorming-research-ideas/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/chroma\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/chroma/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/clip\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/clip/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/codex-change-log\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/codex-change-log/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/compiler\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/compiler/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/constitutional-ai\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/constitutional-ai/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/cosmos-policy\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/cosmos-policy/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/creative-thinking-for-research\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/creative-thinking-for-research/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/crewai\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/crewai/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/deepspeed\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/deepspeed/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/dspy\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/dspy/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/faiss\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/faiss/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/flash-attention\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/flash-attention/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/gguf\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/gguf/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/gptq\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/gptq/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/grpo-rl-training\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/grpo-rl-training/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/guidance\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/guidance/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/hqq\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/hqq/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/huggingface-tokenizers\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/huggingface-tokenizers/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/instructor\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/instructor/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/knowledge-distillation\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/knowledge-distillation/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/lambda-labs\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/lambda-labs/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/langchain\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/langchain/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/langsmith\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/langsmith/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/litgpt\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/litgpt/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llama-cpp\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llama-cpp/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llama-factory\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llama-factory/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llamaguard\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llamaguard/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llamaindex\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llamaindex/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llava\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/llava/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/lm-evaluation-harness\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/lm-evaluation-harness/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/long-context\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/long-context/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/mamba\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/mamba/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/megatron-core\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/megatron-core/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/miles\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/miles/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ml-paper-writing\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ml-paper-writing/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ml-training-recipes\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ml-training-recipes/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/mlflow\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/mlflow/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/modal\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/modal/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/model-merging\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/model-merging/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/model-pruning\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/model-pruning/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/moe-training\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/moe-training/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nanogpt\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nanogpt/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-curator\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-curator/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-evaluator\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-evaluator/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-guardrails\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nemo-guardrails/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nnsight\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/nnsight/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openpi\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openpi/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openrlhf\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openrlhf/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openvla-oft\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/openvla-oft/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/outlines\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/outlines/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/paper-polish\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/paper-polish/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/peft\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/peft/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/phoenix\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/phoenix/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pinecone\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pinecone/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/presenting-conference-talks\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/presenting-conference-talks/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/prompt-guard\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/prompt-guard/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pytorch-fsdp2\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pytorch-fsdp2/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pytorch-lightning\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pytorch-lightning/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pyvene\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/pyvene/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/qdrant\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/qdrant/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ray-data\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ray-data/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ray-train\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/ray-train/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/research-manager\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/research-manager/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/rigor-reviewer\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/rigor-reviewer/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/rwkv\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/rwkv/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/saelens\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/saelens/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/segment-anything\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/segment-anything/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sentence-transformers\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sentence-transformers/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sentencepiece\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sentencepiece/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sglang\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/sglang/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/simpo\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/simpo/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/skypilot\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/skypilot/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/slime\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/slime/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/speculative-decoding\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/speculative-decoding/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/stable-diffusion\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/stable-diffusion/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/swanlab\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/swanlab/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/systems-paper-writing\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/systems-paper-writing/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/tensorboard\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/tensorboard/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/tensorrt-llm\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/tensorrt-llm/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/torchforge\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/torchforge/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/torchtitan\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/torchtitan/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/transformer-lens\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/transformer-lens/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/trl-fine-tuning\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/trl-fine-tuning/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/unsloth\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/unsloth/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/verl\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/verl/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/vllm\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/vllm/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/weights-and-biases\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/weights-and-biases/SKILL.md\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/whisper\",enabled=false},{path=\"/vast/users/guangyi.chen/.codex/skills/whisper/SKILL.md\",enabled=false}]",
+    "--ephemeral",
+    "--skip-git-repo-check",
+    "--sandbox",
+    "read-only",
+    "--color",
+    "never",
+    "--json",
+    "--model",
+    "gpt-6-luna",
+    "-c",
+    "model_reasoning_effort=\"low\"",
+    "-c",
+    "project_doc_max_bytes=0",
+    "-c",
+    "web_search=\"disabled\"",
+    "--output-schema",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_no_conflict_wording_20261020/runs/old/run_b/p032_wan22/vl_review/call/output.schema.json",
+    "--output-last-message",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_no_conflict_wording_20261020/runs/old/run_b/p032_wan22/vl_review/call/response.json",
+    "--cd",
+    "/tmp/eec-binding-z1_6vva0",
+    "--disable",
+    "shell_tool",
+    "--disable",
+    "unified_exec",
+    "--disable",
+    "view_image",
+    "--disable",
+    "apps",
+    "--disable",
+    "plugins",
+    "--disable",
+    "hooks",
+    "--disable",
+    "multi_agent",
+    "--disable",
+    "memories",
+    "--disable",
+    "skill_search",
+    "--disable",
+    "browser_use",
+    "--disable",
+    "computer_use",
+    "--disable",
+    "code_mode",
+    "--disable",
+    "code_mode_only",
+    "--disable",
+    "workspace_dependencies",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_0.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_1.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_2.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_3.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_4.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_5.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_6.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_7.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_8.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_9.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_10.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_11.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_12.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_13.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_14.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_15.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_16.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_17.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_18.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_19.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_20.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_21.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_22.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_23.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_24.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_25.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_26.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_27.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_28.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_29.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_30.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_31.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_32.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_33.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_34.jpg",
+    "--image",
+    "/tmp/eec-binding-z1_6vva0/image_35.jpg",
+    "-"
+  ],
+  "images": [
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000000.jpg",
+      "sha256": "40fec3165649f92257af7796606f9a82c19d71e2f6cc36b82048a801934d39a2",
+      "shot_id": "Shot1",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000001.jpg",
+      "sha256": "83478392a48d22cff2b9c261594878a8b1fdf093e6a999a15b88befab198aa1f",
+      "shot_id": "Shot1",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000002.jpg",
+      "sha256": "0050ddfde642a8dd929b1da9cb565858756b0f3446afd4c41854072517f5b893",
+      "shot_id": "Shot1",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000003.jpg",
+      "sha256": "81d2e490b5fd5ef182fc345e0e2c0dde759a6d6272b0023a5a5921b97d4f385d",
+      "shot_id": "Shot1",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000004.jpg",
+      "sha256": "63efc042dbb5a5022d9d11fafea416ba22abcd537e0fe7533f547c2b4143d0eb",
+      "shot_id": "Shot1",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot1/frame_000005.jpg",
+      "sha256": "07c1ba98285d157fb04791076cf7b82080e418198bf545d4aacb0e5c9c863c6c",
+      "shot_id": "Shot1",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000000.jpg",
+      "sha256": "654ad7ada3c4222bf2890ae8afa982fdb983f3c3c9195d13e2e834192ba35733",
+      "shot_id": "Shot2",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000001.jpg",
+      "sha256": "512ff74220fb5821b5058778662bfc95be652e540c4011a4b6507fabb5adea97",
+      "shot_id": "Shot2",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000002.jpg",
+      "sha256": "7622aad577a96af348a69d1ce03171e370f1cf036db1daeb3b6b46da776b6808",
+      "shot_id": "Shot2",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000003.jpg",
+      "sha256": "37c803e32494c47c6624c0e35dcfecc55a941cace621319bb3f471795ee1551e",
+      "shot_id": "Shot2",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000004.jpg",
+      "sha256": "14effa33483a2057ba7a65745bac9b26f2e068a769eddb2182dda66ae0f6a55f",
+      "shot_id": "Shot2",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot2/frame_000005.jpg",
+      "sha256": "d1d716c5434653c133957073ea83fd2bfac2ae6c634d00425530e57188e8269a",
+      "shot_id": "Shot2",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000000.jpg",
+      "sha256": "0cb771d01f593c1ddd65d976c1da395d28b514399012011f77c9d6009676ffc6",
+      "shot_id": "Shot3",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000001.jpg",
+      "sha256": "c8578c1513d44027a42789b396c7a244f175fdfb320e132675522e8d4e3f699b",
+      "shot_id": "Shot3",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000002.jpg",
+      "sha256": "f7373dcba3016b9af0b978aa2b4a54308c1fef6fbfe2a4ff0c5956783877eacd",
+      "shot_id": "Shot3",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000003.jpg",
+      "sha256": "56d0642b8bc81a8796e4a2f56184bdec877955dacb27aa82f3193e39886d5c07",
+      "shot_id": "Shot3",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000004.jpg",
+      "sha256": "d3a67cd80cf72de16e2c4e3f2765f8fbbe4531fa9ecc2775afdcbfe417cbe872",
+      "shot_id": "Shot3",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot3/frame_000005.jpg",
+      "sha256": "0f562df4beca9c3f334a10f0c4d3ac466b28d145a8745dc529c2a46317d2e0ba",
+      "shot_id": "Shot3",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000000.jpg",
+      "sha256": "21a7c8af540978cb6f688b30ca1ad709ac56ba68c77f997dc86a4062b7b06215",
+      "shot_id": "Shot4",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000001.jpg",
+      "sha256": "54dc32caa7fc1a062b883d94e32edb4d8cee37624cfd0728f4e5c116fccb2eb0",
+      "shot_id": "Shot4",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000002.jpg",
+      "sha256": "ca28f31d76f450c088e68adc3e9c429e393441d8f9756afa4f014e0cf5da8b00",
+      "shot_id": "Shot4",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000003.jpg",
+      "sha256": "1fa49317fcd5d3dfb9f3bb2d74e964c1abe5af5d463f6e91ecd7bea21a928607",
+      "shot_id": "Shot4",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000004.jpg",
+      "sha256": "f5e632d9bff4573942ee01b62abaa9300e997f05f0b668dd688b9adb130031a1",
+      "shot_id": "Shot4",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot4/frame_000005.jpg",
+      "sha256": "4e63492d09934eea81963da2f46a4193abdf9de291b2e86aec1268aae7a2f891",
+      "shot_id": "Shot4",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000000.jpg",
+      "sha256": "1c35be1cf180cc8bf81388849e89b8a1135ff4a4f9b230f3551aa62658fbc7ce",
+      "shot_id": "Shot5",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000001.jpg",
+      "sha256": "6df9d4be1d470c373326e7223c2da894149a288df62f81aabb71ce0da270bc9f",
+      "shot_id": "Shot5",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000002.jpg",
+      "sha256": "e0626cc59b491f7bcb4d5e291c2b7109154abeb151f1185c634d8f8cef237dc3",
+      "shot_id": "Shot5",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000003.jpg",
+      "sha256": "d90a687f7426bb3e7db2751b0bc08431eb8f4975b82aa3900397b9dec0c67d19",
+      "shot_id": "Shot5",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000004.jpg",
+      "sha256": "17fa42dd93ad58fb6276056a293212a08b9bdcdecbcf967399469edf830e9531",
+      "shot_id": "Shot5",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot5/frame_000005.jpg",
+      "sha256": "7e66d0f509a8e7d23bd80630c092184322d9345e1742aa7fea9263b52ed3abf4",
+      "shot_id": "Shot5",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000000.jpg",
+      "sha256": "e04ef9a5ab8cf9d926c11e8d13ceff9a0fe50a462b699015bc9222f6219839fc",
+      "shot_id": "Shot6",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000001.jpg",
+      "sha256": "d5a5fb607988172b9cd50e9629dabbe7ed21b742a97c92c76054dd436e6c8d0e",
+      "shot_id": "Shot6",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000002.jpg",
+      "sha256": "6c442544c1e637de492b46d7b57626174fb8657dadb73ae1df5ba30a29d1da8b",
+      "shot_id": "Shot6",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000003.jpg",
+      "sha256": "76c5031c2c5ce0659d55e87fabff49a589473cb06b0d1b38022c4f8a4f1d0215",
+      "shot_id": "Shot6",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000004.jpg",
+      "sha256": "78cfcb1ca743c2915ff34e914d31e1524ea34eba12478a3080201e29f6d34308",
+      "shot_id": "Shot6",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/frames/Shot6/frame_000005.jpg",
+      "sha256": "052449ee4c6c8ae08174563d468ca9905864efc4c0b96f98896a34c048261638",
+      "shot_id": "Shot6",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    }
+  ],
+  "image_label_protocol": null,
+  "image_labels": null
+}

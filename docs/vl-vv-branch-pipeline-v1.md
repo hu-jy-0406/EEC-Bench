@@ -405,3 +405,7 @@ runners.
   recorded-cut keyframes before this chain can run on them.
 - **Cost.** Four image-bearing calls per episode instead of two (detection and
   review per branch); see the validation report for measured usage.
+- **Image labels (resolved 2026-10-20).** Every attached keyframe is now
+  preceded by a text label such as `Shot3 frame 2` (default on; see
+  `docs/openai-api-transport-v1.md`). The validation above used unlabeled
+  images.

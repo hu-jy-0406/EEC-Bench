@@ -26,6 +26,36 @@ def resolve_codex_bin(default):
     if backend == 'api': return str(ROOT / 'EECBench/scripts/eec_api_codex_shim.py')
     raise ValueError('EECBENCH_CODEX_BACKEND must be cli or api')
 
+# Owner decision (2026-10-20): the API transport puts a short text label
+# ("Shot3 frame 2") before each attached keyframe, so the model does not have
+# to count attachment positions to know which shot an image belongs to.
+# Pixels and attachment order are unchanged. EECBENCH_IMAGE_LABELS=off sends
+# unlabeled images, only to reproduce historical results. The Codex CLI
+# backend cannot interleave text with images and is unchanged.
+IMAGE_LABEL_PROTOCOL = 'shot_frame_v1'
+
+def image_labels(images):
+    """Labels for the attached images, or None when they are not sent.
+
+    Returns None for the CLI backend, when labels are switched off, when there
+    are no images, or when any image lacks shot_id/frame_id.
+    """
+    mode = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
+    if mode not in ('on', 'off'):
+        raise ValueError('EECBENCH_IMAGE_LABELS must be on or off')
+    if mode == 'off' or os.environ.get('EECBENCH_CODEX_BACKEND', 'cli') != 'api' or not images:
+        return None
+    labels = []
+    for image in images:
+        shot_id, frame_id = image.get('shot_id'), image.get('frame_id')
+        if not isinstance(shot_id, str) or not shot_id or type(frame_id) is not int:
+            return None
+        labels.append(f'{shot_id} frame {frame_id}')
+    return labels
+
+def image_label_record(labels):
+    return dict(image_label_protocol=IMAGE_LABEL_PROTOCOL if labels else None, image_labels=labels)
+
 # User-selected graph population policy (2026-09-20). Exact names from the
 # detector's fixed prompt_free_name vocabulary; do not use a broad 毯/垫 match
 # that would also remove blankets, upholstery, mattresses or wall tapestries.
@@ -530,6 +560,7 @@ def review(shot, payload, args, directory, retry_correction=None, auto_reject_mi
     dump(directory / 'output.schema.json', schema)
     if args.prepare_only:
         return dict(shot_id=shot['shot_id'], status='prepared', calls=0)
+    labels = image_labels([dict(frame, shot_id=shot['shot_id']) for frame in shot['frames']])
     reuse_root = getattr(args, 'reuse_reviews', None)
     if reuse_root:
         previous = reuse_root.resolve() / 'shots' / shot['shot_id']
@@ -543,7 +574,8 @@ def review(shot, payload, args, directory, retry_correction=None, auto_reject_mi
                 raise ValueError('Cannot reuse a review with different input payload')
             identical = ((previous / 'prompt.txt').read_text() == prompt and
                          sha(previous / 'output.schema.json') == sha(directory / 'output.schema.json') and
-                         request['model'] == args.model and request['reasoning'] == args.reasoning)
+                         request['model'] == args.model and request['reasoning'] == args.reasoning and
+                         request.get('image_labels') == labels)
             if identical:
                 audit_events(previous / 'events.jsonl')
                 validate_result(read(previous / 'response.json'), payload)
@@ -571,11 +603,13 @@ def review(shot, payload, args, directory, retry_correction=None, auto_reject_mi
             if sha(image) != frame['sha256']:
                 raise ValueError('Image changed before review')
             command.extend(['--image', str(image)])
+        for label in labels or []:
+            command.extend(['--image-label', label])
         command.append('-')
         dump(directory / 'request.json', dict(command=command, model=args.model,
              reasoning=args.reasoning, prompt_sha256=sha(directory / 'prompt.txt'),
              schema_sha256=sha(directory / 'output.schema.json'),
-             skill_sha256=sha(ASSETS / 'SKILL.md')))
+             skill_sha256=sha(ASSETS / 'SKILL.md'), **image_label_record(labels)))
         run_process(command, prompt, work, directory / 'events.jsonl', directory / 'stderr.log', args.timeout)
     return finish_review(shot, payload, directory, auto_reject_missing=auto_reject_missing)
 

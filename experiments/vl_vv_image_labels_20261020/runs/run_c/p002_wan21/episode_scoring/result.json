@@ -1,0 +1,336 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5",
+  "status": "success",
+  "scores": {
+    "v_l": 31.64,
+    "v_v": {
+      "within_shot": 100.0,
+      "cross_shot": 15.63,
+      "overall": 57.81
+    },
+    "v_v_unintentional": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_unintentional_or_uncertain": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_remainder": {
+      "within_shot": 100.0,
+      "cross_shot": 15.63,
+      "overall": 57.81
+    }
+  },
+  "v_v_issue_statistics": {
+    "counting_unit": "independent confirmed V-V issue = one duplicate group of confirmed reviewed units (a unit split by the reviewer is its own issue); counted once however many unintentional entities it involves",
+    "involvement_rule": "an issue involves an unintentional entity when one of its subject entities has final provenance prompt_unbound; context entities do not count; uncertain provenance counts only in the upper bound",
+    "total": {
+      "confirmed_issues": 3,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 3
+    },
+    "within_shot": {
+      "confirmed_issues": 0,
+      "involving_unintentional": 0,
+      "proportion": null,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": null,
+      "confirmed_units": 0
+    },
+    "cross_shot": {
+      "confirmed_issues": 3,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 3
+    },
+    "unintentional_entities": []
+  },
+  "counts": {
+    "v_l": {
+      "units": 5,
+      "confirmed": 4,
+      "rejected": 1,
+      "uncertain": 0,
+      "independent_confirmed_issues": 4
+    },
+    "within_shot": {
+      "units": 0,
+      "confirmed": 0,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 0
+    },
+    "cross_shot": {
+      "units": 3,
+      "confirmed": 3,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 3
+    }
+  },
+  "unit_scores": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L1",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "男子在Shot2的头发明显不符合短发要求，是清晰但局限于单一属性的偏差。"
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "bucket": "v_l",
+      "subcategory": "camera_composition",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L2",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot2未呈现要求的斜角视点，视角构图有明确偏差，但限于单个镜头。"
+    },
+    {
+      "unit_id": "L3.1",
+      "parent_issue_id": "L3",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L3.1",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot3中衬衫款式明显不符合T恤要求，属于单一镜头、单一服装属性的实质偏差。"
+    },
+    {
+      "unit_id": "L3.2",
+      "parent_issue_id": "L3",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "rejected",
+      "review_confidence": "medium",
+      "severity": "none",
+      "duplicate_of": null,
+      "event_root_unit_id": null,
+      "base_deduction": 0,
+      "adjusted_deduction": 0.0,
+      "unintentional_status": null,
+      "reason": "该颜色问题已被判定为满足要求，证据不足以确认违例，因此不处罚。"
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "bucket": "v_l",
+      "subcategory": "presence_count",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L4",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot3缺少明确要求的右侧前景暗色形状，构成该镜头中的清晰局部元素缺失。"
+    },
+    {
+      "unit_id": "V1.1",
+      "parent_issue_id": "V1",
+      "bucket": "cross_shot",
+      "subcategory": "character_identity",
+      "verdict": "confirmed",
+      "review_confidence": "medium",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "V1.1",
+      "base_deduction": 50,
+      "adjusted_deduction": 37.5,
+      "unintentional_status": "none",
+      "reason": "同一男子在四个镜头中的面部身份特征明显变化，属于反复出现角色的实质性变化，判为major。"
+    },
+    {
+      "unit_id": "V1.2",
+      "parent_issue_id": "V1",
+      "bucket": "cross_shot",
+      "subcategory": "character_appearance",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "V1.2",
+      "base_deduction": 50,
+      "adjusted_deduction": 50.0,
+      "unintentional_status": "none",
+      "reason": "同一男子在四个镜头中的发型长度与轮廓明显不一致，属于反复出现角色的显著外观变化，判为major。"
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "bucket": "cross_shot",
+      "subcategory": "character_appearance",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "V2",
+      "base_deduction": 50,
+      "adjusted_deduction": 50.0,
+      "unintentional_status": "none",
+      "reason": "同一男子在四个镜头中的衣着类型、颜色及细节明显变化，属于反复出现角色的显著外观变化，判为major。"
+    }
+  ],
+  "event_scores": [
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L1",
+      "unit_ids": [
+        "L1"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L2",
+      "unit_ids": [
+        "L2"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L3.1",
+      "unit_ids": [
+        "L3.1"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L4",
+      "unit_ids": [
+        "L4"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V1.1",
+      "unit_ids": [
+        "V1.1"
+      ],
+      "applied_deduction": 37.5,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V1.2",
+      "unit_ids": [
+        "V1.2"
+      ],
+      "applied_deduction": 50.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V2",
+      "unit_ids": [
+        "V2"
+      ],
+      "applied_deduction": 50.0,
+      "unintentional_status": "none"
+    }
+  ],
+  "factorization_check": {
+    "within_shot": {
+      "bucket_score": 100.0,
+      "unintentional_times_remainder": 100.0
+    },
+    "cross_shot": {
+      "bucket_score": 15.625,
+      "unintentional_times_remainder": 15.625
+    }
+  },
+  "scoring_rule": {
+    "rubric_version": "penalty_v2",
+    "base_deductions": {
+      "minor": 10,
+      "moderate": 25,
+      "major": 50,
+      "critical": 80
+    },
+    "reviewer_confidence_factors": {
+      "high": 1.0,
+      "medium": 0.75,
+      "low": 0.5
+    },
+    "event_rule": "confirmed units linked by duplicate_of form one event (independent issue); the event deducts its maximum adjusted deduction; split units are distinct events",
+    "bucket_rule": "100 * product(1 - event_deduction / 100), rounded half up to 2 decimals",
+    "v_v_rule": "overall = mean of within_shot and cross_shot",
+    "unintentional_rule": "v_v_unintentional = the same product over the events whose subject entities include a prompt_unbound entity; v_v_remainder = product over the other V-V events; bucket = unintentional x remainder / 100 before rounding; v_v_unintentional_or_uncertain also counts events whose subjects are only uncertain",
+    "empty_bucket": "a bucket or subset with no confirmed events scores 100; that is not proof of a consistent video, see the issue counts"
+  },
+  "source_reviews": {
+    "vl": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_c/p002_wan21/vl_review/result.json",
+    "vv": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_c/p002_wan21/vv_review/result.json"
+  },
+  "source_review_sha256": {
+    "vl": "6493b0bd87bfc9453b138c96237974366fe2b7d4ee8adef2c7cf741269068fef",
+    "vv": "9f2d2a198382c39e2897e9dc0cac23452514a8ea34fd5d6681b998e2f8efa49f"
+  },
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "calls": {
+    "vl": 1,
+    "vv": 1
+  },
+  "repair_rounds": {
+    "vl": 0,
+    "vv": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 1837,
+      "cached_input_tokens": 0,
+      "output_tokens": 270,
+      "reasoning_output_tokens": 0
+    },
+    {
+      "input_tokens": 1981,
+      "cached_input_tokens": 0,
+      "output_tokens": 192,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 3818,
+    "cached_input_tokens": 0,
+    "output_tokens": 462,
+    "api_calls": 2,
+    "estimated_usd": 0.0006128,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "limitation": "Scores summarize confirmed reviewed units; severities come from text-only calls; provenance labels are model judgments checked against the text; no human calibration."
+}

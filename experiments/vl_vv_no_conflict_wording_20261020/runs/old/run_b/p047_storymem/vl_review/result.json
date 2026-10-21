@@ -1,0 +1,388 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p047_storymem/vl_detection/result.json",
+  "source_detection_sha256": "920fad494016478d8edeb81239028dd4f9945cb72bdd8141ce346b312070b115",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot4中马尾男子没有按要求举手进入防守姿势；末帧（frame 5）可见他站在左侧，双臂垂在身侧，未呈现举手防守状态。",
+            "revision": "clarified",
+            "revision_note": "明确以Shot4末帧所见姿势为核心，未改变未完成举手防守这一问题。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "raises his hands into a guard"
+            },
+            "requirement_applies": "Shot4的提示直接要求马尾男子举手进入防守姿势。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "马尾男子在画面左侧站立，双臂垂在身体两侧，没有举手成防守姿势。"
+              }
+            ],
+            "assessment": "Shot4末帧直接显示所要求的举手防守姿势未实现，符合确认条件。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot4的酒红色地面要求并未被违反：右前景可见酒红色地面；蓝色部分是训练区域的垫面。",
+            "revision": "clarified",
+            "revision_note": "更正候选把蓝色垫面当作提示所指地面的描述；提示具体指右前景的酒红色地面。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "burgundy floor"
+            },
+            "requirement_applies": "Shot4提示明确将白衣男子所在的右前景地面描述为酒红色；该颜色要求适用于此处地面。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "右前景白衣男子下方及其周围的地面为酒红色；画面中部训练区域另有蓝色垫面。"
+              }
+            ],
+            "assessment": "右前景确有酒红色地面，蓝色是房间内的垫面，不能据此认定酒红色要求被违反。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4中马尾男子未将双手举成防守姿势。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "末帧男子双臂仍垂在身侧，未见举手成防守姿势。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "末帧男子双臂仍垂在身侧，未见举手成防守姿势。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "raises his hands into a guard"
+          }
+        ],
+        "expected": "马尾男子举手进入防守姿势。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 3@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "末帧男子双臂仍垂在身侧，未见举手成防守姿势。",
+            "mismatch": "画面未出现要求的举手防守状态。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 3@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4地面呈蓝色，不是要求的酒红色。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0012",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0012"
+          ],
+          "observation": "训练室地面明显为蓝色。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0012"
+          ],
+          "observation": "训练室地面明显为蓝色。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "burgundy floor"
+          }
+        ],
+        "expected": "地面为酒红色。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Object 7@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "训练室地面明显为蓝色。",
+            "mismatch": "蓝色地面与酒红色要求相反。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 7@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "Ponytailed man",
+      "description": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0012",
+      "global_entity_id": "pb0012",
+      "source": "detection_ledger",
+      "name": "Training room floor",
+      "description": "Burgundy floor.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 7",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4中马尾男子没有按要求举手进入防守姿势；末帧（frame 5）可见他站在左侧，双臂垂在身侧，未呈现举手防守状态。",
+      "original_description": "Shot4中马尾男子未将双手举成防守姿势。",
+      "revision": "clarified",
+      "revision_note": "明确以Shot4末帧所见姿势为核心，未改变未完成举手防守这一问题。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "马尾男子在画面左侧站立，双臂垂在身体两侧，没有举手成防守姿势。"
+        }
+      ],
+      "assessment": "Shot4末帧直接显示所要求的举手防守姿势未实现，符合确认条件。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "raises his hands into a guard"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4的提示直接要求马尾男子举手进入防守姿势。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4的酒红色地面要求并未被违反：右前景可见酒红色地面；蓝色部分是训练区域的垫面。",
+      "original_description": "Shot4地面呈蓝色，不是要求的酒红色。",
+      "revision": "clarified",
+      "revision_note": "更正候选把蓝色垫面当作提示所指地面的描述；提示具体指右前景的酒红色地面。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "右前景白衣男子下方及其周围的地面为酒红色；画面中部训练区域另有蓝色垫面。"
+        }
+      ],
+      "assessment": "右前景确有酒红色地面，蓝色是房间内的垫面，不能据此认定酒红色要求被违反。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "burgundy floor"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4提示明确将白衣男子所在的右前景地面描述为酒红色；该颜色要求适用于此处地面。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0012",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 2,
+    "units": 2,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 1,
+        "rejected": 1,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 1,
+      "requirement_satisfied": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 50246,
+      "cached_input_tokens": 0,
+      "output_tokens": 740,
+      "reasoning_output_tokens": 157
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 50246,
+    "cached_input_tokens": 0,
+    "output_tokens": 740,
+    "api_calls": 1,
+    "estimated_usd": 0.0053946,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

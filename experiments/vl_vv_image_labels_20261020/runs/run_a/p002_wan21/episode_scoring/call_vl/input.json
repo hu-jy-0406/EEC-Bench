@@ -1,0 +1,171 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vl",
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中男子的卷曲黑发蓬松并明显延伸至头部两侧，与契约要求的“short curly black hair”中的短发不符。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "Shot2画面中的卷发明显蓬松且较长，违反契约明确要求的短卷黑发。",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子的黑色卷发蓬松，明显向头部两侧扩展。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "头发仍蓬松并延伸至头部两侧，呈现较长发量。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "short curly black hair"
+      }
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot2与Shot3中房间均显得明亮，不符合契约对同一房间“described as dim and warmly lit”的昏暗要求。",
+      "shot_ids": [
+        "Shot2",
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "两镜头各自呈现的室内画面都明显明亮；Shot3虽写明温暖、浅色墙面，但没有取代契约中的昏暗要求。",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子、浅色沙发及木质背景均被明亮照亮，整体并不昏暗。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子和浅色墙面处于明亮、清晰的照明下，整体并不昏暗。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "described as dim and warmly lit"
+      }
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "scope": "v_l",
+      "subcategory": "camera_composition",
+      "description": "Shot2虽然是近景，但画面中男子正面朝向镜头，未呈现提示要求的斜角视图“A closer oblique view”。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "近景满足closer，但可见视角为正面，缺少明确要求的oblique斜角。",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子面部与肩部正对镜头，画面为正面近景。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "构图仍为男子正面朝向镜头的近景，而非斜角视图。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot2",
+        "quote": "A closer oblique view"
+      }
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3男子穿深蓝灰色、有领且带门襟的衬衫，不符合契约要求的“faded blue-gray T-shirt with small outlined chest lettering”。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "Shot3可见的是有领带门襟的衬衫，而非契约所要求的T恤，违反服装类型要求。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿有领、前襟带扣的深蓝灰色上衣。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "可见上衣仍为有领、带门襟的衬衫样式。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "faded blue-gray T-shirt with small outlined chest lettering"
+      }
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3右侧前景边缘未见提示要求的模糊暗色形状；可见区域为浅色墙面。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "提示要求暗色形状留在右侧前景边缘，但所示关键帧的该处只有浅色墙面，要求的对象缺失。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧是开阔的浅色墙面，未见暗色前景形状。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧仍是浅色墙面，没有暗色形状出现在前景边缘。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot3",
+        "quote": "the blurred dark shape stays at the right foreground edge"
+      }
+    }
+  ]
+}

@@ -1,0 +1,795 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p032_wan22/vl_detection/result.json",
+  "source_detection_sha256": "5d0a1972bf60cfcc64cb72e498516f1a368cc9f72f32ce98dafec0f4ddef50c1",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中，要求“the plaid-shirt man stands left of a pale built-in oven”，但画面里男子位于烤箱右侧，左右关系与要求相反。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "the plaid-shirt man stands left of a pale built-in oven"
+            },
+            "requirement_applies": "Shot1自身明确规定男子位于浅色嵌入式烤箱左侧。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子在画面中位于烤箱右侧。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍在烤箱右侧。"
+              }
+            ],
+            "assessment": "两帧都显示男子处于烤箱右侧，直接违背要求的左侧关系。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但浅色把手出现在画面左侧；烤箱整体的位置并非这句要求的判断对象。",
+            "revision": "clarified",
+            "revision_note": "将问题限定为要求明确指示的把手位置，不把烤箱整体位置当作违反要求的内容。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "with the pale handle and glowing window on the right"
+            },
+            "requirement_applies": "Shot2自身要求把手和发光窗位于画面右侧。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "浅色把手位于画面左侧。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "把手仍在画面左侧。"
+              }
+            ],
+            "assessment": "把手在所示关键帧中均处于画面左侧，与明确的右侧要求相反。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但烤箱发光窗位于画面左侧，而非右侧。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "with the pale handle and glowing window on the right"
+            },
+            "requirement_applies": "Shot2自身明确要求发光窗位于画面右侧。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "发光烤箱窗位于画面左侧。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "烤箱窗仍处于画面左侧。"
+              }
+            ],
+            "assessment": "画面中的发光窗在左侧，直接违反右侧位置要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但浅色把手位于画面左侧，而非右侧。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "with the pale handle and glowing window on the right"
+            },
+            "requirement_applies": "Shot2自身明确要求浅色把手位于画面右侧。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "浅色把手位于画面左侧。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "把手仍在画面左侧。"
+              }
+            ],
+            "assessment": "关键帧显示把手在左侧，与要求的右侧位置相反。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1男子位于烤箱右侧，和要求的左侧相反。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0003",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001",
+            "pb0003"
+          ],
+          "observation": "男子在画面右侧，烤箱在左侧。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001",
+            "pb0003"
+          ],
+          "observation": "男子在画面右侧，烤箱在左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "the plaid-shirt man stands left of a pale built-in oven"
+          }
+        ],
+        "expected": "男子位于烤箱左侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "RL:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子在画面右侧，烤箱在左侧。",
+            "mismatch": "男子实际在烤箱右侧，与要求左侧相反。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2烤箱及把手在画面左侧而非要求的右侧。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0003",
+            "pb0007"
+          ],
+          "observation": "烤箱及其把手处于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0003",
+            "pb0007"
+          ],
+          "observation": "烤箱及其把手处于画面左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ],
+        "expected": "把手和窗位于画面右侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Object 1@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "烤箱及其把手处于画面左侧。",
+            "mismatch": "烤箱把手在左侧，不在要求的右侧。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 1@Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2烤箱窗位于画面左侧而非右侧。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0006",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0006"
+          ],
+          "observation": "发光烤箱窗在画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0006"
+          ],
+          "observation": "发光烤箱窗在画面左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ],
+        "expected": "烤箱窗位于画面右侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Object 4@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "发光烤箱窗在画面左侧。",
+            "mismatch": "窗位于左侧，不符合右侧要求。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 4@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2把手位于画面左侧而非右侧。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "浅色把手在画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "浅色把手在画面左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ],
+        "expected": "把手位于画面右侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Object 5@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "浅色把手在画面左侧。",
+            "mismatch": "把手位于左侧，不符合右侧要求。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 5@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Plaid-shirt man",
+      "description": "Man wearing a dark-and-white plaid shirt, with short dark hair, black rectangular glasses, a moustache and light stubble, dark ear stud, narrow dark tie and wristwatch.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0003",
+      "global_entity_id": "pb0003",
+      "source": "detection_ledger",
+      "name": "Built-in oven",
+      "description": "Pale built-in oven.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0007",
+      "global_entity_id": "pb0007",
+      "source": "detection_ledger",
+      "name": "Oven handle",
+      "description": "Pale oven handle.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 5",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0006",
+      "global_entity_id": "pb0006",
+      "source": "detection_ledger",
+      "name": "Oven window",
+      "description": "Window in the oven door.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1中，要求“the plaid-shirt man stands left of a pale built-in oven”，但画面里男子位于烤箱右侧，左右关系与要求相反。",
+      "original_description": "Shot1男子位于烤箱右侧，和要求的左侧相反。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子在画面中位于烤箱右侧。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍在烤箱右侧。"
+        }
+      ],
+      "assessment": "两帧都显示男子处于烤箱右侧，直接违背要求的左侧关系。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "the plaid-shirt man stands left of a pale built-in oven"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot1自身明确规定男子位于浅色嵌入式烤箱左侧。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0003",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但浅色把手出现在画面左侧；烤箱整体的位置并非这句要求的判断对象。",
+      "original_description": "Shot2烤箱及把手在画面左侧而非要求的右侧。",
+      "revision": "clarified",
+      "revision_note": "将问题限定为要求明确指示的把手位置，不把烤箱整体位置当作违反要求的内容。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "浅色把手位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "把手仍在画面左侧。"
+        }
+      ],
+      "assessment": "把手在所示关键帧中均处于画面左侧，与明确的右侧要求相反。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2自身要求把手和发光窗位于画面右侧。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但烤箱发光窗位于画面左侧，而非右侧。",
+      "original_description": "Shot2烤箱窗位于画面左侧而非右侧。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "发光烤箱窗位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "烤箱窗仍处于画面左侧。"
+        }
+      ],
+      "assessment": "画面中的发光窗在左侧，直接违反右侧位置要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2自身明确要求发光窗位于画面右侧。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0006",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2中，要求“with the pale handle and glowing window on the right”，但浅色把手位于画面左侧，而非右侧。",
+      "original_description": "Shot2把手位于画面左侧而非右侧。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "浅色把手位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "把手仍在画面左侧。"
+        }
+      ],
+      "assessment": "关键帧显示把手在左侧，与要求的右侧位置相反。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2自身明确要求浅色把手位于画面右侧。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 4,
+    "split_candidates": 0,
+    "clarified_units": 1,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 4,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 4
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 41500,
+      "cached_input_tokens": 0,
+      "output_tokens": 1274,
+      "reasoning_output_tokens": 244
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 41500,
+    "cached_input_tokens": 0,
+    "output_tokens": 1274,
+    "api_calls": 1,
+    "estimated_usd": 0.004787,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

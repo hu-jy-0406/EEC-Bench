@@ -1,0 +1,701 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_028_N39I1LM-HGY_s00208_n8_clean_v3_alt8/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p028_wan22/vl_detection/result.json",
+  "source_detection_sha256": "ecb9e2b212c02164a158d5c256f65b0cd2aabce0912593384ad2256d1f66c8e2",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot2中要求“以自己抬起的手轻托来手手腕”，但第0帧和第5帧只见女子及从右侧伸入的手，未见女子用自己的手托住来手手腕。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "interaction",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "She lightly supports the wrist with her own raised hand."
+            },
+            "requirement_applies": "Shot2文本直接要求女子以自己的抬手托住来手手腕。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面可见女子与从右侧伸入、靠近其耳侧的手；女子没有伸出另一只手托住来手手腕。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "女子的手仍未出现在来手手腕下方或与手腕接触。"
+              }
+            ],
+            "assessment": "要求适用于Shot2；两帧均未见女子自己的手托腕，构成明确的互动缺失。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot3要求熟悉的蓝椅位于屏幕右侧远处；画面右侧出现显著、看起来近距离的大型蓝色躺椅，不符合远处小型蓝椅的要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "The familiar blue chair remains distant at screen right."
+            },
+            "requirement_applies": "Shot3文本直接规定蓝椅在屏幕右侧且距离较远；合同中的蓝椅描述也适用于该镜头。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧的蓝色躺椅占据明显区域，呈近距离大型物体，而非远处小椅。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "右侧蓝色躺椅仍显著且看起来近，不符合“distant”的要求。"
+              }
+            ],
+            "assessment": "镜头文本要求椅子保持远处；可见的大型近景躺椅与此直接矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "split",
+        "split_reason": "候选同时主张蓝椅不模糊、且不在远处背景；模糊状态与远近/景深位置是可分别成立或不成立的要求，拆为两个独立单元。",
+        "units": [
+          {
+            "unit_id": "L3.1",
+            "description": "Shot7要求蓝椅在最右后景保持模糊；画面中的蓝色躺椅轮廓清楚可辨，不符合模糊要求。",
+            "revision": "clarified",
+            "revision_note": "将候选笼统的“清晰且尺寸很大”拆分并聚焦于独立的清晰度问题。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot7"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot7",
+              "quote": "the blue chair remains blurred in the far-right background"
+            },
+            "requirement_applies": "Shot7文本直接要求蓝椅模糊；椅子在该镜头中可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "右侧蓝色躺椅的轮廓清晰可辨，并非模糊景物。"
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "右侧蓝色躺椅仍清楚可见。"
+              }
+            ],
+            "assessment": "镜头文本明确要求椅子模糊，画面所见清晰躺椅与要求矛盾。"
+          },
+          {
+            "unit_id": "L3.2",
+            "description": "Shot7要求蓝椅位于远处的最右后景；画面右侧蓝色躺椅显著且呈近距离大型物体，不符合远处背景的位置要求。",
+            "revision": "clarified",
+            "revision_note": "从候选中单独提取距离/景深位置问题，与椅子是否模糊分开判断。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot7"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot7",
+              "quote": "the blue chair remains blurred in the far-right background"
+            },
+            "requirement_applies": "Shot7文本直接将蓝椅规定在最右后景；合同还将蓝椅描述为远处小型椅子，适用于该镜头。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧的蓝色躺椅占据较大区域，显得靠近镜头，不像位于远处背景。"
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "蓝色躺椅仍显著且近，不符合远处后景的要求。"
+              }
+            ],
+            "assessment": "镜头要求蓝椅处于远处后景；画面中显著的近距离躺椅违背该要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot2未见女子以自己的抬手托住来手手腕。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0006",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005",
+            "pb0006"
+          ],
+          "observation": "画面只见女子与从右侧伸入的手，未见女子另一只手托腕。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005",
+            "pb0006"
+          ],
+          "observation": "画面只见女子与从右侧伸入的手，未见女子另一只手托腕。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "She lightly supports the wrist with her own raised hand."
+          }
+        ],
+        "expected": "女子以自己的抬起的手轻托来手手腕。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "RL:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "画面只见女子与从右侧伸入的手，未见女子另一只手托腕。",
+            "mismatch": "要求的托腕动作在画面中缺失。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot3右侧椅子显著且近，不符合熟悉蓝椅仍在远处右侧的要求。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右侧有占画面明显区域的大型蓝色躺椅。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右侧有占画面明显区域的大型蓝色躺椅。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "The familiar blue chair remains distant at screen right."
+          },
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+          }
+        ],
+        "expected": "蓝椅位于屏幕右侧远处，且为小型远景物体。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 2@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧有占画面明显区域的大型蓝色躺椅。",
+            "mismatch": "椅子呈近距离大物体，不是要求的远处小椅。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 2@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot7右后方蓝椅清晰且尺寸很大，违背模糊远景蓝椅要求。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右后方蓝色躺椅轮廓清楚并占据较大画面宽度。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "右后方蓝色躺椅轮廓清楚并占据较大画面宽度。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot7",
+            "quote": "the blue chair remains blurred in the far-right background"
+          },
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Small blue beach chair distant on the right in the Robe woman's views."
+          }
+        ],
+        "expected": "蓝椅在最右后景且模糊、远小。",
+        "occurrences": [
+          {
+            "shot_id": "Shot7",
+            "row_ids": [
+              "EN:Object 2@Shot7",
+              "SP:Shot7"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右后方蓝色躺椅轮廓清楚并占据较大画面宽度。",
+            "mismatch": "椅子没有呈现为模糊的远景小物体。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 2@Shot7",
+          "SP:Shot7"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Turquoise woman",
+      "description": "Younger adult with medium skin and shoulder-length wavy brown hair with lighter strands, wearing a loose turquoise top.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0006",
+      "global_entity_id": "pb0006",
+      "source": "detection_ledger",
+      "name": "Incoming hand owner",
+      "description": "Partially visible person identified by the Incoming hand; a white sleeve is visible in later shoreline shots. Identity is unspecified.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0004",
+      "global_entity_id": "pb0004",
+      "source": "detection_ledger",
+      "name": "Blue beach chair",
+      "description": "Small blue beach chair distant on the right in the Robe woman's views.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot2中要求“以自己抬起的手轻托来手手腕”，但第0帧和第5帧只见女子及从右侧伸入的手，未见女子用自己的手托住来手手腕。",
+      "original_description": "Shot2未见女子以自己的抬手托住来手手腕。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面可见女子与从右侧伸入、靠近其耳侧的手；女子没有伸出另一只手托住来手手腕。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "女子的手仍未出现在来手手腕下方或与手腕接触。"
+        }
+      ],
+      "assessment": "要求适用于Shot2；两帧均未见女子自己的手托腕，构成明确的互动缺失。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "She lightly supports the wrist with her own raised hand."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2文本直接要求女子以自己的抬手托住来手手腕。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0006",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot3要求熟悉的蓝椅位于屏幕右侧远处；画面右侧出现显著、看起来近距离的大型蓝色躺椅，不符合远处小型蓝椅的要求。",
+      "original_description": "Shot3右侧椅子显著且近，不符合熟悉蓝椅仍在远处右侧的要求。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧的蓝色躺椅占据明显区域，呈近距离大型物体，而非远处小椅。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧蓝色躺椅仍显著且看起来近，不符合“distant”的要求。"
+        }
+      ],
+      "assessment": "镜头文本要求椅子保持远处；可见的大型近景躺椅与此直接矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "The familiar blue chair remains distant at screen right."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot3文本直接规定蓝椅在屏幕右侧且距离较远；合同中的蓝椅描述也适用于该镜头。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3.1",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot7要求蓝椅在最右后景保持模糊；画面中的蓝色躺椅轮廓清楚可辨，不符合模糊要求。",
+      "original_description": "Shot7右后方蓝椅清晰且尺寸很大，违背模糊远景蓝椅要求。",
+      "revision": "clarified",
+      "revision_note": "将候选笼统的“清晰且尺寸很大”拆分并聚焦于独立的清晰度问题。",
+      "split": true,
+      "split_reason": "候选同时主张蓝椅不模糊、且不在远处背景；模糊状态与远近/景深位置是可分别成立或不成立的要求，拆为两个独立单元。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "右侧蓝色躺椅的轮廓清晰可辨，并非模糊景物。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧蓝色躺椅仍清楚可见。"
+        }
+      ],
+      "assessment": "镜头文本明确要求椅子模糊，画面所见清晰躺椅与要求矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot7",
+          "quote": "the blue chair remains blurred in the far-right background"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot7文本直接要求蓝椅模糊；椅子在该镜头中可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3.2",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot7要求蓝椅位于远处的最右后景；画面右侧蓝色躺椅显著且呈近距离大型物体，不符合远处背景的位置要求。",
+      "original_description": "Shot7右后方蓝椅清晰且尺寸很大，违背模糊远景蓝椅要求。",
+      "revision": "clarified",
+      "revision_note": "从候选中单独提取距离/景深位置问题，与椅子是否模糊分开判断。",
+      "split": true,
+      "split_reason": "候选同时主张蓝椅不模糊、且不在远处背景；模糊状态与远近/景深位置是可分别成立或不成立的要求，拆为两个独立单元。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧的蓝色躺椅占据较大区域，显得靠近镜头，不像位于远处背景。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "蓝色躺椅仍显著且近，不符合远处后景的要求。"
+        }
+      ],
+      "assessment": "镜头要求蓝椅处于远处后景；画面中显著的近距离躺椅违背该要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot7",
+          "quote": "the blue chair remains blurred in the far-right background"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot7文本直接将蓝椅规定在最右后景；合同还将蓝椅描述为远处小型椅子，适用于该镜头。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 3,
+    "units": 4,
+    "split_candidates": 1,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 4,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 4
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 51978,
+      "cached_input_tokens": 0,
+      "output_tokens": 1580,
+      "reasoning_output_tokens": 277
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 51978,
+    "cached_input_tokens": 0,
+    "output_tokens": 1580,
+    "api_calls": 1,
+    "estimated_usd": 0.0059878,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

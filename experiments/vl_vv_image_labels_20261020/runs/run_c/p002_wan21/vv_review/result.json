@@ -1,0 +1,650 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_c/p002_wan21/vv_detection/result.json",
+  "source_detection_sha256": "f23b5d7bceb1b37b17b1be973e03d5045f148bf37735dc2beb375f6be3f129a5",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vv",
+    "reviews": [
+      {
+        "issue_id": "V1",
+        "action": "split",
+        "split_reason": "面部身份差异与发型差异是可分别成立的视觉属性问题，拆分为两项核验。",
+        "units": [
+          {
+            "unit_id": "V1.1",
+            "description": "同一男子在Shot1、Shot2与Shot3、Shot4之间面部身份特征不一致：Shot1/2与Shot3/4的脸部比例及五官观感不同。",
+            "revision": "clarified",
+            "revision_note": "将面貌与发型拆分；限定描述为跨镜头面部身份差异。",
+            "scope": "cross_shot",
+            "subcategory": "character_identity",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "文本明确要求四镜头为同一男子，比较各镜头可见面部；机位和表情变化不应改变脸部身份特征。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了不同机位、头部朝向、表情与光照；这些可造成观感变化，但不能充分解释脸部比例和五官身份观感的差异。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子面部较长，五官比例及面部轮廓与其他镜头有差异。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "近景中脸部比例、眼鼻与面部整体观感不同于Shot1及后续镜头。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子脸部比例及眉眼观感与Shot1、Shot2不完全一致。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "近景可见另一种面部轮廓及五官观感，与Shot1、Shot2存在差异。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "文本明确要求四镜头为同一男子；人物身份属于提示词绑定实体。"
+              }
+            ],
+            "assessment": "四个镜头均呈现被文本指定为同一人的男子；直接比较面部可见身份特征差异，且机位、表情和光照不足以解释，故确认。"
+          },
+          {
+            "unit_id": "V1.2",
+            "description": "同一男子的发型跨镜头不一致：Shot1为较蓬卷、较长的卷发轮廓，Shot2为更宽蓬的卷发，Shot3为较短且顶部收拢的卷发，Shot4为顶部短卷、两侧更短的发型。",
+            "revision": "clarified",
+            "revision_note": "将发型从面部身份问题中独立出来，并具体描述各镜头可见差异。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "文本指定四镜头为同一男子，且未描述剪发或改变发型；应比较其跨镜头头发长度与轮廓。",
+            "normal_cause": "none",
+            "normal_cause_note": "已考虑视角、头部转动和光照；不能解释Shot1/2与Shot3/4之间明显不同的发长及整体轮廓，且无可见改变发型的动作。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "头发蓬卷，侧后方卷发轮廓较长。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "头发呈明显宽蓬的卷发轮廓。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "头发较短，顶部收拢，侧边轮廓明显不同于Shot1/2。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "顶部短卷且两侧较短，与Shot1/2的蓬松长卷发不同。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "头发是文本明确指定的同一男子的内在外观属性。"
+              }
+            ],
+            "assessment": "同一人物在四镜头中的发长和卷发轮廓有明显变化，没有显示理发或整理头发的动作，故确认跨镜头外观不一致。"
+          }
+        ]
+      },
+      {
+        "issue_id": "V2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V2",
+            "description": "同一男子衣着跨镜头不一致：Shot1、Shot2穿蓝灰色短袖圆领T恤；Shot3穿深蓝灰色翻领扣式衬衫并有胸袋；Shot4穿浅蓝灰色短袖圆领T恤，胸前字样也与前镜头不同。",
+            "revision": "clarified",
+            "revision_note": "补充Shot2可见圆领短袖特征，并将衣型、颜色及胸前字样差异表述清楚。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "文本明确要求同一男子连续出现在四镜头，且没有换衣动作或换装描述；因此其衣物类型和可见印字应能匹配。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了机位与光照变化；它们不能解释Shot3的扣领衬衫与Shot1/2、Shot4的圆领T恤差异，也不能解释胸前字样变化。没有可见换衣动作。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子穿蓝灰色短袖圆领T恤，胸前有小字样。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿蓝灰色短袖圆领T恤，胸前有字样。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿深蓝灰色翻领扣式衬衫，带胸袋。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿浅蓝灰色短袖圆领T恤，胸前字样与前镜头不同。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "衣着是提示词明确指定的同一男子的外观属性。"
+              }
+            ],
+            "assessment": "Shot1/2的T恤、Shot3的扣领衬衫及Shot4的浅色T恤在同一人物之间不匹配，且无换衣动作或其他正常原因，故确认。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一人物跨镜头面貌及发型轮廓不稳定；Shot1-2与Shot3-4可见面部特征差异，非机位变化所能充分解释。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "中棕肤色、较蓬卷发，面部较长。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "短卷发，面部比例及眉眼观感不同。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "发型两侧较短，面部及肤色观感与前镜头不完全一致。"
+        }
+      ],
+      "confidence": "medium",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c5"
+        ],
+        "changes": [
+          {
+            "change_id": "c5",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "同一人物跨镜头面部、发型轮廓及肤色观感变化明显，尤其Shot3、Shot4与Shot1-2不完全匹配。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "机位和光线不足以解释面部及头型差异。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X8",
+          "O1"
+        ]
+      }
+    },
+    {
+      "issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一人物衣着跨镜头无因变化：Shot1-2蓝灰T恤，Shot3深蓝灰扣领衬衫，Shot4换为浅蓝灰T恤且胸前字样不同。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "褪色蓝灰短袖T恤，胸前小字样。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "深蓝灰翻领扣衬衫，带胸袋。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "浅蓝灰短袖T恤，胸前字样明显不同。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c6"
+        ],
+        "changes": [
+          {
+            "change_id": "c6",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "clothing_hair",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "人物衣着在镜头间变化：Shot1-2为蓝灰T恤，Shot3为深色翻领扣衬衫，Shot4为浅蓝灰T恤且胸字样不同。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "没有可见换衣动作或时间变化依据。",
+            "cause_quote": "",
+            "issue_id": "V2"
+          }
+        ],
+        "checklist_items": [
+          "X3",
+          "X4",
+          "O1"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "跨四镜头出现的男性人物。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 1",
+      "quote": null,
+      "part_of": null,
+      "note": "文本明确要求同一人物。"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "V1.1",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一男子在Shot1、Shot2与Shot3、Shot4之间面部身份特征不一致：Shot1/2与Shot3/4的脸部比例及五官观感不同。",
+      "original_description": "同一人物跨镜头面貌及发型轮廓不稳定；Shot1-2与Shot3-4可见面部特征差异，非机位变化所能充分解释。",
+      "revision": "clarified",
+      "revision_note": "将面貌与发型拆分；限定描述为跨镜头面部身份差异。",
+      "split": true,
+      "split_reason": "面部身份差异与发型差异是可分别成立的视觉属性问题，拆分为两项核验。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子面部较长，五官比例及面部轮廓与其他镜头有差异。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "近景中脸部比例、眼鼻与面部整体观感不同于Shot1及后续镜头。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子脸部比例及眉眼观感与Shot1、Shot2不完全一致。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "近景可见另一种面部轮廓及五官观感，与Shot1、Shot2存在差异。"
+        }
+      ],
+      "assessment": "四个镜头均呈现被文本指定为同一人的男子；直接比较面部可见身份特征差异，且机位、表情和光照不足以解释，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "文本明确要求四镜头为同一男子，比较各镜头可见面部；机位和表情变化不应改变脸部身份特征。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了不同机位、头部朝向、表情与光照；这些可造成观感变化，但不能充分解释脸部比例和五官身份观感的差异。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "文本明确要求四镜头为同一男子；人物身份属于提示词绑定实体。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V1.2",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子的发型跨镜头不一致：Shot1为较蓬卷、较长的卷发轮廓，Shot2为更宽蓬的卷发，Shot3为较短且顶部收拢的卷发，Shot4为顶部短卷、两侧更短的发型。",
+      "original_description": "同一人物跨镜头面貌及发型轮廓不稳定；Shot1-2与Shot3-4可见面部特征差异，非机位变化所能充分解释。",
+      "revision": "clarified",
+      "revision_note": "将发型从面部身份问题中独立出来，并具体描述各镜头可见差异。",
+      "split": true,
+      "split_reason": "面部身份差异与发型差异是可分别成立的视觉属性问题，拆分为两项核验。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "头发蓬卷，侧后方卷发轮廓较长。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "头发呈明显宽蓬的卷发轮廓。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "头发较短，顶部收拢，侧边轮廓明显不同于Shot1/2。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "顶部短卷且两侧较短，与Shot1/2的蓬松长卷发不同。"
+        }
+      ],
+      "assessment": "同一人物在四镜头中的发长和卷发轮廓有明显变化，没有显示理发或整理头发的动作，故确认跨镜头外观不一致。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "文本指定四镜头为同一男子，且未描述剪发或改变发型；应比较其跨镜头头发长度与轮廓。",
+        "normal_cause": "none",
+        "normal_cause_note": "已考虑视角、头部转动和光照；不能解释Shot1/2与Shot3/4之间明显不同的发长及整体轮廓，且无可见改变发型的动作。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "头发是文本明确指定的同一男子的内在外观属性。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子衣着跨镜头不一致：Shot1、Shot2穿蓝灰色短袖圆领T恤；Shot3穿深蓝灰色翻领扣式衬衫并有胸袋；Shot4穿浅蓝灰色短袖圆领T恤，胸前字样也与前镜头不同。",
+      "original_description": "同一人物衣着跨镜头无因变化：Shot1-2蓝灰T恤，Shot3深蓝灰扣领衬衫，Shot4换为浅蓝灰T恤且胸前字样不同。",
+      "revision": "clarified",
+      "revision_note": "补充Shot2可见圆领短袖特征，并将衣型、颜色及胸前字样差异表述清楚。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子穿蓝灰色短袖圆领T恤，胸前有小字样。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿蓝灰色短袖圆领T恤，胸前有字样。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿深蓝灰色翻领扣式衬衫，带胸袋。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿浅蓝灰色短袖圆领T恤，胸前字样与前镜头不同。"
+        }
+      ],
+      "assessment": "Shot1/2的T恤、Shot3的扣领衬衫及Shot4的浅色T恤在同一人物之间不匹配，且无换衣动作或其他正常原因，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "文本明确要求同一男子连续出现在四镜头，且没有换衣动作或换装描述；因此其衣物类型和可见印字应能匹配。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了机位与光照变化；它们不能解释Shot3的扣领衬衫与Shot1/2、Shot4的圆领T恤差异，也不能解释胸前字样变化。没有可见换衣动作。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "衣着是提示词明确指定的同一男子的外观属性。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 2,
+    "units": 3,
+    "split_candidates": 1,
+    "clarified_units": 3,
+    "verdicts_by_scope": {
+      "cross_shot": {
+        "confirmed": 3,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "inconsistency_confirmed": 3
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 29215,
+      "cached_input_tokens": 0,
+      "output_tokens": 1805,
+      "reasoning_output_tokens": 202
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 29215,
+    "cached_input_tokens": 0,
+    "output_tokens": 1805,
+    "api_calls": 1,
+    "estimated_usd": 0.003824,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

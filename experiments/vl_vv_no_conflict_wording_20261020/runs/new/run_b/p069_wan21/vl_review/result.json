@@ -1,0 +1,867 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_069_pwSkfvXD_ug_s00037_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p069_wan21/vl_detection/result.json",
+  "source_detection_sha256": "75aed4b8adc11d1f354bb44ea9eda98569b16c9024924e942b7e5ee033a3b402",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中男子前进时，枪始终没有举到脸前；相关画面中枪位于胸前或更低，未符合“he moves forward with the large gray-and-black Angular firearm raised before his face”。",
+            "revision": "clarified",
+            "revision_note": "改正“未曾举到”这一概括：按可见关键帧描述枪位在胸前或更低；画面未显示枪举至脸前。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+            },
+            "requirement_applies": "Shot1直接要求男子前进时将枪举在脸前；这一要求适用于该镜头的前进动作。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 1,
+                "role": "supports",
+                "observation": "男子前进，双手在身侧，画面中枪未举至脸前。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "枪横在男子胸前，明显低于脸部。"
+              }
+            ],
+            "assessment": "所引文字明确要求前进时枪在脸前；关键帧显示枪位在胸前或更低，构成直接矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot4结尾未呈现“in the narrow green-brick stairwell”所要求的狭窄绿砖楼梯井；末段画面可见绿色隔墙及浅色上墙面，未见绿砖楼梯井环境。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "setting_environment",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "in the narrow green-brick stairwell"
+            },
+            "requirement_applies": "Shot4直接要求以两人处于狭窄绿砖楼梯井内作为结尾；该要求适用于镜头末段。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "两人在绿色隔墙与浅色墙面围成的楼梯区域，画面未见绿砖墙面。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "末帧仍是绿色隔墙和浅色墙面，未呈现绿砖楼梯井。"
+              }
+            ],
+            "assessment": "末段环境与明确要求的狭窄绿砖楼梯井不符；可见墙面不是绿砖。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot4结尾未能清楚呈现“its diagonal metal handrail”所要求的斜向金属扶手；画面右侧可见斜向绿色栏板或边缘，但无法确认其为金属扶手。",
+            "revision": "clarified",
+            "revision_note": "修正“未见扶手”的绝对表述：右侧可见斜向结构，但其是否为金属扶手无法从画面确认。",
+            "subcategory": "presence_count",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "beside its diagonal metal handrail"
+            },
+            "requirement_applies": "Shot4直接要求结尾两人位于楼梯井内并靠近斜向金属扶手。",
+            "verdict": "uncertain",
+            "basis": "not_verifiable",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 4,
+                "role": "context",
+                "observation": "右侧可见斜向绿色栏板或边缘，但未能辨认出独立的金属扶手。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "context",
+                "observation": "画面右上仍有斜向结构，其材质与是否为扶手无法确定。"
+              }
+            ],
+            "assessment": "斜向结构可见，但画面不足以确认其材质及功能；因此不能确定金属扶手要求是否被违反。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot4中两人虽然向下移动并在较低的楼梯区域继续扭打，但关键帧未清楚显示他们翻滚至平台下；结尾两人仍是低蹲、相互搂持扭打的姿势，而非清楚可见的纠缠身体结尾。",
+            "revision": "clarified",
+            "revision_note": "合并候选项描述的连续结尾动作问题，并将“倒地”修正为可见的低蹲、相互搂持状态。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "then tumble below the landing"
+            },
+            "requirement_applies": "Shot4要求两名扭打者随后翻滚至平台下方，并在镜头结尾呈现纠缠身体。",
+            "verdict": "uncertain",
+            "basis": "not_verifiable",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "context",
+                "observation": "两人在平台附近保持贴身扭打，身体向下移动。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "context",
+                "observation": "两人在楼梯区域低处蹲伏并相互搂持；关键帧没有清楚显示翻滚过程，末帧也未明确呈现倒地的纠缠身体。"
+              }
+            ],
+            "assessment": "画面显示两人向下移动并在低处扭打，但关键帧不足以判定他们是否翻滚至平台下；末帧姿势也无法确定是否满足“纠缠身体”的要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot1中枪未曾举到男子脸前。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0001",
+            "pb0005"
+          ],
+          "observation": "枪在男子胸前及身体下方，没有举至脸前。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0001",
+            "pb0005"
+          ],
+          "observation": "枪在男子胸前及身体下方，没有举至脸前。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+          }
+        ],
+        "expected": "男子前进时将枪举在脸前。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "RL:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              }
+            ],
+            "observed": "枪在男子胸前及身体下方，没有举至脸前。",
+            "mismatch": "实际枪位低于脸部，未达到脸前位置。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4结尾没有呈现绿砖楼梯井。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0015",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0015"
+          ],
+          "observation": "结尾显示绿色涂漆的平台隔墙与左侧砖墙，不是绿砖楼梯井。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0015"
+          ],
+          "observation": "结尾显示绿色涂漆的平台隔墙与左侧砖墙，不是绿砖楼梯井。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "in the narrow green-brick stairwell"
+          }
+        ],
+        "expected": "结尾在狭窄的绿砖楼梯井内。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Location 2@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 4
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "结尾显示绿色涂漆的平台隔墙与左侧砖墙，不是绿砖楼梯井。",
+            "mismatch": "画面未呈现要求的绿砖楼梯井环境。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Location 2@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot4未见要求的金属扶手。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0018",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0018"
+          ],
+          "observation": "右侧仅见绿色隔墙边缘，未见金属扶手。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0018"
+          ],
+          "observation": "右侧仅见绿色隔墙边缘，未见金属扶手。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "beside its diagonal metal handrail"
+          }
+        ],
+        "expected": "结尾可见斜向金属扶手。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Object 12@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 4
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧仅见绿色隔墙边缘，未见金属扶手。",
+            "mismatch": "要求的金属扶手缺失。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 12@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4两人未翻滚至平台下，结尾也未呈现纠缠倒地状态。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0009",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0010",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0017",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0009",
+            "pb0010",
+            "pb0017"
+          ],
+          "observation": "两人虽有搏斗并下降，但末帧仍在平台上蹲伏、互相搂持。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0009",
+            "pb0010",
+            "pb0017"
+          ],
+          "observation": "两人虽有搏斗并下降，但末帧仍在平台上蹲伏、互相搂持。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "then tumble below the landing"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "ending on their tangled bodies"
+          }
+        ],
+        "expected": "两人翻滚至平台下，镜头结束于纠缠身体。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "RL:Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "两人虽有搏斗并下降，但末帧仍在平台上蹲伏、互相搂持。",
+            "mismatch": "没有显示翻滚至平台下，末帧也不是纠缠倒地的身体。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Red-and-black jacket man",
+      "description": "Man with short swept-back dark hair and a fitted high-collared red-and-black patterned jacket.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Angular firearm",
+      "description": "Large gray-and-black angular firearm with bulky textured casing.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0015",
+      "global_entity_id": "pb0015",
+      "source": "detection_ledger",
+      "name": "Green-brick stairwell",
+      "description": "Narrow green-brick stairwell reached by the struggle.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Location 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0018",
+      "global_entity_id": "pb0018",
+      "source": "detection_ledger",
+      "name": "Diagonal metal handrail",
+      "description": "Diagonal metal handrail in the stairwell.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 12",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0009",
+      "global_entity_id": "pb0009",
+      "source": "detection_ledger",
+      "name": "Red-suited masked adult",
+      "description": "Masked adult in a fitted red-and-dark full suit and dark boots.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0010",
+      "global_entity_id": "pb0010",
+      "source": "detection_ledger",
+      "name": "Long-coat adult",
+      "description": "Adult wearing a loose gray-brown coat over dark trousers.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0017",
+      "global_entity_id": "pb0017",
+      "source": "detection_ledger",
+      "name": "Stair landing",
+      "description": "Landing below which the adults tumble.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 11",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1中男子前进时，枪始终没有举到脸前；相关画面中枪位于胸前或更低，未符合“he moves forward with the large gray-and-black Angular firearm raised before his face”。",
+      "original_description": "Shot1中枪未曾举到男子脸前。",
+      "revision": "clarified",
+      "revision_note": "改正“未曾举到”这一概括：按可见关键帧描述枪位在胸前或更低；画面未显示枪举至脸前。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "男子前进，双手在身侧，画面中枪未举至脸前。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "枪横在男子胸前，明显低于脸部。"
+        }
+      ],
+      "assessment": "所引文字明确要求前进时枪在脸前；关键帧显示枪位在胸前或更低，构成直接矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot1直接要求男子前进时将枪举在脸前；这一要求适用于该镜头的前进动作。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot4结尾未呈现“in the narrow green-brick stairwell”所要求的狭窄绿砖楼梯井；末段画面可见绿色隔墙及浅色上墙面，未见绿砖楼梯井环境。",
+      "original_description": "Shot4结尾没有呈现绿砖楼梯井。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "两人在绿色隔墙与浅色墙面围成的楼梯区域，画面未见绿砖墙面。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "末帧仍是绿色隔墙和浅色墙面，未呈现绿砖楼梯井。"
+        }
+      ],
+      "assessment": "末段环境与明确要求的狭窄绿砖楼梯井不符；可见墙面不是绿砖。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "in the narrow green-brick stairwell"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4直接要求以两人处于狭窄绿砖楼梯井内作为结尾；该要求适用于镜头末段。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0015",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot4结尾未能清楚呈现“its diagonal metal handrail”所要求的斜向金属扶手；画面右侧可见斜向绿色栏板或边缘，但无法确认其为金属扶手。",
+      "original_description": "Shot4未见要求的金属扶手。",
+      "revision": "clarified",
+      "revision_note": "修正“未见扶手”的绝对表述：右侧可见斜向结构，但其是否为金属扶手无法从画面确认。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "uncertain",
+      "basis": "not_verifiable",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 4,
+          "role": "context",
+          "observation": "右侧可见斜向绿色栏板或边缘，但未能辨认出独立的金属扶手。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "context",
+          "observation": "画面右上仍有斜向结构，其材质与是否为扶手无法确定。"
+        }
+      ],
+      "assessment": "斜向结构可见，但画面不足以确认其材质及功能；因此不能确定金属扶手要求是否被违反。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "beside its diagonal metal handrail"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4直接要求结尾两人位于楼梯井内并靠近斜向金属扶手。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0018",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4中两人虽然向下移动并在较低的楼梯区域继续扭打，但关键帧未清楚显示他们翻滚至平台下；结尾两人仍是低蹲、相互搂持扭打的姿势，而非清楚可见的纠缠身体结尾。",
+      "original_description": "Shot4两人未翻滚至平台下，结尾也未呈现纠缠倒地状态。",
+      "revision": "clarified",
+      "revision_note": "合并候选项描述的连续结尾动作问题，并将“倒地”修正为可见的低蹲、相互搂持状态。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "uncertain",
+      "basis": "not_verifiable",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "context",
+          "observation": "两人在平台附近保持贴身扭打，身体向下移动。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "context",
+          "observation": "两人在楼梯区域低处蹲伏并相互搂持；关键帧没有清楚显示翻滚过程，末帧也未明确呈现倒地的纠缠身体。"
+        }
+      ],
+      "assessment": "画面显示两人向下移动并在低处扭打，但关键帧不足以判定他们是否翻滚至平台下；末帧姿势也无法确定是否满足“纠缠身体”的要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "then tumble below the landing"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4要求两名扭打者随后翻滚至平台下方，并在镜头结尾呈现纠缠身体。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0009",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0010",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0017",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 4,
+    "split_candidates": 0,
+    "clarified_units": 3,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 2,
+        "rejected": 0,
+        "uncertain": 2
+      }
+    },
+    "bases": {
+      "requirement_violated": 2,
+      "not_verifiable": 2
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 36410,
+      "cached_input_tokens": 0,
+      "output_tokens": 2143,
+      "reasoning_output_tokens": 455
+    },
+    {
+      "input_tokens": 40639,
+      "cached_input_tokens": 36407,
+      "output_tokens": 1523,
+      "reasoning_output_tokens": 140
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 40642,
+    "cached_input_tokens": 36407,
+    "output_tokens": 3666,
+    "api_calls": 2,
+    "estimated_usd": 0.00626127,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 2,
+  "repair_rounds": 1
+}

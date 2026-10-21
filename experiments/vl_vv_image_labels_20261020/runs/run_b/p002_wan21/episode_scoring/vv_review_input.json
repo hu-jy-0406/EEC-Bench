@@ -1,0 +1,653 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_image_labels_20261020/runs/run_b/p002_wan21/vv_detection/result.json",
+  "source_detection_sha256": "bb764bc431076d14ac0ed8c7186cad68b1a112eb9fd537ebde6091bacbe7be17",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vv",
+    "reviews": [
+      {
+        "issue_id": "V1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V1",
+            "description": "同一男子在不同镜头中的发型及上衣不一致：Shot1、Shot2为较蓬松的卷发和蓝灰短袖T恤，Shot3为轮廓更短整的卷发及深蓝灰扣领长袖衬衫，Shot4则为紧密短卷发和浅蓝灰短袖T恤。",
+            "revision": "clarified",
+            "revision_note": "明确列出各镜头可见的发型与衣着差异；以视觉证据为准，未沿用不准确的“褪色”描述。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "这些镜头按文本呈现同一男子；比较各镜头中该男子的头发和上衣。",
+            "normal_cause": "none",
+            "normal_cause_note": "已检查机位、光照、可见动作及镜头间时间；这些因素不能解释上衣款式变化，也没有镜头内换装或改变发型的动作。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿蓝灰短袖T恤，头发为较蓬松的卷发。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子仍穿蓝灰短袖T恤，头发较蓬松外扩。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿深蓝灰扣领长袖衬衫，头发轮廓较短整。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子穿浅蓝灰短袖T恤，头发为紧密短卷发。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "文本明确要求四镜头保持同一男子；其头发和衣着属于该角色。"
+              }
+            ],
+            "assessment": "四镜头属于同一男子，但上衣款式和颜色明显不同，发型轮廓也有差异；没有可见动作或其他正常原因解释，故确认。"
+          }
+        ]
+      },
+      {
+        "issue_id": "V2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V2",
+            "description": "同一男子在Shot1、Shot2、Shot3与Shot4之间面部身份特征不一致，Shot4的脸部比例及整体面貌与Shot1至Shot3所见男子明显不同。",
+            "revision": "clarified",
+            "revision_note": "收束为候选所述的跨镜头身份差异，并将主要对比明确为Shot4与Shot1至Shot3；不把发型或衣着作为身份差异的决定依据。",
+            "scope": "cross_shot",
+            "subcategory": "character_identity",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "文本明确要求四镜头为同一男子；比较各镜头男子的面部轮廓和五官整体组合。",
+            "normal_cause": "none",
+            "normal_cause_note": "已考虑不同机位、表情及光照可能造成的观感变化；这些变化不足以解释Shot4与此前镜头在面部整体比例上的明显差异。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子面部偏长，肤色较深，具有浓密卷发和厚胡须。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子面部较宽，头发外扩；肤色观感受明亮照明影响，但整体面部与Shot1不同。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子面部轮廓及五官比例与Shot1、Shot2所见存在差别。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子面部比例及五官组合与Shot1至Shot3明显不同；光照和视角变化不能完全解释差别。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "文本明确要求四镜头保持同一男子；其面部身份特征属于该角色。"
+              }
+            ],
+            "assessment": "跨镜头可见的面部整体比例与五官组合不一致，尤其Shot4与此前镜头差异明显；机位、表情和光照不能充分解释，故确认身份漂移。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子跨镜头发型和上衣款式、色调不一致：Shot1-2为蓝灰短袖，Shot3为深色扣领长袖，Shot4又为浅蓝灰短袖；发型轮廓亦变化。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "短卷黑发，褪色蓝灰短袖T恤。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "短卷黑发，深蓝灰长袖扣领衬衫。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "紧密卷发，浅蓝灰短袖T恤。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c5"
+        ],
+        "changes": [
+          {
+            "change_id": "c5",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "clothing_hair",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "同一人物各镜头发型形态及上衣款式、颜色显著不同；没有镜头内换装过程。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "跨镜头发型、衣领及袖长/色调变化，无可见换装或合理解释。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X3"
+        ]
+      }
+    },
+    {
+      "issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "被指定为同一人的四个镜头面貌并不稳定，尤其Shot4与Shot1-3的脸型、肤色观感及五官组合差异明显，不能由机位或表情解释。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "面部偏长，肤色较深，浓密卷发及厚胡须。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "面部较宽，头发蓬松外扩，浓密胡须。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "面部轮廓、发际及五官比例与前镜头存在差异。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "肤色观感较浅，短紧卷发，脸部比例及五官组合明显不同。"
+        }
+      ],
+      "confidence": "medium",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c6"
+        ],
+        "changes": [
+          {
+            "change_id": "c6",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "Shot1-3面部结构有一定差异，Shot4的脸型、肤色观感及五官组合与前镜头更明显不同。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "跨镜头面部外观不能稳定对应为同一人物；机位与表情变化不足以解释差异。",
+            "cause_quote": "",
+            "issue_id": "V2"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X8"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "合同绑定的跨镜头男性角色。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 1",
+      "quote": null,
+      "part_of": null,
+      "note": "角色由合同实体绑定。"
+    },
+    {
+      "entity_key": "pb0002",
+      "global_entity_id": "pb0002",
+      "source": "detection_ledger",
+      "name": "Warm room",
+      "description": "跨镜头暖色室内空间。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Location 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Location 1",
+      "quote": null,
+      "part_of": null,
+      "note": "场景由合同实体绑定。"
+    },
+    {
+      "entity_key": "pb0003",
+      "global_entity_id": "pb0003",
+      "source": "detection_ledger",
+      "name": "Beige sofa",
+      "description": "跨镜头浅米色沙发。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 1",
+      "quote": null,
+      "part_of": null,
+      "note": "沙发由合同实体绑定。"
+    },
+    {
+      "entity_key": "pb0004",
+      "global_entity_id": "pb0004",
+      "source": "detection_ledger",
+      "name": "Wooden doorway",
+      "description": "Shot1及Shot3可见的木门框。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 2",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 2",
+      "quote": null,
+      "part_of": null,
+      "note": "门框由合同实体绑定。"
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Dark foreground shape",
+      "description": "画面边缘暗色前景遮挡。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 3",
+      "quote": null,
+      "part_of": null,
+      "note": "图像无法确认两镜头暗形是否同一物体。"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子在不同镜头中的发型及上衣不一致：Shot1、Shot2为较蓬松的卷发和蓝灰短袖T恤，Shot3为轮廓更短整的卷发及深蓝灰扣领长袖衬衫，Shot4则为紧密短卷发和浅蓝灰短袖T恤。",
+      "original_description": "同一男子跨镜头发型和上衣款式、色调不一致：Shot1-2为蓝灰短袖，Shot3为深色扣领长袖，Shot4又为浅蓝灰短袖；发型轮廓亦变化。",
+      "revision": "clarified",
+      "revision_note": "明确列出各镜头可见的发型与衣着差异；以视觉证据为准，未沿用不准确的“褪色”描述。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿蓝灰短袖T恤，头发为较蓬松的卷发。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子仍穿蓝灰短袖T恤，头发较蓬松外扩。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿深蓝灰扣领长袖衬衫，头发轮廓较短整。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子穿浅蓝灰短袖T恤，头发为紧密短卷发。"
+        }
+      ],
+      "assessment": "四镜头属于同一男子，但上衣款式和颜色明显不同，发型轮廓也有差异；没有可见动作或其他正常原因解释，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "这些镜头按文本呈现同一男子；比较各镜头中该男子的头发和上衣。",
+        "normal_cause": "none",
+        "normal_cause_note": "已检查机位、光照、可见动作及镜头间时间；这些因素不能解释上衣款式变化，也没有镜头内换装或改变发型的动作。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "文本明确要求四镜头保持同一男子；其头发和衣着属于该角色。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一男子在Shot1、Shot2、Shot3与Shot4之间面部身份特征不一致，Shot4的脸部比例及整体面貌与Shot1至Shot3所见男子明显不同。",
+      "original_description": "被指定为同一人的四个镜头面貌并不稳定，尤其Shot4与Shot1-3的脸型、肤色观感及五官组合差异明显，不能由机位或表情解释。",
+      "revision": "clarified",
+      "revision_note": "收束为候选所述的跨镜头身份差异，并将主要对比明确为Shot4与Shot1至Shot3；不把发型或衣着作为身份差异的决定依据。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子面部偏长，肤色较深，具有浓密卷发和厚胡须。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子面部较宽，头发外扩；肤色观感受明亮照明影响，但整体面部与Shot1不同。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子面部轮廓及五官比例与Shot1、Shot2所见存在差别。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子面部比例及五官组合与Shot1至Shot3明显不同；光照和视角变化不能完全解释差别。"
+        }
+      ],
+      "assessment": "跨镜头可见的面部整体比例与五官组合不一致，尤其Shot4与此前镜头差异明显；机位、表情和光照不能充分解释，故确认身份漂移。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "文本明确要求四镜头为同一男子；比较各镜头男子的面部轮廓和五官整体组合。",
+        "normal_cause": "none",
+        "normal_cause_note": "已考虑不同机位、表情及光照可能造成的观感变化；这些变化不足以解释Shot4与此前镜头在面部整体比例上的明显差异。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "文本明确要求四镜头保持同一男子；其面部身份特征属于该角色。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 2,
+    "units": 2,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "cross_shot": {
+        "confirmed": 2,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "inconsistency_confirmed": 2
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 29241,
+      "cached_input_tokens": 0,
+      "output_tokens": 1259,
+      "reasoning_output_tokens": 164
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 29241,
+    "cached_input_tokens": 0,
+    "output_tokens": 1259,
+    "api_calls": 1,
+    "estimated_usd": 0.0035536,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

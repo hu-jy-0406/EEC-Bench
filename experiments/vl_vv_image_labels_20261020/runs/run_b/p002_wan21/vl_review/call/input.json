@@ -1,0 +1,3859 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "candidate_issues": [
+    {
+      "issue_id": "L1",
+      "subcategory": "attribute",
+      "summary": "Shot2男子头发长度不符合短发描述。",
+      "requirement_quotes": [
+        {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "short curly black hair"
+        }
+      ],
+      "expected": "男子为短卷黑发。",
+      "occurrences": [
+        {
+          "shot_id": "Shot2",
+          "row_ids": [
+            "EN:Character 1@Shot2"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot2",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot2",
+              "frame_id": 5
+            }
+          ],
+          "observed": "头发蓬松卷曲并明显较长，向两侧扩展。",
+          "mismatch": "可见头发并非短发。"
+        }
+      ],
+      "entity_keys": [
+        "pb0001"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Character 1@Shot2",
+          "kind": "entity",
+          "shot_id": "Shot2",
+          "entity_label": "Character 1",
+          "name": "Bearded man",
+          "ledger_entity_ids": [
+            "pb0001"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+            },
+            {
+              "item_id": "p21",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The Bearded man is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the Bearded man on the same Beige sofa"
+              ]
+            },
+            {
+              "item_id": "c203",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "hair_texture",
+              "expected": "His hair is curly.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "his curly hair"
+              ]
+            },
+            {
+              "item_id": "c204",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "beard",
+              "expected": "He has a full beard.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "full beard"
+              ]
+            },
+            {
+              "item_id": "c205",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "shirt_color",
+              "expected": "He wears a blue-gray shirt.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "blue-gray shirt"
+              ]
+            },
+            {
+              "item_id": "c208",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "move_mouth",
+              "expected": "He makes a small mouth movement.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "he makes a brief small mouth movement"
+              ]
+            },
+            {
+              "item_id": "c209",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "lower_gaze",
+              "expected": "He lowers his gaze.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "lowers his gaze"
+              ]
+            },
+            {
+              "item_id": "c210",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "tilt_head",
+              "expected": "He tilts his head slightly.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "tilts his head and upper body slightly"
+              ]
+            },
+            {
+              "item_id": "c211",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "tilt_upper_body",
+              "expected": "He tilts his upper body slightly.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "tilts his head and upper body slightly"
+              ]
+            },
+            {
+              "item_id": "c212",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "fold_arms",
+              "expected": "He folds his arms across his chest.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "folds his arms across his chest"
+              ]
+            },
+            {
+              "item_id": "c213",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "settle_back",
+              "expected": "He settles back.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "He settles back with his lips closed and arms still crossed."
+              ]
+            },
+            {
+              "item_id": "c214",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "lips_closed",
+              "expected": "His lips are closed as he settles back.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "He settles back with his lips closed and arms still crossed."
+              ]
+            },
+            {
+              "item_id": "c215",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "arms_crossed",
+              "expected": "His arms remain crossed as he settles back.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p21"
+              ],
+              "quotes": [
+                "He settles back with his lips closed and arms still crossed."
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L2",
+      "subcategory": "camera_composition",
+      "summary": "Shot2为正面近景，未呈现要求的斜向视角。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "A closer oblique view"
+        }
+      ],
+      "expected": "近景斜向视角。",
+      "occurrences": [
+        {
+          "shot_id": "Shot2",
+          "row_ids": [
+            "SP:Shot2"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot2",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot2",
+              "frame_id": 5
+            }
+          ],
+          "observed": "人物面向镜头，近似正面近景。",
+          "mismatch": "画面没有呈现明显的斜向机位。"
+        }
+      ],
+      "entity_keys": [],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "SP:Shot2",
+          "kind": "shot_text",
+          "shot_id": "Shot2",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "A closer oblique view of the Bearded man on the same Beige sofa shows his curly hair, full beard and blue-gray shirt against softly blurred warm wood tones. During five seconds, he makes a brief small mouth movement, lowers his gaze, tilts his head and upper body slightly, and folds his arms across his chest. He settles back with his lips closed and arms still crossed."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    },
+    {
+      "issue_id": "L3",
+      "subcategory": "attribute",
+      "summary": "Shot3男子穿深蓝色翻领长袖衬衫，而非描述的蓝灰色T恤。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "faded blue-gray T-shirt"
+        },
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "his blue-gray shirt"
+        }
+      ],
+      "expected": "男子穿褪色蓝灰色T恤。",
+      "occurrences": [
+        {
+          "shot_id": "Shot3",
+          "row_ids": [
+            "EN:Character 1@Shot3"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot3",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot3",
+              "frame_id": 5
+            }
+          ],
+          "observed": "男子穿深蓝色翻领长袖衬衫。",
+          "mismatch": "衣物是深蓝色有领衬衫，不是褪色蓝灰色T恤。"
+        }
+      ],
+      "entity_keys": [
+        "pb0001"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Character 1@Shot3",
+          "kind": "entity",
+          "shot_id": "Shot3",
+          "entity_label": "Character 1",
+          "name": "Bearded man",
+          "ledger_entity_ids": [
+            "pb0001"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+            },
+            {
+              "item_id": "p31",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The Bearded man is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the Bearded man sits against the Beige sofa"
+              ]
+            },
+            {
+              "item_id": "c306",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "arms_crossed_steady",
+              "expected": "His arms stay firmly crossed over his shirt.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his arms firmly crossed over his blue-gray shirt",
+                "Keep his seated posture and folded arms steady."
+              ]
+            },
+            {
+              "item_id": "c307",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "shirt_color",
+              "expected": "His shirt is blue-gray.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his blue-gray shirt"
+              ]
+            },
+            {
+              "item_id": "c313",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "eyes_lowered",
+              "expected": "His eyes are initially lowered.",
+              "quantifier": "start",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his initially lowered eyes"
+              ]
+            },
+            {
+              "item_id": "c314",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "open_eyes",
+              "expected": "He opens his initially lowered eyes.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "he opens his initially lowered eyes"
+              ]
+            },
+            {
+              "item_id": "c315",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "glance_left",
+              "expected": "He glances toward screen left.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "glances toward screen left"
+              ]
+            },
+            {
+              "item_id": "c316",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "return_gaze",
+              "expected": "He returns his gaze toward the front and slightly right.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "returns his gaze toward the front and slightly right"
+              ]
+            },
+            {
+              "item_id": "c317",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "maintain_seated_posture",
+              "expected": "He keeps his seated posture steady.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "Keep his seated posture and folded arms steady."
+              ]
+            },
+            {
+              "item_id": "c318",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "beard",
+              "expected": "The man has a beard.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "the Bearded man"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "issue_id": "L4",
+      "subcategory": "action_state",
+      "summary": "Shot3男子朝画面右方看，没有按要求朝画面左方瞥视。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "glances toward screen left"
+        }
+      ],
+      "expected": "男子朝画面左方瞥视。",
+      "occurrences": [
+        {
+          "shot_id": "Shot3",
+          "row_ids": [
+            "EN:Character 1@Shot3",
+            "SP:Shot3"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot3",
+              "frame_id": 2
+            },
+            {
+              "shot_id": "Shot3",
+              "frame_id": 5
+            }
+          ],
+          "observed": "睁眼后视线朝画面右侧，后续仍朝前偏右。",
+          "mismatch": "可见视线方向与要求的画面左侧相反。"
+        }
+      ],
+      "entity_keys": [
+        "pb0001"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Character 1@Shot3",
+          "kind": "entity",
+          "shot_id": "Shot3",
+          "entity_label": "Character 1",
+          "name": "Bearded man",
+          "ledger_entity_ids": [
+            "pb0001"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering."
+            },
+            {
+              "item_id": "p31",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The Bearded man is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the Bearded man sits against the Beige sofa"
+              ]
+            },
+            {
+              "item_id": "c306",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "arms_crossed_steady",
+              "expected": "His arms stay firmly crossed over his shirt.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his arms firmly crossed over his blue-gray shirt",
+                "Keep his seated posture and folded arms steady."
+              ]
+            },
+            {
+              "item_id": "c307",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "shirt_color",
+              "expected": "His shirt is blue-gray.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his blue-gray shirt"
+              ]
+            },
+            {
+              "item_id": "c313",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "eyes_lowered",
+              "expected": "His eyes are initially lowered.",
+              "quantifier": "start",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "his initially lowered eyes"
+              ]
+            },
+            {
+              "item_id": "c314",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "open_eyes",
+              "expected": "He opens his initially lowered eyes.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "he opens his initially lowered eyes"
+              ]
+            },
+            {
+              "item_id": "c315",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "glance_left",
+              "expected": "He glances toward screen left.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "glances toward screen left"
+              ]
+            },
+            {
+              "item_id": "c316",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "return_gaze",
+              "expected": "He returns his gaze toward the front and slightly right.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "returns his gaze toward the front and slightly right"
+              ]
+            },
+            {
+              "item_id": "c317",
+              "kind": "claim",
+              "dimension": "motion",
+              "predicate": "maintain_seated_posture",
+              "expected": "He keeps his seated posture steady.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "Keep his seated posture and folded arms steady."
+              ]
+            },
+            {
+              "item_id": "c318",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "beard",
+              "expected": "The man has a beard.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Character 1"
+              ],
+              "depends_on": [
+                "p31"
+              ],
+              "quotes": [
+                "the Bearded man"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot3",
+          "kind": "shot_text",
+          "shot_id": "Shot3",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "Back in the medium view of the same warm, pale-walled room, the Bearded man sits against the Beige sofa with his arms firmly crossed over his blue-gray shirt. The wooden doorway remains behind him and the blurred dark shape stays at the right foreground edge. Over five seconds, he opens his initially lowered eyes, glances toward screen left, then returns his gaze toward the front and slightly right. Keep his seated posture and folded arms steady."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    },
+    {
+      "issue_id": "L5",
+      "subcategory": "presence_count",
+      "summary": "Shot3右侧未见要求持续出现在右前景边缘的暗色形状。",
+      "requirement_quotes": [
+        {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "the blurred dark shape stays at the right foreground edge"
+        }
+      ],
+      "expected": "暗色形状持续位于画面右侧前景边缘。",
+      "occurrences": [
+        {
+          "shot_id": "Shot3",
+          "row_ids": [
+            "EN:Object 3@Shot3",
+            "SP:Shot3"
+          ],
+          "frame_refs": [
+            {
+              "shot_id": "Shot3",
+              "frame_id": 0
+            },
+            {
+              "shot_id": "Shot3",
+              "frame_id": 5
+            }
+          ],
+          "observed": "画面右侧为浅色墙面和沙发，没有明显暗色前景形状。",
+          "mismatch": "要求的暗色前景形状缺失。"
+        }
+      ],
+      "entity_keys": [
+        "pb0005"
+      ],
+      "confidence": "high",
+      "template_rows": [
+        {
+          "row_id": "EN:Object 3@Shot3",
+          "kind": "entity",
+          "shot_id": "Shot3",
+          "entity_label": "Object 3",
+          "name": "Dark foreground shape",
+          "ledger_entity_ids": [
+            "pb0005"
+          ],
+          "items": [
+            {
+              "item_id": "description",
+              "kind": "entity_description",
+              "text": "Unidentified dark shape at the right foreground edge in Shots1 and 3."
+            },
+            {
+              "item_id": "p35",
+              "kind": "claim",
+              "dimension": "presence",
+              "predicate": "present",
+              "expected": "The dark foreground shape is visible.",
+              "quantifier": "exists",
+              "entity_labels": [
+                "Object 3"
+              ],
+              "depends_on": [],
+              "quotes": [
+                "the blurred dark shape stays at the right foreground edge"
+              ]
+            },
+            {
+              "item_id": "c310",
+              "kind": "claim",
+              "dimension": "appearance",
+              "predicate": "darkness",
+              "expected": "The foreground shape is dark.",
+              "quantifier": "when_visible",
+              "entity_labels": [
+                "Object 3"
+              ],
+              "depends_on": [
+                "p35"
+              ],
+              "quotes": [
+                "the blurred dark shape"
+              ]
+            },
+            {
+              "item_id": "c311",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "screen_position",
+              "expected": "The shape stays at the right edge of the frame.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Object 3"
+              ],
+              "depends_on": [
+                "p35"
+              ],
+              "quotes": [
+                "the blurred dark shape stays at the right foreground edge"
+              ]
+            },
+            {
+              "item_id": "c312",
+              "kind": "claim",
+              "dimension": "spatial",
+              "predicate": "depth_position",
+              "expected": "The shape stays in the foreground.",
+              "quantifier": "throughout",
+              "entity_labels": [
+                "Object 3"
+              ],
+              "depends_on": [
+                "p35"
+              ],
+              "quotes": [
+                "the blurred dark shape stays at the right foreground edge"
+              ]
+            }
+          ]
+        },
+        {
+          "row_id": "SP:Shot3",
+          "kind": "shot_text",
+          "shot_id": "Shot3",
+          "items": [
+            {
+              "item_id": "text",
+              "kind": "shot_text",
+              "text": "Back in the medium view of the same warm, pale-walled room, the Bearded man sits against the Beige sofa with his arms firmly crossed over his blue-gray shirt. The wooden doorway remains behind him and the blurred dark shape stays at the right foreground edge. Over five seconds, he opens his initially lowered eyes, glances toward screen left, then returns his gaze toward the front and slightly right. Keep his seated posture and folded arms steady."
+            }
+          ],
+          "note": "Every other explicit requirement of this shot prompt, and of the global prompt where it applies to this shot, not covered by the other rows of this shot."
+        }
+      ]
+    }
+  ],
+  "entity_index": [
+    {
+      "entity_key": "pb0001",
+      "name": "Bearded man",
+      "description": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Character 1"
+    },
+    {
+      "entity_key": "pb0005",
+      "name": "Dark foreground shape",
+      "description": "Unidentified dark shape at the right foreground edge in Shots1 and 3.",
+      "source": "detection_ledger",
+      "detection_partition": "prompt_bound",
+      "prompt_entity_id": "Object 3"
+    }
+  ],
+  "original_prompt": {
+    "global_prompt": "Maintain the same man and room across four five-second shots: a lowered gaze lifts, his arms fold, he glances sideways with arms crossed, then makes small mouth movements and leans forward.",
+    "shots": [
+      {
+        "shot_id": "Shot1",
+        "schedule_key": "1:1",
+        "text": "In a dim, warmly lit room, the Bearded man sits back on the Beige sofa, arms resting low. He has medium-brown skin, short curly black hair, a thick beard and mustache, and a faded blue-gray T-shirt with small outlined chest lettering. Hold a medium view with him left of center, a wooden doorway softly visible behind him and a dark blurred shape at the right foreground edge. Over five seconds, he lifts his lowered gaze toward screen right while keeping his torso relaxed and his mouth closed."
+      },
+      {
+        "shot_id": "Shot2",
+        "schedule_key": "1:2",
+        "text": "A closer oblique view of the Bearded man on the same Beige sofa shows his curly hair, full beard and blue-gray shirt against softly blurred warm wood tones. During five seconds, he makes a brief small mouth movement, lowers his gaze, tilts his head and upper body slightly, and folds his arms across his chest. He settles back with his lips closed and arms still crossed."
+      },
+      {
+        "shot_id": "Shot3",
+        "schedule_key": "1:3",
+        "text": "Back in the medium view of the same warm, pale-walled room, the Bearded man sits against the Beige sofa with his arms firmly crossed over his blue-gray shirt. The wooden doorway remains behind him and the blurred dark shape stays at the right foreground edge. Over five seconds, he opens his initially lowered eyes, glances toward screen left, then returns his gaze toward the front and slightly right. Keep his seated posture and folded arms steady."
+      },
+      {
+        "shot_id": "Shot4",
+        "schedule_key": "1:4",
+        "text": "The Bearded man remains on the same Beige sofa in the dim warm room, seen close from the oblique angle with the rounded sofa back and dark wooden background softly blurred. Start with his arms crossed and gaze lowered. Across five seconds he raises his chin slightly and makes small, nonspecific mouth movements, then leans his head and upper torso forward near the end. End during this forward lean."
+      }
+    ]
+  },
+  "contract_json": {
+    "schema_version": "episode_schedule_claims_v1",
+    "episode_id": "74S1Iw0gJrA_s00006_n4_clean_v2",
+    "entity_descriptions": {
+      "Character 1": {
+        "label": "Character 1",
+        "name": "Bearded man",
+        "description": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering.",
+        "evidence": [
+          {
+            "fact_id": "global",
+            "quote": "Maintain the same man and room across four five-second shots"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "He has medium-brown skin, short curly black hair, a thick beard and mustache, and a faded blue-gray T-shirt with small outlined chest lettering."
+          }
+        ]
+      },
+      "Location 1": {
+        "label": "Location 1",
+        "name": "Warm room",
+        "description": "The same room across all four shots; described as dim and warmly lit, with pale walls.",
+        "evidence": [
+          {
+            "fact_id": "global",
+            "quote": "Maintain the same man and room across four five-second shots"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "In a dim, warmly lit room"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          }
+        ]
+      },
+      "Object 1": {
+        "label": "Object 1",
+        "name": "Beige sofa",
+        "description": "The same beige sofa supporting the man; its rounded back is described in Shot4.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Beige sofa"
+          },
+          {
+            "fact_id": "Shot2",
+            "quote": "the same Beige sofa"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "the rounded sofa back"
+          }
+        ]
+      },
+      "Object 2": {
+        "label": "Object 2",
+        "name": "Wooden doorway",
+        "description": "Wooden doorway behind the man in Shots1 and 3.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a wooden doorway softly visible behind him"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "The wooden doorway remains behind him"
+          }
+        ]
+      },
+      "Object 3": {
+        "label": "Object 3",
+        "name": "Dark foreground shape",
+        "description": "Unidentified dark shape at the right foreground edge in Shots1 and 3.",
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark blurred shape at the right foreground edge"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ]
+      },
+      "Object 4": {
+        "label": "Object 4",
+        "name": "Warm wood-toned background",
+        "description": "Background described only as warm wood tones in Shot2.",
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "softly blurred warm wood tones"
+          }
+        ]
+      },
+      "Object 5": {
+        "label": "Object 5",
+        "name": "Pale room walls",
+        "description": "Pale walls of the room explicitly described in Shot3.",
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          }
+        ]
+      },
+      "Object 6": {
+        "label": "Object 6",
+        "name": "Dark wooden background",
+        "description": "Dark wooden background explicitly described in Shot4; not explicitly identified as the doorway or Shot2 background.",
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "dark wooden background softly blurred"
+          }
+        ]
+      }
+    },
+    "entity_schedule": {
+      "1:1": {
+        "characters": [
+          "Bearded man"
+        ],
+        "places": [
+          "Warm room"
+        ],
+        "objects": [
+          "Beige sofa",
+          "Wooden doorway",
+          "Dark foreground shape"
+        ]
+      },
+      "1:2": {
+        "characters": [
+          "Bearded man"
+        ],
+        "places": [
+          "Warm room"
+        ],
+        "objects": [
+          "Beige sofa",
+          "Warm wood-toned background"
+        ]
+      },
+      "1:3": {
+        "characters": [
+          "Bearded man"
+        ],
+        "places": [
+          "Warm room"
+        ],
+        "objects": [
+          "Beige sofa",
+          "Wooden doorway",
+          "Dark foreground shape",
+          "Pale room walls"
+        ]
+      },
+      "1:4": {
+        "characters": [
+          "Bearded man"
+        ],
+        "places": [
+          "Warm room"
+        ],
+        "objects": [
+          "Beige sofa",
+          "Dark wooden background"
+        ]
+      }
+    },
+    "claims": [
+      {
+        "claim_id": "p11",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The Bearded man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Bearded man sits back on the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p12",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The room is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "In a dim, warmly lit room"
+          }
+        ]
+      },
+      {
+        "claim_id": "p13",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The Beige sofa is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p14",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The wooden doorway is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a wooden doorway softly visible behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "p15",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "present",
+        "expected": "The dark foreground shape is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark blurred shape at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "p21",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The Bearded man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Bearded man on the same Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p22",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The same room is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "global",
+            "quote": "Maintain the same man and room across four five-second shots"
+          },
+          {
+            "fact_id": "Shot2",
+            "quote": "against softly blurred warm wood tones"
+          }
+        ]
+      },
+      {
+        "claim_id": "p23",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The Beige sofa is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the same Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p24",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "present",
+        "expected": "The warm wood-toned background is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "against softly blurred warm wood tones"
+          }
+        ]
+      },
+      {
+        "claim_id": "p31",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The Bearded man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the Bearded man sits against the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p32",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The same room is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          }
+        ]
+      },
+      {
+        "claim_id": "p33",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The Beige sofa is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p34",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The wooden doorway is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The wooden doorway remains behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "p35",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The dark foreground shape is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "p36",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "present",
+        "expected": "The room's walls are visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          }
+        ]
+      },
+      {
+        "claim_id": "p41",
+        "dimension": "presence",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The Bearded man is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Bearded man remains on the same Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "p42",
+        "dimension": "presence",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The same room is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "in the dim warm room"
+          }
+        ]
+      },
+      {
+        "claim_id": "p43",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The Beige sofa, including its back, is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the same Beige sofa"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "the rounded sofa back"
+          }
+        ]
+      },
+      {
+        "claim_id": "p44",
+        "dimension": "presence",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "present",
+        "expected": "The dark wooden background is visible.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "dark wooden background softly blurred"
+          }
+        ]
+      },
+      {
+        "claim_id": "c101",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "illumination_level",
+        "expected": "The room is dim.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p12"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim, warmly lit room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c102",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "lighting_color",
+        "expected": "The room is warmly lit.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p12"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim, warmly lit room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c103",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "seated_on",
+        "expected": "The man sits back on the sofa.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p11",
+          "p13"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "the Bearded man sits back on the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c104",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "arm_pose",
+        "expected": "His arms rest low.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "arms resting low"
+          }
+        ]
+      },
+      {
+        "claim_id": "c105",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "color",
+        "expected": "The sofa is beige.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p13"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c106",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "skin_color",
+        "expected": "He has medium-brown skin.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "medium-brown skin"
+          }
+        ]
+      },
+      {
+        "claim_id": "c107",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_length",
+        "expected": "His hair is short.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short curly black hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c108",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_texture",
+        "expected": "His hair is curly.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short curly black hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c109",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "hair_color",
+        "expected": "His hair is black.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "short curly black hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c110",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "beard",
+        "expected": "He has a thick beard.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a thick beard and mustache"
+          }
+        ]
+      },
+      {
+        "claim_id": "c111",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "mustache",
+        "expected": "He has a thick mustache.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a thick beard and mustache"
+          }
+        ]
+      },
+      {
+        "claim_id": "c112",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "garment_type",
+        "expected": "He wears a T-shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a faded blue-gray T-shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c113",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shirt_color",
+        "expected": "His T-shirt is blue-gray.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a faded blue-gray T-shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c114",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shirt_finish",
+        "expected": "His T-shirt looks faded.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a faded blue-gray T-shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c115",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "shirt_lettering",
+        "expected": "His T-shirt has lettering on the chest.",
+        "coordinate_frame": "entity",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "small outlined chest lettering"
+          }
+        ]
+      },
+      {
+        "claim_id": "c116",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "lettering_size",
+        "expected": "The chest lettering is small.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "small outlined chest lettering"
+          }
+        ]
+      },
+      {
+        "claim_id": "c117",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "lettering_form",
+        "expected": "The chest lettering is outlined.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "small outlined chest lettering"
+          }
+        ]
+      },
+      {
+        "claim_id": "c118",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "screen_position",
+        "expected": "The man is left of center.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "with him left of center"
+          }
+        ]
+      },
+      {
+        "claim_id": "c119",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "material",
+        "expected": "The doorway is wooden.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p14"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a wooden doorway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c120",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "behind",
+        "expected": "The doorway is behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p14",
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a wooden doorway softly visible behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "c121",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "darkness",
+        "expected": "The foreground shape is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "a dark blurred shape"
+          }
+        ]
+      },
+      {
+        "claim_id": "c122",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "screen_position",
+        "expected": "The shape is at the right edge of the frame.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c123",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "depth_position",
+        "expected": "The shape is in the foreground.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p15"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c124",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "gaze_direction",
+        "expected": "His gaze is initially lowered.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "he lifts his lowered gaze toward screen right"
+          }
+        ]
+      },
+      {
+        "claim_id": "c125",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "lift_gaze",
+        "expected": "He lifts his lowered gaze toward screen right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "he lifts his lowered gaze toward screen right"
+          }
+        ]
+      },
+      {
+        "claim_id": "c126",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "torso_pose",
+        "expected": "He keeps his torso relaxed.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "while keeping his torso relaxed and his mouth closed"
+          }
+        ]
+      },
+      {
+        "claim_id": "c127",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot1"
+        ],
+        "predicate": "mouth_state",
+        "expected": "He keeps his mouth closed.",
+        "coordinate_frame": "none",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p11"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot1",
+            "quote": "while keeping his torso relaxed and his mouth closed"
+          }
+        ]
+      },
+      {
+        "claim_id": "c201",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "seated_on",
+        "expected": "The man is seated on the same sofa.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21",
+          "p23"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Bearded man on the same Beige sofa"
+          },
+          {
+            "fact_id": "Shot2",
+            "quote": "He settles back with his lips closed and arms still crossed."
+          }
+        ]
+      },
+      {
+        "claim_id": "c202",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "color",
+        "expected": "The sofa is beige.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p23"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c203",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "hair_texture",
+        "expected": "His hair is curly.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "his curly hair"
+          }
+        ]
+      },
+      {
+        "claim_id": "c204",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "beard",
+        "expected": "He has a full beard.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "full beard"
+          }
+        ]
+      },
+      {
+        "claim_id": "c205",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "shirt_color",
+        "expected": "He wears a blue-gray shirt.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "blue-gray shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c206",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 4"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "color_and_surface",
+        "expected": "The background shows warm wood tones.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p24"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "warm wood tones"
+          }
+        ]
+      },
+      {
+        "claim_id": "c207",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 4",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "background_to",
+        "expected": "The warm wood tones form the background behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p24",
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "the Bearded man on the same Beige sofa shows his curly hair, full beard and blue-gray shirt against softly blurred warm wood tones"
+          }
+        ]
+      },
+      {
+        "claim_id": "c208",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "move_mouth",
+        "expected": "He makes a small mouth movement.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "he makes a brief small mouth movement"
+          }
+        ]
+      },
+      {
+        "claim_id": "c209",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "lower_gaze",
+        "expected": "He lowers his gaze.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "lowers his gaze"
+          }
+        ]
+      },
+      {
+        "claim_id": "c210",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "tilt_head",
+        "expected": "He tilts his head slightly.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tilts his head and upper body slightly"
+          }
+        ]
+      },
+      {
+        "claim_id": "c211",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "tilt_upper_body",
+        "expected": "He tilts his upper body slightly.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "tilts his head and upper body slightly"
+          }
+        ]
+      },
+      {
+        "claim_id": "c212",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "fold_arms",
+        "expected": "He folds his arms across his chest.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "folds his arms across his chest"
+          }
+        ]
+      },
+      {
+        "claim_id": "c213",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "settle_back",
+        "expected": "He settles back.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "He settles back with his lips closed and arms still crossed."
+          }
+        ]
+      },
+      {
+        "claim_id": "c214",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "lips_closed",
+        "expected": "His lips are closed as he settles back.",
+        "coordinate_frame": "none",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "He settles back with his lips closed and arms still crossed."
+          }
+        ]
+      },
+      {
+        "claim_id": "c215",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot2"
+        ],
+        "predicate": "arms_crossed",
+        "expected": "His arms remain crossed as he settles back.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p21"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot2",
+            "quote": "He settles back with his lips closed and arms still crossed."
+          }
+        ]
+      },
+      {
+        "claim_id": "c301",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "lighting_color",
+        "expected": "The room has warm illumination.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p32"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim, warmly lit room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c302",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 5"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "color",
+        "expected": "The room's walls are pale.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p36"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "pale-walled room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c303",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 5",
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "walls_of",
+        "expected": "The pale walls belong to the room.",
+        "coordinate_frame": "world",
+        "quantifier": "exists",
+        "depends_on": [
+          "p36",
+          "p32"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the same warm, pale-walled room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c304",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "seated_against",
+        "expected": "The man sits against the sofa.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p31",
+          "p33"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the Bearded man sits against the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c305",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "color",
+        "expected": "The sofa is beige.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p33"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c306",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "arms_crossed_steady",
+        "expected": "His arms stay firmly crossed over his shirt.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "his arms firmly crossed over his blue-gray shirt"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "Keep his seated posture and folded arms steady."
+          }
+        ]
+      },
+      {
+        "claim_id": "c307",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "shirt_color",
+        "expected": "His shirt is blue-gray.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "his blue-gray shirt"
+          }
+        ]
+      },
+      {
+        "claim_id": "c308",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 2"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "material",
+        "expected": "The doorway is wooden.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p34"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The wooden doorway"
+          }
+        ]
+      },
+      {
+        "claim_id": "c309",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 2",
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "behind",
+        "expected": "The doorway remains behind the man.",
+        "coordinate_frame": "camera",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p34",
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "The wooden doorway remains behind him"
+          }
+        ]
+      },
+      {
+        "claim_id": "c310",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "darkness",
+        "expected": "The foreground shape is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p35"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the blurred dark shape"
+          }
+        ]
+      },
+      {
+        "claim_id": "c311",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "screen_position",
+        "expected": "The shape stays at the right edge of the frame.",
+        "coordinate_frame": "screen",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p35"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c312",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 3"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "depth_position",
+        "expected": "The shape stays in the foreground.",
+        "coordinate_frame": "camera",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p35"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge"
+          }
+        ]
+      },
+      {
+        "claim_id": "c313",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "eyes_lowered",
+        "expected": "His eyes are initially lowered.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "his initially lowered eyes"
+          }
+        ]
+      },
+      {
+        "claim_id": "c314",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "open_eyes",
+        "expected": "He opens his initially lowered eyes.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "he opens his initially lowered eyes"
+          }
+        ]
+      },
+      {
+        "claim_id": "c315",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "glance_left",
+        "expected": "He glances toward screen left.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "glances toward screen left"
+          }
+        ]
+      },
+      {
+        "claim_id": "c316",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "return_gaze",
+        "expected": "He returns his gaze toward the front and slightly right.",
+        "coordinate_frame": "screen",
+        "quantifier": "exists",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "returns his gaze toward the front and slightly right"
+          }
+        ]
+      },
+      {
+        "claim_id": "c317",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "maintain_seated_posture",
+        "expected": "He keeps his seated posture steady.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "Keep his seated posture and folded arms steady."
+          }
+        ]
+      },
+      {
+        "claim_id": "c401",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1",
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "remain_on_sofa",
+        "expected": "The man remains seated on the same sofa.",
+        "coordinate_frame": "entity",
+        "quantifier": "throughout",
+        "depends_on": [
+          "p41",
+          "p43"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Bearded man remains on the same Beige sofa"
+          },
+          {
+            "fact_id": "Shot3",
+            "quote": "the Bearded man sits against the Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c402",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "color",
+        "expected": "The sofa is beige.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p43"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "Beige sofa"
+          }
+        ]
+      },
+      {
+        "claim_id": "c403",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "illumination_level",
+        "expected": "The room is dim.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p42"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the dim warm room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c404",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Location 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "lighting_color",
+        "expected": "The room has warm illumination.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p42"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the dim warm room"
+          },
+          {
+            "fact_id": "Shot1",
+            "quote": "a dim, warmly lit room"
+          }
+        ]
+      },
+      {
+        "claim_id": "c405",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "back_shape",
+        "expected": "The sofa back is rounded.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p43"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "the rounded sofa back"
+          }
+        ]
+      },
+      {
+        "claim_id": "c406",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "darkness",
+        "expected": "The wooden background is dark.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p44"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "dark wooden background"
+          }
+        ]
+      },
+      {
+        "claim_id": "c407",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "material",
+        "expected": "The background is wooden.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p44"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "dark wooden background"
+          }
+        ]
+      },
+      {
+        "claim_id": "c408",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Object 6"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "depth_position",
+        "expected": "The wooden surface occupies the background.",
+        "coordinate_frame": "camera",
+        "quantifier": "exists",
+        "depends_on": [
+          "p44"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "dark wooden background"
+          }
+        ]
+      },
+      {
+        "claim_id": "c409",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "arms_crossed",
+        "expected": "His arms are crossed at the start.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "Start with his arms crossed and gaze lowered."
+          }
+        ]
+      },
+      {
+        "claim_id": "c410",
+        "dimension": "spatial",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "gaze_lowered",
+        "expected": "His gaze is lowered at the start.",
+        "coordinate_frame": "entity",
+        "quantifier": "start",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "Start with his arms crossed and gaze lowered."
+          }
+        ]
+      },
+      {
+        "claim_id": "c411",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "raise_chin",
+        "expected": "He raises his chin slightly.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "he raises his chin slightly"
+          }
+        ]
+      },
+      {
+        "claim_id": "c412",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "move_mouth",
+        "expected": "He makes small, nonspecific mouth movements.",
+        "coordinate_frame": "entity",
+        "quantifier": "exists",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "makes small, nonspecific mouth movements"
+          }
+        ]
+      },
+      {
+        "claim_id": "c413",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "lean_head_forward",
+        "expected": "His head is in an ongoing forward lean at the end.",
+        "coordinate_frame": "entity",
+        "quantifier": "end",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "leans his head and upper torso forward near the end"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "End during this forward lean."
+          }
+        ]
+      },
+      {
+        "claim_id": "c414",
+        "dimension": "motion",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "lean_upper_torso_forward",
+        "expected": "His upper torso is in an ongoing forward lean at the end.",
+        "coordinate_frame": "entity",
+        "quantifier": "end",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "leans his head and upper torso forward near the end"
+          },
+          {
+            "fact_id": "Shot4",
+            "quote": "End during this forward lean."
+          }
+        ]
+      },
+      {
+        "claim_id": "c318",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot3"
+        ],
+        "predicate": "beard",
+        "expected": "The man has a beard.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p31"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot3",
+            "quote": "the Bearded man"
+          }
+        ]
+      },
+      {
+        "claim_id": "c415",
+        "dimension": "appearance",
+        "entity_ids": [
+          "Character 1"
+        ],
+        "shot_ids": [
+          "Shot4"
+        ],
+        "predicate": "beard",
+        "expected": "The man has a beard.",
+        "coordinate_frame": "none",
+        "quantifier": "when_visible",
+        "depends_on": [
+          "p41"
+        ],
+        "evidence": [
+          {
+            "fact_id": "Shot4",
+            "quote": "The Bearded man"
+          }
+        ]
+      }
+    ],
+    "prompt": {
+      "global_prompt": "Maintain the same man and room across four five-second shots: a lowered gaze lifts, his arms fold, he glances sideways with arms crossed, then makes small mouth movements and leans forward.",
+      "shots": [
+        {
+          "shot_id": "Shot1",
+          "schedule_key": "1:1",
+          "text": "In a dim, warmly lit room, the Bearded man sits back on the Beige sofa, arms resting low. He has medium-brown skin, short curly black hair, a thick beard and mustache, and a faded blue-gray T-shirt with small outlined chest lettering. Hold a medium view with him left of center, a wooden doorway softly visible behind him and a dark blurred shape at the right foreground edge. Over five seconds, he lifts his lowered gaze toward screen right while keeping his torso relaxed and his mouth closed."
+        },
+        {
+          "shot_id": "Shot2",
+          "schedule_key": "1:2",
+          "text": "A closer oblique view of the Bearded man on the same Beige sofa shows his curly hair, full beard and blue-gray shirt against softly blurred warm wood tones. During five seconds, he makes a brief small mouth movement, lowers his gaze, tilts his head and upper body slightly, and folds his arms across his chest. He settles back with his lips closed and arms still crossed."
+        },
+        {
+          "shot_id": "Shot3",
+          "schedule_key": "1:3",
+          "text": "Back in the medium view of the same warm, pale-walled room, the Bearded man sits against the Beige sofa with his arms firmly crossed over his blue-gray shirt. The wooden doorway remains behind him and the blurred dark shape stays at the right foreground edge. Over five seconds, he opens his initially lowered eyes, glances toward screen left, then returns his gaze toward the front and slightly right. Keep his seated posture and folded arms steady."
+        },
+        {
+          "shot_id": "Shot4",
+          "schedule_key": "1:4",
+          "text": "The Bearded man remains on the same Beige sofa in the dim warm room, seen close from the oblique angle with the rounded sofa back and dark wooden background softly blurred. Start with his arms crossed and gaze lowered. Across five seconds he raises his chin slightly and makes small, nonspecific mouth movements, then leans his head and upper torso forward near the end. End during this forward lean."
+        }
+      ]
+    },
+    "coverage": [
+      {
+        "unit_id": "global.u01",
+        "claim_ids": [
+          "p11",
+          "p12",
+          "p21",
+          "p22",
+          "p31",
+          "p32",
+          "p41",
+          "p42",
+          "c124",
+          "c125",
+          "c212",
+          "c306",
+          "c315",
+          "c412",
+          "c413",
+          "c414"
+        ],
+        "unscored": [
+          {
+            "quote": "Maintain the same man and room",
+            "reason": "Identity continuity is encoded by reusing the character and location registry entries, not an additional generic consistency score."
+          },
+          {
+            "quote": "across four five-second shots",
+            "reason": "Shot count and duration are structural and timing requirements."
+          },
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is outside the scored dimensions; the constituent actions are scored in their specified shots."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u01",
+        "claim_ids": [
+          "p11",
+          "p12",
+          "p13",
+          "c101",
+          "c102",
+          "c103",
+          "c104",
+          "c105"
+        ],
+        "unscored": [
+          {
+            "quote": "Bearded man",
+            "reason": "The beard descriptor is scored from the more specific appearance sentence rather than duplicated."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u02",
+        "claim_ids": [
+          "c106",
+          "c107",
+          "c108",
+          "c109",
+          "c110",
+          "c111",
+          "c112",
+          "c113",
+          "c114",
+          "c115",
+          "c116",
+          "c117"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot1.u03",
+        "claim_ids": [
+          "p14",
+          "p15",
+          "c118",
+          "c119",
+          "c120",
+          "c121",
+          "c122",
+          "c123"
+        ],
+        "unscored": [
+          {
+            "quote": "Hold a medium view",
+            "reason": "Camera framing and holding the view are filmmaking requirements."
+          },
+          {
+            "quote": "softly visible",
+            "reason": "Optical softness is a focus/rendering requirement; doorway visibility is scored separately."
+          },
+          {
+            "quote": "blurred",
+            "reason": "Defocus is a filmmaking/rendering requirement, not an intrinsic property of the unidentified shape."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot1.u04",
+        "claim_ids": [
+          "c124",
+          "c125",
+          "c126",
+          "c127"
+        ],
+        "unscored": [
+          {
+            "quote": "Over five seconds",
+            "reason": "Shot duration is outside the scored dimensions."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u01",
+        "claim_ids": [
+          "p21",
+          "p22",
+          "p23",
+          "p24",
+          "c201",
+          "c202",
+          "c203",
+          "c204",
+          "c205",
+          "c206",
+          "c207"
+        ],
+        "unscored": [
+          {
+            "quote": "A closer oblique view",
+            "reason": "Shot scale and camera angle are filmmaking requirements."
+          },
+          {
+            "quote": "same Beige sofa",
+            "reason": "The sofa's identity is reused in the registry; its presence and color are separately scored."
+          },
+          {
+            "quote": "softly blurred",
+            "reason": "Background defocus is a filmmaking/rendering requirement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u02",
+        "claim_ids": [
+          "c208",
+          "c209",
+          "c210",
+          "c211",
+          "c212"
+        ],
+        "unscored": [
+          {
+            "quote": "During five seconds",
+            "reason": "Shot duration is outside the scored dimensions."
+          },
+          {
+            "quote": "brief",
+            "reason": "The duration of the mouth movement is not separately scored."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot2.u03",
+        "claim_ids": [
+          "c213",
+          "c214",
+          "c215"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot3.u01",
+        "claim_ids": [
+          "p31",
+          "p32",
+          "p33",
+          "p36",
+          "c301",
+          "c302",
+          "c303",
+          "c304",
+          "c305",
+          "c306",
+          "c307",
+          "c318"
+        ],
+        "unscored": [
+          {
+            "quote": "Back in the medium view",
+            "reason": "Return to a camera framing is a filmmaking requirement, not entity movement."
+          },
+          {
+            "quote": "same warm, pale-walled room",
+            "reason": "Room identity is reused; warmth and pale walls are scored separately."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u02",
+        "claim_ids": [
+          "p34",
+          "p35",
+          "c308",
+          "c309",
+          "c310",
+          "c311",
+          "c312"
+        ],
+        "unscored": [
+          {
+            "quote": "blurred",
+            "reason": "Defocus is a filmmaking/rendering requirement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u03",
+        "claim_ids": [
+          "c313",
+          "c314",
+          "c315",
+          "c316"
+        ],
+        "unscored": [
+          {
+            "quote": "Over five seconds",
+            "reason": "Shot duration is outside the scored dimensions."
+          },
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is not separately scored; both gaze actions are retained."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot3.u04",
+        "claim_ids": [
+          "c306",
+          "c317"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot4.u01",
+        "claim_ids": [
+          "p41",
+          "p42",
+          "p43",
+          "p44",
+          "c401",
+          "c402",
+          "c403",
+          "c404",
+          "c405",
+          "c406",
+          "c407",
+          "c408",
+          "c415"
+        ],
+        "unscored": [
+          {
+            "quote": "same Beige sofa",
+            "reason": "Sofa identity is reused; presence, support and color are scored separately."
+          },
+          {
+            "quote": "seen close from the oblique angle",
+            "reason": "Shot scale and camera angle are filmmaking requirements."
+          },
+          {
+            "quote": "softly blurred",
+            "reason": "Defocus of the sofa back and background is a filmmaking/rendering requirement."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u02",
+        "claim_ids": [
+          "c409",
+          "c410"
+        ],
+        "unscored": []
+      },
+      {
+        "unit_id": "Shot4.u03",
+        "claim_ids": [
+          "c411",
+          "c412",
+          "c413",
+          "c414"
+        ],
+        "unscored": [
+          {
+            "quote": "Across five seconds",
+            "reason": "Shot duration is outside the scored dimensions."
+          },
+          {
+            "quote": "then",
+            "reason": "Temporal ordering is not separately scored."
+          },
+          {
+            "quote": "near the end",
+            "reason": "Approximate action-onset timing is not scored; the explicit ongoing lean at the endpoint is retained."
+          }
+        ]
+      },
+      {
+        "unit_id": "Shot4.u04",
+        "claim_ids": [
+          "c413",
+          "c414"
+        ],
+        "unscored": [
+          {
+            "quote": "End during this forward lean.",
+            "reason": "The cut instruction is filmmaking; its required endpoint action state is scored without asserting a completed lean."
+          }
+        ]
+      }
+    ],
+    "unresolved": [],
+    "provenance": {
+      "source_sha256": "71289cd31eab0b92e1ba12f00423b8682897bfd2cd630287a3db0bd78e6a4547",
+      "prompt_input_sha256": "fe585939eec63a712b9d05485efb392eb72f5bdbb8340999a4c4d5e8572c8d8c",
+      "semantic_review": "independent configured Astra/medium text audit; not human annotation"
+    }
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    }
+  ],
+  "shot_sources": [
+    {
+      "shot_id": "Shot1",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot2",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot3",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    },
+    {
+      "shot_id": "Shot4",
+      "source_scope": "shot",
+      "segment_start_sec": 0.0,
+      "segment_duration_sec": 5.06,
+      "frame_timestamps_sec": {
+        "0": 0.0,
+        "1": 0.9614,
+        "2": 1.9228,
+        "3": 2.8842,
+        "4": 3.8456,
+        "5": 4.807
+      }
+    }
+  ],
+  "image_order": [
+    {
+      "index": 0,
+      "shot_id": "Shot1",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 1,
+      "shot_id": "Shot1",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 2,
+      "shot_id": "Shot1",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 3,
+      "shot_id": "Shot1",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 4,
+      "shot_id": "Shot1",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 5,
+      "shot_id": "Shot1",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 6,
+      "shot_id": "Shot2",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 7,
+      "shot_id": "Shot2",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 8,
+      "shot_id": "Shot2",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 9,
+      "shot_id": "Shot2",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 10,
+      "shot_id": "Shot2",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 11,
+      "shot_id": "Shot2",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 12,
+      "shot_id": "Shot3",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 13,
+      "shot_id": "Shot3",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 14,
+      "shot_id": "Shot3",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 15,
+      "shot_id": "Shot3",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 16,
+      "shot_id": "Shot3",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 17,
+      "shot_id": "Shot3",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    },
+    {
+      "index": 18,
+      "shot_id": "Shot4",
+      "frame_id": 0,
+      "timestamp_sec": 0.0
+    },
+    {
+      "index": 19,
+      "shot_id": "Shot4",
+      "frame_id": 1,
+      "timestamp_sec": 0.9614
+    },
+    {
+      "index": 20,
+      "shot_id": "Shot4",
+      "frame_id": 2,
+      "timestamp_sec": 1.9228
+    },
+    {
+      "index": 21,
+      "shot_id": "Shot4",
+      "frame_id": 3,
+      "timestamp_sec": 2.8842
+    },
+    {
+      "index": 22,
+      "shot_id": "Shot4",
+      "frame_id": 4,
+      "timestamp_sec": 3.8456
+    },
+    {
+      "index": 23,
+      "shot_id": "Shot4",
+      "frame_id": 5,
+      "timestamp_sec": 4.807
+    }
+  ],
+  "input_notes": [
+    "candidate_issues are hypotheses from the detection agent of this branch only, not accepted findings.",
+    "Every supplied image is an original keyframe; image_order matches attachment order."
+  ]
+}

@@ -1,0 +1,745 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p047_wan21/vl_detection/result.json",
+  "source_detection_sha256": "9e2f639deb425b032db7c4709c133a8937a3c8deaa682c10f8f0f9227aa093b2",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中白衣男子没有按要求向下从画面底部退出；他转入门洞后在门洞中腾空翻转，之后画面才转为无人墙面。",
+            "revision": "clarified",
+            "revision_note": "将候选所称的“没有退出”修正为可见的具体动作：男子进入门洞并在其中翻转，而不是向下从画面底部离开。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "He drops downward out of the bottom of the view."
+            },
+            "requirement_applies": "这是Shot1对白衣男子的直接动作要求。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 2,
+                "role": "supports",
+                "observation": "男子背向镜头向右进入门洞，并未向画面底部移动离开。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "男子在门洞内腾空翻转，身体仍在画面中；不是从画面底部退出。"
+              }
+            ],
+            "assessment": "画面显示男子进入门洞并在其中翻转，直接违背向下从画面底部退出的动作要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot4左侧马尾男子上身裸露、只穿黑裤，没有穿合同要求的黑色武术服，因此其服装不符合要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": "Shot4",
+              "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+            },
+            "requirement_applies": "合同中的Character 3实体描述适用于Shot4；该镜头可见左侧马尾男子，且镜头文本没有对其服装作出不同描述。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面左侧马尾男子赤裸上身，只穿黑色长裤。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "左侧男子仍为赤裸上身、穿黑裤，没有黑色武术服上衣。"
+              }
+            ],
+            "assessment": "Shot4中男子可见的服装与合同要求的黑色武术服相矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot4左侧马尾男子的动作不构成候选所称的“未前屈后直起”：画面中他先向前弯身、随后恢复直立。",
+            "revision": "clarified",
+            "revision_note": "候选称男子腾跃并迈步，但关键要求是是否出现前屈后直起；画面显示这一动作序列，故修正描述以准确呈现可见动作。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Both men in black briefly bend forward and straighten."
+            },
+            "requirement_applies": "这是Shot4对画面中两名穿黑衣男子的直接动作要求，左侧马尾男子属于其中之一。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 2,
+                "role": "refutes",
+                "observation": "左侧马尾男子躯干向前倾、身体下沉，呈弯身姿态。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "左侧男子恢复直立并举手呈防守姿势。"
+              }
+            ],
+            "assessment": "所引要求的前屈与随后直起均能在该镜头中看到，因此候选所述的动作缺失并未发生。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot5马尾男子没有保持要求的弯身防守姿态，也没有一只手靠近胸口；画面中他基本直立，双臂放低。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot5"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot5",
+              "quote": "The Ponytailed man keeps a bent, guarded posture with one hand near his chest"
+            },
+            "requirement_applies": "这是Shot5对画面中马尾男子姿态和手部位置的直接要求；镜头中该男子清楚可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot5",
+                "frame_id": 1,
+                "role": "supports",
+                "observation": "马尾男子站立，躯干直立，双手没有保持在胸前的防守姿势。"
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "马尾男子仍直立，手臂下垂；没有一只手靠近胸口的弯身防守姿势。"
+              }
+            ],
+            "assessment": "多个关键帧都显示男子直立且手臂放低，与要求保持弯身防守姿态、一手靠近胸口不符。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot1中男子没有向下从画面底部退出，而是在门洞中腾翻。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子转身进入门洞，随后在门洞中翻腾腾空。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子转身进入门洞，随后在门洞中翻腾腾空。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "He drops downward out of the bottom of the view."
+          }
+        ],
+        "expected": "男子向下移动并从画面底部离开。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "EN:Character 1@Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 2
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              }
+            ],
+            "observed": "男子转身进入门洞，随后在门洞中翻腾腾空。",
+            "mismatch": "显示向门洞移动及空中翻转，而非向下从画面底部退出。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧马尾男子赤膊，未穿要求的黑色武术服。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子赤裸上身，只穿黑裤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子赤裸上身，只穿黑裤。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": "Shot4",
+            "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Both men in black"
+          }
+        ],
+        "expected": "马尾男子穿黑色武术服、着黑衣。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 3@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧男子赤裸上身，只穿黑裤。",
+            "mismatch": "赤膊与要求的黑色武术服及黑衣相反。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 3@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4左侧马尾男子未按要求短暂前屈再直起，而是腾跃动作。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子腾跃并迈步。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子腾跃并迈步。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Both men in black briefly bend forward and straighten."
+          }
+        ],
+        "expected": "左侧马尾男子短暂前屈后直起。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 3@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧男子腾跃并迈步。",
+            "mismatch": "画面没有呈现左侧男子前屈后直起的动作。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 3@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot5马尾男子保持直立，未呈现弯身防守及手靠近胸口。",
+      "shot_ids": [
+        "Shot5"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot5",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧马尾男子躯干直立，双臂未见手靠近胸口的防守姿态。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧马尾男子躯干直立，双臂未见手靠近胸口的防守姿态。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot5",
+            "quote": "The Ponytailed man keeps a bent, guarded posture with one hand near his chest"
+          }
+        ],
+        "expected": "马尾男子弯身呈防守姿态，一手靠近胸口。",
+        "occurrences": [
+          {
+            "shot_id": "Shot5",
+            "row_ids": [
+              "EN:Character 3@Shot5",
+              "SP:Shot5"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot5",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧马尾男子躯干直立，双臂未见手靠近胸口的防守姿态。",
+            "mismatch": "直立姿态及手臂位置不符合弯身防守、手靠胸口的要求。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 3@Shot5",
+          "SP:Shot5"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "White-clad man",
+      "description": "Man with short dark hair, a loose white uniform and dark belt.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "Ponytailed man",
+      "description": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot1中白衣男子没有按要求向下从画面底部退出；他转入门洞后在门洞中腾空翻转，之后画面才转为无人墙面。",
+      "original_description": "Shot1中男子没有向下从画面底部退出，而是在门洞中腾翻。",
+      "revision": "clarified",
+      "revision_note": "将候选所称的“没有退出”修正为可见的具体动作：男子进入门洞并在其中翻转，而不是向下从画面底部离开。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "男子背向镜头向右进入门洞，并未向画面底部移动离开。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子在门洞内腾空翻转，身体仍在画面中；不是从画面底部退出。"
+        }
+      ],
+      "assessment": "画面显示男子进入门洞并在其中翻转，直接违背向下从画面底部退出的动作要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "He drops downward out of the bottom of the view."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是Shot1对白衣男子的直接动作要求。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧马尾男子上身裸露、只穿黑裤，没有穿合同要求的黑色武术服，因此其服装不符合要求。",
+      "original_description": "Shot4左侧马尾男子赤膊，未穿要求的黑色武术服。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面左侧马尾男子赤裸上身，只穿黑色长裤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "左侧男子仍为赤裸上身、穿黑裤，没有黑色武术服上衣。"
+        }
+      ],
+      "assessment": "Shot4中男子可见的服装与合同要求的黑色武术服相矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": "Shot4",
+          "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同中的Character 3实体描述适用于Shot4；该镜头可见左侧马尾男子，且镜头文本没有对其服装作出不同描述。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot4左侧马尾男子的动作不构成候选所称的“未前屈后直起”：画面中他先向前弯身、随后恢复直立。",
+      "original_description": "Shot4左侧马尾男子未按要求短暂前屈再直起，而是腾跃动作。",
+      "revision": "clarified",
+      "revision_note": "候选称男子腾跃并迈步，但关键要求是是否出现前屈后直起；画面显示这一动作序列，故修正描述以准确呈现可见动作。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2,
+          "role": "refutes",
+          "observation": "左侧马尾男子躯干向前倾、身体下沉，呈弯身姿态。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "左侧男子恢复直立并举手呈防守姿势。"
+        }
+      ],
+      "assessment": "所引要求的前屈与随后直起均能在该镜头中看到，因此候选所述的动作缺失并未发生。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Both men in black briefly bend forward and straighten."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是Shot4对画面中两名穿黑衣男子的直接动作要求，左侧马尾男子属于其中之一。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot5马尾男子没有保持要求的弯身防守姿态，也没有一只手靠近胸口；画面中他基本直立，双臂放低。",
+      "original_description": "Shot5马尾男子保持直立，未呈现弯身防守及手靠近胸口。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot5"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot5",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "马尾男子站立，躯干直立，双手没有保持在胸前的防守姿势。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "马尾男子仍直立，手臂下垂；没有一只手靠近胸口的弯身防守姿势。"
+        }
+      ],
+      "assessment": "多个关键帧都显示男子直立且手臂放低，与要求保持弯身防守姿态、一手靠近胸口不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot5",
+          "quote": "The Ponytailed man keeps a bent, guarded posture with one hand near his chest"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这是Shot5对画面中马尾男子姿态和手部位置的直接要求；镜头中该男子清楚可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 4,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 3,
+        "rejected": 1,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 3,
+      "requirement_satisfied": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 52528,
+      "cached_input_tokens": 0,
+      "output_tokens": 1601,
+      "reasoning_output_tokens": 333
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 52528,
+    "cached_input_tokens": 0,
+    "output_tokens": 1601,
+    "api_calls": 1,
+    "estimated_usd": 0.0060533,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

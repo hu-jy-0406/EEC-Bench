@@ -1,0 +1,929 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p032_wan22/vl_detection/result.json",
+  "source_detection_sha256": "36b8bc9ef0838bce41661b16d640577d1f7527a99f947051f81cf016da334403",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot2中要求人物在五秒内短暂合手、再放下双手；关键帧显示人物有合手及随后松开双手的动作，手臂也向下移动，未能确认该动作缺失。",
+            "revision": "clarified",
+            "revision_note": "修正候选的“未见动作”描述：序列中可见合手及后续松开、向下移动。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+            },
+            "requirement_applies": "Shot2 的镜头文本直接要求该手部动作。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "refutes",
+                "observation": "人物双手在胸前靠近腕表处合在一起。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "双手已松开并处于较低位置，和先前合手姿势不同。"
+              }
+            ],
+            "assessment": "关键帧呈现合手后松开的过程，手部位置也下降；候选称动作未出现，与可见序列不符。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2要求烤箱发光窗位于画面右侧，但关键帧中烤箱窗出现在画面左侧，位置与要求相反。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "glowing window on the right"
+            },
+            "requirement_applies": "该位置要求在 Shot2 镜头文本中直接给出，且烤箱窗在此镜头可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "发光的烤箱窗位于画面左侧。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "烤箱窗仍在画面左侧。"
+              }
+            ],
+            "assessment": "镜头文本明确要求窗在右侧，所示窗却位于画面左侧，构成直接的位置矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot2要求浅色把手与发光窗位于画面右侧，但画面中的烤箱把手位于左侧，未满足把手的右侧位置要求。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "with the pale handle and glowing window on the right"
+            },
+            "requirement_applies": "Shot2 镜头文本直接规定把手的位置，且把手在该镜头可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "浅色烤箱把手位于画面左侧。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "把手仍处于画面左侧。"
+              }
+            ],
+            "assessment": "引文要求把手在画面右侧，而关键帧显示其在左侧，故该位置要求被违反。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "Shot6要求出现一只短毛白猫；画面所见猫以白色为主体，带有黑色尾巴和局部黑斑，但整体仍可辨认为白猫，并不与“白猫”这一要求矛盾。",
+            "revision": "clarified",
+            "revision_note": "将候选暗示的“必须全白”更正为文本实际要求的“白猫”；可见黑色斑块和尾巴不等于猫不再是白猫。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot6"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot6",
+              "quote": "A short-haired white cat"
+            },
+            "requirement_applies": "Shot6 镜头文本直接描述猫为短毛白猫，画面中该猫可见。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0,
+                "role": "refutes",
+                "observation": "猫的身体主体为白色，头部和尾部有黑色区域。"
+              }
+            ],
+            "assessment": "文本要求的是白猫而非全身纯白的猫；主体白色的猫带黑斑仍满足该措辞。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L5",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L5",
+            "description": "Shot6要求猫从桌边下到桌面以下并消失出视野；候选声称末帧仍有猫的身体或尾巴可见，但末帧中猫已不在画面内。",
+            "revision": "clarified",
+            "revision_note": "更正候选的末帧观察：Frame 5 未见猫的尾巴或身体部分。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot6"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot6",
+              "quote": "disappears below the tabletop out of view"
+            },
+            "requirement_applies": "该动作是 Shot6 镜头文本中的明确要求，且关键帧显示猫从桌面上移动离开。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "画面右侧桌边及桌面下方均未见猫的身体或尾巴。"
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 3,
+                "role": "context",
+                "observation": "猫已移动到桌面右侧边缘附近。"
+              }
+            ],
+            "assessment": "末帧猫已完全不可见，故未出现候选所称的末帧残留；画面符合消失出视野的要求。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2未呈现手合拢后放下的动作。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "画面中人物主要俯身查看烤箱，未见合手后放下的动作。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "画面中人物主要俯身查看烤箱，未见合手后放下的动作。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "he briefly brings his hands together near his wristwatch, lowers them"
+          }
+        ],
+        "expected": "人物短暂合手并将手放下。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 1@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "画面中人物主要俯身查看烤箱，未见合手后放下的动作。",
+            "mismatch": "要求的合手及放手动作未出现。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2烤箱窗在画面左侧而非右侧。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0006",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0006"
+          ],
+          "observation": "烤箱窗在画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0006"
+          ],
+          "observation": "烤箱窗在画面左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "glowing window on the right"
+          }
+        ],
+        "expected": "烤箱窗位于画面右侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Object 4@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "烤箱窗在画面左侧。",
+            "mismatch": "窗的位置与要求的右侧相反。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 4@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2烤箱把手位于画面左侧而非右侧。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "把手位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0007"
+          ],
+          "observation": "把手位于画面左侧。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "with the pale handle and glowing window on the right"
+          }
+        ],
+        "expected": "浅色把手位于画面右侧。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Object 5@Shot2",
+              "SP:Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "把手位于画面左侧。",
+            "mismatch": "把手的位置与要求的右侧相反。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 5@Shot2",
+          "SP:Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot6猫身上可见黑色斑块及黑尾，非全白毛色。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "猫主体白色，但尾巴及局部毛色明显为黑色。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "猫主体白色，但尾巴及局部毛色明显为黑色。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "A short-haired white cat"
+          },
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Short-haired white cat."
+          }
+        ],
+        "expected": "猫为白色短毛。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "EN:Character 2@Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "猫主体白色，但尾巴及局部毛色明显为黑色。",
+            "mismatch": "毛色并非全白，出现明显黑色部分。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot6"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot6猫到末帧仍有身体部分可见，未完全消失出画。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "末帧桌边仍能看到猫的尾巴或身体局部。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "末帧桌边仍能看到猫的尾巴或身体局部。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "disappears below the tabletop out of view"
+          }
+        ],
+        "expected": "猫从桌面下方消失并完全离开视野。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "SP:Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "末帧桌边仍能看到猫的尾巴或身体局部。",
+            "mismatch": "猫未完全消失到桌面下方、画面外。"
+          }
+        ],
+        "template_row_ids": [
+          "SP:Shot6"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Plaid-shirt man",
+      "description": "Man wearing a dark-and-white plaid shirt, with short dark hair, black rectangular glasses, a moustache and light stubble, dark ear stud, narrow dark tie and wristwatch.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0006",
+      "global_entity_id": "pb0006",
+      "source": "detection_ledger",
+      "name": "Oven window",
+      "description": "Window in the oven door.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0007",
+      "global_entity_id": "pb0007",
+      "source": "detection_ledger",
+      "name": "Oven handle",
+      "description": "Pale oven handle.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 5",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0010",
+      "global_entity_id": "pb0010",
+      "source": "detection_ledger",
+      "name": "White cat",
+      "description": "Short-haired white cat.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot2中要求人物在五秒内短暂合手、再放下双手；关键帧显示人物有合手及随后松开双手的动作，手臂也向下移动，未能确认该动作缺失。",
+      "original_description": "Shot2未呈现手合拢后放下的动作。",
+      "revision": "clarified",
+      "revision_note": "修正候选的“未见动作”描述：序列中可见合手及后续松开、向下移动。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "refutes",
+          "observation": "人物双手在胸前靠近腕表处合在一起。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "双手已松开并处于较低位置，和先前合手姿势不同。"
+        }
+      ],
+      "assessment": "关键帧呈现合手后松开的过程，手部位置也下降；候选称动作未出现，与可见序列不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "Over five seconds he briefly brings his hands together near his wristwatch, lowers them, and raises his face slightly while continuing to look toward the oven."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2 的镜头文本直接要求该手部动作。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2要求烤箱发光窗位于画面右侧，但关键帧中烤箱窗出现在画面左侧，位置与要求相反。",
+      "original_description": "Shot2烤箱窗在画面左侧而非右侧。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "发光的烤箱窗位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "烤箱窗仍在画面左侧。"
+        }
+      ],
+      "assessment": "镜头文本明确要求窗在右侧，所示窗却位于画面左侧，构成直接的位置矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "glowing window on the right"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该位置要求在 Shot2 镜头文本中直接给出，且烤箱窗在此镜头可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0006",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot2要求浅色把手与发光窗位于画面右侧，但画面中的烤箱把手位于左侧，未满足把手的右侧位置要求。",
+      "original_description": "Shot2烤箱把手位于画面左侧而非右侧。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "浅色烤箱把手位于画面左侧。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "把手仍处于画面左侧。"
+        }
+      ],
+      "assessment": "引文要求把手在画面右侧，而关键帧显示其在左侧，故该位置要求被违反。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "with the pale handle and glowing window on the right"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2 镜头文本直接规定把手的位置，且把手在该镜头可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0007",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot6要求出现一只短毛白猫；画面所见猫以白色为主体，带有黑色尾巴和局部黑斑，但整体仍可辨认为白猫，并不与“白猫”这一要求矛盾。",
+      "original_description": "Shot6猫身上可见黑色斑块及黑尾，非全白毛色。",
+      "revision": "clarified",
+      "revision_note": "将候选暗示的“必须全白”更正为文本实际要求的“白猫”；可见黑色斑块和尾巴不等于猫不再是白猫。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "refutes",
+          "observation": "猫的身体主体为白色，头部和尾部有黑色区域。"
+        }
+      ],
+      "assessment": "文本要求的是白猫而非全身纯白的猫；主体白色的猫带黑斑仍满足该措辞。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot6",
+          "quote": "A short-haired white cat"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot6 镜头文本直接描述猫为短毛白猫，画面中该猫可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot6要求猫从桌边下到桌面以下并消失出视野；候选声称末帧仍有猫的身体或尾巴可见，但末帧中猫已不在画面内。",
+      "original_description": "Shot6猫到末帧仍有身体部分可见，未完全消失出画。",
+      "revision": "clarified",
+      "revision_note": "更正候选的末帧观察：Frame 5 未见猫的尾巴或身体部分。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "画面右侧桌边及桌面下方均未见猫的身体或尾巴。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 3,
+          "role": "context",
+          "observation": "猫已移动到桌面右侧边缘附近。"
+        }
+      ],
+      "assessment": "末帧猫已完全不可见，故未出现候选所称的末帧残留；画面符合消失出视野的要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot6",
+          "quote": "disappears below the tabletop out of view"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "该动作是 Shot6 镜头文本中的明确要求，且关键帧显示猫从桌面上移动离开。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 5,
+    "units": 5,
+    "split_candidates": 0,
+    "clarified_units": 3,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 2,
+        "rejected": 3,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_satisfied": 3,
+      "requirement_violated": 2
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 42218,
+      "cached_input_tokens": 0,
+      "output_tokens": 1820,
+      "reasoning_output_tokens": 341
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 42218,
+    "cached_input_tokens": 0,
+    "output_tokens": 1820,
+    "api_calls": 1,
+    "estimated_usd": 0.0051318,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

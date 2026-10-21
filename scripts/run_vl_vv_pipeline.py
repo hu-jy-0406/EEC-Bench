@@ -29,6 +29,10 @@ sys.path.insert(0, str(SCRIPTS))
 import episode_shot_segments as shot_segments  # noqa: E402
 API = SCRIPTS / 'openai_api_env.sh'
 DETECTION = SCRIPTS / 'run_vl_vv_detection.py'
+# Model transport shared by every stage; hashed so a run records the image
+# labelling code it used (shot/frame labels before each image, default on).
+TRANSPORT = (SCRIPTS / 'eec_api_codex_shim.py', SCRIPTS / 'gs_prompt_binding.py',
+             SCRIPTS / 'run_wedetect_shot_entities.py')
 DISCOVERY = SCRIPTS / 'run_vl_vv_issue_discovery.py'
 REVIEW = SCRIPTS / 'run_vl_vv_issue_review.py'
 SCORING = SCRIPTS / 'run_vl_vv_episode_scoring.py'
@@ -330,13 +334,17 @@ def execute(plan):
     files = chain_files(discovery_protocol, review_protocol)
     source_paths = [case / 'contract.json', case / 'raw_manifest.json',
                     *chain_source_files(discovery_protocol, review_protocol),
-                    DETECTION, Path(__file__).resolve()]
+                    DETECTION, *TRANSPORT, Path(__file__).resolve()]
     if plan['mode'] == 'from-registry':
         source_paths.append(case / 'episode_entities.json')
     source_hashes = {str(path): sha(path) for path in source_paths}
     output.mkdir(parents=True, exist_ok=False)
     (output / 'logs').mkdir()
+    labels = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
+    if labels not in ('on', 'off'):
+        raise ValueError('EECBENCH_IMAGE_LABELS must be on or off')
     state = dict(plan, status='running', started=time.time(),
+                 image_labels='shot_frame_v1' if labels == 'on' else 'off',
                  source_hashes=source_hashes, stage_results=[])
     write(output / 'run.json', state)
     lock = threading.Lock()

@@ -119,7 +119,7 @@ def bind_one(case,out,shot,registry,narrative,model,reasoning):
             try:
                 # All binding problems go back to the model together in the
                 # same conversation; only transport failures restart afresh.
-                raw,_,_,_=repair_loop.call_with_repair(folder,payload,shot['frames'],1800,
+                raw,_,_,_=repair_loop.call_with_repair(folder,payload,[dict(f,shot_id=sid) for f in shot['frames']],1800,
                     prompt_path=B/'prompts/gs_shot_prompt_binding_v1.txt',schema=schema,model=model,reasoning=reasoning,
                     collect_errors=lambda r:binding_errors(r,payload),stage=f'{sid} prompt binding')
                 break

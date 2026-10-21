@@ -1,0 +1,715 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p047_wan21/vl_detection/result.json",
+  "source_detection_sha256": "09e49287a71130992bfd5a310d1edd3eb77d0f1f7e551edacc3af6066c560a09",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中男子没有按要求向下从画面底部退出；第2至4帧显示他朝门洞移动，并在画面内翻转腾空。",
+            "revision": "clarified",
+            "revision_note": "将观察表述限定为第2至4帧可见的朝门洞移动及画面内翻转，准确对应要求的向下出画。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "He drops downward out of the bottom of the view."
+            },
+            "requirement_applies": "Shot1的镜头文本直接要求该男子向下从画面底部退出。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 2,
+                "role": "supports",
+                "observation": "男子仍在画面内，朝门洞方向移动，而非向下从画面底部退出。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "男子在门洞内以倒置姿势腾空，身体仍处于画面中。"
+              }
+            ],
+            "assessment": "画面中的运动方向是朝门洞并在画内翻转，不符合从画面底部向下退出的明确要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "split",
+        "split_reason": "候选分别指出两项可独立成立或不成立的外观问题：发型与黑色服装，分别对应不同描述属性。",
+        "units": [
+          {
+            "unit_id": "L2.1",
+            "description": "Shot4左侧的扎发男子头发呈浅棕色短发，未见深色头发在后颈处扎起；这与其应有的后扎深色头发描述不符。",
+            "revision": "clarified",
+            "revision_note": "将候选所称“浅棕短发”明确为与要求冲突的未扎深色头发属性；发型判断依据Shot4画面。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": "Shot4",
+              "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+            },
+            "requirement_applies": "合同对Character 3的描述是全片适用的；Shot4出现左侧的Ponytailed man，且该镜头没有为其另行描述不同发型。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "左侧男子可见浅棕色头发，头发向后梳但未见在后颈扎起。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "左侧男子仍呈浅棕色、未扎起的头发。"
+              }
+            ],
+            "assessment": "可见发色及未扎起的发型与合同要求的深色、后颈扎发不符。"
+          },
+          {
+            "unit_id": "L2.2",
+            "description": "Shot4左侧的扎发男子赤裸上身、只穿黑裤，没有穿着要求的黑色武术服。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot4",
+              "quote": "Both men in black"
+            },
+            "requirement_applies": "Shot4文本明确指称两名男子都穿黑色；左侧Ponytailed man是其中一人。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "左侧男子上身裸露，仅穿黑色裤子。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "左侧男子仍赤裸上身，没有黑色上衣或黑色武术服。"
+              }
+            ],
+            "assessment": "镜头要求两名男子都穿黑色；左侧男子只有黑裤、上身裸露，违反该要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot6没有呈现无袖男子的手臂横过近景并短暂遮住年长男子脸部和胸部、随后从画面中心下降移开的指定动作；各帧中前景手臂竖在画面左侧，年长男子脸部可见且未被该手臂遮挡。",
+            "revision": "clarified",
+            "revision_note": "按Shot6各帧修正候选的概括：手臂可见于左侧近景，但没有横越并遮挡年长男子脸胸，也没有从中心下降移开。",
+            "subcategory": "action_state",
+            "shot_ids": [
+              "Shot6"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot6",
+              "quote": "The Sleeveless man's bare arm crosses the near foreground"
+            },
+            "requirement_applies": "Shot6镜头文本直接要求无袖男子的裸臂横过近景；同一连续要求还规定遮挡脸胸并随后下降移开。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "裸臂竖在画面左侧近景，没有横过画面遮住年长男子脸部；年长男子脸部清晰可见。"
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "前景手臂仍位于左侧并向上伸出，未见从画面中心下降移开。"
+              }
+            ],
+            "assessment": "指定的横越近景、遮挡脸胸及下降移开动作没有呈现；可见手臂停留在左侧，年长男子脸部保持可见。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot1男子未按要求向下退出画面，而是在入口处翻转。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子向门洞移动后翻转，画面中出现其倒置腾空身体。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子向门洞移动后翻转，画面中出现其倒置腾空身体。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子向门洞移动后翻转，画面中出现其倒置腾空身体。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "He drops downward out of the bottom of the view."
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "the landing outside the view"
+          }
+        ],
+        "expected": "男子向下从画面底部离开，落地过程不入镜。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "EN:Character 1@Shot1",
+              "SP:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 2
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              }
+            ],
+            "observed": "男子向门洞移动后翻转，画面中出现其倒置腾空身体。",
+            "mismatch": "不是向下从画面底部退出，而是向门洞移动并在画面内翻转。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot1",
+          "SP:Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧被标作扎发男子的人物赤膊，未穿黑色武术服。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子赤裸上身、浅棕短发，仅穿黑裤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧男子赤裸上身、浅棕短发，仅穿黑裤。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": "Shot4",
+            "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Both men in black"
+          }
+        ],
+        "expected": "左侧扎发男子应有后扎深色头发并穿黑色武术服。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 3@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧男子赤裸上身、浅棕短发，仅穿黑裤。",
+            "mismatch": "其可见发型和上衣均与描述不符，且没有穿黑色上衣。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 3@Shot4",
+          "SP:Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot6前景未出现无袖男子手臂横过并移开的指定动作。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "前景为赤膊灰发男子，其身体占左侧；年长男子脸部和胸部没有被指定手臂遮挡。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "前景为赤膊灰发男子，其身体占左侧；年长男子脸部和胸部没有被指定手臂遮挡。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "The Sleeveless man's bare arm crosses the near foreground"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "then lowers away from the center"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "briefly obscuring part of his face and chest"
+          }
+        ],
+        "expected": "无袖男子的裸臂横过近景、短暂遮住年长男子脸胸，再从画面中心移开。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "EN:Character 4@Shot6",
+              "RL:Shot6",
+              "SP:Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "前景为赤膊灰发男子，其身体占左侧；年长男子脸部和胸部没有被指定手臂遮挡。",
+            "mismatch": "未见无袖男子手臂横越、遮挡并下降的动作。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 4@Shot6",
+          "RL:Shot6",
+          "SP:Shot6"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "White-clad man",
+      "description": "Man with short dark hair, a loose white uniform and dark belt.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "Ponytailed man",
+      "description": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0011",
+      "global_entity_id": "pb0011",
+      "source": "detection_ledger",
+      "name": "Sleeveless man",
+      "description": "Muscular man with short tousled light-brown hair and a sleeveless black uniform.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot1中男子没有按要求向下从画面底部退出；第2至4帧显示他朝门洞移动，并在画面内翻转腾空。",
+      "original_description": "Shot1男子未按要求向下退出画面，而是在入口处翻转。",
+      "revision": "clarified",
+      "revision_note": "将观察表述限定为第2至4帧可见的朝门洞移动及画面内翻转，准确对应要求的向下出画。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "男子仍在画面内，朝门洞方向移动，而非向下从画面底部退出。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子在门洞内以倒置姿势腾空，身体仍处于画面中。"
+        }
+      ],
+      "assessment": "画面中的运动方向是朝门洞并在画内翻转，不符合从画面底部向下退出的明确要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "He drops downward out of the bottom of the view."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot1的镜头文本直接要求该男子向下从画面底部退出。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2.1",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧的扎发男子头发呈浅棕色短发，未见深色头发在后颈处扎起；这与其应有的后扎深色头发描述不符。",
+      "original_description": "Shot4左侧被标作扎发男子的人物赤膊，未穿黑色武术服。",
+      "revision": "clarified",
+      "revision_note": "将候选所称“浅棕短发”明确为与要求冲突的未扎深色头发属性；发型判断依据Shot4画面。",
+      "split": true,
+      "split_reason": "候选分别指出两项可独立成立或不成立的外观问题：发型与黑色服装，分别对应不同描述属性。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "左侧男子可见浅棕色头发，头发向后梳但未见在后颈扎起。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "左侧男子仍呈浅棕色、未扎起的头发。"
+        }
+      ],
+      "assessment": "可见发色及未扎起的发型与合同要求的深色、后颈扎发不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": "Shot4",
+          "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同对Character 3的描述是全片适用的；Shot4出现左侧的Ponytailed man，且该镜头没有为其另行描述不同发型。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2.2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧的扎发男子赤裸上身、只穿黑裤，没有穿着要求的黑色武术服。",
+      "original_description": "Shot4左侧被标作扎发男子的人物赤膊，未穿黑色武术服。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": true,
+      "split_reason": "候选分别指出两项可独立成立或不成立的外观问题：发型与黑色服装，分别对应不同描述属性。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "左侧男子上身裸露，仅穿黑色裤子。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "左侧男子仍赤裸上身，没有黑色上衣或黑色武术服。"
+        }
+      ],
+      "assessment": "镜头要求两名男子都穿黑色；左侧男子只有黑裤、上身裸露，违反该要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot4",
+          "quote": "Both men in black"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot4文本明确指称两名男子都穿黑色；左侧Ponytailed man是其中一人。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot6没有呈现无袖男子的手臂横过近景并短暂遮住年长男子脸部和胸部、随后从画面中心下降移开的指定动作；各帧中前景手臂竖在画面左侧，年长男子脸部可见且未被该手臂遮挡。",
+      "original_description": "Shot6前景未出现无袖男子手臂横过并移开的指定动作。",
+      "revision": "clarified",
+      "revision_note": "按Shot6各帧修正候选的概括：手臂可见于左侧近景，但没有横越并遮挡年长男子脸胸，也没有从中心下降移开。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "裸臂竖在画面左侧近景，没有横过画面遮住年长男子脸部；年长男子脸部清晰可见。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "前景手臂仍位于左侧并向上伸出，未见从画面中心下降移开。"
+        }
+      ],
+      "assessment": "指定的横越近景、遮挡脸胸及下降移开动作没有呈现；可见手臂停留在左侧，年长男子脸部保持可见。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot6",
+          "quote": "The Sleeveless man's bare arm crosses the near foreground"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot6镜头文本直接要求无袖男子的裸臂横过近景；同一连续要求还规定遮挡脸胸并随后下降移开。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 3,
+    "units": 4,
+    "split_candidates": 1,
+    "clarified_units": 3,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 4,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 4
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 52465,
+      "cached_input_tokens": 0,
+      "output_tokens": 1570,
+      "reasoning_output_tokens": 210
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 52465,
+    "cached_input_tokens": 0,
+    "output_tokens": 1570,
+    "api_calls": 1,
+    "estimated_usd": 0.0060315,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

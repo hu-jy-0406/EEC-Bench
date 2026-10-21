@@ -1,0 +1,653 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_b/p002_wan21/vl_detection/result.json",
+  "source_detection_sha256": "1b5f9e5f9770c81a9bfa057ee40b4382ab5e9b6202b266cf9639060f37756a25",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot2和Shot3中的房间照明都明显明亮，与合同要求全片同一房间“dim”相矛盾；Shot2可见明亮的木色背景和人物受光的脸部，Shot3可见明亮浅色墙面及人物。",
+            "revision": "clarified",
+            "revision_note": "明确合同中的昏暗房间描述适用于Shot2和Shot3，并将画面证据分别表述。",
+            "subcategory": "setting_environment",
+            "shot_ids": [
+              "Shot2",
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "The same room across all four shots; described as dim and warmly lit, with pale walls."
+            },
+            "requirement_applies": "合同将房间描述为全片同一房间；Shot2和Shot3均呈现该房间，且各自镜头文本没有对房间照明作出相反描述，因此昏暗要求适用。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面中的木色背景和人物面部处于明亮照明下。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "木色背景及人物面部仍显明亮。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "浅色墙面和人物处于明亮照明中。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "墙面与人物仍呈明亮状态。"
+              }
+            ],
+            "assessment": "合同中的全片房间描述适用于两镜；两镜可见的明亮照明均与“dim”相矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot3要求模糊的深色形状停留在画面右侧前景边缘，但画面右侧前景没有该深色形状，所见为浅色沙发和墙面。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "presence_count",
+            "shot_ids": [
+              "Shot3"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot3",
+              "quote": "the blurred dark shape stays at the right foreground edge."
+            },
+            "requirement_applies": "这句话是Shot3镜头文本中的明确要求，直接适用于Shot3。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "画面右侧前景边缘没有深色形状，能看到浅色沙发及墙面。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "画面右侧前景边缘仍没有深色形状，呈现浅色沙发及墙面。"
+              }
+            ],
+            "assessment": "Shot3首尾帧均未显示要求留在右侧前景边缘的深色形状，违反镜头文本要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot4男子穿着深色蓝灰色有领、带门襟的衬衫，与合同要求的褪色蓝灰色T恤不符。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+            },
+            "requirement_applies": "合同中的男子服装描述是该人物的全片实体描述；Shot4出现该男子，且Shot4文本没有另行描述或改变其服装。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "男子穿深色蓝灰色有领衬衫，可见门襟和胸前口袋，不是T恤。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "男子仍穿深色蓝灰色有领衬衫。"
+              }
+            ],
+            "assessment": "Shot4可见有领衬衫及门襟，与合同明确要求的T恤款式相冲突。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot2、Shot3室内明亮，不符合房间描述的昏暗要求。",
+      "shot_ids": [
+        "Shot2",
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0002",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "明亮暖色木板背景和明亮照在人物脸上的光线。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "明亮暖色木板背景和明亮照在人物脸上的光线。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "浅墙与人物处于明亮照明中。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0002"
+          ],
+          "observation": "浅墙与人物处于明亮照明中。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "The same room across all four shots; described as dim and warmly lit, with pale walls."
+          }
+        ],
+        "expected": "房间昏暗。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Location 1@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "明亮暖色木板背景和明亮照在人物脸上的光线。",
+            "mismatch": "画面明亮，未呈现昏暗房间。"
+          },
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Location 1@Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "浅墙与人物处于明亮照明中。",
+            "mismatch": "画面明亮，未呈现昏暗房间。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Location 1@Shot2",
+          "EN:Location 1@Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3右前景未见要求出现并停留在画面右侧的深色形状。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右前景没有深色遮挡，边缘可见浅色沙发及墙面。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "右前景没有深色遮挡，边缘可见浅色沙发及墙面。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "the blurred dark shape stays at the right foreground edge."
+          }
+        ],
+        "expected": "画面右侧前景持续可见深色形状。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "EN:Object 3@Shot3",
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右前景没有深色遮挡，边缘可见浅色沙发及墙面。",
+            "mismatch": "要求的深色前景形状缺失。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Object 3@Shot3",
+          "SP:Shot3"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4男子穿深色有领衬衫，不符合全片描述的蓝灰T恤。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰色有领衬衫，带门襟和口袋。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "男子穿深蓝灰色有领衬衫，带门襟和口袋。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+          }
+        ],
+        "expected": "男子穿褪色蓝灰色T恤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 1@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "男子穿深蓝灰色有领衬衫，带门襟和口袋。",
+            "mismatch": "衣服是有领衬衫，不是所要求的蓝灰T恤。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 1@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0002",
+      "global_entity_id": "pb0002",
+      "source": "detection_ledger",
+      "name": "Warm room",
+      "description": "The same room across all four shots; described as dim and warmly lit, with pale walls.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Location 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Dark foreground shape",
+      "description": "Unidentified dark shape at the right foreground edge in Shots1 and 3.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "The same man across all four shots; medium-brown skin, short curly black hair, thick beard and mustache, faded blue-gray T-shirt with small outlined chest lettering.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot2和Shot3中的房间照明都明显明亮，与合同要求全片同一房间“dim”相矛盾；Shot2可见明亮的木色背景和人物受光的脸部，Shot3可见明亮浅色墙面及人物。",
+      "original_description": "Shot2、Shot3室内明亮，不符合房间描述的昏暗要求。",
+      "revision": "clarified",
+      "revision_note": "明确合同中的昏暗房间描述适用于Shot2和Shot3，并将画面证据分别表述。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2",
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面中的木色背景和人物面部处于明亮照明下。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "木色背景及人物面部仍显明亮。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "浅色墙面和人物处于明亮照明中。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "墙面与人物仍呈明亮状态。"
+        }
+      ],
+      "assessment": "合同中的全片房间描述适用于两镜；两镜可见的明亮照明均与“dim”相矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "The same room across all four shots; described as dim and warmly lit, with pale walls."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同将房间描述为全片同一房间；Shot2和Shot3均呈现该房间，且各自镜头文本没有对房间照明作出相反描述，因此昏暗要求适用。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0002",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "presence_count",
+      "description": "Shot3要求模糊的深色形状停留在画面右侧前景边缘，但画面右侧前景没有该深色形状，所见为浅色沙发和墙面。",
+      "original_description": "Shot3右前景未见要求出现并停留在画面右侧的深色形状。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "画面右侧前景边缘没有深色形状，能看到浅色沙发及墙面。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "画面右侧前景边缘仍没有深色形状，呈现浅色沙发及墙面。"
+        }
+      ],
+      "assessment": "Shot3首尾帧均未显示要求留在右侧前景边缘的深色形状，违反镜头文本要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot3",
+          "quote": "the blurred dark shape stays at the right foreground edge."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "这句话是Shot3镜头文本中的明确要求，直接适用于Shot3。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4男子穿着深色蓝灰色有领、带门襟的衬衫，与合同要求的褪色蓝灰色T恤不符。",
+      "original_description": "Shot4男子穿深色有领衬衫，不符合全片描述的蓝灰T恤。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子穿深色蓝灰色有领衬衫，可见门襟和胸前口袋，不是T恤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子仍穿深色蓝灰色有领衬衫。"
+        }
+      ],
+      "assessment": "Shot4可见有领衬衫及门襟，与合同明确要求的T恤款式相冲突。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "faded blue-gray T-shirt with small outlined chest lettering."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同中的男子服装描述是该人物的全片实体描述；Shot4出现该男子，且Shot4文本没有另行描述或改变其服装。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 3,
+    "units": 3,
+    "split_candidates": 0,
+    "clarified_units": 1,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 3,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 3
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 28620,
+      "cached_input_tokens": 0,
+      "output_tokens": 1185,
+      "reasoning_output_tokens": 164
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 28620,
+    "cached_input_tokens": 0,
+    "output_tokens": 1185,
+    "api_calls": 1,
+    "estimated_usd": 0.0034545,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

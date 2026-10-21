@@ -1,0 +1,780 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vl",
+  "branch": "v_l",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_069_pwSkfvXD_ug_s00037_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_branch_split_20261009/runs/main/run_a/p069_wan21/vl_detection/result.json",
+  "source_detection_sha256": "f1803efdbff2734c9c8a2798eafbe8d20ad3e2252bb2a2d1a10c7931fc57d677",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vl",
+    "reviews": [
+      {
+        "issue_id": "L1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L1",
+            "description": "Shot1中男子前进时没有按要求将大型灰黑色枪械举在脸前；关键帧中枪械未出现或位于胸腹前，后段则横在躯干前，未见举至脸前。",
+            "revision": "clarified",
+            "revision_note": "将“始终位于胸前或躯干前”修正为包含前段枪械未出现的可见情况；保留未举至脸前这一核心问题。",
+            "subcategory": "spatial_orientation",
+            "shot_ids": [
+              "Shot1"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot1",
+              "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+            },
+            "requirement_applies": "Shot1直接要求男子前进时将枪械举在脸前；该镜头中男子及枪械均出现。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 1,
+                "role": "supports",
+                "observation": "男子向前，画面中未见枪械。"
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "枪械横在男子胸腹前，明显低于脸部。"
+              }
+            ],
+            "assessment": "要求枪在前进时举于脸前；关键帧显示枪械缺席或处于胸腹高度，未实现该位置要求。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L2",
+            "description": "Shot2中灰棕色长外套成人下方可见红褐色下装，与要求的深色长裤不符。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot2"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "over dark trousers"
+            },
+            "requirement_applies": "Shot2直接描述长外套成人穿着灰棕色外套并搭配深色长裤；该成人在画面中可见。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 1,
+                "role": "supports",
+                "observation": "灰色长外套人物下方露出明显红褐色的长下装。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "同一人物可见红褐色下装，而非视觉上深色的长裤。"
+              }
+            ],
+            "assessment": "画面下装呈红褐色，与明确要求的深色长裤不符。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L3",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L3",
+            "description": "Shot4中长外套成人穿着的外套呈橄榄绿或黄褐色，而非合同所述的宽松灰棕色外套。",
+            "revision": "unchanged",
+            "revision_note": "",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "contract",
+              "shot_id": null,
+              "quote": "Adult wearing a loose gray-brown coat over dark trousers."
+            },
+            "requirement_applies": "合同中的Character 4描述为穿宽松灰棕色外套；Shot4出现长外套成人，且镜头文本没有对外套颜色作不同描述。",
+            "verdict": "confirmed",
+            "basis": "requirement_violated",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "supports",
+                "observation": "与红衣面具人物扭打的长外套成人穿着明显偏橄榄绿、黄褐色的外套。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "成人外套仍呈橄榄绿/黄褐色调。"
+              }
+            ],
+            "assessment": "该人物在Shot4可见的外套颜色与适用于此镜头的合同描述“gray-brown coat”相矛盾。"
+          }
+        ]
+      },
+      {
+        "issue_id": "L4",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "L4",
+            "description": "候选称Shot4左侧短衣人物的裤子为深色、而非要求的棕色；但画面可见其下装呈棕色，未显示与要求相矛盾。",
+            "revision": "clarified",
+            "revision_note": "修正候选的观察：Shot4中可见的裤子呈棕色调，而不是可确认的非棕色深裤。",
+            "subcategory": "attribute",
+            "shot_ids": [
+              "Shot4"
+            ],
+            "requirement_quote": {
+              "source": "shot_prompt",
+              "shot_id": "Shot2",
+              "quote": "wearing brownish trousers"
+            },
+            "requirement_applies": "Shot2对Short dark-clothed figure的棕色裤子描述为该实体的要求；Shot4文本只称其为Short dark-clothed figure，并未提供不同的裤子描述，因此该要求仍适用。",
+            "verdict": "rejected",
+            "basis": "requirement_satisfied",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0,
+                "role": "refutes",
+                "observation": "左侧短衣人物可见棕色调的裤子。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "refutes",
+                "observation": "人物下装仍呈棕色调。"
+              }
+            ],
+            "assessment": "Shot4中短衣人物的可见裤子呈棕色调，符合Shot2所述“brownish trousers”；候选声称的颜色矛盾未获画面支持。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot1中男子未将枪举到脸前，枪始终位于胸前或躯干前。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        },
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0001",
+            "pb0005"
+          ],
+          "observation": "各帧枪械位于躯干下方或胸前，未举至脸前。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0001",
+            "pb0005"
+          ],
+          "observation": "各帧枪械位于躯干下方或胸前，未举至脸前。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+          }
+        ],
+        "expected": "男子前进时将枪举在脸前。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "RL:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 5
+              }
+            ],
+            "observed": "各帧枪械位于躯干下方或胸前，未举至脸前。",
+            "mismatch": "枪未处于脸前，所述举枪位置没有实现。"
+          }
+        ],
+        "template_row_ids": [
+          "RL:Shot1"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2灰外套成人的下装为暗红色而非深色长裤。",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "外套下方可见暗红色下装。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "外套下方可见暗红色下装。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "over dark trousers"
+          }
+        ],
+        "expected": "外套下穿深色长裤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot2",
+            "row_ids": [
+              "EN:Character 4@Shot2"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot2",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 5
+              }
+            ],
+            "observed": "外套下方可见暗红色下装。",
+            "mismatch": "暗红下装与要求的深色长裤不符。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 4@Shot2"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4长外套成人穿橄榄绿色外套，不是灰棕色。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "宽松长外套呈橄榄绿色。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0010"
+          ],
+          "observation": "宽松长外套呈橄榄绿色。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Adult wearing a loose gray-brown coat over dark trousers."
+          }
+        ],
+        "expected": "穿宽松灰棕色外套。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 4@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "宽松长外套呈橄榄绿色。",
+            "mismatch": "外套颜色为橄榄绿，与灰棕色描述相矛盾。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 4@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    },
+    {
+      "issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4短衣人物的裤子呈深色，不符合棕色裤子描述。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧人物可见深色长裤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0008"
+          ],
+          "observation": "左侧人物可见深色长裤。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": {
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot2",
+            "quote": "wearing brownish trousers"
+          }
+        ],
+        "expected": "短衣人物穿棕色长裤。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 2@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧人物可见深色长裤。",
+            "mismatch": "裤子呈深色而非棕色。"
+          }
+        ],
+        "template_row_ids": [
+          "EN:Character 2@Shot4"
+        ]
+      },
+      "v_v_detail": null
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Red-and-black jacket man",
+      "description": "Man with short swept-back dark hair and a fitted high-collared red-and-black patterned jacket.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Angular firearm",
+      "description": "Large gray-and-black angular firearm with bulky textured casing.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 3",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0010",
+      "global_entity_id": "pb0010",
+      "source": "detection_ledger",
+      "name": "Long-coat adult",
+      "description": "Adult wearing a loose gray-brown coat over dark trousers.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    },
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "Short dark-clothed figure",
+      "description": "Short figure in dark clothing and brownish trousers.",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [],
+      "provenance": null,
+      "basis_type": null,
+      "contract_label": null,
+      "quote": null,
+      "part_of": null,
+      "note": ""
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "spatial_orientation",
+      "description": "Shot1中男子前进时没有按要求将大型灰黑色枪械举在脸前；关键帧中枪械未出现或位于胸腹前，后段则横在躯干前，未见举至脸前。",
+      "original_description": "Shot1中男子未将枪举到脸前，枪始终位于胸前或躯干前。",
+      "revision": "clarified",
+      "revision_note": "将“始终位于胸前或躯干前”修正为包含前段枪械未出现的可见情况；保留未举至脸前这一核心问题。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "男子向前，画面中未见枪械。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "枪械横在男子胸腹前，明显低于脸部。"
+        }
+      ],
+      "assessment": "要求枪在前进时举于脸前；关键帧显示枪械缺席或处于胸腹高度，未实现该位置要求。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot1",
+          "quote": "he moves forward with the large gray-and-black Angular firearm raised before his face"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot1直接要求男子前进时将枪械举在脸前；该镜头中男子及枪械均出现。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        },
+        {
+          "entity_key": "pb0005",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot2中灰棕色长外套成人下方可见红褐色下装，与要求的深色长裤不符。",
+      "original_description": "Shot2灰外套成人的下装为暗红色而非深色长裤。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot2"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "灰色长外套人物下方露出明显红褐色的长下装。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "同一人物可见红褐色下装，而非视觉上深色的长裤。"
+        }
+      ],
+      "assessment": "画面下装呈红褐色，与明确要求的深色长裤不符。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "over dark trousers"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2直接描述长外套成人穿着灰棕色外套并搭配深色长裤；该成人在画面中可见。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4中长外套成人穿着的外套呈橄榄绿或黄褐色，而非合同所述的宽松灰棕色外套。",
+      "original_description": "Shot4长外套成人穿橄榄绿色外套，不是灰棕色。",
+      "revision": "unchanged",
+      "revision_note": "",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "与红衣面具人物扭打的长外套成人穿着明显偏橄榄绿、黄褐色的外套。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "成人外套仍呈橄榄绿/黄褐色调。"
+        }
+      ],
+      "assessment": "该人物在Shot4可见的外套颜色与适用于此镜头的合同描述“gray-brown coat”相矛盾。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "contract",
+          "shot_id": null,
+          "quote": "Adult wearing a loose gray-brown coat over dark trousers."
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "合同中的Character 4描述为穿宽松灰棕色外套；Shot4出现长外套成人，且镜头文本没有对外套颜色作不同描述。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0010",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "branch": "v_l",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "候选称Shot4左侧短衣人物的裤子为深色、而非要求的棕色；但画面可见其下装呈棕色，未显示与要求相矛盾。",
+      "original_description": "Shot4短衣人物的裤子呈深色，不符合棕色裤子描述。",
+      "revision": "clarified",
+      "revision_note": "修正候选的观察：Shot4中可见的裤子呈棕色调，而不是可确认的非棕色深裤。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "rejected",
+      "basis": "requirement_satisfied",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "refutes",
+          "observation": "左侧短衣人物可见棕色调的裤子。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "refutes",
+          "observation": "人物下装仍呈棕色调。"
+        }
+      ],
+      "assessment": "Shot4中短衣人物的可见裤子呈棕色调，符合Shot2所述“brownish trousers”；候选声称的颜色矛盾未获画面支持。",
+      "v_l_detail": {
+        "requirement_quote": {
+          "source": "shot_prompt",
+          "shot_id": "Shot2",
+          "quote": "wearing brownish trousers"
+        },
+        "requirement_quote_verified": true,
+        "requirement_applies": "Shot2对Short dark-clothed figure的棕色裤子描述为该实体的要求；Shot4文本只称其为Short dark-clothed figure，并未提供不同的裤子描述，因此该要求仍适用。"
+      },
+      "v_v_detail": null,
+      "entity_refs": [
+        {
+          "entity_key": "pb0008",
+          "role": "subject",
+          "provenance": null,
+          "basis_note": ""
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 4,
+    "units": 4,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "v_l": {
+        "confirmed": 3,
+        "rejected": 1,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "requirement_violated": 3,
+      "requirement_satisfied": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 35544,
+      "cached_input_tokens": 0,
+      "output_tokens": 1514,
+      "reasoning_output_tokens": 255
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 35544,
+    "cached_input_tokens": 0,
+    "output_tokens": 1514,
+    "api_calls": 1,
+    "estimated_usd": 0.0043114,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}
