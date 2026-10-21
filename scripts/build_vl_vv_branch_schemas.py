@@ -113,7 +113,7 @@ def discovery_vv(cfg):
                    'assessment': enum(('consistent', 'inconsistent', 'uncertain')), 'change_ids': array(string())})
     boundary = obj({'from_shot': string(), 'to_shot': string(), 'required': enum(('cut', 'continue')),
                     'last_frame': string(), 'first_frame': string(),
-                    'realized': enum(('realized', 'not_realized', 'uncertain')), 'continuity': string(),
+                    'continuity': string(),
                     'change_ids': array(string())})
     change = obj({'change_id': string(), 'scope': enum(('within_shot', 'cross_shot')),
                   'shot_ids': array(string(), 1), 'aspect': enum(cfg['change_aspects']),

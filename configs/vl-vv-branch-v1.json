@@ -35,13 +35,12 @@
       "rendering_style": "photoreal vs animation, 2D vs 3D, or another visual style differs across shots that should share one style",
       "instance_count": "a recurring character/object is duplicated, merged with another entity, replaced by a different individual, or two characters who should be distinct look identical or swap looks",
       "state_action_continuity": "pose, position, held objects, object states, clothing state or the progress of an ongoing action is incompatible across a boundary or a return, without enough elapsed time or a shown action",
-      "spatial_continuity": "relative positions, left/right arrangement, screen direction or layout of entities flip or rearrange without a cause, including a layout that contradicts the camera change between the shots",
-      "transition_realization": "a boundary does not realize its required transition (a required cut that does not happen, or a required continue that is broken)"
+      "spatial_continuity": "relative positions, left/right arrangement, screen direction or layout of entities flip or rearrange without a cause, including a layout that contradicts the camera change between the shots"
     }
   },
   "entity_optional_subcategories": {
     "v_l": ["setting_environment", "camera_composition", "style_rendering", "shot_structure"],
-    "v_v": ["unintended_cut", "rendering_instability", "environment_lighting", "rendering_style", "transition_realization"]
+    "v_v": ["unintended_cut", "rendering_instability", "environment_lighting", "rendering_style"]
   },
   "vv_checklist": [
     {"item": "W1", "scope": "within_shot", "title": "Camera position and movement inside the shot",
@@ -92,9 +91,6 @@
     {"item": "X9", "scope": "cross_shot", "title": "Spatial layout and screen direction",
      "check": "Relative positions, left/right arrangement and screen direction of recurring entities stay consistent unless an action or the camera change explains them.",
      "subcategories": ["spatial_continuity"]},
-    {"item": "X10", "scope": "cross_shot", "title": "Transition realization at every boundary",
-     "check": "A required cut must show a clear shot change (new camera setup and/or the next shot's subject); a required continue must continue the same take or moment without a jump or reset. For an interval of one episode video, a cut that lands a fraction of a second late, so that only frame 0 still shows the previous shot, is a timing offset, not a missing cut.",
-     "subcategories": ["transition_realization"]},
     {"item": "O1", "scope": "episode", "title": "Open-ended sweep",
      "check": "Re-examine every frame for any other obvious or meaningful visual consistency problem, including unusual ones not listed above, and report it with the closest subcategory.",
      "subcategories": []}
@@ -108,11 +104,11 @@
     "lighting_cause": "a visible or described light source, time or weather change explains the lighting difference",
     "time_skip": "the text or clear visual cues show enough elapsed story time between the shots for this kind of change (never explains a change of face or identity)",
     "different_entity": "the observations are of different entities or places that are not expected to match",
-    "required_transition": "the change is the required cut itself (a new camera setup at a boundary that requires a cut)",
+    "required_transition": "the change is the shot change itself at a boundary (a new camera setup at a cut); whether a boundary realizes its required cut or continue is a V-L question, never a V-V issue",
     "cut_timing_offset": "an episode-video cut lands slightly late, so only frame 0 of the interval still shows the previous shot",
     "image_quality": "blur, focus, compression, small size or exposure explains the apparent difference"
   },
-  "change_aspects": ["camera_position", "face_identity", "clothing_hair", "action_pose", "body_integrity", "object", "held_object_contact", "presence_count", "background_setting", "lighting_environment", "rendering", "spatial_layout", "transition"],
+  "change_aspects": ["camera_position", "face_identity", "clothing_hair", "action_pose", "body_integrity", "object", "held_object_contact", "presence_count", "background_setting", "lighting_environment", "rendering", "spatial_layout"],
   "contract_template": {
     "row_kinds": {
       "entity": "one contract entity in one shot: its episode-wide description (when the entity is scheduled in the shot) and the shot's single-entity claims about it",
@@ -162,14 +158,14 @@
   },
   "provenance": {
     "labels": {
-      "prompt_bound": "the text refers to the entity (a contract entity, a prompt phrase naming it or the role it plays), or it is an intrinsic part (body, face, hair, worn clothing, accessories) of such an entity",
-      "prompt_unbound": "no global prompt, shot prompt or contract text refers to the entity and it is not part of a referenced entity: the generator introduced it (an unintentional entity)",
+      "prompt_bound": "the text refers to the entity: a contract entity, or a global prompt, shot prompt or contract phrase names it or the role it plays (including an item named inside a character description, such as \"wristwatch\")",
+      "prompt_unbound": "no global prompt, shot prompt or contract text names the entity or its role: the generator introduced it (an unintentional entity), including a worn, held or carried item (a watch, glasses, a bag) of a prompt-bound character that the text does not name",
       "uncertain": "the text could refer to the entity but is too vague to decide (for example \"people in the background\" for one specific bystander)"
     },
     "basis_types": {
       "contract_entity": "prompt_bound: the entity is a contract entity (contract_label)",
       "prompt_quote": "prompt_bound: a literal quote of the prompt or contract names it or its role",
-      "part_of_entity": "prompt_bound: it is an intrinsic part of a prompt-bound entity (part_of)",
+      "part_of_entity": "prompt_bound: a body part (face, hair, hand, limb) of a prompt-bound entity that had to be registered separately (part_of); never worn clothing, accessories or held or carried items",
       "not_in_text": "prompt_unbound: no text refers to it",
       "ambiguous_text": "uncertain: quote the vague text if any and say why it does not decide"
     },

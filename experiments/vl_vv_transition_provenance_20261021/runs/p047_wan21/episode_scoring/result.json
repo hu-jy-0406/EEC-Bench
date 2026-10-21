@@ -1,0 +1,393 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5",
+  "status": "success",
+  "scores": {
+    "v_l": 9.14,
+    "v_v": {
+      "within_shot": 100.0,
+      "cross_shot": 62.5,
+      "overall": 81.25
+    },
+    "v_v_unintentional": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_unintentional_or_uncertain": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_remainder": {
+      "within_shot": 100.0,
+      "cross_shot": 62.5,
+      "overall": 81.25
+    }
+  },
+  "v_v_issue_statistics": {
+    "counting_unit": "independent confirmed V-V issue = one duplicate group of confirmed reviewed units (a unit split by the reviewer is its own issue); counted once however many unintentional entities it involves",
+    "involvement_rule": "an issue involves an unintentional entity when one of its subject entities has final provenance prompt_unbound; context entities do not count; uncertain provenance counts only in the upper bound",
+    "total": {
+      "confirmed_issues": 1,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 1
+    },
+    "within_shot": {
+      "confirmed_issues": 0,
+      "involving_unintentional": 0,
+      "proportion": null,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": null,
+      "confirmed_units": 0
+    },
+    "cross_shot": {
+      "confirmed_issues": 1,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 1
+    },
+    "unintentional_entities": []
+  },
+  "counts": {
+    "v_l": {
+      "units": 9,
+      "confirmed": 9,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 9
+    },
+    "within_shot": {
+      "units": 0,
+      "confirmed": 0,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 0
+    },
+    "cross_shot": {
+      "units": 1,
+      "confirmed": 1,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 1
+    }
+  },
+  "unit_scores": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "bucket": "v_l",
+      "subcategory": "action_state",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "L1",
+      "base_deduction": 50,
+      "adjusted_deduction": 50.0,
+      "unintentional_status": "none",
+      "reason": "核心离场动作方向和路径均未实现，人物反而在画面内翻转，属于显著动作失败。"
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "minor",
+      "duplicate_of": null,
+      "event_root_unit_id": "L2",
+      "base_deduction": 10,
+      "adjusted_deduction": 10.0,
+      "unintentional_status": "none",
+      "reason": "仅后段未保持嘴微张，人物表情主体仍可辨认，偏差局部且轻微。"
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L3",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot4一名男子明显缺少要求的黑色上衣，服装要求未满足，但限于单一人物和单个镜头。"
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L4",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot4一名男子的发色与发型均不符，属于清晰的单人物外观偏差。"
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "bucket": "v_l",
+      "subcategory": "setting_environment",
+      "verdict": "confirmed",
+      "review_confidence": "medium",
+      "severity": "minor",
+      "duplicate_of": null,
+      "event_root_unit_id": "L5",
+      "base_deduction": 10,
+      "adjusted_deduction": 7.5,
+      "unintentional_status": "none",
+      "reason": "Shot5缺少指定的暖色光纹，环境细节偏差局限于一个区域。"
+    },
+    {
+      "unit_id": "L6",
+      "parent_issue_id": "L6",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "medium",
+      "severity": "minor",
+      "duplicate_of": null,
+      "event_root_unit_id": "L6",
+      "base_deduction": 10,
+      "adjusted_deduction": 7.5,
+      "unintentional_status": "none",
+      "reason": "衬衫颜色与指定色调不同，但人物及服装仍可辨认，影响局限于颜色细节。"
+    },
+    {
+      "unit_id": "L7.1",
+      "parent_issue_id": "L7",
+      "bucket": "v_l",
+      "subcategory": "interaction",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L7.1",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "近景前景主体与要求的裸臂明显不同，改变了该镜头的前景内容，但影响局限于Shot6。"
+    },
+    {
+      "unit_id": "L7.2",
+      "parent_issue_id": "L7",
+      "bucket": "v_l",
+      "subcategory": "action_state",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L7.2",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "要求的横臂及随后落开动作均未出现，前景持续被肩胸占据；这是独立的动作缺失，局限于Shot6。"
+    },
+    {
+      "unit_id": "L8",
+      "parent_issue_id": "L8",
+      "bucket": "v_l",
+      "subcategory": "action_state",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L8",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "男子未保持要求的防守姿势，后段双手落下，构成清晰的单镜头动作状态偏差。"
+    },
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "bucket": "cross_shot",
+      "subcategory": "character_identity",
+      "verdict": "confirmed",
+      "review_confidence": "medium",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "V1",
+      "base_deduction": 50,
+      "adjusted_deduction": 37.5,
+      "unintentional_status": "none",
+      "reason": "同一无袖男子在多个镜头中出现明显不同的发型与脸部轮廓，造成反复的身份外观替换，属重大不一致。"
+    }
+  ],
+  "event_scores": [
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L1",
+      "unit_ids": [
+        "L1"
+      ],
+      "applied_deduction": 50.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L2",
+      "unit_ids": [
+        "L2"
+      ],
+      "applied_deduction": 10.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L3",
+      "unit_ids": [
+        "L3"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L4",
+      "unit_ids": [
+        "L4"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L5",
+      "unit_ids": [
+        "L5"
+      ],
+      "applied_deduction": 7.5,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L6",
+      "unit_ids": [
+        "L6"
+      ],
+      "applied_deduction": 7.5,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L7.1",
+      "unit_ids": [
+        "L7.1"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L7.2",
+      "unit_ids": [
+        "L7.2"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L8",
+      "unit_ids": [
+        "L8"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V1",
+      "unit_ids": [
+        "V1"
+      ],
+      "applied_deduction": 37.5,
+      "unintentional_status": "none"
+    }
+  ],
+  "factorization_check": {
+    "within_shot": {
+      "bucket_score": 100.0,
+      "unintentional_times_remainder": 100.0
+    },
+    "cross_shot": {
+      "bucket_score": 62.5,
+      "unintentional_times_remainder": 62.5
+    }
+  },
+  "scoring_rule": {
+    "rubric_version": "penalty_v2",
+    "base_deductions": {
+      "minor": 10,
+      "moderate": 25,
+      "major": 50,
+      "critical": 80
+    },
+    "reviewer_confidence_factors": {
+      "high": 1.0,
+      "medium": 0.75,
+      "low": 0.5
+    },
+    "event_rule": "confirmed units linked by duplicate_of form one event (independent issue); the event deducts its maximum adjusted deduction; split units are distinct events",
+    "bucket_rule": "100 * product(1 - event_deduction / 100), rounded half up to 2 decimals",
+    "v_v_rule": "overall = mean of within_shot and cross_shot",
+    "unintentional_rule": "v_v_unintentional = the same product over the events whose subject entities include a prompt_unbound entity; v_v_remainder = product over the other V-V events; bucket = unintentional x remainder / 100 before rounding; v_v_unintentional_or_uncertain also counts events whose subjects are only uncertain",
+    "empty_bucket": "a bucket or subset with no confirmed events scores 100; that is not proof of a consistent video, see the issue counts"
+  },
+  "source_reviews": {
+    "vl": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vl_review/result.json",
+    "vv": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vv_review/result.json"
+  },
+  "source_review_sha256": {
+    "vl": "c28f1fb93571934cb63ece44331c37973aa3c632fadebc112b9ee45a418d3290",
+    "vv": "eb9486cd7533568168f2ba91c3cf99cc1b85719287c8cb5d19f2615e4905ba81"
+  },
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "calls": {
+    "vl": 1,
+    "vv": 1
+  },
+  "repair_rounds": {
+    "vl": 0,
+    "vv": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2700,
+      "cached_input_tokens": 0,
+      "output_tokens": 460,
+      "reasoning_output_tokens": 0
+    },
+    {
+      "input_tokens": 1215,
+      "cached_input_tokens": 0,
+      "output_tokens": 128,
+      "reasoning_output_tokens": 40
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 3915,
+    "cached_input_tokens": 0,
+    "output_tokens": 588,
+    "api_calls": 2,
+    "estimated_usd": 0.0006855,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "limitation": "Scores summarize confirmed reviewed units; severities come from text-only calls; provenance labels are model judgments checked against the text; no human calibration."
+}

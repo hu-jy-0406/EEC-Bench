@@ -1,0 +1,1270 @@
+{
+  "protocol": "vl_vv_issue_discovery_v5_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "model_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vv",
+    "checklist_audit": [
+      {
+        "item": "W1",
+        "status": "checked",
+        "note": "逐镜查看八个镜头0–5帧；镜内机位稳定或仅有主体运动，无明显跳切。"
+      },
+      {
+        "item": "W2",
+        "status": "checked",
+        "note": "逐帧比较可见人物衣着发型；注意到镜头4与镜头5/7的无袖男子外观差异。"
+      },
+      {
+        "item": "W3",
+        "status": "checked",
+        "note": "比较重复人物面部；年长男子整体特征相符，无明确面部漂移。"
+      },
+      {
+        "item": "W4",
+        "status": "checked",
+        "note": "检查姿势动作连贯；镜头1下落、镜头4群体动作、镜头5手势及镜头7举拳均连续。"
+      },
+      {
+        "item": "W5",
+        "status": "checked",
+        "note": "检查可见物件及持握接触；未见明确物件跳变。"
+      },
+      {
+        "item": "W6",
+        "status": "checked",
+        "note": "检查人物出入与实例数量；镜头1人物离开画面有动作解释。"
+      },
+      {
+        "item": "W7",
+        "status": "checked",
+        "note": "检查背景、光线与渲染；镜内未见明显闪烁或风格切换。"
+      },
+      {
+        "item": "X1",
+        "status": "checked",
+        "note": "比较各镜机位；切镜后视角变化正常，但镜头5与4的场景视觉差别一并检查。"
+      },
+      {
+        "item": "X2",
+        "status": "checked",
+        "note": "比较重复角色；无袖男子镜头4与镜头5/7疑似不同个体。"
+      },
+      {
+        "item": "X3",
+        "status": "checked",
+        "note": "比较重复角色服装发型；无袖男子镜头4与镜头5/7显著不同。"
+      },
+      {
+        "item": "X4",
+        "status": "checked",
+        "note": "逐边界检查末帧/首帧；切镜导致的姿势和取景变化正常。"
+      },
+      {
+        "item": "X5",
+        "status": "checked",
+        "note": "比较重复道具；未见足以确认的跨镜物件异常。"
+      },
+      {
+        "item": "X6",
+        "status": "checked",
+        "note": "比较训练室背景；部分镜头为不同取景，未能确认明确背景矛盾。"
+      },
+      {
+        "item": "X7",
+        "status": "checked",
+        "note": "比较照明及渲染；切镜中的色温差异可由场景/机位变化解释，未记异常。"
+      },
+      {
+        "item": "X8",
+        "status": "checked",
+        "note": "检查重复人物实例；主要疑点为无袖男子可能被不同个体替换。"
+      },
+      {
+        "item": "X9",
+        "status": "checked",
+        "note": "检查左右位置和屏幕方向；切镜机位差异可解释。"
+      },
+      {
+        "item": "O1",
+        "status": "checked",
+        "note": "复查全片关键帧，记录无袖男子跨镜身份/外观不一致。"
+      }
+    ],
+    "shot_scan": [
+      {
+        "shot_id": "Shot1",
+        "camera": {
+          "setup": "f0-f5固定中远景，平视，正对墙与门口",
+          "movement": "none",
+          "note": "背景线条稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "短深色发，年轻男性侧脸；随后离画",
+            "hair_clothing": "深色短发，白色宽松道服、黑腰带",
+            "action": "由站立持手势转身移动，随后翻转/下落并离开画面；动作持续",
+            "stable": true
+          }
+        ],
+        "other": "墙面、开关、门框和海报稳定；末帧人物已离开。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot2",
+        "camera": {
+          "setup": "f0-f5近景平视；构图略随人物转向调整",
+          "movement": "reframe",
+          "note": "背景木墙与灯具稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长男性，灰发后梳并束在颈后，白色胡须；面部特征稳定",
+            "hair_clothing": "灰色后梳长发，橄榄卡其色有领上衣",
+            "action": "由背向/侧向转至近正面并停住",
+            "stable": true
+          }
+        ],
+        "other": "木质墙面、灯带及蓝色墙牌持续可见。",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "shot_id": "Shot3",
+        "camera": {
+          "setup": "f0-f5中近景平视正面，构图轻微变化",
+          "movement": "reframe",
+          "note": "背景镜面板与上方暖光保持对齐。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0008",
+            "face": "年轻男性，深色眼眉，脸型与五官稳定",
+            "hair_clothing": "深色后梳发束于颈后；黑色道服",
+            "action": "细微转头、肩部调整，保持朝右并有轻微笑意",
+            "stable": true
+          }
+        ],
+        "other": "镜面墙、浅色墙与暖光布局稳定。",
+        "change_ids": [
+          "c2"
+        ]
+      },
+      {
+        "shot_id": "Shot4",
+        "camera": {
+          "setup": "f0-f5固定广角平视，房间全景",
+          "movement": "none",
+          "note": "背景墙、门口、镜面及窗帘稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "灰发秃顶的年长男性，背对镜头",
+            "hair_clothing": "卡其色上衣裤、深色鞋",
+            "action": "站在中央，基本不动",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0008",
+            "face": "左侧可见人物为浅棕发男性，脸型与镜头3的深发马尾男子不同",
+            "hair_clothing": "上身裸露、黑裤、赤脚；浅棕色中短发",
+            "action": "弯身、起身并移动；连续动作",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0011",
+            "face": "右侧肌肉男性，深色头发后束，面部特征可见",
+            "hair_clothing": "黑色无袖上衣及黑裤",
+            "action": "弯身后移动并抬手至姿势，动作连续",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0001",
+            "face": "白衣人物面部不可清晰辨认",
+            "hair_clothing": "白色衣裤",
+            "action": "卧于右侧地面，姿势基本稳定",
+            "stable": true
+          }
+        ],
+        "other": "地面、镜墙、旗帜、门口与百叶窗稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot5",
+        "camera": {
+          "setup": "f0-f5中景平视，越过年长男子背部；逐渐显出两人",
+          "movement": "reframe",
+          "note": "镜面墙背景连续。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "主要见灰发后脑及侧面",
+            "hair_clothing": "灰色长发束于后部；浅卡其上衣",
+            "action": "背向镜头站立",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0008",
+            "face": "深色发束起的年轻男性，脸型与镜头3相符",
+            "hair_clothing": "黑色道服，袖上有白色圆形标志",
+            "action": "进入画面并保持弯曲防守姿势，短暂转向同伴",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0011",
+            "face": "浅棕金色短发、年轻男性；与镜头4右侧人物特征差异明显",
+            "hair_clothing": "黑色无袖道服",
+            "action": "靠近同伴并伸出手掌，随后保持手势",
+            "stable": true
+          }
+        ],
+        "other": "镜面墙与暖色照明稳定。",
+        "change_ids": [
+          "c3"
+        ]
+      },
+      {
+        "shot_id": "Shot6",
+        "camera": {
+          "setup": "f0-f5中近景平视，年长男子在右、前景人物在左",
+          "movement": "none",
+          "note": "背景位置稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "灰发后梳、白色胡须的年长男性",
+            "hair_clothing": "浅卡其短袖衬衫，胸袋有笔和浅色物品",
+            "action": "仰视并保持镇定，细微表情变化",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0011",
+            "face": "左前景灰发、白胡须男性，仅局部可见；其身份不确定",
+            "hair_clothing": "裸露上身",
+            "action": "占据前景，略有转向",
+            "stable": true
+          }
+        ],
+        "other": "浅墙与蓝灰色墙裙稳定；未见无袖男子手臂跨过画面。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot7",
+        "camera": {
+          "setup": "f0-f5近景平视，面向无袖男子，年长男子在右前景",
+          "movement": "reframe",
+          "note": "背景旗帜及墙面稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0011",
+            "face": "浅棕色短卷发、方脸成年男性；五官与镜头4右侧人物不相同",
+            "hair_clothing": "黑色无袖上衣，胸前美国旗图案",
+            "action": "抬拳至脸侧并维持防守姿势；中间短暂抬拳后回到较低位置",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0007",
+            "face": "灰发年长男子后脑侧面",
+            "hair_clothing": "浅卡其色肩部衣料",
+            "action": "处于右侧前景，基本不动",
+            "stable": true
+          }
+        ],
+        "other": "旗帜、浅墙和下方深色墙面稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot8",
+        "camera": {
+          "setup": "f0-f5紧近景平视，年长男子正面偏侧，左前景有举起的手臂",
+          "movement": "none",
+          "note": "背景墙及海报位置稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长男性，秃顶、灰发后梳，白色胡须；五官稳定",
+            "hair_clothing": "灰发、卡其领口",
+            "action": "保持向上注视，仅轻微面部调整",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0011",
+            "face": "仅见裸露手臂，无法核验身份",
+            "hair_clothing": "裸露手臂",
+            "action": "手臂持续在左上缘举起",
+            "stable": true
+          }
+        ],
+        "other": "浅色墙面和红黑海报稳定。",
+        "change_ids": []
+      }
+    ],
+    "continuity_ledger": [
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "name": "白衣男子",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "深色短发，白色道服与黑腰带；站立"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0,
+            "signature": "远处卧地白衣人物，面部无法辨认"
+          }
+        ],
+        "assessment": "uncertain",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0007"
+        ],
+        "name": "年长男子",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 3,
+            "signature": "灰发后梳束起，白色胡须，橄榄卡其上衣，正面"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0,
+            "signature": "灰发秃顶后脑，卡其上衣裤、黑鞋"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3,
+            "signature": "灰发束于后部，浅卡其上衣，背向"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "灰发后梳、白胡须，浅卡其短袖衬衫，胸袋有笔"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3,
+            "signature": "灰发后脑及卡其肩部"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 3,
+            "signature": "秃顶灰发、白胡须、卡其领口"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0008"
+        ],
+        "name": "马尾男子",
+        "observations": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 3,
+            "signature": "深色头发束颈后，黑色道服"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 3,
+            "signature": "浅棕发、裸露上身、黑裤；与深发马尾外观不同"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3,
+            "signature": "深色发束起，黑色道服，袖上白色圆标"
+          }
+        ],
+        "assessment": "uncertain",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0011"
+        ],
+        "name": "无袖男子",
+        "observations": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5,
+            "signature": "肌肉壮实，深色头发后束，黑色无袖上衣"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3,
+            "signature": "浅棕金色短发，黑色无袖道服"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "仅见前景裸露上身灰发人物，身份不确定"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3,
+            "signature": "浅棕短卷发、方脸、黑色无袖上衣及美国旗图案"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 3,
+            "signature": "仅见裸露手臂"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c3"
+        ]
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "name": "训练室",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "入口处浅墙、开关和门洞；正面固定机位"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 3,
+            "signature": "木墙、蓝色横带与暖色灯具；近景"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 3,
+            "signature": "镜面墙及上方暖光；正面近景"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 3,
+            "signature": "浅色墙、镜墙、入口、酒红地面；广角"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3,
+            "signature": "大面积镜墙与暖色天花灯；近景反向取景"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "浅墙及蓝灰墙裙；近景"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3,
+            "signature": "浅墙、深色墙裙与旗帜；近景"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 3,
+            "signature": "浅墙与红黑海报；紧近景"
+          }
+        ],
+        "assessment": "uncertain",
+        "change_ids": []
+      }
+    ],
+    "boundary_checks": [
+      {
+        "from_shot": "Shot1",
+        "to_shot": "Shot2",
+        "required": "cut",
+        "last_frame": "Shot1 f5 固定入口墙空镜",
+        "first_frame": "Shot2 f0 年长男子近景侧背面",
+        "continuity": "切镜造成的机位及内容变化正常。",
+        "change_ids": [
+          "c4"
+        ]
+      },
+      {
+        "from_shot": "Shot2",
+        "to_shot": "Shot3",
+        "required": "cut",
+        "last_frame": "Shot2 f5 年长男子近正面",
+        "first_frame": "Shot3 f0 马尾男子中近景",
+        "continuity": "新人物与机位变化正常。",
+        "change_ids": [
+          "c5"
+        ]
+      },
+      {
+        "from_shot": "Shot3",
+        "to_shot": "Shot4",
+        "required": "cut",
+        "last_frame": "Shot3 f5 深发马尾男子近景",
+        "first_frame": "Shot4 f0 广角，左侧为浅棕发裸身男子",
+        "continuity": "切镜本身正常；左侧角色与前镜马尾男子外观不相符，记入c6。",
+        "change_ids": [
+          "c6"
+        ]
+      },
+      {
+        "from_shot": "Shot4",
+        "to_shot": "Shot5",
+        "required": "cut",
+        "last_frame": "Shot4 f5 右侧黑衣无袖男子为深发后束",
+        "first_frame": "Shot5 f0 右缘仅见无袖人物局部",
+        "continuity": "视角及构图切换正常；后续可见人物外观变化记入c3。",
+        "change_ids": [
+          "c7",
+          "c3"
+        ]
+      },
+      {
+        "from_shot": "Shot5",
+        "to_shot": "Shot6",
+        "required": "cut",
+        "last_frame": "Shot5 f5 年长男子背影与两名黑衣男子",
+        "first_frame": "Shot6 f0 年长男子正面及左侧裸身前景人物",
+        "continuity": "新机位和前景遮挡变化正常；镜头6前景人物无法确认是无袖男子。",
+        "change_ids": [
+          "c8"
+        ]
+      },
+      {
+        "from_shot": "Shot6",
+        "to_shot": "Shot7",
+        "required": "cut",
+        "last_frame": "Shot6 f5 年长男子右侧近景，左侧裸身前景",
+        "first_frame": "Shot7 f0 无袖男子正面近景",
+        "continuity": "切镜与人物入画正常；无袖男子外观变化纳入c3。",
+        "change_ids": [
+          "c9",
+          "c3"
+        ]
+      },
+      {
+        "from_shot": "Shot7",
+        "to_shot": "Shot8",
+        "required": "cut",
+        "last_frame": "Shot7 f5 浅棕短卷发无袖男子近景",
+        "first_frame": "Shot8 f0 年长男子紧近景及左侧手臂",
+        "continuity": "切镜和取景转换正常；手臂不能单独确认身份。",
+        "change_ids": [
+          "c10"
+        ]
+      }
+    ],
+    "observed_changes": [
+      {
+        "change_id": "c1",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "镜头2转向过程中构图轻微调整，背景仍对齐。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 3
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "转身镜头中连续的构图调整。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c2",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "镜头3构图略有重取景，背景无跳变。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "camera_motion",
+        "cause_basis": "背景保持对齐，变化为轻微取景调整。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c3",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot4",
+          "Shot5",
+          "Shot7"
+        ],
+        "aspect": "face_identity",
+        "entity_keys": [
+          "pb0011"
+        ],
+        "description": "镜头4的无袖男子为深发后束、面部较长；镜头5与7为浅棕/金色短发、方脸，疑似角色被不同个体替换。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "切镜可解释视角变化，但不能解释同一反复角色面部和发型明显不同；未见换人动作。",
+        "cause_quote": "",
+        "issue_id": "V1"
+      },
+      {
+        "change_id": "c4",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot1空墙固定广角转至Shot2人物近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c5",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "从年长男子近景切至马尾男子近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求切镜且主体不同。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c6",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "face_identity",
+        "entity_keys": [
+          "pb0008"
+        ],
+        "description": "Shot3 f5为深发马尾、黑色道服男子；Shot4 f0左侧为浅棕发裸身男子，外观明显不同，但是否为同一角色无法仅凭图像确认。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "uncertain",
+        "cause": null,
+        "cause_basis": "镜头4人物可能是另一角色；单凭可见证据无法确认身份对应。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c7",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot4",
+          "Shot5"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "全景切换为越肩中景，训练室镜墙从不同方向呈现。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "viewpoint_change",
+        "cause_basis": "不同机位显示训练室另一侧，未能确认同一背景元素互相矛盾。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c8",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot5",
+          "Shot6"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "越肩中景切至年长男子正面近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c9",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot6",
+          "Shot7"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "年长男子近景切至无袖男子近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c10",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot7",
+          "Shot8"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "无袖男子近景切至年长男子紧近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      }
+    ],
+    "entity_register": [
+      {
+        "entity_key": "pb0011",
+        "global_entity_id": "pb0011",
+        "source": "detection_ledger",
+        "name": "无袖男子",
+        "description": "合同绑定角色；镜头4、5、7可见全脸与服装。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Character 4",
+        "quote": null,
+        "part_of": null,
+        "note": "跨镜外观比较对象。"
+      },
+      {
+        "entity_key": "pb0008",
+        "global_entity_id": "pb0008",
+        "source": "detection_ledger",
+        "name": "马尾男子",
+        "description": "合同绑定角色；镜头3为深色马尾与黑色道服。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Character 3",
+        "quote": null,
+        "part_of": null,
+        "note": "镜头4左侧身份无法确认，故未作异常判断。"
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "V1",
+        "scope": "cross_shot",
+        "subcategory": "character_identity",
+        "description": "无袖男子在Shot4与Shot5/Shot7外观疑似换人：Shot4为深发后束、较长脸；Shot5及Shot7为浅棕短发、方脸。镜头切换不能解释角色面貌变化。",
+        "shot_ids": [
+          "Shot4",
+          "Shot5",
+          "Shot7"
+        ],
+        "change_ids": [
+          "c3"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0011",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0011"
+            ],
+            "observation": "右侧无袖男子深色头发后束，面部较长。"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 3,
+            "entity_keys": [
+              "pb0011"
+            ],
+            "observation": "无袖男子呈浅棕金色短发与不同脸型。"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 3,
+            "entity_keys": [
+              "pb0011"
+            ],
+            "observation": "浅棕短卷发、方脸，与Shot4人物面部不一致。"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X3",
+          "X8",
+          "O1"
+        ],
+        "confidence": "medium"
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "无袖男子在Shot4与Shot5/Shot7外观疑似换人：Shot4为深发后束、较长脸；Shot5及Shot7为浅棕短发、方脸。镜头切换不能解释角色面貌变化。",
+      "shot_ids": [
+        "Shot4",
+        "Shot5",
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "右侧无袖男子深色头发后束，面部较长。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "无袖男子呈浅棕金色短发与不同脸型。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "浅棕短卷发、方脸，与Shot4人物面部不一致。"
+        }
+      ],
+      "confidence": "medium",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c3"
+        ],
+        "changes": [
+          {
+            "change_id": "c3",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot4",
+              "Shot5",
+              "Shot7"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0011"
+            ],
+            "description": "镜头4的无袖男子为深发后束、面部较长；镜头5与7为浅棕/金色短发、方脸，疑似角色被不同个体替换。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "切镜可解释视角变化，但不能解释同一反复角色面部和发型明显不同；未见换人动作。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X3",
+          "X8",
+          "O1"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0011",
+      "global_entity_id": "pb0011",
+      "source": "detection_ledger",
+      "name": "无袖男子",
+      "description": "合同绑定角色；镜头4、5、7可见全脸与服装。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 4",
+      "quote": null,
+      "part_of": null,
+      "note": "跨镜外观比较对象。"
+    },
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "马尾男子",
+      "description": "合同绑定角色；镜头3为深色马尾与黑色道服。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 3",
+      "quote": null,
+      "part_of": null,
+      "note": "镜头4左侧身份无法确认，故未作异常判断。"
+    }
+  ],
+  "counts": {
+    "issues": 1,
+    "within_shot": 0,
+    "cross_shot": 1,
+    "observed_changes": 10,
+    "change_judgments": {
+      "normal": 8,
+      "abnormal": 1,
+      "uncertain": 1
+    },
+    "registered_entities": 2,
+    "added_entities": 0,
+    "register_provenance": {
+      "prompt_bound": 2
+    }
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot4",
+      "to_shot": "Shot5",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot5",
+      "to_shot": "Shot6",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot6",
+      "to_shot": "Shot7",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot7",
+      "to_shot": "Shot8",
+      "required": "cut"
+    }
+  ],
+  "shot_transition_source": {
+    "source": "source_shot_mapping_cut_flags",
+    "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/exports/eecbench_first200_multimodel_20260926/source_snapshots/ERCBench-Wan2.1-T2V-1.3B-400/episodes/vT7JOS_cHDE_s00055_n8_clean_v2/source/shot_mapping.json"
+  },
+  "usage": [
+    {
+      "input_tokens": 166098,
+      "cached_input_tokens": 0,
+      "output_tokens": 5891,
+      "reasoning_output_tokens": 422
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 166098,
+    "cached_input_tokens": 0,
+    "output_tokens": 5891,
+    "api_calls": 1,
+    "estimated_usd": 0.0195553,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0,
+  "required_continuity_subjects": [
+    {
+      "global_entity_id": "pb0001",
+      "name": "White-clad man",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot4"
+      ]
+    },
+    {
+      "global_entity_id": "pb0007",
+      "name": "Older man",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot5",
+        "Shot6",
+        "Shot7",
+        "Shot8"
+      ]
+    },
+    {
+      "global_entity_id": "pb0008",
+      "name": "Ponytailed man",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot3",
+        "Shot4",
+        "Shot5"
+      ]
+    },
+    {
+      "global_entity_id": "pb0011",
+      "name": "Sleeveless man",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot4",
+        "Shot5",
+        "Shot6",
+        "Shot7",
+        "Shot8"
+      ]
+    },
+    {
+      "global_entity_id": "pb0002",
+      "name": "Martial arts training room",
+      "subject_kind": "setting",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4",
+        "Shot5",
+        "Shot6",
+        "Shot7",
+        "Shot8"
+      ]
+    }
+  ],
+  "required_shot_characters": {
+    "Shot1": [
+      "pb0001"
+    ],
+    "Shot2": [
+      "pb0007"
+    ],
+    "Shot3": [
+      "pb0008"
+    ],
+    "Shot4": [
+      "pb0001",
+      "pb0007",
+      "pb0008",
+      "pb0011"
+    ],
+    "Shot5": [
+      "pb0007",
+      "pb0008",
+      "pb0011"
+    ],
+    "Shot6": [
+      "pb0007",
+      "pb0011"
+    ],
+    "Shot7": [
+      "pb0007",
+      "pb0011"
+    ],
+    "Shot8": [
+      "pb0007",
+      "pb0011"
+    ]
+  }
+}

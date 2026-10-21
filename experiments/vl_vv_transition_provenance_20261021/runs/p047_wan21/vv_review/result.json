@@ -1,0 +1,312 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_047_vT7JOS_cHDE_s00055_n8_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vv_detection/result.json",
+  "source_detection_sha256": "2297a93f88e39d8ef5e42802a0a86245f61471a5fc284adb1dca5397040feb35",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vv",
+    "reviews": [
+      {
+        "issue_id": "V1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V1",
+            "description": "同一无袖男子在Shot4与Shot5、Shot7呈现出不一致的个体外观：Shot4可见深色后束头发及较长的侧脸；Shot5、Shot7则是浅棕色短发，面部轮廓也不同，像是被不同个体替换。",
+            "revision": "clarified",
+            "revision_note": "将含混的“Shot5及Shot7外观”明确为与Shot4相比的头发及面部差异，并保留疑似换人的核心问题。",
+            "scope": "cross_shot",
+            "subcategory": "character_identity",
+            "shot_ids": [
+              "Shot4",
+              "Shot5",
+              "Shot7"
+            ],
+            "comparison": "三段均将人物呈现为同一合同角色Sleeveless man；Shot4第5帧与Shot5第3帧、Shot7第3帧的男子均穿无袖黑色制服，构成应当比较的同一角色。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了镜头切换、头部朝向、光照和画面清晰度：这些因素可改变视角或表观色泽，但不能解释Shot4的后束深发与后两镜短浅发以及明显不同的脸部轮廓；未见换发或换人的可见动作，也没有足以解释身份变化的时间跳跃。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "medium",
+            "evidence": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5,
+                "role": "supports",
+                "observation": "无袖男子为深色后束头发，侧脸显得较长。"
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "无袖男子为浅棕色短发，侧脸轮廓与Shot4不一致。"
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "男子呈浅棕短发及较方的脸部轮廓，与Shot4中的男子观感不符。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0011",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "合同明确将Sleeveless man列为Character 4；该角色的头发和面部均属于其本体。"
+              }
+            ],
+            "assessment": "Shot4与Shot5、Shot7在头发及脸部轮廓上均呈现明显差异，而三镜人物由文本角色称谓和无袖黑制服共同指向同一Sleeveless man。切镜、视角和光线不足以解释这组身份外观不连续，故确认。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "无袖男子在Shot4与Shot5/Shot7外观疑似换人：Shot4为深发后束、较长脸；Shot5及Shot7为浅棕短发、方脸。镜头切换不能解释角色面貌变化。",
+      "shot_ids": [
+        "Shot4",
+        "Shot5",
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "右侧无袖男子深色头发后束，面部较长。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "无袖男子呈浅棕金色短发与不同脸型。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0011"
+          ],
+          "observation": "浅棕短卷发、方脸，与Shot4人物面部不一致。"
+        }
+      ],
+      "confidence": "medium",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c3"
+        ],
+        "changes": [
+          {
+            "change_id": "c3",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot4",
+              "Shot5",
+              "Shot7"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0011"
+            ],
+            "description": "镜头4的无袖男子为深发后束、面部较长；镜头5与7为浅棕/金色短发、方脸，疑似角色被不同个体替换。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 3
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "切镜可解释视角变化，但不能解释同一反复角色面部和发型明显不同；未见换人动作。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X3",
+          "X8",
+          "O1"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0011",
+      "global_entity_id": "pb0011",
+      "source": "detection_ledger",
+      "name": "无袖男子",
+      "description": "合同绑定角色；镜头4、5、7可见全脸与服装。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 4",
+      "frame_refs": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 4",
+      "quote": null,
+      "part_of": null,
+      "note": "跨镜外观比较对象。"
+    },
+    {
+      "entity_key": "pb0008",
+      "global_entity_id": "pb0008",
+      "source": "detection_ledger",
+      "name": "马尾男子",
+      "description": "合同绑定角色；镜头3为深色马尾与黑色道服。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 3",
+      "frame_refs": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 3",
+      "quote": null,
+      "part_of": null,
+      "note": "镜头4左侧身份无法确认，故未作异常判断。"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一无袖男子在Shot4与Shot5、Shot7呈现出不一致的个体外观：Shot4可见深色后束头发及较长的侧脸；Shot5、Shot7则是浅棕色短发，面部轮廓也不同，像是被不同个体替换。",
+      "original_description": "无袖男子在Shot4与Shot5/Shot7外观疑似换人：Shot4为深发后束、较长脸；Shot5及Shot7为浅棕短发、方脸。镜头切换不能解释角色面貌变化。",
+      "revision": "clarified",
+      "revision_note": "将含混的“Shot5及Shot7外观”明确为与Shot4相比的头发及面部差异，并保留疑似换人的核心问题。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot4",
+        "Shot5",
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "medium",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "无袖男子为深色后束头发，侧脸显得较长。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "无袖男子为浅棕色短发，侧脸轮廓与Shot4不一致。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子呈浅棕短发及较方的脸部轮廓，与Shot4中的男子观感不符。"
+        }
+      ],
+      "assessment": "Shot4与Shot5、Shot7在头发及脸部轮廓上均呈现明显差异，而三镜人物由文本角色称谓和无袖黑制服共同指向同一Sleeveless man。切镜、视角和光线不足以解释这组身份外观不连续，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "三段均将人物呈现为同一合同角色Sleeveless man；Shot4第5帧与Shot5第3帧、Shot7第3帧的男子均穿无袖黑色制服，构成应当比较的同一角色。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了镜头切换、头部朝向、光照和画面清晰度：这些因素可改变视角或表观色泽，但不能解释Shot4的后束深发与后两镜短浅发以及明显不同的脸部轮廓；未见换发或换人的可见动作，也没有足以解释身份变化的时间跳跃。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0011",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "合同明确将Sleeveless man列为Character 4；该角色的头发和面部均属于其本体。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 1,
+    "units": 1,
+    "split_candidates": 0,
+    "clarified_units": 1,
+    "verdicts_by_scope": {
+      "cross_shot": {
+        "confirmed": 1,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "inconsistency_confirmed": 1
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 51594,
+      "cached_input_tokens": 0,
+      "output_tokens": 1011,
+      "reasoning_output_tokens": 392
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 51594,
+    "cached_input_tokens": 0,
+    "output_tokens": 1011,
+    "api_calls": 1,
+    "estimated_usd": 0.0056649,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

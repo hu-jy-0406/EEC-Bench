@@ -1,0 +1,47 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_reviews": {
+    "vl": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p002_wan21/vl_review/result.json",
+    "vv": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p002_wan21/vv_review/result.json"
+  },
+  "started": 1792562867.294014,
+  "unit_counts": {
+    "vl": 7,
+    "vv": 2
+  },
+  "seconds": 5.766578674316406,
+  "scores": {
+    "v_l": 21.09,
+    "v_v": {
+      "within_shot": 100.0,
+      "cross_shot": 67.5,
+      "overall": 83.75
+    },
+    "v_v_unintentional": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_unintentional_or_uncertain": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_remainder": {
+      "within_shot": 100.0,
+      "cross_shot": 67.5,
+      "overall": 83.75
+    }
+  },
+  "token_cost": {
+    "uncached_input_tokens": 3908,
+    "cached_input_tokens": 0,
+    "output_tokens": 523,
+    "api_calls": 2,
+    "estimated_usd": 0.0006523,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  }
+}

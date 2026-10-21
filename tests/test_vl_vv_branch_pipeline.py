@@ -132,7 +132,7 @@ def vv_result():
                           {'shot_id': 'Shot2', 'frame_id': 0, 'signature': '米色墙红色落地灯'}],
          'assessment': 'inconsistent', 'change_ids': ['c1']}]
     boundary = [{'from_shot': 'Shot1', 'to_shot': 'Shot2', 'required': 'cut', 'last_frame': '中景',
-                 'first_frame': '近景', 'realized': 'realized', 'continuity': '姿势连贯', 'change_ids': ['c2']}]
+                 'first_frame': '近景', 'continuity': '姿势连贯', 'change_ids': ['c2']}]
     changes = [
         {'change_id': 'c1', 'scope': 'cross_shot', 'shot_ids': ['Shot1', 'Shot2'], 'aspect': 'object',
          'entity_keys': ['ge0001'], 'description': '落地灯由白变红。', 'frame_refs': [fr('Shot1', 1), fr('Shot2', 1)],
@@ -448,10 +448,24 @@ class VVDetectionGates(unittest.TestCase):
         result['observed_changes'] = result['observed_changes'][:1]
         self.assertTrue(has(vv_errors(result), 'link the observed changes you compared across this boundary'))
 
-    def test_not_realized_boundary_needs_a_transition_issue(self):
-        result = vv_result()
-        result['boundary_checks'][0]['realized'] = 'not_realized'
-        self.assertTrue(has(vv_errors(result), 'not_realized needs an abnormal transition change'))
+    def test_transition_realization_is_v_l_only(self):
+        # Owner decision 2026-10-21: a missed required cut or broken continue is V-L shot_structure only.
+        self.assertNotIn('transition_realization', common.vv_subcategories())
+        self.assertNotIn('X10', common.checklist_items())
+        self.assertNotIn('transition', common.config()['change_aspects'])
+        self.assertIn('shot_structure', common.config()['v_l_subcategories'])
+        schema = common.read(common.DISCOVERY['vv']['schema'])
+        self.assertNotIn('realized', schema['properties']['boundary_checks']['items']['properties'])
+        self.assertIn('| A required cut is missing or a required continue is broken | report shot_structure | '
+                      'nothing to report', common.DEFINITIONS_PATH.read_text())
+
+    def test_unnamed_worn_items_do_not_inherit_their_owners_provenance(self):
+        # Owner decision 2026-10-21: a watch the text does not name is prompt_unbound.
+        provenance = common.config()['provenance']
+        self.assertIn('never worn clothing', provenance['basis_types']['part_of_entity'])
+        self.assertIn('watch', provenance['labels']['prompt_unbound'])
+        for spec in (common.DISCOVERY['vv'], common.REVIEW['vv']):
+            self.assertNotIn('worn clothing, accessories) of such an entity', common.render_prompt(spec['prompt']))
 
 
 def vl_candidates():

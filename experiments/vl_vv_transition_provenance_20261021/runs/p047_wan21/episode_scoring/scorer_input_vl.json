@@ -1,0 +1,296 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vl",
+  "units": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot1中人物没有按“向下落并从画面底部离开”的要求离场；画面显示他在门洞中翻转、横向倒置，而不是向下从底部离开。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "Shot1第4帧显示男子在门洞中翻转，直接与向下从画面底部离开的动作要求相矛盾。",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子在门洞中身体倒置、横向翻转，仍处于画面内；并非向下从画面底部离开。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot1",
+        "quote": "He drops downward out of the bottom of the view."
+      }
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot3男子未持续保持“轻微张嘴的笑容”：前段嘴微张，后段嘴闭合，仅呈微笑。",
+      "shot_ids": [
+        "Shot3"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "末帧嘴唇闭合，未保持提示要求的张嘴微笑。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 0,
+          "role": "context",
+          "observation": "男子嘴微张，带有轻微笑意。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子嘴唇闭合，呈轻微微笑。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot3",
+        "quote": "He keeps a slight open-mouthed smile"
+      }
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4左侧马尾男子上身裸露、仅穿黑裤，与其应穿黑色武术服以及“两人穿黑色”的要求不符。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "左侧男子明显没有穿黑色上衣；画面不符合两名男子均穿黑色的文字要求。",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "左侧男子赤裸上身，仅穿黑色长裤。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "左侧男子上身仍裸露，未穿黑色上衣。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot4",
+        "quote": "Both men in black"
+      }
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot4右侧无袖男子的头发看起来为深色并向后束起，而不是提示所述的短而蓬乱的浅棕色头发。",
+      "shot_ids": [
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "可见发色和发型均与短而蓬乱的浅棕发不符。",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "右侧男子头发为深色并向后束成小髻，不呈短而蓬乱的浅棕发。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "右侧男子的深色后束发清晰可见。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot4",
+        "quote": "short tousled light-brown hair"
+      }
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "scope": "v_l",
+      "subcategory": "setting_environment",
+      "description": "Shot5镜子上方没有出现文字要求的暖色光纹；画面中主要是均匀浅色墙面和天花灯光。",
+      "shot_ids": [
+        "Shot5"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "medium",
+      "assessment": "镜子上方的关键区域没有要求的暖色光纹，只有均匀墙面与灯光。",
+      "evidence": [
+        {
+          "shot_id": "Shot5",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "镜子上方墙面呈浅色，未见暖色光纹。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "镜子上方仍未见暖色光纹；可见的是均匀浅色墙面及灯具。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot5",
+        "quote": "Warm light patterns remain above the mirrors."
+      }
+    },
+    {
+      "unit_id": "L6",
+      "parent_issue_id": "L6",
+      "scope": "v_l",
+      "subcategory": "attribute",
+      "description": "Shot6老年男子的衬衫呈浅米色，而合同要求其穿橄榄卡其色有领衬衫。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "medium",
+      "assessment": "Shot6可见衬衫为浅米色，与合同指定的橄榄卡其色不符。",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "男子所穿衬衫看起来是浅米色，而非橄榄卡其色。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "衬衫仍呈浅米色调。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "contract",
+        "shot_id": null,
+        "quote": "olive-khaki collared shirt"
+      }
+    },
+    {
+      "unit_id": "L7.1",
+      "parent_issue_id": "L7",
+      "scope": "v_l",
+      "subcategory": "interaction",
+      "description": "Shot6前景中出现的是一名赤裸上身、灰白胡须男子的肩胸，而不是无袖男子的裸臂横过近处前景。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "前景可辨认出另一男子的裸露上身，不是文字要求的无袖男子手臂。",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "左前景是赤裸上身、灰白胡须男子的肩胸和脸部，并非横过画面的裸臂。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "左前景仍是该男子的裸露肩胸；没有无袖男子的手臂横过近景。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot6",
+        "quote": "The Sleeveless man's bare arm crosses the near foreground"
+      }
+    },
+    {
+      "unit_id": "L7.2",
+      "parent_issue_id": "L7",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot6中没有出现要求的裸臂横过近景后再从画面中央落开的动作；前景人物的肩胸持续占据左侧。",
+      "shot_ids": [
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "全段可见的是持续位于左侧的肩胸，未呈现提示要求的横臂与随后落开动作。",
+      "evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 0,
+          "role": "supports",
+          "observation": "前景是固定在左侧的裸露肩胸，没有显示手臂横过后从中央落开的动作。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "左侧前景仍被裸露肩胸占据；看不到手臂从中央落开的动作。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot6",
+        "quote": "then lowers away from the center"
+      }
+    },
+    {
+      "unit_id": "L8",
+      "parent_issue_id": "L8",
+      "scope": "v_l",
+      "subcategory": "action_state",
+      "description": "Shot7男子先将双拳举到面旁，但之后双手落下，未按“保持防守姿势”的要求维持紧凑防守姿势。",
+      "shot_ids": [
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "requirement_violated",
+      "confidence": "high",
+      "assessment": "末帧双手已放下，与保持防守姿势的要求相矛盾。",
+      "evidence": [
+        {
+          "shot_id": "Shot7",
+          "frame_id": 1,
+          "role": "context",
+          "observation": "男子双拳举在脸旁，形成防守姿势。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "男子双手已降至画面下方，不再保持双拳护脸的防守姿势。"
+        }
+      ],
+      "requirement_quote": {
+        "source": "shot_prompt",
+        "shot_id": "Shot7",
+        "quote": "Hold the guard"
+      }
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "stage": "VV detection",
+  "max_repair_rounds": 8,
+  "rounds": [
+    {
+      "round": 0,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_detection/call",
+      "error_count": 1,
+      "errors": [
+        "continuity_ledger[1] 厨房: assessment is consistent but abnormal changes ['c2'] are linked"
+      ],
+      "accepted": false
+    },
+    {
+      "round": 1,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_detection/call_repair_01",
+      "error_count": 0,
+      "errors": [],
+      "accepted": true
+    }
+  ],
+  "repair_prompt": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_validation_repair_v2.txt",
+  "status": "passed",
+  "repair_rounds": 1,
+  "usage": [
+    {
+      "input_tokens": 136487,
+      "cached_input_tokens": 1316,
+      "output_tokens": 5956,
+      "reasoning_output_tokens": 315
+    },
+    {
+      "input_tokens": 148450,
+      "cached_input_tokens": 136484,
+      "output_tokens": 5635,
+      "reasoning_output_tokens": 0
+    }
+  ]
+}

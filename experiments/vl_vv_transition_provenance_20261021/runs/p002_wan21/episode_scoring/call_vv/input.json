@@ -1,0 +1,87 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vv",
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子在 Shot1、Shot2 和 Shot4 穿蓝灰色短袖圆领 T 恤，而 Shot3 穿深蓝灰色翻领长袖衬衫，服装款式明显不同；镜头间未见换装动作。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "assessment": "Shot1、Shot2、Shot4 可见短袖圆领 T 恤，Shot3 则是翻领长袖衬衫；同一角色的衣着存在可见差异，且无正常变化原因，故确认。",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子穿蓝灰色短袖圆领 T 恤。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "同一男子穿深蓝灰色翻领长袖衬衫。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "男子穿浅蓝灰色短袖圆领 T 恤，与 Shot3 的衬衫款式不同。"
+        }
+      ],
+      "comparison": "提示明确要求四个镜头是同一男子；比较其跨镜头衣着，特别是 Shot1/2/4 的短袖圆领 T 恤与 Shot3 的翻领长袖衬衫。",
+      "entities": [
+        {
+          "name": "Bearded man",
+          "role": "subject"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "同一浅米色沙发在 Shot1 与 Shot2 的靠背结构不一致：Shot1 可见较平整、无明显分块缝线的靠背，Shot2 则可见竖向分块缝线。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "assessment": "提示确立这些镜头中的沙发是同一件；Shot1 与 Shot2 的可见靠背结构分别呈平整与竖向分块，且视角变化不足以解释这一差异，故确认。",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子身后的浅米色沙发靠背看起来较平整，没有可见的竖向分块缝线。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "同一浅米色沙发靠背呈现明显的竖向分块缝线。"
+        }
+      ],
+      "comparison": "提示在各镜头中将沙发指定为同一 Beige sofa；比较 Shot1 与 Shot2 中可见的沙发靠背结构。",
+      "entities": [
+        {
+          "name": "Beige sofa",
+          "role": "subject"
+        }
+      ]
+    }
+  ]
+}

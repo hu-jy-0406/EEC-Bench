@@ -1,0 +1,176 @@
+{
+  "protocol": "vl_vv_pipeline_v1",
+  "mode": "from-registry",
+  "case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+  "output": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22",
+  "python": "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+  "gpu_python": "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+  "shot_count": 6,
+  "keyframe_count": 36,
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "discovery_protocol": "v5",
+  "review_protocol": "v6",
+  "allow_legacy_nominal_keyframes": false,
+  "discovery_prompt": [
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_discovery_v5_vl.txt",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_discovery_v5_vv.txt"
+  ],
+  "review_prompt": [
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_review_v6_vl.txt",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_review_v6_vv.txt"
+  ],
+  "scoring_skill": [
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_episode_scoring_v5_vl.txt",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_episode_scoring_v5_vv.txt"
+  ],
+  "scoring_protocol": "vl_vv_episode_scoring_v5",
+  "stages": [
+    {
+      "name": "vl_detection",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/openai_api_env.sh",
+        "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_detection.py",
+        "--branch",
+        "vl",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vl_detection"
+      ],
+      "branch": "vl"
+    },
+    {
+      "name": "vv_detection",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/openai_api_env.sh",
+        "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_detection.py",
+        "--branch",
+        "vv",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_detection"
+      ],
+      "branch": "vv"
+    },
+    {
+      "name": "vl_review",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/openai_api_env.sh",
+        "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_review.py",
+        "--branch",
+        "vl",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+        "--detection",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vl_detection/result.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vl_review"
+      ],
+      "branch": "vl"
+    },
+    {
+      "name": "vv_review",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/openai_api_env.sh",
+        "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_review.py",
+        "--branch",
+        "vv",
+        "--case",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case",
+        "--detection",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_detection/result.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_review"
+      ],
+      "branch": "vv"
+    },
+    {
+      "name": "episode_scoring",
+      "command": [
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/openai_api_env.sh",
+        "/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python3.12",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_scoring.py",
+        "--vl-review",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vl_review/result.json",
+        "--vv-review",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_review/result.json",
+        "--output",
+        "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/episode_scoring"
+      ],
+      "branch": null
+    }
+  ],
+  "status": "success",
+  "started": 1792562773.0142598,
+  "image_labels": "shot_frame_v1",
+  "source_hashes": {
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case/contract.json": "d97b1057a4d25cc0b6a4a82c4d7d4a347533ab717286c4e35c94377ef2bebe0e",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case/raw_manifest.json": "e8550e924e772ef0dae6b6e9eeab89a53e030454ddb81cae1c7cebb2215af43c",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_discovery_v5_vl.txt": "ef1c18bbd4d6364ee89b4aaf6e0078472f25ea479b89d0741ae245bbd4c98c0c",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_discovery_v5_vv.txt": "62644edcf6df196b2b81b51be8cdbde5fa51dd4a423cd577cdd6dccfc4dec067",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_review_v6_vl.txt": "48ae4392200f79d14d5b613d29705b283fd05c4f660648b06b47c4c0665a0444",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_issue_review_v6_vv.txt": "cef54500a81d52a54d7cdfee2a489b8a37f346287bfa9bdcf73d98c116950500",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_episode_scoring_v5_vl.txt": "b749255def3db5735bc1a390bb87f5d449bce0ff192189398f0e08a0ed17c26b",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_episode_scoring_v5_vv.txt": "65b558e5b7e1f853806d9d0d7004b1c908c8cfbae3edabe90f43e4c2e9b034f1",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_branch_definitions_v1.txt": "1c807f90502c9348eac81603a500f0119c5ae1ebb319d4a355fd4db2ef428a61",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_validation_repair_v2.txt": "9371b101dc97d1acaa16a269051337c8b260f62f577c3cdff40cfb8c313a4db8",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/configs/vl-vv-branch-v1.json": "2f0e0eb646e02346b39f8c41c90a139ce81cef606b44534f39a9a71ede3faf76",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/schemas/vl-vv-branch-records-v1.schema.json": "840dbcdf5cd35a24c562a73275aabd77d78c761b26bca7a64295c1672225196f",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/vl_vv_branch_common.py": "003132c5aa392184e8c0b88a45c89c0e171ebad2776f5f3e6f106c40c1c40eff",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_detection.py": "b782b6ddd52f1d8cd7077c3c5c4e96c0c1c0ba33b65716aea842a91b2734036d",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_review.py": "b7fb30991dc736cfab68a64af6d75595d1035123312e19c74a4e45a745de0711",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_branch_scoring.py": "d084e8fcfb250b82d217a6a170282cdbdaeb6d71f5439d97b38af7dc575ee71f",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/vl_vv_repair_loop.py": "437811ee64c233f9780b726f1d0d5abbbf081421656ca8b5a3d3b9f41e1f0ed7",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_detection.py": "7848ffc027db7a1eef943fafa2639a0b2f01c65b6a47c1de5144987380cf70e2",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/eec_api_codex_shim.py": "0ec5cf40f77c2e0540afe54d8c5d7be1b3cc9d324b8942d2530cbb63798b18ee",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/gs_prompt_binding.py": "3e91fab0eb8bd820e30cfc6af9a691dd52e276d6261a0cb455f4c63f399ea6b0",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_wedetect_shot_entities.py": "ac352e3169767cfdd65688659adea7b8038b2d1c4cdb45434b5577ce8d932779",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/scripts/run_vl_vv_pipeline.py": "6384baf9468efe6d440bd074e56fd95af095fc5425690a9020eda335a83f5728",
+    "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_032_DwiiGopbVNQ_s00017_n6_clean_v2/attempt_01/work/case/episode_entities.json": "af82d8558978b2ac7ae335e87f245ba72ba350b97848c7b657805d9f667724ff"
+  },
+  "stage_results": [
+    {
+      "name": "vl_detection",
+      "seconds": 54.8937668800354,
+      "exit_code": 0,
+      "log": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/logs/vl_detection.log",
+      "started": 1792562773.0183754
+    },
+    {
+      "name": "vl_review",
+      "seconds": 0.5293605327606201,
+      "exit_code": 0,
+      "log": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/logs/vl_review.log",
+      "started": 1792562827.9462695
+    },
+    {
+      "name": "vv_detection",
+      "seconds": 108.43581914901733,
+      "exit_code": 0,
+      "log": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/logs/vv_detection.log",
+      "started": 1792562773.0185184
+    },
+    {
+      "name": "vv_review",
+      "seconds": 18.945760011672974,
+      "exit_code": 0,
+      "log": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/logs/vv_review.log",
+      "started": 1792562881.4731033
+    },
+    {
+      "name": "episode_scoring",
+      "seconds": 3.6187591552734375,
+      "exit_code": 0,
+      "log": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/logs/episode_scoring.log",
+      "started": 1792562900.4351878
+    }
+  ],
+  "result_json": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/episode_scoring/result.json",
+  "seconds": 131.05281782150269
+}

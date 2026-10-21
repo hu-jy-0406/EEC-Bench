@@ -1,0 +1,48 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vv",
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "同一无袖男子在Shot4与Shot5、Shot7呈现出不一致的个体外观：Shot4可见深色后束头发及较长的侧脸；Shot5、Shot7则是浅棕色短发，面部轮廓也不同，像是被不同个体替换。",
+      "shot_ids": [
+        "Shot4",
+        "Shot5",
+        "Shot7"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "medium",
+      "assessment": "Shot4与Shot5、Shot7在头发及脸部轮廓上均呈现明显差异，而三镜人物由文本角色称谓和无袖黑制服共同指向同一Sleeveless man。切镜、视角和光线不足以解释这组身份外观不连续，故确认。",
+      "evidence": [
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "无袖男子为深色后束头发，侧脸显得较长。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "无袖男子为浅棕色短发，侧脸轮廓与Shot4不一致。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "男子呈浅棕短发及较方的脸部轮廓，与Shot4中的男子观感不符。"
+        }
+      ],
+      "comparison": "三段均将人物呈现为同一合同角色Sleeveless man；Shot4第5帧与Shot5第3帧、Shot7第3帧的男子均穿无袖黑色制服，构成应当比较的同一角色。",
+      "entities": [
+        {
+          "name": "无袖男子",
+          "role": "subject"
+        }
+      ]
+    }
+  ]
+}

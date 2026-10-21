@@ -1,0 +1,40 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "stage": "VL detection",
+  "max_repair_rounds": 8,
+  "rounds": [
+    {
+      "round": 0,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/detection_check/conflict/run_a/vl_detection/call",
+      "error_count": 1,
+      "errors": [
+        "checks is missing 55 of 55 template rows: ['EN:Character 1@Shot1', 'EN:Location 1@Shot1', 'EN:Object 1@Shot1', 'EN:Object 2@Shot1', 'EN:Object 3@Shot1', 'EN:Object 4@Shot1', 'RL:Shot1', 'SP:Shot1', 'EN:Character 1@Shot2', 'EN:Location 1@Shot2', 'EN:Object 1@Shot2', 'EN:Object 4@Shot2', 'EN:Object 5@Shot2', 'RL:Shot2', 'SP:Shot2', 'TR:Shot1->Shot2', 'EN:Character 1@Shot3', 'EN:Location 1@Shot3', 'EN:Object 1@Shot3', 'EN:Object 2@Shot3', 'EN:Object 6@Shot3', 'EN:Object 7@Shot3', 'RL:Shot3', 'SP:Shot3', 'TR:Shot2->Shot3', 'EN:Character 1@Shot4', 'EN:Location 1@Shot4', 'EN:Object 1@Shot4', 'EN:Object 2@Shot4', 'EN:Object 4@Shot4', 'RL:Shot4', 'SP:Shot4', 'TR:Shot3->Shot4', 'EN:Character 1@Shot5', 'EN:Location 1@Shot5', 'EN:Object 1@Shot5', 'EN:Object 4@Shot5', 'RL:Shot5', 'SP:Shot5', 'TR:Shot4->Shot5', 'EN:Character 1@Shot6', 'EN:Character 2@Shot6', 'EN:Location 2@Shot6', 'EN:Object 8@Shot6', 'EN:Object 9@Shot6', 'EN:Object 10@Shot6', 'EN:Object 11@Shot6', 'EN:Object 12@Shot6', 'EN:Object 13@Shot6', 'EN:Object 14@Shot6', 'EN:Object 15@Shot6', 'EN:Object 16@Shot6', 'RL:Shot6', 'SP:Shot6', 'TR:Shot5->Shot6']; give exactly one entry per row_id, including satisfied rows"
+      ],
+      "accepted": false
+    },
+    {
+      "round": 1,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/detection_check/conflict/run_a/vl_detection/call_repair_01",
+      "error_count": 0,
+      "errors": [],
+      "accepted": true
+    }
+  ],
+  "repair_prompt": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_validation_repair_v2.txt",
+  "status": "passed",
+  "repair_rounds": 1,
+  "usage": [
+    {
+      "input_tokens": 147592,
+      "cached_input_tokens": 147589,
+      "output_tokens": 411,
+      "reasoning_output_tokens": 375
+    },
+    {
+      "input_tokens": 148877,
+      "cached_input_tokens": 147589,
+      "output_tokens": 5988,
+      "reasoning_output_tokens": 117
+    }
+  ]
+}

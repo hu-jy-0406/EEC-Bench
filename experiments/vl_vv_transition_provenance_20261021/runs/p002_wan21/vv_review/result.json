@@ -1,0 +1,558 @@
+{
+  "protocol": "vl_vv_issue_review_v6_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan21/priority_002_74S1Iw0gJrA_s00006_n4_clean_v2/attempt_01/work/case",
+  "source_detection_file": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p002_wan21/vv_detection/result.json",
+  "source_detection_sha256": "443ad6b693f102ad77127501f108b083301ee0e2cb63865cb02c72b0e1cf6e83",
+  "model_output": {
+    "protocol": "vl_vv_issue_review_v6_vv",
+    "reviews": [
+      {
+        "issue_id": "V1",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V1",
+            "description": "同一男子在 Shot1、Shot2 和 Shot4 穿蓝灰色短袖圆领 T 恤，而 Shot3 穿深蓝灰色翻领长袖衬衫，服装款式明显不同；镜头间未见换装动作。",
+            "revision": "clarified",
+            "revision_note": "将衣着差异明确为 T 恤与翻领长袖衬衫的款式差异；不把发型蓬松程度作为独立 discrepancy。",
+            "scope": "cross_shot",
+            "subcategory": "character_appearance",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "提示明确要求四个镜头是同一男子；比较其跨镜头衣着，特别是 Shot1/2/4 的短袖圆领 T 恤与 Shot3 的翻领长袖衬衫。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了镜头间可见动作、遮挡、时间跳跃及不同实体等可能解释；没有换装过程或其他可解释服装变化的原因。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "男子穿蓝灰色短袖圆领 T 恤。"
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3,
+                "role": "supports",
+                "observation": "同一男子穿深蓝灰色翻领长袖衬衫。"
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 2,
+                "role": "supports",
+                "observation": "男子穿浅蓝灰色短袖圆领 T 恤，与 Shot3 的衬衫款式不同。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0001",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "提示及合约明确指定四镜头中的同一 Bearded man。"
+              }
+            ],
+            "assessment": "Shot1、Shot2、Shot4 可见短袖圆领 T 恤，Shot3 则是翻领长袖衬衫；同一角色的衣着存在可见差异，且无正常变化原因，故确认。"
+          }
+        ]
+      },
+      {
+        "issue_id": "V2",
+        "action": "keep",
+        "split_reason": "",
+        "units": [
+          {
+            "unit_id": "V2",
+            "description": "同一浅米色沙发在 Shot1 与 Shot2 的靠背结构不一致：Shot1 可见较平整、无明显分块缝线的靠背，Shot2 则可见竖向分块缝线。",
+            "revision": "clarified",
+            "revision_note": "聚焦于 Shot1 与 Shot2 中可直接比较的靠背平整程度及竖向分块缝线差异；不将 Shot4 的弧形侧翼单独扩展成另一 discrepancy。",
+            "scope": "cross_shot",
+            "subcategory": "object_identity",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "comparison": "提示在各镜头中将沙发指定为同一 Beige sofa；比较 Shot1 与 Shot2 中可见的沙发靠背结构。",
+            "normal_cause": "none",
+            "normal_cause_note": "检查了镜头角度和取景变化；虽然镜头视角有变化，但 Shot1 与 Shot2 中都能看到沙发靠背，且竖向分块缝线是结构差异，并非仅由视角变化解释。",
+            "verdict": "confirmed",
+            "basis": "inconsistency_confirmed",
+            "confidence": "high",
+            "evidence": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4,
+                "role": "supports",
+                "observation": "男子身后的浅米色沙发靠背看起来较平整，没有可见的竖向分块缝线。"
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 1,
+                "role": "supports",
+                "observation": "同一浅米色沙发靠背呈现明显的竖向分块缝线。"
+              }
+            ],
+            "entities": [
+              {
+                "entity_key": "pb0003",
+                "role": "subject",
+                "provenance": "prompt_bound",
+                "basis_note": "提示及合约明确将重复出现的沙发命名为 Beige sofa，并指定其为同一沙发。"
+              }
+            ],
+            "assessment": "提示确立这些镜头中的沙发是同一件；Shot1 与 Shot2 的可见靠背结构分别呈平整与竖向分块，且视角变化不足以解释这一差异，故确认。"
+          }
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子跨镜头衣着不连续：Shot1/2为蓝灰圆领短袖T恤，Shot3换成深色翻领长袖衬衫，Shot4又为浅色T恤；未见解释该变化的换装过程。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "穿蓝灰色短袖圆领T恤。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "穿深蓝灰色翻领长袖衬衫。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0001"
+          ],
+          "observation": "穿浅蓝灰色短袖圆领T恤。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c6"
+        ],
+        "changes": [
+          {
+            "change_id": "c6",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "clothing_hair",
+            "entity_keys": [
+              "pb0001"
+            ],
+            "description": "重复角色服装跨镜头不一致：Shot1/2为蓝灰短袖圆领T恤，Shot3为深蓝灰翻领长袖衬衫，Shot4为另一浅蓝灰短袖T恤；发型蓬松程度亦有变化。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 2
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "同一男子各镜头衣着款式、颜色及袖长差异明显；未见换装过程或足以解释差异的时间变化。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X3"
+        ]
+      }
+    },
+    {
+      "issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "重复出现的沙发结构跨镜头不匹配：靠背由平直平整变为分块缝线结构，Shot4又呈显著圆弧侧翼靠背。",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "平直、较平整的浅米色靠背。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "带竖向分块缝线的浅米色靠背。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0003"
+          ],
+          "observation": "大型圆弧侧翼靠背，与前镜结构不同。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c10"
+        ],
+        "changes": [
+          {
+            "change_id": "c10",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot2",
+              "Shot3",
+              "Shot4"
+            ],
+            "aspect": "object",
+            "entity_keys": [
+              "pb0003"
+            ],
+            "description": "同一沙发外观跨镜头不一致：Shot1平直平整靠背；Shot2有竖向分块缝线；Shot3有明显分块靠背；Shot4呈大型圆弧侧翼靠背。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              },
+              {
+                "shot_id": "Shot2",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 2
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "多处可见靠背形态与分缝特征不匹配；机位变化不能解释可共同观察到的沙发结构差别。",
+            "cause_quote": "",
+            "issue_id": "V2"
+          }
+        ],
+        "checklist_items": [
+          "X5"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0001",
+      "global_entity_id": "pb0001",
+      "source": "detection_ledger",
+      "name": "Bearded man",
+      "description": "重复出现的棕肤色浓胡须男子。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 1",
+      "quote": null,
+      "part_of": null,
+      "note": "四镜头角色身份相符；外观衣着有跨镜头差异。"
+    },
+    {
+      "entity_key": "pb0002",
+      "global_entity_id": "pb0002",
+      "source": "detection_ledger",
+      "name": "Warm room",
+      "description": "重复出现的室内环境。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Location 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Location 1",
+      "quote": null,
+      "part_of": null,
+      "note": "背景观察受视角、景别及遮挡影响。"
+    },
+    {
+      "entity_key": "pb0003",
+      "global_entity_id": "pb0003",
+      "source": "detection_ledger",
+      "name": "Beige sofa",
+      "description": "支撑男子的浅米色沙发。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 1",
+      "frame_refs": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 1",
+      "quote": null,
+      "part_of": null,
+      "note": "不同镜头中靠背形状及分块结构不一致。"
+    }
+  ],
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子在 Shot1、Shot2 和 Shot4 穿蓝灰色短袖圆领 T 恤，而 Shot3 穿深蓝灰色翻领长袖衬衫，服装款式明显不同；镜头间未见换装动作。",
+      "original_description": "同一男子跨镜头衣着不连续：Shot1/2为蓝灰圆领短袖T恤，Shot3换成深色翻领长袖衬衫，Shot4又为浅色T恤；未见解释该变化的换装过程。",
+      "revision": "clarified",
+      "revision_note": "将衣着差异明确为 T 恤与翻领长袖衬衫的款式差异；不把发型蓬松程度作为独立 discrepancy。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子穿蓝灰色短袖圆领 T 恤。"
+        },
+        {
+          "shot_id": "Shot3",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "同一男子穿深蓝灰色翻领长袖衬衫。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "男子穿浅蓝灰色短袖圆领 T 恤，与 Shot3 的衬衫款式不同。"
+        }
+      ],
+      "assessment": "Shot1、Shot2、Shot4 可见短袖圆领 T 恤，Shot3 则是翻领长袖衬衫；同一角色的衣着存在可见差异，且无正常变化原因，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "提示明确要求四个镜头是同一男子；比较其跨镜头衣着，特别是 Shot1/2/4 的短袖圆领 T 恤与 Shot3 的翻领长袖衬衫。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了镜头间可见动作、遮挡、时间跳跃及不同实体等可能解释；没有换装过程或其他可解释服装变化的原因。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0001",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "提示及合约明确指定四镜头中的同一 Bearded man。"
+        }
+      ]
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "同一浅米色沙发在 Shot1 与 Shot2 的靠背结构不一致：Shot1 可见较平整、无明显分块缝线的靠背，Shot2 则可见竖向分块缝线。",
+      "original_description": "重复出现的沙发结构跨镜头不匹配：靠背由平直平整变为分块缝线结构，Shot4又呈显著圆弧侧翼靠背。",
+      "revision": "clarified",
+      "revision_note": "聚焦于 Shot1 与 Shot2 中可直接比较的靠背平整程度及竖向分块缝线差异；不将 Shot4 的弧形侧翼单独扩展成另一 discrepancy。",
+      "split": false,
+      "split_reason": "",
+      "shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 4,
+          "role": "supports",
+          "observation": "男子身后的浅米色沙发靠背看起来较平整，没有可见的竖向分块缝线。"
+        },
+        {
+          "shot_id": "Shot2",
+          "frame_id": 1,
+          "role": "supports",
+          "observation": "同一浅米色沙发靠背呈现明显的竖向分块缝线。"
+        }
+      ],
+      "assessment": "提示确立这些镜头中的沙发是同一件；Shot1 与 Shot2 的可见靠背结构分别呈平整与竖向分块，且视角变化不足以解释这一差异，故确认。",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "comparison": "提示在各镜头中将沙发指定为同一 Beige sofa；比较 Shot1 与 Shot2 中可见的沙发靠背结构。",
+        "normal_cause": "none",
+        "normal_cause_note": "检查了镜头角度和取景变化；虽然镜头视角有变化，但 Shot1 与 Shot2 中都能看到沙发靠背，且竖向分块缝线是结构差异，并非仅由视角变化解释。"
+      },
+      "entity_refs": [
+        {
+          "entity_key": "pb0003",
+          "role": "subject",
+          "provenance": "prompt_bound",
+          "basis_note": "提示及合约明确将重复出现的沙发命名为 Beige sofa，并指定其为同一沙发。"
+        }
+      ]
+    }
+  ],
+  "counts": {
+    "candidates": 2,
+    "units": 2,
+    "split_candidates": 0,
+    "clarified_units": 2,
+    "verdicts_by_scope": {
+      "cross_shot": {
+        "confirmed": 2,
+        "rejected": 0,
+        "uncertain": 0
+      }
+    },
+    "bases": {
+      "inconsistency_confirmed": 2
+    }
+  },
+  "usage": [
+    {
+      "input_tokens": 29265,
+      "cached_input_tokens": 0,
+      "output_tokens": 1289,
+      "reasoning_output_tokens": 288
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 29265,
+    "cached_input_tokens": 0,
+    "output_tokens": 1289,
+    "api_calls": 1,
+    "estimated_usd": 0.003571,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0
+}

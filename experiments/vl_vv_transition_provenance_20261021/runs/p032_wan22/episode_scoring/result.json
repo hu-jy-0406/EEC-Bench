@@ -1,0 +1,219 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5",
+  "status": "success",
+  "scores": {
+    "v_l": 100.0,
+    "v_v": {
+      "within_shot": 75.0,
+      "cross_shot": 46.88,
+      "overall": 60.94
+    },
+    "v_v_unintentional": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_unintentional_or_uncertain": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_remainder": {
+      "within_shot": 75.0,
+      "cross_shot": 46.88,
+      "overall": 60.94
+    }
+  },
+  "v_v_issue_statistics": {
+    "counting_unit": "independent confirmed V-V issue = one duplicate group of confirmed reviewed units (a unit split by the reviewer is its own issue); counted once however many unintentional entities it involves",
+    "involvement_rule": "an issue involves an unintentional entity when one of its subject entities has final provenance prompt_unbound; context entities do not count; uncertain provenance counts only in the upper bound",
+    "total": {
+      "confirmed_issues": 3,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 3
+    },
+    "within_shot": {
+      "confirmed_issues": 1,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 1
+    },
+    "cross_shot": {
+      "confirmed_issues": 2,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 2
+    },
+    "unintentional_entities": []
+  },
+  "counts": {
+    "v_l": {
+      "units": 0,
+      "confirmed": 0,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 0
+    },
+    "within_shot": {
+      "units": 1,
+      "confirmed": 1,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 1
+    },
+    "cross_shot": {
+      "units": 2,
+      "confirmed": 2,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 2
+    }
+  },
+  "unit_scores": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "bucket": "within_shot",
+      "subcategory": "unintended_cut",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "V1",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "确认相邻帧构图及背景位置出现明显跳变，影响局限于Shot1的一处连续性细节，属中等程度。"
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "bucket": "cross_shot",
+      "subcategory": "object_identity",
+      "verdict": "confirmed",
+      "review_confidence": "medium",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "V2",
+      "base_deduction": 50,
+      "adjusted_deduction": 37.5,
+      "unintentional_status": "none",
+      "reason": "确认同一烤箱在多个镜头中呈现明显不同的结构外观，造成跨镜头物体身份连续性受损，属较大影响。"
+    },
+    {
+      "unit_id": "V3",
+      "parent_issue_id": "V3",
+      "bucket": "cross_shot",
+      "subcategory": "character_appearance",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "V3",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "确认同一男子的衬衫格纹在多个镜头间明显不一致，但问题局限于服装这一细节，属中等程度。"
+    }
+  ],
+  "event_scores": [
+    {
+      "bucket": "within_shot",
+      "root_unit_id": "V1",
+      "unit_ids": [
+        "V1"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V2",
+      "unit_ids": [
+        "V2"
+      ],
+      "applied_deduction": 37.5,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V3",
+      "unit_ids": [
+        "V3"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    }
+  ],
+  "factorization_check": {
+    "within_shot": {
+      "bucket_score": 75.0,
+      "unintentional_times_remainder": 75.0
+    },
+    "cross_shot": {
+      "bucket_score": 46.875,
+      "unintentional_times_remainder": 46.875
+    }
+  },
+  "scoring_rule": {
+    "rubric_version": "penalty_v2",
+    "base_deductions": {
+      "minor": 10,
+      "moderate": 25,
+      "major": 50,
+      "critical": 80
+    },
+    "reviewer_confidence_factors": {
+      "high": 1.0,
+      "medium": 0.75,
+      "low": 0.5
+    },
+    "event_rule": "confirmed units linked by duplicate_of form one event (independent issue); the event deducts its maximum adjusted deduction; split units are distinct events",
+    "bucket_rule": "100 * product(1 - event_deduction / 100), rounded half up to 2 decimals",
+    "v_v_rule": "overall = mean of within_shot and cross_shot",
+    "unintentional_rule": "v_v_unintentional = the same product over the events whose subject entities include a prompt_unbound entity; v_v_remainder = product over the other V-V events; bucket = unintentional x remainder / 100 before rounding; v_v_unintentional_or_uncertain also counts events whose subjects are only uncertain",
+    "empty_bucket": "a bucket or subset with no confirmed events scores 100; that is not proof of a consistent video, see the issue counts"
+  },
+  "source_reviews": {
+    "vl": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vl_review/result.json",
+    "vv": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p032_wan22/vv_review/result.json"
+  },
+  "source_review_sha256": {
+    "vl": "90ca5d141b6fad77919bc844446a97b6e97ec658400e0058af62ba5d34024bfc",
+    "vv": "fe405798d78d8d29b414ca3770ffde6532d3f2cec046dcdb6373cf45edec52d3"
+  },
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "calls": {
+    "vl": 0,
+    "vv": 1
+  },
+  "repair_rounds": {
+    "vl": 0,
+    "vv": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 1823,
+      "cached_input_tokens": 0,
+      "output_tokens": 191,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 1823,
+    "cached_input_tokens": 0,
+    "output_tokens": 191,
+    "api_calls": 1,
+    "estimated_usd": 0.0002778,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "limitation": "Scores summarize confirmed reviewed units; severities come from text-only calls; provenance labels are model judgments checked against the text; no human calibration."
+}

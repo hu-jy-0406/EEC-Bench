@@ -381,8 +381,6 @@ def vv_errors(result, ledger, manifest, contract, transitions, subjects, shot_ch
     missing_items = [item for item in items if item not in audit]
     if missing_items:
         errors.append(f'checklist_audit is missing items {missing_items}; give exactly one entry for each of {list(items)}')
-    if len(shots) > 1 and audit.get('X10', {}).get('status') == 'not_applicable':
-        errors.append('checklist item X10 cannot be not_applicable: every multi-shot episode has boundaries to check')
 
     # Observed changes.
     changes = {}
@@ -520,7 +518,7 @@ def vv_errors(result, ledger, manifest, contract, transitions, subjects, shot_ch
                           '(say 不可见 when not visible)')
         linked = [changes[cid] for cid in entry['change_ids'] if cid in changes]
         if entry['camera']['movement'] == 'jump' and not any(
-                c['aspect'] in ('camera_position', 'transition') for c in linked):
+                c['aspect'] == 'camera_position' for c in linked):
             errors.append(f'{where}: camera.movement is jump but no camera_position change of this shot is in change_ids')
         for row in entry['characters']:
             if not row['stable'] and not any(row['entity_key'] in c['entity_keys'] for c in linked):
@@ -578,18 +576,11 @@ def vv_errors(result, ledger, manifest, contract, transitions, subjects, shot_ch
         if not row['change_ids']:
             errors.append(f'{where}: link the observed changes you compared across this boundary (camera position, '
                           'pose, held objects, background between the last and first frames) with their normal / '
-                          'abnormal judgment; at a required cut at least the camera-setup change (normally '
+                          'abnormal judgment; at a cut at least the camera-setup change (normally '
                           'required_transition)')
         elif not any(set(changes[cid]['shot_ids']) >= {row['from_shot'], row['to_shot']}
                      for cid in row['change_ids'] if cid in changes):
             errors.append(f'{where}: at least one linked change must compare {row["from_shot"]} with {row["to_shot"]}')
-        if row['realized'] == 'not_realized':
-            linked = [changes[cid] for cid in row['change_ids'] if cid in changes]
-            ok = any(c['aspect'] == 'transition' and c['judgment'] == 'abnormal' and
-                     issue_rows.get(c['issue_id'], {}).get('subcategory') == 'transition_realization' for c in linked)
-            if not ok:
-                errors.append(f'{where}: not_realized needs an abnormal transition change linked to a '
-                              'transition_realization issue')
 
     # Added entities must be used.
     used = set()

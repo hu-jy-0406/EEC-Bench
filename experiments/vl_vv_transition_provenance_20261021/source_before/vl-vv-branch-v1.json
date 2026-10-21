@@ -1,0 +1,187 @@
+{
+  "protocol": "vl_vv_branch_config_v1",
+  "note": "Single source for the branch-separated V-L / V-V pipeline (discovery v5, review v6, scoring v5). Prompts render the checklist and normal-change causes from this file; validators read every code list from it; tests check that the output schemas use the same codes.",
+  "v_l_subcategories": {
+    "presence_count": "a required entity/setting is missing; wrong number of instances; an unrequested prominent extra entity; an entity required to stay offscreen is visible; the shot is black or unreadable",
+    "attribute": "described identity descriptors or properties (age, gender, species, hair, facial hair, clothing, accessories, colors, materials, marks, legible text/numbers/logos, object state such as open/closed, on/off, full/empty), including a described attribute shown on the wrong character",
+    "action_state": "a described action, motion, pose, gesture or expression is missing, wrong, incomplete, reversed, in the wrong order, or has the wrong start/end state or direction",
+    "interaction": "the wrong actor/object, or a described holding, touching, using, giving, receiving or contact relation is absent or wrong",
+    "spatial_orientation": "described positions (left/right, foreground, between, on/in/under), distances, facing or gaze directions",
+    "setting_environment": "described location type, background elements, time of day, weather, season, lighting or mood",
+    "camera_composition": "described shot scale, camera angle, viewpoint, framing, focus or camera movement",
+    "style_rendering": "described rendering style, animation vs live action, color mode, aspect/letterbox",
+    "stated_continuity": "an explicit sameness/continuity phrase (same, remains, retains, returns to, still, again, unchanged, keeps, familiar, established) is contradicted and no more specific subcategory fits",
+    "shot_structure": "the required shot transitions or shot plan are not realized (a required cut or continue, a shot's content appearing in another shot's interval, a required new shot repeating the previous one)"
+  },
+  "v_v_subcategories": {
+    "within_shot": {
+      "identity_drift": "a person/animal morphs into a different-looking individual (face shape, apparent age, skin tone, facial features)",
+      "appearance_drift": "clothing, hair, accessories, colors or marks change with no visible action",
+      "action_discontinuity": "a character's pose, position or action progress jumps, reverses or restarts between frames without continuous motion (teleport, instant pose change, action reset)",
+      "object_instability": "an object's type, shape, size, color, count, legible text or state changes with no action",
+      "presence_instability": "an entity pops in/out without entry, exit or occlusion (including vanishing for several frames and reappearing); an instance duplicates, splits, or two entities fuse into a hybrid",
+      "background_drift": "background elements or layout change in a way camera motion does not explain",
+      "physical_integrity": "malformed, melting or fused bodies, hands or faces; extra or missing limbs; interpenetration; impossible deformation; a reflection or shadow with no source",
+      "relation_break": "a held object teleports or switches hands; contact, support or relative position changes with no action",
+      "unintended_cut": "the camera setup, composition or setting jumps discontinuously between keyframes of one shot (an unrequested cut), or for an episode-level video the shot change happens deep inside this interval",
+      "rendering_instability": "flicker, color/exposure flash (often only in the first frame), black or blank frames, or a rendering-style switch inside the shot"
+    },
+    "cross_shot": {
+      "character_identity": "the same character's face, age, gender, skin tone or build differs",
+      "character_appearance": "the same character's hairstyle/color, facial hair, clothing (garment type, color, pattern, logo, number), accessories, makeup or injuries differ, including attributes that migrate from one character to another",
+      "object_identity": "the same prop/object/vehicle/animal differs in type, shape, color, markings, legible text or size",
+      "setting_background": "a recurring location's architecture, wall/floor colors and materials, doors/windows, furniture, vegetation, signage, set dressing or layout differ",
+      "environment_lighting": "the same continuous scene changes time of day, weather, season, lighting or color grade without a supported cause",
+      "rendering_style": "photoreal vs animation, 2D vs 3D, or another visual style differs across shots that should share one style",
+      "instance_count": "a recurring character/object is duplicated, merged with another entity, replaced by a different individual, or two characters who should be distinct look identical or swap looks",
+      "state_action_continuity": "pose, position, held objects, object states, clothing state or the progress of an ongoing action is incompatible across a boundary or a return, without enough elapsed time or a shown action",
+      "spatial_continuity": "relative positions, left/right arrangement, screen direction or layout of entities flip or rearrange without a cause, including a layout that contradicts the camera change between the shots",
+      "transition_realization": "a boundary does not realize its required transition (a required cut that does not happen, or a required continue that is broken)"
+    }
+  },
+  "entity_optional_subcategories": {
+    "v_l": ["setting_environment", "camera_composition", "style_rendering", "shot_structure"],
+    "v_v": ["unintended_cut", "rendering_instability", "environment_lighting", "rendering_style", "transition_realization"]
+  },
+  "vv_checklist": [
+    {"item": "W1", "scope": "within_shot", "title": "Camera position and movement inside the shot",
+     "check": "For each of frames 0-5 note shot scale, camera angle and camera position/viewpoint. Classify every change: none; smooth movement (pan, tilt, dolly, zoom, handheld drift: the background slides continuously and stays aligned); reframe (gradual change of framing); jump (the background, framing or setting changes discontinuously between two keyframes). A jump inside one shot is an unintended cut unless the text asks for it. Large subject motion against an aligned background is motion, not a cut.",
+     "subcategories": ["unintended_cut", "background_drift"]},
+    {"item": "W2", "scope": "within_shot", "title": "Clothing, hair and accessories of every visible character",
+     "check": "For every visible character compare frame by frame each garment (type, color, pattern, logo, neckline, sleeves, layers), hairstyle and hair color, headwear, glasses, jewelry and carried accessories. A change needs a shown action (taking off a jacket, putting on a hat).",
+     "subcategories": ["appearance_drift"]},
+    {"item": "W3", "scope": "within_shot", "title": "Face and identity of every visible character",
+     "check": "Compare each face frame by frame: face shape, apparent age, skin tone, eyes and brows, nose, mouth, facial hair, makeup and marks. A different-looking person in the same role is identity drift even when the clothing stays the same. Changes of expression, head turn and lighting are normal.",
+     "subcategories": ["identity_drift"]},
+    {"item": "W4", "scope": "within_shot", "title": "Actions, poses and bodies",
+     "check": "Follow every character's action through frames 0-5: the pose and position must evolve continuously (no teleport, instant pose swap, reversal or restart); hands, limbs and bodies stay intact (no extra or missing limbs, fused or melting bodies, interpenetration).",
+     "subcategories": ["action_discontinuity", "physical_integrity"]},
+    {"item": "W5", "scope": "within_shot", "title": "Objects, held items and contacts",
+     "check": "Each visible object keeps its type, shape, size, color, count, text and state; held objects do not teleport or switch hands; contacts and support do not change without an action.",
+     "subcategories": ["object_instability", "relation_break"]},
+    {"item": "W6", "scope": "within_shot", "title": "Presence and count",
+     "check": "Nobody and nothing pops in or out without entry, exit or occlusion; no instance duplicates, splits or fuses with another.",
+     "subcategories": ["presence_instability"]},
+    {"item": "W7", "scope": "within_shot", "title": "Background, lighting and rendering inside the shot",
+     "check": "Background structures and layout stay the same apart from camera motion; no flicker, exposure flash (check frame 0), black or blank frame, or style switch.",
+     "subcategories": ["background_drift", "rendering_instability"]},
+    {"item": "X1", "scope": "cross_shot", "title": "Camera positions across shots",
+     "check": "Record the camera position, angle and shot scale of every shot. A new camera position at a cut is normal. For shots that show the same place from a comparable camera position (including a return to an earlier view), the background behind the subject and the layout must match. Across different positions the visible layout (left/right arrangement, screen direction, which side of the room is visible) must be explainable by the camera change.",
+     "subcategories": ["setting_background", "spatial_continuity"]},
+    {"item": "X2", "scope": "cross_shot", "title": "Faces and identity of recurring characters",
+     "check": "For every character visible in two or more shots, including secondary, background, back-view and over-the-shoulder figures, compare face shape, apparent age, skin tone, ethnicity, build and facial features across ALL of its shots, not only one pair. A different face means a different identity even when the clothing matches.",
+     "subcategories": ["character_identity"]},
+    {"item": "X3", "scope": "cross_shot", "title": "Clothing, hair and accessories of recurring characters",
+     "check": "Compare each recurring character's garments (type, color, pattern, logo, neckline, layers), hairstyle (length, texture, color, tied/loose, bangs), facial hair, headwear, glasses, jewelry and makeup across all of its shots, and check that no attribute migrates to another character.",
+     "subcategories": ["character_appearance"]},
+    {"item": "X4", "scope": "cross_shot", "title": "Actions and poses across boundaries and returns",
+     "check": "At each boundary compare the last frame of the earlier shot with the first frame of the next shot (and each return to an earlier moment): pose, position, held objects, clothing state and the progress of an ongoing action must be compatible; an action must not reset or repeat unless the shots are separated in time.",
+     "subcategories": ["state_action_continuity"]},
+    {"item": "X5", "scope": "cross_shot", "title": "Recurring objects",
+     "check": "Compare type, shape, color, markings, text and size of every recurring prop, vehicle, animal or furniture item across its shots.",
+     "subcategories": ["object_identity"]},
+    {"item": "X6", "scope": "cross_shot", "title": "Recurring settings and background elements",
+     "check": "For every place that recurs, compare architecture, wall/floor colors and materials, doors and windows, furniture, vegetation, signage and set dressing. Name each changed element (a bench, a sign, a shelf) as an entity, whether or not the text mentions it. Another camera direction explains new elements only if they match the place's style and materials.",
+     "subcategories": ["setting_background"]},
+    {"item": "X7", "scope": "cross_shot", "title": "Lighting, environment and rendering style",
+     "check": "Lighting, time of day, weather, season, color grade and rendering style across shots of the same scene, and across the episode when it should share one style.",
+     "subcategories": ["environment_lighting", "rendering_style"]},
+    {"item": "X8", "scope": "cross_shot", "title": "Instances",
+     "check": "Recurring characters and objects stay distinct and singular: no duplicate, merge, replacement by another individual, look swap between characters.",
+     "subcategories": ["instance_count"]},
+    {"item": "X9", "scope": "cross_shot", "title": "Spatial layout and screen direction",
+     "check": "Relative positions, left/right arrangement and screen direction of recurring entities stay consistent unless an action or the camera change explains them.",
+     "subcategories": ["spatial_continuity"]},
+    {"item": "X10", "scope": "cross_shot", "title": "Transition realization at every boundary",
+     "check": "A required cut must show a clear shot change (new camera setup and/or the next shot's subject); a required continue must continue the same take or moment without a jump or reset. For an interval of one episode video, a cut that lands a fraction of a second late, so that only frame 0 still shows the previous shot, is a timing offset, not a missing cut.",
+     "subcategories": ["transition_realization"]},
+    {"item": "O1", "scope": "episode", "title": "Open-ended sweep",
+     "check": "Re-examine every frame for any other obvious or meaningful visual consistency problem, including unusual ones not listed above, and report it with the closest subcategory.",
+     "subcategories": []}
+  ],
+  "normal_change_causes": {
+    "camera_motion": "a smooth pan, tilt, dolly, zoom or handheld drift inside a shot; the background stays aligned",
+    "viewpoint_change": "a different camera position (at a cut or after a reframe) shows another side or part of the same entity or place, and the elements visible from both positions still match",
+    "described_action": "the text describes the action or change (cause_quote must quote it literally)",
+    "visible_action": "the frames show the action that causes the change (taking something off, picking up, turning, walking)",
+    "occlusion_or_framing": "the entity is occluded, out of frame, cropped, entering or exiting",
+    "lighting_cause": "a visible or described light source, time or weather change explains the lighting difference",
+    "time_skip": "the text or clear visual cues show enough elapsed story time between the shots for this kind of change (never explains a change of face or identity)",
+    "different_entity": "the observations are of different entities or places that are not expected to match",
+    "required_transition": "the change is the required cut itself (a new camera setup at a boundary that requires a cut)",
+    "cut_timing_offset": "an episode-video cut lands slightly late, so only frame 0 of the interval still shows the previous shot",
+    "image_quality": "blur, focus, compression, small size or exposure explains the apparent difference"
+  },
+  "change_aspects": ["camera_position", "face_identity", "clothing_hair", "action_pose", "body_integrity", "object", "held_object_contact", "presence_count", "background_setting", "lighting_environment", "rendering", "spatial_layout", "transition"],
+  "contract_template": {
+    "row_kinds": {
+      "entity": "one contract entity in one shot: its episode-wide description (when the entity is scheduled in the shot) and the shot's single-entity claims about it",
+      "relations": "the shot's claims that relate two or more entities (positions, contact, interaction)",
+      "shot_text": "every other explicit requirement of this shot's prompt and of the global prompt that applies to this shot and is not covered by the rows above (catch-all)",
+      "transition": "the required transition at the boundary into this shot"
+    },
+    "single_issue_row_kinds": ["transition"],
+    "statuses": {
+      "satisfied": "the frames show content that satisfies the row",
+      "violated": "the frames show content that contradicts at least one item of the row (listed in violated_items)",
+      "not_verifiable": "the frames cannot decide the row (entity not visible, too small, occluded, ambiguous)",
+      "not_applicable": "the row does not apply in this shot (the shot's own text describes the entity differently)"
+    }
+  },
+  "review": {
+    "verdicts": {
+      "confirmed": "the core problem of the unit is real and the cited evidence shows it",
+      "rejected": "the core problem itself is false, explained, or belongs to the other branch",
+      "uncertain": "the supplied frames and text cannot reliably decide the core problem"
+    },
+    "decision_basis": {
+      "v_l": {
+        "confirmed": ["requirement_violated"],
+        "rejected": ["requirement_absent", "requirement_not_applicable", "requirement_satisfied", "visual_difference_only"],
+        "uncertain": ["not_verifiable"]
+      },
+      "v_v": {
+        "confirmed": ["inconsistency_confirmed"],
+        "rejected": ["consistent_in_frames", "normal_change", "not_expected_to_match", "text_violation_only"],
+        "uncertain": ["not_verifiable"]
+      }
+    },
+    "decision_basis_definitions": {
+      "requirement_violated": "V-L confirmed: the quoted text exists, applies to these shots, and a supporting frame shows content contradicting it",
+      "requirement_absent": "V-L rejected: the text does not state what the unit claims (the quote is missing or does not mean that)",
+      "requirement_not_applicable": "V-L rejected: the requirement exists but does not apply to these shots (the shot's own text describes the entity differently, or the entity is not in the shot)",
+      "requirement_satisfied": "V-L rejected: the frames satisfy the quoted words (cite a refuting frame)",
+      "visual_difference_only": "V-L rejected: the shot does not conflict with the words and only differs from another shot; that is a V-V question",
+      "inconsistency_confirmed": "V-V confirmed: the compared observations should match, they visibly do not, and no normal cause explains the difference",
+      "consistent_in_frames": "V-V rejected: the frames show no such difference (cite a refuting frame)",
+      "normal_change": "V-V rejected: a normal cause explains the difference (name it in normal_cause)",
+      "not_expected_to_match": "V-V rejected: the compared observations are not the same entity, place or moment",
+      "text_violation_only": "V-V rejected: the video is consistent with itself and only contradicts the text; that is a V-L question",
+      "not_verifiable": "uncertain: name the missing evidence (occlusion, resolution, viewpoint, missing frames)"
+    }
+  },
+  "provenance": {
+    "labels": {
+      "prompt_bound": "the text refers to the entity (a contract entity, a prompt phrase naming it or the role it plays), or it is an intrinsic part (body, face, hair, worn clothing, accessories) of such an entity",
+      "prompt_unbound": "no global prompt, shot prompt or contract text refers to the entity and it is not part of a referenced entity: the generator introduced it (an unintentional entity)",
+      "uncertain": "the text could refer to the entity but is too vague to decide (for example \"people in the background\" for one specific bystander)"
+    },
+    "basis_types": {
+      "contract_entity": "prompt_bound: the entity is a contract entity (contract_label)",
+      "prompt_quote": "prompt_bound: a literal quote of the prompt or contract names it or its role",
+      "part_of_entity": "prompt_bound: it is an intrinsic part of a prompt-bound entity (part_of)",
+      "not_in_text": "prompt_unbound: no text refers to it",
+      "ambiguous_text": "uncertain: quote the vague text if any and say why it does not decide"
+    },
+    "basis_by_label": {
+      "prompt_bound": ["contract_entity", "prompt_quote", "part_of_entity"],
+      "prompt_unbound": ["not_in_text"],
+      "uncertain": ["ambiguous_text"]
+    }
+  },
+  "scoring": {
+    "rubric_version": "penalty_v2",
+    "base_deductions": {"minor": 10, "moderate": 25, "major": 50, "critical": 80},
+    "reviewer_confidence_factors": {"high": 1.0, "medium": 0.75, "low": 0.5}
+  }
+}

@@ -46,7 +46,6 @@
               "X7",
               "X8",
               "X9",
-              "X10",
               "O1"
             ]
           },
@@ -246,7 +245,6 @@
           "required",
           "last_frame",
           "first_frame",
-          "realized",
           "continuity",
           "change_ids"
         ],
@@ -273,14 +271,6 @@
           "first_frame": {
             "type": "string",
             "minLength": 1
-          },
-          "realized": {
-            "type": "string",
-            "enum": [
-              "realized",
-              "not_realized",
-              "uncertain"
-            ]
           },
           "continuity": {
             "type": "string",
@@ -349,8 +339,7 @@
               "background_setting",
               "lighting_environment",
               "rendering",
-              "spatial_layout",
-              "transition"
+              "spatial_layout"
             ]
           },
           "entity_keys": {
@@ -616,8 +605,7 @@
               "rendering_style",
               "instance_count",
               "state_action_continuity",
-              "spatial_continuity",
-              "transition_realization"
+              "spatial_continuity"
             ]
           },
           "description": {
@@ -720,7 +708,6 @@
                 "X7",
                 "X8",
                 "X9",
-                "X10",
                 "O1"
               ]
             },

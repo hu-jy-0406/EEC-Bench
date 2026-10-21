@@ -1,0 +1,56 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "stage": "VL detection",
+  "max_repair_rounds": 8,
+  "rounds": [
+    {
+      "round": 0,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vl_detection/call",
+      "error_count": 1,
+      "errors": [
+        "checks is missing 69 of 69 template rows: ['EN:Character 1@Shot1', 'EN:Location 1@Shot1', 'EN:Object 1@Shot1', 'EN:Object 2@Shot1', 'EN:Object 3@Shot1', 'EN:Object 4@Shot1', 'RL:Shot1', 'SP:Shot1', 'EN:Character 2@Shot2', 'EN:Location 1@Shot2', 'EN:Object 1@Shot2', 'RL:Shot2', 'SP:Shot2', 'TR:Shot1->Shot2', 'EN:Character 3@Shot3', 'EN:Location 1@Shot3', 'EN:Object 5@Shot3', 'EN:Object 6@Shot3', 'RL:Shot3', 'SP:Shot3', 'TR:Shot2->Shot3', 'EN:Character 1@Shot4', 'EN:Character 2@Shot4', 'EN:Character 3@Shot4', 'EN:Character 4@Shot4', 'EN:Location 1@Shot4', 'EN:Object 4@Shot4', 'EN:Object 5@Shot4', 'EN:Object 7@Shot4', 'EN:Object 8@Shot4', 'EN:Object 9@Shot4', 'EN:Object 10@Shot4', 'EN:Object 11@Shot4', 'EN:Object 12@Shot4', 'RL:Shot4', 'SP:Shot4', 'TR:Shot3->Shot4', 'EN:Character 2@Shot5', 'EN:Character 3@Shot5', 'EN:Character 4@Shot5', 'EN:Location 1@Shot5', 'EN:Object 5@Shot5', 'RL:Shot5', 'SP:Shot5', 'TR:Shot4->Shot5', 'EN:Character 2@Shot6', 'EN:Character 4@Shot6', 'EN:Location 1@Shot6', 'EN:Object 1@Shot6', 'EN:Object 13@Shot6', 'EN:Object 14@Shot6', 'RL:Shot6', 'SP:Shot6', 'TR:Shot5->Shot6', 'EN:Character 2@Shot7', 'EN:Character 4@Shot7', 'EN:Location 1@Shot7', 'EN:Object 10@Shot7', 'RL:Shot7', 'SP:Shot7', 'TR:Shot6->Shot7', 'EN:Character 2@Shot8', 'EN:Character 4@Shot8', 'EN:Location 1@Shot8', 'EN:Object 1@Shot8', 'EN:Object 3@Shot8', 'RL:Shot8', 'SP:Shot8', 'TR:Shot7->Shot8']; give exactly one entry per row_id, including satisfied rows"
+      ],
+      "accepted": false
+    },
+    {
+      "round": 1,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vl_detection/call_repair_01",
+      "error_count": 2,
+      "errors": [
+        "checks[46] EN:Character 4@Shot6: a presence item is violated (the entity is absent), so its other items cannot be judged; list only the presence item(s) in violated_items so one absence is reported once",
+        "checks SP:Shot4: issue L4 has no occurrence in Shot4 that lists this row_id"
+      ],
+      "accepted": false
+    },
+    {
+      "round": 2,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p047_wan21/vl_detection/call_repair_02",
+      "error_count": 0,
+      "errors": [],
+      "accepted": true
+    }
+  ],
+  "repair_prompt": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_validation_repair_v2.txt",
+  "status": "passed",
+  "repair_rounds": 2,
+  "usage": [
+    {
+      "input_tokens": 180394,
+      "cached_input_tokens": 0,
+      "output_tokens": 496,
+      "reasoning_output_tokens": 460
+    },
+    {
+      "input_tokens": 181889,
+      "cached_input_tokens": 180391,
+      "output_tokens": 6901,
+      "reasoning_output_tokens": 85
+    },
+    {
+      "input_tokens": 196020,
+      "cached_input_tokens": 181886,
+      "output_tokens": 6937,
+      "reasoning_output_tokens": 121
+    }
+  ]
+}

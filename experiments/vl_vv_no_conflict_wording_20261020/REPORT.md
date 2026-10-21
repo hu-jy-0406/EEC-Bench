@@ -76,3 +76,14 @@ and its review makes no call, plus one repair round in the new arm);
 (36,407 cached, 1,258,875 uncached) and 41,961 output tokens: USD 0.147 at the
 GPT-6 Luna standard API estimate (USD 0.10/M uncached input, 0.01/M cached
 input, 0.50/M output; not a bill). Old arm USD 0.073, new arm USD 0.074.
+
+## Follow-up (2026-10-21): V-L detection on #032
+
+This check covered the review stage only. The definitions also reach V-L
+detection, and there the new wording appears to trigger rubber-stamping on
+#032 Wan2.2: all 55 template rows `satisfied` in 3 of 4 runs with "does not
+conflict with" versus 0 of 3 with "satisfies" (same day, image labels on),
+although the model's own observation puts the oven handle on the left while
+the text requires the right. #002 and #047 were not affected. Details:
+`experiments/vl_vv_transition_provenance_20261021/REPORT.md`. The wording was
+not reverted without the owner's decision.

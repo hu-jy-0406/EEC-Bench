@@ -74,12 +74,12 @@ changes that differ.
 boundary_checks: exactly one entry per boundary of INPUT.shot_transitions,
 in order: the required transition, last_frame (camera setup and state at the
 last frame of the earlier shot), first_frame (the same for the first frames
-of the next shot), realized (realized, not_realized or uncertain) and
-continuity (poses, positions, held objects and screen direction across the
-boundary), and change_ids: the observed changes you compared across this
-boundary (at least one; at a required cut at least the camera-setup change,
-normally judged required_transition). A not_realized boundary links an
-abnormal change of aspect transition.
+of the next shot), continuity (poses, positions, held objects and screen
+direction across the boundary), and change_ids: the observed changes you
+compared across this boundary (at least one; at a cut at least the
+camera-setup change, normally judged required_transition). Whether a
+boundary realizes its required cut or continue is a V-L question: do not
+judge or report it here.
 
 observed_changes: EVERY change you noticed in shot_scan, continuity_ledger
 and boundary_checks, one entry each, including the changes you judge
@@ -120,7 +120,7 @@ those shots.
 - issue_id "V1", "V2", ...; scope within_shot or cross_shot; subcategory of
   that scope; description (terse Chinese: what, which shots/frames, why it
   is not normal); shot_ids (one shot for within_shot; at least two for
-  cross_shot, including both shots of a boundary for transition issues).
+  cross_shot).
 - change_ids: the abnormal changes it groups (each abnormal change belongs to
   exactly one issue).
 - entities: every entity involved, each with role "subject" (the entity
@@ -131,8 +131,8 @@ those shots.
   covering), added as entities when the ledger lacks them; the place itself
   may be an extra subject or context, never the only subject. Issues of
   subcategories unintended_cut,
-  rendering_instability, environment_lighting, rendering_style and
-  transition_realization may have no entity.
+  rendering_instability, environment_lighting and rendering_style may have
+  no entity.
 - key_evidence: frames showing each side of the discrepancy (shot_id,
   frame_id, entity_keys, observation), all inside shot_ids, from at least
   two shots for cross_shot.
@@ -154,18 +154,21 @@ added) and for every added entity used anywhere. For each row give
 provenance and its basis:
 - prompt_bound: the text refers to it. basis_type contract_entity (give
   contract_label, the contract entity label such as "Object 2"),
-  prompt_quote (give a literal quote that names it or its role), or
-  part_of_entity (an intrinsic part such as face, hair, worn clothing or an
-  accessory of a prompt-bound entity; give part_of = that entity's key).
-- prompt_unbound: no text refers to it and it is not part of a prompt-bound
-  entity; the generator introduced it (an unintentional entity). basis_type
-  not_in_text.
+  prompt_quote (give a literal quote that names it or its role, including
+  an item named inside a character description such as "wristwatch"), or
+  part_of_entity (only a body part such as face, hair or a hand of a
+  prompt-bound entity; give part_of = that entity's key).
+- prompt_unbound: no text names it or its role; the generator introduced it
+  (an unintentional entity). Worn, held or carried items (a watch, glasses,
+  a bag) that the text does not name are prompt_unbound even when a
+  prompt-bound character wears or holds them. basis_type not_in_text.
 - uncertain: the text could refer to it but is too vague. basis_type
   ambiguous_text; quote the vague text if any and explain.
 Ledger "pb..." entities are prompt_bound (basis contract_entity with their
 prompt_entity_id) unless the binding is doubtful (then uncertain). Ledger
 "ge..." entities are not automatically unintentional: glasses or a watch
-worn by a described character are part_of_entity. A place is prompt_bound
+are prompt_bound when the text names them (prompt_quote, for example in the
+character description) and prompt_unbound otherwise. A place is prompt_bound
 when it is scheduled; its separate structures, furniture and signage are
 prompt_bound only if the text states them.
 

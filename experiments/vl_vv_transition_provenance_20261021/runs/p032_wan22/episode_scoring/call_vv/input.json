@@ -1,0 +1,132 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5_vv",
+  "units": [
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "scope": "within_shot",
+      "subcategory": "unintended_cut",
+      "description": "Shot1第2帧至第3帧间，画面由较宽构图突然变为人物和烤箱占比明显更大的构图，背景拱门和烤箱的位置也发生不连续偏移。",
+      "shot_ids": [
+        "Shot1"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "assessment": "连续镜头的相邻关键帧中构图及背景位置不连续跳变，且可见动作不能解释该变化，符合镜头内非预期切换。",
+      "evidence": [
+        {
+          "shot_id": "Shot1",
+          "frame_id": 2,
+          "role": "supports",
+          "observation": "人物与烤箱同处较宽的画面，拱门和背景位置清晰可见。"
+        },
+        {
+          "shot_id": "Shot1",
+          "frame_id": 3,
+          "role": "supports",
+          "observation": "人物与烤箱在画面中的占比明显变大，拱门和背景位置相对构图发生突变。"
+        }
+      ],
+      "comparison": "同一连续镜头中Shot1第2帧与第3帧的机位和构图应连续变化；两帧间没有切镜要求。",
+      "entities": []
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "同一厨房中的烤箱在Shot3与Shot5呈现为带玻璃门、浅色把手的正面，而Shot4画面左侧呈现为黑色箱体及横向通风槽，外观结构明显不同。",
+      "shot_ids": [
+        "Shot3",
+        "Shot4",
+        "Shot5"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "medium",
+      "assessment": "Shot3与Shot5的烤箱正面特征相互印证，而Shot4所见箱体结构明显不同。考虑视角变化后差异仍未得到合理解释，故确认。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "烤箱正面为玻璃门，具有浅色把手和控制区。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "画面左侧可见黑色箱体及横向通风槽，与另两镜头所见的玻璃门烤箱正面结构不同。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "再次出现玻璃窗、浅色把手的嵌入式烤箱正面。"
+        }
+      ],
+      "comparison": "三镜头均呈现同一厨房与同一烤箱；Shot3、Shot5的烤箱正面结构与Shot4可见的烤箱外观应属于同一物体。",
+      "entities": [
+        {
+          "name": "嵌入式烤箱",
+          "role": "subject"
+        },
+        {
+          "name": "厨房",
+          "role": "context"
+        }
+      ]
+    },
+    {
+      "unit_id": "V3",
+      "parent_issue_id": "V3",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "同一男子的衬衫格纹尺度跨镜头不一致：Shot3与Shot5可见较大的黑白格纹，Shot4与Shot6可见明显更细密的黑白格纹。",
+      "shot_ids": [
+        "Shot3",
+        "Shot4",
+        "Shot5",
+        "Shot6"
+      ],
+      "verdict": "confirmed",
+      "basis": "inconsistency_confirmed",
+      "confidence": "high",
+      "assessment": "两组镜头分别显示大格纹与细密格纹，差异在不同帧中清晰可见；文本未提供换衣等变化原因，故确认同一人物服装外观不一致。",
+      "evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "衬衫具有较大的黑白方格。"
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "衬衫格纹明显细密。"
+        },
+        {
+          "shot_id": "Shot5",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "衬衫仍为较大的黑白格纹。"
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 5,
+          "role": "supports",
+          "observation": "同一男子所穿衬衫呈细密黑白格纹。"
+        }
+      ],
+      "comparison": "提示词明确Shot6是同一男子，且Shot3至Shot5均为同一格子衫男子；各镜头中的衬衫格纹应保持一致。",
+      "entities": [
+        {
+          "name": "格子衫男子",
+          "role": "subject"
+        }
+      ]
+    }
+  ]
+}

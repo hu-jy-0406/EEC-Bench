@@ -1,0 +1,1549 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "repair_round": 2,
+  "validation_errors": [
+    "checks[46] EN:Character 4@Shot6: a presence item is violated (the entity is absent), so its other items cannot be judged; list only the presence item(s) in violated_items so one absence is reported once",
+    "checks SP:Shot4: issue L4 has no occurrence in Shot4 that lists this row_id"
+  ],
+  "previous_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vl",
+    "checks": [
+      {
+        "row_id": "EN:Character 1@Shot1",
+        "observed": "白色宽松道服、黑带，短黑发；先站立抬臂，后翻转并离开画面下部。",
+        "status": "violated",
+        "violated_items": [
+          "s1a9"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 4
+          }
+        ],
+        "issue_ids": [
+          "L1"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot1",
+        "observed": "可见训练室入口及室内。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot1",
+        "observed": "浅色墙面，横向亮光条。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 2@Shot1",
+        "observed": "墙上可见矩形开关面板。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 3@Shot1",
+        "observed": "右侧门洞旁可见红黑海报，局部被画框裁切。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 4@Shot1",
+        "observed": "门洞位于画面右侧。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot1",
+        "observed": "人物靠近墙和入口；末尾墙面空置，开关与海报仍在墙上。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot1",
+        "observed": "固定中景入口画面；人物后翻而非直向下落，末帧墙面空置。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L1"
+        ]
+      },
+      {
+        "row_id": "EN:Character 2@Shot2",
+        "observed": "灰发后梳、头顶稀疏，白须髭与尖胡，橄榄卡其有领衬衫；从背向转至近正面并稳定。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot2",
+        "observed": "暖色室内墙面与训练室环境可见。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot2",
+        "observed": "人物附近有墙面及背景海报区域。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot2",
+        "observed": "人物站在背景墙附近。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 1
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot2",
+        "observed": "近景头肩构图；人物从背向经侧面转到近正面，末段表情平静专注。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "TR:Shot1->Shot2",
+        "observed": "Shot1末帧为空墙入口，Shot2首帧为老年男子近景，画面明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 3@Shot3",
+        "observed": "黑发后梳并在颈后束起，黑色武术服；站立，面向画面右侧，头肩略动。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot3",
+        "observed": "室内训练空间可见。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 5@Shot3",
+        "observed": "人物后方有镜面墙。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 6@Shot3",
+        "observed": "镜面上方浅墙面，顶部有暖色光带。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot3",
+        "observed": "浅墙位于镜面上方，镜面在人物后方。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot3",
+        "observed": "中近景固定构图，人物始终朝右；前几帧嘴微张，后几帧嘴闭合成微笑，墙面光线偏水平。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L2"
+        ]
+      },
+      {
+        "row_id": "TR:Shot2->Shot3",
+        "observed": "Shot2末帧老年男子近景，Shot3首帧黑衣束发男子近景，画面切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 1@Shot4",
+        "observed": "右前景白衣男子伏躺在酒红地面，手臂伸出。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 2@Shot4",
+        "observed": "老年男子居中背向镜头，卡其衬衫长裤、深色鞋。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 3@Shot4",
+        "observed": "画面左侧男子赤裸上身、穿黑裤且赤脚；无束发或黑色上衣。",
+        "status": "violated",
+        "violated_items": [
+          "description",
+          "s4a15"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L3"
+        ]
+      },
+      {
+        "row_id": "EN:Character 4@Shot4",
+        "observed": "右侧肌肉男子穿黑色无袖上衣和黑裤，头发深色后束。",
+        "status": "violated",
+        "violated_items": [
+          "description",
+          "s4a13"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L4"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot4",
+        "observed": "宽阔训练室全景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 4@Shot4",
+        "observed": "室内入口位于人物后方中央。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 5@Shot4",
+        "observed": "后墙有镜面区域。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 7@Shot4",
+        "observed": "地面为酒红色。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 8@Shot4",
+        "observed": "地面有浅色垫面。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 9@Shot4",
+        "observed": "入口内可见打开的梯子。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 10@Shot4",
+        "observed": "入口后方有美国国旗。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 11@Shot4",
+        "observed": "画面右侧有深色百叶窗。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 12@Shot4",
+        "observed": "百叶窗所在墙面在画面右侧。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot4",
+        "observed": "两侧男子面向中央老年男子；白衣者靠门躺地；垫面延向后方镜墙与梯子。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot4",
+        "observed": "宽景稳定；左侧赤膊男子弯身后移动，右侧无袖男子末段举臂；中央老年男子背向镜头。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L3",
+          "L4"
+        ]
+      },
+      {
+        "row_id": "TR:Shot3->Shot4",
+        "observed": "Shot3末帧黑衣男子近景，Shot4首帧训练室全景，明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 2@Shot5",
+        "observed": "前景中央可见灰发男子背部，穿浅卡其色衣服。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 3@Shot5",
+        "observed": "画面左侧黑衣束发男子，弯身略前倾，手在胸前附近。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 4@Shot5",
+        "observed": "右侧男子穿黑色无袖上衣，张开手掌侧向伸出并说话。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot5",
+        "observed": "室内训练室及镜面墙可见。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 5@Shot5",
+        "observed": "后方可见镜面墙。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot5",
+        "observed": "从老年男子背后看向两名黑衣男子；无袖男子在中间偏右并向同伴伸手，束发男子朝其看。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot5",
+        "observed": "过肩中景；手掌伸出并保持，束发男子保持弯曲防守姿势；镜面上方无明显暖色光纹。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L5"
+        ]
+      },
+      {
+        "row_id": "TR:Shot4->Shot5",
+        "observed": "Shot4末帧全景，Shot5首帧过肩镜面构图，明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 2@Shot6",
+        "observed": "老年男子向上看，穿浅米卡其衬衫，胸袋有浅色长方物及多支笔。",
+        "status": "violated",
+        "violated_items": [
+          "description"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L6"
+        ]
+      },
+      {
+        "row_id": "EN:Character 4@Shot6",
+        "observed": "前景横过的是一名赤裸上身、灰白胡须男子的肩胸，不是可辨认的无袖黑衣男子手臂。",
+        "status": "violated",
+        "violated_items": [
+          "s6p2",
+          "s6a5"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L7"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot6",
+        "observed": "浅色墙与蓝灰色墙裙构成室内背景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot6",
+        "observed": "背景为浅色墙面，未见红黑海报。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 13@Shot6",
+        "observed": "胸袋可见浅色长方形物件。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 14@Shot6",
+        "observed": "胸袋可见数支笔。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot6",
+        "observed": "前景人物遮住老年男子部分区域，但物件与笔位于其胸袋。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot6",
+        "observed": "老年男子在右侧向上看并保持平静；左侧赤裸上身人物持续占据前景，未见其手臂横穿后落下。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L7"
+        ]
+      },
+      {
+        "row_id": "TR:Shot5->Shot6",
+        "observed": "Shot5末帧两名黑衣男子与背影，Shot6首帧老年男子和前景人物近景，明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 2@Shot7",
+        "observed": "右前景边缘可见灰发头部和浅卡其肩部。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 4@Shot7",
+        "observed": "近景男子穿黑色无袖上衣，短卷浅棕发；先举双拳到脸旁，随后放下双拳。",
+        "status": "violated",
+        "violated_items": [
+          "s7a10"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L8"
+        ]
+      },
+      {
+        "row_id": "EN:Location 1@Shot7",
+        "observed": "室内背景可见。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 10@Shot7",
+        "observed": "人物后方可见美国国旗。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot7",
+        "observed": "无袖男子注视右前景老年男子；国旗位于其后方。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot7",
+        "observed": "近景面对老年男子；双拳在前段举起，但后段双手落下，未保持紧凑防守姿势。",
+        "status": "violated",
+        "violated_items": [
+          "text"
+        ],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": [
+          "L8"
+        ]
+      },
+      {
+        "row_id": "TR:Shot6->Shot7",
+        "observed": "Shot6两人近景，Shot7变为黑衣男子与右侧前景肩头构图，明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 2@Shot8",
+        "observed": "老年男子近景，白色胡须、灰发、卡其领；向上看，神情平静。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Character 4@Shot8",
+        "observed": "左上边缘有抬起的裸露手臂，持续被画框裁切。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Location 1@Shot8",
+        "observed": "浅墙与红黑海报局部构成背景。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 1@Shot8",
+        "observed": "背景浅色墙面。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "EN:Object 3@Shot8",
+        "observed": "右侧背景可见红黑海报局部。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "RL:Shot8",
+        "observed": "老年男子面向画面左上方手臂；浅墙与海报在其后。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "SP:Shot8",
+        "observed": "稳定近景，老年男子细微调整面部；抬起裸臂在左上边缘裁切。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 5
+          }
+        ],
+        "issue_ids": []
+      },
+      {
+        "row_id": "TR:Shot7->Shot8",
+        "observed": "Shot7男子近景，Shot8老年男子近景，明确切换。",
+        "status": "satisfied",
+        "violated_items": [],
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          }
+        ],
+        "issue_ids": []
+      }
+    ],
+    "added_entities": [],
+    "issues": [
+      {
+        "issue_id": "L1",
+        "subcategory": "action_state",
+        "summary": "Shot1人物翻转离场而非按描述向下落出画面。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot1",
+            "quote": "He drops downward out of the bottom of the view."
+          }
+        ],
+        "expected": "人物向下落并从画面底部离开。",
+        "occurrences": [
+          {
+            "shot_id": "Shot1",
+            "row_ids": [
+              "EN:Character 1@Shot1",
+              "SP:Shot1"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot1",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot1",
+                "frame_id": 4
+              }
+            ],
+            "observed": "人物在门洞中翻转，身体倒置悬空。",
+            "mismatch": "翻转动作不符合向下落出画面的要求。"
+          }
+        ],
+        "entity_keys": [
+          "pb0001"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L2",
+        "subcategory": "action_state",
+        "summary": "Shot3人物后半段闭嘴，未持续保持微张嘴的笑容。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot3",
+            "quote": "He keeps a slight open-mouthed smile"
+          }
+        ],
+        "expected": "持续保持轻微张嘴微笑。",
+        "occurrences": [
+          {
+            "shot_id": "Shot3",
+            "row_ids": [
+              "SP:Shot3"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot3",
+                "frame_id": 5
+              }
+            ],
+            "observed": "前段嘴微张，后段嘴闭合成微笑。",
+            "mismatch": "后段不再是微张嘴笑。"
+          }
+        ],
+        "entity_keys": [
+          "pb0008"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L3",
+        "subcategory": "attribute",
+        "summary": "Shot4左侧被指定为马尾男子的人物赤裸上身，与描述的黑色武术服不符。",
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "Lean man with slicked-back dark hair tied at the nape and a black martial arts uniform."
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "Both men in black"
+          }
+        ],
+        "expected": "左侧马尾男子穿黑色武术服。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 3@Shot4",
+              "SP:Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左侧男子赤裸上身，仅穿黑裤。",
+            "mismatch": "没有穿黑色上衣或黑色武术服。"
+          }
+        ],
+        "entity_keys": [
+          "pb0008"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L4",
+        "subcategory": "attribute",
+        "summary": "Shot4右侧男子头发为深色，未符合浅棕发描述。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot4",
+            "quote": "short tousled light-brown hair"
+          }
+        ],
+        "expected": "短而蓬乱的浅棕色头发。",
+        "occurrences": [
+          {
+            "shot_id": "Shot4",
+            "row_ids": [
+              "EN:Character 4@Shot4"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot4",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot4",
+                "frame_id": 5
+              }
+            ],
+            "observed": "右侧男子头发深色并后束。",
+            "mismatch": "发色不是浅棕色。"
+          }
+        ],
+        "entity_keys": [
+          "pb0011"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L5",
+        "subcategory": "setting_environment",
+        "summary": "Shot5镜面上方未见要求的暖色光纹。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot5",
+            "quote": "Warm light patterns remain above the mirrors."
+          }
+        ],
+        "expected": "镜子上方可见暖色光纹。",
+        "occurrences": [
+          {
+            "shot_id": "Shot5",
+            "row_ids": [
+              "SP:Shot5"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot5",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot5",
+                "frame_id": 5
+              }
+            ],
+            "observed": "镜面上方为均匀浅色墙面和天花灯光。",
+            "mismatch": "未见暖色光纹。"
+          }
+        ],
+        "entity_keys": [],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L6",
+        "subcategory": "attribute",
+        "summary": "Shot6老年男子衬衫呈浅米色而非橄榄卡其色。",
+        "requirement_quotes": [
+          {
+            "source": "contract",
+            "shot_id": null,
+            "quote": "olive-khaki collared shirt"
+          }
+        ],
+        "expected": "穿橄榄卡其色有领衬衫。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "EN:Character 2@Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "衬衫为浅米卡其色。",
+            "mismatch": "颜色明显偏浅米色，不是橄榄卡其色。"
+          }
+        ],
+        "entity_keys": [
+          "pb0007"
+        ],
+        "confidence": "medium"
+      },
+      {
+        "issue_id": "L7",
+        "subcategory": "interaction",
+        "summary": "Shot6前景是赤裸上身男子而非无袖男子的手臂，且未呈现手臂横过并落下。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "The Sleeveless man's bare arm crosses the near foreground"
+          },
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot6",
+            "quote": "then lowers away from the center"
+          }
+        ],
+        "expected": "无袖男子的裸臂横过前景后从中央落下。",
+        "occurrences": [
+          {
+            "shot_id": "Shot6",
+            "row_ids": [
+              "EN:Character 4@Shot6",
+              "SP:Shot6"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 0
+              },
+              {
+                "shot_id": "Shot6",
+                "frame_id": 5
+              }
+            ],
+            "observed": "左前景持续出现一名赤裸上身、灰白胡须男子的肩胸，非横过的手臂。",
+            "mismatch": "前景遮挡者与要求的演员/肢体不符，也没有手臂横过后落下的动作。"
+          }
+        ],
+        "entity_keys": [
+          "pb0011"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "L8",
+        "subcategory": "action_state",
+        "summary": "Shot7双拳举起后很快放下，未保持防守姿势。",
+        "requirement_quotes": [
+          {
+            "source": "shot_prompt",
+            "shot_id": "Shot7",
+            "quote": "Hold the guard"
+          }
+        ],
+        "expected": "保持紧凑防守姿势。",
+        "occurrences": [
+          {
+            "shot_id": "Shot7",
+            "row_ids": [
+              "EN:Character 4@Shot7",
+              "SP:Shot7"
+            ],
+            "frame_refs": [
+              {
+                "shot_id": "Shot7",
+                "frame_id": 1
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 5
+              }
+            ],
+            "observed": "前段双拳举到面旁，后段双手已落下。",
+            "mismatch": "画面后段没有保持防守姿势。"
+          }
+        ],
+        "entity_keys": [
+          "pb0011"
+        ],
+        "confidence": "high"
+      }
+    ]
+  }
+}

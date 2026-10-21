@@ -74,16 +74,20 @@ can leave those findings out.
   had suppressed.
 - **V-V (video vs video)**: a visible observation is incompatible with other
   visual evidence of the same episode without a visible or text-supported
-  cause; within one shot or across shots (including transition realization).
+  cause; within one shot or across shots. Whether a boundary realizes its
+  required cut or continue is V-L only (owner decision 2026-10-21).
 - Boundary table (excerpt): a described attribute wrong in every shot → V-L
   only; an undescribed attribute changing between shots → V-V only; a
   described attribute changing between shots → V-L reports the violating
   shots, V-V reports the change; a shot that satisfies the words but differs
-  from another shot → V-V only; a missing required cut → V-L
-  `shot_structure` and V-V `transition_realization`.
+  from another shot → V-V only; a missing required cut or broken required
+  continue → V-L `shot_structure` only (V-V `transition_realization` was
+  removed on 2026-10-21; content that changes across a boundary is still
+  compared by V-V).
 
 Subcategories: the ten V-L subcategories, the nine within-shot and ten
-cross-shot V-V subcategories of protocol v2 are kept. One within-shot V-V
+cross-shot V-V subcategories of protocol v2 are kept, except that cross-shot
+`transition_realization` was removed on 2026-10-21 (nine remain). One within-shot V-V
 subcategory is **added**: `action_discontinuity` (a pose, position or action
 jumps, reverses or restarts between frames without continuous motion), so
 that the strengthened action check has a home. All codes live in
@@ -91,11 +95,15 @@ that the strengthened action check has a home. All codes live in
 
 ### Unintentional entities
 
-- **Prompt-bound** entity: the text refers to it (a contract entity, a prompt
-  phrase naming it or the role it plays), or it is an intrinsic part (face,
-  hair, body, worn clothing, accessories) of such an entity.
-- **Prompt-unbound** entity: no global prompt, shot prompt or contract text
-  refers to it and it is not part of a referenced entity.
+- **Prompt-bound** entity: the text names it or the role it plays: a contract
+  entity, or a phrase of the global prompt, a shot prompt or the contract,
+  including an item named inside a character description ("wristwatch").
+  A body part (face, hair, hand) that had to be registered separately
+  belongs to its prompt-bound owner (`part_of_entity`).
+- **Prompt-unbound** entity: no text names it or its role, including a
+  worn, held or carried item (a watch, glasses, a bag) of a prompt-bound
+  character that the text does not name (owner decision 2026-10-21; before
+  that, worn items and accessories inherited their owner's provenance).
 - **Unintentional entity** = a visible entity whose final text provenance is
   prompt-unbound: the generator introduced it. A prompt-bound entity is never
   unintentional, even when it is rendered wrongly (that is a V-L question).
@@ -107,8 +115,8 @@ that the strengthened action check has a home. All codes live in
   entities were bound to a contract entity during detection and are treated
   as prompt-bound (the V-V calls may mark one uncertain, never unbound). The
   ledger's `prompt_unbound` (`ge…`) entities are candidates only: glasses or
-  a watch the ledger split from a described character are `part_of_entity`
-  and prompt-bound. Places: a scheduled place is prompt-bound; its separate
+  a watch the ledger split from a character are prompt-bound when the text
+  names them (`prompt_quote`) and prompt-unbound otherwise. Places: a scheduled place is prompt-bound; its separate
   structures, furniture and signage are prompt-bound only if the text states
   them. Entities the detector missed are added by the V-V detection agent
   (`n1, n2, …`) and labeled by the same test.
@@ -221,7 +229,6 @@ prompts; the validator requires exactly one `checklist_audit` entry each):
 | X3 | cross | **Clothing, hair, accessories** of recurring characters; attribute migration |
 | X4 | cross | **Actions and poses across boundaries and returns**; no reset or repeat without elapsed time |
 | X5–X9 | cross | Objects; settings and background elements (changed elements named as entities); lighting/style; instances; spatial layout |
-| X10 | cross | Transition realization at every boundary |
 | O1 | episode | Open-ended sweep |
 
 Template the V-V agent fills before writing issues:
@@ -234,7 +241,7 @@ Template the V-V agent fills before writing issues:
   signature per scheduled or visible shot (places include the camera
   position they are seen from), assessment, linked changes.
 - `boundary_checks`: one per boundary: required transition, last frame,
-  first frame, realized / not_realized / uncertain, continuity.
+  first frame, continuity (no realization verdict since 2026-10-21).
 - `observed_changes`: **every** change noticed, with a **normality test**:
   `normal` (with a cause: camera_motion, viewpoint_change, described_action
   with a literal quote, visible_action, occlusion_or_framing,
@@ -275,7 +282,7 @@ Semantic gates (all go back to the model through the repair loop):
 | Stage | Gates |
 | --- | --- |
 | V-L detection | one check per template row; `violated_items` ⊆ the row's items and non-empty exactly when violated; a violated presence item is the only violated item of its row; judged rows cite frames from both halves of the shot (transition rows: both boundary shots), not_verifiable rows cite inspected frames; a not_verifiable entity row whose entity the detector located in ≥2 frames of the shot is challenged once; violated ↔ linked issues whose occurrences list the row (transition rows: exactly one issue); occurrence rows belong to the occurrence's shot; transition rows → `shot_structure`; **every requirement quote is literal** (normalized substring of the named source; an ellipsis may join exact fragments; wrong source → hint); entity keys known; entity-free issues only for setting/camera/style/shot-structure; added entities used and placed in frames |
-| V-V detection | every checklist item once, X10 not N/A for multi-shot, cited items not N/A; one shot scan per shot with every scheduled prompt-bound character; a camera jump or an unstable character links a change; every within-shot change listed in its shot scan; continuity ledger covers every required subject and scheduled shot, inconsistent ⇔ an abnormal change linked; one boundary check per boundary in order, each linking ≥1 judged change that compares the two shots, not_realized → transition_realization issue; changes: scope/shots/frames on both sides, normal ⇒ cause (+ literal quote for described_action) and no issue, abnormal ⇒ issue, uncertain ⇒ no issue; issues: subcategory fits scope, only abnormal changes, change scope and shots match, witnesses from two shots for cross-shot, a subject entity unless the subcategory is whole-frame, setting_background / background_drift issues name a changed element other than the place, every issue entity has a register row; register: provenance/basis pairs from the config, contract labels exist and match the ledger binding, prompt quotes literal, `part_of` names a prompt-bound entity, ledger `pb…` never prompt_unbound, added entities have frames and are used |
+| V-V detection | every checklist item once, cited items not N/A; one shot scan per shot with every scheduled prompt-bound character; a camera jump or an unstable character links a change; every within-shot change listed in its shot scan; continuity ledger covers every required subject and scheduled shot, inconsistent ⇔ an abnormal change linked; one boundary check per boundary in order, each linking ≥1 judged change that compares the two shots; changes: scope/shots/frames on both sides, normal ⇒ cause (+ literal quote for described_action) and no issue, abnormal ⇒ issue, uncertain ⇒ no issue; issues: subcategory fits scope, only abnormal changes, change scope and shots match, witnesses from two shots for cross-shot, a subject entity unless the subcategory is whole-frame, setting_background / background_drift issues name a changed element other than the place, every issue entity has a register row; register: provenance/basis pairs from the config, contract labels exist and match the ledger binding, prompt quotes literal, `part_of` names a prompt-bound entity, ledger `pb…` never prompt_unbound, added entities have frames and are used |
 | Reviews | every candidate once; keep → one unit with the candidate's ID, split → ≥2 units `<id>.1…` in order with a reason; unit shots inside the candidate's; clarified ⇒ revision note; basis fits verdict; **confirmed ⇒ a supporting frame from the unit's shots**; V-L: confirmed / satisfied / not-applicable / visual-difference ⇒ literal requirement quote, requirement_satisfied ⇒ a refuting frame; V-V: scope kept, subcategory fits, within-shot cites only its shot, confirmed ⇒ normal_cause none and evidence from two shots for cross-shot, normal_change ⇒ a cause, consistent_in_frames ⇒ a refuting frame, entities only the candidate's, a subject unless whole-frame, a setting/background unit keeps a changed element of its candidate as subject, one provenance per entity across units, ledger `pb…` never prompt_unbound |
 | Severities | one assessment per unit; confirmed ⇒ severity; rejected/uncertain ⇒ none, no duplicate; duplicates point to an earlier confirmed unit of the same scope, never self, never a split sibling, no chains |
 

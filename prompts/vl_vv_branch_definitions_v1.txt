@@ -42,8 +42,7 @@ episode, without a visible or text-supported cause.
 - within_shot: frames of ONE shot cannot all be true of one continuous take,
   or an entity is physically corrupted inside the shot.
 - cross_shot: two or more shots that show the same character, object, place,
-  rendering style or continuous moment are mutually incompatible, or a shot
-  boundary does not realize its required transition. Sameness may come from
+  rendering style or continuous moment are mutually incompatible. Sameness may come from
   the text (same name or label, entity_schedule, "same", "remains",
   "returns", "again") or from clear visual evidence that the episode intends
   the same entity or place.
@@ -64,7 +63,7 @@ Boundary: what each branch reports
 | Text says "same / remains / returns" and the shots differ | report stated_continuity (or attribute) in the shots that break it | report the change |
 | A shot does not conflict with the words but looks different from another shot | nothing to report | report the change if the two should match |
 | A change explained by an action, camera movement, occlusion or story time | nothing, unless the end state contradicts the text | nothing to report |
-| A required cut is missing or a required continue is broken | report shot_structure | report transition_realization |
+| A required cut is missing or a required continue is broken | report shot_structure | nothing to report (content that changes across the boundary is still compared) |
 | A within-shot change that the text forbids ("hold this single view") | report it | report it |
 | A required entity never appears | report presence_count | nothing, unless it pops in or out |
 | An unrequested entity appears | report presence_count only if it is prominent | report only if it is itself inconsistent |

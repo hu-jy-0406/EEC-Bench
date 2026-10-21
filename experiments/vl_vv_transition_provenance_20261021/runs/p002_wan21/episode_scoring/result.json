@@ -1,0 +1,342 @@
+{
+  "protocol": "vl_vv_episode_scoring_v5",
+  "status": "success",
+  "scores": {
+    "v_l": 21.09,
+    "v_v": {
+      "within_shot": 100.0,
+      "cross_shot": 67.5,
+      "overall": 83.75
+    },
+    "v_v_unintentional": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_unintentional_or_uncertain": {
+      "within_shot": 100.0,
+      "cross_shot": 100.0,
+      "overall": 100.0
+    },
+    "v_v_remainder": {
+      "within_shot": 100.0,
+      "cross_shot": 67.5,
+      "overall": 83.75
+    }
+  },
+  "v_v_issue_statistics": {
+    "counting_unit": "independent confirmed V-V issue = one duplicate group of confirmed reviewed units (a unit split by the reviewer is its own issue); counted once however many unintentional entities it involves",
+    "involvement_rule": "an issue involves an unintentional entity when one of its subject entities has final provenance prompt_unbound; context entities do not count; uncertain provenance counts only in the upper bound",
+    "total": {
+      "confirmed_issues": 2,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 2
+    },
+    "within_shot": {
+      "confirmed_issues": 0,
+      "involving_unintentional": 0,
+      "proportion": null,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": null,
+      "confirmed_units": 0
+    },
+    "cross_shot": {
+      "confirmed_issues": 2,
+      "involving_unintentional": 0,
+      "proportion": 0.0,
+      "involving_unintentional_or_uncertain": 0,
+      "proportion_upper_bound": 0.0,
+      "confirmed_units": 2
+    },
+    "unintentional_entities": []
+  },
+  "counts": {
+    "v_l": {
+      "units": 7,
+      "confirmed": 4,
+      "rejected": 3,
+      "uncertain": 0,
+      "independent_confirmed_issues": 4
+    },
+    "within_shot": {
+      "units": 0,
+      "confirmed": 0,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 0
+    },
+    "cross_shot": {
+      "units": 2,
+      "confirmed": 2,
+      "rejected": 0,
+      "uncertain": 0,
+      "independent_confirmed_issues": 2
+    }
+  },
+  "unit_scores": [
+    {
+      "unit_id": "L1",
+      "parent_issue_id": "L1",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "rejected",
+      "review_confidence": "medium",
+      "severity": "none",
+      "duplicate_of": null,
+      "event_root_unit_id": null,
+      "base_deduction": 0,
+      "adjusted_deduction": 0.0,
+      "unintentional_status": null,
+      "reason": "已驳回：证据未确认头发长度违反短发要求，蓬松卷发本身不构成明确冲突。"
+    },
+    {
+      "unit_id": "L2",
+      "parent_issue_id": "L2",
+      "bucket": "v_l",
+      "subcategory": "camera_composition",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L2",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "明确的构图偏差限于Shot2：画面呈正面近景，未体现要求的斜角视图。"
+    },
+    {
+      "unit_id": "L3",
+      "parent_issue_id": "L3",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "major",
+      "duplicate_of": null,
+      "event_root_unit_id": "L3",
+      "base_deduction": 50,
+      "adjusted_deduction": 50.0,
+      "unintentional_status": "none",
+      "reason": "Shot3男子穿深色有领衬衫而非合同要求的褪色蓝灰色T恤，核心服装属性明显错误。"
+    },
+    {
+      "unit_id": "L4",
+      "parent_issue_id": "L4",
+      "bucket": "v_l",
+      "subcategory": "presence_count",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L4",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot3缺少要求出现在右侧前景边缘的暗色模糊形状，属于单镜头中的明确元素缺失。"
+    },
+    {
+      "unit_id": "L5",
+      "parent_issue_id": "L5",
+      "bucket": "v_l",
+      "subcategory": "action_state",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "L5",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "Shot3规定的先向左瞥视未出现，视线动作顺序有明确偏差，但限于单镜头的一项动作细节。"
+    },
+    {
+      "unit_id": "L6.1",
+      "parent_issue_id": "L6",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "rejected",
+      "review_confidence": "medium",
+      "severity": "none",
+      "duplicate_of": null,
+      "event_root_unit_id": null,
+      "base_deduction": 0,
+      "adjusted_deduction": 0.0,
+      "unintentional_status": null,
+      "reason": "已驳回：浅蓝灰色T恤与蓝灰色要求相容，未确认颜色或褪色程度不符。"
+    },
+    {
+      "unit_id": "L6.2",
+      "parent_issue_id": "L6",
+      "bucket": "v_l",
+      "subcategory": "attribute",
+      "verdict": "rejected",
+      "review_confidence": "medium",
+      "severity": "none",
+      "duplicate_of": null,
+      "event_root_unit_id": null,
+      "base_deduction": 0,
+      "adjusted_deduction": 0.0,
+      "unintentional_status": null,
+      "reason": "已驳回：未能确认胸前字样过大或不是描边字样，违规主张缺乏证据。"
+    },
+    {
+      "unit_id": "V1",
+      "parent_issue_id": "V1",
+      "bucket": "cross_shot",
+      "subcategory": "character_appearance",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "moderate",
+      "duplicate_of": null,
+      "event_root_unit_id": "V1",
+      "base_deduction": 25,
+      "adjusted_deduction": 25.0,
+      "unintentional_status": "none",
+      "reason": "同一男子在多个镜头中的服装款式明显不同，属于清晰且有意义的跨镜头不一致，但限于单一角色的一项外观细节。"
+    },
+    {
+      "unit_id": "V2",
+      "parent_issue_id": "V2",
+      "bucket": "cross_shot",
+      "subcategory": "object_identity",
+      "verdict": "confirmed",
+      "review_confidence": "high",
+      "severity": "minor",
+      "duplicate_of": null,
+      "event_root_unit_id": "V2",
+      "base_deduction": 10,
+      "adjusted_deduction": 10.0,
+      "unintentional_status": "none",
+      "reason": "同一沙发的靠背分块结构在两个镜头中略有差异，影响局部且沙发整体仍可识别。"
+    }
+  ],
+  "event_scores": [
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L2",
+      "unit_ids": [
+        "L2"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L3",
+      "unit_ids": [
+        "L3"
+      ],
+      "applied_deduction": 50.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L4",
+      "unit_ids": [
+        "L4"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "v_l",
+      "root_unit_id": "L5",
+      "unit_ids": [
+        "L5"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V1",
+      "unit_ids": [
+        "V1"
+      ],
+      "applied_deduction": 25.0,
+      "unintentional_status": "none"
+    },
+    {
+      "bucket": "cross_shot",
+      "root_unit_id": "V2",
+      "unit_ids": [
+        "V2"
+      ],
+      "applied_deduction": 10.0,
+      "unintentional_status": "none"
+    }
+  ],
+  "factorization_check": {
+    "within_shot": {
+      "bucket_score": 100.0,
+      "unintentional_times_remainder": 100.0
+    },
+    "cross_shot": {
+      "bucket_score": 67.5,
+      "unintentional_times_remainder": 67.5
+    }
+  },
+  "scoring_rule": {
+    "rubric_version": "penalty_v2",
+    "base_deductions": {
+      "minor": 10,
+      "moderate": 25,
+      "major": 50,
+      "critical": 80
+    },
+    "reviewer_confidence_factors": {
+      "high": 1.0,
+      "medium": 0.75,
+      "low": 0.5
+    },
+    "event_rule": "confirmed units linked by duplicate_of form one event (independent issue); the event deducts its maximum adjusted deduction; split units are distinct events",
+    "bucket_rule": "100 * product(1 - event_deduction / 100), rounded half up to 2 decimals",
+    "v_v_rule": "overall = mean of within_shot and cross_shot",
+    "unintentional_rule": "v_v_unintentional = the same product over the events whose subject entities include a prompt_unbound entity; v_v_remainder = product over the other V-V events; bucket = unintentional x remainder / 100 before rounding; v_v_unintentional_or_uncertain also counts events whose subjects are only uncertain",
+    "empty_bucket": "a bucket or subset with no confirmed events scores 100; that is not proof of a consistent video, see the issue counts"
+  },
+  "source_reviews": {
+    "vl": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p002_wan21/vl_review/result.json",
+    "vv": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_transition_provenance_20261021/runs/p002_wan21/vv_review/result.json"
+  },
+  "source_review_sha256": {
+    "vl": "46e14ca34e2fa6e14ee11243136d77e6d226b73f7cbf8fa6d3a65fbcb03f7d07",
+    "vv": "ced6ff3e2cde02d86817a0090ade238439becca985413c3357b08f5a419c77bb"
+  },
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "calls": {
+    "vl": 1,
+    "vv": 1
+  },
+  "repair_rounds": {
+    "vl": 0,
+    "vv": 0
+  },
+  "usage": [
+    {
+      "input_tokens": 2428,
+      "cached_input_tokens": 0,
+      "output_tokens": 384,
+      "reasoning_output_tokens": 0
+    },
+    {
+      "input_tokens": 1480,
+      "cached_input_tokens": 0,
+      "output_tokens": 139,
+      "reasoning_output_tokens": 0
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 3908,
+    "cached_input_tokens": 0,
+    "output_tokens": 523,
+    "api_calls": 2,
+    "estimated_usd": 0.0006523,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "limitation": "Scores summarize confirmed reviewed units; severities come from text-only calls; provenance labels are model judgments checked against the text; no human calibration."
+}
