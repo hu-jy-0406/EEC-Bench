@@ -28,6 +28,14 @@ problem is that the video contradicts the text, while the video is
 consistent with itself, is not a V-V issue (rejected, basis
 text_violation_only). The candidate's wording, subcategory and confidence
 are hypotheses, not evidence.
+The prompt decides whether a visual change is permissible. A change that
+does not conflict with the prompt, because the prompt calls for it or
+allows it (a described action, a stated change of clothes, a stated time
+skip, a required cut, or observations the text makes different entities,
+places or moments), is normal (normal_change). A change of the same
+entity, place or moment that neither the prompt nor the frames explain
+conflicts with the continuity the prompt sets up and stays a V-V issue,
+even when the prompt does not describe the attribute that changed.
 
 Checklist used by detection (the definitions of what to compare):
 {{VV_CHECKLIST}}

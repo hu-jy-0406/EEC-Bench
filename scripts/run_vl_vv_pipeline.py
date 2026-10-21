@@ -338,11 +338,15 @@ def execute(plan):
     if plan['mode'] == 'from-registry':
         source_paths.append(case / 'episode_entities.json')
     source_hashes = {str(path): sha(path) for path in source_paths}
-    output.mkdir(parents=True, exist_ok=False)
-    (output / 'logs').mkdir()
+    # Owner rule (2026-10-21): every evaluation sends shot/frame image labels.
     labels = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
     if labels not in ('on', 'off'):
         raise ValueError('EECBENCH_IMAGE_LABELS must be on or off')
+    if labels == 'off' and not plan.get('allow_unlabeled_images'):
+        raise RuntimeError('EECBENCH_IMAGE_LABELS=off is only for reproducing historical results; '
+                           'pass --allow-unlabeled-images to do that')
+    output.mkdir(parents=True, exist_ok=False)
+    (output / 'logs').mkdir()
     state = dict(plan, status='running', started=time.time(),
                  image_labels='shot_frame_v1' if labels == 'on' else 'off',
                  source_hashes=source_hashes, stage_results=[])
@@ -444,6 +448,9 @@ def main():
                              'v5 are scored with scoring v3, v6 with scoring v5')
     parser.add_argument('--allow-legacy-nominal-keyframes', action='store_true',
                         help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
+    parser.add_argument('--allow-unlabeled-images', action='store_true',
+                        help='Accept EECBENCH_IMAGE_LABELS=off (attached keyframes without shot/frame labels); '
+                             'only to reproduce historical results')
     parser.add_argument('--dry-run', action='store_true', help='Validate inputs and print commands only')
     args = parser.parse_args()
     plan = build_plan(args.case, args.output, args.mode, args.gpu, args.gpu_uuid,
@@ -451,6 +458,7 @@ def main():
                       discovery_protocol=args.discovery_protocol,
                       allow_legacy_keyframes=args.allow_legacy_nominal_keyframes,
                       review_protocol=args.review_protocol)
+    plan['allow_unlabeled_images'] = args.allow_unlabeled_images
     if args.dry_run:
         print(json.dumps(plan, ensure_ascii=False, indent=2))
     else:

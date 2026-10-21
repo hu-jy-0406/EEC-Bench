@@ -76,6 +76,16 @@ can leave those findings out.
   visual evidence of the same episode without a visible or text-supported
   cause; within one shot or across shots. Whether a boundary realizes its
   required cut or continue is V-L only (owner decision 2026-10-21).
+- **The prompt's role in V-V** (owner wording 2026-10-21, in the V-V
+  detection and V-V review prompts only, never in V-L calls): the prompt
+  decides whether a visual change is permissible. A change that does not
+  conflict with the prompt, because the prompt calls for or allows it, is
+  normal; an unexplained change of the same entity, place or moment
+  conflicts with the continuity the prompt sets up and is a V-V issue, even
+  when the prompt does not describe the changed attribute. V-L keeps "a
+  shot that satisfies the words does not violate them" (the 2026-10-20
+  "does not conflict with" variant of that V-L sentence was reverted on
+  2026-10-21 after it made V-L detection rubber-stamp #032).
 - Boundary table (excerpt): a described attribute wrong in every shot → V-L
   only; an undescribed attribute changing between shots → V-V only; a
   described attribute changing between shots → V-L reports the violating

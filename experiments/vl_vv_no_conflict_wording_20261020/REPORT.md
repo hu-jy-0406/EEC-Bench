@@ -87,3 +87,14 @@ although the model's own observation puts the oven handle on the left while
 the text requires the right. #002 and #047 were not affected. Details:
 `experiments/vl_vv_transition_provenance_20261021/REPORT.md`. The wording was
 not reverted without the owner's decision.
+
+## Reverted for V-L (2026-10-21)
+
+The owner clarified that "does not conflict with" was meant for V-V (the prompt
+decides whether a visual change is permissible), not for the V-L rule. The
+V-L sentences in `prompts/vl_vv_branch_definitions_v1.txt`,
+`prompts/vl_vv_issue_review_v6_vl.txt` and the config documentation text were
+restored to the pre-2026-10-20 wording ("satisfies"); review v6 V-L is
+byte-identical to `source_before/`. The V-V wording was added to the V-V
+detection and V-V review prompts only:
+`experiments/vl_vv_definitions_unify_20261021/REPORT.md`.

@@ -37,8 +37,10 @@ IMAGE_LABEL_PROTOCOL = 'shot_frame_v1'
 def image_labels(images):
     """Labels for the attached images, or None when they are not sent.
 
-    Returns None for the CLI backend, when labels are switched off, when there
-    are no images, or when any image lacks shot_id/frame_id.
+    Returns None for the CLI backend, when labels are switched off, or when
+    there are no images. Owner rule (2026-10-21): labels are on for every
+    evaluation, so an API call whose images lack shot_id/frame_id is an error,
+    never a silent fallback to unlabeled images.
     """
     mode = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
     if mode not in ('on', 'off'):
@@ -49,7 +51,8 @@ def image_labels(images):
     for image in images:
         shot_id, frame_id = image.get('shot_id'), image.get('frame_id')
         if not isinstance(shot_id, str) or not shot_id or type(frame_id) is not int:
-            return None
+            raise ValueError(f'Cannot label attached image {image.get("path")!r}: it needs shot_id and frame_id '
+                             '(set EECBENCH_IMAGE_LABELS=off only to reproduce historical results)')
         labels.append(f'{shot_id} frame {frame_id}')
     return labels
 

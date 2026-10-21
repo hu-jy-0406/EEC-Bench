@@ -85,6 +85,18 @@ class PipelinePlanTests(unittest.TestCase):
                     pipeline.os.environ['SLURM_JOB_ID'] = old
             self.assertFalse(output.exists())
 
+    def test_execute_refuses_unlabeled_images_without_the_historical_flag(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case = self.make_case(root)
+            output = root / 'new_run'
+            plan = pipeline.build_plan(case, output, 'from-registry')
+            with mock.patch.dict(pipeline.os.environ, {
+                    'SLURM_JOB_ID': 'fixture-job', 'EECBENCH_IMAGE_LABELS': 'off'}):
+                with self.assertRaisesRegex(RuntimeError, 'allow-unlabeled-images'):
+                    pipeline.execute(plan)
+            self.assertFalse(output.exists())
+
     def test_full_execution_refuses_shared_gpu_override(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

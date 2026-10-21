@@ -1,0 +1,542 @@
+{
+  "protocol": "vl_vv_issue_discovery_v5_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/work/case",
+  "model_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vv",
+    "checklist_audit": [
+      {
+        "item": "W1",
+        "status": "checked",
+        "note": "四镜头内机位均稳定，无跳切。"
+      },
+      {
+        "item": "W2",
+        "status": "checked",
+        "note": "逐帧比较服饰、发型及配饰，未见无因变化。"
+      },
+      {
+        "item": "W3",
+        "status": "checked",
+        "note": "逐帧比较人物面部身份，未见漂移。"
+      },
+      {
+        "item": "W4",
+        "status": "checked",
+        "note": "动作姿势连续，未见肢体畸变。"
+      },
+      {
+        "item": "W5",
+        "status": "checked",
+        "note": "比较可见物件及手部接触，未见异常。"
+      },
+      {
+        "item": "W6",
+        "status": "checked",
+        "note": "未见人物或物件无因消失、重复。"
+      },
+      {
+        "item": "W7",
+        "status": "checked",
+        "note": "背景、曝光及渲染稳定。"
+      },
+      {
+        "item": "X1",
+        "status": "checked",
+        "note": "镜头切换机位不同；所见庭院布局可由视角解释。"
+      },
+      {
+        "item": "X2",
+        "status": "checked",
+        "note": "比较跨镜头出现的女人与老人，身份一致。"
+      },
+      {
+        "item": "X3",
+        "status": "checked",
+        "note": "比较重复人物服饰发型，未见不一致。"
+      },
+      {
+        "item": "X4",
+        "status": "checked",
+        "note": "逐边界比较姿势与动作状态，无不兼容跳变。"
+      },
+      {
+        "item": "X5",
+        "status": "checked",
+        "note": "比较重复树木、雪景及栏杆，未确认异常差异。"
+      },
+      {
+        "item": "X6",
+        "status": "checked",
+        "note": "复现庭院背景视角不同，未见可确认的布局矛盾。"
+      },
+      {
+        "item": "X7",
+        "status": "checked",
+        "note": "场景保持冬日自然写实观感，无异常光照差异。"
+      },
+      {
+        "item": "X8",
+        "status": "checked",
+        "note": "未见重复人物被替换、融合或互换外观。"
+      },
+      {
+        "item": "X9",
+        "status": "checked",
+        "note": "人物及树木位置变化均与不同构图或动作相容。"
+      },
+      {
+        "item": "O1",
+        "status": "checked",
+        "note": "复查全部关键帧，未发现其他明显一致性问题。"
+      }
+    ],
+    "shot_scan": [
+      {
+        "shot_id": "Shot1",
+        "camera": {
+          "setup": "f0-f5 中景、平视、正面固定机位",
+          "movement": "none",
+          "note": "背景构图稳定"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，脸型与五官稳定",
+            "hair_clothing": "深色齐肩直发；白色针织帽；灰色系带大衣；浅桃色高领",
+            "action": "站立，视线由略向左转为低垂，变化平缓",
+            "stable": true
+          }
+        ],
+        "other": "雪地、树木、石建筑及栏杆稳定；光照和渲染稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot2",
+        "camera": {
+          "setup": "f0-f5 广角全景、平视、正面固定机位",
+          "movement": "none",
+          "note": "背景和人物构图稳定"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长男性，浅肤色，灰白发须，面部稳定",
+            "hair_clothing": "黑帽；棕褐格纹长围巾；深棕外套；深色裤；灰鞋",
+            "action": "双手插袋站立，轻微调整头部；姿势连续",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，面部稳定",
+            "hair_clothing": "白帽、深色直发、灰色系带外套、桃色领口、深色裤、黑靴",
+            "action": "站立于画面右侧，手臂下垂，基本不动",
+            "stable": true
+          }
+        ],
+        "other": "两人之间为树干；雪、铺地及浅色建筑稳定；未见物件异常。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot3",
+        "camera": {
+          "setup": "f0-f5 腰部以上近景、平视、正面固定机位",
+          "movement": "none",
+          "note": "背景构图稳定"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，五官稳定",
+            "hair_clothing": "深色齐肩直发；白色针织帽；灰色系带大衣；桃色高领",
+            "action": "轻微转头、闭唇并倾头，动作平顺",
+            "stable": true
+          }
+        ],
+        "other": "与前景相同的树木、雪地和浅色背景；光照与渲染稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot4",
+        "camera": {
+          "setup": "f0-f5 中近景、平视、正面机位；树干居画面右侧",
+          "movement": "none",
+          "note": "背景构图稳定"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长男性，浅肤色，灰白发须，面部特征稳定",
+            "hair_clothing": "黑色耳罩帽；灰白发；棕褐格纹围巾；深棕外套",
+            "action": "从低头侧脸转向较正面，持一手于衣襟，随后保持姿势",
+            "stable": true
+          }
+        ],
+        "other": "树干、栏杆、建筑与雪地在各帧保持稳定。",
+        "change_ids": []
+      }
+    ],
+    "continuity_ledger": [
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "name": "Woman in gray coat",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "浅肤色成年女性，深色齐肩直发，白针织帽、灰色系带大衣、桃色高领。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "浅肤色成年女性，深色齐肩发，白帽、灰色系带外套、桃色领口。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "浅肤色成年女性，深色齐肩直发，白针织帽、灰色系带大衣、桃色高领。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0007"
+        ],
+        "name": "Older man in earflap hat",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "年长浅肤色男性，灰白发须，黑帽、棕褐格纹围巾、深棕外套。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "年长浅肤色男性，灰白发须，黑耳罩帽、棕褐格纹围巾、深棕外套。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "name": "Courtyard",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "雪地庭院，树木、栏杆与浅色建筑；中景正面视角。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "雪地庭院，树干、铺地及浅色带拱门建筑；广角正面视角。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "雪地庭院，树木、栏杆与浅色建筑；近景正面视角。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "雪地庭院，大树干、黑栏杆及浅色建筑；中近景侧向视角。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "object",
+        "entity_keys": [
+          "pb0003"
+        ],
+        "name": "Courtyard trees",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "画面两侧可见厚实树干及常绿枝叶。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "两人之间有粗壮树干。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "背景有树干与常绿枝叶。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "近景大树干，树皮粗糙纵裂。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "object",
+        "entity_keys": [
+          "pb0006"
+        ],
+        "name": "Courtyard snow",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "庭院地面覆雪。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "树周及庭院有不规则积雪。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "背景地面覆薄雪。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "庭院地面有积雪。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      }
+    ],
+    "boundary_checks": [
+      {
+        "from_shot": "Shot1",
+        "to_shot": "Shot2",
+        "required": "cut",
+        "last_frame": "Shot1 f5：中景固定，女人低头。",
+        "first_frame": "Shot2 f0：广角全景，男女分立于树干两侧。",
+        "continuity": "机位按切镜改变；人物状态与新构图相容。",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "from_shot": "Shot2",
+        "to_shot": "Shot3",
+        "required": "cut",
+        "last_frame": "Shot2 f5：全景，男女仍分立。",
+        "first_frame": "Shot3 f0：女人腰上近景，头部略倾。",
+        "continuity": "景别改变符合新机位；未见状态冲突。",
+        "change_ids": [
+          "c2"
+        ]
+      },
+      {
+        "from_shot": "Shot3",
+        "to_shot": "Shot4",
+        "required": "cut",
+        "last_frame": "Shot3 f5：女人近景，视线偏左。",
+        "first_frame": "Shot4 f0：老人近景低头侧脸，手在衣襟。",
+        "continuity": "切换至另一人物及机位，状态无冲突。",
+        "change_ids": [
+          "c3"
+        ]
+      }
+    ],
+    "observed_changes": [
+      {
+        "change_id": "c1",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot1 f5中景切至Shot2 f0全景，背景视角与人物构图改变。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "该边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c2",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot2 f5全景切至Shot3 f0女人近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "该边界要求切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c3",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot3 f5女人近景切至Shot4 f0老人近景及另一背景方向。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "该边界要求切镜，人物及机位改变合理。",
+        "cause_quote": "",
+        "issue_id": null
+      }
+    ],
+    "entity_register": [],
+    "issues": []
+  },
+  "issues": [],
+  "entities": [],
+  "counts": {
+    "issues": 0,
+    "within_shot": 0,
+    "cross_shot": 0,
+    "observed_changes": 3,
+    "change_judgments": {
+      "normal": 3
+    },
+    "registered_entities": 0,
+    "added_entities": 0,
+    "register_provenance": {}
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    }
+  ],
+  "shot_transition_source": {
+    "source": "source_shot_mapping_cut_flags",
+    "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/exports/eecbench_first200_multimodel_20260926/source_snapshots/ERCBench-Wan2.1-T2V-1.3B-400/episodes/MTYQT6fSzaE_s00091_n4_clean_v2/source/shot_mapping.json"
+  },
+  "usage": [
+    {
+      "input_tokens": 85573,
+      "cached_input_tokens": 85570,
+      "output_tokens": 2775,
+      "reasoning_output_tokens": 230
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 3,
+    "cached_input_tokens": 85570,
+    "output_tokens": 2775,
+    "api_calls": 1,
+    "estimated_usd": 0.0022435,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0,
+  "required_continuity_subjects": [
+    {
+      "global_entity_id": "pb0001",
+      "name": "Woman in gray coat",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3"
+      ]
+    },
+    {
+      "global_entity_id": "pb0007",
+      "name": "Older man in earflap hat",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4"
+      ]
+    },
+    {
+      "global_entity_id": "pb0002",
+      "name": "Courtyard",
+      "subject_kind": "setting",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ]
+    }
+  ],
+  "required_shot_characters": {
+    "Shot1": [
+      "pb0001"
+    ],
+    "Shot2": [
+      "pb0001",
+      "pb0007"
+    ],
+    "Shot3": [
+      "pb0001"
+    ],
+    "Shot4": [
+      "pb0007"
+    ]
+  }
+}

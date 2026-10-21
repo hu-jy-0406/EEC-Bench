@@ -1,0 +1,902 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "repair_round": 1,
+  "validation_errors": [
+    "continuity_ledger subject pb0002 (Warm room) lacks observations for scheduled shots ['Shot4']; add one per scheduled shot (say so if it is not visible)"
+  ],
+  "previous_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vv",
+    "checklist_audit": [
+      {
+        "item": "W1",
+        "status": "checked",
+        "note": "四镜头内部均无机位跳变；各自构图稳定。"
+      },
+      {
+        "item": "W2",
+        "status": "checked",
+        "note": "逐帧比较服装和头发；镜头内稳定，跨镜头着装有差异，见V1。"
+      },
+      {
+        "item": "W3",
+        "status": "checked",
+        "note": "镜头内面部稳定；跨镜头整体像同一人，未见明确身份替换。"
+      },
+      {
+        "item": "W4",
+        "status": "checked",
+        "note": "动作逐帧连续；抬眼、折臂及前倾自然。"
+      },
+      {
+        "item": "W5",
+        "status": "checked",
+        "note": "镜头内无道具或接触异常；跨镜头比较沙发，见V2。"
+      },
+      {
+        "item": "W6",
+        "status": "checked",
+        "note": "未见实体无故出现、消失、复制或融合。"
+      },
+      {
+        "item": "W7",
+        "status": "checked",
+        "note": "镜头内背景、光照和渲染稳定。"
+      },
+      {
+        "item": "X1",
+        "status": "checked",
+        "note": "比较各镜头景别与背景布局；Shot1与Shot3中可对应房间元素布局不一致，见V3。"
+      },
+      {
+        "item": "X2",
+        "status": "checked",
+        "note": "比较四镜头人物面部；没有足够明确的身份差异。"
+      },
+      {
+        "item": "X3",
+        "status": "checked",
+        "note": "比较四镜头发型和衣着；服装差异明显，见V1。"
+      },
+      {
+        "item": "X4",
+        "status": "checked",
+        "note": "三处切点的姿势差异与镜头内动作及切镜相容。"
+      },
+      {
+        "item": "X5",
+        "status": "checked",
+        "note": "对比四镜头沙发外形与靠背，镜头间存在不相容差异，见V2。"
+      },
+      {
+        "item": "X6",
+        "status": "checked",
+        "note": "比较复现房间背景；Shot1与Shot3门口和墙面布局不符，见V3。"
+      },
+      {
+        "item": "X7",
+        "status": "checked",
+        "note": "各镜头整体暖色调相近，未见明确风格跳变。"
+      },
+      {
+        "item": "X8",
+        "status": "checked",
+        "note": "未见人物或物件复制、合并或互换。"
+      },
+      {
+        "item": "X9",
+        "status": "checked",
+        "note": "切镜带来机位变化；无额外明确空间关系翻转。"
+      },
+      {
+        "item": "O1",
+        "status": "checked",
+        "note": "复查全部关键帧；记录到服装、沙发及复现房间背景差异。"
+      }
+    ],
+    "shot_scan": [
+      {
+        "shot_id": "Shot1",
+        "camera": {
+          "setup": "f0-f5 中景、平视，正面略偏斜；固定机位",
+          "movement": "none",
+          "note": "门口在人物后方，右侧前景有暗形。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "中青年男性，棕色皮肤，卷黑发，浓密胡须；逐帧稳定",
+            "hair_clothing": "短卷黑发；褪色蓝灰短袖T恤，胸前小字样",
+            "action": "靠坐张臂，视线从偏下连续抬向画面右侧",
+            "stable": true
+          }
+        ],
+        "other": "米 beige 沙发；木门、暖色墙面与右侧暗前景均稳定；光线暖暗。",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "shot_id": "Shot2",
+        "camera": {
+          "setup": "f0-f5 近景、平视正面；固定机位",
+          "movement": "none",
+          "note": "木板背景与沙发靠背稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "棕色皮肤男性，卷发、浓密胡须；镜头内稳定",
+            "hair_clothing": "蓬松卷黑发；蓝灰短袖圆领上衣，胸前小字样",
+            "action": "轻微嘴动、低头，逐渐折臂并收稳",
+            "stable": true
+          }
+        ],
+        "other": "浅米色分节沙发，木色背景；无闪烁或异常。",
+        "change_ids": [
+          "c2"
+        ]
+      },
+      {
+        "shot_id": "Shot3",
+        "camera": {
+          "setup": "f0-f5 中景、平视正面；固定机位",
+          "movement": "none",
+          "note": "木门在画面左缘，浅色墙面占右侧。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "棕色皮肤男性，卷黑发，浓密胡须；镜头内稳定",
+            "hair_clothing": "黑卷发；深蓝灰色有领长袖衬衫，袖口卷起",
+            "action": "双臂交叉保持稳定，视线从低处转向左侧再回正偏右",
+            "stable": true
+          }
+        ],
+        "other": "浅米色沙发；左侧木门、浅墙与Shot1的门后布局不同；光线稳定。",
+        "change_ids": [
+          "c3"
+        ]
+      },
+      {
+        "shot_id": "Shot4",
+        "camera": {
+          "setup": "f0-f5 近景、略高的斜正面；固定机位",
+          "movement": "none",
+          "note": "圆弧高靠背占背景，深色木面在后。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "棕色皮肤男性，浓密胡须；镜头内面部稳定",
+            "hair_clothing": "短而紧密卷黑发；浅蓝灰短袖T恤，胸前深色字样",
+            "action": "交叉手臂起始，抬下巴、轻微嘴动，随后头和上身前倾",
+            "stable": true
+          }
+        ],
+        "other": "圆弧米色高靠背座椅与深木背景；镜头内稳定。",
+        "change_ids": [
+          "c4"
+        ]
+      }
+    ],
+    "continuity_ledger": [
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "name": "Bearded man",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "signature": "棕肤男性，短卷黑发、浓密胡须，褪色蓝灰短袖T恤"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5,
+            "signature": "棕肤男性，较蓬松卷黑发、浓密胡须，蓝灰短袖圆领上衣"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "signature": "棕肤男性，卷黑发、浓密胡须，深蓝灰有领长袖衬衫"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5,
+            "signature": "棕肤男性，短紧卷黑发、浓密胡须，浅蓝灰短袖T恤"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c5"
+        ]
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "name": "Warm room",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "signature": "中景见中央后方木门，门旁暖灰墙，右前景暗形"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5,
+            "signature": "近景后方为横向木板墙，未见门"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "signature": "中景木门位于左缘，门右侧为大块浅色墙面"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c6"
+        ]
+      },
+      {
+        "subject_kind": "object",
+        "entity_keys": [
+          "pb0003"
+        ],
+        "name": "Beige sofa",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "signature": "低矮米色座面，平直靠背、无明显分节"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5,
+            "signature": "浅米色座椅，明显竖向分节靠背"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "signature": "浅米色低靠背，座垫与靠背简洁"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5,
+            "signature": "米色高靠背呈大幅圆弧，明显不同于前三镜"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c7"
+        ]
+      },
+      {
+        "subject_kind": "object",
+        "entity_keys": [
+          "pb0004"
+        ],
+        "name": "Wooden doorway",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "signature": "宽木门框位于人物后方偏左中部"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "signature": "木门及门框贴近画面最左侧，右侧为浅墙"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c6"
+        ]
+      }
+    ],
+    "boundary_checks": [
+      {
+        "from_shot": "Shot1",
+        "to_shot": "Shot2",
+        "required": "cut",
+        "last_frame": "Shot1 f5：中景、人物张臂靠坐",
+        "first_frame": "Shot2 f0：正面近景、人物手臂低处",
+        "continuity": "机位和背景随切镜变化；手臂姿态也由张开转为收拢，切点不构成同一连续动作证据。",
+        "change_ids": [
+          "c8"
+        ]
+      },
+      {
+        "from_shot": "Shot2",
+        "to_shot": "Shot3",
+        "required": "cut",
+        "last_frame": "Shot2 f5：近景、双臂交叉",
+        "first_frame": "Shot3 f0：中景、双臂交叉",
+        "continuity": "切镜机位改变；交叉手臂状态兼容。",
+        "change_ids": [
+          "c9"
+        ]
+      },
+      {
+        "from_shot": "Shot3",
+        "to_shot": "Shot4",
+        "required": "cut",
+        "last_frame": "Shot3 f5：中景、双臂交叉，深色有领衫",
+        "first_frame": "Shot4 f0：近景、双臂交叉，浅色短袖T恤",
+        "continuity": "切镜机位改变，手臂姿态兼容；衣着差异属同一人物跨镜头不一致。",
+        "change_ids": [
+          "c10"
+        ]
+      }
+    ],
+    "observed_changes": [
+      {
+        "change_id": "c1",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot1"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0至f5视线由偏下连续抬向画面右侧。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "帧间视线逐渐抬起，身体与背景稳定。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c2",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot2"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0至f5人物低头并逐步交叉双臂。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "手臂在连续帧中逐渐抬起交叠。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c3",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot3"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0至f5眼神转向侧面再回向前方偏右。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "头部与眼神转动连续。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c4",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot4"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0至f5头部及上身逐渐前倾。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "前倾在连续帧中逐步发生。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c5",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2",
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "clothing_hair",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "同一人物跨镜头服装不一致：Shot1/2为蓝灰短袖T恤，Shot3变为深色有领长袖衫，Shot4又为浅色短袖T恤；无镜头中换衣动作。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "没有可见换衣过程或可解释着装变化的连续情节。",
+        "cause_quote": "",
+        "issue_id": "V1"
+      },
+      {
+        "change_id": "c6",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot3"
+        ],
+        "aspect": "background_setting",
+        "entity_keys": [
+          "pb0002",
+          "pb0004"
+        ],
+        "description": "相近中景复现房间时，木门从人物后方偏左中部变为画面最左缘，墙面构成和门周围布局明显不同。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "两镜均为相近中景，门与墙的相对布局不匹配，不能由可见机位方向变化解释。",
+        "cause_quote": "",
+        "issue_id": "V3"
+      },
+      {
+        "change_id": "c7",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2",
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "object",
+        "entity_keys": [
+          "pb0003"
+        ],
+        "description": "同一沙发在Shot1/3为低平靠背、Shot2为竖分节靠背，Shot4则为高而圆弧的座椅靠背，外形不相容。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "机位改变可见不同侧面，但不能解释靠背整体高度和轮廓明显不同。",
+        "cause_quote": "",
+        "issue_id": "V2"
+      },
+      {
+        "change_id": "c8",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "边界处由中景转为正面近景；属于要求的切镜。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "此边界要求cut；构图改变为切镜本身。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c9",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "边界处由近景转为中景；属于要求的切镜。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "此边界要求cut；构图改变为切镜本身。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c10",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "边界处由中景转为斜角近景；属于要求的切镜。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "此边界要求cut；构图改变为切镜本身。",
+        "cause_quote": "",
+        "issue_id": null
+      }
+    ],
+    "entity_register": [
+      {
+        "entity_key": "pb0001",
+        "global_entity_id": "pb0001",
+        "source": "detection_ledger",
+        "name": "Bearded man",
+        "description": "四镜头反复出现的棕肤、卷发、浓胡须男性。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Character 1",
+        "quote": null,
+        "part_of": null,
+        "note": "人物本体。"
+      },
+      {
+        "entity_key": "pb0002",
+        "global_entity_id": "pb0002",
+        "source": "detection_ledger",
+        "name": "Warm room",
+        "description": "跨镜头复现的室内空间。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Location 1",
+        "quote": null,
+        "part_of": null,
+        "note": "房间背景。"
+      },
+      {
+        "entity_key": "pb0003",
+        "global_entity_id": "pb0003",
+        "source": "detection_ledger",
+        "name": "Beige sofa",
+        "description": "人物所坐的米色沙发，跨镜头外形有差异。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Object 1",
+        "quote": null,
+        "part_of": null,
+        "note": "沙发实体。"
+      },
+      {
+        "entity_key": "pb0004",
+        "global_entity_id": "pb0004",
+        "source": "detection_ledger",
+        "name": "Wooden doorway",
+        "description": "Shot1与Shot3可见的木门。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Object 2",
+        "quote": null,
+        "part_of": null,
+        "note": "用于定位房间布局差异。"
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "V1",
+        "scope": "cross_shot",
+        "subcategory": "character_appearance",
+        "description": "同一男子跨镜头衣着不一致：Shot1/2穿蓝灰短袖T恤，Shot3穿深色有领长袖衫，Shot4又为浅蓝灰短袖T恤，未见换衣过程。",
+        "shot_ids": [
+          "Shot1",
+          "Shot2",
+          "Shot3",
+          "Shot4"
+        ],
+        "change_ids": [
+          "c5"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0001",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0001"
+            ],
+            "observation": "蓝灰短袖T恤，胸前小字样。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0001"
+            ],
+            "observation": "深蓝灰有领长袖衬衫，卷起袖口。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0,
+            "entity_keys": [
+              "pb0001"
+            ],
+            "observation": "浅蓝灰短袖T恤，胸前字样。"
+          }
+        ],
+        "checklist_items": [
+          "X3",
+          "X2",
+          "O1"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "V2",
+        "scope": "cross_shot",
+        "subcategory": "object_identity",
+        "description": "反复出现的米色沙发外形不一致：Shot1/3低平靠背、Shot2分节靠背，Shot4为明显更高的圆弧靠背。",
+        "shot_ids": [
+          "Shot1",
+          "Shot2",
+          "Shot3",
+          "Shot4"
+        ],
+        "change_ids": [
+          "c7"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0003",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0003"
+            ],
+            "observation": "低矮米色沙发，平直靠背。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0003"
+            ],
+            "observation": "浅米色沙发，靠背有竖向分节。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0003"
+            ],
+            "observation": "高而圆弧的米色靠背。"
+          }
+        ],
+        "checklist_items": [
+          "X5",
+          "X1",
+          "O1"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "V3",
+        "scope": "cross_shot",
+        "subcategory": "setting_background",
+        "description": "Shot1与Shot3的复现房间中，木门及墙面布局不匹配：相近中景下门从人物后方偏左移至画面最左缘，墙面构成也不同。",
+        "shot_ids": [
+          "Shot1",
+          "Shot3"
+        ],
+        "change_ids": [
+          "c6"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0004",
+            "role": "subject"
+          },
+          {
+            "entity_key": "pb0002",
+            "role": "context"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0002",
+              "pb0004"
+            ],
+            "observation": "木门位于人物后方偏左中部，周围为暖灰墙面。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5,
+            "entity_keys": [
+              "pb0002",
+              "pb0004"
+            ],
+            "observation": "木门贴近画面最左缘，右侧大面积浅色墙面。"
+          }
+        ],
+        "checklist_items": [
+          "X1",
+          "X6",
+          "X9",
+          "O1"
+        ],
+        "confidence": "high"
+      }
+    ]
+  }
+}

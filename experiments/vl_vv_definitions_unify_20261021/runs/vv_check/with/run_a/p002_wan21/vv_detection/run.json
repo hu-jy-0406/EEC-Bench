@@ -1,0 +1,33 @@
+{
+  "protocol": "vl_vv_issue_discovery_v5_vv",
+  "branch": "vv",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "started": 1792564749.782113,
+  "image_count": 24,
+  "seconds": 85.3016414642334,
+  "counts": {
+    "issues": 4,
+    "within_shot": 0,
+    "cross_shot": 4,
+    "observed_changes": 10,
+    "change_judgments": {
+      "normal": 5,
+      "abnormal": 5
+    },
+    "registered_entities": 5,
+    "added_entities": 0,
+    "register_provenance": {
+      "prompt_bound": 5
+    }
+  },
+  "token_cost": {
+    "uncached_input_tokens": 10541,
+    "cached_input_tokens": 138986,
+    "output_tokens": 10619,
+    "api_calls": 2,
+    "estimated_usd": 0.00775346,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "protocol": "vl_vv_validation_repair_v1",
+  "stage": "VV detection",
+  "max_repair_rounds": 8,
+  "rounds": [
+    {
+      "round": 0,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_definitions_unify_20261021/runs/vv_check/with/run_b/p014_storymem/vv_detection/call",
+      "error_count": 1,
+      "errors": [
+        "shot_scan[3] Shot4: character pb0007 is not stable but no change of that entity is in change_ids"
+      ],
+      "accepted": false
+    },
+    {
+      "round": 1,
+      "call_folder": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_definitions_unify_20261021/runs/vv_check/with/run_b/p014_storymem/vv_detection/call_repair_01",
+      "error_count": 0,
+      "errors": [],
+      "accepted": true
+    }
+  ],
+  "repair_prompt": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/prompts/vl_vv_validation_repair_v2.txt",
+  "status": "passed",
+  "repair_rounds": 1,
+  "usage": [
+    {
+      "input_tokens": 85682,
+      "cached_input_tokens": 1316,
+      "output_tokens": 4325,
+      "reasoning_output_tokens": 227
+    },
+    {
+      "input_tokens": 94475,
+      "cached_input_tokens": 85679,
+      "output_tokens": 4171,
+      "reasoning_output_tokens": 69
+    }
+  ]
+}

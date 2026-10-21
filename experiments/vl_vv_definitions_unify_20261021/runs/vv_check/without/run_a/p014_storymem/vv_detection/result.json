@@ -1,0 +1,607 @@
+{
+  "protocol": "vl_vv_issue_discovery_v5_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/storymem/priority_014_MTYQT6fSzaE_s00091_n4_clean_v2/attempt_01/work/case",
+  "model_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vv",
+    "checklist_audit": [
+      {
+        "item": "W1",
+        "status": "checked",
+        "note": "四镜头内景别、机位稳定，无不连续跳切。"
+      },
+      {
+        "item": "W2",
+        "status": "checked",
+        "note": "逐帧比较可见人物服饰与发型，镜头内无异常变化。"
+      },
+      {
+        "item": "W3",
+        "status": "checked",
+        "note": "逐帧比较面部，未见身份漂移。"
+      },
+      {
+        "item": "W4",
+        "status": "checked",
+        "note": "动作姿态连续，未见身体畸变。"
+      },
+      {
+        "item": "W5",
+        "status": "checked",
+        "note": "逐帧比较可见物件及接触关系，未见异常。"
+      },
+      {
+        "item": "W6",
+        "status": "checked",
+        "note": "未见人物或物件无因消失、出现、复制或融合。"
+      },
+      {
+        "item": "W7",
+        "status": "checked",
+        "note": "背景、光照和渲染稳定，无闪烁或空白帧。"
+      },
+      {
+        "item": "X1",
+        "status": "checked",
+        "note": "各镜头机位变化符合切镜；未见相同视角背景冲突。"
+      },
+      {
+        "item": "X2",
+        "status": "checked",
+        "note": "跨镜头比较女子与老人的面部身份，均一致。"
+      },
+      {
+        "item": "X3",
+        "status": "checked",
+        "note": "跨镜头比较重复人物发型、服饰及配饰，未见异常改变。"
+      },
+      {
+        "item": "X4",
+        "status": "checked",
+        "note": "检查三处边界姿态及状态；切镜后内容变化无不连续问题。"
+      },
+      {
+        "item": "X5",
+        "status": "checked",
+        "note": "比较可辨认的重复物件，未见身份或状态冲突。"
+      },
+      {
+        "item": "X6",
+        "status": "checked",
+        "note": "比较重复庭院背景；不同机位呈现差异可由视角解释。"
+      },
+      {
+        "item": "X7",
+        "status": "checked",
+        "note": "跨镜头光照、环境及渲染风格稳定。"
+      },
+      {
+        "item": "X8",
+        "status": "checked",
+        "note": "人物保持彼此区分，未见复制、融合或换脸。"
+      },
+      {
+        "item": "X9",
+        "status": "checked",
+        "note": "人物及背景空间关系无无法解释的翻转。"
+      },
+      {
+        "item": "O1",
+        "status": "checked",
+        "note": "复查全部关键帧，未发现其他明显视觉一致性问题。"
+      }
+    ],
+    "shot_scan": [
+      {
+        "shot_id": "Shot1",
+        "camera": {
+          "setup": "f0-f5 中景、平视、正面略偏侧，背景位置稳定",
+          "movement": "none",
+          "note": "构图轻微差异不构成跳变。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，脸型与五官稳定",
+            "hair_clothing": "直顺深色及肩发；白色针织帽；灰色系带冬 coat；浅桃色高领",
+            "action": "站立，视线从略向左转为低垂，姿势连续",
+            "stable": true
+          }
+        ],
+        "other": "雪地、树木、石建筑与栏杆稳定；光照及渲染稳定。",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "shot_id": "Shot2",
+        "camera": {
+          "setup": "f0-f5 全景、平视、正面固定；男子左、树居中、女子右",
+          "movement": "none",
+          "note": "背景构图稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长浅肤色男性，灰白发须，面部稳定",
+            "hair_clothing": "黑色耳罩帽；棕褐格纹长围巾；深棕外套、深色裤、灰鞋",
+            "action": "双手在口袋，轻微调整头部；站位稳定",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，面部稳定",
+            "hair_clothing": "白色针织帽、深色及肩发、灰色外套、浅桃色领口、深色裤、黑靴及深色手套",
+            "action": "站立，双臂下垂，姿势连续",
+            "stable": true
+          }
+        ],
+        "other": "积雪、铺面、树干及浅色石建筑稳定；无物件异常变化。",
+        "change_ids": [
+          "c2"
+        ]
+      },
+      {
+        "shot_id": "Shot3",
+        "camera": {
+          "setup": "f0-f5 腰部以上近景、平视正面，背景布局稳定",
+          "movement": "none",
+          "note": "近景构图固定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "成年女性，浅肤色，深色眼睛，面部特征稳定",
+            "hair_clothing": "白色针织帽、直顺深色及肩发、灰色外套、浅桃色高领",
+            "action": "轻微闭唇、头部倾斜后回稳，动作连续",
+            "stable": true
+          }
+        ],
+        "other": "庭院树木、浅色背景与积雪稳定；光照及渲染稳定。",
+        "change_ids": [
+          "c3"
+        ]
+      },
+      {
+        "shot_id": "Shot4",
+        "camera": {
+          "setup": "f0-f5 中近景、平视；男子在树干左侧，背景一致",
+          "movement": "none",
+          "note": "构图稳定，无镜头跳变。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0007",
+            "face": "年长浅肤色男性，灰白发须，五官稳定",
+            "hair_clothing": "黑色耳罩帽、灰白发、棕褐格纹围巾、深棕外套、黑色内层",
+            "action": "低头侧面逐渐转向较正面并保持；一手持续扶外套前襟",
+            "stable": true
+          }
+        ],
+        "other": "大树、栏杆、浅色建筑及雪地稳定；无闪烁或异常物件变化。",
+        "change_ids": [
+          "c4"
+        ]
+      }
+    ],
+    "continuity_ledger": [
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "name": "灰 coat 女子",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "白色针织帽，深色直发及肩，浅桃高领，灰色外套；浅肤色成年女性。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "白帽、深色及肩发、灰外套、浅桃领口；身着深色裤与黑靴。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "白色针织帽，深色直发及肩，浅桃高领，灰色外套；浅肤色成年女性。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0007"
+        ],
+        "name": "耳罩帽老人",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "年长男性，灰白发须，黑色帽，棕褐格纹围巾，深棕外套。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "年长男性，灰白发须，黑色耳罩帽，棕褐格纹围巾，深棕外套。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "name": "庭院",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0,
+            "signature": "雪地、树木、浅色建筑与栏杆，正面中景背景。"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0,
+            "signature": "雪地、铺面、树干与浅色石建筑，宽视角。"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0,
+            "signature": "雪地、树木及浅色建筑，正面近景背景。"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 1,
+            "signature": "雪地、粗树干、浅色建筑与栏杆，近景侧向背景。"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      }
+    ],
+    "boundary_checks": [
+      {
+        "from_shot": "Shot1",
+        "to_shot": "Shot2",
+        "required": "cut",
+        "last_frame": "Shot1 f5：中景女子；",
+        "first_frame": "Shot2 f0：全景两人及树干",
+        "continuity": "切镜带来正常机位、景别与人物构图变化。",
+        "change_ids": [
+          "c5"
+        ]
+      },
+      {
+        "from_shot": "Shot2",
+        "to_shot": "Shot3",
+        "required": "cut",
+        "last_frame": "Shot2 f5：全景两人站立；",
+        "first_frame": "Shot3 f0：女子腰上近景",
+        "continuity": "切镜后的取景变化正常；无需动作状态接续。",
+        "change_ids": [
+          "c6"
+        ]
+      },
+      {
+        "from_shot": "Shot3",
+        "to_shot": "Shot4",
+        "required": "cut",
+        "last_frame": "Shot3 f5：女子近景；",
+        "first_frame": "Shot4 f0：老人树旁近景",
+        "continuity": "切镜后主体与机位变化正常。",
+        "change_ids": [
+          "c7"
+        ]
+      }
+    ],
+    "observed_changes": [
+      {
+        "change_id": "c1",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot1"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0-f5 女子视线逐渐下移，身体姿态保持。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "关键帧显示视线自然下垂。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c2",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot2"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0007",
+          "pb0001"
+        ],
+        "description": "男子轻微调整头部；两人站位及衣着稳定。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "头部小幅变化连续，人物未移位。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c3",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot3"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "description": "f0-f5 女子有轻微头部倾斜及表情变化，动作连续。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "动作在关键帧间渐进。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c4",
+        "scope": "within_shot",
+        "shot_ids": [
+          "Shot4"
+        ],
+        "aspect": "action_pose",
+        "entity_keys": [
+          "pb0007"
+        ],
+        "description": "f0-f3 老人由低头侧面转向较正面，之后保持；扶衣襟的手未跳变。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          }
+        ],
+        "judgment": "normal",
+        "cause": "visible_action",
+        "cause_basis": "头肩转动连续可见。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c5",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "description": "Shot1中景转为Shot2全景，背景取景及人物构图改变。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界为要求的切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c6",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "description": "Shot2全景转为Shot3女子近景，取景变化。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界为要求的切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c7",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "description": "Shot3女子近景转为Shot4老人树旁近景，视角与主体改变。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界为要求的切镜。",
+        "cause_quote": "",
+        "issue_id": null
+      }
+    ],
+    "entity_register": [],
+    "issues": []
+  },
+  "issues": [],
+  "entities": [],
+  "counts": {
+    "issues": 0,
+    "within_shot": 0,
+    "cross_shot": 0,
+    "observed_changes": 7,
+    "change_judgments": {
+      "normal": 7
+    },
+    "registered_entities": 0,
+    "added_entities": 0,
+    "register_provenance": {}
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    }
+  ],
+  "shot_transition_source": {
+    "source": "source_shot_mapping_cut_flags",
+    "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/exports/eecbench_first200_multimodel_20260926/source_snapshots/ERCBench-Wan2.1-T2V-1.3B-400/episodes/MTYQT6fSzaE_s00091_n4_clean_v2/source/shot_mapping.json"
+  },
+  "usage": [
+    {
+      "input_tokens": 85573,
+      "cached_input_tokens": 1316,
+      "output_tokens": 3078,
+      "reasoning_output_tokens": 300
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 84257,
+    "cached_input_tokens": 1316,
+    "output_tokens": 3078,
+    "api_calls": 1,
+    "estimated_usd": 0.00997786,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 1,
+  "repair_rounds": 0,
+  "required_continuity_subjects": [
+    {
+      "global_entity_id": "pb0001",
+      "name": "Woman in gray coat",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3"
+      ]
+    },
+    {
+      "global_entity_id": "pb0007",
+      "name": "Older man in earflap hat",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4"
+      ]
+    },
+    {
+      "global_entity_id": "pb0002",
+      "name": "Courtyard",
+      "subject_kind": "setting",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4"
+      ]
+    }
+  ],
+  "required_shot_characters": {
+    "Shot1": [
+      "pb0001"
+    ],
+    "Shot2": [
+      "pb0001",
+      "pb0007"
+    ],
+    "Shot3": [
+      "pb0001"
+    ],
+    "Shot4": [
+      "pb0007"
+    ]
+  }
+}

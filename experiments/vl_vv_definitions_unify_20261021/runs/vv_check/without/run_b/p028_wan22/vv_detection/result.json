@@ -1,0 +1,1479 @@
+{
+  "protocol": "vl_vv_issue_discovery_v5_vv",
+  "branch": "v_v",
+  "status": "success",
+  "model": "gpt-6-luna",
+  "reasoning": "low",
+  "source_case": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/experiments/vl_vv_multimodel_first200_run02/wan22/priority_028_N39I1LM-HGY_s00208_n8_clean_v3_alt8/attempt_01/work/case",
+  "model_output": {
+    "protocol": "vl_vv_issue_discovery_v5_vv",
+    "checklist_audit": [
+      {
+        "item": "W1",
+        "status": "checked",
+        "note": "逐帧比较八镜头景别、机位与背景；镜头内未见突跳。"
+      },
+      {
+        "item": "W2",
+        "status": "checked",
+        "note": "逐帧比较各人物衣发配饰；Shot8服装与先前青衣女不同。"
+      },
+      {
+        "item": "W3",
+        "status": "checked",
+        "note": "比较人物逐帧面部及跨镜头身份；Shot8青衣女面貌明显不同。"
+      },
+      {
+        "item": "W4",
+        "status": "checked",
+        "note": "逐帧检查动作、姿势及肢体连续性，未见明显损坏或瞬移。"
+      },
+      {
+        "item": "W5",
+        "status": "checked",
+        "note": "检查物件、手持物及接触；Shot7椅子外形与先前椅子不同。"
+      },
+      {
+        "item": "W6",
+        "status": "checked",
+        "note": "检查人物、物件显隐及数量；未见镜内无因增减。"
+      },
+      {
+        "item": "W7",
+        "status": "checked",
+        "note": "检查背景、曝光及风格；镜内稳定。"
+      },
+      {
+        "item": "X1",
+        "status": "checked",
+        "note": "比较跨镜头机位；均有切镜，视角变化可解释背景取景差异。"
+      },
+      {
+        "item": "X2",
+        "status": "checked",
+        "note": "比较重复人物；青衣女Shot8与Shot2、4、6不一致。"
+      },
+      {
+        "item": "X3",
+        "status": "checked",
+        "note": "比较重复人物衣发；青衣女Shot8上衣图案明显变化。"
+      },
+      {
+        "item": "X4",
+        "status": "checked",
+        "note": "逐边界比较末帧与首帧；均为要求切镜，未据此判为异常。"
+      },
+      {
+        "item": "X5",
+        "status": "checked",
+        "note": "比较重复椅子；Shot7蓝色长躺椅与此前小型蓝椅不符。"
+      },
+      {
+        "item": "X6",
+        "status": "checked",
+        "note": "比较反复出现的海滩；机位不同，未能确认相同局部布局异常。"
+      },
+      {
+        "item": "X7",
+        "status": "checked",
+        "note": "比较跨镜头光照和渲染风格；未见明确不一致。"
+      },
+      {
+        "item": "X8",
+        "status": "checked",
+        "note": "检查重复实体有无替换或合并；青衣女呈替换样貌。"
+      },
+      {
+        "item": "X9",
+        "status": "checked",
+        "note": "检查人物及场景屏幕布局；切镜可解释构图变化。"
+      },
+      {
+        "item": "O1",
+        "status": "checked",
+        "note": "复查全部帧；发现Shot7椅型及Shot8青衣女差异。"
+      }
+    ],
+    "shot_scan": [
+      {
+        "shot_id": "Shot1",
+        "camera": {
+          "setup": "f0-f5 中景、平视、正面偏侧；棕榈海滩背景位置稳定",
+          "movement": "none",
+          "note": "构图无明显跳变。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "年长女性，浅肤色，灰白发；逐帧稳定",
+            "hair_clothing": "灰白发后束；白色系带浴袍",
+            "action": "手在耳旁、头脸逐渐抬转并微笑，动作连续",
+            "stable": true
+          }
+        ],
+        "other": "沙滩、棕榈与远处蓝椅稳定；光照稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot2",
+        "camera": {
+          "setup": "f0-f5 近景特写、平视正面；海水及沙滩背景稳定",
+          "movement": "none",
+          "note": "人物与背景无突跳。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0005",
+            "face": "年轻女性，中等肤色，棕发；逐帧稳定",
+            "hair_clothing": "棕色波浪发带浅色挑染；宽松青绿上衣，深色肩带",
+            "action": "抬眼，Incoming手贴近脸侧，姿势连续",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0006",
+            "face": "面部不入镜",
+            "hair_clothing": "可见手臂，无明显衣着细节",
+            "action": "右侧手伸入并靠近脸侧，位置连续",
+            "stable": true
+          }
+        ],
+        "other": "海水、沙滩稳定；无明显物件闪现。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot3",
+        "camera": {
+          "setup": "f0-f5 中景、平视；棕榈与海滩布局稳定",
+          "movement": "none",
+          "note": "固定视角。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "年长浅肤色女性，灰白发；稳定",
+            "hair_clothing": "后束灰白发；白色浴袍及宽袖",
+            "action": "一臂伸向左外，另一手在耳旁，表情逐渐展笑，连续",
+            "stable": true
+          }
+        ],
+        "other": "背景有棕榈及多个蓝色座椅；镜内稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot4",
+        "camera": {
+          "setup": "f0-f5 中近景、平视正面；海岸背景稳定",
+          "movement": "none",
+          "note": "人物轻微姿态变化，无机位跳变。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0005",
+            "face": "年轻女性，中等肤色，深棕波浪发；稳定",
+            "hair_clothing": "青绿色宽松上衣带深色污渍状图案",
+            "action": "低头再抬头，手与脸侧保持接触",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0006",
+            "face": "面部未见",
+            "hair_clothing": "白色长袖手臂",
+            "action": "手持续在人物耳旁",
+            "stable": true
+          }
+        ],
+        "other": "海水、浪及沙滩稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot5",
+        "camera": {
+          "setup": "f0-f5 中景、平视；棕榈海滩稳定",
+          "movement": "none",
+          "note": "构图固定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "年长浅肤色女性，灰白发；稳定",
+            "hair_clothing": "灰白发后束；白色浴袍",
+            "action": "坐姿，手靠耳侧，轻微眨眼及嘴部变化",
+            "stable": true
+          }
+        ],
+        "other": "远处蓝椅和棕榈稳定。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot6",
+        "camera": {
+          "setup": "f0-f5 近景特写、平视略侧；海面背景稳定",
+          "movement": "none",
+          "note": "固定取景。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0005",
+            "face": "年轻女性，中等肤色，深棕卷发夹浅色发束；稳定",
+            "hair_clothing": "青绿色上衣，肩部有醒目的黑色标记",
+            "action": "头倾向手，闭眼后抬眼，连续",
+            "stable": true
+          },
+          {
+            "entity_key": "pb0006",
+            "face": "未见面部",
+            "hair_clothing": "白色袖口",
+            "action": "手靠耳侧，接触连续",
+            "stable": true
+          }
+        ],
+        "other": "海水稳定；无明显闪烁。",
+        "change_ids": []
+      },
+      {
+        "shot_id": "Shot7",
+        "camera": {
+          "setup": "f0-f5 中景、平视侧面；棕榈海滩稳定",
+          "movement": "none",
+          "note": "固定镜头。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0001",
+            "face": "年长浅肤色女性，灰白发；稳定",
+            "hair_clothing": "灰白发；白色宽袖系带浴袍",
+            "action": "手在耳旁、另一臂伸出，嘴部变化连续",
+            "stable": true
+          }
+        ],
+        "other": "背景蓝色家具呈长躺椅形态，与其他镜头的小型蓝椅不一致。",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "shot_id": "Shot8",
+        "camera": {
+          "setup": "f0-f5 中近景、平视正面；海面背景稳定",
+          "movement": "none",
+          "note": "镜内构图稳定。"
+        },
+        "characters": [
+          {
+            "entity_key": "pb0005",
+            "face": "年轻女性，浅中肤色，圆润面部、深棕发；与Shot2、4、6的青衣女面貌明显不同",
+            "hair_clothing": "棕色波浪发；青绿上衣印满深蓝棕榈图案，另有白色长袖",
+            "action": "举鞋、掌心向上后放下，动作连贯",
+            "stable": false
+          },
+          {
+            "entity_key": "pb0006",
+            "face": "未见面部",
+            "hair_clothing": "画面中白袖覆盖手臂",
+            "action": "手在耳侧；接触稳定",
+            "stable": true
+          }
+        ],
+        "other": "两只鞋在举起及下降过程中连续；海面稳定。",
+        "change_ids": [
+          "c2",
+          "c3"
+        ]
+      }
+    ],
+    "continuity_ledger": [
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0001"
+        ],
+        "name": "Robe woman",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 2,
+            "signature": "年长浅肤色，灰白后束发，白浴袍"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 2,
+            "signature": "年长浅肤色，灰白后束发，白浴袍"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 2,
+            "signature": "年长浅肤色，灰白后束发，白浴袍"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 2,
+            "signature": "年长浅肤色，灰白发，白色系带浴袍"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0005"
+        ],
+        "name": "Turquoise woman",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 2,
+            "signature": "年轻女性，中等肤色，棕色挑染波浪发，青绿素色上衣及深色肩带"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 2,
+            "signature": "年轻女性，深棕波浪发，青绿上衣带零散暗色斑纹"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "年轻女性，深棕卷发浅色发束，青绿上衣肩部黑色标志"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4,
+            "signature": "圆润面部、深棕波浪发，青绿上衣满布深蓝棕榈图案"
+          }
+        ],
+        "assessment": "inconsistent",
+        "change_ids": [
+          "c2",
+          "c3"
+        ]
+      },
+      {
+        "subject_kind": "character",
+        "entity_keys": [
+          "pb0006"
+        ],
+        "name": "Incoming hand owner",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 3,
+            "signature": "右侧手及前臂，未见脸"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 3,
+            "signature": "右侧白袖手臂及手"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "右侧白袖手及手臂"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 3,
+            "signature": "白袖手臂在脸侧"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0002"
+        ],
+        "name": "Sandy beach",
+        "observations": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 2,
+            "signature": "明亮沙地、棕榈背景，正面远景"
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 2,
+            "signature": "沙地与蓝海岸线特写背景"
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 2,
+            "signature": "沙地、棕榈及蓝色座椅侧向视图"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 2,
+            "signature": "左侧沙滩，后方海浪"
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 2,
+            "signature": "沙地、远处棕榈及海岸"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 2,
+            "signature": "沙地与棕榈，蓝色长椅家具"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 2,
+            "signature": "近岸沙地与海面"
+          }
+        ],
+        "assessment": "uncertain",
+        "change_ids": [
+          "c1"
+        ]
+      },
+      {
+        "subject_kind": "setting",
+        "entity_keys": [
+          "pb0007"
+        ],
+        "name": "Sea",
+        "observations": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 2,
+            "signature": "蓝绿色海水，平直地平线及白浪"
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 2,
+            "signature": "蓝海与白浪，海岸斜向延伸"
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "signature": "蓝绿色海面及地平线"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4,
+            "signature": "灰蓝海面及白浪"
+          }
+        ],
+        "assessment": "consistent",
+        "change_ids": []
+      }
+    ],
+    "boundary_checks": [
+      {
+        "from_shot": "Shot1",
+        "to_shot": "Shot2",
+        "required": "cut",
+        "last_frame": "Shot1 f5 中景人物与棕榈海滩",
+        "first_frame": "Shot2 f0 海滩人物近景",
+        "continuity": "景别与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c4"
+        ]
+      },
+      {
+        "from_shot": "Shot2",
+        "to_shot": "Shot3",
+        "required": "cut",
+        "last_frame": "Shot2 f5 青衣女与右侧手特写",
+        "first_frame": "Shot3 f0 浴袍女及棕榈背景中景",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c5"
+        ]
+      },
+      {
+        "from_shot": "Shot3",
+        "to_shot": "Shot4",
+        "required": "cut",
+        "last_frame": "Shot3 f5 浴袍女侧向中景",
+        "first_frame": "Shot4 f0 青衣女海岸中近景",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c6"
+        ]
+      },
+      {
+        "from_shot": "Shot4",
+        "to_shot": "Shot5",
+        "required": "cut",
+        "last_frame": "Shot4 f5 青衣女海岸近景",
+        "first_frame": "Shot5 f0 浴袍女沙滩中景",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c7"
+        ]
+      },
+      {
+        "from_shot": "Shot5",
+        "to_shot": "Shot6",
+        "required": "cut",
+        "last_frame": "Shot5 f5 浴袍女坐姿",
+        "first_frame": "Shot6 f0 青衣女海面特写",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c8"
+        ]
+      },
+      {
+        "from_shot": "Shot6",
+        "to_shot": "Shot7",
+        "required": "cut",
+        "last_frame": "Shot6 f5 青衣女近景",
+        "first_frame": "Shot7 f0 浴袍女中景",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c9"
+        ]
+      },
+      {
+        "from_shot": "Shot7",
+        "to_shot": "Shot8",
+        "required": "cut",
+        "last_frame": "Shot7 f5 浴袍女与蓝色长躺椅背景",
+        "first_frame": "Shot8 f0 青衣女近景",
+        "continuity": "主体与机位切换，属于要求切镜。",
+        "change_ids": [
+          "c10"
+        ]
+      }
+    ],
+    "observed_changes": [
+      {
+        "change_id": "c1",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot3",
+          "Shot5",
+          "Shot7"
+        ],
+        "aspect": "object",
+        "entity_keys": [
+          "pb0004"
+        ],
+        "description": "Shot1、3、5所见为小型蓝色椅子；Shot7背景为蓝色长躺椅，类型及形状不符。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 2
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 2
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "镜头虽切换，物件轮廓仍可直接比较；长躺椅不是同一小型蓝椅。",
+        "cause_quote": "",
+        "issue_id": "V1"
+      },
+      {
+        "change_id": "c2",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot4",
+          "Shot6",
+          "Shot8"
+        ],
+        "aspect": "face_identity",
+        "entity_keys": [
+          "pb0005"
+        ],
+        "description": "Shot2、4、6青衣女与Shot8女性面部身份明显不同，Shot8面部更圆、五官及整体样貌变化显著。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "同一安排角色在多个镜头复现，未见身份更替原因。",
+        "cause_quote": "",
+        "issue_id": "V2"
+      },
+      {
+        "change_id": "c3",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot4",
+          "Shot6",
+          "Shot8"
+        ],
+        "aspect": "clothing_hair",
+        "entity_keys": [
+          "pb0005"
+        ],
+        "description": "Shot8上衣为密集深蓝棕榈印花；Shot2素青绿，Shot4为零散污渍样暗纹，Shot6有肩部黑标，图案和衣服细节不一致。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4
+          }
+        ],
+        "judgment": "abnormal",
+        "cause": null,
+        "cause_basis": "重复角色服装图案跨镜头改变，未见换衣动作。",
+        "cause_quote": "",
+        "issue_id": "V3"
+      },
+      {
+        "change_id": "c4",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot1",
+          "Shot2"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot1中景切至Shot2特写。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot1",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot2",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c5",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot2",
+          "Shot3"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot2特写切至Shot3中景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot3",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c6",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot3",
+          "Shot4"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot3中景切至Shot4海岸中近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c7",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot4",
+          "Shot5"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot4海岸近景切至Shot5浴袍女中景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot4",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot5",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c8",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot5",
+          "Shot6"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot5中景切至Shot6青衣女特写。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot5",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c9",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot6",
+          "Shot7"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot6特写切至Shot7浴袍女中景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      },
+      {
+        "change_id": "c10",
+        "scope": "cross_shot",
+        "shot_ids": [
+          "Shot7",
+          "Shot8"
+        ],
+        "aspect": "camera_position",
+        "entity_keys": [],
+        "description": "Shot7中景切至Shot8海岸近景。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot7",
+            "frame_id": 5
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 0
+          }
+        ],
+        "judgment": "normal",
+        "cause": "required_transition",
+        "cause_basis": "边界要求cut。",
+        "cause_quote": "",
+        "issue_id": null
+      }
+    ],
+    "entity_register": [
+      {
+        "entity_key": "pb0004",
+        "global_entity_id": "pb0004",
+        "source": "detection_ledger",
+        "name": "Blue beach chair",
+        "description": "合同关联的远处蓝色椅子；Shot7呈蓝色长躺椅。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 2
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 2
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Object 2",
+        "quote": null,
+        "part_of": null,
+        "note": "关联同一蓝椅实体。"
+      },
+      {
+        "entity_key": "pb0005",
+        "global_entity_id": "pb0005",
+        "source": "detection_ledger",
+        "name": "Turquoise woman",
+        "description": "跨镜头出现的青衣女性。",
+        "frame_refs": [
+          {
+            "shot_id": "Shot2",
+            "frame_id": 2
+          },
+          {
+            "shot_id": "Shot4",
+            "frame_id": 2
+          },
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4
+          }
+        ],
+        "provenance": "prompt_bound",
+        "basis_type": "contract_entity",
+        "contract_label": "Character 2",
+        "quote": null,
+        "part_of": null,
+        "note": "身份及外观异常所涉主体。"
+      }
+    ],
+    "issues": [
+      {
+        "issue_id": "V1",
+        "scope": "cross_shot",
+        "subcategory": "object_identity",
+        "description": "蓝椅在Shot7变成长型躺椅；与Shot1、3、5的小型蓝椅形状和类型不符。",
+        "shot_ids": [
+          "Shot1",
+          "Shot3",
+          "Shot5",
+          "Shot7"
+        ],
+        "change_ids": [
+          "c1"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0004",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot3",
+            "frame_id": 2,
+            "entity_keys": [
+              "pb0004"
+            ],
+            "observation": "人物右后方可见小型蓝色椅子。"
+          },
+          {
+            "shot_id": "Shot7",
+            "frame_id": 2,
+            "entity_keys": [
+              "pb0004"
+            ],
+            "observation": "人物右后方为宽大的蓝色长躺椅。"
+          }
+        ],
+        "checklist_items": [
+          "X5",
+          "O1"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "V2",
+        "scope": "cross_shot",
+        "subcategory": "character_identity",
+        "description": "Shot8青衣女面貌与Shot2、4、6复现的女性明显不同，呈现替换个体。",
+        "shot_ids": [
+          "Shot2",
+          "Shot4",
+          "Shot6",
+          "Shot8"
+        ],
+        "change_ids": [
+          "c2"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0005",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "entity_keys": [
+              "pb0005"
+            ],
+            "observation": "较窄脸形、深棕卷发带显著浅色发束。"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4,
+            "entity_keys": [
+              "pb0005"
+            ],
+            "observation": "圆润脸形、深棕波浪发，五官与前镜头明显不同。"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X8",
+          "O1"
+        ],
+        "confidence": "high"
+      },
+      {
+        "issue_id": "V3",
+        "scope": "cross_shot",
+        "subcategory": "character_appearance",
+        "description": "Shot8上衣图案与Shot2、4、6不一致：密集棕榈印花取代此前素色、污渍状暗纹或肩部标记。",
+        "shot_ids": [
+          "Shot2",
+          "Shot4",
+          "Shot6",
+          "Shot8"
+        ],
+        "change_ids": [
+          "c3"
+        ],
+        "entities": [
+          {
+            "entity_key": "pb0005",
+            "role": "subject"
+          }
+        ],
+        "key_evidence": [
+          {
+            "shot_id": "Shot6",
+            "frame_id": 3,
+            "entity_keys": [
+              "pb0005"
+            ],
+            "observation": "青绿上衣肩部有黑色标记，主体无棕榈重复印花。"
+          },
+          {
+            "shot_id": "Shot8",
+            "frame_id": 4,
+            "entity_keys": [
+              "pb0005"
+            ],
+            "observation": "青绿上衣布满重复深蓝棕榈图案。"
+          }
+        ],
+        "checklist_items": [
+          "X3",
+          "O1"
+        ],
+        "confidence": "high"
+      }
+    ]
+  },
+  "issues": [
+    {
+      "issue_id": "V1",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "object_identity",
+      "description": "蓝椅在Shot7变成长型躺椅；与Shot1、3、5的小型蓝椅形状和类型不符。",
+      "shot_ids": [
+        "Shot1",
+        "Shot3",
+        "Shot5",
+        "Shot7"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0004",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "人物右后方可见小型蓝色椅子。"
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 2,
+          "entity_keys": [
+            "pb0004"
+          ],
+          "observation": "人物右后方为宽大的蓝色长躺椅。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c1"
+        ],
+        "changes": [
+          {
+            "change_id": "c1",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot1",
+              "Shot3",
+              "Shot5",
+              "Shot7"
+            ],
+            "aspect": "object",
+            "entity_keys": [
+              "pb0004"
+            ],
+            "description": "Shot1、3、5所见为小型蓝色椅子；Shot7背景为蓝色长躺椅，类型及形状不符。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot3",
+                "frame_id": 2
+              },
+              {
+                "shot_id": "Shot7",
+                "frame_id": 2
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "镜头虽切换，物件轮廓仍可直接比较；长躺椅不是同一小型蓝椅。",
+            "cause_quote": "",
+            "issue_id": "V1"
+          }
+        ],
+        "checklist_items": [
+          "X5",
+          "O1"
+        ]
+      }
+    },
+    {
+      "issue_id": "V2",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_identity",
+      "description": "Shot8青衣女面貌与Shot2、4、6复现的女性明显不同，呈现替换个体。",
+      "shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot6",
+        "Shot8"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "较窄脸形、深棕卷发带显著浅色发束。"
+        },
+        {
+          "shot_id": "Shot8",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "圆润脸形、深棕波浪发，五官与前镜头明显不同。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c2"
+        ],
+        "changes": [
+          {
+            "change_id": "c2",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot2",
+              "Shot4",
+              "Shot6",
+              "Shot8"
+            ],
+            "aspect": "face_identity",
+            "entity_keys": [
+              "pb0005"
+            ],
+            "description": "Shot2、4、6青衣女与Shot8女性面部身份明显不同，Shot8面部更圆、五官及整体样貌变化显著。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot8",
+                "frame_id": 4
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "同一安排角色在多个镜头复现，未见身份更替原因。",
+            "cause_quote": "",
+            "issue_id": "V2"
+          }
+        ],
+        "checklist_items": [
+          "X2",
+          "X8",
+          "O1"
+        ]
+      }
+    },
+    {
+      "issue_id": "V3",
+      "branch": "v_v",
+      "scope": "cross_shot",
+      "subcategory": "character_appearance",
+      "description": "Shot8上衣图案与Shot2、4、6不一致：密集棕榈印花取代此前素色、污渍状暗纹或肩部标记。",
+      "shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot6",
+        "Shot8"
+      ],
+      "entity_refs": [
+        {
+          "entity_key": "pb0005",
+          "role": "subject"
+        }
+      ],
+      "key_evidence": [
+        {
+          "shot_id": "Shot6",
+          "frame_id": 3,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "青绿上衣肩部有黑色标记，主体无棕榈重复印花。"
+        },
+        {
+          "shot_id": "Shot8",
+          "frame_id": 4,
+          "entity_keys": [
+            "pb0005"
+          ],
+          "observation": "青绿上衣布满重复深蓝棕榈图案。"
+        }
+      ],
+      "confidence": "high",
+      "v_l_detail": null,
+      "v_v_detail": {
+        "change_ids": [
+          "c3"
+        ],
+        "changes": [
+          {
+            "change_id": "c3",
+            "scope": "cross_shot",
+            "shot_ids": [
+              "Shot2",
+              "Shot4",
+              "Shot6",
+              "Shot8"
+            ],
+            "aspect": "clothing_hair",
+            "entity_keys": [
+              "pb0005"
+            ],
+            "description": "Shot8上衣为密集深蓝棕榈印花；Shot2素青绿，Shot4为零散污渍样暗纹，Shot6有肩部黑标，图案和衣服细节不一致。",
+            "frame_refs": [
+              {
+                "shot_id": "Shot6",
+                "frame_id": 3
+              },
+              {
+                "shot_id": "Shot8",
+                "frame_id": 4
+              }
+            ],
+            "judgment": "abnormal",
+            "cause": null,
+            "cause_basis": "重复角色服装图案跨镜头改变，未见换衣动作。",
+            "cause_quote": "",
+            "issue_id": "V3"
+          }
+        ],
+        "checklist_items": [
+          "X3",
+          "O1"
+        ]
+      }
+    }
+  ],
+  "entities": [
+    {
+      "entity_key": "pb0004",
+      "global_entity_id": "pb0004",
+      "source": "detection_ledger",
+      "name": "Blue beach chair",
+      "description": "合同关联的远处蓝色椅子；Shot7呈蓝色长躺椅。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Object 2",
+      "frame_refs": [
+        {
+          "shot_id": "Shot3",
+          "frame_id": 2
+        },
+        {
+          "shot_id": "Shot7",
+          "frame_id": 2
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Object 2",
+      "quote": null,
+      "part_of": null,
+      "note": "关联同一蓝椅实体。"
+    },
+    {
+      "entity_key": "pb0005",
+      "global_entity_id": "pb0005",
+      "source": "detection_ledger",
+      "name": "Turquoise woman",
+      "description": "跨镜头出现的青衣女性。",
+      "partition": "prompt_bound",
+      "prompt_entity_id": "Character 2",
+      "frame_refs": [
+        {
+          "shot_id": "Shot2",
+          "frame_id": 2
+        },
+        {
+          "shot_id": "Shot4",
+          "frame_id": 2
+        },
+        {
+          "shot_id": "Shot6",
+          "frame_id": 3
+        },
+        {
+          "shot_id": "Shot8",
+          "frame_id": 4
+        }
+      ],
+      "provenance": "prompt_bound",
+      "basis_type": "contract_entity",
+      "contract_label": "Character 2",
+      "quote": null,
+      "part_of": null,
+      "note": "身份及外观异常所涉主体。"
+    }
+  ],
+  "counts": {
+    "issues": 3,
+    "within_shot": 0,
+    "cross_shot": 3,
+    "observed_changes": 10,
+    "change_judgments": {
+      "abnormal": 3,
+      "normal": 7
+    },
+    "registered_entities": 2,
+    "added_entities": 0,
+    "register_provenance": {
+      "prompt_bound": 2
+    }
+  },
+  "shot_transitions": [
+    {
+      "from_shot": "Shot1",
+      "to_shot": "Shot2",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot2",
+      "to_shot": "Shot3",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot3",
+      "to_shot": "Shot4",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot4",
+      "to_shot": "Shot5",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot5",
+      "to_shot": "Shot6",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot6",
+      "to_shot": "Shot7",
+      "required": "cut"
+    },
+    {
+      "from_shot": "Shot7",
+      "to_shot": "Shot8",
+      "required": "cut"
+    }
+  ],
+  "shot_transition_source": {
+    "source": "source_shot_mapping_cut_flags",
+    "path": "/vast/users/guangyi.chen/causal_group/jinyuan.hu/eec-bench/EECBench/exports/eecbench_first200_multimodel_20260926/source_snapshots/ERCBench-Wan2.1-T2V-1.3B-400/episodes/N39I1LM-HGY_s00208_n8_clean_v3_alt8/source/shot_mapping.json"
+  },
+  "usage": [
+    {
+      "input_tokens": 145089,
+      "cached_input_tokens": 145086,
+      "output_tokens": 5621,
+      "reasoning_output_tokens": 316
+    },
+    {
+      "input_tokens": 156520,
+      "cached_input_tokens": 145086,
+      "output_tokens": 5356,
+      "reasoning_output_tokens": 51
+    }
+  ],
+  "token_cost": {
+    "uncached_input_tokens": 11437,
+    "cached_input_tokens": 290172,
+    "output_tokens": 10977,
+    "api_calls": 2,
+    "estimated_usd": 0.00953392,
+    "pricing_basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; estimate, not billed amount."
+  },
+  "calls": 2,
+  "repair_rounds": 1,
+  "required_continuity_subjects": [
+    {
+      "global_entity_id": "pb0001",
+      "name": "Robe woman",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot3",
+        "Shot5",
+        "Shot7"
+      ]
+    },
+    {
+      "global_entity_id": "pb0005",
+      "name": "Turquoise woman",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot6",
+        "Shot8"
+      ]
+    },
+    {
+      "global_entity_id": "pb0006",
+      "name": "Incoming hand owner",
+      "subject_kind": "character",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot6",
+        "Shot8"
+      ]
+    },
+    {
+      "global_entity_id": "pb0002",
+      "name": "Sandy beach",
+      "subject_kind": "setting",
+      "scheduled_shot_ids": [
+        "Shot1",
+        "Shot2",
+        "Shot3",
+        "Shot4",
+        "Shot5",
+        "Shot7",
+        "Shot8"
+      ]
+    },
+    {
+      "global_entity_id": "pb0007",
+      "name": "Sea",
+      "subject_kind": "setting",
+      "scheduled_shot_ids": [
+        "Shot2",
+        "Shot4",
+        "Shot6",
+        "Shot8"
+      ]
+    }
+  ],
+  "required_shot_characters": {
+    "Shot1": [
+      "pb0001"
+    ],
+    "Shot2": [
+      "pb0005",
+      "pb0006"
+    ],
+    "Shot3": [
+      "pb0001"
+    ],
+    "Shot4": [
+      "pb0005",
+      "pb0006"
+    ],
+    "Shot5": [
+      "pb0001"
+    ],
+    "Shot6": [
+      "pb0005",
+      "pb0006"
+    ],
+    "Shot7": [
+      "pb0001"
+    ],
+    "Shot8": [
+      "pb0005",
+      "pb0006"
+    ]
+  }
+}

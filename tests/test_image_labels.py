@@ -50,11 +50,14 @@ def test_labels_are_on_by_default_for_the_api_transport(api, tmp_path):
     assert io.image_labels(rows)[8] == 'Shot2 frame 2'
 
 
-def test_no_labels_when_off_cli_backend_no_images_or_missing_ids(api, tmp_path, monkeypatch):
+def test_no_labels_when_off_or_cli_backend_and_missing_ids_fail(api, tmp_path, monkeypatch):
     rows = frames(tmp_path, shots=('Shot1',), count=2)
     assert io.image_labels([]) is None
-    assert io.image_labels([dict(rows[0], shot_id=None)]) is None
-    assert io.image_labels([{k: v for k, v in rows[0].items() if k != 'frame_id'}]) is None
+    # Labels are mandatory for API calls: missing IDs are an error, not a silent fallback.
+    with pytest.raises(ValueError):
+        io.image_labels([dict(rows[0], shot_id=None)])
+    with pytest.raises(ValueError):
+        io.image_labels([{k: v for k, v in rows[0].items() if k != 'frame_id'}])
     monkeypatch.setenv('EECBENCH_IMAGE_LABELS', 'off')
     assert io.image_labels(rows) is None
     monkeypatch.setenv('EECBENCH_IMAGE_LABELS', 'yes')

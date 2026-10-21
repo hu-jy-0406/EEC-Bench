@@ -46,14 +46,18 @@ reported in Shot4 in every unlabeled run).
   shot prompt binding, global entity matching, discovery, review) and the
   shot-clustering review pass them to the shim as `--image-label` arguments.
   Scoring stages attach no images.
-- Labels are sent only for the API backend and only when every attached image
-  has `shot_id` and `frame_id`; otherwise the call is unchanged. The Codex CLI
-  backend (`cli`) cannot interleave text with images and is unchanged.
+- Labels are sent for every API call that attaches images. Since 2026-10-21
+  (owner: labels on for all detection and evaluation runs) an attached image
+  without `shot_id`/`frame_id` is an error, not a silent fallback to unlabeled
+  images. The Codex CLI backend (`cli`) cannot interleave text with images
+  and is unchanged; every VL/VV stage requires the API backend.
 - Each call's `request.json` and `api_request.json` record `image_labels`
   (and `image_label_protocol: shot_frame_v1`); `run_vl_vv_pipeline.py`
   records the setting in `run.json` and hashes the transport files.
 - `EECBENCH_IMAGE_LABELS=off` sends unlabeled images, only to reproduce
-  historical results. A stored shot-clustering response is reused only if it
-  was made with the same labels.
+  historical results; `run_vl_vv_pipeline.py` (and therefore the batch
+  controller) refuses it unless `--allow-unlabeled-images` is passed, which
+  is recorded in the run plan. A stored shot-clustering response is reused
+  only if it was made with the same labels.
 - Tests: `tests/test_image_labels.py`. Live check:
   `experiments/vl_vv_image_labels_20261020/REPORT.md`.
