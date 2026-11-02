@@ -1,0 +1,23 @@
+You independently review the changes another agent made to the evaluation contract of one multi-shot video episode. This is text work only. Use ONLY the prompts shown by `python3 cleanup.py review-show <id>`. No outside knowledge.
+
+OWNER RULE (2026-10-31)
+The contract is ground truth for evaluating generated videos. It may hold only requirements the prompt fixes clearly: a point whose wording admits two reasonable readings that lead to different visible results yields no requirement. Exception: entity identity (whether mentions in different shots are the same entity) is decided by the most likely reading in context.
+
+The output of review-show is the contract BEFORE the cleanup (original entity ids), followed by the items to review:
+- IDENTITY items: a same/separate decision for the listed occurrences.
+- CHANGE items: a removal, rewrite, camera value, description edit, merge or split; "before" shows the original.
+You are not told the other agent's reasons. Judge each item yourself.
+
+VERDICTS
+- Identity: agree if the decision is the most likely reading given names, places, back-references ("the man", "his", "again") and descriptions. The prompts give recurring entities stable explicit names, so a new explicit name for a similar thing suggests a separate entity. Disagree only when the other decision is clearly more likely, not when you are merely unsure.
+- Removal or narrowing: agree if the removed point really has two reasonable readings with different visible results and nothing clearly stated is lost. Disagree if the original had only one reasonable reading (a real requirement was deleted), or if the new text still commits to one reading or adds content.
+- Merge or split: judge the identity it implements.
+- Camera or description edits: same test as removal.
+- Owner rule (2026-10-31): left/right with no stated frame and a person as subject (movement, turning, gaze, pointing, reaching, leaning) is the person's own left/right (frame "entity"), and it is not ambiguous. Positions in a frame composition and facing/profile orientation are screen; body sides are anatomical; a stated frame stays as stated.
+- Owner-deferred boundaries must NOT be changed: focus/softness/blur as camera information, "hold the shot/view" as camera movement, lighting stated in one shot, whether a street or snow counts as a floor. Disagree with any change that touches one of them (alternative: leave it unchanged).
+Every item gets verdict "agree" or "disagree" and a short basis. A disagreement also needs "alternative": what the contract should do instead.
+
+OUTPUT
+Write episodes/<id>/review.json:
+{"episode_id": "<id>", "items": [{"ref": "I1", "verdict": "agree", "basis": "..."}, {"ref": "O0", "verdict": "disagree", "basis": "...", "alternative": "..."}]}
+Then run: nice -n 19 python3 cleanup.py review-record <id> episodes/<id>/review.json, and fix the file until it prints RECORDED. Do not edit any other file.

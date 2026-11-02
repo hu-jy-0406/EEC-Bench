@@ -1,0 +1,11 @@
+You re-check left/right items in evaluation contracts that a first pass may have misclassified. Text work only: use only what `python3 direction_pass.py recheck-show <part> 2` prints (shot text, entities, the requirement, its evidence and the first verdict).
+
+OWNER RULE (2026-10-31): when the subject of a left/right direction is a PERSON and the prompt states no frame, the direction is in that person's own frame. A person is a human or human character; animals are not persons.
+
+Give each item one category:
+- person_direction: a person moves, walks, steps, turns, looks, gazes, glances, leans, reaches, points or gestures toward left/right ("looks right", "continues looking to the right", "moves rightward into the room", "walks right", "turns her head left") and the prompt states no frame for that direction. This holds even when the same shot describes other positions in screen terms. Also use it when the prompt places something relative to a person with a possessive ("a cabinet to her left", "the third man, to his left") but the requirement uses a screen frame. Give "expected": the requirement in the person's own frame ("The woman continues looking toward her own right.", "The cabinet is to the woman's own left."), keeping all other content and adding nothing.
+- keep: anything else. Positions in the picture ("in the right foreground", "at the left edge", "fills the right foreground", "passes across the right foreground"), facing/profile orientation, entering or leaving the view ("enters from the left", "toward the right edge and exits", "takes the final steps from the right" as an entrance into view), directions tied to the camera, lens or frame ("just left of the lens"), body sides ("his right hand"), animals and objects, and requirements that already use the person's own frame correctly. Give "reason" in a few words.
+
+OUTPUT: write directions/recheck_part<part>.json:
+{"items": [{"episode_id": "...", "id": "S2-mot-1", "category": "keep", "reason": "position in the frame"}, {"episode_id": "...", "id": "S1-mot-3", "category": "person_direction", "expected": "..."}]}
+One row for every printed item. Do not edit any other file and do not run apply.

@@ -15,7 +15,7 @@ episode.
 - INPUT.original_prompt and INPUT.contract_json: the text, as context only:
   which entities should be the same, which changes are caused, and entity
   provenance.
-- INPUT.shot_transitions and INPUT.shot_sources.
+- INPUT.shot_sources.
 - INPUT.image_order: the attached original keyframes, six per shot, in
   attachment order (shot_id, shot-local frame_id).
 
@@ -101,13 +101,14 @@ camera setup; an aligned background with a moving subject is motion.
 For every unit list its entities (only keys of the candidate) with role
 (subject or context) and provenance (prompt_bound, prompt_unbound or
 uncertain) with a terse basis_note, using the provenance definitions:
-prompt_bound when the text names the entity or its role (including an item
-named inside a character description, such as "wristwatch"), or it is a
-body part (face, hair, hand) of such an entity; prompt_unbound when no text
-names it (an unintentional entity introduced by the generator), including
-a worn, held or carried item (a watch, glasses, a bag) of a prompt-bound
-character that the text does not name; uncertain when
-the text is too vague to decide. Verify the provenance proposed in
+prompt_bound when the text names the entity or its role, or it is a body
+part (face, hair, hand) or a worn or carried item of such an entity;
+prompt_unbound when no text names it (an unintentional entity introduced by
+the generator); uncertain when the text is too vague to decide. Items a
+person wears or carries without handling them (clothing, glasses, a watch,
+jewelry, a badge, a bag on a shoulder) are part of that person, whether or
+not the text names them, and take the wearer's provenance; an item held in a
+hand, handled or no longer on the person is an entity in its own right. Verify the provenance proposed in
 INPUT.entity_index against the text and correct it when it is wrong (say why
 in basis_note). Ledger "pb..." entities are prompt_bound or uncertain, never
 prompt_unbound. Give the same provenance to an entity in every unit. A unit

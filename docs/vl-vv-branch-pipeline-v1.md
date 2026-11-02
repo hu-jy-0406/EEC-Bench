@@ -42,10 +42,10 @@ run; scoring does not run.
 
 | Stage | Script | Inputs | Output (`OUTPUT/<stage>/result.json`) | Feeds |
 | --- | --- | --- | --- | --- |
-| 1. Detection registry | `run_vl_vv_detection.py` (unchanged) | prepared case, keyframes | `case/episode_entities.json` (prompt_bound `pb…` / prompt_unbound `ge…` entities with per-shot boxes) | both branches as reference information |
-| 2a. V-L detection | `run_vl_vv_branch_detection.py --branch vl` | original prompt, full contract, shot transitions and sources, **contract-checking template** (built by the runner), detector ledger, all keyframes | `checks` (one per template row), `issues` (canonical, `L1…`), `entities` (ledger + added `n…`), `model_output`, counts, usage | 3a |
-| 2b. V-V detection | `run_vl_vv_branch_detection.py --branch vv` | all keyframes, detector ledger, prompt and contract **as context only**, shot transitions and sources, required continuity subjects, required characters per shot, **V-V checklist** | `issues` (canonical, `V1…`), `entities` (entity register with provenance), `model_output` (audit, shot scan, continuity ledger, boundary checks, observed changes) | 3b |
-| 3a. V-L review | `run_vl_vv_branch_review.py --branch vl` | V-L candidates with the template rows they cite, prompt, contract, transitions, entity index, all keyframes | `units` (canonical reviewed units), candidates, counts | 4 |
+| 1. Detection registry | `run_vl_vv_detection.py` (matching v2 by default since 2026-11-01: specified entities linked by contract ID; each unbound occurrence merged with others into one unspecified entity, kept alone, or merged into a specified entity, by the most likely reading, weighing appearance together with prompt text, shot settings, anchor relations, actions and story (no single cue decides) on keyframes with drawn boxes; `--matching-protocol v1` = historical visual matcher) | prepared case, keyframes | `case/episode_entities.json` (prompt_bound `pb…` / prompt_unbound `ge…` entities with per-shot boxes; matching v2 writes the simplified ledger `vl_vv_entity_ledger_v2`: ID, contract ID, name, description and occurrences only, no DINO) | both branches as reference information |
+| 2a. V-L detection | `run_vl_vv_branch_detection.py --branch vl` | original prompt, full model-facing contract, shot sources, **contract-checking template** (built by the runner), detector ledger, all keyframes | `checks` (one per template row), `issues` (canonical, `L1…`), `entities` (ledger + added `n…`), `model_output`, counts, usage | 3a |
+| 2b. V-V detection | `run_vl_vv_branch_detection.py --branch vv` | all keyframes, detector ledger, prompt and contract **as context only**, shot sources, required continuity subjects, required characters per shot, **V-V checklist** | `issues` (canonical, `V1…`), `entities` (entity register with provenance), `model_output` (audit, shot scan, continuity ledger, boundary checks, observed changes) | 3b |
+| 3a. V-L review | `run_vl_vv_branch_review.py --branch vl` | V-L candidates with the template rows they cite, prompt, contract, shot sources, entity index, all keyframes | `units` (canonical reviewed units), candidates, counts | 4 |
 | 3b. V-V review | `run_vl_vv_branch_review.py --branch vv` | V-V candidates with their observed changes, entity index with proposed provenance, prompt/contract as context, checklist, all keyframes | `units` with verified entity provenance | 4 |
 | 4. Scoring | `run_vl_vv_branch_scoring.py` | the two review results (no images) | V-L, V-V within/cross/overall, unintentional subset scores, V-V issue statistics, ledgers, usage | batch summaries |
 
@@ -63,9 +63,11 @@ both definitions, their subcategories and a boundary table of what each
 branch reports. The other branch's definition is there only so that the call
 can leave those findings out.
 
-- **V-L (video vs language)**: a visible observation contradicts an explicit
-  requirement of the text (global prompt, shot prompt, contract entity
-  descriptions / schedule / claims, required transitions). The violated words
+- **V-L (video vs language)**: a visible observation contradicts a requirement
+  of the contract (entity descriptions, presence, requirements, camera, style,
+  cross-shot requirements) or the required cut at each shot boundary. The
+  original prompt is context, not a checking basis (owner, 2026-11-01): V-L
+  detection and review judge only template rows. The violated contract words
   can be quoted literally. Entity descriptions are episode-wide (rule of
   2026-10-06); the wording is the requirement, not how another shot happened
   to depict it; explicit continuity words ("the same sofa", "remains",
@@ -90,10 +92,11 @@ can leave those findings out.
   only; an undescribed attribute changing between shots → V-V only; a
   described attribute changing between shots → V-L reports the violating
   shots, V-V reports the change; a shot that satisfies the words but differs
-  from another shot → V-V only; a missing required cut or broken required
-  continue → V-L `shot_structure` only (V-V `transition_realization` was
-  removed on 2026-10-21; content that changes across a boundary is still
-  compared by V-V).
+  from another shot → V-V only; a missing required cut → V-L `shot_structure`
+  only (V-V `transition_realization` was removed on 2026-10-21; content that
+  changes across a boundary is still compared by V-V). Every shot boundary is
+  a cut (owner, 2026-11-01): the default chain has no `continue` and no
+  shot-map or `shot_transitions.json` lookup.
 
 Subcategories: the ten V-L subcategories, the nine within-shot and ten
 cross-shot V-V subcategories of protocol v2 are kept, except that cross-shot
@@ -106,14 +109,20 @@ that the strengthened action check has a home. All codes live in
 ### Unintentional entities
 
 - **Prompt-bound** entity: the text names it or the role it plays: a contract
-  entity, or a phrase of the global prompt, a shot prompt or the contract,
-  including an item named inside a character description ("wristwatch").
+  entity, or a phrase of the global prompt, a shot prompt or the contract.
   A body part (face, hair, hand) that had to be registered separately
   belongs to its prompt-bound owner (`part_of_entity`).
-- **Prompt-unbound** entity: no text names it or its role, including a
-  worn, held or carried item (a watch, glasses, a bag) of a prompt-bound
-  character that the text does not name (owner decision 2026-10-21; before
-  that, worn items and accessories inherited their owner's provenance).
+- **Worn or carried items** (owner decision 2026-11-01, same entity/attribute
+  split as the contracts; supersedes 2026-10-21): an item a person wears or
+  carries without handling it (clothing, glasses, a watch, jewelry, a badge, a
+  bag on a shoulder, a coat over an arm) is part of that person, not an entity,
+  whether or not the text names it. Shot clustering merges it into the wearer;
+  V-V detection reports a change to it as a change of the person and does not
+  register it, and if it must be registered it takes the wearer's provenance
+  (`part_of_entity` for a prompt-bound wearer). An item held in a hand, handled
+  or no longer on the person is an entity of its own. Walls, floors and
+  ceilings are part of the setting (clustering rejects their candidates).
+- **Prompt-unbound** entity: no text names it or its role.
 - **Unintentional entity** = a visible entity whose final text provenance is
   prompt-unbound: the generator introduced it. A prompt-bound entity is never
   unintentional, even when it is rendered wrongly (that is a V-L question).
@@ -124,9 +133,10 @@ that the strengthened action check has a home. All codes live in
 - Relation to the detector partition: the ledger's `prompt_bound` (`pb…`)
   entities were bound to a contract entity during detection and are treated
   as prompt-bound (the V-V calls may mark one uncertain, never unbound). The
-  ledger's `prompt_unbound` (`ge…`) entities are candidates only: glasses or
-  a watch the ledger split from a character are prompt-bound when the text
-  names them (`prompt_quote`) and prompt-unbound otherwise. Places: a scheduled place is prompt-bound; its separate
+  ledger's `prompt_unbound` (`ge…`) entities are candidates only: a worn or
+  carried item the ledger still split from a character follows its wearer;
+  any other is prompt-bound when the text names it (`prompt_quote`) and
+  prompt-unbound otherwise. Places: a scheduled place is prompt-bound; its separate
   structures, furniture and signage are prompt-bound only if the text states
   them. Entities the detector missed are added by the V-V detection agent
   (`n1, n2, …`) and labeled by the same test.
@@ -167,10 +177,10 @@ All prompts are complete texts in `prompts/`. Two kinds of placeholders:
 
 | Call | Prompt | Output schema | Dynamic inputs |
 | --- | --- | --- | --- |
-| V-L detection | `vl_vv_issue_discovery_v5_vl.txt` | `vl-vv-issue-discovery-v5-vl.schema.json` | `original_prompt`, `contract_json`, `shot_transitions`, `shot_sources`, `contract_check_template`, `detector_ledger`, `image_order` + images |
-| V-V detection | `vl_vv_issue_discovery_v5_vv.txt` | `vl-vv-issue-discovery-v5-vv.schema.json` | `image_order` + images, `detector_ledger`, `original_prompt`, `contract_json`, `shot_transitions`, `shot_sources`, `required_continuity_subjects`, `required_shot_characters` |
-| V-L review | `vl_vv_issue_review_v6_vl.txt` | `vl-vv-issue-review-v6-vl.schema.json` | `candidate_issues` (with cited `template_rows`), `original_prompt`, `contract_json`, `shot_transitions`, `shot_sources`, `entity_index`, `image_order` + images |
-| V-V review | `vl_vv_issue_review_v6_vv.txt` | `vl-vv-issue-review-v6-vv.schema.json` | `candidate_issues` (with `changes`), `entity_index` (with proposed provenance), `original_prompt`, `contract_json`, `shot_transitions`, `shot_sources`, `image_order` + images |
+| V-L detection | `vl_vv_issue_discovery_v5_vl.txt` | `vl-vv-issue-discovery-v5-vl.schema.json` | `original_prompt`, `contract_json`, `shot_sources`, `contract_check_template`, `detector_ledger`, `image_order` + images |
+| V-V detection | `vl_vv_issue_discovery_v5_vv.txt` | `vl-vv-issue-discovery-v5-vv.schema.json` | `image_order` + images, `detector_ledger`, `original_prompt`, `contract_json`, `shot_sources`, `required_continuity_subjects`, `required_shot_characters` |
+| V-L review | `vl_vv_issue_review_v6_vl.txt` | `vl-vv-issue-review-v6-vl.schema.json` | `candidate_issues` (with cited `template_rows`), `original_prompt`, `contract_json`, `shot_sources`, `entity_index`, `image_order` + images |
+| V-V review | `vl_vv_issue_review_v6_vv.txt` | `vl-vv-issue-review-v6-vv.schema.json` | `candidate_issues` (with `changes`), `entity_index` (with proposed provenance), `original_prompt`, `contract_json`, `shot_sources`, `image_order` + images |
 | V-L severities | `vl_vv_episode_scoring_v5_vl.txt` | `vl-vv-episode-scoring-v5-vl.schema.json` | `units` (V-L reviewed units, no images) |
 | V-V severities | `vl_vv_episode_scoring_v5_vv.txt` | `vl-vv-episode-scoring-v5-vv.schema.json` | `units` (V-V reviewed units, no images) |
 | Repair turns | `vl_vv_validation_repair_v2.txt` | the stage's schema | `validation_errors`, `previous_output` |
@@ -178,19 +188,27 @@ All prompts are complete texts in `prompts/`. Two kinds of placeholders:
 ## 5. Contract-checking template (V-L)
 
 Built deterministically by `vl_vv_branch_common.contract_template` from the
-contract and passed as `INPUT.contract_check_template`; saved in the V-L
-detection result. Rows are **clause groups**, per shot in manifest order;
-each row lists its requirement **items**:
+contract (format v2 since 2026-11-01; `contract_template_v2`) and passed as
+`INPUT.contract_check_template`; saved in the V-L detection result. Rows are
+**clause groups**, per shot in manifest order; each row lists its requirement
+**items**:
 
 | Row kind | Row ID | Items | One per |
 | --- | --- | --- | --- |
-| `entity` | `EN:<label>@<shot>` | `description` (the episode-wide entity description, when the entity is scheduled in the shot) + each single-entity claim of the shot about it (`item_id` = claim ID, with dimension, expected, quantifier, contract quotes, `depends_on`) | contract entity scheduled in, or claimed for, the shot |
-| `relations` | `RL:<shot>` | the shot's claims that relate two or more entities | shot with such claims |
-| `shot_text` | `SP:<shot>` | `text` (the shot prompt, standing for every other explicit requirement of the shot and of the global prompt) | shot |
-| `transition` | `TR:<from>-><to>` | `transition` (quoted as `ShotA->ShotB: cut`) | boundary, attached to the later shot |
+| `entity` | `EN:<id>@<shot>` | for an entity in the shot's `presence`: `description` and the presence item `S<n>-pre-<id>` (`exists`); for one in `absent`: the absence item `S<n>-abs-<id>` (`throughout`), without a description; then each single-entity requirement of the shot (`item_id` = requirement ID, with dimension, predicate, expected, quantifier, coordinate frame) | contract entity listed in, or required by, the shot |
+| `relations` | `RL:<shot>` | the shot's requirements on two or more entities | shot with such requirements |
+| `camera` | `CM:<shot>` | `camera_view` and `camera_movement`, when set | shot with a camera requirement |
+| `style` | `ST:<shot>` | `style`, when set | shot with a style |
+| `transition` | `TR:<from>-><to>` | `transition`, a clear cut (fixed rule; quoted as `ShotA->ShotB: cut`) | boundary, attached to the later shot |
+| `cross_shot` | `XS:<requirement id>` | the requirement, with `shot_ids` on the row | `cross_shot` requirement, attached to the last shot it names |
 
-All contract claims appear as items (a test checks this). #002 has 30 rows
-(120 items), #047 69 rows (247 items).
+Every contract requirement appears in exactly one row (a test checks this on
+real contracts, and
+`experiments/vl_vv_contract_v2_adapt_20261101/tools/check_all_contracts.py` on
+all 400). The 400 current contracts give 17,838 rows, 44.6 per episode, at most
+92. A v1 contract (`--allow-v1-contract`) keeps the v1 rows from `entity_schedule`
+and `claims`, including a shot-text row that the current prompts no longer
+describe, so such a run is not a current evaluation.
 
 The model fills one `checks` entry per row, in this field order:
 `observed` (first, what the six frames actually show for the row, in
@@ -250,8 +268,8 @@ Template the V-V agent fills before writing issues:
 - `continuity_ledger`: per recurring character / place / object, one
   signature per scheduled or visible shot (places include the camera
   position they are seen from), assessment, linked changes.
-- `boundary_checks`: one per boundary: required transition, last frame,
-  first frame, continuity (no realization verdict since 2026-10-21).
+- `boundary_checks`: one per shot boundary: last frame, first frame,
+  continuity (no realization verdict since 2026-10-21).
 - `observed_changes`: **every** change noticed, with a **normality test**:
   `normal` (with a cause: camera_motion, viewpoint_change, described_action
   with a literal quote, visible_action, occlusion_or_framing,
@@ -291,7 +309,7 @@ Semantic gates (all go back to the model through the repair loop):
 
 | Stage | Gates |
 | --- | --- |
-| V-L detection | one check per template row; `violated_items` ⊆ the row's items and non-empty exactly when violated; a violated presence item is the only violated item of its row; judged rows cite frames from both halves of the shot (transition rows: both boundary shots), not_verifiable rows cite inspected frames; a not_verifiable entity row whose entity the detector located in ≥2 frames of the shot is challenged once; violated ↔ linked issues whose occurrences list the row (transition rows: exactly one issue); occurrence rows belong to the occurrence's shot; transition rows → `shot_structure`; **every requirement quote is literal** (normalized substring of the named source; an ellipsis may join exact fragments; wrong source → hint); entity keys known; entity-free issues only for setting/camera/style/shot-structure; added entities used and placed in frames |
+| V-L detection | one check per template row; `violated_items` ⊆ the row's items and non-empty exactly when violated; a violated presence item is the only violated item of its row; judged rows cite frames from both halves of the shot (transition rows: both boundary shots; cross-shot rows: every shot they name), not_verifiable rows cite inspected frames; a not_verifiable entity row whose entity the detector located in ≥2 frames of the shot is challenged once; violated ↔ linked issues whose occurrences list the row (transition, style and cross-shot rows: exactly one issue); occurrence rows belong to the occurrence's shot; transition rows → `shot_structure`; **every requirement quote is literal** contract text, or the item text of a transition row (normalized substring; an ellipsis may join exact fragments; a prompt-only quote is rejected with a hint); entity keys known; entity-free issues only for setting/camera/style/shot-structure; added entities used and placed in frames |
 | V-V detection | every checklist item once, cited items not N/A; one shot scan per shot with every scheduled prompt-bound character; a camera jump or an unstable character links a change; every within-shot change listed in its shot scan; continuity ledger covers every required subject and scheduled shot, inconsistent ⇔ an abnormal change linked; one boundary check per boundary in order, each linking ≥1 judged change that compares the two shots; changes: scope/shots/frames on both sides, normal ⇒ cause (+ literal quote for described_action) and no issue, abnormal ⇒ issue, uncertain ⇒ no issue; issues: subcategory fits scope, only abnormal changes, change scope and shots match, witnesses from two shots for cross-shot, a subject entity unless the subcategory is whole-frame, setting_background / background_drift issues name a changed element other than the place, every issue entity has a register row; register: provenance/basis pairs from the config, contract labels exist and match the ledger binding, prompt quotes literal, `part_of` names a prompt-bound entity, ledger `pb…` never prompt_unbound, added entities have frames and are used |
 | Reviews | every candidate once; keep → one unit with the candidate's ID, split → ≥2 units `<id>.1…` in order with a reason; unit shots inside the candidate's; clarified ⇒ revision note; basis fits verdict; **confirmed ⇒ a supporting frame from the unit's shots**; V-L: confirmed / satisfied / not-applicable / visual-difference ⇒ literal requirement quote, requirement_satisfied ⇒ a refuting frame; V-V: scope kept, subcategory fits, within-shot cites only its shot, confirmed ⇒ normal_cause none and evidence from two shots for cross-shot, normal_change ⇒ a cause, consistent_in_frames ⇒ a refuting frame, entities only the candidate's, a subject unless whole-frame, a setting/background unit keeps a changed element of its candidate as subject, one provenance per entity across units, ledger `pb…` never prompt_unbound |
 | Severities | one assessment per unit; confirmed ⇒ severity; rejected/uncertain ⇒ none, no duplicate; duplicates point to an earlier confirmed unit of the same scope, never self, never a split sibling, no chains |
@@ -307,7 +325,7 @@ problem, then judges the unit as described.
 
 | Verdict | V-L criteria (basis) | V-V criteria (basis) |
 | --- | --- | --- |
-| confirmed | `requirement_violated`: literal quote exists; it applies to the unit's shots (own text, global prompt, or an episode-wide description without a different description in the shot); a **supporting** frame shows the contradiction | `inconsistency_confirmed`: the observations should match (same entity/place/moment, or one take); no normal cause (`normal_cause: none`, note says what was checked); evidence on both sides with ≥1 **supporting** frame |
+| confirmed | `requirement_violated`: literal contract quote exists; it applies to the unit's shots (a requirement of the shot, a cross-shot requirement naming it, its required cut, or an episode-wide description without a different description among the shot's own requirements); a **supporting** frame shows the contradiction | `inconsistency_confirmed`: the observations should match (same entity/place/moment, or one take); no normal cause (`normal_cause: none`, note says what was checked); evidence on both sides with ≥1 **supporting** frame |
 | rejected | `requirement_absent` (the text does not say it), `requirement_not_applicable` (does not apply to these shots), `requirement_satisfied` (a **refuting** frame shows compliance), `visual_difference_only` (only differs from another shot: a V-V question) | `consistent_in_frames` (a **refuting** frame), `normal_change` (name the cause), `not_expected_to_match`, `text_violation_only` (consistent video, only contradicts text: a V-L question) |
 | uncertain | `not_verifiable`: name the missing evidence | `not_verifiable`: name the missing evidence |
 
@@ -357,6 +375,7 @@ decimals. Rejected and uncertain units deduct nothing.
 | --- | --- |
 | `scores.v_l` | V-L events (existing framework) |
 | `scores.v_v.within_shot`, `.cross_shot` | V-V events of that scope; `.overall` = their mean (existing rule) |
+| `scores.uec` | mean of `v_l`, `v_v.within_shot` and `v_v.cross_shot`, before rounding: the paper's UEC score (owner, 2026-11-01) |
 | `scores.v_v_unintentional.{within_shot, cross_shot, overall}` | only V-V events with **definite** unintentional involvement (a subject entity with final provenance prompt_unbound; an event is involved if any of its units is) |
 | `scores.v_v_remainder.{…}` | the other V-V events |
 | `scores.v_v_unintentional_or_uncertain.{…}` | events with definite or uncertain-only involvement (upper bound) |
@@ -416,8 +435,6 @@ runners.
   issues; the chain does not inventory every unintentional entity in the
   video, so it cannot report a break rate per unintentional entity (see the
   hierarchical scoring design, which proposes such an audit).
-- **Contracts without claims** fall back to entity-description, shot-text and
-  transition rows; all first-200 contracts carry claims.
 - **Episode-video cases** (CineTrans, HoloCine) need fresh detection on the
   recorded-cut keyframes before this chain can run on them.
 - **Cost.** Four image-bearing calls per episode instead of two (detection and

@@ -1,0 +1,850 @@
+{
+ "rule": "Owner 2026-11-01: a camera requirement that needs several shots to judge (a reverse view, a return to or repeat of an earlier view) moves to cross_shot; words stating this shot's own view stay in the field (keep). Applied where the compared shot is uniquely identifiable from the prompt text (usually the other side of the same exchange, the preceding shot when it shows the other side); within-shot statements and values whose compared shot cannot be identified stay. entities are name prefixes.",
+ "moves": [
+  {
+   "episode_id": "52apMIyJVlc_s00176_n6_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Young man in yellow",
+    "Woman in blue"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Medium close view; the woman's head and shoulder soft (out of sharp focus)",
+    "quotes": [
+     "medium close",
+     "Her head and shoulder occupy the soft right foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "7M9pU29bOeY_s00004_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Blonde woman",
+    "Brunette woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "Medium close-up",
+    "quotes": [
+     "medium close-up"
+    ]
+   }
+  },
+  {
+   "episode_id": "hERyYjy3O3U_s00003_n8_clean_v3_alt8",
+   "shot_id": "Shot6",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot5",
+    "Shot6"
+   ],
+   "entities": [
+    "Plaid-shirt man",
+    "Bearded man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot6 is a reverse view of Shot5.",
+   "keep": {
+    "value": "Medium composition",
+    "quotes": [
+     "medium reverse composition"
+    ]
+   }
+  },
+  {
+   "episode_id": "u_4L7Dx1rIg_s00001_n6_clean_v2",
+   "shot_id": "Shot6",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot5",
+    "Shot6"
+   ],
+   "entities": [
+    "Cardigan man",
+    "Slim suited man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot6 is a reverse view of Shot5.",
+   "keep": {
+    "value": "Medium view, over the slim suited man's shoulder",
+    "quotes": [
+     "in a medium view over the slim suited man's shoulder"
+    ]
+   }
+  },
+  {
+   "episode_id": "X8YOtEocd6I_s00005_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Dark-top man",
+    "Plaid-shirt woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "View on the Dark-top man, in clear focus; the foreground edge is soft",
+    "quotes": [
+     "the Dark-top man in the same hardware shop",
+     "his short wavy brown hair and charcoal textured collar in clear focus",
+     "forms a soft foreground edge on the right"
+    ]
+   }
+  },
+  {
+   "episode_id": "Dc2ULKEj0tw_s00012_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Elderly man",
+    "Drone"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "View onto the elderly man, with his face kept in focus and the drone rendered as a large soft blur",
+    "quotes": [
+     "the elderly man outside the garage",
+     "The same drone hovers as a large soft blur in the lower-right foreground",
+     "Keep his face in focus"
+    ]
+   }
+  },
+  {
+   "episode_id": "_4BY2J7E5vg_s00042_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Older man",
+    "Young man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "Medium view with the Older man in focus",
+    "quotes": [
+     "Keep him in focus in a medium reverse view"
+    ]
+   }
+  },
+  {
+   "episode_id": "B4ad96d2Qwc_s00001_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Blue-shirted woman",
+    "Reclining man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "Background softly blurred",
+    "quotes": [
+     "a softly blurred cluttered counter behind her"
+    ]
+   }
+  },
+  {
+   "episode_id": "NqbWXgVLkvo_s00005_n6_clean_v2",
+   "shot_id": "Shot5",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot4",
+    "Shot5"
+   ],
+   "entities": [
+    "Wavy-haired man",
+    "Pulled-back-haired woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot5 is a reverse view of Shot4.",
+   "keep": {
+    "value": "Close view of the Wavy-haired man, with a blurred foreground",
+    "quotes": [
+     "close reverse view of the wavy-haired man",
+     "Her blurred head and scarf frame the right foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "JszMDzCeVVs_s00002_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "White-uniformed player",
+    "Curly-haired blue player"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "View across the court, looking over the curly-haired player's shoulder; his curls are blurred (out of focus)",
+    "quotes": [
+     "across the same indoor court, over the Curly-haired blue player's blurred curls and blue shoulder at the right edge"
+    ]
+   }
+  },
+  {
+   "episode_id": "83yqxdMA4A4_s00037_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Bob-haired female mime",
+    "Unpainted pompadoured man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "Medium view with the man's blazer shoulder blurred",
+    "quotes": [
+     "reverse medium view",
+     "blurred blazer shoulder fills the left foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "KFuxHDKp2oc_s00008_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Dark-shirted man",
+    "Bespectacled man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "View onto the Dark-shirted man",
+    "quotes": [
+     "Reverse to the Dark-shirted man beside the washroom mirror"
+    ]
+   }
+  },
+  {
+   "episode_id": "7M9pU29bOeY_s00008_n6_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Blonde woman",
+    "Brunette woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "View onto the blonde",
+    "quotes": [
+     "Reverse to the Blonde woman beside the Black SUV in the garage"
+    ]
+   }
+  },
+  {
+   "episode_id": "TOPGeDJQmVM_s00018_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Blonde woman",
+    "Dark-haired man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "View across the restaurant table",
+    "quotes": [
+     "Back across the same restaurant table"
+    ]
+   }
+  },
+  {
+   "episode_id": "52apMIyJVlc_s00152_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Woman in blue",
+    "Young man in yellow"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "View with the man softly (out of focus) visible",
+    "quotes": [
+     "with the Young man in yellow softly visible at left"
+    ]
+   }
+  },
+  {
+   "episode_id": "u_4L7Dx1rIg_s00025_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Tousle-haired suited man",
+    "Cardigan man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "View with the Tousle-haired suited man in focus and the Cardigan man's head and shawl collar softly blurred",
+    "quotes": [
+     "places the Tousle-haired suited man in focus, facing the Cardigan man's softly blurred head and shawl collar at the right edge"
+    ]
+   }
+  },
+  {
+   "episode_id": "Dc2ULKEj0tw_s00084_n6_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Woman with dark curls",
+    "Man in gray suit"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "Close view; blurred background",
+    "quotes": [
+     "reverse close view",
+     "a blurred background"
+    ]
+   }
+  },
+  {
+   "episode_id": "Dc2ULKEj0tw_s00084_n6_clean_v2",
+   "shot_id": "Shot6",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot6"
+   ],
+   "entities": [
+    "Woman with dark curls",
+    "Man in gray suit"
+   ],
+   "predicate": "same_view_as",
+   "expected": "Shot6 returns to the reverse close view of Shot2.",
+   "keep": {
+    "value": "Close view",
+    "quotes": [
+     "reverse close view"
+    ]
+   }
+  },
+  {
+   "episode_id": "vEPgsQNbGP4_s00130_n6_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Denim-vest man",
+    "Blazer man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Over-the-shoulder view past the Blazer man's shoulder",
+    "quotes": [
+     "over the Blazer man's navy shoulder and white collar at the left edge"
+    ]
+   }
+  },
+  {
+   "episode_id": "ZQ0JJpvMq-g_s00002_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Uniformed man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Wider view",
+    "quotes": [
+     "A wider reverse view"
+    ]
+   }
+  },
+  {
+   "episode_id": "kBwF5mStXc4_s00106_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Patterned-jacket man",
+    "Costumed man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "Close view that favors the Patterned-jacket man",
+    "quotes": [
+     "the reverse close view favors the Patterned-jacket man"
+    ]
+   }
+  },
+  {
+   "episode_id": "9EDJUTYe3XI_s00015_n6_clean_v2",
+   "shot_id": "Shot5",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot4",
+    "Shot5"
+   ],
+   "entities": [
+    "Purple-haired person",
+    "Auburn-haired woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot5 is a reverse view of Shot4.",
+   "keep": {
+    "value": "View across the same dark table",
+    "quotes": [
+     "Reverse across the same dark table"
+    ]
+   }
+  },
+  {
+   "episode_id": "LZDir3e680o_s00000_n6_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Curly-haired woman",
+    "Black-coated man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Tight close-up, with the man's head blurred and the teal background shape soft",
+    "quotes": [
+     "tight reverse close-up",
+     "whose head is blurred at the right edge",
+     "a soft teal background shape"
+    ]
+   }
+  },
+  {
+   "episode_id": "_DKI6mAEdYU_s00066_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Blazer man",
+    "Pullover man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Slightly wider view with a soft foreground",
+    "quotes": [
+     "slightly wider reverse view",
+     "occupies the soft right foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "kTAOppBVgsU_s00007_n8_clean_v3_alt8",
+   "shot_id": "Shot6",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot5",
+    "Shot6"
+   ],
+   "entities": [
+    "Ponytailed woman",
+    "Cardigan woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot6 is a reverse view of Shot5.",
+   "keep": {
+    "value": "Close view across the kitchen table; the right foreground is blurred (out of focus)",
+    "quotes": [
+     "close reverse view across the same kitchen table",
+     "blur across the right foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "Wl6COOA3V6Y_s00010_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Black humanoid",
+    "Bearded man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Low view",
+    "quotes": [
+     "low reverse view"
+    ]
+   }
+  },
+  {
+   "episode_id": "9ugYT3Xc59s_s00179_n6_clean_v2",
+   "shot_id": "Shot6",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot5",
+    "Shot6"
+   ],
+   "entities": [
+    "Blonde person",
+    "Dark-haired person"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot6 is a reverse view of Shot5.",
+   "keep": {
+    "value": "Close-up; the other person's dark head is blurred",
+    "quotes": [
+     "an intent reverse close-up",
+     "the other person's blurred dark head at left"
+    ]
+   }
+  },
+  {
+   "episode_id": "_4BY2J7E5vg_s00126_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Teal-jacketed man",
+    "Curly-haired man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "slightly low, chest-up view, with the Teal-jacketed man in sharp focus, the Curly-haired man blurred and the background trees blurred",
+    "quotes": [
+     "slightly low chest-up reverse view",
+     "keep him sharp at center-right",
+     "dark curls and red-trimmed gray shoulder blurred at the left edge",
+     "Soft pale sky filters through the blurred trees"
+    ]
+   }
+  },
+  {
+   "episode_id": "X8YOtEocd6I_s00013_n8_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Dark-sweater man",
+    "Aproned woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "Close-up, with the woman's bun and cheek in soft focus",
+    "quotes": [
+     "reverse close-up",
+     "the Aproned woman's bun and cheek softly framing the right edge"
+    ]
+   }
+  },
+  {
+   "episode_id": "i7HpHtcwB3w_s00182_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot1",
+    "Shot2"
+   ],
+   "entities": [
+    "Red-haired woman",
+    "Dark-haired woman"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot2 is a reverse view of Shot1.",
+   "keep": {
+    "value": "Chest-up view with a softly blurred background",
+    "quotes": [
+     "A chest-up reverse view",
+     "Keep the candles and dark furnishings softly blurred behind her"
+    ]
+   }
+  },
+  {
+   "episode_id": "XcNYS8j9Qkg_s00008_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot2",
+    "Shot3"
+   ],
+   "entities": [
+    "Younger man in dark suit",
+    "Older man with glasses"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot3 is a reverse view of Shot2.",
+   "keep": {
+    "value": "View looking past the blurred head and pale-shirted shoulder of the older man",
+    "quotes": [
+     "looks past the blurred head and pale-shirted shoulder of the Older man with glasses"
+    ]
+   }
+  },
+  {
+   "episode_id": "DtoCw2iOTSc_s00000_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Hat-wearing man",
+    "Fair-haired boy"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Close view",
+    "quotes": [
+     "A close reverse view"
+    ]
+   }
+  },
+  {
+   "episode_id": "74Od5-Fmf60_s00011_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "Tall man with glasses",
+    "Dark-haired man in leather jacket"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "Close view",
+    "quotes": [
+     "A reverse close view"
+    ]
+   }
+  },
+  {
+   "episode_id": "JszMDzCeVVs_s00012_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot3",
+    "Shot4"
+   ],
+   "entities": [
+    "White-uniformed player",
+    "Blond blue player"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot4 is a reverse view of Shot3.",
+   "keep": {
+    "value": "View with the foreground subject blurred (out of focus)",
+    "quotes": [
+     "The Blond blue player's blurred blue number-four shoulder and light undersleeve occupy the left foreground"
+    ]
+   }
+  },
+  {
+   "episode_id": "JRuA4AnW_cw_s00000_n6_clean_v2",
+   "shot_id": "Shot5",
+   "field": "camera_view",
+   "shot_ids": [
+    "Shot4",
+    "Shot5"
+   ],
+   "entities": [
+    "Dust-covered man",
+    "Bearded helmeted man"
+   ],
+   "predicate": "reverse_view_of",
+   "expected": "Shot5 is a reverse view of Shot4.",
+   "keep": {
+    "value": "close view; background softly blurred",
+    "quotes": [
+     "close reverse view",
+     "the dusty workers behind him softly blurred"
+    ]
+   }
+  }
+ ],
+ "left_in_place": [
+  {
+   "episode_id": "2hEV6a24yXc_s00017_n8_clean_v3_alt8",
+   "shot_id": "Shot7",
+   "field": "camera_view",
+   "reason": "compared shot not identifiable: the same reverse view repeats Shot3 or Shot5"
+  },
+  {
+   "episode_id": "pbmshOY3wts_s00000_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "reason": "compared shot not identifiable: 'the other side of the storefront area' names no shot (Shot2 or Shot3)"
+  },
+  {
+   "episode_id": "fk0O_cdBbMg_s00081_n4_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_view",
+   "reason": "compared shot not identifiable: 'the opposite side of the gathering' names no shot (Shot2 or Shot3)"
+  },
+  {
+   "episode_id": "NqbWXgVLkvo_s00005_n6_clean_v2",
+   "shot_id": "Shot5",
+   "field": "camera_movement",
+   "reason": "static camera inside the shot; the reverse view itself is handled through the camera_view row"
+  },
+  {
+   "episode_id": "gX0HO55lskY_s00177_n4_clean_v2",
+   "shot_id": "Shot1",
+   "field": "camera_view",
+   "reason": "within the shot"
+  },
+  {
+   "episode_id": "9JK8cY1-UOY_s00457_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_movement",
+   "reason": "steady framing inside the shot"
+  },
+  {
+   "episode_id": "PcQULt6JI-g_s00034_n6_clean_v2",
+   "shot_id": "Shot6",
+   "field": "camera_movement",
+   "reason": "within the shot"
+  },
+  {
+   "episode_id": "-Q4o5PHPkt8_s00023_n4_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "reason": "another view, no compared shot stated"
+  },
+  {
+   "episode_id": "y2wupV34DRk_s00021_n6_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "reason": "within the shot"
+  },
+  {
+   "episode_id": "vEPgsQNbGP4_s00130_n6_clean_v2",
+   "shot_id": "Shot4",
+   "field": "camera_movement",
+   "reason": "static camera inside the shot; the reverse view itself is handled through the camera_view row"
+  },
+  {
+   "episode_id": "l1B1_jQnlFk_s00036_n4_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_view",
+   "reason": "another view, no compared shot stated"
+  },
+  {
+   "episode_id": "kBwF5mStXc4_s00036_n6_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "reason": "within the shot"
+  },
+  {
+   "episode_id": "4cSZVMEi710_s00004_n8_clean_v2",
+   "shot_id": "Shot7",
+   "field": "camera_view",
+   "reason": "compared shot not identifiable (Shot3 or Shot5)"
+  },
+  {
+   "episode_id": "ZQ0JJpvMq-g_s00010_n6_clean_v2",
+   "shot_id": "Shot3",
+   "field": "camera_view",
+   "reason": "compared shot not identifiable: reverse of Shot1 or Shot2, both fit"
+  },
+  {
+   "episode_id": "gS1V3pn2ShI_s00047_n6_clean_v2",
+   "shot_id": "Shot2",
+   "field": "camera_movement",
+   "reason": "within the shot"
+  }
+ ]
+}

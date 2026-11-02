@@ -1,0 +1,394 @@
+{
+  "type": "object",
+  "properties": {
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "label": {
+            "type": "string",
+            "enum": [
+              "character",
+              "location",
+              "object"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fact_id": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fact_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "v1_labels": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "origin": {
+            "type": "string",
+            "enum": [
+              "v1",
+              "split_from_description",
+              "newly_named"
+            ]
+          }
+        },
+        "required": [
+          "label",
+          "name",
+          "description",
+          "evidence",
+          "v1_labels",
+          "origin"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "v1_entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "v1_label": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "kept",
+              "merged_into_location",
+              "folded_into_owner",
+              "merged_into_collection"
+            ]
+          },
+          "target": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "v1_label",
+          "action",
+          "target",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "shots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "locations": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "camera_view": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "quotes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "quotes"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "camera_movement": {
+            "anyOf": [
+              {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "string"
+                  },
+                  "quotes": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "value",
+                  "quotes"
+                ],
+                "additionalProperties": false
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "presence": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "absent": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "shot_id",
+          "locations",
+          "camera_view",
+          "camera_movement",
+          "presence",
+          "absent"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "appearance_keep": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "camera_from_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string",
+            "enum": [
+              "camera_view",
+              "camera_movement"
+            ]
+          }
+        },
+        "required": [
+          "claim_id",
+          "field"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "claim_entity_updates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "claim_id",
+          "entities"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "claim_to_description": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "entity": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "entity"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "dropped_claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "claim_id": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "claim_id",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "new_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string"
+          },
+          "dimension": {
+            "type": "string",
+            "enum": [
+              "appearance",
+              "spatial",
+              "motion"
+            ]
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "predicate": {
+            "type": "string"
+          },
+          "expected": {
+            "type": "string"
+          },
+          "coordinate_frame": {
+            "type": "string",
+            "enum": [
+              "none",
+              "screen",
+              "camera",
+              "entity",
+              "world"
+            ]
+          },
+          "quantifier": {
+            "type": "string",
+            "enum": [
+              "exists",
+              "start",
+              "end",
+              "throughout",
+              "when_visible"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fact_id": {
+                  "type": "string"
+                },
+                "quote": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fact_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "shot_id",
+          "dimension",
+          "entities",
+          "predicate",
+          "expected",
+          "coordinate_frame",
+          "quantifier",
+          "evidence"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "unresolved": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "entities",
+    "v1_entities",
+    "shots",
+    "appearance_keep",
+    "camera_from_claims",
+    "claim_entity_updates",
+    "claim_to_description",
+    "dropped_claims",
+    "new_requirements",
+    "unresolved"
+  ],
+  "additionalProperties": false
+}

@@ -11,11 +11,11 @@ review or score anything, and you do not change upstream data.
   only, section 5).
 - INPUT.original_prompt and INPUT.contract_json: the text, used ONLY as
   context (section 1).
-- INPUT.shot_transitions: the required transition ("cut" or "continue") at
-  every shot boundary; INPUT.shot_sources: whether each shot is an
-  independent clip or an interval of one continuous episode video.
+- INPUT.shot_sources: whether each shot is an independent clip or an
+  interval of one continuous episode video. Every shot boundary is a cut.
 - INPUT.required_continuity_subjects: prompt-bound characters and places
-  scheduled in two or more shots (section 3, continuity_ledger).
+  scheduled (listed in the contract's presence) in two or more shots
+  (section 3, continuity_ledger).
 - INPUT.required_shot_characters: prompt-bound characters scheduled in each
   shot (section 3, shot_scan).
 
@@ -37,14 +37,27 @@ the same entity, place or moment that neither the prompt nor the frames
 explain conflicts with the continuity the prompt sets up and is a V-V
 issue, even when the prompt does not describe the attribute that changed.
 
-=== 2. Checklist (every item is a minimum; the open sweep O1 is required) ===
-Go through every item. In checklist_audit give exactly one entry per item
-with status "checked" (note tersely what you compared and found) or
-"not_applicable" (say why; a single-shot episode has no cross-shot items).
-Every issue lists the checklist items that found it.
+=== 2. Inspection path and checklist (every item is a minimum) ===
+Inspect the video along this path, in this order. The checklist below says
+what to check; the path is how you check it. Answer each item from what you
+recorded on the path, not from a general impression.
+1. Each shot, frames 0-5 in order (shot_scan): items W1-W7.
+2. Each recurring character, place and object, and the overall style,
+   compared across the shots where it appears (continuity_ledger): items X1,
+   X2, X3, X5, X6, X7, X8.
+3. Each shot boundary, the end of the earlier shot against the start of the
+   next (boundary_checks): items X4, X9.
+4. Every change you noticed on the path (observed_changes): judge whether
+   something explains it (section 3).
+5. The answers (checklist_audit): exactly one entry per item with status
+   "checked" (note tersely what you compared and found) or "not_applicable"
+   (say why; a single-shot episode has no cross-shot items). The open sweep
+   O1 is required: re-examine all frames for anything the other items missed.
+6. The issues (section 4): each one groups abnormal changes and lists the
+   checklist items that found it.
 {{VV_CHECKLIST}}
 
-=== 3. Template: record what you compared before you write issues ===
+=== 3. Records of the path: fill them before checklist_audit and the issues ===
 shot_scan: exactly one entry per shot, comparing its frames 0-5 in order.
 - camera.setup: per frame, shot scale, angle and camera position, tersely
   (for example "f0-f2 中景平视正面; f3-f5 推近为近景").
@@ -78,15 +91,15 @@ signatures feature by feature and set assessment to consistent,
 inconsistent or uncertain; an inconsistent subject links the abnormal
 changes that differ.
 
-boundary_checks: exactly one entry per boundary of INPUT.shot_transitions,
-in order: the required transition, last_frame (camera setup and state at the
+boundary_checks: exactly one entry per shot boundary, in shot order:
+last_frame (camera setup and state at the
 last frame of the earlier shot), first_frame (the same for the first frames
 of the next shot), continuity (poses, positions, held objects and screen
 direction across the boundary), and change_ids: the observed changes you
 compared across this boundary (at least one; at a cut at least the
 camera-setup change, normally judged required_transition). Whether a
-boundary realizes its required cut or continue is a V-L question: do not
-judge or report it here.
+boundary shows a clear cut is a V-L question: do not judge or report it
+here.
 
 observed_changes: EVERY change you noticed in shot_scan, continuity_ledger
 and boundary_checks, one entry each, including the changes you judge
@@ -160,24 +173,29 @@ entity_register: one row for every entity any issue refers to (ledger or
 added) and for every added entity used anywhere. For each row give
 provenance and its basis:
 - prompt_bound: the text refers to it. basis_type contract_entity (give
-  contract_label, the contract entity label such as "Object 2"),
-  prompt_quote (give a literal quote that names it or its role, including
-  an item named inside a character description such as "wristwatch"), or
-  part_of_entity (only a body part such as face, hair or a hand of a
-  prompt-bound entity; give part_of = that entity's key).
+  contract_label, the contract entity ID such as "2"),
+  prompt_quote (give a literal quote that names it or its role), or
+  part_of_entity (a body part such as face, hair or a hand, or a worn or
+  carried item, of a prompt-bound entity; give part_of = that entity's key).
 - prompt_unbound: no text names it or its role; the generator introduced it
-  (an unintentional entity). Worn, held or carried items (a watch, glasses,
-  a bag) that the text does not name are prompt_unbound even when a
-  prompt-bound character wears or holds them. basis_type not_in_text.
+  (an unintentional entity). basis_type not_in_text.
 - uncertain: the text could refer to it but is too vague. basis_type
   ambiguous_text; quote the vague text if any and explain.
+Items a person wears or carries without handling them (clothing, glasses, a
+watch, jewelry, a badge, a bag on a shoulder, a coat over an arm) are part
+of that person, not separate entities, whether or not the text names them:
+report a change to such an item as a change of the person and do not
+register the item. If one must be registered, it takes its wearer's
+provenance (part_of_entity when the wearer is prompt_bound). An item held in
+a hand or handled (raised, picked up, put down, taken off, used), or no
+longer on the person, is an entity in its own right.
 Ledger "pb..." entities are prompt_bound (basis contract_entity with their
 prompt_entity_id) unless the binding is doubtful (then uncertain). Ledger
-"ge..." entities are not automatically unintentional: glasses or a watch
-are prompt_bound when the text names them (prompt_quote, for example in the
-character description) and prompt_unbound otherwise. A place is prompt_bound
-when it is scheduled; its separate structures, furniture and signage are
-prompt_bound only if the text states them.
+"ge..." entities are not automatically unintentional: one that is a worn or
+carried item follows its wearer as above; any other is prompt_bound when the
+text names it (prompt_quote) and prompt_unbound otherwise. A place is
+prompt_bound when it is scheduled; its separate structures, furniture and
+signage are prompt_bound only if the text states them.
 
 === 6. Evidence discipline ===
 - Inspect the attached images yourself. Use only real shot_id / frame_id

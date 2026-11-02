@@ -1,0 +1,60 @@
+You clean the evaluation contract of one multi-shot video episode at a time. This is text work only. Use ONLY the episode's prompts (global and per-shot) as printed by `python3 cleanup.py show <id>`. No outside knowledge, source videos or generated outputs.
+
+PURPOSE
+A contract is the ground truth an evaluator checks generated videos against. Owner rule (2026-10-31): it may contain only requirements the prompt fixes clearly. Where the prompt's wording admits more than one reasonable reading, the contract states NO requirement about that point, because a video that follows another reasonable reading has not violated the prompt.
+Exception: entity identity (whether mentions in different shots are the same entity) cannot be left open. Decide it by the most likely reading in context.
+The contract carries "unresolved" notes that earlier agents wrote where they saw ambiguity. That field is being removed. Every note gets a disposition, and the contract is changed where a note, or your own reading, shows that a requirement, camera value or description commits to one of several reasonable readings.
+
+WHAT COUNTS AS AMBIGUOUS
+A point is ambiguous only if you can state two concrete readings that a careful reader would both accept AND that lead to different visible results. Vagueness of degree ("briefly", "gently"), difficulty of rendering, or a reading that is clearly less natural is NOT ambiguity. If a requirement has one reasonable reading, keep it unchanged.
+Do not rewrite requirements for style, do not add requirements, and do not revisit owner granularity rules (walls/floors/ceilings belong to their location; worn or carried items without an action stay in the owner's description; collections are one entity). Those are rules, not ambiguities.
+OWNER-DEFERRED BOUNDARIES: the owner will decide these later, so do NOT change anything about them, even if you think they are ambiguous: (1) focus, softness or blur ("soft foreground", "softly focused", "soften the left foreground") recorded as camera information; (2) "hold the shot / view / two-shot" recorded as camera movement; (3) lighting stated in one shot (whether it belongs to the location description or to that shot); (4) whether a street, snow or similar ground counts as a floor. A note about one of these gets kind owner_deferred and resolution kept_unchanged, with no ops.
+Typical cases:
+- OWNER RULE (2026-10-31) for left/right with no stated frame: when the subject is a person, the direction is in the person's own frame (coordinate_frame "entity"; write "his/her/their own left/right"). This covers a person's movement, turning, gaze, pointing, reaching and leaning ("steps left", "turns his head left", "looks to the left", "extends his arm toward the right"). It is clear, not ambiguous: keep it as an own-frame requirement.
+- Not covered by that rule, and clear: positions in the frame in a composition ("A stands on the left and B on the right", "at the right of the frame") are screen positions; facing or profile orientation ("faces left", "a right-facing profile") is relative to the viewer, so screen; a body side ("his right arm") is anatomical; an explicitly stated frame ("toward screen left") stays as stated.
+- Left/right for a non-person subject (an animal, object or vehicle) with no stated frame: screen unless the context makes it ambiguous; then drop the direction.
+- Camera phrases: "a steady medium view" = medium view with a steady camera: clear. (Focus/softness and "hold the shot" are owner-deferred: leave them.)
+- Camera changes between shots (owner, 2026-11-01): a requirement on how the camera changes from one shot to another belongs in cross_shot, not in camera_view or camera_movement. A camera value that compares the shot's view with another shot you can identify ("Same frontal composition as Shot1 (frontal, chest-up).") moves there with op camera_to_cross_shot; words that state this shot's own view stay in the field through "keep". Leave a reverse view, a statement inside one shot, and a value whose compared shot cannot be identified.
+- Style: shot_description.style is the visual or render style the prompt explicitly states, in its own words. A global style applies to every shot, a shot style to that shot only. It is already filled; do not change it.
+- A shot-specific attribute or state the contract inferred from wording that can be read two ways: remove or narrow it.
+- A note saying something is unstated and the contract already says nothing about it (a place that may or may not be visible, an instrument type not stated): kind already_omitted, nothing to change.
+
+IDENTITY
+Decide same/separate by the most likely reading for every one of these cases:
+(a) every note about identity;
+(b) every entity whose mentions in different shots use different wording rather than the same explicit name (e.g., "the dark booth back" vs "the seat back"; "gray paneled double doors" vs "the open door");
+(c) every pair of separate entities with the same label that a reader could take to be the same thing (similar descriptions, generic wording such as "a man", "the helpers" vs "the departing men"), including locations that may be the same place.
+Evidence for SAME: same or compatible name or role; same place; continuous action; an explicit back-reference ("the same", "again", "his", "the man", "it"); compatible descriptions.
+Evidence for SEPARATE: incompatible descriptions (blond vs black hair; abstract art vs a portrait); explicit contrast ("another", "a second", "a different"); different places; a stated change of person or object.
+When the evidence is balanced: the prompts were written with stable explicit names for recurring entities, so a NEW explicit name for a similar thing suggests a separate entity, while a pronoun or definite back-reference suggests the earlier entity.
+Entities called by the same explicit name in every shot need no identity row. Neither does a plain definite back-reference with the same head noun and compatible attributes ("a warmly lit hallway" then "the warm hallway"; "tall gridded windows" then "the tall city-facing windows"): that is clearly the same entity. Keep identity rows for real decisions, so the review stays small.
+Record each case in "identity" (occurrences = original entity id + its shots; decision same/separate; basis). Then make the contract match: merge_entities when "same" occurrences are separate entities now; split_entity when "separate" occurrences are one entity now. If the current contract already matches your decision, still record the row (no op needed).
+
+OUTPUT: write episodes/<id>/ops.json
+{
+ "episode_id": "<id>",
+ "notes": [{"note": 1, "kind": "...", "resolution": "...", "ops": [indices into ops], "basis": "one or two sentences"}],
+ "identity": [{"occurrences": [{"entity": 7, "shots": ["Shot2", "Shot6"]}, {"entity": 9, "shots": ["Shot4"]}], "decision": "same", "basis": "..."}],
+ "ops": [...]
+}
+notes: exactly one row per note N1..Nk (none if the episode has no notes).
+  kind: already_omitted (the contract states nothing on the point) | non_identity_choice (a requirement, camera value or description commits to one reading) | identity | not_an_ambiguity (the note records an owner rule, or the reading it describes is the only reasonable one) | owner_deferred (one of the four owner-deferred boundaries).
+  resolution: drop_note | removed | narrowed | kept_sole_reading | identity_decided | kept_unchanged (owner_deferred only). "removed" and "narrowed" must list the ops that do it.
+ops: every op needs "reason"; for removing or narrowing, the reason names the two readings.
+  {"op": "remove_requirement", "id": "S4-mot-8", "reason": "..."}
+  {"op": "rewrite_requirement", "id": "S4-mot-8", "expected": "...", "reason": "..."}  optional "predicate", "coordinate_frame", "quantifier", "entities" (a subset). Use only to drop the ambiguous part: the new text must be implied by the old text and add nothing.
+  {"op": "set_camera", "shot_id": "Shot1", "field": "camera_view" or "camera_movement", "value": null or "camera text", "quotes": ["exact quote"], "reason": "..."}
+  {"op": "camera_to_cross_shot", "shot_id": "Shot3", "field": "camera_view" or "camera_movement", "shot_ids": ["Shot1", "Shot3"], "entities": [0], "expected": "The woman is shown more closely in Shot3 than in Shot1.", "predicate": "closer_view_than", "reason": "..."}  entities: the entity or entities the compared views are of, listed in those shots. Optional "keep": {"value": "Frontal, chest-up.", "quotes": ["exact quote"]} leaves the shot's own view in the field.
+  {"op": "edit_description", "entity": 5, "description": "...", "reason": "..."}  only to delete an attribute that rests on one of several readings.
+  {"op": "merge_entities", "into": 7, "merge": [12], "description": "...", "reason": "..."}  optional "name". The description keeps every stable attribute of all merged entities.
+  {"op": "split_entity", "entity": 7, "parts": [{"name": "...", "description": "...", "shots": ["Shot2", "Shot6"], "evidence": [{"shot_id": "Shot2", "quote": "exact quote"}]}, ...], "cross_shot_reassign": [{"id": "X-1", "to_parts": [0]}], "reason": "..."}
+    The parts' shots must partition the shots where the entity appears. Every cross-shot requirement on the entity must be reassigned to a list of parts ([] removes it). Later ops refer to the parts as "7.0", "7.1", ...; names must be unique in the episode.
+Entity ids in ops and identity rows are the ORIGINAL ids printed by show. Quotes must be exact substrings of the prompt text of the named shot (or "global").
+
+PROCEDURE for each episode
+1. nice -n 19 python3 cleanup.py show <id>
+2. Read all prompts first; then the notes, the entities and the requirements.
+3. Write episodes/<id>/ops.json.
+4. nice -n 19 python3 cleanup.py check <id> episodes/<id>/ops.json. Fix every FAIL message and rerun until PASS. Read the PASS change list and confirm it is exactly what you intended. WARNING lines about items you did not change can be ignored.
+5. nice -n 19 python3 cleanup.py finalize <id> episodes/<id>/ops.json
+Do not edit any other file.

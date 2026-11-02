@@ -106,7 +106,7 @@ def vl_result():
             checks.append({'row_id': row['row_id'], 'observed': '画面所见与各项一致。', 'status': 'satisfied',
                            'violated_items': [], 'frame_refs': frames, 'issue_ids': []})
     issue = {'issue_id': 'L1', 'subcategory': 'attribute', 'summary': 'Shot1男子穿深色衬衫而非蓝灰T恤。',
-             'requirement_quotes': [{'source': 'shot_prompt', 'shot_id': 'Shot1', 'quote': SHIRT}],
+             'requirement_quotes': [{'source': 'contract', 'shot_id': None, 'quote': SHIRT}],
              'expected': '蓝灰T恤', 'occurrences': [{'shot_id': 'Shot1', 'row_ids': ['EN:Character 1@Shot1'],
                                                    'frame_refs': [fr('Shot1', 2)], 'observed': '深色有领衬衫',
                                                    'mismatch': '服装类型与颜色不符'}],
@@ -131,7 +131,7 @@ def vv_result():
          'observations': [{'shot_id': 'Shot1', 'frame_id': 0, 'signature': '米色墙白色落地灯'},
                           {'shot_id': 'Shot2', 'frame_id': 0, 'signature': '米色墙红色落地灯'}],
          'assessment': 'inconsistent', 'change_ids': ['c1']}]
-    boundary = [{'from_shot': 'Shot1', 'to_shot': 'Shot2', 'required': 'cut', 'last_frame': '中景',
+    boundary = [{'from_shot': 'Shot1', 'to_shot': 'Shot2', 'last_frame': '中景',
                  'first_frame': '近景', 'continuity': '姿势连贯', 'change_ids': ['c2']}]
     changes = [
         {'change_id': 'c1', 'scope': 'cross_shot', 'shot_ids': ['Shot1', 'Shot2'], 'aspect': 'object',
@@ -214,13 +214,13 @@ class ConfigSchemasPrompts(unittest.TestCase):
 
     def test_quote_verification(self):
         sources = common.text_sources(contract(), TRANSITIONS)
-        self.assertEqual(common.quote_errors({'source': 'shot_prompt', 'shot_id': 'Shot1', 'quote': '“Faded  blue–gray T-shirt”'},
+        self.assertEqual(common.quote_errors({'source': 'contract', 'shot_id': None, 'quote': '“Faded  blue–gray T-shirt”'},
                                              sources, 'q'), [])
-        self.assertEqual(common.quote_errors({'source': 'shot_prompt', 'shot_id': 'Shot1',
+        self.assertEqual(common.quote_errors({'source': 'contract', 'shot_id': None,
                                               'quote': 'In a dim ... Beige sofa'}, sources, 'q'), [])
-        wrong_source = common.quote_errors({'source': 'shot_prompt', 'shot_id': 'Shot2',
+        wrong_source = common.quote_errors({'source': 'shot_transitions', 'shot_id': None,
                                             'quote': 'Maintain the same man'}, sources, 'q')
-        self.assertTrue(has(wrong_source, "occur in ['global_prompt', 'contract']"))
+        self.assertTrue(has(wrong_source, 'the words occur in contract: set source accordingly'))
         self.assertTrue(common.quote_errors({'source': 'contract', 'shot_id': None, 'quote': 'a red jacket'}, sources, 'q'))
         self.assertEqual(common.quote_errors({'source': 'shot_transitions', 'shot_id': None,
                                               'quote': 'Shot1->Shot2: cut'}, sources, 'q'), [])
@@ -298,7 +298,7 @@ class VLDetectionGates(unittest.TestCase):
     def test_quotes_must_be_literal(self):
         result = vl_result()
         result['issues'][0]['requirement_quotes'][0]['quote'] = 'a blue shirt'
-        self.assertTrue(has(vl_errors(result), "is not a literal quote of shot_prompt Shot1"))
+        self.assertTrue(has(vl_errors(result), "is not a literal quote of contract"))
 
     def test_transition_rows_are_shot_structure_and_frames_stay_in_their_shots(self):
         result = vl_result()
@@ -327,7 +327,7 @@ class VLDetectionGates(unittest.TestCase):
         for iid, quote, sub in (('L2', 'In a dim, warmly lit room', 'setting_environment'),
                                 ('L3', 'sits on the Beige sofa', 'spatial_orientation')):
             result['issues'].append({'issue_id': iid, 'subcategory': sub, 'summary': '问题。',
-                                     'requirement_quotes': [{'source': 'shot_prompt', 'shot_id': 'Shot1', 'quote': quote}],
+                                     'requirement_quotes': [{'source': 'contract', 'shot_id': None, 'quote': quote}],
                                      'expected': '要求', 'occurrences': [{'shot_id': 'Shot1', 'row_ids': ['SP:Shot1'],
                                                                          'frame_refs': [fr('Shot1', 1)], 'observed': '观察',
                                                                          'mismatch': '不符'}],
@@ -419,7 +419,7 @@ class VVDetectionGates(unittest.TestCase):
         errors = vv_errors(result)
         self.assertTrue(has(errors, "characters lacks scheduled prompt-bound characters ['pb0001']"))
         self.assertTrue(has(errors, 'continuity_ledger is missing required subject pb0001'))
-        self.assertTrue(has(errors, 'boundary_checks must list every boundary'))
+        self.assertTrue(has(errors, 'boundary_checks must list every shot boundary'))
         self.assertTrue(has(errors, 'camera.movement is jump'))
 
     def test_issue_shape(self):
@@ -449,23 +449,30 @@ class VVDetectionGates(unittest.TestCase):
         self.assertTrue(has(vv_errors(result), 'link the observed changes you compared across this boundary'))
 
     def test_transition_realization_is_v_l_only(self):
-        # Owner decision 2026-10-21: a missed required cut or broken continue is V-L shot_structure only.
+        # Owner decisions 2026-10-21 and 2026-11-01: a missed required cut is V-L shot_structure only; no continue.
         self.assertNotIn('transition_realization', common.vv_subcategories())
         self.assertNotIn('X10', common.checklist_items())
         self.assertNotIn('transition', common.config()['change_aspects'])
         self.assertIn('shot_structure', common.config()['v_l_subcategories'])
         schema = common.read(common.DISCOVERY['vv']['schema'])
         self.assertNotIn('realized', schema['properties']['boundary_checks']['items']['properties'])
-        self.assertIn('| A required cut is missing or a required continue is broken | report shot_structure | '
-                      'nothing to report', common.DEFINITIONS_PATH.read_text())
+        self.assertNotIn('required', schema['properties']['boundary_checks']['items']['properties'])
+        self.assertIn('| A required cut is missing | report shot_structure | nothing to report',
+                      common.DEFINITIONS_PATH.read_text())
 
-    def test_unnamed_worn_items_do_not_inherit_their_owners_provenance(self):
-        # Owner decision 2026-10-21: a watch the text does not name is prompt_unbound.
+    def test_worn_or_carried_items_are_part_of_their_wearer(self):
+        # Owner decision 2026-11-01 (supersedes 2026-10-21): the contract's entity/attribute split applies to
+        # detection; an item worn or carried without handling is part of its wearer, named in the text or not.
         provenance = common.config()['provenance']
-        self.assertIn('never worn clothing', provenance['basis_types']['part_of_entity'])
-        self.assertIn('watch', provenance['labels']['prompt_unbound'])
+        self.assertIn('worn or carried item that is not handled', provenance['basis_types']['part_of_entity'])
+        self.assertNotIn('including a worn, held or carried item', provenance['labels']['prompt_unbound'])
         for spec in (common.DISCOVERY['vv'], common.REVIEW['vv']):
-            self.assertNotIn('worn clothing, accessories) of such an entity', common.render_prompt(spec['prompt']))
+            text = ' '.join(common.render_prompt(spec['prompt']).split())
+            self.assertIn('part of that person', text)
+            self.assertNotIn('are prompt_unbound even when', text)
+        clustering = ' '.join((common.ROOT / 'skills/wedetect-shot-entities/review_prompt.txt').read_text().split())
+        self.assertIn('Items a person wears or carries are part of that person', clustering)
+        self.assertIn('Walls, floors and ceilings are part of the setting', clustering)
 
 
 def vl_candidates():
@@ -483,7 +490,7 @@ def vl_review_response():
         'issue_id': 'L1', 'action': 'keep', 'split_reason': '',
         'units': [{'unit_id': 'L1', 'description': 'Shot1男子穿深色有领衬衫，违反“faded blue-gray T-shirt”。',
                    'revision': 'clarified', 'revision_note': '补充衣领细节。', 'subcategory': 'attribute',
-                   'shot_ids': ['Shot1'], 'requirement_quote': {'source': 'shot_prompt', 'shot_id': 'Shot1', 'quote': SHIRT},
+                   'shot_ids': ['Shot1'], 'requirement_quote': {'source': 'contract', 'shot_id': None, 'quote': SHIRT},
                    'requirement_applies': 'Shot1文本直接描述。', 'verdict': 'confirmed', 'basis': 'requirement_violated',
                    'confidence': 'high',
                    'evidence': [{'shot_id': 'Shot1', 'frame_id': 2, 'role': 'supports', 'observation': '深色衬衫'}],
@@ -733,13 +740,14 @@ class OfflineEndToEnd(unittest.TestCase):
             with mock.patch.dict('os.environ', env), \
                     mock.patch.object(detection.repair_loop, 'call_with_repair', fake_repair_loop(responses)):
                 for branch in common.BRANCHES:
-                    detection.run(case, root / 'out' / f'{branch}_detection', branch)
+                    detection.run(case, root / 'out' / f'{branch}_detection', branch, allow_v1_contract=True)
                     review.run(case, root / 'out' / f'{branch}_detection/result.json', root / 'out' / f'{branch}_review',
-                               branch)
+                               branch, allow_v1_contract=True)
                 result = scoring.run(root / 'out/vl_review/result.json', root / 'out/vv_review/result.json',
                                      root / 'out/episode_scoring')
             self.assertEqual(result['scores']['v_l'], 25.0 * 3)               # 100 * (1 - .25)
             self.assertEqual(result['scores']['v_v']['cross_shot'], 62.5)     # 100 * (1 - .5 * .75)
+            self.assertEqual(result['scores']['uec'], 79.17)                  # (75 + 100 + 62.5) / 3
             self.assertEqual(result['scores']['v_v_unintentional']['cross_shot'], 62.5)
             self.assertEqual(result['scores']['v_v_remainder']['cross_shot'], 100.0)
             self.assertEqual(result['v_v_issue_statistics']['total']['proportion'], 1.0)
@@ -768,8 +776,8 @@ class OfflineEndToEnd(unittest.TestCase):
 
             with mock.patch.dict('os.environ', env), \
                     mock.patch.object(detection.repair_loop, 'call_with_repair', counting):
-                detection.run(case, root / 'vv_detection', 'vv')
-                result = review.run(case, root / 'vv_detection/result.json', root / 'vv_review', 'vv')
+                detection.run(case, root / 'vv_detection', 'vv', allow_v1_contract=True)
+                result = review.run(case, root / 'vv_detection/result.json', root / 'vv_review', 'vv', allow_v1_contract=True)
             self.assertEqual(calls, ['VV detection'])
             self.assertEqual((result['units'], result['calls']), ([], 0))
 
@@ -787,7 +795,8 @@ def registry_case(root):
         frame.write_bytes(b'image fixture')
         frames.append(dict(frame_id=index, path=str(frame)))
     (case / 'raw_manifest.json').write_text(json.dumps(dict(shots=[dict(shot_id='Shot1', frames=frames)])))
-    (case / 'contract.json').write_text('{}')
+    (case / 'contract.json').write_text(json.dumps(dict(schema_version='episode_contract_v2')))
+    (case / 'prompt.json').write_text(json.dumps(dict(global_prompt='', shots=[])))
     (case / 'run.json').write_text(json.dumps(dict(protocol='vl_vv_detection_v1', status='complete')))
     (case / 'episode_entities.json').write_text(json.dumps(dict(protocol='vl_vv_detection_v1', status='matched')))
     return case

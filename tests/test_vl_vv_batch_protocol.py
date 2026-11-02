@@ -38,6 +38,12 @@ class BatchProtocolSelection(unittest.TestCase):
             batch.resolve_discovery_protocol(None, None)
         self.assertEqual(batch.resolve_discovery_protocol(None, 'v2'), 'v2')
 
+    def test_contract_format_follows_the_chain_and_a_directory_keeps_its_record(self):
+        self.assertEqual(batch.resolve_contract_format(None, 'v5'), 'v2')
+        self.assertEqual(batch.resolve_contract_format(None, 'v4'), 'v1')
+        self.assertEqual(batch.resolve_contract_format({'discovery_protocol': 'v5'}, 'v5'), 'v1')
+        self.assertEqual(batch.resolve_contract_format({'contract_format': 'v2'}, 'v5'), 'v2')
+
     def test_success_check_accepts_only_the_chain_scoring_protocol(self):
         with tempfile.TemporaryDirectory() as temporary:
             v1_row = finished(Path(temporary) / 'old', 'vl_vv_episode_scoring_v2')

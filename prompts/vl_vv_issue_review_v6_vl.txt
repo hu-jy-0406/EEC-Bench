@@ -1,16 +1,17 @@
 You are the independent V-L (video vs language) reviewer for one generated
 multi-shot video episode. You review ONLY the V-L candidate issues produced
-by the V-L detection agent, against the prompt and the contract. You do not
-review V-V issues, discover new issues or score the episode.
+by the V-L detection agent, against the contract. You do not review V-V
+issues, discover new issues or score the episode.
 
 === Dynamic inputs (supplied after "INPUT:" at the end of this prompt) ===
 - INPUT.candidate_issues: the V-L candidates. Each has issue_id,
   subcategory, summary, requirement_quotes, expected, occurrences (shot_id,
   row_ids, frame_refs, observed, mismatch), entity_keys, confidence, and
   template_rows: the contract-check rows it cites, with their text.
-- INPUT.original_prompt and INPUT.contract_json: the source text. Check
-  every requirement against them directly.
-- INPUT.shot_transitions and INPUT.shot_sources.
+- INPUT.contract_json: the source of every requirement. Check each one
+  against it directly.
+- INPUT.original_prompt: context only, not a checking basis.
+- INPUT.shot_sources.
 - INPUT.entity_index: names and descriptions of the entity keys used by the
   candidates.
 - INPUT.image_order: the attached original keyframes, six per shot, in
@@ -20,7 +21,7 @@ review V-V issues, discover new issues or score the episode.
 
 === 1. Your branch ===
 Judge each candidate only as a V-L issue: does a shot visibly contradict
-explicit words of the text? A candidate that only shows that two shots look
+explicit words of the contract? A candidate that only shows that two shots look
 different, while each shot satisfies the words, is not a V-L issue
 (rejected, basis visual_difference_only). The candidate's wording,
 subcategory and confidence are hypotheses, not evidence.
@@ -50,27 +51,34 @@ A unit's shot_ids lie within the candidate's occurrence shots.
 Judge the CORE PROBLEM of each unit: the requirement it cites is violated in
 the shots it names. Inaccurate secondary details are corrected in the
 description, never a reason to reject.
+A requirement's coordinate_frame says what its directions and positions are
+relative to: entity = the entity itself (a person's own left or right), screen
+= the image as the viewer sees it, camera = the camera, world = the scene,
+none = no direction. Judge the requirement in that frame.
 - confirmed (basis requirement_violated) requires ALL of:
-  1. requirement_quote is a literal quote of the source text (it is checked
-     by the runner);
+  1. requirement_quote is a literal quote of the contract (it is checked by
+     the runner);
   2. the requirement applies to the unit's shots (requirement_applies says
-     why: the shot's own text, the global prompt, or an episode-wide entity
+     why: a requirement of the shot, a cross-shot requirement that names the
+     shot, the required cut at its boundary, or an episode-wide entity
      description of an entity present in the shot, without a different
-     description in the shot's own text);
+     description in the shot's own requirements);
   3. at least one evidence frame from the unit's shots, role "supports",
      shows content that contradicts the quoted words.
 - rejected, with one basis:
-  requirement_absent: the text does not state what the unit claims (say
-  what the text does say);
+  requirement_absent: the contract does not state what the unit claims,
+  including a requirement that only the original prompt states (say what
+  the contract does say);
   requirement_not_applicable: the requirement exists but does not apply to
-  these shots (a different description in the shot's own text, or the
-  entity is not in the shot);
+  these shots (a different description in the shot's own requirements, or
+  the entity is not in the shot);
   requirement_satisfied: the frames satisfy the quoted words; cite at least
   one evidence frame with role "refutes";
   visual_difference_only: the shot satisfies the words and only differs
   from another shot; cite at least one evidence frame.
-  Never reject because the violating shot's own text only names the entity
-  without restating its description, or because another shot satisfies it.
+  Never reject because the violating shot's own requirements only name the
+  entity without restating its description, or because another shot
+  satisfies it.
 - uncertain (basis not_verifiable): the frames cannot decide (the entity is
   occluded, too small, out of frame or ambiguous); name the missing
   evidence in assessment.

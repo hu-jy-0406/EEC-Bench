@@ -147,6 +147,18 @@ def resolve_review_protocol(progress, discovery_protocol, requested):
     return requested or allowed[0]
 
 
+def resolve_contract_format(progress, discovery_protocol):
+    """The contract format of this experiment directory.
+
+    An existing directory keeps what it recorded; one that recorded nothing
+    predates contract v2 (2026-11-01) and keeps v1.  A new directory reads v2
+    with discovery v5 and v1 with the older chains, which read only v1.
+    """
+    if progress is not None:
+        return progress.get('contract_format', 'v1')
+    return 'v2' if discovery_protocol == 'v5' else 'v1'
+
+
 def token_cost(run_path):
     try:
         value = read(run_path)
@@ -354,6 +366,7 @@ def main():
             raise ValueError('Progress file belongs to a different cohort')
         protocol = resolve_discovery_protocol(progress, args.discovery_protocol)
         review_protocol = resolve_review_protocol(progress, protocol, args.review_protocol)
+        contract_format = resolve_contract_format(progress, protocol)
         for state in progress.get('tasks', {}).values():
             if state.get('status') == 'running':
                 state['status'] = 'interrupted'
@@ -362,6 +375,7 @@ def main():
     else:
         protocol = resolve_discovery_protocol(None, args.discovery_protocol)
         review_protocol = resolve_review_protocol(None, protocol, args.review_protocol)
+        contract_format = resolve_contract_format(None, protocol)
         progress = dict(cohort_protocol='vl_vv_first200_multimodel_v1', status='running',
                         slurm_job_id=os.environ['SLURM_JOB_ID'], started_at_utc=now(),
                         episode_order='generation_priority ascending; all five models complete before next episode',
@@ -370,6 +384,7 @@ def main():
     scoring_protocol = SCORING_PROTOCOLS[review_protocol]
     progress['discovery_protocol'] = protocol
     progress['review_protocol'] = review_protocol
+    progress['contract_format'] = contract_format
     progress['expected_scoring_protocol'] = scoring_protocol
     progress['status'] = 'running'
     progress['slurm_job_id'] = os.environ['SLURM_JOB_ID']
@@ -418,7 +433,8 @@ def main():
             task_file = work.parent / f'{safe_id(task)}_attempt_{attempt:02d}.json'
             task_file.write_text(json.dumps(task, ensure_ascii=False, indent=2) + '\n')
             prep = subprocess.run([PREPARE_PYTHON, str(PREPARE), '--task', str(task_file),
-                                   '--work-root', str(work), '--task-id', safe_id(task)],
+                                   '--work-root', str(work), '--task-id', safe_id(task),
+                                   '--contract-format', contract_format],
                                   stdout=prep_log.open('w'), stderr=subprocess.STDOUT, env=env)
             if prep.returncode:
                 state.update(status='failed_prepare', ended_at_utc=now(), exit_code=prep.returncode,
@@ -445,6 +461,8 @@ def main():
                        '--mode', 'full', '--gpu', str(gpu_index), '--gpu-uuid', gpu_uuid,
                        '--shot-workers', str(args.shot_workers), '--gpu-python', GPU_PYTHON,
                        '--discovery-protocol', protocol, '--review-protocol', review_protocol]
+            if protocol == 'v5' and contract_format == 'v1':
+                command.append('--allow-v1-contract')
             stream = log.open('w')
             proc = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT, env=env,
                                     start_new_session=True)

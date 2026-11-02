@@ -64,10 +64,18 @@ create per-frame observations or infer box coordinates from pixels.
 
 ### Constituent merging
 
-- Clothing worn by a person, including shirts, coats, trousers and shoes, is
-  part of that person, not a separate entity. Merge both shoes and other worn
-  garments into their corresponding wearer. Clothing may describe the person
-  in `name`; do not retain separate clothing or footwear entity records.
+- Items a person wears or carries are part of that person, not separate
+  entities: clothing and shoes, headwear, glasses, jewelry, a watch, a badge or
+  lanyard, a tie or scarf, a belt, a bag on a shoulder, a coat over an arm.
+  Merge them into their wearer. Worn items may describe the person in `name`;
+  do not retain separate records for them. Body parts (face, hair, hands) are
+  part of their person too.
+- An item held in a hand or handled in this shot (raised, moved, picked up,
+  put down, taken off, put on or used) is a separate entity, and so is an item
+  no longer on the person (a cap lying on a table).
+- Walls, floors and ceilings are part of the setting, not entities: put their
+  candidates in `rejected_detections` with a constituent-policy reason. Doors,
+  windows, structural fixtures, furniture and props remain separate entities.
 - A chair's seat cushion, seat pad or back cushion is part of the chair. Merge
   such seating components into the corresponding chair (or sofa), rather than
   outputting both the furniture and its seating component as separate entities.
@@ -91,7 +99,7 @@ create per-frame observations or infer box coordinates from pixels.
   If an excluded constituent cannot be assigned to a supported parent, put its
   candidate in `rejected_detections` with a constituent-policy reason; do not
   claim that the detection itself was necessarily false.
-- Apply these rules using the actual wearing, seating-component or draped-furnishing relationship.
+- Apply these rules using the actual wearing or carrying, seating-component or draped-furnishing relationship.
   They do not automatically exclude unworn clothing or merge unrelated objects
   simply because they touch, overlap, or share a supporting surface.
 

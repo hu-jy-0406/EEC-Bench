@@ -30,6 +30,7 @@ import gs_prompt_binding as transport
 import run_wedetect_shot_entities as io
 import vl_vv_repair_loop as repair_loop
 import episode_shot_segments as shot_segments
+import episode_contract as contract_io
 
 PROTOCOL = 'vl_vv_issue_discovery_v1'
 MODEL = 'gpt-6-luna'
@@ -296,6 +297,12 @@ def shot_sources(manifest):
 
 def required_continuity_subjects(contract, ledger, manifest):
     """Prompt-bound characters and places scheduled in two or more manifest shots."""
+    if contract_io.is_v2(contract):
+        by_label = {row.get('prompt_entity_id'): row for row in ledger.get('prompt_bound', [])}
+        return [dict(global_entity_id=by_label[label]['global_entity_id'], name=by_label[label].get('name'),
+                     subject_kind=kind, scheduled_shot_ids=shots)
+                for label, kind, shots in contract_io.continuity_schedule(contract)
+                if label in by_label and len(shots) >= 2]
     labels_by_name = {}
     for label, row in (contract.get('entity_descriptions') or {}).items():
         if isinstance(row, dict) and isinstance(row.get('name'), str):
@@ -553,6 +560,7 @@ def run(case, out, timeout=1800, model=MODEL, reasoning=REASONING, protocol=DEFA
     if any(not path.is_file() for path in required):
         raise ValueError('Case needs contract.json, raw_manifest.json, and episode_entities.json')
     contract, manifest, ledger = map(read, required)
+    contract_io.require_v1(contract, str(case))
     shot_segments.require_record_segmentation(manifest, allow_legacy_keyframes, where=str(case))
     if ledger.get('protocol') != 'vl_vv_detection_v1' or ledger.get('status') != 'matched':
         raise ValueError('episode_entities.json must be a successful VL/VV detector ledger')

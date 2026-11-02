@@ -1,0 +1,25 @@
+{
+  "rule": "A camera value moves to cross_shot only when it does nothing but compare the shot's view with an identified other shot. A value that also states this shot's own view stays and is listed in the report. Wording comes from the multi-shot v1 claim when one fed the value.",
+  "moves": [
+    {"episode_id": "WItUr-qHHBw_s00042_n4_clean_v2", "shot_id": "Shot3", "field": "camera_view", "shot_ids": ["Shot2", "Shot3"],
+     "entities": ["Domestic dining interior"], "predicate": "wider_view_than", "expected": "Shot3 shows a wider view of the same room than the preceding shot."},
+    {"episode_id": "iJVAiOxLEiU_s00160_n8_clean_v2", "shot_id": "Shot3", "field": "camera_view", "shot_ids": ["Shot2", "Shot3"],
+     "entities": ["Light-walled interior"], "predicate": "closer_view_than", "expected": "Shot3 shows a closer view than Shot2."},
+    {"episode_id": "ZQe51dHPgXk_s00091_n4_clean_v2", "shot_id": "Shot4", "field": "camera_view", "shot_ids": ["Shot2", "Shot4"],
+     "entities": ["Dark doorway"], "predicate": "tighter_framing_than", "expected": "The return view of the doorway in Shot 4 is tighter than its preceding view in Shot 2."},
+    {"episode_id": "3pQVL49eHfs_s00057_n4_clean_v2", "shot_id": "Shot3", "field": "camera_view", "shot_ids": ["Shot2", "Shot3"],
+     "entities": ["Interview woman"], "predicate": "wider_view_than", "expected": "The Shot3 interview view is wider than the close interview portrait in Shot2."},
+    {"episode_id": "mu-YLZpB6is_s00061_n4_clean_v2", "shot_id": "Shot4", "field": "camera_view", "shot_ids": ["Shot1", "Shot2", "Shot3", "Shot4"],
+     "entities": ["Saber-toothed cat"], "predicate": "wider_view_than", "expected": "The mammoth views in Shot2 and Shot4 are wider than the close cat profiles in Shot1 and Shot3.",
+     "also_set_camera": {"shot_id": "Shot2", "field": "camera_view", "value": "Low camera angle", "quotes": ["a low three-quarter view of the Woolly mammoth"],
+                         "reason": "The comparison in this value is the same requirement, now in cross_shot; the shot's own low angle stays."}},
+    {"episode_id": "imopUZe289I_s00019_n4_clean_v2", "shot_id": "Shot3", "field": "camera_view", "shot_ids": ["Shot1", "Shot3"],
+     "entities": ["Floral-blouse woman"], "predicate": "closer_view_than", "expected": "The woman is shown more closely in Shot3 than in Shot1."},
+    {"episode_id": "TTXjgOan_KI_s00004_n6_clean_v2", "shot_id": "Shot5", "field": "camera_view", "shot_ids": ["Shot2", "Shot5"],
+     "entities": ["Porch-side gathering area"], "predicate": "same_composition_as", "expected": "Shot5 returns to the porch-side composition established in Shot2."},
+    {"episode_id": "6oh2hNWmf00_s00329_n6_clean_v2", "shot_id": "Shot3", "field": "camera_view", "shot_ids": ["Shot2", "Shot3"],
+     "entities": ["Dark-haired man", "Blonde woman"], "predicate": "wider_view_than", "expected": "Shot3 presents the shoulder interaction in a wider composition than the close two-person view of Shot2."},
+    {"episode_id": "4kRRDuR7OBM_s00007_n6_clean_v2", "shot_id": "Shot4", "field": "camera_view", "shot_ids": ["Shot3", "Shot4"],
+     "entities": ["Jaguars operations room"], "predicate": "closer_view_than", "expected": "Shot4 depicts the Jaguars-room gathering in a closer view than Shot3."}
+  ]
+}

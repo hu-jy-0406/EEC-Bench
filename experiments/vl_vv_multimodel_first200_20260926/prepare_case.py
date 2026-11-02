@@ -5,6 +5,8 @@ Clip models (one file per shot): six uniform timestamps per clip, unchanged.
 Single-video episodes (CineTrans-DiT, HoloCine): shots are segmented at the cuts recorded at inference and
 keyframes are sampled by exact frame index (scripts/episode_shot_segments.py; user decision 2026-10-05).
 --legacy-nominal-keyframes restores the historical nominal 5 s grid, for reproducing old results only.
+Contract: the current v2 contract of the episode (cleaned once exported); --contract-format v1 keeps the task's
+v1 contract, for the older chains and for reproducing old results.
 """
 import argparse
 import hashlib
@@ -18,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 DETECTION = ROOT / 'EECBench/scripts/run_vl_vv_detection.py'
 sys.path.insert(0, str(ROOT / 'EECBench/scripts'))
+import episode_contract as contract_io  # noqa: E402
 import episode_shot_segments as segments  # noqa: E402
 
 
@@ -105,6 +108,9 @@ def main():
     parser.add_argument('--work-root', type=Path, required=True)
     parser.add_argument('--legacy-nominal-keyframes', action='store_true',
                         help='Historical nominal 5 s grid for single-video episodes; only to reproduce old results')
+    parser.add_argument('--contract-format', choices=('v2', 'v1'), default='v2',
+                        help='v2 (default): the current contract of the episode; v1: the task contract_path, for the '
+                             'older chains and for reproducing old results')
     args = parser.parse_args()
     text = args.task.read_text()
     try:
@@ -199,10 +205,13 @@ def main():
     if segmentation:
         manifest.update(schema_version=segments.MANIFEST_SCHEMA, keyframe_policy=segments.POLICY, segmentation=segmentation)
     write(manifest_path, manifest)
+    contract_path = task['contract_path'] if args.contract_format == 'v1' else str(contract_io.resolve_v2_contract(task['episode_id']))
     command = [sys.executable, str(DETECTION), 'prepare', '--manifest', str(manifest_path),
-               '--contract', task['contract_path'], '--case', str(case)]
+               '--contract', contract_path, '--case', str(case)]
     if args.legacy_nominal_keyframes:
         command.append('--allow-legacy-nominal-keyframes')
+    if args.contract_format == 'v1':
+        command.append('--allow-v1-contract')
     subprocess.run(command, check=True)
     write(case / 'benchmark_metadata.json', dict(
         protocol='vl_vv_multimodel_case_metadata_v1', task_id=task['task_id'],
@@ -211,7 +220,7 @@ def main():
         source_scope=task['source_scope'], source_metadata_path=task['source_metadata_path'],
         canonical_prompt_path=task['canonical_prompt_path'],
         model_prompt_artifacts=task['model_prompt_artifacts'],
-        contract_path=task['contract_path'], contract_sha256=task['contract_sha256'],
+        contract_format=args.contract_format, contract_path=contract_path, contract_sha256=sha(contract_path),
         prepared_at_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
         source_videos=[dict(path=path, sha256=digest) for path, digest in source_hashes.items()],
     ))

@@ -187,6 +187,7 @@ def materialize(units, assessments, entities):
     scores = dict(
         v_l=rounded(product('v_l')),
         v_v=dict(within_shot=rounded(within), cross_shot=rounded(cross), overall=rounded((within + cross) / 2)),
+        uec=rounded((product('v_l') + within + cross) / 3),
         v_v_unintentional=vv_view(definite),
         v_v_unintentional_or_uncertain=vv_view(lambda group: group['status'] in ('definite', 'possible')),
         v_v_remainder=vv_view(lambda group: group['status'] != 'definite'))
@@ -288,6 +289,7 @@ def run(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL, r
                            'its maximum adjusted deduction; split units are distinct events',
                 bucket_rule='100 * product(1 - event_deduction / 100), rounded half up to 2 decimals',
                 v_v_rule='overall = mean of within_shot and cross_shot',
+                uec_rule='uec = mean of v_l, v_v within_shot and v_v cross_shot',
                 unintentional_rule='v_v_unintentional = the same product over the events whose subject entities '
                                    'include a prompt_unbound entity; v_v_remainder = product over the other V-V events; '
                                    'bucket = unintentional x remainder / 100 before rounding; '

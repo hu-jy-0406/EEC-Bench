@@ -1,0 +1,68 @@
+{
+ "episode_id": "dR0_tMYKwXE_s00001_n4_clean_v2",
+ "drop_ops": [],
+ "identity_replace": {
+  "1": {
+   "occurrences": [
+    {
+     "entity": 6,
+     "shots": [
+      "Shot2"
+     ]
+    },
+    {
+     "entity": 7,
+     "shots": [
+      "Shot2"
+     ]
+    },
+    {
+     "entity": 10,
+     "shots": [
+      "Shot4"
+     ]
+    }
+   ],
+   "decision": "same",
+   "basis": "Main-session ruling: Shot4's definite 'the red-and-gold partition' refers back to Shot2's red framework with gold-toned slats behind the man."
+  },
+  "2": {
+   "occurrences": [
+    {
+     "entity": 4,
+     "shots": [
+      "Shot1",
+      "Shot3"
+     ]
+    },
+    {
+     "entity": 6,
+     "shots": [
+      "Shot2"
+     ]
+    }
+   ],
+   "decision": "separate",
+   "basis": "The honey-colored vertical panel and dark recess are her backdrop (Shots 1, 3), while the red framework and gold slats are behind him (Shot2) in the reverse view; different named objects at different places despite similar warm colors."
+  }
+ },
+ "add_ops": [
+  {
+   "op": "merge_entities",
+   "into": 10,
+   "merge": [
+    6,
+    7
+   ],
+   "description": "A partition of a red framework with closely spaced gold-toned slats.",
+   "reason": "Main-session ruling: adopting review I1: the Shot4 red-and-gold partition is the Shot2 red framework and gold-toned slats."
+  }
+ ],
+ "rulings": [
+  {
+   "ref": "I1",
+   "decision": "adopt_review",
+   "basis": "Main-session ruling: the definite 'the red-and-gold partition' in Shot4 is a back-reference to the red framework with gold slats in Shot2."
+  }
+ ]
+}

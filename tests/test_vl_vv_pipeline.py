@@ -53,7 +53,7 @@ class PipelinePlanTests(unittest.TestCase):
             root = Path(temporary)
             case = self.make_case(root, status='prepared', with_registry=False)
             with self.assertRaisesRegex(ValueError, 'physical --gpu'):
-                pipeline.build_plan(case, root / 'run', 'full')
+                pipeline.build_plan(case, root / 'run', 'full', discovery_protocol='v4')
             plan = pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef', discovery_protocol='v4')
             self.assertEqual([stage['name'] for stage in plan['stages']],
                              list(pipeline.FULL_STAGES))
@@ -68,14 +68,14 @@ class PipelinePlanTests(unittest.TestCase):
             (case / 'run.json').write_text(json.dumps(dict(
                 protocol='vl_vv_detection_v1', status='matched')))
             with self.assertRaisesRegex(ValueError, 'completed detection case'):
-                pipeline.build_plan(case, root / 'new', 'from-registry')
+                pipeline.build_plan(case, root / 'new', 'from-registry', allow_v1_contract=True)
 
     def test_execute_refuses_login_node_before_creating_output(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
             case = self.make_case(root)
             output = root / 'new_run'
-            plan = pipeline.build_plan(case, output, 'from-registry')
+            plan = pipeline.build_plan(case, output, 'from-registry', allow_v1_contract=True)
             old = pipeline.os.environ.pop('SLURM_JOB_ID', None)
             try:
                 with self.assertRaisesRegex(RuntimeError, 'Slurm allocation'):
@@ -90,7 +90,7 @@ class PipelinePlanTests(unittest.TestCase):
             root = Path(temporary)
             case = self.make_case(root)
             output = root / 'new_run'
-            plan = pipeline.build_plan(case, output, 'from-registry')
+            plan = pipeline.build_plan(case, output, 'from-registry', allow_v1_contract=True)
             with mock.patch.dict(pipeline.os.environ, {
                     'SLURM_JOB_ID': 'fixture-job', 'EECBENCH_IMAGE_LABELS': 'off'}):
                 with self.assertRaisesRegex(RuntimeError, 'allow-unlabeled-images'):
@@ -102,7 +102,7 @@ class PipelinePlanTests(unittest.TestCase):
             root = Path(temporary)
             case = self.make_case(root, status='prepared', with_registry=False)
             output = root / 'new_run'
-            plan = pipeline.build_plan(case, output, 'full', 2, 'GPU-abcdef')
+            plan = pipeline.build_plan(case, output, 'full', 2, 'GPU-abcdef', allow_v1_contract=True)
             with mock.patch.dict(pipeline.os.environ, {
                     'SLURM_JOB_ID': 'fixture-job', 'EECBENCH_ALLOW_SHARED_GPU': '1'}):
                 with self.assertRaisesRegex(RuntimeError, 'shared-GPU mode'):

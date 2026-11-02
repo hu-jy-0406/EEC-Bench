@@ -1,0 +1,67 @@
+{
+  "episode_id": "74Od5-Fmf60_s00006_n4_clean_v2",
+  "note": "Hand-made judgment inputs for the v2 conversion of this one episode (2026-10-27). Entity descriptions are rewritten from the prompt wording so that they contain every stable appearance attribute the prompt states; appearance claims covered by a description are folded into it. Only appearance claims listed in appearance_keep stay as per-shot appearance requirements. Spatial claims listed in spatial_to_shot_description describe camera framing and move into the shot description.",
+  "descriptions": {
+    "Dark-jacket visitor": "Short man with dark hair, wearing a black leather jacket over a dark hooded layer and a striped gray shirt, with a gold-colored badge on a neck chain.",
+    "Beige-jacket visitor": "Man taller than the Dark-jacket visitor, wearing thin metal-framed glasses, a beige jacket and a pale collared shirt.",
+    "Doorway woman": "Blonde woman with pinned-up hair, wearing a dark sleeveless dress.",
+    "Suited man": "Man with wavy brown hair, wearing a dark suit, a pale pink striped shirt, a red tie with a matching pocket square, and black shoes.",
+    "Hallway": "Warmly lit hallway outside the office.",
+    "Office": "Office with pale paneled walls, a desk and city-facing windows.",
+    "Office double doors": "Gray paneled double doors between the office and the hallway.",
+    "Office framed art": "Framed abstract art on the office wall.",
+    "Black chair": "Black chair.",
+    "Wooden office desk": "Wooden office desk.",
+    "Small handheld phone": "Small handheld phone.",
+    "Open black laptop": "Black laptop.",
+    "Dark writing mat": "Dark writing mat.",
+    "Loose papers": "Loose sheets of paper.",
+    "Office windows": "Tall gridded office windows.",
+    "City buildings": "City buildings outside the office windows.",
+    "Metal drinks stand": "Metal drinks stand.",
+    "Shaker": "Shaker.",
+    "Lidded bucket": "Bucket with a lid.",
+    "Office doorway": "Gray paneled doorway of the office.",
+    "Hallway sconce": "Glowing hallway sconce.",
+    "Framed black line portrait": "Framed portrait drawn in black lines."
+  },
+  "merge_into_location": {
+    "rule": "Owner granularity rule 2026-10-27: walls are not entities; they are part of the location. Their presence, appearance and relations move to the location.",
+    "Office walls": "Office"
+  },
+  "appearance_keep": {
+    "a21": "Lighting stated only for this shot; not a stable attribute of the office."
+  },
+  "locations": {
+    "rule": "Owner rule 2026-10-27: only the main setting of the shot; two locations only when the camera moves from one to another within the shot.",
+    "Shot1": {"value": ["Office"], "reason": "The camera is in the office: the doors open onto the hallway seen from inside, and the camera follows the men as they enter the office. The hallway stays in presence."},
+    "Shot2": {"value": ["Office"], "reason": "Single setting."},
+    "Shot3": {"value": ["Office"], "reason": "Single setting."},
+    "Shot4": {"value": ["Office"], "reason": "The camera is in the office facing the doorway; the hallway is seen behind the doorway and stays in presence."}
+  },
+  "spatial_to_shot_description": {
+    "a45": "Waist-up framing of the two visitors is camera framing."
+  },
+  "shot_descriptions": {
+    "Shot1": {
+      "camera_view": {"value": "Medium view.", "evidence": ["in a medium view"]},
+      "camera_movement": {"value": "The camera follows the men leftward as they enter, revealing framed art along the office wall.", "evidence": ["Follow the men leftward", "revealing framed art along the office wall"]},
+      "transition_from_previous": null
+    },
+    "Shot2": {
+      "camera_view": null,
+      "camera_movement": null,
+      "transition_from_previous": {"value": "cut", "evidence_source": "benchmark shot map cut flag (all first-200 flags are cut)"}
+    },
+    "Shot3": {
+      "camera_view": {"value": "A wider view across the Wooden office desk.", "evidence": ["A wider view across the Wooden office desk"]},
+      "camera_movement": {"value": "A gentle leftward reframing reveals the Suited man standing behind the desk.", "evidence": ["A gentle leftward reframing reveals the Suited man standing behind the desk"]},
+      "transition_from_previous": {"value": "cut", "evidence_source": "benchmark shot map cut flag (all first-200 flags are cut)"}
+    },
+    "Shot4": {
+      "camera_view": {"value": "The two visitors are framed from about the waist up against the office's gray paneled doorway.", "evidence": ["framed from about the waist up against the office's gray paneled doorway"]},
+      "camera_movement": null,
+      "transition_from_previous": {"value": "cut", "evidence_source": "benchmark shot map cut flag (all first-200 flags are cut)"}
+    }
+  }
+}

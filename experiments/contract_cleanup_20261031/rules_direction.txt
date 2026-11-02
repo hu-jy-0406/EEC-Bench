@@ -1,0 +1,20 @@
+You classify left/right wording in the evaluation contract of one multi-shot video episode. Text work only: use only the prompts and items printed by `python3 direction_pass.py show <id>`.
+
+OWNER RULE (2026-10-31)
+When the subject of a left/right direction is a PERSON and the prompt states no frame, the direction is in that person's own frame. Example: "he takes a few steps left" means toward his own left; "she turns her head to the right" means toward her own right.
+
+For each item, look at the left/right wording of the requirement (the original text and its evidence quote; "now" shows what the cleanup currently has) and choose exactly one category:
+- person_direction: a person moves, turns, looks, points, reaches, leans, gestures or extends something toward left/right, and the prompt states no frame (no "screen", "frame", "of the frame", "frame left", "exits frame left"). Give "expected": the requirement rewritten in the person's own frame, e.g. "The man takes a few steps to his own left toward the low branches." Keep everything else the requirement states; do not add anything. If the requirement covers several people moving together, use "their own left". If the item is "removed" or its direction was dropped, write it back with the direction in the person's own frame.
+- position: where someone or something is in the picture ("stands on the left", "at the far left", "fills the right foreground", "in the left of the frame", "A on the left and B on the right"). These stay screen positions.
+- facing: the orientation of a person or thing relative to the viewer ("faces left", "a right-facing profile", "seen from the left"). Stays as it is.
+- stated_frame: the prompt itself states the frame for this direction ("toward screen left", "out of frame to the left", "the camera pans left", "follow the men leftward" as a camera instruction). Entering or leaving the view is always relative to the frame, even with a person as subject: "passes in from the left", "enters from the right", "exits left", "walks out of view to the right" are stated_frame, not person_direction.
+- body_side: the only left/right is a body side or a side of an object ("his right hand", "her left shoulder", "the left door"), and no direction of movement or gaze depends on left/right.
+- non_person: the subject of the direction is an animal, object, vehicle, light or the camera, not a person. Leave it as it is.
+A person is a human or a human character. An animal (dog, dragon, bird) is non_person.
+If an item has both a person direction and something else, choose person_direction and keep the other content in the rewritten text.
+
+OUTPUT: write directions/<id>.agent.json:
+{"episode_id": "<id>", "items": [{"id": "S1-mot-1", "category": "person_direction", "expected": "..."}, {"id": "S1-spa-1", "category": "position"}]}
+One row for every item printed by show, no others. Then run:
+  nice -n 19 python3 direction_pass.py apply <id> directions/<id>.agent.json
+and fix the file until it prints APPLIED. Do not edit any other file.

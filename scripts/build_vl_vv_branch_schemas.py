@@ -62,7 +62,7 @@ def review_evidence():
 
 
 CONFIDENCE = ('high', 'medium', 'low')
-QUOTE_SOURCES = ('global_prompt', 'shot_prompt', 'contract', 'shot_transitions')
+QUOTE_SOURCES = ('contract', 'shot_transitions')  # V-L requirement quotes; the prompt is not a checking basis
 
 
 def quote():
@@ -75,7 +75,7 @@ def wrapper(title, protocol, properties):
 
 
 def vv_subcategories(cfg):
-    return list(cfg['v_v_subcategories']['within_shot']) + list(cfg['v_v_subcategories']['cross_shot'])
+    return list(dict.fromkeys(list(cfg['v_v_subcategories']['within_shot']) + list(cfg['v_v_subcategories']['cross_shot'])))
 
 
 def discovery_vl(cfg):
@@ -111,7 +111,7 @@ def discovery_vv(cfg):
                    'observations': array(obj({'shot_id': string(), 'frame_id': {'type': 'integer', 'minimum': 0},
                                               'signature': string()})),
                    'assessment': enum(('consistent', 'inconsistent', 'uncertain')), 'change_ids': array(string())})
-    boundary = obj({'from_shot': string(), 'to_shot': string(), 'required': enum(('cut', 'continue')),
+    boundary = obj({'from_shot': string(), 'to_shot': string(),
                     'last_frame': string(), 'first_frame': string(),
                     'continuity': string(),
                     'change_ids': array(string())})
@@ -134,8 +134,8 @@ def discovery_vv(cfg):
                                             'entity_keys': array(string()), 'observation': string()}), 1),
                  'checklist_items': array(enum(items), 1), 'confidence': enum(CONFIDENCE)})
     return wrapper('VL/VV issue discovery v5, V-V branch (checklist template)', 'vl_vv_issue_discovery_v5_vv',
-                   dict(checklist_audit=array(audit), shot_scan=array(scan), continuity_ledger=array(subject),
-                        boundary_checks=array(boundary), observed_changes=array(change),
+                   dict(shot_scan=array(scan), continuity_ledger=array(subject),
+                        boundary_checks=array(boundary), observed_changes=array(change), checklist_audit=array(audit),
                         entity_register=array(entity), issues=array(issue)))
 
 

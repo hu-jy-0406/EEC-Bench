@@ -16,6 +16,8 @@ import unicodedata
 from functools import lru_cache
 from pathlib import Path
 
+import episode_contract as contract_io
+
 ROOT = Path(__file__).resolve().parents[1]
 CONFIG_PATH = ROOT / 'configs/vl-vv-branch-v1.json'
 DEFINITIONS_PATH = ROOT / 'prompts/vl_vv_branch_definitions_v1.txt'
@@ -62,7 +64,7 @@ def vv_subcategories(scope=None):
     groups = config()['v_v_subcategories']
     if scope is not None:
         return tuple(groups[scope])
-    return tuple(groups['within_shot']) + tuple(groups['cross_shot'])
+    return tuple(dict.fromkeys(tuple(groups['within_shot']) + tuple(groups['cross_shot'])))
 
 
 def checklist_items():
@@ -180,30 +182,30 @@ def text_sources(contract, transitions):
     """Source texts by quote source.  shot_prompt is keyed by shot_id."""
     prompt = contract.get('prompt') or {}
     shots = {row.get('shot_id'): row.get('text', '') for row in prompt.get('shots', []) if isinstance(row, dict)}
-    contract_texts = list(_strings({key: contract.get(key) for key in
-                                    ('entity_descriptions', 'entity_schedule', 'claims', 'prompt')}))
+    # A v2 requirement quote comes from the contract; the prompt is context, not a checking basis (owner, 2026-11-01).
+    keys = (('entity_descriptions', 'shots', 'cross_shot') if contract_io.is_v2(contract)
+            else ('entity_descriptions', 'entity_schedule', 'claims', 'prompt'))
+    contract_texts = list(_strings({key: contract.get(key) for key in keys}))
+    if contract_io.is_v2(contract):
+        contract_texts += contract_io.generated_texts(contract)
     return dict(global_prompt=[prompt.get('global_prompt', '')], shot_prompt=shots, contract=contract_texts,
                 shot_transitions=[transition_text(row) for row in transitions])
 
 
 def quote_errors(quote, sources, where):
-    """Problems of one {source, shot_id, quote} record against the source texts."""
-    source, shot_id, text = quote['source'], quote.get('shot_id'), quote['quote']
-    if source == 'shot_prompt':
-        if shot_id is not None and shot_id not in sources['shot_prompt']:
-            return [f'{where}: quote names unknown shot_id {shot_id!r}']
-        texts = [sources['shot_prompt'][shot_id]] if shot_id is not None else list(sources['shot_prompt'].values())
-    else:
-        texts = sources[source]
-    if quote_found(text, texts):
+    """Problems of one requirement quote: contract text, or the fixed item text of a transition row."""
+    source, text = quote['source'], quote['quote']
+    if quote_found(text, sources[source]):
         return []
-    elsewhere = [name for name in ('global_prompt', 'shot_prompt', 'contract', 'shot_transitions')
-                 if name != source and quote_found(text, sources[name] if name != 'shot_prompt'
-                                                   else list(sources['shot_prompt'].values()))]
-    hint = (f'; the words occur in {elsewhere}: set source accordingly' if elsewhere
-            else '; copy the exact words of the source text (an ellipsis "..." may join two exact fragments)')
-    label = f'{source}' + (f' {shot_id}' if shot_id else '')
-    return [f'{where}: quote {text!r} is not a literal quote of {label}{hint}']
+    other = 'shot_transitions' if source == 'contract' else 'contract'
+    if quote_found(text, sources[other]):
+        hint = f'; the words occur in {other}: set source accordingly'
+    elif quote_found(text, sources['global_prompt']) or quote_found(text, list(sources['shot_prompt'].values())):
+        hint = ('; the words occur only in the original prompt, which is not a checking basis: quote the contract '
+                'text of the violated row')
+    else:
+        hint = '; copy the exact words of the source text (an ellipsis "..." may join two exact fragments)'
+    return [f'{where}: quote {text!r} is not a literal quote of {source}{hint}']
 
 
 def any_text_found(text, sources):
@@ -217,6 +219,12 @@ def any_text_found(text, sources):
 
 def shot_ids(manifest):
     return [shot['shot_id'] for shot in manifest['shots']]
+
+
+def cut_boundaries(manifest):
+    """Every shot boundary is a cut (owner decision 2026-11-01): the requirement of each boundary, in shot order."""
+    shots = shot_ids(manifest)
+    return [dict(from_shot=a, to_shot=b, required='cut') for a, b in zip(shots, shots[1:])]
 
 
 def frame_pairs(manifest):
@@ -246,6 +254,8 @@ def image_order(images):
 
 def schedule_labels_by_shot(contract, manifest):
     """Contract entity labels scheduled in each manifest shot, in entity_descriptions order."""
+    if contract_io.is_v2(contract):
+        return contract_io.presence_by_shot(contract)
     descriptions = contract.get('entity_descriptions') or {}
     label_by_name = {}
     for label, row in descriptions.items():
@@ -271,6 +281,8 @@ def schedule_labels_by_shot(contract, manifest):
 
 def label_kinds(contract):
     """'character' / 'place' / 'object' for each label, from the schedule field it appears in."""
+    if contract_io.is_v2(contract):
+        return contract_io.entity_kinds(contract)
     descriptions = contract.get('entity_descriptions') or {}
     label_by_name = {row['name']: label for label, row in descriptions.items()
                      if isinstance(row, dict) and isinstance(row.get('name'), str)}
@@ -305,6 +317,8 @@ def contract_template(contract, ledger, manifest, transitions):
     are violated.  Grouping by entity keeps the template short enough that the
     agent inspects the frames instead of ticking a long form.
     """
+    if contract_io.is_v2(contract):
+        return contract_template_v2(contract, ledger, manifest, transitions)
     shots = shot_ids(manifest)
     descriptions = contract.get('entity_descriptions') or {}
     prompt_shots = {row.get('shot_id'): row for row in (contract.get('prompt') or {}).get('shots', [])
@@ -368,9 +382,92 @@ def contract_template(contract, ledger, manifest, transitions):
     return rows
 
 
+def contract_template_v2(contract, ledger, manifest, transitions):
+    """The rows of a v2 contract, the only checking basis of the V-L branch (owner, 2026-11-01).
+
+    Entity row: the entity's description and presence item when the shot lists
+    it, its absent item when the shot excludes it, and the shot's single-entity
+    requirements.  Relations row: the shot's requirements on several entities.
+    Camera row and style row: only when the contract sets them.  Transition row:
+    a clear cut at the boundary.  Cross-shot row: one cross_shot requirement,
+    attached to the last shot it names and judged on all the shots it names.
+    """
+    descriptions = contract['entity_descriptions']
+    blocks = {block['shot_id']: block for block in contract['shots']}
+    ledger_ids = ledger_ids_by_label(ledger)
+    present, absent = contract_io.presence_by_shot(contract), contract_io.absent_by_shot(contract)
+    transitions_into = {row['to_shot']: row for row in transitions}
+    order = {label: index for index, label in enumerate(descriptions)}
+    rows = []
+
+    def requirement_item(row, dimension):
+        return dict(item_id=row['id'], kind='requirement', dimension=dimension, predicate=row.get('predicate'),
+                    expected=row['expected'], quantifier=row['quantifier'], coordinate_frame=row.get('coordinate_frame'),
+                    entity_labels=[str(key) for key in row['entities']])
+
+    def list_item(index, tag, label, predicate, expected, quantifier):
+        return dict(item_id=f'S{index}-{tag}-{label}', kind='requirement', dimension='presence', predicate=predicate,
+                    expected=expected, quantifier=quantifier, coordinate_frame='none', entity_labels=[label])
+
+    order_of_shot = {sid: index for index, sid in enumerate(shot_ids(manifest))}
+    for index, sid in enumerate(shot_ids(manifest), 1):
+        block = blocks[sid]
+        items = [requirement_item(row, dimension) for dimension in contract_io.SHOT_REQUIREMENTS for row in block[dimension]]
+        single = [item for item in items if len(item['entity_labels']) == 1]
+        multi = [item for item in items if len(item['entity_labels']) != 1]
+        labels = set(present[sid]) | set(absent[sid]) | {item['entity_labels'][0] for item in single}
+        for label in sorted(labels, key=lambda key: order.get(key, len(order))):
+            entity = descriptions.get(label) or {}
+            name = entity.get('name')
+            row_items = []
+            if label in present[sid]:
+                if entity.get('description'):
+                    row_items.append(dict(item_id='description', kind='entity_description', text=entity['description']))
+                row_items.append(list_item(index, 'pre', label, 'present', contract_io.presence_text(name), 'exists'))
+            if label in absent[sid]:
+                row_items.append(list_item(index, 'abs', label, 'absent', contract_io.absent_text(name), 'throughout'))
+            row_items += [item for item in single if item['entity_labels'][0] == label]
+            rows.append(dict(row_id=f'EN:{label}@{sid}', kind='entity', shot_id=sid, entity_label=label, name=name,
+                             ledger_entity_ids=list(ledger_ids.get(label, [])), items=row_items))
+        if multi:
+            rows.append(dict(row_id=f'RL:{sid}', kind='relations', shot_id=sid, items=multi))
+        description = block['shot_description']
+        camera = [dict(item_id=field, kind='camera', text=description[field])
+                  for field in ('camera_view', 'camera_movement') if description.get(field)]
+        if camera:
+            rows.append(dict(row_id=f'CM:{sid}', kind='camera', shot_id=sid, items=camera))
+        if description.get('style'):
+            rows.append(dict(row_id=f'ST:{sid}', kind='style', shot_id=sid,
+                             items=[dict(item_id='style', kind='style', text=description['style'])]))
+        if sid in transitions_into:
+            boundary = transitions_into[sid]
+            rows.append(dict(row_id=f'TR:{boundary["from_shot"]}->{sid}', kind='transition', shot_id=sid,
+                             from_shot=boundary['from_shot'], required=boundary['required'],
+                             items=[dict(item_id='transition', kind='transition', text=transition_text(boundary))]))
+        for row in contract.get('cross_shot') or []:
+            named = sorted(row['shot_ids'], key=order_of_shot.__getitem__)
+            if named[-1] == sid:
+                rows.append(dict(row_id=f'XS:{row["id"]}', kind='cross_shot', shot_id=sid, shot_ids=named,
+                                 ledger_entity_ids=[gid for key in row['entities'] for gid in ledger_ids.get(str(key), [])],
+                                 items=[requirement_item(row, row['dimension'])]))
+    seen = set()
+    for row in rows:
+        if row['row_id'] in seen:
+            raise ValueError(f'Duplicate contract template row {row["row_id"]}')
+        seen.add(row['row_id'])
+    return rows
+
+
 def row_shots(row):
     """Shots whose frames may decide a template row."""
+    if row['kind'] == 'cross_shot':
+        return set(row['shot_ids'])
     return {row['shot_id'], row['from_shot']} if row['kind'] == 'transition' else {row['shot_id']}
+
+
+def row_occurrence_shots(row):
+    """Shots in which an issue occurrence may cite a template row."""
+    return set(row['shot_ids']) if row['kind'] == 'cross_shot' else {row['shot_id']}
 
 
 # --------------------------------------------------------------------------
@@ -378,13 +475,21 @@ def row_shots(row):
 # --------------------------------------------------------------------------
 
 def ledger_rows(ledger):
-    return {row['global_entity_id']: row for part in ('prompt_bound', 'prompt_unbound') for row in ledger.get(part, [])}
+    """{global_entity_id: row}; the list a row is in gives its partition (the v2 ledger has no partition field)."""
+    return {row['global_entity_id']: dict(row, partition=part) for part in ('prompt_bound', 'prompt_unbound') for row in ledger.get(part, [])}
+
+
+def occurrence_frame_ids(occurrence):
+    """Keyframes with a box: v2 ledger `boxes`, v1 ledger `observed_frame_ids`."""
+    if 'boxes' in occurrence:
+        return [box['frame_id'] for box in occurrence['boxes']]
+    return list(occurrence.get('observed_frame_ids') or [])
 
 
 def ledger_entity(row):
     return dict(entity_key=row['global_entity_id'], global_entity_id=row['global_entity_id'],
                 source='detection_ledger', name=row.get('name') or row['global_entity_id'],
-                description=row.get('short_description') or '', partition=row.get('partition'),
+                description=row.get('description') or row.get('short_description') or '', partition=row.get('partition'),
                 prompt_entity_id=row.get('prompt_entity_id'), frame_refs=[], provenance=None, basis_type=None,
                 contract_label=None, quote=None, part_of=None, note='')
 
@@ -396,6 +501,11 @@ def place_entity_ids(contract, ledger):
 
 
 ELEMENT_SUBCATEGORIES = ('setting_background', 'background_drift')
+
+
+def model_contract(contract):
+    """A deep copy of the contract as the model receives it (a v2 contract without the prompt it carries in memory)."""
+    return copy.deepcopy(contract_io.model_contract(contract))
 
 
 def required_shot_characters(contract, ledger, manifest):

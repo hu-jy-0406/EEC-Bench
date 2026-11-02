@@ -104,8 +104,8 @@ class Guards(unittest.TestCase):
             (case / 'run.json').write_text(json.dumps(dict(protocol='vl_vv_detection_v1', status='complete')))
             (case / 'episode_entities.json').write_text(json.dumps(dict(protocol='vl_vv_detection_v1', status='matched')))
             with self.assertRaisesRegex(ValueError, 'nominal 5 s grid'):
-                pipeline.build_plan(case, root / 'run', 'from-registry')
-            plan = pipeline.build_plan(case, root / 'run', 'from-registry', allow_legacy_keyframes=True)
+                pipeline.build_plan(case, root / 'run', 'from-registry', allow_v1_contract=True)
+            plan = pipeline.build_plan(case, root / 'run', 'from-registry', allow_legacy_keyframes=True, allow_v1_contract=True)
             self.assertIn('--allow-legacy-nominal-keyframes', plan['stages'][0]['command'])
             self.assertIn('--allow-legacy-nominal-keyframes', plan['stages'][1]['command'])
 

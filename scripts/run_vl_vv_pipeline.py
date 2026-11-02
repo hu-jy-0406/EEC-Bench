@@ -11,6 +11,10 @@ the V-L branch (vl_detection -> vl_review) and the V-V branch (vv_detection ->
 vv_review) run concurrently as two independent chains; episode_scoring waits
 for both and scores V-L, V-V within/cross and the unintentional-entity subset
 separately.  Older single-list chains (discovery v1-v4) stay selectable.
+
+Contracts: the default chain reads contract v2 (case contract.json plus
+prompt.json); --allow-v1-contract lets it read a frozen v1 case, and discovery
+v1-v4 read only v1 contracts.
 """
 import argparse
 import hashlib
@@ -26,13 +30,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / 'scripts'
 sys.path.insert(0, str(SCRIPTS))
+import episode_contract as contract_io  # noqa: E402
 import episode_shot_segments as shot_segments  # noqa: E402
 API = SCRIPTS / 'openai_api_env.sh'
 DETECTION = SCRIPTS / 'run_vl_vv_detection.py'
 # Model transport shared by every stage; hashed so a run records the image
 # labelling code it used (shot/frame labels before each image, default on).
 TRANSPORT = (SCRIPTS / 'eec_api_codex_shim.py', SCRIPTS / 'gs_prompt_binding.py',
-             SCRIPTS / 'run_wedetect_shot_entities.py')
+             SCRIPTS / 'run_wedetect_shot_entities.py', SCRIPTS / 'episode_contract.py')
 DISCOVERY = SCRIPTS / 'run_vl_vv_issue_discovery.py'
 REVIEW = SCRIPTS / 'run_vl_vv_issue_review.py'
 SCORING = SCRIPTS / 'run_vl_vv_episode_scoring.py'
@@ -157,7 +162,8 @@ def sha(path):
     return digest.hexdigest()
 
 
-def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=False):
+def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=False,
+                  discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_v1_contract=False):
     case, output = Path(case).resolve(), Path(output).resolve()
     if not case.is_dir():
         raise ValueError(f'Prepared case is missing: {case}')
@@ -171,6 +177,11 @@ def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=Fals
     state = read(case / 'run.json')
     if state.get('protocol') != 'vl_vv_detection_v1':
         raise ValueError('Case is not a VL/VV detection case')
+    contract = contract_io.load_case_contract(case)
+    if discovery_protocol == BRANCH_PROTOCOL:
+        contract_io.require_v2(contract, allow_v1_contract, str(case))
+    else:
+        contract_io.require_v1(contract, str(case))
     manifest = read(case / 'raw_manifest.json')
     shot_segments.require_record_segmentation(manifest, allow_legacy_keyframes, where=str(case))
     shots = manifest.get('shots')
@@ -207,9 +218,11 @@ def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=Fals
 def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                python=sys.executable, gpu_python=sys.executable,
                discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_legacy_keyframes=False,
-               review_protocol=None):
-    case, output, shots, frames = validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes)
+               review_protocol=None, allow_v1_contract=False):
+    case, output, shots, frames = validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes,
+                                                discovery_protocol, allow_v1_contract)
     legacy = ['--allow-legacy-nominal-keyframes'] if allow_legacy_keyframes else []
+    branch_flags = legacy + (['--allow-v1-contract'] if allow_v1_contract else [])
     if discovery_protocol not in DISCOVERY_PROTOCOLS:
         raise ValueError(f'Unknown discovery protocol {discovery_protocol!r}')
     review_protocol = resolve_review_protocol(discovery_protocol, review_protocol)
@@ -237,12 +250,12 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
         for branch in ('vl', 'vv'):
             stages.append((f'{branch}_detection', api + [
                 str(BRANCH_DETECTION), '--branch', branch, '--case', str(case),
-                '--output', str(output / f'{branch}_detection')] + legacy))
+                '--output', str(output / f'{branch}_detection')] + branch_flags))
         for branch in ('vl', 'vv'):
             stages.append((f'{branch}_review', api + [
                 str(BRANCH_REVIEW), '--branch', branch, '--case', str(case),
                 '--detection', str(output / f'{branch}_detection/result.json'),
-                '--output', str(output / f'{branch}_review')] + legacy))
+                '--output', str(output / f'{branch}_review')] + branch_flags))
         stages.append(('episode_scoring', api + [
             str(BRANCH_SCORING), '--vl-review', str(output / 'vl_review/result.json'),
             '--vv-review', str(output / 'vv_review/result.json'), '--output', str(scoring_out)]))
@@ -270,7 +283,7 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                 python=py, gpu_python=gpu_py,
                 shot_count=shots, keyframe_count=frames, model='gpt-6-luna', reasoning='low',
                 discovery_protocol=discovery_protocol, review_protocol=review_protocol,
-                allow_legacy_nominal_keyframes=allow_legacy_keyframes,
+                allow_legacy_nominal_keyframes=allow_legacy_keyframes, allow_v1_contract=allow_v1_contract,
                 discovery_prompt=shown(files['discovery_prompt']), review_prompt=shown(files['review_prompt']),
                 scoring_skill=shown(files['scoring_prompt']), scoring_protocol=files['scoring_protocol'],
                 stages=[dict(name=name, command=command, branch=STAGE_BRANCH.get(name))
@@ -337,6 +350,8 @@ def execute(plan):
                     DETECTION, *TRANSPORT, Path(__file__).resolve()]
     if plan['mode'] == 'from-registry':
         source_paths.append(case / 'episode_entities.json')
+    if (case / contract_io.PROMPT_FILE).is_file():
+        source_paths.append(case / contract_io.PROMPT_FILE)
     source_hashes = {str(path): sha(path) for path in source_paths}
     # Owner rule (2026-10-21): every evaluation sends shot/frame image labels.
     labels = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
@@ -451,13 +466,15 @@ def main():
     parser.add_argument('--allow-unlabeled-images', action='store_true',
                         help='Accept EECBENCH_IMAGE_LABELS=off (attached keyframes without shot/frame labels); '
                              'only to reproduce historical results')
+    parser.add_argument('--allow-v1-contract', action='store_true',
+                        help='Let the default chain read a case with a v1 contract; only to reproduce historical results')
     parser.add_argument('--dry-run', action='store_true', help='Validate inputs and print commands only')
     args = parser.parse_args()
     plan = build_plan(args.case, args.output, args.mode, args.gpu, args.gpu_uuid,
                       args.shot_workers, gpu_python=args.gpu_python,
                       discovery_protocol=args.discovery_protocol,
                       allow_legacy_keyframes=args.allow_legacy_nominal_keyframes,
-                      review_protocol=args.review_protocol)
+                      review_protocol=args.review_protocol, allow_v1_contract=args.allow_v1_contract)
     plan['allow_unlabeled_images'] = args.allow_unlabeled_images
     if args.dry_run:
         print(json.dumps(plan, ensure_ascii=False, indent=2))

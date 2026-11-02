@@ -1,0 +1,1781 @@
+{
+ "rule": "Style decisions, confirmed by reading every keyword candidate (style_candidates.jsonl).\n\nKey: 0-based position in the generation queue. Shot values come from that shot's prompt; '*' comes from the\nglobal prompt and applies to every shot without a value of its own. An entry is a quote (the value is the\nquote), or (value, quote), or (value, [quotes]). The value uses the prompt's own words.\n\nCounted as style: a statement about the video or the rendered scene (a shot, view, room, world, image).\nNot counted: one entity or prop (a \"cartoon man\", \"stylized skin\"), a picture inside the scene (a television,\nan arcade screen), expressions (\"animated face\"), clothing, and plain colour grades or lighting (\"muted colors\").",
+ "episodes": {
+  "6kwhPKkHFpA_s00007_n4_clean_v2": {
+   "Shot1": {
+    "value": "painterly animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painterly animated bedroom scene"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "same painterly bedroom"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "painterly wall texture"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "saturated painterly animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "saturated painterly animation"
+     }
+    ]
+   }
+  },
+  "KFuxHDKp2oc_s00012_n6_clean_v2": {
+   "Shot1": {
+    "value": "live-action",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "live-action scene"
+     }
+    ]
+   }
+  },
+  "8iDEmCxXz-A_s00025_n6_clean_v2": {
+   "Shot1": {
+    "value": "miniature puppet",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "miniature puppet shot"
+     }
+    ]
+   }
+  },
+  "pbmshOY3wts_s00000_n4_clean_v2": {
+   "Shot1": {
+    "value": "colorful stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "colorful stylized 3D animation"
+     }
+    ]
+   }
+  },
+  "ChxbeG5Rq28_s00009_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D outdoor scene"
+     }
+    ]
+   }
+  },
+  "q86dRIci1Uo_s00073_n6_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated shot"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "animated landscape"
+     }
+    ]
+   }
+  },
+  "CaCbRRxuaFU_s00028_n4_clean_v2": {
+   "Shot1": {
+    "value": "painterly 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painterly 3D animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "same painterly woodland"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "same painterly woodland clearing"
+     }
+    ]
+   }
+  },
+  "gX0HO55lskY_s00177_n4_clean_v2": {
+   "Shot1": {
+    "value": "hand-drawn cel-animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "hand-drawn cel-animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "hand-drawn animation"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "hand-drawn animation"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "hand-drawn animation"
+     }
+    ]
+   }
+  },
+  "tSF778Mi9sA_s00021_n4_clean_v2": {
+   "Shot1": {
+    "value": "dim, nearly monochrome 3D-rendered",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "dim, nearly monochrome 3D-rendered rocky plain"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "muted gray rendered style",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "muted gray rendered style"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "subdued monochrome 3D rendering",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "subdued monochrome 3D rendering"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "dim, nearly monochrome rendered appearance",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "dim, nearly monochrome rendered appearance"
+     }
+    ]
+   }
+  },
+  "_RWbXkm4JQY_s00261_n6_clean_v2": {
+   "Shot1": {
+    "value": "vivid, rounded 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "vivid, rounded 3D animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "glossy, rounded 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "glossy, rounded 3D animation"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "saturated 3D cartoon look",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "saturated 3D cartoon look"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "eI9JkmulqkE_s00164_n8_clean_v3_alt8": {
+   "Shot1": {
+    "value": "stylized animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized animated close-up"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot7": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot8": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "KDFdX20yFP0_s00118_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   }
+  },
+  "83yqxdMA4A4_s00037_n4_clean_v2": {
+   "Shot1": {
+    "value": "detailed, rounded 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "detailed, rounded 3D animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "sepia-toned animated",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "sepia-toned animated street"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated, sepia-toned",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     },
+     {
+      "fact_id": "Shot3",
+      "quote": "sepia-toned street exchange"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "warm full-color 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "warm full-color 3D animation"
+     }
+    ]
+   }
+  },
+  "oiikIyodOAk_s00034_n6_clean_v2": {
+   "Shot1": {
+    "value": "cool, grainy monochrome",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "cool, grainy monochrome"
+     }
+    ]
+   }
+  },
+  "A-Ckh0slywY_s00026_n8_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   },
+   "Shot7": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "Shot7",
+      "quote": "animated shot"
+     }
+    ]
+   }
+  },
+  "CaCbRRxuaFU_s00002_n6_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated detail"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   }
+  },
+  "tSF778Mi9sA_s00012_n4_clean_v2": {
+   "Shot1": {
+    "value": "dim, nearly monochrome CG",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "dim, nearly monochrome CG mountain ridge"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "dim, desaturated CG appearance",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "dim, desaturated CG appearance"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "subdued monochrome CG",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "subdued monochrome CG lighting"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "subdued, nearly monochrome CG",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "subdued, nearly monochrome CG shading"
+     }
+    ]
+   }
+  },
+  "HFAGAjkDaOU_s00062_n4_clean_v2": {
+   "Shot1": {
+    "value": "hand-drawn animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "hand-drawn animated scene"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "ZQ0JJpvMq-g_s00002_n4_clean_v2": {
+   "Shot1": {
+    "value": "subdued vintage color-film texture",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "subdued vintage color-film texture"
+     }
+    ]
+   }
+  },
+  "A-Ckh0slywY_s00012_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated rooftop"
+     }
+    ]
+   }
+  },
+  "OlyrK1ykHZI_s00069_n6_clean_v2": {
+   "Shot1": {
+    "value": "monochrome, letterboxed",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "monochrome, letterboxed close view"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "monochrome, letterboxed",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "monochrome, letterboxed living room"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "monochrome, letterboxed",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "monochrome, letterboxed close view"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "monochrome, letterboxed",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "monochrome, letterboxed medium close view"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "monochrome, letterboxed",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "monochrome, letterboxed living-room view"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "monochrome with letterboxing",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "monochrome with letterboxing"
+     }
+    ]
+   }
+  },
+  "eI9JkmulqkE_s00234_n4_clean_v2": {
+   "Shot1": {
+    "value": "softly textured animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "softly textured animation"
+     }
+    ]
+   }
+  },
+  "jhQ75OV4VRs_s00284_n4_clean_v2": {
+   "Shot1": {
+    "value": "grainy ochre and brown washes",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "rendered in grainy ochre and brown washes"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "warm, grainy ochre illustration",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "warm, grainy ochre illustration"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "golden illustrated style",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "golden illustrated style"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "warm, grainy painted",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "warm, grainy painted close-up"
+     }
+    ]
+   }
+  },
+  "8gGPt8Eg5lw_s00000_n4_clean_v2": {
+   "Shot1": {
+    "value": "black-and-white film",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "black-and-white film shot"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "same black-and-white landing"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "same black-and-white wood-paneled landing"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "black and white",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "black and white"
+     }
+    ]
+   }
+  },
+  "pbmshOY3wts_s00083_n6_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "stylized 3D shot"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "same stylized 3D world"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "sunny stylized 3D exterior"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "stylized 3D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "stylized 3D animation"
+     }
+    ]
+   }
+  },
+  "_lpIHzRR1xY_s00050_n6_clean_v2": {
+   "Shot1": {
+    "value": "animated fantasy",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "animated fantasy shot"
+     }
+    ]
+   }
+  },
+  "mu-YLZpB6is_s00061_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated turquoise ice passage"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "NjLInOpXWUE_s00097_n4_clean_v2": {
+   "Shot1": {
+    "value": "painterly 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painterly 2D animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "painterly animated style",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "painterly animated style"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "painterly 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "painterly 2D animation"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "painterly animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "painterly animation"
+     }
+    ]
+   }
+  },
+  "HFAGAjkDaOU_s00216_n4_clean_v2": {
+   "Shot1": {
+    "value": "Hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "Hand-drawn animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "-WqkEr5IY0k_s00030_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated forest"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "dark animated woodland"
+     }
+    ]
+   }
+  },
+  "sH83VYSumZM_s00010_n4_clean_v2": {
+   "Shot1": {
+    "value": "cinematic CGI",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "cinematic CGI view"
+     }
+    ]
+   }
+  },
+  "jhQ75OV4VRs_s00623_n6_clean_v2": {
+   "Shot1": {
+    "value": "softly textured watercolor animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "softly textured watercolor animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "yellow-ochre watercolor style",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "yellow-ochre watercolor style"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "grainy yellow watercolor",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "grainy yellow watercolor sky"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "yellow-ochre watercolor",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "yellow-ochre watercolor room"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "warm watercolor",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "warm watercolor dining room"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "blue-green watercolor",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "blue-green watercolor view"
+     }
+    ]
+   }
+  },
+  "OlyrK1ykHZI_s00035_n8_clean_v2": {
+   "Shot1": {
+    "value": "letterboxed black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "letterboxed black-and-white interior shot"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "black-and-white room"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "letterboxed monochrome",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "letterboxed monochrome close-up"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "black and white",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "black and white"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "letterboxed black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "letterboxed black-and-white wide view"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "monochrome",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome appearance"
+     }
+    ]
+   },
+   "Shot7": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot7",
+      "quote": "black-and-white view"
+     }
+    ]
+   },
+   "Shot8": {
+    "value": "letterboxed black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot8",
+      "quote": "letterboxed black-and-white urban pavement"
+     }
+    ]
+   }
+  },
+  "DzaG3KKa5wU_s00110_n6_clean_v2": {
+   "Shot4": {
+    "value": "subdued letterboxed visual style",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "subdued letterboxed visual style"
+     }
+    ]
+   }
+  },
+  "ChxbeG5Rq28_s00065_n6_clean_v2": {
+   "Shot1": {
+    "value": "polished 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "polished 3D animated seaside scene"
+     }
+    ]
+   }
+  },
+  "A-Ckh0slywY_s00053_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated rooftop shot"
+     }
+    ]
+   }
+  },
+  "CaCbRRxuaFU_s00017_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D close-up"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "stylized 3D rendering",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "stylized 3D rendering"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "stylized 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "same stylized 3D appearance"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "stylized 3D rendering",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "stylized 3D rendering"
+     }
+    ]
+   }
+  },
+  "-WqkEr5IY0k_s00011_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated forest camp"
+     }
+    ]
+   }
+  },
+  "aO52131RTWU_s00011_n4_clean_v2": {
+   "Shot1": {
+    "value": "painted 2D",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painted 2D woodland shot"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated, with muted woodland colors and painted backgrounds",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     },
+     {
+      "fact_id": "global",
+      "quote": "muted woodland colors and painted backgrounds"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "hand-drawn, with soft painted forest textures and muted colors",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "hand-drawn woodland shot"
+     },
+     {
+      "fact_id": "Shot3",
+      "quote": "soft painted forest textures and muted colors"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "softly painted",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "softly painted forest clearing"
+     }
+    ]
+   }
+  },
+  "o-IH1p7Hjvo_s00011_n6_clean_v2": {
+   "Shot1": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "Black-and-white daylight"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "black-and-white close-up"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "black-and-white wide view"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "black and white",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "black and white"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "black-and-white vehicle interior"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "black-and-white exterior"
+     }
+    ]
+   }
+  },
+  "IdrDX0pGPsM_s00024_n4_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated shot"
+     }
+    ]
+   }
+  },
+  "sH83VYSumZM_s00000_n6_clean_v2": {
+   "Shot1": {
+    "value": "CGI",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "sunlit CGI desert"
+     }
+    ]
+   }
+  },
+  "_RWbXkm4JQY_s00112_n4_clean_v2": {
+   "Shot1": {
+    "value": "pastel 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "pastel 3D animated room"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "rounded, tactile 3D animation style",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "rounded, tactile 3D animation style"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "soft, rounded 3D style",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "soft, rounded 3D style"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "rounded 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "rounded 3D animated finish"
+     }
+    ]
+   }
+  },
+  "gX0HO55lskY_s00028_n4_clean_v2": {
+   "Shot1": {
+    "value": "hand-drawn 2D animation with textured painted backgrounds",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "hand-drawn 2D animation with textured painted backgrounds"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "hand-drawn animated",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "hand-drawn animated view"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "hand-drawn animation"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "hand-drawn animation"
+     }
+    ]
+   }
+  },
+  "sH83VYSumZM_s00015_n4_clean_v2": {
+   "Shot1": {
+    "value": "cinematic animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "cinematic animated desert wreckage scene"
+     }
+    ]
+   }
+  },
+  "mu-YLZpB6is_s00070_n6_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated cyan ice chute"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "stylized animated",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "stylized animated cavern"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  },
+  "jhQ75OV4VRs_s00366_n4_clean_v2": {
+   "Shot1": {
+    "value": "grainy hand-painted animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "grainy hand-painted animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "rough painted-paper animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "rough painted-paper animation texture"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "textured hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "textured hand-drawn animation"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "rough painted-paper animation",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "rough painted-paper animation"
+     }
+    ]
+   }
+  },
+  "tcduQ2ayoTA_s00071_n6_clean_v2": {
+   "Shot1": {
+    "value": "shaded 2D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "shaded 2D animated side-profile shot"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "shaded 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "shaded 2D animation"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "shaded 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "shaded 2D animation"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "shaded 2D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "shaded 2D animated medium view"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "shaded 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot5",
+      "quote": "shaded 2D animation"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "shaded 2D animation",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "shaded 2D animation"
+     }
+    ]
+   }
+  },
+  "OlyrK1ykHZI_s00049_n4_clean_v2": {
+   "Shot1": {
+    "value": "letterboxed black-and-white",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "letterboxed black-and-white interior shot"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "letterboxed black and white",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "letterboxed black and white"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "letterboxed monochrome",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "letterboxed monochrome appearance"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "letterboxed black and white",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "letterboxed black and white"
+     }
+    ]
+   }
+  },
+  "gX0HO55lskY_s00036_n4_clean_v2": {
+   "Shot1": {
+    "value": "hand-drawn cel-animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "hand-drawn cel-animation scene"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "hand-drawn animation",
+    "quotes": [
+     {
+      "fact_id": "Shot3",
+      "quote": "hand-drawn animation style"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "hand-drawn",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "hand-drawn nighttime group scene"
+     }
+    ]
+   }
+  },
+  "tSF778Mi9sA_s00025_n8_clean_v2": {
+   "Shot1": {
+    "value": "dim monochrome, sculptural 3D",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "dim monochrome, sculptural 3D landscape"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot5": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot7": {
+    "value": "monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "monochrome sculptural landscape"
+     }
+    ]
+   },
+   "Shot8": {
+    "value": "stark monochrome sculptural",
+    "quotes": [
+     {
+      "fact_id": "Shot8",
+      "quote": "stark monochrome sculptural appearance"
+     }
+    ]
+   }
+  },
+  "6kwhPKkHFpA_s00031_n6_clean_v2": {
+   "Shot1": {
+    "value": "painterly animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painterly animated interior"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "softly painted",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "softly painted room"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot4",
+      "quote": "painterly interior"
+     }
+    ]
+   },
+   "Shot6": {
+    "value": "painterly",
+    "quotes": [
+     {
+      "fact_id": "Shot6",
+      "quote": "bright painterly interior"
+     }
+    ]
+   }
+  },
+  "lxY_aLZg-es_s00023_n6_clean_v2": {
+   "Shot1": {
+    "value": "stylized 3D animated",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "stylized 3D animated waterfront"
+     }
+    ]
+   }
+  },
+  "_lpIHzRR1xY_s00002_n4_clean_v2": {
+   "Shot1": {
+    "value": "painted backgrounds and outlined animation",
+    "quotes": [
+     {
+      "fact_id": "Shot1",
+      "quote": "painted backgrounds and outlined animation"
+     }
+    ]
+   },
+   "Shot2": {
+    "value": "outlined animation",
+    "quotes": [
+     {
+      "fact_id": "Shot2",
+      "quote": "outlined animation"
+     }
+    ]
+   },
+   "Shot3": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   },
+   "Shot4": {
+    "value": "animated",
+    "quotes": [
+     {
+      "fact_id": "global",
+      "quote": "animated shots"
+     }
+    ]
+   }
+  }
+ },
+ "not_filled": [
+  {
+   "index": 118,
+   "shot": "Shot1",
+   "text": "A letterboxed nighttime exterior with cool, muted colors.",
+   "reason": "letterbox and colour grade only",
+   "episode_id": "pp5vs_dzZaI_s00007_n4_clean_v2"
+  },
+  {
+   "index": 259,
+   "shot": "Shot1",
+   "text": "the image cool, dim, and slightly grainy",
+   "reason": "image grade, not a stated style",
+   "episode_id": "pp5vs_dzZaI_s00003_n4_clean_v2"
+  },
+  {
+   "index": 41,
+   "shot": "Shot2",
+   "text": "detailed stylized skin and gray hair",
+   "reason": "one entity",
+   "episode_id": "ChxbeG5Rq28_s00009_n4_clean_v2"
+  },
+  {
+   "index": 21,
+   "shot": "Shot2",
+   "text": "a brown-skinned cartoon man",
+   "reason": "one entity",
+   "episode_id": "pbmshOY3wts_s00000_n4_clean_v2"
+  },
+  {
+   "index": 277,
+   "shot": "Shot2",
+   "text": "an older, light-skinned animated man",
+   "reason": "one entity",
+   "episode_id": "ChxbeG5Rq28_s00065_n6_clean_v2"
+  },
+  {
+   "index": 127,
+   "shot": "Shot1",
+   "text": "a colorful pixel-art graveyard",
+   "reason": "a game seen on an arcade screen inside the scene",
+   "episode_id": "jS4vMlzOaTI_s00025_n8_clean_v3_alt8"
+  },
+  {
+   "index": 200,
+   "shot": "Shot1",
+   "text": "curved-screen television's cool monochrome picture",
+   "reason": "a television picture inside the scene",
+   "episode_id": "oiikIyodOAk_s00027_n4_clean_v2"
+  },
+  {
+   "index": 112,
+   "shot": "global",
+   "text": "the miniature setting",
+   "reason": "a set, not a stated render style",
+   "episode_id": "8iDEmCxXz-A_s00032_n4_clean_v2"
+  },
+  {
+   "index": 189,
+   "shot": "Shot1",
+   "text": "muted teal-green cinematic palette",
+   "reason": "colour grade",
+   "episode_id": "gS1V3pn2ShI_s00006_n4_clean_v2"
+  },
+  {
+   "index": 385,
+   "shot": "Shot1",
+   "text": "Use cold, desaturated light",
+   "reason": "lighting",
+   "episode_id": "5eIMafROjyo_s00319_n4_clean_v2"
+  }
+ ]
+}

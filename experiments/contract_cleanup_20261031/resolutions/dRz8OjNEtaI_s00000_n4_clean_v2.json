@@ -1,0 +1,57 @@
+{
+ "episode_id": "dRz8OjNEtaI_s00000_n4_clean_v2",
+ "drop_ops": [
+  0,
+  1
+ ],
+ "identity_replace": {
+  "2": {
+   "occurrences": [
+    {
+     "entity": 2,
+     "shots": [
+      "Shot2"
+     ]
+    },
+    {
+     "entity": 0,
+     "shots": [
+      "Shot1",
+      "Shot3",
+      "Shot4"
+     ]
+    }
+   ],
+   "decision": "same",
+   "basis": "Main-session ruling: a two-person story: the dark-clothed foreground figure passing in from the left in Shot2 is the man, who then sits beside her on the left in Shot3."
+  }
+ },
+ "add_ops": [
+  {
+   "op": "merge_entities",
+   "into": 0,
+   "merge": [
+    2
+   ],
+   "description": "An adult man with light skin, disheveled neck-length black hair, an angular face, and loose black clothing.",
+   "reason": "Main-session ruling: adopting review I2: the Shot2 foreground figure is the dark-haired man."
+  }
+ ],
+ "rulings": [
+  {
+   "ref": "I2",
+   "decision": "adopt_review",
+   "basis": "Main-session ruling: only two people take part; the dark-clothed figure entering from the left in Shot2 is the man who sits beside her in Shot3."
+  },
+  {
+   "ref": "O0",
+   "decision": "adopt_review",
+   "basis": "Main-session ruling: the same shot states a right-facing profile, and the prompt marks a character's own side with possessives, so 'toward the right' is screen right."
+  },
+  {
+   "ref": "O1",
+   "decision": "adopt_review",
+   "basis": "Main-session ruling: the figure passes in from the left in the same shot and own sides are marked with possessives, so 'toward the left' is screen left."
+  }
+ ]
+}

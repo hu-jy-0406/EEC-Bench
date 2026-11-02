@@ -7,6 +7,13 @@ The executable stages are deliberately restartable and append-only:
 `detect` runs WeDetect-Anything once per keyframe, isolated per-shot Luna-low
 clustering, then shot-level binding plus one targeted Grounding-DINO recovery.
 It never retries WeDetect-Anything during recovery.
+
+`match` builds the episode ledger. Matching v2 (default, owner decision
+2026-11-01): specified entities stay linked by contract ID; every unbound
+occurrence is merged with others into one unspecified entity, kept alone, or
+merged into a specified entity, by the most likely reading of the episode
+(prompt text, shot settings, relations to anchor entities, keyframes with
+drawn boxes). `--matching-protocol v1` keeps the historical visual matcher.
 """
 import argparse
 import copy
@@ -28,12 +35,16 @@ import gs_prompt_binding as transport
 import vl_vv_repair_loop as repair_loop
 import run_vl_vv_issue_discovery as issue_discovery
 import episode_shot_segments as shot_segments
+import episode_contract as contract_io
 from gs_consistency_contract import arr, enum, obj, S
 
 MODEL = 'gpt-6-luna'
 REASONING = 'low'
 PROTOCOL = 'vl_vv_detection_v1'
 EPISODE_SCHEMA = ROOT / 'schemas/vl-vv-episode-entities-v1.schema.json'
+# Simplified ledger written by matching v2 (2026-11-01); matching v1 keeps the v1 ledger.
+LEDGER_V2 = 'vl_vv_entity_ledger_v2'
+EPISODE_SCHEMA_V2 = ROOT / 'schemas/vl-vv-episode-entities-v2.schema.json'
 
 
 def read(path):
@@ -66,8 +77,10 @@ def normalize_contract(contract, shots):
     cross-shot instance identifiers (for example Character 2). A display name
     must resolve to exactly one such identifier. Failing fast is intentional:
     inventing a name-derived ID loses the contract identity semantics before
-    cross-shot matching begins.
+    cross-shot matching begins.  A v2 contract keys entities by ID directly.
     """
+    if contract_io.is_v2(contract):
+        return contract_io.prompt_registry(contract, shots)
     schedule = contract.get('entity_schedule')
     if not isinstance(schedule, dict) or not schedule:
         raise ValueError('contract.json requires a nonempty entity_schedule object')
@@ -184,7 +197,8 @@ def extract_six(video_index, frames_out, manifest_out):
     dump(manifest_out,dict(shots=shots, keyframe_policy='six uniform timestamps from clip start through a decoder-safe point before the container end'))
 
 
-def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False):
+def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False, prompt_path=None, allow_v1_contract=False):
+    """Freeze a case. A v2 contract (with evidence, or without it plus prompt_path) is stored model-facing with prompt.json."""
     manifest_path, contract_path, case = map(lambda p: Path(p).resolve(), (manifest_path, contract_path, case))
     if case.exists(): raise FileExistsError('Use a fresh case directory')
     raw = read(manifest_path); shots = raw.get('shots')
@@ -197,13 +211,24 @@ def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False):
         for frame in shot['frames']:
             p=Path(frame['path'])
             if not p.is_file() or sha(p) != frame['sha256']: raise ValueError(f'Frame hash mismatch: {p}')
-    contract=read(contract_path); registry=normalize_contract(contract, shots)
+    contract=read(contract_path); hashed=[manifest_path,contract_path]
+    contract_io.require_v2(contract,allow_v1_contract,str(contract_path))
+    prompt=None
+    if contract_io.is_v2(contract):
+        contract,prompt=contract_io.split_v2(contract,read(prompt_path) if prompt_path else None)
+        contract_io.validate_v2(contract,prompt,[s['shot_id'] for s in shots])
+        if raw.get('episode_id') not in (None,contract['episode_id']): raise ValueError(f"Contract episode {contract['episode_id']} differs from manifest {raw['episode_id']}")
+        if prompt_path: hashed.append(Path(prompt_path).resolve())
+    registry=normalize_contract(contract, shots)
     case.mkdir(parents=True)
-    shutil.copy2(manifest_path,case/'raw_manifest.json'); shutil.copy2(contract_path,case/'contract.json')
+    shutil.copy2(manifest_path,case/'raw_manifest.json')
+    if prompt is None: shutil.copy2(contract_path,case/'contract.json')
+    else: dump(case/'contract.json',contract);dump(case/contract_io.PROMPT_FILE,prompt)
     dump(case/'prompt_registry.json',registry)
     dump(case/'narrative.json',dict(facts=[dict(fact_id=s['shot_id'],shot_id=s['shot_id'],text='; '.join(e['name'] for e in registry['entities'] if next(x for x in e['schedule'] if x['shot_id']==s['shot_id'])['expectation']=='required') or '(no scheduled entities)') for s in shots]))
     dump(case/'run.json',dict(protocol=PROTOCOL,status='prepared',model=MODEL,reasoning=REASONING,started=time.time(),
-        source_hashes={str(manifest_path):sha(manifest_path),str(contract_path):sha(contract_path),str(Path(__file__).resolve()):sha(__file__)}))
+        contract_format='v2' if prompt is not None else 'v1',
+        source_hashes={**{str(path):sha(path) for path in hashed},str(Path(__file__).resolve()):sha(__file__)}))
 
 
 def detect(case, gpu, gpu_uuid, shot_workers, device='cuda'):
@@ -556,7 +581,14 @@ def response_id(folder):
     raise ValueError('API response ID unavailable; cannot continue the same Luna conversation')
 
 
-def match(case):
+def match(case, protocol=None):
+    protocol = protocol or DEFAULT_MATCHING_PROTOCOL
+    if protocol not in MATCHING_PROTOCOLS:
+        raise ValueError(f'Unknown matching protocol {protocol!r}')
+    return match_v2(case) if protocol == 'v2' else match_v1(case)
+
+
+def match_v1(case):
     require_api(); case=Path(case).resolve();shots,registry,local=local_rows(case);out=case/'global_match'
     payload=dict(protocol=PROTOCOL,shot_order=[s['shot_id'] for s in shots],schedule=registry['entities'],local_entities=local)
     images=[dict(frame,shot_id=shot['shot_id']) for shot in shots for frame in shot['frames']]
@@ -586,7 +618,248 @@ def match(case):
     dump(out/'semantic_normalization.json',dict(protocol='vl_vv_global_match_normalization_v1',count=len(normalizations),changes=normalizations))
     dump(out/'exact_once_audit.json',dict(status='passed',repair_protocol=repair['protocol'],repair_attempts=attempt,final_response_id=prior,attempts=audit,usage=usage,semantic_normalizations=normalizations))
     validate_groups(raw,local);dump(out/'result.json',raw);build_episode_entities(case,raw)
-    state=read(case/'run.json');state.update(status='matched',matched_at=time.time());dump(case/'run.json',state)
+    state=read(case/'run.json');state.update(status='matched',matched_at=time.time(),matching_protocol='v1');dump(case/'run.json',state)
+
+
+# ---------------------------------------------------------------------------
+# Matching v2: only unbound occurrences are matched; specified entities are
+# anchors linked by contract ID. Three destinations per unbound occurrence.
+# ---------------------------------------------------------------------------
+MATCHING_PROTOCOLS = ('v1', 'v2')
+DEFAULT_MATCHING_PROTOCOL = 'v2'
+MATCHING_V2 = 'vl_vv_unspecified_matching_v2'
+MATCH_V2_PROMPT = ROOT / 'prompts/vl_vv_unspecified_matching_v2.txt'
+SPECIFIED_COLOR, UNBOUND_COLOR = (30, 110, 255), (255, 140, 0)
+
+
+def match_v2_schema():
+    assignment = obj(members=dict(type='array', items=S, minItems=1), destination=enum('unspecified', 'specified'),
+                     specified_tag={'type': ['string', 'null']}, short_description=S,
+                     confidence=enum('high', 'medium', 'low'), basis=S)
+    return obj(assignments=arr(assignment))
+
+
+def match_v2_tags(registry, local):
+    """P<k> per contract entity in registry order; U<n> per unbound occurrence in shot order."""
+    ptag = {p['prompt_entity_id']: f'P{k}' for k, p in enumerate(registry['entities'], 1)}
+    utag = {}
+    for m in local:
+        if m['binding_status'] != 'bound':
+            utag[m['local_key']] = f'U{len(utag) + 1}'
+    return ptag, utag
+
+
+def match_v2_payload(shots, registry, local, contract, ptag, utag):
+    prompt = contract.get('prompt') or {}
+    if contract_io.is_v2(contract):
+        settings = contract_io.shot_settings(contract)
+    else:
+        settings = [dict(shot_id=s['shot_id'], places=[p['name'] for p in registry['entities'] if p.get('contract_category') == 'places'
+                                                        and any(r['shot_id'] == s['shot_id'] and r['expectation'] == 'required'
+                                                                for r in p['schedule'])]) for s in shots]
+    specified = [dict(tag=ptag[p['prompt_entity_id']], name=p['name'], description=p['description'],
+                      category=p.get('contract_category'),
+                      occurrences=[dict(shot_id=m['shot_id'], observed_frame_ids=m['observed_frame_ids']) for m in local
+                                   if m['binding_status'] == 'bound' and m['prompt_entity_id'] == p['prompt_entity_id']])
+                 for p in registry['entities']]
+    unbound = [dict(tag=utag[m['local_key']], shot_id=m['shot_id'], name=m['name'], observed_frame_ids=m['observed_frame_ids'],
+                    boxes=[dict(frame_id=o['frame_id'], box_xyxy=o['box_xyxy']) for o in m['observations'] if o['box_xyxy'] is not None],
+                    detector_categories=sorted(set(m['wedetect_categories']) | set(m['grounding_dino_categories'])))
+               for m in local if m['local_key'] in utag]
+    return dict(protocol=MATCHING_V2, shot_order=[s['shot_id'] for s in shots],
+                original_prompt=dict(global_prompt=prompt.get('global_prompt'),
+                                     shots=[dict(shot_id=s['shot_id'], text=s['text']) for s in prompt.get('shots', [])]),
+                shot_settings=settings, specified_entities=specified, unbound_occurrences=unbound)
+
+
+def match_v2_errors(raw, local, ptag, utag):
+    """Every problem of a matching-v2 answer; the repair loop returns all of them to the model together."""
+    import jsonschema
+    try:
+        jsonschema.validate(raw, match_v2_schema())
+    except Exception as exc:
+        return [f'schema: {exc}']
+    errors = []
+    by_tag = {utag[m['local_key']]: m for m in local if m['local_key'] in utag}
+    known_p = set(ptag.values())
+    bound_shots = {}
+    for m in local:
+        if m['binding_status'] == 'bound':
+            bound_shots.setdefault(ptag[m['prompt_entity_id']], set()).add(m['shot_id'])
+    seen, added = {}, {}
+    for i, a in enumerate(raw['assignments']):
+        where = f'assignments[{i}]'
+        if not a['basis'].strip() or not a['short_description'].strip():
+            errors.append(f'{where}: needs a short_description and a basis')
+        shots = []
+        for tag in a['members']:
+            if tag not in by_tag:
+                errors.append(f'{where}: unknown unbound tag {tag!r}; use only the supplied U tags')
+                continue
+            if tag in seen:
+                errors.append(f'{tag} is in assignments[{seen[tag]}] and {where}; every unbound occurrence needs exactly one destination')
+            else:
+                seen[tag] = i
+            shots.append(by_tag[tag]['shot_id'])
+        repeated = sorted({s for s in shots if shots.count(s) > 1})
+        if repeated:
+            errors.append(f'{where}: more than one occurrence from {repeated}; an entity has at most one occurrence per shot')
+        if a['destination'] == 'unspecified':
+            if a['specified_tag'] is not None:
+                errors.append(f'{where}: destination "unspecified" needs specified_tag null')
+            continue
+        target = a['specified_tag']
+        if target not in known_p:
+            errors.append(f'{where}: destination "specified" needs one of the supplied P tags (got {target!r})')
+            continue
+        clash = sorted(set(shots) & bound_shots.get(target, set()))
+        if clash:
+            errors.append(f'{where}: {target} already has an occurrence in {clash}; merge into it only from shots where it has none')
+        again = sorted(set(shots) & added.get(target, set()))
+        if again:
+            errors.append(f'{where}: {target} would receive two occurrences in {again} from different assignments')
+        added.setdefault(target, set()).update(shots)
+    missing = [t for t in by_tag if t not in seen]
+    if missing:
+        errors.append(f'missing unbound occurrences {missing}; every one needs exactly one destination')
+    return errors
+
+
+def annotate_match_frames(shots, local, ptag, utag, out):
+    """Copies of the keyframes with every occurrence drawn and tagged: blue P = specified, orange U = unbound."""
+    from PIL import Image, ImageDraw, ImageFont
+    images = []
+    for shot in shots:
+        sid = shot['shot_id']
+        for frame in shot['frames']:
+            img = Image.open(frame['path']).convert('RGB')
+            draw = ImageDraw.Draw(img)
+            line = max(2, round(min(img.size) / 240))
+            size = max(12, round(min(img.size) / 28))
+            try:
+                font = ImageFont.load_default(size=size)
+            except TypeError:
+                font = ImageFont.load_default()
+            for m in local:
+                if m['shot_id'] != sid:
+                    continue
+                if m['binding_status'] == 'bound':
+                    tag, color = ptag[m['prompt_entity_id']], SPECIFIED_COLOR
+                elif m['local_key'] in utag:
+                    tag, color = utag[m['local_key']], UNBOUND_COLOR
+                else:
+                    continue
+                for o in m['observations']:
+                    if o['frame_id'] != frame['frame_id'] or o['box_xyxy'] is None:
+                        continue
+                    x1, y1, x2, y2 = (float(v) for v in o['box_xyxy'])
+                    draw.rectangle([x1, y1, x2, y2], outline=color, width=line)
+                    ty = y1 - size - 2 * line if y1 > size + 2 * line else y1 + line
+                    left, top, right, bottom = draw.textbbox((x1 + line, ty), tag, font=font)
+                    draw.rectangle([left - 2, top - 2, right + 2, bottom + 2], fill=color)
+                    draw.text((x1 + line, ty), tag, fill=(255, 255, 255), font=font)
+            path = Path(out) / sid / f'frame_{int(frame["frame_id"]):06d}.jpg'
+            path.parent.mkdir(parents=True, exist_ok=True)
+            img.save(path, quality=92)
+            images.append(dict(frame, shot_id=sid, path=str(path), source_path=frame['path'],
+                               source_sha256=frame.get('sha256'), sha256=sha(path)))
+    return images
+
+
+def ledger_occurrence(m):
+    """One shot of an entity in the simplified ledger: the keyframes with a box and the box on each."""
+    return dict(shot_id=m['shot_id'], local_entity_id=m['local_entity_id'],
+                boxes=[dict(frame_id=o['frame_id'], box_xyxy=o['box_xyxy']) for o in m['observations'] if o['box_xyxy'] is not None])
+
+
+def build_episode_entities_v2(case, raw, shots, registry, local, ptag, utag):
+    """Simplified ledger from matching v2 (owner decision 2026-11-01).
+
+    Two lists; each record is ID, contract ID (specified only), name,
+    description and occurrences. Matching bases, confidences, tags and
+    supplementary bindings stay in global_match_v2/; DINO stays in dino/ and
+    global_entities.json and is not put into this ledger.
+    """
+    case = Path(case)
+    order = [s['shot_id'] for s in shots]
+    by_tag = {utag[m['local_key']]: m for m in local if m['local_key'] in utag}
+    pid_of = {t: pid for pid, t in ptag.items()}
+    supplementary = {pid: [] for pid in ptag}
+    unbound_records, unbound_members = [], []
+    for a in raw['assignments']:
+        if a['destination'] == 'specified':
+            supplementary[pid_of[a['specified_tag']]] += [by_tag[t] for t in a['members']]
+            continue
+        members = sorted((by_tag[t] for t in a['members']), key=lambda m: order.index(m['shot_id']))
+        unbound_members.append(members)
+        unbound_records.append(dict(global_entity_id=f'ge{len(unbound_records) + 1:04d}', name=members[0]['name'],
+                                    description=a['short_description'], occurrences=[ledger_occurrence(m) for m in members]))
+    bound_records, bound_members = [], []
+    for index, prompt in enumerate(registry['entities'], 1):
+        pid = prompt['prompt_entity_id']
+        members = [m for m in local if m['binding_status'] == 'bound' and m['prompt_entity_id'] == pid] + supplementary[pid]
+        members.sort(key=lambda m: order.index(m['shot_id']))
+        bound_members.append(members)
+        bound_records.append(dict(global_entity_id=f'pb{index:04d}', prompt_entity_id=pid, name=prompt['name'],
+                                  description=prompt['description'], occurrences=[ledger_occurrence(m) for m in members]))
+    compatible = []
+    for r, members in zip(bound_records + unbound_records, bound_members + unbound_members):
+        if not members:
+            continue
+        appearances = [dict(shot_id=m['shot_id'], local_entity_id=m['local_entity_id'], name=m['name'], observed_frame_ids=m['observed_frame_ids'],
+                            observations=[dict(frame_id=o['frame_id'], box_xyxy=o['box_xyxy'], box_candidate_id=o['candidate_id'],
+                                               candidate_ids=[o['candidate_id']] if o['candidate_id'] else [],
+                                               exist=True if o['box_xyxy'] is not None else None) for o in m['observations']])
+                       for m in members]
+        compatible.append(dict(global_entity_id=r['global_entity_id'], name=r['name'], scene_id='episode',
+                               observed_shot_ids=[m['shot_id'] for m in members], appearances=appearances))
+    sources = {str(case / 'raw_manifest.json'): sha(case / 'raw_manifest.json'), str(case / 'prompt_registry.json'): sha(case / 'prompt_registry.json'),
+               str(case / 'contract.json'): sha(case / 'contract.json'),
+               str(case / 'shot_prompt_recovery/results.json'): sha(case / 'shot_prompt_recovery/results.json')}
+    for shot in shots:
+        for n in ('entities.json', 'input.json'):
+            source = case / 'shot_prompt_recovery/entities/shots' / shot['shot_id'] / n
+            sources[str(source)] = sha(source)
+    global_compat = dict(schema_version='episode_entities_v1', policy='vl_vv_contract_id_plus_unspecified_matching_v2',
+                         shot_order=order, entities=compatible,
+                         counts=dict(local_entities=len(local), global_records=len(compatible),
+                                     matched_unspecified=sum(1 for members in unbound_members if len(members) > 1),
+                                     supplementary_bindings=sum(len(v) for v in supplementary.values())),
+                         source_case=str(case), source_hashes=sources, appearance_score_computed=False)
+    payload = dict(protocol=PROTOCOL, ledger_format=LEDGER_V2, matching_protocol=MATCHING_V2, status='matched', shot_order=order,
+                   prompt_bound=bound_records, prompt_unbound=unbound_records)
+    import jsonschema
+    jsonschema.validate(payload, read(EPISODE_SCHEMA_V2))
+    dump(case / 'episode_entities.json', payload)
+    dump(case / 'global_entities/global_entities.json', global_compat)
+    return payload
+
+
+def match_v2(case):
+    require_api(); case = Path(case).resolve(); shots, registry, local = local_rows(case)
+    contract = contract_io.load_case_contract(case); out = case / 'global_match_v2'
+    ptag, utag = match_v2_tags(registry, local)
+    payload = match_v2_payload(shots, registry, local, contract, ptag, utag)
+    attempts = out / 'attempts'; attempts.mkdir(parents=True, exist_ok=True)
+    dump(out / 'tags.json', dict(specified={t: pid for pid, t in ptag.items()}, unbound={t: key for key, t in utag.items()}))
+    if not utag:
+        raw = dict(assignments=[]); audit = dict(status='skipped', reason='no unbound occurrences', model=MODEL, reasoning=REASONING, usage=[])
+    else:
+        images = annotate_match_frames(shots, local, ptag, utag, out / 'annotated_frames')
+        original = attempts / 'attempt_00'
+        first = read(original / 'response.json') if (original / 'response.json').is_file() else None
+        raw, _, usage, repair = repair_loop.call_with_repair(
+            original, payload, images, 1800, prompt_path=MATCH_V2_PROMPT, schema=match_v2_schema(), model=MODEL, reasoning=REASONING,
+            collect_errors=lambda candidate: (match_v2_errors(candidate, local, ptag, utag), candidate),
+            first_response=first, first_folder=original if first is not None else None, stage='unspecified entity matching v2')
+        audit = dict(status='passed', model=MODEL, reasoning=REASONING, repair_protocol=repair['protocol'],
+                     repair_rounds=repair['repair_rounds'], attempts=repair['rounds'], usage=usage)
+    errors = match_v2_errors(raw, local, ptag, utag)
+    if errors:
+        raise ValueError('Matching v2 output invalid: ' + json.dumps(errors, ensure_ascii=False))
+    dump(out / 'audit.json', audit); dump(out / 'result.json', raw)
+    build_episode_entities_v2(case, raw, shots, registry, local, ptag, utag)
+    state = read(case / 'run.json'); state.update(status='matched', matched_at=time.time(), matching_protocol='v2'); dump(case / 'run.json', state)
 
 
 def dino_prepare(case):
@@ -608,10 +881,12 @@ def attach_dino(case):
     case=Path(case).resolve();episode=read(case/'episode_entities.json');root=case/'dino/canonical/entities'
     if not root.is_dir():raise ValueError('Need DINO results')
     scores={p.parent.name:read(p) for p in root.glob('*/dino.json')}
-    for partition in ('prompt_bound','prompt_unbound'):
-        for entity in episode[partition]:
-            entity['dino_appearance']=scores.get(entity['global_entity_id'])
-    dump(case/'episode_entities.json',episode)
+    # The simplified ledger (matching v2) does not carry DINO (owner, 2026-11-01; ablation pending in docs/open-questions.md Q1).
+    if episode.get('ledger_format')!=LEDGER_V2:
+        for partition in ('prompt_bound','prompt_unbound'):
+            for entity in episode[partition]:
+                entity['dino_appearance']=scores.get(entity['global_entity_id'])
+        dump(case/'episode_entities.json',episode)
     compat=read(case/'global_entities/global_entities.json');compat['appearance_score_computed']=True
     for entity in compat['entities']: entity['dino_appearance']=scores[entity['global_entity_id']]
     dump(case/'global_entities/global_entities.json',compat)
@@ -626,19 +901,23 @@ def main():
     p.add_argument('--gpu',type=int);p.add_argument('--gpu-uuid');p.add_argument('--device',choices=['cuda','cpu'],default='cuda');p.add_argument('--shot-workers',type=int,default=3);p.add_argument('--run-dino',action='store_true')
     p.add_argument('--issue-output',type=Path,help='Fresh output directory for the independent VL/VV issue-discovery agent')
     p.add_argument('--allow-legacy-nominal-keyframes',action='store_true',help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
+    p.add_argument('--prompt',type=Path,help='Prompt JSON for a v2 contract without evidence; a contract with evidence holds its prompt')
+    p.add_argument('--allow-v1-contract',action='store_true',help='Accept a v1 contract; only to reproduce historical results')
+    p.add_argument('--matching-protocol',choices=MATCHING_PROTOCOLS,default=DEFAULT_MATCHING_PROTOCOL,
+                   help='v2 (default): match only unbound occurrences by the most likely reading, three destinations; v1: historical visual matcher')
     a=p.parse_args()
     if a.stage=='extract':
         if not all((a.video_index,a.frames_out,a.manifest_out)):p.error('extract requires --video-index --frames-out --manifest-out')
         extract_six(a.video_index,a.frames_out,a.manifest_out);return
     if a.stage=='prepare':
         if not all((a.manifest,a.contract,a.case)):p.error('prepare requires --manifest --contract --case')
-        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes);return
+        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract);return
     if not a.case:p.error('this stage requires --case')
     if a.stage in ('dino',) and (a.gpu is None or not a.gpu_uuid):p.error('GPU stage requires --gpu and --gpu-uuid')
     if a.stage in ('detect','all') and a.device=='cuda' and (a.gpu is None or not a.gpu_uuid):p.error('CUDA detection requires --gpu and --gpu-uuid')
     if a.run_dino and (a.gpu is None or not a.gpu_uuid):p.error('--run-dino requires --gpu and --gpu-uuid')
     if a.stage=='detect':detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device)
-    elif a.stage=='match':match(a.case)
+    elif a.stage=='match':match(a.case,a.matching_protocol)
     elif a.stage=='dino_prepare':dino_prepare(a.case)
     elif a.stage=='dino':dino(a.case,a.gpu,a.gpu_uuid)
     elif a.stage=='attach_dino':attach_dino(a.case)
@@ -647,7 +926,7 @@ def main():
         issue_discovery.run(a.case,a.issue_output)
     else:
         if not a.manifest or not a.contract:p.error('all requires --manifest and --contract')
-        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes);detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device);match(a.case);dino_prepare(a.case)
+        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract);detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device);match(a.case,a.matching_protocol);dino_prepare(a.case)
         if a.run_dino:dino(a.case,a.gpu,a.gpu_uuid);attach_dino(a.case)
 
 if __name__=='__main__':main()

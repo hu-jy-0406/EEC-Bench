@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """Branch detection (discovery v5): one independent model call per branch.
 
---branch vl: the V-L agent fills the contract-checking template (one row per
-contract claim, per episode-wide entity description in each scheduled shot,
-per shot prompt catch-all and per boundary) and reports V-L issues with the
-shot, clause, expected content, observed content and mismatch.
+--branch vl: the V-L agent fills the contract-checking template (per shot one
+row per expected entity with its description and requirements, a relations
+row, a camera row and a style row when the contract sets them, one cut row per
+boundary, and one row per cross_shot requirement) and reports V-L issues with
+the shot, clause, expected content, observed content and mismatch.  The contract
+is the only checking basis; the prompt stays in the input as context.
 
 --branch vv: the V-V agent fills the checklist template (shot scan with
 camera / face / clothing / action per character, continuity ledger, boundary
@@ -27,16 +29,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
+import episode_contract as contract_io  # noqa: E402
 import episode_shot_segments as shot_segments  # noqa: E402
-import run_vl_vv_issue_discovery as discovery_v4  # noqa: E402  (image rows, transitions, continuity subjects)
+import run_vl_vv_issue_discovery as discovery_v4  # noqa: E402  (image rows, continuity subjects)
 import run_wedetect_shot_entities as io  # noqa: E402
 import vl_vv_branch_common as common  # noqa: E402
 import vl_vv_repair_loop as repair_loop  # noqa: E402
 
 KEY_PATTERNS = {'vl': re.compile(r'L[1-9][0-9]*'), 'vv': re.compile(r'V[1-9][0-9]*')}
 ADDED_KEY = re.compile(r'n[1-9][0-9]*')
-# A boundary row is one requirement and belongs to exactly one issue; an entity, relations or shot-text row
-# groups several requirements and can be violated by several independent failures.
+# A boundary, style or cross-shot row is one requirement and belongs to exactly one issue; an entity, relations
+# or camera row groups several requirements and can be violated by several independent failures.
 SINGLE_ISSUE_ROWS = tuple(common.config()['contract_template']['single_issue_row_kinds'])
 CHANGE_ID = re.compile(r'c[1-9][0-9]*')
 
@@ -49,12 +52,13 @@ def save(path, value):
 # Inputs.
 # --------------------------------------------------------------------------
 
-def load_case(case, allow_legacy_keyframes):
+def load_case(case, allow_legacy_keyframes, allow_v1_contract=False):
     case = Path(case).resolve()
     required = [case / 'contract.json', case / 'raw_manifest.json', case / 'episode_entities.json']
     if any(not path.is_file() for path in required):
         raise ValueError('Case needs contract.json, raw_manifest.json and episode_entities.json')
-    contract, manifest, ledger = map(common.read, required)
+    contract, manifest, ledger = contract_io.load_case_contract(case), common.read(required[1]), common.read(required[2])
+    contract_io.require_v2(contract, allow_v1_contract, str(case))
     shot_segments.require_record_segmentation(manifest, allow_legacy_keyframes, where=str(case))
     if ledger.get('protocol') != 'vl_vv_detection_v1' or ledger.get('status') != 'matched':
         raise ValueError('episode_entities.json must be a successful VL/VV detector ledger')
@@ -64,18 +68,17 @@ def load_case(case, allow_legacy_keyframes):
     return case, contract, manifest, ledger
 
 
-def base_payload(protocol, contract, ledger, images, manifest, transitions):
+def base_payload(protocol, contract, ledger, images, manifest):
     return dict(protocol=protocol,
                 original_prompt=common.deep(contract.get('prompt')),
-                contract_json=common.deep(contract),
-                shot_transitions=common.deep(transitions),
+                contract_json=common.model_contract(contract),
                 shot_sources=discovery_v4.shot_sources(manifest),
                 detector_ledger=common.deep(ledger),
                 image_order=common.image_order(images))
 
 
-def vl_payload(contract, ledger, images, manifest, transitions, template):
-    payload = base_payload(common.DISCOVERY['vl']['protocol'], contract, ledger, images, manifest, transitions)
+def vl_payload(contract, ledger, images, manifest, template):
+    payload = base_payload(common.DISCOVERY['vl']['protocol'], contract, ledger, images, manifest)
     payload['contract_check_template'] = common.deep(template)
     payload['contract_check_row_count'] = len(template)
     payload['input_notes'] = [
@@ -86,8 +89,8 @@ def vl_payload(contract, ledger, images, manifest, transitions, template):
     return payload
 
 
-def vv_payload(contract, ledger, images, manifest, transitions, subjects, shot_characters):
-    payload = base_payload(common.DISCOVERY['vv']['protocol'], contract, ledger, images, manifest, transitions)
+def vv_payload(contract, ledger, images, manifest, subjects, shot_characters):
+    payload = base_payload(common.DISCOVERY['vv']['protocol'], contract, ledger, images, manifest)
     payload['required_continuity_subjects'] = common.deep(subjects)
     payload['required_shot_characters'] = common.deep(shot_characters)
     payload['input_notes'] = [
@@ -107,7 +110,7 @@ def detected_frames(ledger):
     frames = {}
     for gid, row in common.ledger_rows(ledger).items():
         for occurrence in row.get('occurrences') or []:
-            frames.setdefault((gid, occurrence.get('shot_id')), set()).update(occurrence.get('observed_frame_ids') or [])
+            frames.setdefault((gid, occurrence.get('shot_id')), set()).update(common.occurrence_frame_ids(occurrence))
     return frames
 
 
@@ -170,6 +173,10 @@ def vl_errors(result, template, ledger, manifest, sources, challenged=None):
                                                            <= {shot for shot, _ in refs}):
                 errors.append(f'{where}: a judged transition row cites a frame of {row["from_shot"]} and of '
                               f'{row["shot_id"]}')
+        elif row['kind'] == 'cross_shot' and status in ('satisfied', 'violated'):
+            uncited = sorted(set(row['shot_ids']) - {shot for shot, _ in refs})
+            if uncited:
+                errors.append(f'{where}: a judged cross-shot row cites a frame of every shot it names (missing {uncited})')
         elif status in ('satisfied', 'violated'):
             sid = row['shot_id']
             frames = {frame for shot, frame in refs if shot == sid}
@@ -235,7 +242,7 @@ def vl_errors(result, template, ledger, manifest, sources, challenged=None):
                 if row is None:
                     errors.append(f'{o_where}: row_id {rid!r} is not in contract_check_template')
                     continue
-                if row['shot_id'] != sid:
+                if sid not in common.row_occurrence_shots(row):
                     errors.append(f'{o_where}: row {rid} belongs to {row["shot_id"]}, not {sid}')
                     continue
                 allowed |= common.row_shots(row)
@@ -258,9 +265,9 @@ def vl_errors(result, template, ledger, manifest, sources, challenged=None):
                 errors.append(f'checks {rid}: links issue {iid!r}, which does not exist')
             elif iid not in claimed.get(rid, []):
                 errors.append(f'checks {rid}: issue {iid} has no occurrence in {rows[rid]["shot_id"]} that lists this row_id')
-        if rows[rid]['kind'] in SINGLE_ISSUE_ROWS and len(claimed.get(rid, [])) > 1:
-            errors.append(f'checks {rid}: listed by several issues {claimed[rid]}; a {rows[rid]["kind"]} row belongs to '
-                          'exactly one issue')
+        if rows[rid]['kind'] in SINGLE_ISSUE_ROWS and len(set(claimed.get(rid, []))) > 1:
+            errors.append(f'checks {rid}: listed by several issues {sorted(set(claimed[rid]))}; a {rows[rid]["kind"]} row '
+                          'belongs to exactly one issue')
     used = {key for issue in result['issues'] for key in issue['entity_keys']}
     for key in sorted(set(added) - used):
         errors.append(f'added entity {key} is not used by any issue; add only entities that an issue uses')
@@ -281,8 +288,8 @@ def vl_canonical(result, template, ledger):
             key_evidence=evidence, confidence=issue['confidence'],
             v_l_detail=dict(requirement_quotes=common.deep(issue['requirement_quotes']), expected=issue['expected'],
                             occurrences=common.deep(issue['occurrences']),
-                            template_row_ids=[rid for occ in issue['occurrences'] for rid in occ['row_ids']
-                                              if rid in rows]),
+                            template_row_ids=list(dict.fromkeys(rid for occ in issue['occurrences'] for rid in occ['row_ids']
+                                                                if rid in rows))),
             v_v_detail=None))
     ledger_index = common.ledger_rows(ledger)
     used = [key for issue in result['issues'] for key in issue['entity_keys']]
@@ -436,6 +443,8 @@ def vv_errors(result, ledger, manifest, contract, transitions, subjects, shot_ch
         if sub not in common.vv_subcategories(scope):
             errors.append(f'{where}: subcategory {sub!r} does not belong to scope {scope} '
                           f'(allowed: {list(common.vv_subcategories(scope))})')
+        if sub == 'other' and 'O1' not in issue['checklist_items']:
+            errors.append(f'{where}: subcategory other is only for problems the open sweep found; list O1 in checklist_items')
         i_shots = issue['shot_ids']
         if len(i_shots) != len(set(i_shots)) or not set(i_shots) <= shots:
             errors.append(f'{where}: shot_ids {i_shots} must be distinct manifest shots')
@@ -565,11 +574,10 @@ def vv_errors(result, ledger, manifest, contract, transitions, subjects, shot_ch
                           f'{lacking}; add one per scheduled shot (say so if it is not visible)')
 
     # Boundary checks.
-    expected = [(row['from_shot'], row['to_shot'], row['required']) for row in transitions]
-    got = [(row['from_shot'], row['to_shot'], row['required']) for row in result['boundary_checks']]
+    expected = [(row['from_shot'], row['to_shot']) for row in transitions]
+    got = [(row['from_shot'], row['to_shot']) for row in result['boundary_checks']]
     if got != expected:
-        errors.append(f'boundary_checks must list every boundary of shot_transitions in order with its required '
-                      f'transition: expected {expected}, got {got}')
+        errors.append(f'boundary_checks must list every shot boundary in order: expected {expected}, got {got}')
     for index, row in enumerate(result['boundary_checks']):
         where = f'boundary_checks[{index}] {row["from_shot"]}->{row["to_shot"]}'
         errors += change_link_errors(row['change_ids'], where)
@@ -648,7 +656,8 @@ def counts(branch, result, issues):
 # Run.
 # --------------------------------------------------------------------------
 
-def run(case, out, branch, timeout=1800, model=common.MODEL, reasoning=common.REASONING, allow_legacy_keyframes=False):
+def run(case, out, branch, timeout=1800, model=common.MODEL, reasoning=common.REASONING, allow_legacy_keyframes=False,
+        allow_v1_contract=False):
     if branch not in common.BRANCHES:
         raise ValueError(f'--branch must be one of {common.BRANCHES}')
     common.require_api(model, reasoning, f'{branch.upper()} detection')
@@ -656,14 +665,14 @@ def run(case, out, branch, timeout=1800, model=common.MODEL, reasoning=common.RE
     out = Path(out).resolve()
     if out.exists():
         raise FileExistsError('Use a fresh branch-detection output directory')
-    case, contract, manifest, ledger = load_case(case, allow_legacy_keyframes)
+    case, contract, manifest, ledger = load_case(case, allow_legacy_keyframes, allow_v1_contract)
     images = discovery_v4.image_rows(case, manifest)
-    transitions, transition_source = discovery_v4.shot_transitions(case, manifest)
+    transitions = common.cut_boundaries(manifest)
     sources = common.text_sources(contract, transitions)
     extra = {}
     if branch == 'vl':
         template = common.contract_template(contract, ledger, manifest, transitions)
-        payload = vl_payload(contract, ledger, images, manifest, transitions, template)
+        payload = vl_payload(contract, ledger, images, manifest, template)
         challenged = set()
         collect = lambda candidate: (vl_errors(candidate, template, ledger, manifest, sources, challenged),  # noqa: E731
                                      candidate)
@@ -671,15 +680,15 @@ def run(case, out, branch, timeout=1800, model=common.MODEL, reasoning=common.RE
     else:
         subjects = discovery_v4.required_continuity_subjects(contract, ledger, manifest)
         shot_characters = common.required_shot_characters(contract, ledger, manifest)
-        payload = vv_payload(contract, ledger, images, manifest, transitions, subjects, shot_characters)
+        payload = vv_payload(contract, ledger, images, manifest, subjects, shot_characters)
         collect = lambda candidate: (vv_errors(candidate, ledger, manifest, contract, transitions, subjects,  # noqa: E731
                                                shot_characters, sources), candidate)
         extra.update(required_continuity_subjects=subjects, required_shot_characters=shot_characters)
     source_paths = [case / 'contract.json', case / 'raw_manifest.json', case / 'episode_entities.json',
                     Path(__file__).resolve(), Path(discovery_v4.__file__).resolve(), Path(repair_loop.__file__).resolve(),
-                    spec['schema'], *common.static_source_paths(spec['prompt'])]
-    if transition_source['path']:
-        source_paths.append(Path(transition_source['path']))
+                    Path(contract_io.__file__).resolve(), spec['schema'], *common.static_source_paths(spec['prompt'])]
+    if contract_io.is_v2(contract):
+        source_paths.append(case / contract_io.PROMPT_FILE)
     sources_hashes = {str(Path(path).resolve()): io.sha(path) for path in source_paths}
     sources_hashes.update({row['path']: row['sha256'] for row in images})
     out.mkdir(parents=True)
@@ -703,8 +712,7 @@ def run(case, out, branch, timeout=1800, model=common.MODEL, reasoning=common.RE
         common.require_records(dict(issues=issues, entities=entities), f'{branch} detection output')
         final = dict(protocol=spec['protocol'], branch=common.LABEL[branch], status='success', model=model,
                      reasoning=reasoning, source_case=str(case), model_output=result, issues=issues, entities=entities,
-                     counts=counts(branch, result, issues), shot_transitions=transitions,
-                     shot_transition_source=transition_source, usage=usage, token_cost=common.estimated_cost(usage),
+                     counts=counts(branch, result, issues), usage=usage, token_cost=common.estimated_cost(usage),
                      calls=len(repair['rounds']), repair_rounds=repair['repair_rounds'], **extra)
         save(out / 'result.json', final)
         state.update(status='success', seconds=time.time() - state['started'], counts=final['counts'],
@@ -730,6 +738,8 @@ def main():
     parser.add_argument('--reasoning', default=common.REASONING, choices=[common.REASONING])
     parser.add_argument('--allow-legacy-nominal-keyframes', action='store_true',
                         help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
+    parser.add_argument('--allow-v1-contract', action='store_true',
+                        help='Accept a case with a v1 contract; only to reproduce historical results')
     parser.add_argument('--print-prompt', action='store_true', help='Print the rendered prompt and exit (no API call)')
     args = parser.parse_args()
     if args.print_prompt:
@@ -738,7 +748,7 @@ def main():
     if args.case is None or args.output is None:
         parser.error('--case and --output are required')
     run(args.case, args.output, args.branch, args.timeout, args.model, args.reasoning,
-        args.allow_legacy_nominal_keyframes)
+        args.allow_legacy_nominal_keyframes, args.allow_v1_contract)
 
 
 if __name__ == '__main__':

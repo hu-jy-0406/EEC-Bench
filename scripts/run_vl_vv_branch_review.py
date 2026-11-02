@@ -2,7 +2,7 @@
 """Branch review (review v6): one independent model call per branch.
 
 --branch vl reviews only the V-L candidates of run_vl_vv_branch_detection.py
---branch vl against the prompt and contract; --branch vv reviews only the
+--branch vl against the contract; --branch vv reviews only the
 V-V candidates against the visual consistency definitions and checklist.
 Each reviewer receives the shared V-L / V-V definitions, all original
 keyframes, and only its own branch's candidates.
@@ -26,6 +26,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 
+import episode_contract as contract_io  # noqa: E402
 import episode_shot_segments as shot_segments  # noqa: E402
 import run_vl_vv_issue_discovery as discovery_v4  # noqa: E402
 import run_wedetect_shot_entities as io  # noqa: E402
@@ -276,7 +277,7 @@ def summary(units, candidates, response):
 
 
 def run(case, detection_path, out, branch, timeout=1800, model=common.MODEL, reasoning=common.REASONING,
-        allow_legacy_keyframes=False):
+        allow_legacy_keyframes=False, allow_v1_contract=False):
     if branch not in common.BRANCHES:
         raise ValueError(f'--branch must be one of {common.BRANCHES}')
     common.require_api(model, reasoning, f'{branch.upper()} review')
@@ -287,30 +288,29 @@ def run(case, detection_path, out, branch, timeout=1800, model=common.MODEL, rea
     required = [case / 'contract.json', case / 'raw_manifest.json', case / 'episode_entities.json', detection_path]
     if any(not path.is_file() for path in required):
         raise ValueError('Need case contract.json, raw_manifest.json, episode_entities.json and the detection result')
-    contract, manifest, ledger = (common.read(path) for path in required[:3])
+    contract, manifest, ledger = contract_io.load_case_contract(case), common.read(required[1]), common.read(required[2])
+    contract_io.require_v2(contract, allow_v1_contract, str(case))
     shot_segments.require_record_segmentation(manifest, allow_legacy_keyframes, where=str(case))
     detection = load_detection(detection_path, branch, manifest)
-    transitions, transition_source = discovery_v4.shot_transitions(case, manifest)
-    if transitions != detection.get('shot_transitions'):
-        raise ValueError('Shot transitions differ from those used by detection')
-    sources = common.text_sources(contract, transitions)
+    sources = common.text_sources(contract, common.cut_boundaries(manifest))
     candidates = detection['issues']
     images = discovery_v4.image_rows(case, manifest)
     template_rows = {row['row_id']: row for row in detection.get('contract_check_template') or []}
     payload = dict(protocol=spec['protocol'],
                    candidate_issues=[candidate_view(issue, template_rows) for issue in candidates],
                    entity_index=entity_index(detection, ledger),
-                   original_prompt=common.deep(contract.get('prompt')), contract_json=common.deep(contract),
-                   shot_transitions=common.deep(transitions), shot_sources=discovery_v4.shot_sources(manifest),
+                   original_prompt=common.deep(contract.get('prompt')), contract_json=common.model_contract(contract),
+                   shot_sources=discovery_v4.shot_sources(manifest),
                    image_order=common.image_order(images),
                    input_notes=['candidate_issues are hypotheses from the detection agent of this branch only, not '
                                 'accepted findings.',
                                 'Every supplied image is an original keyframe; image_order matches attachment order.'])
     source_paths = [case / 'contract.json', case / 'raw_manifest.json', case / 'episode_entities.json', detection_path,
                     Path(__file__).resolve(), Path(discovery_v4.__file__).resolve(),
-                    Path(repair_loop.__file__).resolve(), spec['schema'], *common.static_source_paths(spec['prompt'])]
-    if transition_source['path']:
-        source_paths.append(Path(transition_source['path']))
+                    Path(repair_loop.__file__).resolve(), Path(contract_io.__file__).resolve(), spec['schema'],
+                    *common.static_source_paths(spec['prompt'])]
+    if contract_io.is_v2(contract):
+        source_paths.append(case / contract_io.PROMPT_FILE)
     hashes = {str(Path(path).resolve()): io.sha(path) for path in source_paths}
     hashes.update({row['path']: row['sha256'] for row in images})
     out.mkdir(parents=True)
@@ -366,6 +366,8 @@ def main():
     parser.add_argument('--reasoning', default=common.REASONING, choices=[common.REASONING])
     parser.add_argument('--allow-legacy-nominal-keyframes', action='store_true',
                         help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
+    parser.add_argument('--allow-v1-contract', action='store_true',
+                        help='Accept a case with a v1 contract; only to reproduce historical results')
     parser.add_argument('--print-prompt', action='store_true', help='Print the rendered prompt and exit (no API call)')
     args = parser.parse_args()
     if args.print_prompt:
@@ -374,7 +376,7 @@ def main():
     if args.case is None or args.detection is None or args.output is None:
         parser.error('--case, --detection and --output are required')
     run(args.case, args.detection, args.output, args.branch, args.timeout, args.model, args.reasoning,
-        args.allow_legacy_nominal_keyframes)
+        args.allow_legacy_nominal_keyframes, args.allow_v1_contract)
 
 
 if __name__ == '__main__':

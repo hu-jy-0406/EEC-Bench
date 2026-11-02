@@ -4,11 +4,11 @@
   "type": "object",
   "required": [
     "protocol",
-    "checklist_audit",
     "shot_scan",
     "continuity_ledger",
     "boundary_checks",
     "observed_changes",
+    "checklist_audit",
     "entity_register",
     "issues"
   ],
@@ -16,53 +16,6 @@
     "protocol": {
       "type": "string",
       "const": "vl_vv_issue_discovery_v5_vv"
-    },
-    "checklist_audit": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": [
-          "item",
-          "status",
-          "note"
-        ],
-        "properties": {
-          "item": {
-            "type": "string",
-            "enum": [
-              "W1",
-              "W2",
-              "W3",
-              "W4",
-              "W5",
-              "W6",
-              "W7",
-              "X1",
-              "X2",
-              "X3",
-              "X4",
-              "X5",
-              "X6",
-              "X7",
-              "X8",
-              "X9",
-              "O1"
-            ]
-          },
-          "status": {
-            "type": "string",
-            "enum": [
-              "checked",
-              "not_applicable"
-            ]
-          },
-          "note": {
-            "type": "string",
-            "minLength": 1
-          }
-        },
-        "additionalProperties": false
-      }
     },
     "shot_scan": {
       "type": "array",
@@ -242,7 +195,6 @@
         "required": [
           "from_shot",
           "to_shot",
-          "required",
           "last_frame",
           "first_frame",
           "continuity",
@@ -256,13 +208,6 @@
           "to_shot": {
             "type": "string",
             "minLength": 1
-          },
-          "required": {
-            "type": "string",
-            "enum": [
-              "cut",
-              "continue"
-            ]
           },
           "last_frame": {
             "type": "string",
@@ -422,6 +367,53 @@
                 "minLength": 1
               }
             ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checklist_audit": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "item",
+          "status",
+          "note"
+        ],
+        "properties": {
+          "item": {
+            "type": "string",
+            "enum": [
+              "W1",
+              "W2",
+              "W3",
+              "W4",
+              "W5",
+              "W6",
+              "W7",
+              "X1",
+              "X2",
+              "X3",
+              "X4",
+              "X5",
+              "X6",
+              "X7",
+              "X8",
+              "X9",
+              "O1"
+            ]
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "checked",
+              "not_applicable"
+            ]
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
           }
         },
         "additionalProperties": false
@@ -597,6 +589,7 @@
               "relation_break",
               "unintended_cut",
               "rendering_instability",
+              "other",
               "character_identity",
               "character_appearance",
               "object_identity",

@@ -28,6 +28,7 @@ import run_vl_vv_issue_discovery as discovery_stage
 import run_wedetect_shot_entities as io
 import vl_vv_repair_loop as repair_loop
 import episode_shot_segments as shot_segments
+import episode_contract as contract_io
 
 PROTOCOL = 'vl_vv_issue_review_v1'
 MODEL = 'gpt-6-luna'
@@ -396,6 +397,7 @@ def run(case, issues_path, out, timeout=1800, model=MODEL, reasoning=REASONING,
     if any(not path.is_file() for path in required):
         raise ValueError('Need case contract.json, raw_manifest.json, and a discovery result JSON file')
     contract, manifest, discovery = map(read, required)
+    contract_io.require_v1(contract, str(case))
     shot_segments.require_record_segmentation(manifest, allow_legacy_keyframes, where=str(case))
     if discovery.get('protocol') not in REVIEW_PROTOCOLS:
         raise ValueError(f'Input issues must come from one of {sorted(REVIEW_PROTOCOLS)}')
