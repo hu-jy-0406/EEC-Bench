@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Use the independent OpenAI API transport for EEC-Bench model stages.
+# Use the independent OpenAI API transport for UEC-Bench model stages.
 # This does not alter Codex CLI login or the desktop application's account.
 set -euo pipefail
 key_file="${EECBENCH_OPENAI_KEY_FILE:-/vast/users/guangyi.chen/causal_group/jinyuan.hu/.config/eecbench/openai.key}"

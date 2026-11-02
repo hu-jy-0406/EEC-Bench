@@ -1,4 +1,4 @@
-# Gemini setup for EntityBench / EEC-Bench
+# Gemini setup for EntityBench / UEC-Bench
 
 ## Required model
 

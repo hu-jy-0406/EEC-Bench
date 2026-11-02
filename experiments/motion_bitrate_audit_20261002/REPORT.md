@@ -35,7 +35,7 @@ static content. Re-encoding barely changes pixel-level motion statistics.
 
 ## Not measured
 
-The effect of quality-5 compression on EEC-Bench scores themselves. HoloCine
+The effect of quality-5 compression on UEC-Bench scores themselves. HoloCine
 attempts kept only the encoded mp4 (no latents), so higher-quality HoloCine
 output requires full regeneration (recorded mean generation time 26,127 s per
 episode under the shared-node campaign, about 1,450 GPU-hours for 200 episodes).

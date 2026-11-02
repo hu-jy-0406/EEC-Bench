@@ -1,4 +1,4 @@
-# Qwen3-VL-Flash setup for EntityBench / EEC-Bench
+# Qwen3-VL-Flash setup for EntityBench / UEC-Bench
 
 This setup uses Alibaba Cloud Model Studio's OpenAI-compatible API and keeps
 the private key outside every Git repository.
@@ -30,7 +30,7 @@ Official references:
 
 ## Validate the key
 
-From the outer EEC-Bench workspace:
+From the outer UEC-Bench workspace:
 
 ```bash
 EECBench/scripts/qwen_env.sh --check

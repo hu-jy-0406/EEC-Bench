@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate priority-ranked EEC-Bench shots with Veo through the Gemini API.
+"""Generate priority-ranked UEC-Bench shots with Veo through the Gemini API.
 
 The runner deliberately uses only the Veo-specific prompt field and keeps a
 durable ledger. It never prints API keys and only retries transport/rate-limit

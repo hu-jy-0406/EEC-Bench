@@ -25,7 +25,7 @@ box alone do not establish any predicate. Image left/right, vague near/far and
 actions are outside v0.1. Camera depth order is not a camera-invariant consistency
 judgment. "Intrinsic" describes the predicate's meaning, not proof of geometry.
 
-This deliberately bounded vocabulary is an EEC-Bench pilot design, not a verbatim
+This deliberately bounded vocabulary is an UEC-Bench pilot design, not a verbatim
 SVG2 taxonomy. SVG2 motivates separating spatial from non-spatial extraction:
 https://arxiv.org/html/2602.23543v1#A1.SS3 . Definitions are frozen before the pilot;
 same vocabulary and rules constrain granularity but do not prove reproducibility.

@@ -181,9 +181,9 @@ tags:
 - eec-bench
 license: other
 ---
-# CineTrans-DiT prompts and generations for EEC-Bench
+# CineTrans-DiT prompts and generations for UEC-Bench
 
-Private release of the exact CineTrans generation prompts for all 400 episodes in the frozen EEC-Bench queue, plus the completed videos that passed QA. Every prompt record is keyed by its original `episode_id`.
+Private release of the exact CineTrans generation prompts for all 400 episodes in the frozen UEC-Bench queue, plus the completed videos that passed QA. Every prompt record is keyed by its original `episode_id`.
 
 ## Coverage
 

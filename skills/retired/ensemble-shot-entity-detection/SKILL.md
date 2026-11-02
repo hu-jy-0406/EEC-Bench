@@ -35,7 +35,7 @@ this Skill plus the general protocol and output contract.
 
 ## Fixed Pipeline 2 entry point
 
-For repeatable EEC-Bench runs, prefer the repository runner:
+For repeatable UEC-Bench runs, prefer the repository runner:
 
 ```bash
 cd EECBench

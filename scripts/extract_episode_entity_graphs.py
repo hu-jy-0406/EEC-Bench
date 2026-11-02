@@ -269,7 +269,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         grounding_root = args.experiment_dir / args.grounding_results_subdir
         shot_count = len(shots)
 
-        log.write("EEC-Bench episode entity-graph extraction")
+        log.write("UEC-Bench episode entity-graph extraction")
         log.write(f"status: running")
         log.write(f"start_utc: {iso_utc(started_utc)}")
         log.write(f"command: {shlex.join(run_command)}")

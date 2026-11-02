@@ -397,7 +397,7 @@ then check:
 - *Figure (method):* the 3 × 3 matrix. Hatch the U × Fidelity cell with the
   caption "no reference text: only self-consistency can evaluate it". This
   one figure carries the motivation. Prompt-alignment metrics see only the
-  F_B cell. Character-consistency metrics see mostly X_B. EEC-Bench adds the
+  F_B cell. Character-consistency metrics see mostly X_B. UEC-Bench adds the
   whole U row and separates structure failures from content consistency.
 - *Main table:* rows are models. The columns are:
   - EEC;

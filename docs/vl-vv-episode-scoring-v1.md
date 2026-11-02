@@ -14,7 +14,7 @@ from cross-shot consistency and uses an entity-fidelity gate for its own
 cross-shot metrics. [VBench](https://github.com/Vchitect/VBench/blob/master/README.md)
 reports separate dimensions and normalizes them before aggregation. Those
 designs motivate separate V-L and V-V axes here. The following severity
-deductions and aggregation are **EEC-Bench v1 choices**, not formulas claimed
+deductions and aggregation are **UEC-Bench v1 choices**, not formulas claimed
 by either benchmark. They have not been calibrated against human scores.
 
 The output has three 0–100 scores: `v_l`, `v_v.within_shot`, and

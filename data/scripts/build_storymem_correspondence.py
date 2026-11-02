@@ -220,7 +220,7 @@ def main() -> None:
         "shots_index": "index/shots.jsonl",
     }
     atomic_json(index_root / "summary.json", summary)
-    readme = """# StoryMem generated evaluation dataset\n\nThis directory is the local snapshot of `BlueSourceJY/eec-bench-storymem-400`.\n\n- `index/episodes.jsonl` maps every episode to its canonical StoryMem script, contract, entity schedule, full video, and generated shots.\n- `index/shots.jsonl` is the evaluation-ready shot table: each row contains the exact prompt, contract schedule entry, applicable contract claims, and generated shot path.\n- `index/summary.json` records the pinned Hugging Face revision and validation totals.\n\nAll paths in the indexes are relative to the EEC-Bench workspace root. The build validates all 200 metadata records, prompt hashes, canonical input hashes/content, and recorded video file sizes.\n"""
+    readme = """# StoryMem generated evaluation dataset\n\nThis directory is the local snapshot of `BlueSourceJY/eec-bench-storymem-400`.\n\n- `index/episodes.jsonl` maps every episode to its canonical StoryMem script, contract, entity schedule, full video, and generated shots.\n- `index/shots.jsonl` is the evaluation-ready shot table: each row contains the exact prompt, contract schedule entry, applicable contract claims, and generated shot path.\n- `index/summary.json` records the pinned Hugging Face revision and validation totals.\n\nAll paths in the indexes are relative to the UEC-Bench workspace root. The build validates all 200 metadata records, prompt hashes, canonical input hashes/content, and recorded video file sizes.\n"""
     (dataset_root / "README_LOCAL.md").write_text(readme)
     print(json.dumps(summary, ensure_ascii=False, indent=2))
 
