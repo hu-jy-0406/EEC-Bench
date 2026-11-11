@@ -1,8 +1,11 @@
 # Branch-separated V-L / V-V pipeline (discovery v5 → review v6 → scoring v5)
 
 Status: implemented 2026-10-09 at the user's direction; default chain of
-`scripts/run_vl_vv_pipeline.py` and selectable in the batch controller
-(`--discovery-protocol v5`). The single-issue-list chains (discovery v1–v4)
+`scripts/run_vl_vv_pipeline.py` until 2026-11-02, now selectable with
+`--discovery-protocol v5` (pipeline and batch controller) and unchanged. The
+default since 2026-11-02 is chain v6 (discovery v6 → review v7 with two calls
+per branch → scoring v6): `docs/vl-vv-branch-pipeline-v2.md`, which lists what
+differs from this document. The single-issue-list chains (discovery v1–v4)
 remain selectable and unchanged. Validation: see
 `experiments/vl_vv_branch_split_20261009/REPORT.md`.
 

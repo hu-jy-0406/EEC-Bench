@@ -1,0 +1,50 @@
+{
+  "task": "priority_013__cinetrans",
+  "primary": [
+    {
+      "id": "A1",
+      "ledger_entity": "pb0002",
+      "ledger_status": "same_entity_in_all_relevant_shots",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["V4", "V3"],
+      "note": "The ledger records the hatless woman of Shot1/Shot3 as the contract 'Woman in the feathered hat' (pb0002: Shot1 local e2, Shot3 local e3), so the evaluator treated her as specified. V4 (confirmed) reports the Shot1 vs Shot3 change (long hair, scarf vs short hair, white collar shirt, dark tie). V3 (confirmed) reports the face difference between Shot1/Shot3 and Shot2/Shot4. Ledger caveat: in Shot1 her boxes in all six frames sit under pb0001 (local e1 'Man wearing a dark coat'). pb0002's Shot1 occurrence has a box on her only in f4, and its f0 box is on the man's face. The man has no correct box in Shot1."
+    },
+    {
+      "id": "A2",
+      "ledger_entity": ["pb0007", "pb0014"],
+      "ledger_status": "recorded_in_some_relevant_shots",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Shot1: the solid green glass object has one box (f2) under specified pb0007 'Palm leaves'. That box came from Grounding DINO recovery for 'palm leaves.', and the same occurrence's f0 box covers the woman. Shot3: the faint remnant is not recorded. Shot4: the green glass shade is pb0014 'Green glass lamp' (local 'Green glass vase'), a different ledger ID from Shot1. Shot2: that spot holds pb0010 Green leather chair (prompted). No V-V candidate mentions the object, the palm leaves or the lamp."
+    },
+    {
+      "id": "A3",
+      "ledger_entity": "pb0017",
+      "ledger_status": "recorded_in_some_relevant_shots",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["V5"],
+      "note": "pb0017 'Black handled bag' has a Shot4 occurrence only. The Shot2 black woven object has no ledger record: no local entity, and no recovery because the bag is not expected in Shot2. V5 (confirmed, object_identity) still names pb0017 and reports the Shot2 woven near-cylinder vs the flatter rectangular Shot4 bag."
+    }
+  ],
+  "secondary": [
+    {
+      "id": "S1",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "No candidate concerns the man's hair."
+    },
+    {
+      "id": "S2",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "V4 (confirmed, pb0002) lists the hat and outfit in all four shots, but its contrast is hatless Shot1/Shot3 vs Shot2/Shot4. It describes the Shot2 and Shot4 outfits alike and does not report the bow, jacket colour or necktie vs striped bow tie differences. V1 (confirmed) is a separate within-Shot4 hat-ornament change."
+    },
+    {
+      "id": "S3",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["V2"],
+      "note": "V2 (confirmed, rendering_instability) has no subject entities."
+    }
+  ],
+  "pipeline_unspecified_confirmed": []
+}

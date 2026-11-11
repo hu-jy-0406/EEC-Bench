@@ -1,0 +1,283 @@
+{
+ "task": "priority_096__holocine",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Blonde woman",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Television shop display",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Amber-window facade exterior",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Shop window glass",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Red umbrella",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Shop televisions",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Breaking news globe graphics",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Taxi killer silhouette graphic",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Amber-lit windows",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Rain",
+   "shots": [
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Sale placard",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Live vehicle graphic",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Latest victims graphic",
+   "shots": [
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Upper television",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Neighboring televisions",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects": [
+    "pb0006"
+   ],
+   "description": "Shot3帧0–3各屏显示相同受害者图像，帧4–5部分屏幕无可见触发地变为暗色人物图像，屏幕内容不稳定。"
+  },
+  {
+   "id": "V2",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一女性的上衣领口由 Shot1 的浅色宽领变为 Shot2 的黄色领口；Shot1 可见棕色腰带，Shot3 后视中腰带呈红色，未见造成变化的动作。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "女性发型外观不一致：Shot1 为带明显侧卷发的蓬松金发造型，Shot2 为更短、更紧密卷曲的发型；Shot3 后视呈束起的发髻状，未见造型变化的过程。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects_with_labels": [
+    [
+     "pb0006",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot3",
+     3
+    ],
+    [
+     "Shot3",
+     4
+    ],
+    [
+     "Shot3",
+     5
+    ]
+   ],
+   "description": "Shot3中，电视屏幕在帧0–3均显示浅色的受害者图像；到帧4–5，上排右侧及其他部分屏幕无可见触发地改为暗色人物图像，而其余屏幕仍显示受害者图像，屏幕内容变得不一致。"
+  },
+  {
+   "id": "V2.1",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ]
+   ],
+   "description": "同一女性的上衣领口在不同镜头中外观不一致：Shot1帧2为浅色宽领，Shot2帧2则呈黄色。"
+  },
+  {
+   "id": "V2.2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ]
+   ],
+   "description": "同一女性腰带的颜色外观不一致：Shot1帧2为棕色，Shot2帧2及Shot3帧2的后视中均呈红色调。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ]
+   ],
+   "description": "同一女性的发型外观不一致：Shot1帧2为蓬松金色侧卷发，卷发垂在两侧；Shot2帧2为较短、较紧密的卷发；Shot3帧2的后视中头发则收拢成发髻状。"
+  }
+ ]
+}

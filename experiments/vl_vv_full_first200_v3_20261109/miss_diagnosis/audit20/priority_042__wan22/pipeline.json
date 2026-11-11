@@ -1,0 +1,441 @@
+{
+ "task": "priority_042__wan22",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Elderly man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Outdoor setting",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Turquoise bench",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Curved-handle cane",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Building",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Dark doorway",
+   "shots": [
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "White-trimmed windows",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Newspaper",
+   "shots": [
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Photographed chess pieces",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Photographed ball",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Photographed appliance",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "Man's watch",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "unintended_cut",
+   "subjects": [],
+   "description": "Shot1第0至1帧背景长椅与建筑构图突变，视角由中景跳为近景，属镜头内不连续跳切。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "identity_drift",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "Shot2内男子面部身份变化：frame 0–1为正面、宽脸的老年男子；frame 2–5转向后面部显著变窄拉长，鼻梁与脸部比例明显不同，无法由转头解释。"
+  },
+  {
+   "id": "V3",
+   "scope": "within_shot",
+   "subcategory": "action_discontinuity",
+   "subjects": [
+    "pb0001",
+    "pb0004"
+   ],
+   "description": "Shot1第1帧老人持杖手臂伸向画面右侧、手杖移至边缘；第2帧手臂和手杖已完全消失，老人姿势也突变为双臂垂下，未见连续收回过程。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一老人跨镜头面孔身份不一致：Shot1、Shot3是圆脸、大鼻子的卡通老人；Shot2是面部轮廓和五官明显不同的写实老人，Shot4后脑及耳部也与写实形象相符，无变化原因。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一老人的眼镜样式不一致：Shot1为粗边矩形框，Shot2为细金属框且有明显蓝色反光，Shot3为棕色圆角框；没有可见原因解释这些变化。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0003"
+   ],
+   "description": "同一长椅的掉漆斑块位置与形状明显不同，视角变化无法解释其表面纹理改变。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0005",
+    "pb0006",
+    "pb0007"
+   ],
+   "description": "同一建筑背景不一致：Shot2 为横向黄色墙板、灰色基座及左侧门窗；Shot1/Shot3 所见为不同的立面与门窗布局，无法由取景角度解释。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects": [],
+   "description": "同一集的渲染风格不一致：Shot1、Shot3呈风格化3D，Shot2、Shot4呈写实摄影风格，无画面原因解释此切换。"
+  },
+  {
+   "id": "V9",
+   "scope": "cross_shot",
+   "subcategory": "instance_count",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一老人跨镜头被替换：Shot1/3是圆脸、夸张五官的3D老人，Shot2/4是面部结构不同的写实老人；不是同一形象。"
+  },
+  {
+   "id": "V10",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects": [],
+   "description": "Shot1与Shot3为明显的风格化3D人物；Shot2转为写实真人影像，Shot4也呈写实质感。相同场景中的风格突变无可见原因。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "unintended_cut",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1中，画面由第0帧的老人及长椅近景构图切换到第1帧更紧的胸部以上构图；长椅和建筑的取景范围随之明显改变。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "identity_drift",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot2",
+     3
+    ]
+   ],
+   "description": "Shot2中，同一老人的脸在第0至1帧正面可见时较宽；第2至5帧转向画面右侧后，侧面轮廓显得更长、更窄，鼻部突出程度和面部比例也不同。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "action_discontinuity",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ],
+    [
+     "pb0004",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     1
+    ],
+    [
+     "Shot1",
+     2
+    ]
+   ],
+   "description": "Shot1中，第1帧老人伸臂握着画面右侧的手杖；到第2帧时，手臂已垂下且手杖不再以原有形态可见，前后动作状态不连续。"
+  },
+  {
+   "id": "V4+V9",
+   "from_candidates": [
+    "V4",
+    "V9"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     3
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     3
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "同一老人跨镜头外观呈现两种明显不同的身份形象：Shot1和Shot3为圆脸、大粉鼻、蓝眼睛的风格化3D老人；Shot2和Shot4则呈现脸部轮廓及五官结构不同的写实老人。"
+  },
+  {
+   "id": "V5",
+   "from_candidates": [
+    "V5"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     3
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     3
+    ]
+   ],
+   "description": "老人所戴眼镜的框型和外观跨镜头不同：Shot1为粗边矩形框，Shot2为较细的金属框并有蓝色镜片反光，Shot3为棕色圆角框。"
+  },
+  {
+   "id": "V6",
+   "from_candidates": [
+    "V6"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0003",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     3
+    ],
+    [
+     "Shot3",
+     3
+    ]
+   ],
+   "description": "同一条风化的绿松石色长椅在Shot1与Shot3可见的褐色掉漆斑块位置和形状明显不同。"
+  },
+  {
+   "id": "V7",
+   "from_candidates": [
+    "V7"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0005",
+     "specified"
+    ],
+    [
+     "pb0006",
+     "specified"
+    ],
+    [
+     "pb0007",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     3
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     3
+    ]
+   ],
+   "description": "建筑背景在Shot1、Shot2和Shot3呈现不同的立面分区及门窗布局：Shot2可见横向黄色墙板、灰色下部饰面和左侧门洞；Shot1与Shot3可见的墙面分区、窗户及深色门洞布局与之不同。"
+  },
+  {
+   "id": "V8+V10",
+   "from_candidates": [
+    "V8",
+    "V10"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ]
+   ],
+   "description": "不同镜头的渲染风格明显不同：Shot1和Shot3呈风格化3D质感，Shot2和Shot4呈写实摄影质感。"
+  }
+ ]
+}

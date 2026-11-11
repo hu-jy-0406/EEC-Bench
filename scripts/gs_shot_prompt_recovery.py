@@ -1,5 +1,15 @@
 #!/usr/bin/env python3
-"""Own-shot prompt binding, reverse coverage, one targeted GDINO pass, deterministic freeze."""
+"""Own-shot prompt binding, reverse coverage, one targeted GDINO pass, deterministic freeze.
+
+Binding protocols: v1 (default of this CLI and the GS pipeline) binds at most one
+local entity per prompt entity in a shot and normalizes duplicates to the entity
+with most witness frames.  v2 (owner decision 2026-11-02, open-questions Q12;
+default of the VL/VV detection frontend) lets several local entities of one shot
+bind to the same prompt entity when the contract text describes several items or
+members; there is no duplicate normalization, coverage uses the frames of all
+bound members, and a recovered box of a prompt entity with several bound members
+becomes one new local entity bound to it (no member's track receives it).
+"""
 import argparse,copy,json,os,shutil,subprocess,time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -10,6 +20,7 @@ import vl_vv_repair_loop as repair_loop
 
 B=Path(__file__).resolve().parents[1]
 PYTHON=Path('/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python')
+BINDING_PROMPTS={'v1':B/'prompts/gs_shot_prompt_binding_v1.txt','v2':B/'prompts/gs_shot_prompt_binding_v2.txt'}
 read,save,sha=io.read,io.dump,io.sha
 
 def active_entities_root(case):
@@ -56,9 +67,14 @@ def normalize_binding(raw, payload):
     return raw
 
 
-def binding_errors(raw,payload):
-    """Return (every problem, normalized binding); normalize_binding runs first as before."""
-    raw = normalize_binding(raw, payload)
+def binding_errors(raw,payload,protocol='v1'):
+    """Return (every problem, normalized binding); v1: normalize_binding runs first as before.
+
+    v2: several local entities may be bound to one prompt entity; no normalization and no duplicate error.
+    """
+    if protocol not in BINDING_PROMPTS:raise ValueError(f'Unknown binding protocol {protocol!r}')
+    if protocol=='v1':raw = normalize_binding(raw, payload)
+    else:raw = copy.deepcopy(raw)
     entities={e['entity_id']:e for e in payload['entities']};pids={p['prompt_entity_id'] for p in payload['prompt_entities']}
     errors=[]
     ids=[r['entity_id'] for r in raw['bindings']]
@@ -72,7 +88,7 @@ def binding_errors(raw,payload):
             pid=r['prompt_entity_id'];entity=entities.get(r['entity_id'])
             valid={o['frame_id'] for o in entity['observations'] if o['box_xyxy'] is not None} if entity else set()
             if pid not in pids:errors.append(f'Unsupported/duplicate binding ({where}: unknown prompt_entity_id {pid!r})')
-            elif pid in used:errors.append(f'Unsupported/duplicate binding ({where}: prompt entity {pid!r} is already bound to another local entity)')
+            elif pid in used and protocol=='v1':errors.append(f'Unsupported/duplicate binding ({where}: prompt entity {pid!r} is already bound to another local entity)')
             if not r['witness_frame_ids']:errors.append(f'Unsupported/duplicate binding ({where}: bound entity needs witness_frame_ids)')
             elif not set(r['witness_frame_ids'])<=valid:errors.append(f'Unsupported/duplicate binding ({where}: witness frames {sorted(set(r["witness_frame_ids"])-valid)} have no detected box for this entity; frames with boxes are {sorted(valid)})')
             used.add(pid)
@@ -87,30 +103,34 @@ def binding_errors(raw,payload):
             errors.append(f'Invalid detection query (prompt entity {q["prompt_entity_id"]!r}: must be one nonempty line ending with "." and at most 180 characters)')
     return errors,raw
 
-def validate_binding(raw,payload):
-    errors,raw=binding_errors(raw,payload)
+def validate_binding(raw,payload,protocol='v1'):
+    errors,raw=binding_errors(raw,payload,protocol)
     if errors:raise ValueError('; '.join(errors))
     return raw
 
 def coverage(payload,binding,frames):
-    by={r['prompt_entity_id']:r['entity_id'] for r in binding['bindings'] if r['status']=='bound'}
+    """Per prompt entity: frames with a box of ANY bound local entity (binding v2 may bind several), and the gaps."""
+    by={}
+    for r in binding['bindings']:
+        if r['status']=='bound':by.setdefault(r['prompt_entity_id'],[]).append(r['entity_id'])
     entities={e['entity_id']:e for e in payload['entities']};queries={r['prompt_entity_id']:r['detection_query'] for r in binding['queries']};fids=[f['frame_id'] for f in frames];rows=[]
     for p in payload['prompt_entities']:
-        pid=p['prompt_entity_id'];eid=by.get(pid);observed=[] if eid is None else [o['frame_id'] for o in entities[eid]['observations'] if o['box_xyxy'] is not None]
+        pid=p['prompt_entity_id'];eids=by.get(pid,[]);boxed={o['frame_id'] for eid in eids for o in entities[eid]['observations'] if o['box_xyxy'] is not None}
+        observed=[f for f in fids if f in boxed]
         gaps=[f for f in fids if f not in observed];required=p['expectation']=='required'
-        rows.append(dict(prompt_entity_id=pid,entity_id=eid,expectation=p['expectation'],observed_frame_ids=observed,missing_detection_frame_ids=gaps if required else [],query=queries[pid],status='covered' if observed and not gaps else 'partial' if observed else 'uncovered' if required else 'not_required'))
+        rows.append(dict(prompt_entity_id=pid,entity_id=eids[0] if eids else None,entity_ids=eids,expectation=p['expectation'],observed_frame_ids=observed,missing_detection_frame_ids=gaps if required else [],query=queries[pid],status='covered' if observed and not gaps else 'partial' if observed else 'uncovered' if required else 'not_required'))
     return rows
 
-def bind_one(case,out,shot,registry,narrative,model,reasoning):
+def bind_one(case,out,shot,registry,narrative,model,reasoning,protocol='v1'):
     sid=shot['shot_id'];payload=own_payload(case,shot,registry,narrative)
     folder=out/'calls'/f'{sid}_binding'
     audit_path=folder.parent/f'{folder.name}_repair_audit.json'
     if audit_path.exists() and read(audit_path).get('status')=='passed':
         if read(folder/'input.json')!=payload:raise ValueError('Changed binding input on resume')
-        raw=validate_binding(read(Path(read(audit_path)['rounds'][-1]['call_folder'])/'response.json'),payload)
+        raw=validate_binding(read(Path(read(audit_path)['rounds'][-1]['call_folder'])/'response.json'),payload,protocol)
     elif (folder/'status.json').exists() and read(folder/'status.json')['status']=='success' and not audit_path.exists():
         if read(folder/'input.json')!=payload:raise ValueError('Changed binding input on resume')
-        raw=validate_binding(read(folder/'response.json'),payload)
+        raw=validate_binding(read(folder/'response.json'),payload,protocol)
     else:
         raw = None
         schema=binding_schema([p['prompt_entity_id'] for p in payload['prompt_entities']])
@@ -120,8 +140,8 @@ def bind_one(case,out,shot,registry,narrative,model,reasoning):
                 # All binding problems go back to the model together in the
                 # same conversation; only transport failures restart afresh.
                 raw,_,_,_=repair_loop.call_with_repair(folder,payload,[dict(f,shot_id=sid) for f in shot['frames']],1800,
-                    prompt_path=B/'prompts/gs_shot_prompt_binding_v1.txt',schema=schema,model=model,reasoning=reasoning,
-                    collect_errors=lambda r:binding_errors(r,payload),stage=f'{sid} prompt binding')
+                    prompt_path=BINDING_PROMPTS[protocol],schema=schema,model=model,reasoning=reasoning,
+                    collect_errors=lambda r:binding_errors(r,payload,protocol),stage=f'{sid} prompt binding')
                 break
             except Exception as exc:
                 if attempt == 3 or 'repair rounds' in str(exc):
@@ -151,7 +171,11 @@ def materialize_grounding(original, payload, own, new_frames, binding, coverage_
     pending={r['prompt_entity_id']:set(r['missing_detection_frame_ids']) for r in coverage_rows if r['missing_detection_frame_ids']}
     old={e['entity_id']:e for e in original['entities']}
     oldbound={r['entity_id']:r['prompt_entity_id'] for r in binding['bindings'] if r['status']=='bound'}
-    byprompt={pid:eid for eid,pid in oldbound.items()}
+    members={}
+    for eid,pid in oldbound.items():members.setdefault(pid,[]).append(eid)
+    # A box joins the track of the ONE local entity bound to its prompt entity; with none, or with several bound
+    # members (binding v2), the recovered boxes form one new local entity bound to that prompt entity.
+    byprompt={pid:eids[0] for pid,eids in members.items() if len(eids)==1}
     prompt_names={p['prompt_entity_id']:p['name'] for p in own['prompt_entities']}
     eligible={}
     for cid,(fid,c) in candidates.items():
@@ -200,7 +224,7 @@ def materialize_grounding(original, payload, own, new_frames, binding, coverage_
             reason='Directly recovered by the prompt-targeted Grounding DINO query.'))
     return result,merged,canonical,final
 
-def recover_one(case,out,shot,item):
+def recover_one(case,out,shot,item,protocol='v1'):
     sid,own,binding,rows=item;path=case/'entities/shots'/sid
     original=read(path/'entities.json');payload=read(path/'input.json');newframes=[]
     for f in shot['frames']:
@@ -213,32 +237,34 @@ def recover_one(case,out,shot,item):
         result,merged,canonical,final=materialize_grounding(original,payload,own,newframes,binding,rows)
     else:
         result,merged,canonical,final=original,payload,read(path/'response.json'),binding
-    updated=dict(own,entities=result['entities']);validate_binding(final,updated)
+    updated=dict(own,entities=result['entities']);validate_binding(final,updated,protocol)
     finalcov=coverage(updated,final,shot['frames']);dest=out/'entities/shots'/sid
     save(dest/'entities.json',result);save(dest/'input.json',merged);save(dest/'response.json',canonical)
     save(out/'shots'/sid/'binding_final.json',final);save(out/'shots'/sid/'coverage_final.json',finalcov)
     return dict(shot_id=sid,initial_entities=len(original['entities']),final_entities=len(result['entities']),
         initial_coverage=rows,final_coverage=finalcov,new_candidates=len(candidates),final_bindings=final['bindings'])
 
-def run(case,registry_path,out=None,workers=2,grounding_python=PYTHON,device='cpu',narrative_path=None,gpu=None,gpu_uuid=None,resume=False,model='gpt-6-astra',reasoning='medium'):
+def run(case,registry_path,out=None,workers=2,grounding_python=PYTHON,device='cpu',narrative_path=None,gpu=None,gpu_uuid=None,resume=False,model='gpt-6-astra',reasoning='medium',binding_protocol='v1'):
+    if binding_protocol not in BINDING_PROMPTS:raise ValueError(f'Unknown binding protocol {binding_protocol!r}')
     case=Path(case).resolve();out=Path(out).resolve() if out else case/'shot_prompt_recovery'
     if out.exists() and not resume:raise FileExistsError('Use fresh recovery output or explicit --resume')
     if resume:
         previous=read(out/'run.json')
         if previous['status']!='failed':raise ValueError('Resume only failed runs')
+        if previous.get('binding_protocol','v1')!=binding_protocol:raise ValueError('Changed binding protocol on resume')
         if any(sha(p)!=h for p,h in read(out/'source_hashes.json').items()):raise ValueError('Changed source on resume')
         if read(out/'prompt_registry.json')!=read(registry_path):raise ValueError('Changed registry on resume')
         save(out/'attempts'/f"run_{previous['started']}.json",previous)
     if (case/'inputs').exists() and any((case/'inputs').glob('*.json')):raise ValueError('Run recovery before geometry input freeze; use a fresh case for replays')
     io.safe_compute();shots=io.load_manifest(case/'raw_manifest.json');narrative=read(narrative_path or case/'narrative.json');registry=validate_registry(read(registry_path),shots,narrative)
     if not registry['entities']:raise ValueError('Empty registry')
-    out.mkdir(parents=True,exist_ok=resume);start=time.time();state=dict(status='running',started=start,protocol='shot_prompt_recovery_v2_direct_grounding',workers=workers,device=device)
+    out.mkdir(parents=True,exist_ok=resume);start=time.time();state=dict(status='running',started=start,protocol='shot_prompt_recovery_v2_direct_grounding',binding_protocol=binding_protocol,workers=workers,device=device)
     save(out/'run.json',state);save(out/'prompt_registry.json',registry)
-    sources={str(p):sha(p) for p in [Path(registry_path),Path(narrative_path or case/'narrative.json'),case/'raw_manifest.json']}
+    sources={str(p):sha(p) for p in [Path(registry_path),Path(narrative_path or case/'narrative.json'),case/'raw_manifest.json',BINDING_PROMPTS[binding_protocol]]}
     sources.update({str(case/'entities/shots'/s['shot_id']/n):sha(case/'entities/shots'/s['shot_id']/n) for s in shots for n in ['input.json','entities.json','response.json']})
     save(out/'source_hashes.json',sources)
     try:
-        with ThreadPoolExecutor(max_workers=workers) as pool:items=list(pool.map(lambda s:bind_one(case,out,s,registry,narrative,model,reasoning),shots))
+        with ThreadPoolExecutor(max_workers=workers) as pool:items=list(pool.map(lambda s:bind_one(case,out,s,registry,narrative,model,reasoning,binding_protocol),shots))
         tasks=[]
         for shot,item in zip(shots,items):
             for f in shot['frames']:
@@ -262,15 +288,15 @@ def run(case,registry_path,out=None,workers=2,grounding_python=PYTHON,device='cp
                 cmd=[str(PYTHON),str(B/'experiments/study2_detection_only_fresh_20260918/guard_gpu.py'),str(gpu),gpu_uuid]+cmd
             save(out/'grounding_command.json',dict(command=cmd))
             with (out/'grounding.log').open('w') as f:subprocess.run(cmd,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
-        with ThreadPoolExecutor(max_workers=workers) as pool:rows=list(pool.map(lambda pair:recover_one(case,out,*pair),zip(shots,items)))
+        with ThreadPoolExecutor(max_workers=workers) as pool:rows=list(pool.map(lambda pair:recover_one(case,out,*pair,binding_protocol),zip(shots,items)))
         if any(sha(p)!=h for p,h in sources.items()):raise ValueError('Source mutated during recovery')
-        save(out/'entities/manifest.json',dict(shots=shots));save(out/'results.json',dict(status='success',protocol=state['protocol'],shots=rows,source_entities=str(case/'entities'),rounds=1))
+        save(out/'entities/manifest.json',dict(shots=shots));save(out/'results.json',dict(status='success',protocol=state['protocol'],binding_protocol=binding_protocol,shots=rows,source_entities=str(case/'entities'),rounds=1))
         state['status']='success'
     except BaseException as e:state.update(status='failed',error=repr(e));raise
     finally:state.update(seconds=time.time()-start);save(out/'run.json',state)
     return rows
 
 if __name__=='__main__':
-    p=argparse.ArgumentParser();p.add_argument('--case',type=Path,required=True);p.add_argument('--registry',type=Path,required=True);p.add_argument('--out',type=Path);p.add_argument('--workers',type=int,default=2);p.add_argument('--grounding-python',type=Path,default=PYTHON);p.add_argument('--device',choices=['cpu','cuda'],default='cpu');p.add_argument('--narrative',type=Path);p.add_argument('--gpu',type=int);p.add_argument('--gpu-uuid');p.add_argument('--resume',action='store_true');p.add_argument('--model',default='gpt-6-astra');p.add_argument('--reasoning',choices=['low','medium','high','xhigh','max','ultra'],default='medium');a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--case',type=Path,required=True);p.add_argument('--registry',type=Path,required=True);p.add_argument('--out',type=Path);p.add_argument('--workers',type=int,default=2);p.add_argument('--grounding-python',type=Path,default=PYTHON);p.add_argument('--device',choices=['cpu','cuda'],default='cpu');p.add_argument('--narrative',type=Path);p.add_argument('--gpu',type=int);p.add_argument('--gpu-uuid');p.add_argument('--resume',action='store_true');p.add_argument('--model',default='gpt-6-astra');p.add_argument('--reasoning',choices=['low','medium','high','xhigh','max','ultra'],default='medium');p.add_argument('--binding-protocol',choices=sorted(BINDING_PROMPTS),default='v1',help='v1 (default here and in the GS pipeline): at most one local entity per prompt entity; v2: several when the contract text describes several items (VL/VV default)');a=p.parse_args()
     if a.workers<1:p.error('Positive workers required')
-    run(a.case,a.registry,a.out,a.workers,a.grounding_python,a.device,a.narrative,a.gpu,a.gpu_uuid,a.resume,a.model,a.reasoning)
+    run(a.case,a.registry,a.out,a.workers,a.grounding_python,a.device,a.narrative,a.gpu,a.gpu_uuid,a.resume,a.model,a.reasoning,a.binding_protocol)

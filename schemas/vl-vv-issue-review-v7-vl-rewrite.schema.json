@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue review v7, V-L branch, call 1: keep / split and rewrite (no verdicts)",
+  "type": "object",
+  "required": [
+    "protocol",
+    "candidate_actions",
+    "issues"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_review_v7_vl_rewrite"
+    },
+    "candidate_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "action",
+          "reason"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "keep",
+              "split"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_candidate_ids",
+          "subcategory",
+          "description",
+          "shot_ids",
+          "requirement_quote",
+          "template_row_ids",
+          "frame_refs",
+          "entity_keys",
+          "revision",
+          "revision_note"
+        ],
+        "properties": {
+          "source_candidate_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "subcategory": {
+            "type": "string",
+            "enum": [
+              "presence_count",
+              "attribute",
+              "action_state",
+              "interaction",
+              "spatial_orientation",
+              "setting_environment",
+              "camera_composition",
+              "style_rendering",
+              "stated_continuity",
+              "shot_structure"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "requirement_quote": {
+            "type": "object",
+            "required": [
+              "source",
+              "shot_id",
+              "quote"
+            ],
+            "properties": {
+              "source": {
+                "type": "string",
+                "enum": [
+                  "contract",
+                  "shot_transitions"
+                ]
+              },
+              "shot_id": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                ]
+              },
+              "quote": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "template_row_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "frame_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "entity_keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "revision": {
+            "type": "string",
+            "enum": [
+              "unchanged",
+              "clarified"
+            ]
+          },
+          "revision_note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

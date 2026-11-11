@@ -1,0 +1,385 @@
+{
+ "task": "priority_013__cinetrans",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Dark-haired man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Woman in the feathered hat",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Ornate library",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Gold-framed portrait",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Column beside the portrait",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Brass wall fixture",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Palm leaves",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Red upholstered chair",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Paneled double doors",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Green leather chair",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Writing desk",
+   "shots": [
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Tall bookcases",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Surrounding fluted columns",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Green glass lamp",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Silver accessories",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0016",
+   "label": "specified",
+   "name": "Desktop papers",
+   "shots": [
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0017",
+   "label": "specified",
+   "name": "Black handled bag",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0018",
+   "label": "specified",
+   "name": "Paper-bundle pile",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0019",
+   "label": "specified",
+   "name": "Bundle picked up by the man",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "Table",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "ge0002",
+   "label": "unspecified",
+   "name": "Stack of folded linens",
+   "shots": [
+    "Shot1"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "Shot4中女子帽上的浅粉色装饰在帧0呈花结状，帧2–5变为明显竖起的羽饰状，未见造成变化的动作。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot1帧0整体严重偏暗，至帧1曝光明显恢复，属于开帧曝光闪变。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一女性角色面部身份不一致：Shot1、Shot3为短发、面部轮廓较窄的女性；Shot2、Shot4为戴羽饰帽、面部更圆润的女性，差异无可见原因。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一女性在Shot1穿黑色外套、深色围巾且未戴帽；Shot2戴棕色饰粉色蝴蝶结的帽子，穿棕色服装及领结；Shot3又换为短发造型、黑色外套与领带；Shot4回到长发、棕色服装和帽子，变化无镜头内更衣等原因。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0017"
+   ],
+   "description": "同一黑包在Shot2呈横向鼓起、编织纹明显的圆筒状；Shot4则呈较扁的矩形包状，形状不一致，无可见动作解释。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot4",
+     2
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "Shot4中女子帽侧的浅粉色装饰在帧0呈较扁的花结状，帧2–5则呈明显竖起的羽饰状，形态在镜头内改变。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1帧0画面整体明显偏暗、人物和背景细节较难辨认；到帧1亮度明显恢复，细节清晰可见。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     1
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     0
+    ],
+    [
+     "Shot4",
+     0
+    ]
+   ],
+   "description": "同一女性角色在Shot1、Shot3与Shot2、Shot4呈现不同的面部身份特征：Shot1帧1和Shot3帧0可见较窄脸型、短发女性；Shot2帧1和Shot4帧0可见戴帽、脸型更圆润的女性。"
+  },
+  {
+   "id": "V4",
+   "from_candidates": [
+    "V4"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     1
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "女性角色的头发、帽子及服装在各镜头间不一致：Shot1帧1为深色长发、黑色外套和深色围巾且无帽；Shot2帧1为戴棕色宽檐帽及粉色装饰、穿棕色服装并系领结；Shot3帧1为短发、黑色外套、白领衬衫和深色领带且无帽；Shot4帧1为长发、戴装饰帽并穿棕色服装及领饰。"
+  },
+  {
+   "id": "V5",
+   "from_candidates": [
+    "V5"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0017",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     0
+    ]
+   ],
+   "description": "黑色手提包在Shot2帧1呈横向鼓起、近圆筒状且表面有明显编织纹；Shot4帧0呈较扁的矩形轮廓，外形不同。"
+  }
+ ]
+}

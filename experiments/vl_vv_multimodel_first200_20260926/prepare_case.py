@@ -212,6 +212,8 @@ def main():
         command.append('--allow-legacy-nominal-keyframes')
     if args.contract_format == 'v1':
         command.append('--allow-v1-contract')
+    else:  # compiled requirement package; missing or stale is an error (no fallback)
+        command += ['--compiled', str(contract_io.resolve_compiled(task['episode_id'], contract_path))]
     subprocess.run(command, check=True)
     write(case / 'benchmark_metadata.json', dict(
         protocol='vl_vv_multimodel_case_metadata_v1', task_id=task['task_id'],

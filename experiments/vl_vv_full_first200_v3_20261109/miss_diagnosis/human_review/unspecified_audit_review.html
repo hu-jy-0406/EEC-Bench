@@ -1,0 +1,732 @@
+<title>Unspecified 实体抽查复核</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Layout: one review column. Each finding is a contact-sheet card: keyframes on a dark mat with grease-pencil marks,
+   then a verdict strip. A sticky tally strip (one cell per finding) tracks progress. */
+:root {
+  --bg: #ECEFF2; --surface: #FFFFFF; --soft: #F4F6F8; --ink: #16202A; --muted: #586675; --line: #D2D9E0;
+  --accent: #2B4E9B; --bar: rgba(236, 239, 242, 0.93); --tick: #DDE3E9;
+  --mat: #1A1F25; --cap-bg: rgba(0, 0, 0, 0.72); --cap-ink: #F2F5F7; --lb-bg: rgba(8, 11, 14, 0.96); --lb-ink: #E8EDF1;
+  --mark-solid: #FFD400; --mark-dash: #00E0FF; --mark-edge: rgba(0, 0, 0, 0.85); --mat-line: rgba(255, 255, 255, 0.3);
+  --real: #BC3328; --real-bg: #FBE8E5; --clear: #2B7564; --clear-bg: #E1F1EC; --unsure: #95620F; --unsure-bg: #FAEFD9;
+  --spec: #46525E; --spec-bg: #E7EBEF;
+  --f-display: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1318; --surface: #151C23; --soft: #1A222A; --ink: #E2E8EE; --muted: #909DAA; --line: #29333D;
+    --accent: #93B2FF; --bar: rgba(14, 19, 24, 0.93); --tick: #26303A;
+    --mat: #090C0F; --lb-bg: rgba(4, 6, 8, 0.97);
+    --real: #FF8678; --real-bg: #3A1C19; --clear: #63CDB1; --clear-bg: #142E28; --unsure: #E6B055; --unsure-bg: #33270E;
+    --spec: #C3CDD6; --spec-bg: #25303A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1318; --surface: #151C23; --soft: #1A222A; --ink: #E2E8EE; --muted: #909DAA; --line: #29333D;
+  --accent: #93B2FF; --bar: rgba(14, 19, 24, 0.93); --tick: #26303A;
+  --mat: #090C0F; --lb-bg: rgba(4, 6, 8, 0.97);
+  --real: #FF8678; --real-bg: #3A1C19; --clear: #63CDB1; --clear-bg: #142E28; --unsure: #E6B055; --unsure-bg: #33270E;
+  --spec: #C3CDD6; --spec-bg: #25303A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1080px; margin: 0 auto; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+header.top { padding-block: 36px 8px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); margin: 0; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(26px, 4.4vw, 38px); line-height: 1.25; margin: 6px 0 14px; text-wrap: balance; }
+.lead { max-width: 70ch; margin: 0; }
+.lead + .lead { margin-top: 8px; color: var(--muted); font-size: 14px; }
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; margin-top: 22px; }
+.guide section { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.guide h2 { font-size: 14px; margin: 0 0 6px; }
+.guide ul { margin: 0; padding-left: 1.2em; font-size: 14px; }
+.guide li + li { margin-top: 4px; }
+.swatch { display: inline-block; width: 30px; height: 15px; vertical-align: -2px; margin-right: 6px; border-radius: 2px; box-shadow: 0 0 0 1px var(--mark-edge); background: var(--mat); }
+.swatch.solid { border: 2px solid var(--mark-solid); }
+.swatch.dashed { border: 2px dashed var(--mark-dash); }
+
+/* Sticky tally bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bar); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-top: 22px; }
+.bar .inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 9px; }
+.count { font-family: var(--f-mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.count b { font-size: 16px; }
+.tally { display: flex; gap: 3px; flex: 1 1 240px; min-width: 0; }
+.tally a { flex: 1 1 0; min-width: 5px; height: 18px; border-radius: 3px; background: var(--tick); border: 1px solid var(--line); }
+.tally a[data-v="yes"] { background: var(--real); border-color: var(--real); }
+.tally a[data-v="no"] { background: var(--clear); border-color: var(--clear); }
+.tally a[data-v="unsure"] { background: var(--unsure); border-color: var(--unsure); }
+.bar-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tbtn { font-size: 13px; padding: 5px 11px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 32px; }
+.tbtn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.tbtn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.status { font-size: 12.5px; color: var(--muted); flex-basis: 100%; margin: 0; }
+.status .tbtn { margin: 0 8px; padding: 1px 10px; min-height: 28px; font-size: 12.5px; }
+.counts { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.counts i { font-style: normal; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin: 0 4px 0 8px; vertical-align: 0; }
+
+/* Video groups and cards */
+main { padding-block: 8px 72px; }
+.group { margin-top: 34px; }
+.group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.group-head h2 { font-family: var(--f-display); font-size: 22px; margin: 0; }
+.group-head h2 span { font-family: var(--f-mono); font-size: 18px; margin-right: 6px; }
+.meta { color: var(--muted); font-size: 13px; }
+.entities { margin-top: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.entities > summary { padding: 9px 14px; }
+.entities ul { margin: 0; padding: 0 16px 12px 32px; font-size: 13px; color: var(--ink); }
+.entities li + li { margin-top: 3px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 14px; scroll-margin-top: 96px; }
+.card-head { padding: 16px 18px 14px; display: grid; gap: 6px; }
+.idrow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.fid { font-family: var(--f-mono); font-weight: 600; font-size: 13px; background: var(--ink); color: var(--surface); padding: 1px 8px; border-radius: 5px; }
+.chip { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 0 9px; color: var(--muted); background: var(--soft); white-space: nowrap; }
+.chip.mono { font-family: var(--f-mono); }
+.stamp { margin-left: auto; font-size: 12.5px; font-weight: 700; padding: 1px 10px; border-radius: 6px; border: 1.5px dashed var(--line); color: var(--muted); white-space: nowrap; }
+.stamp[data-v="yes"] { border: 1.5px solid var(--real); color: var(--real); background: var(--real-bg); }
+.stamp[data-v="no"] { border: 1.5px solid var(--clear); color: var(--clear); background: var(--clear-bg); }
+.stamp[data-v="unsure"] { border: 1.5px solid var(--unsure); color: var(--unsure); background: var(--unsure-bg); }
+.obj { font-size: 18px; line-height: 1.45; margin: 2px 0 0; font-weight: 700; text-wrap: balance; }
+.what { margin: 0; max-width: 78ch; }
+
+/* Contact sheet */
+.sheet { background: var(--mat); padding: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 10px; }
+.frame { position: relative; margin: 0; cursor: zoom-in; border-radius: 4px; overflow: hidden; line-height: 0; background: var(--mat); }
+.frame img { display: block; width: 100%; height: auto; aspect-ratio: 832 / 480; }
+.frame figcaption, .thumb span { position: absolute; left: 6px; top: 6px; line-height: 1.25; font-family: var(--f-mono); font-size: 12px; color: var(--cap-ink); background: var(--cap-bg); padding: 2px 7px; border-radius: 4px; }
+.mk { position: absolute; pointer-events: none; border-radius: 3px; }
+.mk.solid { border: 2px solid var(--mark-solid); box-shadow: 0 0 0 1px var(--mark-edge), inset 0 0 0 1px var(--mark-edge); }
+.mk.dashed { border: 2px dashed var(--mark-dash); box-shadow: 0 0 0 1px var(--mark-edge); }
+body.nomarks .mk { display: none; }
+
+/* Video: only on findings whose review asked for the full video */
+.vid { background: var(--mat); padding: 0 12px 12px; display: grid; gap: 8px; justify-items: start; }
+.vid-note { margin: 0; color: var(--cap-ink); font-size: 13px; line-height: 1.5; }
+.vid video { display: block; width: 100%; max-width: 832px; height: auto; aspect-ratio: 832 / 480; background: var(--mat); border-radius: 4px; }
+.vid-ctl { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.vid-ctl button { font-family: var(--f-mono); font-size: 12.5px; padding: 3px 9px; min-height: 30px; border-radius: 6px; border: 1px solid var(--mat-line); background: transparent; color: var(--cap-ink); cursor: pointer; }
+.vid-ctl button:hover { border-color: var(--cap-ink); }
+.vid-time { font-family: var(--f-mono); font-size: 12.5px; color: var(--cap-ink); font-variant-numeric: tabular-nums; }
+
+/* Collapsible extras */
+details.more { border-top: 1px solid var(--line); }
+details > summary { cursor: pointer; font-size: 13.5px; color: var(--accent); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸"; display: inline-block; width: 1em; transition: transform 0.15s; }
+details[open] > summary::before { transform: rotate(90deg); }
+details.more > summary { padding: 10px 18px; }
+.more-body { padding: 0 18px 14px; font-size: 13.5px; min-width: 0; }
+.more-body p { margin: 0 0 8px; overflow-wrap: anywhere; }
+.more-body .k { font-family: var(--f-mono); font-weight: 600; margin-right: 6px; }
+.en { color: var(--muted); }
+.shotlabel { font-family: var(--f-mono); font-size: 12.5px; margin: 10px 0 4px; }
+.strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; background: var(--mat); padding: 5px; border-radius: 6px; }
+.thumb { position: relative; margin: 0; line-height: 0; cursor: zoom-in; border-radius: 3px; overflow: hidden; }
+.thumb img { display: block; width: 100%; height: auto; aspect-ratio: 832 / 480; }
+.thumb span { left: 3px; top: 3px; font-size: 10.5px; padding: 0 4px; }
+.thumb.cited { box-shadow: 0 0 0 2px var(--mark-solid); }
+.pipe p { margin: 0 0 6px; }
+.pipe .note { color: var(--muted); font-size: 12.5px; }
+
+/* Verdict strip */
+.verdict { padding: 14px 18px 16px; border-top: 1px solid var(--line); background: var(--soft); display: grid; gap: 12px; }
+.q { display: grid; gap: 6px; min-width: 0; }
+.q-label { font-size: 13.5px; font-weight: 700; margin: 0; }
+.q-label small { font-weight: 400; color: var(--muted); margin-left: 4px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg button { font-size: 14px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 38px; }
+.seg button:hover { border-color: var(--muted); }
+.seg button:disabled { cursor: not-allowed; opacity: 0.55; }
+.seg button[aria-pressed="true"] { font-weight: 700; }
+.seg button[aria-pressed="true"][data-v="yes"] { background: var(--real-bg); border-color: var(--real); color: var(--real); }
+.seg button[aria-pressed="true"][data-v="no"] { background: var(--clear-bg); border-color: var(--clear); color: var(--clear); }
+.seg button[aria-pressed="true"][data-v="unsure"] { background: var(--unsure-bg); border-color: var(--unsure); color: var(--unsure); }
+.seg button[aria-pressed="true"][data-v="unspec"] { background: var(--surface); border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.seg button[aria-pressed="true"][data-v="spec"] { background: var(--spec-bg); border-color: var(--spec); color: var(--spec); }
+.note-in { font: inherit; font-size: 14px; width: 100%; min-height: 40px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); resize: vertical; }
+body.only-open .card[data-judged="1"] { display: none; }
+
+/* Summary */
+.summary { margin-top: 44px; }
+.summary h2 { font-family: var(--f-display); font-size: 22px; margin: 0 0 6px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 640px; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12.5px; color: var(--muted); font-weight: 500; background: var(--soft); }
+td.mono { font-family: var(--f-mono); white-space: nowrap; }
+td a { color: var(--accent); text-decoration: none; }
+td .v { font-weight: 700; }
+td .v[data-v="yes"] { color: var(--real); } td .v[data-v="no"] { color: var(--clear); } td .v[data-v="unsure"] { color: var(--unsure); }
+tr:last-child td { border-bottom: 0; }
+.copy-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+#copybox { width: 100%; min-height: 160px; font-family: var(--f-mono); font-size: 12.5px; margin-top: 10px; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+footer { color: var(--muted); font-size: 12.5px; padding-block: 28px 8px; }
+
+/* Lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--lb-bg); display: flex; flex-direction: column; gap: 8px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.lb-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; color: var(--lb-ink); }
+.lb-cap { font-family: var(--f-mono); font-size: 13px; min-width: 0; }
+.lb-top .tbtn { background: transparent; color: var(--lb-ink); border-color: rgba(255, 255, 255, 0.28); }
+.lb-stage { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.lb-fig { position: relative; line-height: 0; flex: 0 0 auto; }
+.lb-fig img { display: block; width: 100%; height: 100%; }
+.lb-nav { flex: 0 0 auto; width: 40px; height: 64px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.25); background: transparent; color: var(--lb-ink); font-size: 26px; cursor: pointer; }
+.lb-nav:disabled { opacity: 0.25; cursor: default; }
+.lb-thumbs { display: flex; gap: 6px; justify-content: center; overflow-x: auto; flex: 0 0 auto; padding-bottom: 2px; }
+.lb-thumbs button { flex: 0 0 auto; width: 92px; padding: 0; border: 2px solid transparent; border-radius: 4px; background: none; cursor: pointer; line-height: 0; }
+.lb-thumbs button[aria-current="true"] { border-color: var(--mark-solid); }
+.lb-thumbs img { width: 100%; height: auto; display: block; border-radius: 2px; }
+@media (max-width: 560px) {
+  .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lb-nav { width: 32px; }
+  .lb-thumbs button { width: 64px; }
+  .card-head, .verdict { padding-inline: 14px; }
+  details.more > summary, .more-body { padding-inline: 14px; }
+  .sheet { padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="gutter"><div class="inner">
+<header class="top">
+  <p class="eyebrow">UEC-BENCH · FIRST-200 第三次重跑 · 随机 20 个视频 · 19 条发现</p>
+  <h1>Unspecified 实体抽查复核</h1>
+  <p class="lead">Claude 子代理盲看了 20 个随机视频（每个模型 4 个）的关键帧，列出 prompt 没写的物体出现的一致性问题，共 19 条。流水线没有把其中任何一条记成涉及 unspecified 实体。请逐条看图回答两个问题：这个问题是否真实存在；所指物体 prompt 有没有写。</p>
+  <p class="lead">每次点击都会自动保存到页面的共享存储（第一次可能需要点一下“授权保存”），Claude 能直接读到结果。19 条大约需要 10–15 分钟。</p>
+  <div class="guide">
+    <section>
+      <h2>怎么判断</h2>
+      <ul>
+        <li><b>是真问题</b>：图上能看到描述的变化、出现或消失，而且 prompt 没有要求或允许它。</li>
+        <li><b>不是问题</b>：图上看不到这种情况，或者变化可以由视角、遮挡或 prompt 解释。</li>
+        <li><b>看不清</b>：画面太小、太糊或被挡住，没法判断。</li>
+        <li>第二问只看物体本身：prompt 或合同实体里写到了它（名字或角色），就是 specified。</li>
+      </ul>
+    </section>
+    <section>
+      <h2>图上的标记</h2>
+      <ul>
+        <li><span class="swatch solid"></span>黄色实线框：发现所指的物体。</li>
+        <li><span class="swatch dashed"></span>青色虚线框：另一帧里的对应位置，物体在这里缺失或样子不同。</li>
+        <li>框是 Claude 按审查描述手工标的大致位置，不是检测器输出。点图片放大，← → 切换，M 键显示或隐藏标记。</li>
+      </ul>
+    </section>
+  </div>
+</header>
+</div></div>
+
+<div class="bar gutter" id="bar"><div class="inner">
+  <span class="count">已判断 <b id="n-done">0</b> / <span id="n-all">19</span></span>
+  <nav class="tally" id="tally" aria-label="进度，点击跳到对应发现"></nav>
+  <div class="bar-actions">
+    <button class="tbtn" id="only-open" aria-pressed="false">只看未判断</button>
+    <button class="tbtn" id="marks-toggle" aria-pressed="true">标记：显示</button>
+    <button class="tbtn primary" id="copy-top">复制结果</button>
+  </div>
+  <p class="status"><span id="status">正在启动…</span><button class="tbtn primary" id="store-action" type="button" hidden></button><span class="counts" id="counts"></span></p>
+</div></div>
+
+<div class="gutter"><div class="inner">
+<main id="list"></main>
+<section class="summary" id="summary">
+  <h2>汇总</h2>
+  <p class="lead" style="font-size:14px;color:var(--muted)">判断完后告诉 Claude 一声即可；如果页面提示只存在本浏览器，就点“复制结果”，把文本发给 Claude。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>编号</th><th>物体</th><th>是否真问题</th><th>prompt 是否写了</th><th>备注</th></tr></thead>
+    <tbody id="sum-body"></tbody>
+  </table></div>
+  <div class="copy-row"><button class="tbtn primary" id="copy-bottom">复制结果</button><span class="counts" id="copy-msg"></span></div>
+  <textarea id="copybox" readonly hidden aria-label="结果文本"></textarea>
+</section>
+<footer>来源：EECBench/experiments/vl_vv_full_first200_v3_20261109/miss_diagnosis（audit20、human_review）。关键帧为原始文件，未做处理；中文描述是 Claude 对审查员英文原文的翻译，原文在每条的“审查员原文”里。</footer>
+</div></div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="放大查看关键帧">
+  <div class="lb-top">
+    <span class="lb-cap" id="lb-cap"></span>
+    <span class="bar-actions">
+      <button class="tbtn" id="lb-marks">隐藏标记 (M)</button>
+      <button class="tbtn" id="lb-close">关闭 (Esc)</button>
+    </span>
+  </div>
+  <div class="lb-stage" id="lb-stage">
+    <button class="lb-nav" id="lb-prev" aria-label="上一张">‹</button>
+    <div class="lb-fig" id="lb-fig"></div>
+    <button class="lb-nav" id="lb-next" aria-label="下一张">›</button>
+  </div>
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+</div>
+
+<script type="application/json" id="data">{"generated":"2026-11-10","videos":[{"task":"priority_013__cinetrans","num":"013","model":"CineTrans-DiT","mkey":"cinetrans","shots":4,"entities":["[0] character: Dark-haired man - Man with neatly parted dark hair and long sideburns, wearing a black formal coat, a pale buttoned waistcoat, a high white collar and a dark cravat. (expected in: Shot1, Shot3, Shot4)","[1] character: Woman in the feathered hat - Woman with dark hair pinned beneath a flat brown feathered hat decorated with pale pink ribbon, a bow and a tall patterned feather; her brown outfit has dark edging, a white collar and a dark necktie; she wears dark gloves with white ruffled cuffs. (expected in: Shot2, Shot4)","[2] location: Ornate library - Ornate, wood-paneled library. (expected in: Shot1, Shot2, Shot3, Shot4)","[3] object: Gold-framed portrait - Large portrait with a gold frame. (expected in: Shot1, Shot3)","[4] object: Column beside the portrait - Fluted wooden column. (expected in: Shot1, Shot3)","[5] object: Brass wall fixture - Brass wall fixture with white globes. (expected in: Shot1, Shot3)","[6] object: Palm leaves - Palm leaves. (expected in: Shot1)","[7] object: Red upholstered chair - Red upholstered chair. (expected in: Shot1)","[8] object: Paneled double doors - Paneled double doors (a pair of doors). (expected in: Shot2)","[9] object: Green leather chair - Tall green leather chair. (expected in: Shot2)","[10] object: Writing desk - Substantial writing desk. (expected in: Shot4)","[11] object: Tall bookcases - A group of tall bookcases. (expected in: Shot4)","[12] object: Surrounding fluted columns - A group of fluted columns. (expected in: Shot4)","[13] object: Green glass lamp - Green glass lamp. (expected in: Shot4)","[14] object: Silver accessories - A group of silver accessories. (expected in: Shot4)","[15] object: Desktop papers - A collection of papers. (expected in: Shot4)","[16] object: Black handled bag - Black bag with a handle. (expected in: Shot4)","[17] object: Paper-bundle pile - A scattered pile of pale paper bundles crossed with reddish bands. (expected in: Shot4)","[18] object: Bundle picked up by the man - One paper bundle from the pile. (expected in: Shot4)"],"global_prompt":"Four five-second shots in the same ornate library preserve the man's changing expression, the woman's downward glance, his straightening posture, and their interaction with a black bag and paper bundles at the desk.","findings":["013-A1","013-A2","013-A3"]},{"task":"priority_025__storymem","num":"025","model":"StoryMem","mkey":"storymem","shots":4,"entities":["[0] character: Younger man - Man with short dark hair, wearing an open cream vertically striped short-sleeved shirt over a blue shirt with contrasting neck trim. (expected in: Shot1, Shot2, Shot3, Shot4)","[1] character: Bespectacled man - Man with dark hair graying at the sides, thick eyebrows and thin rectangular glasses, wearing a white short-sleeved dress shirt and a purple-gray patterned tie. (expected in: Shot1, Shot2, Shot3, Shot4)","[2] location: Domestic hallway - Pale green domestic hallway with pale green walls. (expected in: Shot1, Shot2, Shot3, Shot4)","[3] object: Paneled doors - Group of cream paneled doors. (expected in: Shot1, Shot3)","[4] object: Circular framed picture - Small framed circular picture. (expected in: Shot1, Shot3)","[5] object: Arched display - Cream arched display alcove, also described as cream arched display shelves. (expected in: Shot2, Shot4)","[6] object: Small ornaments - Collection of small ornaments. (expected in: Shot2)","[7] object: Alternate-view framed picture - Framed wall picture. (expected in: Shot2, Shot4)"],"global_prompt":"Four five-second shots preserve the alternating hallway views and the two men's restrained facial and posture changes.","findings":["025-A1","025-A2"]},{"task":"priority_036__holocine","num":"036","model":"HoloCine","mkey":"holocine","shots":4,"entities":["[0] character: Elderly man - Elderly man with thinning gray hair, metal-framed glasses, a gray-beige cardigan worn over a dark sweater and white shirt, and dark trousers. (expected in: Shot1, Shot2, Shot3)","[1] location: Brick house - A brick house with a low boundary wall, in cold daylight. (expected in: Shot1, Shot2, Shot4)","[2] location: Garage - A dark garage with a dark opening, a white garage frontage and a white garage panel. (expected in: Shot1, Shot3)","[3] location: Forecourt - A damp forecourt. (expected in: Shot1)","[4] object: Bay window - White bay window. (expected in: Shot1, Shot2, Shot4)","[5] object: High-rise skyline - A hazy skyline of high-rise buildings (a collection of buildings). (expected in: Shot1)","[6] object: Roofs - Roofs, described as a group; individual roofs are not specified. (expected in: Shot1)","[7] object: Iron railings - Iron railings, described as a group. (expected in: Shot1)","[8] object: Walking cane - Slender dark walking cane. (expected in: Shot1)","[9] object: Narrow door - Narrow white door. (expected in: Shot1)","[10] object: Drone - Small white drone with a white body, four black circular rotor guards, thin upright rods, a dark luminous front display with small face-like marks (two small yellow-green eyes and a short horizontal mouth) and circular icons (an information icon and a speech-bubble icon), and a red rectangular lower housing with a lower slot. (expected in: Shot1, Shot2, Shot3, Shot4)","[11] object: Projecting sheet - Pale rectangular sheet. (expected in: Shot2)","[12] object: Drainpipe - Drainpipe. (expected in: Shot4)"],"global_prompt":"Four five-second shots establish the approach, show the drone hovering beside the house, hold on the man's response, and return to a frontal view of the drone.","findings":["036-A1","036-A2","036-A3","036-A4"]},{"task":"priority_047__storymem","num":"047","model":"StoryMem","mkey":"storymem","shots":8,"entities":["[0] character: White-clad man - Man with short dark hair, a loose white uniform and a dark belt. (expected in: Shot1, Shot4)","[1] character: Older man - Older man with a balding crown, swept-back gray hair, a white mustache, a pointed beard, an olive-khaki collared shirt with a shirt pocket holding a pale rectangular item and pens, khaki trousers and dark shoes. (expected in: Shot2, Shot4, Shot5, Shot6, Shot7, Shot8)","[2] character: Ponytailed man - Lean, barefoot man with slicked-back dark hair tied at the nape and a black martial arts uniform. (expected in: Shot3, Shot4, Shot5)","[3] character: Sleeveless man - Muscular man with short tousled light-brown hair, a sleeveless black uniform and bare arms. (expected in: Shot4, Shot5, Shot6, Shot7, Shot8)","[4] location: Martial arts training room - Martial arts training room with a pale poster wall beside the entrance, a pale wall above the mirrors, a rear mirror wall, a burgundy floor and a right wall. (expected in: Shot1, Shot2, Shot3, Shot4, Shot5, Shot6, Shot7, Shot8)","[5] object: Switch plate - Rectangular switch plate. (expected in: Shot1)","[6] object: Red-and-black poster - Red-and-black poster. (expected in: Shot1, Shot8)","[7] object: Entrance doorway - Doorway at the training room entrance. (expected in: Shot1, Shot4)","[8] object: Mirrors - The training room's mirrors. (expected in: Shot3, Shot4, Shot5)","[9] object: Pale mats - Pale mats. (expected in: Shot4)","[10] object: Open ladder - Open ladder. (expected in: Shot4)","[11] object: American flag - American flag. (expected in: Shot4, Shot7)","[12] object: Window blinds - Dark window blinds. (expected in: Shot4)"],"global_prompt":"Eight five-second shots preserve the doorway movement, the older man's turn, the ponytailed man's smile, the group repositioning, and alternating close views of restrained gestures and watchful expressions.","findings":["047-A1","047-A2"]},{"task":"priority_055__wan21","num":"055","model":"Wan2.1","mkey":"wan21","shots":4,"entities":["[0] character: Reclining man - Man with short brown hair and light stubble, wearing an open dark patterned shirt, a pale ribbed undershirt with several dark reddish chest marks, dark trousers, a belt, a thin necklace and a wristwatch. (expected in: Shot1, Shot3)","[1] character: Blue-shirted woman - Adult woman with a short dark bob, wearing a blue button-front shirt over a dark red top. (expected in: Shot1, Shot2, Shot3, Shot4)","[2] location: Bedroom - A dim, warmly lit bedroom with warm brown walls. (expected in: Shot1, Shot2, Shot3, Shot4)","[3] object: Pillowed bed - A pillowed bed. (expected in: Shot1, Shot3)","[4] object: White pillows - Large white pillows, as a group. (expected in: Shot1, Shot3)","[5] object: Dark handgun - A dark handgun. (expected in: Shot1, Shot2, Shot3, Shot4)","[6] object: Wooden headboard - A wooden headboard. (expected in: Shot1)","[7] object: Grid-pattern light - A warm light with a grid pattern. (expected in: Shot1)","[8] object: Hanging lamp - A glowing, warm hanging lamp. (expected in: Shot2, Shot4)","[9] object: Cluttered counter - A cluttered counter. (expected in: Shot2, Shot4)","[10] object: Wall decoration - A wall decoration. (expected in: Shot4)"],"global_prompt":"Four five-second shots alternate between the reclining man and the armed woman, retaining the dim warm interior, their clothing, the foreground weapon, and the woman's changing expression.","findings":["055-A1"]},{"task":"priority_078__wan22","num":"078","model":"Wan2.2","mkey":"wan22","shots":6,"entities":["[0] character: Short-haired woman - Adult woman with short blond hair, wearing a long white cardigan, dark trousers and a turquoise scoop-neck top. (expected in: Shot1, Shot2, Shot4, Shot5)","[1] character: Bald bearded man - Bald man with a reddish-brown beard, wearing a blue long-sleeved V-neck shirt and olive-gray trousers. (expected in: Shot1, Shot3, Shot4, Shot6)","[2] location: Hallway - Dim tiled hallway with a right wall. (expected in: Shot1, Shot2, Shot5)","[3] location: Living room - Living room with a muted beige wall. (expected in: Shot1, Shot2, Shot4, Shot5)","[4] location: Lawn - Broad sunlit lawn. (expected in: Shot6)","[5] location: Doorway area - Interior area at a doorway with a pale textured wall. (expected in: Shot3)","[6] object: Laundry basket - Large, pale, perforated laundry basket. (expected in: Shot1, Shot2, Shot4)","[7] object: Hallway reflective surfaces - Framed reflective surfaces. (expected in: Shot1)","[8] object: Wall clock - Large white wall clock. (expected in: Shot2, Shot5)","[9] object: Television - Dark television. (expected in: Shot2, Shot5)","[10] object: Tan chair - Tan chair. (expected in: Shot2)","[11] object: Pale doorframe - Pale doorframe. (expected in: Shot3)","[12] object: Wooden furniture edge - Wooden furniture. (expected in: Shot3)","[13] object: Glass-paneled doorway - Glass-paneled doorway. (expected in: Shot4)","[14] object: Vertical blinds - Vertical blinds. (expected in: Shot4)","[15] object: Wooden bookcase - Wooden bookcase. (expected in: Shot4)","[16] object: Dark armchair - Dark armchair. (expected in: Shot4)","[17] object: Pale blue cushion - Pale blue cushion. (expected in: Shot4)","[18] object: House - Low gray house. (expected in: Shot6)","[19] object: Screened porch - Screened porch with a shaded edge. (expected in: Shot6)","[20] object: Leafy tree - Huge leafy tree. (expected in: Shot6)","[21] object: House roof - House roof. (expected in: Shot6)","[22] object: Outdoor chairs - Cluster of outdoor chairs. (expected in: Shot6)","[23] object: Stone border - Pale stone border. (expected in: Shot6)"],"global_prompt":"Six five-second shots preserve the hallway approach, the woman holding her basket, the man's doorway reaction, his movement and gestures across the living room, the woman's subsequent movement, and his walk outside.","findings":["078-A1"]},{"task":"priority_096__holocine","num":"096","model":"HoloCine","mkey":"holocine","shots":4,"entities":["[0] character: Blonde woman - A woman with large eyes, pale pink skin, a swept-up blonde forelock and curled side hair. She wears a fitted dark outfit with pale neckline trim and a brown belt, the outfit ending in a knee-length skirt above slender bare lower legs, and dark heels. (expected in: Shot1, Shot2, Shot3)","[1] location: Television shop display - A dim, dark television shop window and storefront at night, identified as TV DEPOT, with a dark shop display and reflective, rain-wet pavement outside. (expected in: Shot1, Shot3, Shot4)","[2] location: Amber-window facade exterior - An exterior setting before a dark facade whose windows are amber-lit, with wet pavement. (expected in: Shot2)","[3] object: Shop window glass - The reflective glass of the television shop window. (expected in: Shot1, Shot3)","[4] object: Red umbrella - The woman's red umbrella, closed and folded, with a narrow folded canopy. (expected in: Shot1, Shot2, Shot3)","[5] object: Shop televisions - Seven gray CRT televisions. (expected in: Shot1, Shot3)","[6] object: Breaking news globe graphics - Gold globe graphics reading “BREAKING NEWS” shown on the television screens. (expected in: Shot1)","[7] object: Taxi killer silhouette graphic - A screen graphic of a black anonymous silhouette with the headline “TAXI KILLER STRIKES AGAIN!” (expected in: Shot1)","[8] object: Amber-lit windows - The amber-lit windows of the dark facade. (expected in: Shot2)","[9] object: Rain - Falling rain in the exterior views. (expected in: Shot2, Shot3)","[10] object: Sale placard - A red placard reading “SALE!” (expected in: Shot3)","[11] object: Live vehicle graphic - A television image of a yellow vehicle with a small red “LIVE” label. (expected in: Shot3)","[12] object: Latest victims graphic - A pale blue television graphic headed “LATEST VICTIMS” in large red capital letters, with fifteen black-and-white (monochrome) cartoon head portraits, each with different exaggerated facial hair or hairstyle. (expected in: Shot3, Shot4)","[13] object: Upper television - The upper television of the shop display, a CRT set with a chunky gray casing. (expected in: Shot4)","[14] object: Neighboring televisions - Televisions neighboring the upper television in the shop display, carrying the same “LATEST VICTIMS” headline. (expected in: Shot4)"],"global_prompt":"Four five-second shots show the woman's reaction beside the screens, her adjustment of the closed umbrella against illuminated windows, a wide rear view of her watching the television shop, and a close view of the victim graphic.","findings":["096-A1"]},{"task":"priority_120__storymem","num":"120","model":"StoryMem","mkey":"storymem","shots":4,"entities":["[0] character: Brown-jacketed man - Curly-haired man with curly brown hair and a full beard, wearing large clear-lensed metal-frame glasses, a rust-brown jacket, light trousers, a pale shirt collar, a gray patterned knit layer and a dark neck cord. (expected in: Shot1, Shot3, Shot4)","[1] character: Suited man - Man with short swept-back brown hair and a clean-shaven face, wearing a black suit, a white shirt and a dark tie. (expected in: Shot1, Shot2, Shot3)","[2] location: Orchestral performance space - A dim, dark orchestral performance space with an open patch of gray floor. (expected in: Shot1, Shot2, Shot3, Shot4)","[3] object: Chairs - Black chairs. (expected in: Shot1, Shot3, Shot4)","[4] object: Music stands - Music stands arranged in rows. (expected in: Shot1, Shot2, Shot3, Shot4)","[5] object: Sheet music - Illuminated pale scores (sheet music). (expected in: Shot1, Shot3)","[6] object: Cables - Cables. (expected in: Shot1)","[7] object: Curved reddish edge - A curved, reddish edge. (expected in: Shot1)","[8] object: Brown-jacketed man's shadow - A long shadow cast by the Brown-jacketed man. (expected in: Shot1)","[9] object: Curtains - Heavy, dark curtains. (expected in: Shot3)"],"global_prompt":"Four five-second shots retain the overhead arrangement, the suited man's turn away and upward glance, his turn back toward the brown-jacketed man, and the latter's restrained gestures.","findings":["120-A1"]},{"task":"priority_126__cinetrans","num":"126","model":"CineTrans-DiT","mkey":"cinetrans","shots":4,"entities":["[0] character: Turquoise-top woman - Barefoot woman with tousled shoulder-length brown hair, a loose wide-neck turquoise top marked with darker patches, and dark ankle-length trousers. (expected in: Shot1, Shot2, Shot3)","[1] character: White-robed woman - Older barefoot woman with light blond-gray (pale) hair swept back, wearing a knee-length white bathrobe tied at the waist, with a broad collar and a loose sleeve. (expected in: Shot2, Shot3, Shot4)","[2] location: Sandy beach - Sandy beach with a sand surface. (expected in: Shot1, Shot2, Shot3, Shot4)","[3] location: Distant headland - Headland topped with trees. (expected in: Shot3)","[4] object: Sea - Blue sea. (expected in: Shot1)","[5] object: Shoreline surf - Foamy shoreline surf. (expected in: Shot1, Shot3)","[6] object: Pair of athletic shoes - Two gray athletic shoes with blue accents and laces. (expected in: Shot1, Shot2)","[7] object: Phone - Small dark phone. (expected in: Shot1)","[8] object: Tall palms - Tall palms. (expected in: Shot2, Shot4)","[9] object: Blue sky - Blue sky. (expected in: Shot2)","[10] object: Multicolored umbrella - Colorful multicolored umbrella. (expected in: Shot2, Shot4)","[11] object: Striped chairs - Striped chairs. (expected in: Shot2, Shot4)","[12] object: Low pale chair - Low pale chair. (expected in: Shot2)","[13] object: Gray fabric - Gray fabric. (expected in: Shot2)","[14] object: Headland trees - Trees. (expected in: Shot3)"],"global_prompt":"Four five-second shots follow the shoreline approach, the meeting on the sand, the turquoise-top woman's sideways glance, and the white-robed woman's sustained smile and extended arm.","findings":["126-A1","126-A2","126-A3"]},{"task":"priority_127__wan21","num":"127","model":"Wan2.1","mkey":"wan21","shots":8,"entities":["[0] character: White shaggy creature - Broad, round creature with thick white fur, a fluffy tufted crown, a gray-blue face, blue eyes, uneven teeth, and heavy, long forelimbs. (expected in: Shot1, Shot3, Shot5, Shot7, Shot8)","[1] character: Girl with black bob - Girl with large dark eyes and a tousled short black bob, wearing a red T-shirt, cuffed blue denim shorts, and blue legwear with pale bands. (expected in: Shot2, Shot4, Shot6, Shot7)","[2] location: City laundry rooftop - Dark, dim city rooftop hung with laundry. (expected in: Shot1, Shot2, Shot3, Shot4, Shot5, Shot6, Shot7, Shot8)","[3] object: Hanging laundry sheets - Pale hanging laundry sheets. (expected in: Shot1, Shot3, Shot5, Shot7, Shot8)","[4] object: City buildings and skyline - Background city buildings and towers forming a purple skyline, lit up (neon-lit, luminous and illuminated). (expected in: Shot1, Shot4, Shot5, Shot6, Shot7)","[5] object: Night sky - Night sky, purple. (expected in: Shot3, Shot4, Shot5, Shot6)","[6] object: Wooden platform - Rough wooden platform. (expected in: Shot2, Shot4, Shot7)","[7] object: Brown violin - Brown violin. (expected in: Shot2, Shot4)","[8] object: Separate violin bow - Violin bow, separate from the violin. (expected in: Shot2, Shot4)","[9] object: Low parapet - Low parapet. (expected in: Shot2, Shot4, Shot7)","[10] object: City windows - Softly glowing city windows. (expected in: Shot2)","[11] object: Scattered boards - Boards. (expected in: Shot3)","[12] object: Two rooftop blocks - Two small dark blocks. (expected in: Shot3, Shot5)","[13] object: Shot4 pale beam - Pale beam. (expected in: Shot4)","[14] object: Clothesline poles - Clothesline poles. (expected in: Shot5)","[15] object: Scattered scraps - Scraps. (expected in: Shot5)","[16] object: Shot6 blue-white beam - Blue-white beam. (expected in: Shot6)","[17] object: Dark helicopter - Dark helicopter. (expected in: Shot7)","[18] object: Helicopter searchlight - Bright searchlight. (expected in: Shot7)","[19] object: Helicopter searchlight beam - Narrow blue-white beam. (expected in: Shot7)","[20] object: Small rooftop shelter - Small rooftop shelter. (expected in: Shot7)","[21] object: Red hanging lanterns - Red hanging lanterns. (expected in: Shot7)","[22] object: Diagonal clotheslines - Clotheslines. (expected in: Shot8)","[23] object: Rooftop pipe - Pipe. (expected in: Shot8)","[24] object: Cylindrical rooftop container - Cylindrical container. (expected in: Shot8)","[25] object: Shot5 face-crossing sheet - Hanging sheet. (expected in: Shot5)","[26] object: Shot8 pale blue sheet - Pale blue sheet. (expected in: Shot8)"],"global_prompt":"Eight five-second shots follow the creature's changing expression, the girl's guarded reactions and rise, the creature's retreat, the girl's upward turn, a helicopter-to-rooftop view, and the creature sheltering among hanging sheets.","findings":["127-A1"]}],"findings":[{"fid":"013-A1","task":"priority_013__cinetrans","id":"A1","num":"013","model":"CineTrans-DiT","mkey":"cinetrans","scope":"cross_shot","sure":"clear","obj_zh":"男子右侧站着的女子（Shot1、Shot3 没戴帽子；这两个镜头的文本没写她，可能是合同里戴帽子的女子没画出帽子）","what_zh":"同一位置、男子身旁的女子在两个镜头里像两个人：Shot1 年纪较大，及肩发带刘海，围深蓝围巾；Shot3 更年轻，短发波波头，白衬衫配深色领带。两人也都不像 Shot2、Shot4 里戴帽子的女子。","obj_en":"woman standing right of the man in Shot1/Shot3 (no hat; not described in Shot1/Shot3 text; may be the contract woman rendered without her hat)","what_en":"At the same spot beside the man she looks like a different person: Shot1 older face, shoulder-length hair with bangs, navy scarf; Shot3 younger face, short bob, white shirt with dark tie (and neither matches the hat-wearing woman of Shot2/Shot4).","shots":["Shot1","Shot3"],"cited":["Shot1 f1","Shot1 f4","Shot3 f1","Shot3 f4"],"markers":{"Shot1 f1":[[0.56,0.12,0.88,0.72,"solid"]],"Shot1 f4":[[0.55,0.12,0.87,0.72,"solid"]],"Shot3 f1":[[0.54,0.13,0.85,0.72,"solid"]],"Shot3 f4":[[0.55,0.13,0.84,0.72,"solid"]]},"prompt":{"Shot1":"In an ornate, warmly lit library, the Dark-haired man stands beside a large gold-framed portrait and a fluted wooden column. He has neatly parted dark hair, long sideburns, a black formal coat, pale buttoned waistcoat, high white collar and dark cravat. In a steady medium view, he looks toward screen right, raises his eyebrows slightly and inclines forward, his initially attentive expression easing into a small smile. A brass fixture with white globes sits behind his head, with palm leaves and a red upholstered chair beyond the column. Let this restrained expression change unfold over five seconds.","Shot3":"Return to the Dark-haired man beside the library's gold-framed portrait and fluted column. Begin with his torso bent forward and a smile on his face, his gaze angled toward screen right. Over five seconds he straightens to an upright posture, the smile fading into a quiet, wide-eyed look. His black coat, pale waistcoat and dark cravat remain clearly visible. Gently reframe upward with his rise, retaining the brass wall fixture and column as spatial anchors."},"ledger_zh":"所有相关镜头都记成同一个实体","ledger_ids":["pb0002"],"vv_zh":"V-V 确认了，但问题主体只记了 specified 实体，不算涉及 unspecified","trace_note":"The ledger records the hatless woman of Shot1/Shot3 as the contract 'Woman in the feathered hat' (pb0002: Shot1 local e2, Shot3 local e3), so the evaluator treated her as specified. V4 (confirmed) reports the Shot1 vs Shot3 change (long hair, scarf vs short hair, white collar shirt, dark tie). V3 (confirmed) reports the face difference between Shot1/Shot3 and Shot2/Shot4. Ledger caveat: in Shot1 her boxes in all six frames sit under pb0001 (local e1 'Man wearing a dark coat'). pb0002's Shot1 occurrence has a box on her only in f4, and its f0 box is on the man's face. The man has no correct box in Shot1.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"013-A2","task":"priority_013__cinetrans","id":"A2","num":"013","model":"CineTrans-DiT","mkey":"cinetrans","scope":"cross_shot","sure":"likely","obj_zh":"红椅上方的绿色玻璃瓶状物（可能是合同里的绿色玻璃灯或棕榈叶）","what_zh":"Shot1 是一个实心绿色圆柱，Shot3 同一位置只剩半透明的淡影；Shot2 这个位置换成了绿色皮椅，Shot4 换成支架上的亮绿色玻璃灯罩。","obj_en":"green glass vase-like object above the red chair (Shot1/Shot3; possibly the contract green glass lamp or palm leaves)","what_en":"Solid green cylinder in Shot1, only a faint translucent ghost at the same spot in Shot3, replaced at that spot by a green leather chair in Shot2 and a bright green glass shade on a stand in Shot4.","shots":["Shot1","Shot2","Shot3","Shot4"],"cited":["Shot1 f3","Shot3 f2","Shot2 f2","Shot4 f2"],"markers":{"Shot1 f3":[[0.47,0.44,0.57,0.66,"solid"]],"Shot3 f2":[[0.47,0.44,0.57,0.66,"dashed"]],"Shot2 f2":[[0.47,0.44,0.6,0.74,"solid"]],"Shot4 f2":[[0.46,0.44,0.57,0.74,"solid"]]},"prompt":{"Shot1":"In an ornate, warmly lit library, the Dark-haired man stands beside a large gold-framed portrait and a fluted wooden column. He has neatly parted dark hair, long sideburns, a black formal coat, pale buttoned waistcoat, high white collar and dark cravat. In a steady medium view, he looks toward screen right, raises his eyebrows slightly and inclines forward, his initially attentive expression easing into a small smile. A brass fixture with white globes sits behind his head, with palm leaves and a red upholstered chair beyond the column. Let this restrained expression change unfold over five seconds.","Shot2":"The Woman in the feathered hat sits upright in the same wood-paneled library, with closed paneled double doors behind her and a tall green leather chair to the left. Her dark hair is pinned beneath a flat brown hat decorated with pale pink ribbon, a bow and a tall patterned feather; her brown outfit has dark edging, a white collar and dark necktie. She holds a composed upward glance toward screen left, subtly moves her lips, then lowers her chin and eyes. Sustain her poised stillness before the downward glance to fill five seconds.","Shot3":"Return to the Dark-haired man beside the library's gold-framed portrait and fluted column. Begin with his torso bent forward and a smile on his face, his gaze angled toward screen right. Over five seconds he straightens to an upright posture, the smile fading into a quiet, wide-eyed look. His black coat, pale waistcoat and dark cravat remain clearly visible. Gently reframe upward with his rise, retaining the brass wall fixture and column as spatial anchors.","Shot4":"In the same ornate library, a wide view places the Dark-haired man at the left of a substantial writing desk and the Woman in the feathered hat at the right. Tall bookcases and fluted columns surround them; a green glass lamp and silver accessories stand among papers on the desktop. The woman, wearing dark gloves with white ruffled cuffs, has the Black handled bag upright on the desk. In a brisk five-second action, she lifts and tips it above the desk, then lowers it beside a scattered pile of pale paper bundles crossed with reddish bands. The man looks down, picks up one bundle, examines it in both hands and glances toward her while still holding it. Keep both people and the bag interaction visible."},"ledger_zh":"只在部分相关镜头里进了账本","ledger_ids":["pb0007","pb0014"],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Shot1: the solid green glass object has one box (f2) under specified pb0007 'Palm leaves'. That box came from Grounding DINO recovery for 'palm leaves.', and the same occurrence's f0 box covers the woman. Shot3: the faint remnant is not recorded. Shot4: the green glass shade is pb0014 'Green glass lamp' (local 'Green glass vase'), a different ledger ID from Shot1. Shot2: that spot holds pb0010 Green leather chair (prompted). No V-V candidate mentions the object, the palm leaves or the lamp.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"013-A3","task":"priority_013__cinetrans","id":"A3","num":"013","model":"CineTrans-DiT","mkey":"cinetrans","scope":"cross_shot","sure":"likely","obj_zh":"Shot2 桌上的黑色圆形编织物（Shot2 文本没写；可能是合同里带提手的黑包）","what_zh":"桌上同一位置，Shot2 是没有提手的圆顶黑色编织物，Shot4 是带金属扣和提手的光面黑包。","obj_en":"black round woven object on the table in Shot2 (not described in Shot2 text; possibly the contract black handled bag)","what_en":"At the same desk spot, Shot2 shows a round dome-shaped black woven object without handle while Shot4 shows a smooth black bag with metal clasp and handles.","shots":["Shot2","Shot4"],"cited":["Shot2 f0","Shot2 f5","Shot4 f0","Shot4 f3"],"markers":{"Shot2 f0":[[0.52,0.71,0.77,0.94,"solid"]],"Shot2 f5":[[0.52,0.71,0.77,0.94,"solid"]],"Shot4 f0":[[0.45,0.69,0.77,0.95,"solid"]],"Shot4 f3":[[0.5,0.69,0.77,0.95,"solid"]]},"prompt":{"Shot2":"The Woman in the feathered hat sits upright in the same wood-paneled library, with closed paneled double doors behind her and a tall green leather chair to the left. Her dark hair is pinned beneath a flat brown hat decorated with pale pink ribbon, a bow and a tall patterned feather; her brown outfit has dark edging, a white collar and dark necktie. She holds a composed upward glance toward screen left, subtly moves her lips, then lowers her chin and eyes. Sustain her poised stillness before the downward glance to fill five seconds.","Shot4":"In the same ornate library, a wide view places the Dark-haired man at the left of a substantial writing desk and the Woman in the feathered hat at the right. Tall bookcases and fluted columns surround them; a green glass lamp and silver accessories stand among papers on the desktop. The woman, wearing dark gloves with white ruffled cuffs, has the Black handled bag upright on the desk. In a brisk five-second action, she lifts and tips it above the desk, then lowers it beside a scattered pile of pale paper bundles crossed with reddish bands. The man looks down, picks up one bundle, examines it in both hands and glances toward her while still holding it. Keep both people and the bag interaction visible."},"ledger_zh":"只在部分相关镜头里进了账本","ledger_ids":["pb0017"],"vv_zh":"V-V 确认了，但问题主体只记了 specified 实体，不算涉及 unspecified","trace_note":"pb0017 'Black handled bag' has a Shot4 occurrence only. The Shot2 black woven object has no ledger record: no local entity, and no recovery because the bag is not expected in Shot2. V5 (confirmed, object_identity) still names pb0017 and reports the Shot2 woven near-cylinder vs the flatter rectangular Shot4 bag.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"025-A1","task":"priority_025__storymem","id":"A1","num":"025","model":"StoryMem","mkey":"storymem","scope":"cross_shot","sure":"likely","obj_zh":"墙上的电灯开关","what_zh":"Shot2 里年轻男子左侧的平墙上一直有一个白色电灯开关。prompt 说 Shot4 回到同一个反向视角，但 Shot4 这一侧是拱形壁龛，没有开关。","obj_en":"wall light switch","what_en":"A white light switch on the flat wall left of the Younger man is visible throughout Shot2, but in Shot4, which the prompt says returns to the same alternate view, that side is an arched niche and no switch appears.","shots":["Shot2","Shot4"],"cited":["Shot2 f1","Shot2 f5","Shot4 f0","Shot4 f5"],"markers":{"Shot2 f1":[[0.055,0.6,0.105,0.77,"solid"]],"Shot2 f5":[[0.04,0.6,0.085,0.76,"solid"]],"Shot4 f0":[[0.0,0.45,0.14,0.85,"dashed"]],"Shot4 f5":[[0.0,0.42,0.2,0.85,"dashed"]]},"prompt":{"Shot2":"A complementary medium view in the same pale green hallway looks past the Bespectacled man's white-shirted shoulder on the right toward the Younger man at center-left. Preserve their clothing and appearance. An arched cream display alcove with small ornaments and a framed wall picture give the hallway depth. During five seconds, the Younger man folds his initially lowered arms across his torso, holds a tight-lipped expression, then slightly opens his mouth and lowers his head while keeping his arms crossed. The Bespectacled man makes a small head turn beside him.","Shot4":"The alternate hallway view returns, with the Younger man at center-left and the Bespectacled man close in the right foreground. Retain the pale green walls, cream arched display shelves, framed picture and their established clothing. The Younger man's arms are already lowered. Over five seconds, he begins with his mouth slightly open and eyes partly closed, dips his head to look down, then raises his chin and looks forward again. The Bespectacled man subtly turns his head toward him. Keep the exchange restrained and the surrounding hallway still."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The Shot2 light switch was never detected. Shot2 local entities are the two men, the framed picture, the ceiling light and one statuette. No V-V candidate concerns the switch or compares the Shot2 and Shot4 wall.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"025-A2","task":"priority_025__storymem","id":"A2","num":"025","model":"StoryMem","mkey":"storymem","scope":"cross_shot","sure":"likely","obj_zh":"雕花玻璃茶壶、蓝色摆件、红框植物画，以及一排放瓶子的拱形壁龛","what_zh":"Shot4 回到的反向视角里，左侧壁龛放着雕花玻璃茶壶和蓝色摆件，上方挂红框植物画，右侧是一排放瓶子的拱形壁龛。Shot2 拍同一处时都没有这些，只有平墙、一幅深色框的画和一个放三个小摆件的壁龛。","obj_en":"cut-glass teapot, blue ornament and red-framed botanical print (with a row of arched niches holding bottles)","what_en":"Shot4's returning alternate view shows a niche at left with a cut-glass teapot and a blue ornament below a red-framed botanical print, plus a corridor of niches with bottles at right, none of which exists in Shot2's view of the same spot (flat wall with one dark-framed picture and a single alcove with three small figurines).","shots":["Shot2","Shot4"],"cited":["Shot4 f3","Shot4 f5","Shot2 f0"],"markers":{"Shot4 f3":[[0.0,0.68,0.06,0.87,"solid"],[0.62,0.22,0.72,0.62,"solid"]],"Shot4 f5":[[0.0,0.1,0.07,0.6,"solid"],[0.0,0.64,0.17,0.85,"solid"],[0.84,0.12,1.0,0.6,"solid"]],"Shot2 f0":[[0.14,0.17,0.21,0.49,"dashed"],[0.46,0.12,0.63,0.52,"dashed"]]},"prompt":{"Shot2":"A complementary medium view in the same pale green hallway looks past the Bespectacled man's white-shirted shoulder on the right toward the Younger man at center-left. Preserve their clothing and appearance. An arched cream display alcove with small ornaments and a framed wall picture give the hallway depth. During five seconds, the Younger man folds his initially lowered arms across his torso, holds a tight-lipped expression, then slightly opens his mouth and lowers his head while keeping his arms crossed. The Bespectacled man makes a small head turn beside him.","Shot4":"The alternate hallway view returns, with the Younger man at center-left and the Bespectacled man close in the right foreground. Retain the pale green walls, cream arched display shelves, framed picture and their established clothing. The Younger man's arms are already lowered. Over five seconds, he begins with his mouth slightly open and eyes partly closed, dips his head to look down, then raises his chin and looks forward again. The Bespectacled man subtly turns his head toward him. Keep the exchange restrained and the surrounding hallway still."},"ledger_zh":"只在部分相关镜头里进了账本","ledger_ids":["pb0007","ge0003"],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The objects are present only in Shot4. The cut-glass teapot is recorded under specified pb0007 'Small ornaments' (Shot4 local 'Small cup on shelf' f1-f3 and 'Teapot on shelf' f5), which links it to the Shot2 figurines. The red-framed botanical print is unspecified ge0003 'Framed picture at left edge', with a box in Shot4 f5 only. The blue ornament and the niche bottles are not recorded; clustering rejected the Shot4 f1-f4 blue-object detections as false. The two confirmed units are about the Shot3 doors (V1) and the Younger man's arms (V2).","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"036-A1","task":"priority_036__holocine","id":"A1","num":"036","model":"HoloCine","mkey":"holocine","scope":"within_shot","sure":"likely","obj_zh":"右下角的第二架小无人机","what_zh":"f5 时画面右下边缘突然出现第二个像无人机的物体（白顶、细黑竖杆、红色底部），f0–f4 都没有；这时 prompt 里的无人机正在凸窗旁。","obj_en":"second small drone at bottom right","what_en":"A second drone-like object (white top, thin black upright rods, red underside) pops up at the bottom-right edge in f5, absent in f0-f4, while the prompted drone is at the bay window at the same time.","shots":["Shot1"],"cited":["Shot1 f4","Shot1 f5"],"markers":{"Shot1 f4":[[0.86,0.9,0.94,1.0,"dashed"]],"Shot1 f5":[[0.86,0.9,0.94,1.0,"solid"]]},"prompt":{"Shot1":"A five-second wide exterior of a brick house with a white bay window, adjoining white garage frontage and an open dark garage on the left. Under cold, overcast light, a hazy high-rise skyline rises behind the roofs and iron railings border the damp forecourt. The elderly man, with thinning gray hair, glasses, a gray-beige cardigan over a dark sweater and white shirt, and dark trousers, walks slowly rightward out of the garage using a slender dark walking cane. Slightly stooped, he approaches the small hovering drone beside the narrow white door. Keep the wide composition steady and the drone suspended near the door."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 确认了，但问题主体只记了 specified 实体，不算涉及 unspecified","trace_note":"Caught: candidate V1 / unit V1 (confirmed) describes the extra smaller drone at bottom right of Shot1 f5, but as a duplicate instance of the specified Drone pb0011; the extra drone has no ledger record of its own, so the issue counts as specified-only.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":{"src":"video/036-holocine_episode.mp4","start":0.0,"end":5.0625,"fps":16,"shot":"Shot1","label":"HoloCine 生成的完整 episode（20 秒，4 个镜头）。Shot1 = 0–5.06 秒，第 0–80 帧。","keyframes":[0.0,0.9375,1.875,2.875,3.8125,4.75]}},{"fid":"036-A2","task":"priority_036__holocine","id":"A2","num":"036","model":"HoloCine","mkey":"holocine","scope":"cross_shot","sure":"likely","obj_zh":"凸窗窗台上的绿植","what_zh":"Shot4 每一帧凸窗底部都有一排小绿植，Shot1 里同一扇窗的窗台是空的。","obj_en":"plants on the bay-window sill","what_en":"A row of small green plants sits along the bottom of the bay window in every Shot4 frame, but the same window's sill is bare in Shot1.","shots":["Shot1","Shot4"],"cited":["Shot1 f0","Shot4 f0","Shot4 f3"],"markers":{"Shot1 f0":[[0.3,0.5,0.45,0.61,"dashed"]],"Shot4 f0":[[0.31,0.5,0.46,0.6,"solid"]],"Shot4 f3":[[0.31,0.5,0.46,0.6,"solid"]]},"prompt":{"Shot1":"A five-second wide exterior of a brick house with a white bay window, adjoining white garage frontage and an open dark garage on the left. Under cold, overcast light, a hazy high-rise skyline rises behind the roofs and iron railings border the damp forecourt. The elderly man, with thinning gray hair, glasses, a gray-beige cardigan over a dark sweater and white shirt, and dark trousers, walks slowly rightward out of the garage using a slender dark walking cane. Slightly stooped, he approaches the small hovering drone beside the narrow white door. Keep the wide composition steady and the drone suspended near the door.","Shot4":"The same white drone hovers alone, facing forward outside the brick house. Its four black circular rotor guards frame the body, with thin rods rising above and the red housing hanging beneath. The front display glows with two small yellow-green eyes and a short horizontal mouth, flanked by circular information and speech-bubble icons. Hold this quiet five-second view with subtle hover drift, the white bay window, drainpipe and low boundary wall softly visible behind it in cold daylight."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Sill plants have no ledger record; only the Bay window pb0005 (Shot1/2/4) is recorded. No candidate mentions the window or plants.","night_zh":"C、D 两组确认了这个问题，主体是 unspecified 的窗台绿植（C：ge0010；D：检测新增的 n1）。","video":null},{"fid":"036-A3","task":"priority_036__holocine","id":"A3","num":"036","model":"HoloCine","mkey":"holocine","scope":"cross_shot","sure":"likely","obj_zh":"车库门上方的深色雨棚","what_zh":"Shot4 里车库门和砖柱上方伸出一个深灰色门廊雨棚，遮住凸窗左上角；Shot1 这里没有雨棚，只有白色车库门卷帘盒和一盏壁灯。","obj_en":"dark canopy over the garage opening","what_en":"In Shot4 a dark grey porch canopy projects over the garage opening and brick pillar and covers the bay window's top-left corner; in Shot1 there is no canopy there, only the white garage-door housing with a lantern.","shots":["Shot1","Shot4"],"cited":["Shot1 f0","Shot4 f3","Shot4 f5"],"markers":{"Shot1 f0":[[0.0,0.15,0.3,0.36,"dashed"]],"Shot4 f3":[[0.2,0.06,0.46,0.21,"solid"]],"Shot4 f5":[[0.2,0.1,0.46,0.25,"solid"]]},"prompt":{"Shot1":"A five-second wide exterior of a brick house with a white bay window, adjoining white garage frontage and an open dark garage on the left. Under cold, overcast light, a hazy high-rise skyline rises behind the roofs and iron railings border the damp forecourt. The elderly man, with thinning gray hair, glasses, a gray-beige cardigan over a dark sweater and white shirt, and dark trousers, walks slowly rightward out of the garage using a slender dark walking cane. Slightly stooped, he approaches the small hovering drone beside the narrow white door. Keep the wide composition steady and the drone suspended near the door.","Shot4":"The same white drone hovers alone, facing forward outside the brick house. Its four black circular rotor guards frame the body, with thin rods rising above and the red housing hanging beneath. The front display glows with two small yellow-green eyes and a short horizontal mouth, flanked by circular information and speech-bubble icons. Hold this quiet five-second view with subtle hover drift, the white bay window, drainpipe and low boundary wall softly visible behind it in cold daylight."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Canopy has no ledger record (Garage pb0003 is recorded only in Shot1/Shot3, Brick house pb0002 in Shot1/2/4). No facade-change candidate.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"036-A4","task":"priority_036__holocine","id":"A4","num":"036","model":"HoloCine","mkey":"holocine","scope":"cross_shot","sure":"likely","obj_zh":"车库里的绿色机器（割草机）","what_zh":"男子左侧车库里的绿色机器，在 Shot1 是装在灰色带轮支架上的深绿色方形割草机，在 Shot3 变成一个亮黄绿色的光滑圆顶。","obj_en":"green machine (lawnmower) in the garage","what_en":"The green machine to the man's left in the garage is a dark-green boxy mower on a grey wheeled frame in Shot1 but appears as a bright lime-green smooth dome in Shot3.","shots":["Shot1","Shot3"],"cited":["Shot1 f0","Shot1 f5","Shot3 f0","Shot3 f4"],"markers":{"Shot1 f0":[[0.09,0.56,0.24,0.87,"solid"]],"Shot1 f5":[[0.09,0.56,0.24,0.87,"solid"]],"Shot3 f0":[[0.03,0.86,0.24,1.0,"solid"]],"Shot3 f4":[[0.03,0.86,0.22,1.0,"solid"]]},"prompt":{"Shot1":"A five-second wide exterior of a brick house with a white bay window, adjoining white garage frontage and an open dark garage on the left. Under cold, overcast light, a hazy high-rise skyline rises behind the roofs and iron railings border the damp forecourt. The elderly man, with thinning gray hair, glasses, a gray-beige cardigan over a dark sweater and white shirt, and dark trousers, walks slowly rightward out of the garage using a slender dark walking cane. Slightly stooped, he approaches the small hovering drone beside the narrow white door. Keep the wide composition steady and the drone suspended near the door.","Shot3":"Reverse to the elderly man outside the garage, his thinning gray hair, metal-framed glasses and layered cardigan outfit clearly visible against the dark opening and white garage panel. The same drone hovers as a large soft blur in the lower-right foreground. During five seconds he watches it with a furrowed brow and slightly parted lips, leans a little, and makes a small low outward arm gesture before settling upright. Keep his face in focus and preserve the separation between him and the hovering drone."},"ledger_zh":"每个镜头各记成一个实体，没有连起来","ledger_ids":["ge0002","ge0004"],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Shot1 object is ge0002 'Garden cart', Shot3 object is ge0004 'Green balloon'; matching kept them apart, so no cross-shot comparison was made. Under the balloon reading, a green balloon appears in Shot3 that the Shot1 garage view never shows; either way no candidate.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"047-A1","task":"priority_047__storymem","id":"A1","num":"047","model":"StoryMem","mkey":"storymem","scope":"cross_shot","sure":"likely","obj_zh":"海报墙上的白色告示纸","what_zh":"Shot2 f0–f1 和 Shot6 f5 中，开关面板左下方挂着一张白色告示（顶部有小照片），两处与开关的相对位置一致；Shot1 f1–f5 同一位置在画面内，却是空墙。","obj_en":"white notice paper on the poster wall","what_en":"An unprompted white notice sheet (small photo at its top) hangs on the poster wall left of and below the switch plates in Shot2 f0-f1 and Shot6 f5 at the same offset from the switches, but in Shot1 f1-f5 that spot is bare wall although it is in view.","shots":["Shot1","Shot2","Shot6"],"cited":["Shot1 f3","Shot2 f0","Shot6 f5"],"markers":{"Shot1 f3":[[0.1,0.58,0.26,0.92,"dashed"]],"Shot2 f0":[[0.37,0.63,0.48,0.92,"solid"]],"Shot6 f5":[[0.31,0.6,0.38,0.92,"solid"]]},"prompt":{"Shot1":"Beside the entrance of a martial arts training room, the White-clad man, with short dark hair, a loose white uniform and dark belt, is hunched close to a pale wall with both hands raised. He drops downward out of the bottom of the view. Hold on the vacated wall, its rectangular switch plate and cropped red-and-black poster, with the doorway at right and horizontal bands of light across the surface. Keep the framing steady and the landing outside the view.","Shot2":"The Older man stands near the training room's poster wall in warm striped light. He has a balding crown, swept-back gray hair, a white mustache and pointed beard, and wears an olive-khaki collared shirt. In a close head-and-shoulders view, he turns from facing away through profile until his face is nearly frontal, then settles with a composed, attentive expression.","Shot6":"Against the training room's pale poster wall, the Older man watches upward with a steady, restrained expression. The Sleeveless man's bare arm crosses the near foreground, briefly obscuring part of his face and chest, then lowers away from the center. The Older man remains composed, his khaki shirt pocket now visible with a pale rectangular item and pens."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The ledger has only the 13 contract entities (pb0001-pb0013) and no unspecified ge... records; vv_added_entities is empty. No candidate mentions the wall notice. The candidates only cover the Shot6 f0 blur (V1, V2) and the poster (V3).","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"047-A2","task":"priority_047__storymem","id":"A2","num":"047","model":"StoryMem","mkey":"storymem","scope":"cross_shot","sure":"likely","obj_zh":"后墙的置物架、两条白色竖幅和红色徽标","what_zh":"Shot5 两人身后，房间后部有放东西的墙架、两条白色竖幅（中间是红色徽标）和海报；Shot4 越过年长男子的背朝同一方向看，后墙却是空的，只有一架梯子和一面旗。","obj_en":"rear-wall shelves, two white banners and red emblem","what_en":"Behind the two men in Shot5 the rear of the room shows wall shelves with items, two white vertical banners with a red emblem between them and posters, while Shot4, looking the same way over the Older man's back, shows a plain rear wall with only a ladder and flag and none of these items.","shots":["Shot4","Shot5"],"cited":["Shot4 f5","Shot5 f3"],"markers":{"Shot4 f5":[[0.17,0.06,0.7,0.42,"dashed"]],"Shot5 f3":[[0.27,0.18,0.47,0.52,"solid"],[0.47,0.16,0.63,0.43,"solid"]]},"prompt":{"Shot4":"A wide view from the training room entrance shows the Older man standing centrally with his back toward us, in a khaki shirt and trousers with dark shoes. Facing him are the barefoot Ponytailed man at left and the Sleeveless man at right, a muscular man with short tousled light-brown hair and a sleeveless black uniform. Both men in black briefly bend forward and straighten. The Ponytailed man spreads his feet and raises his hands into a guard as the Sleeveless man steps inward behind the Older man's silhouette. On the burgundy floor in the right foreground, the White-clad man stays lying beside the doorway with one arm extended. Pale mats lead toward a rear mirror wall and open ladder beneath an American flag; dark window blinds line the right wall.","Shot5":"Seen over the Older man's khaki-clad back in the mirrored training room, the Sleeveless man steps into the center beside the Ponytailed man. He extends an open hand sideways toward his companion and holds it there while facing the Older man, his mouth moving slightly. The Ponytailed man keeps a bent, guarded posture with one hand near his chest and briefly glances toward the Sleeveless man. Warm light patterns remain above the mirrors."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The Shot5 shelves, banners and emblem are not in the ledger. No candidate compares the Shot4 and Shot5 room backgrounds, either under the place pb0005 or under the specified mats, ladder or flag.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"055-A1","task":"priority_055__wan21","id":"A1","num":"055","model":"Wan2.1","mkey":"wan21","scope":"cross_shot","sure":"likely","obj_zh":"女子身后的背景陈设（木质吊柜、台面杂物、深色盒子、放金色物件的架子）","what_zh":"女子两个反打镜头里，身后的陈设没有延续：Shot2 右侧台面上方有木质吊柜，台面上放着瓶罐；Shot4 同一室内、台面仍在她右后方，却没有吊柜，换成一排放金色物件的开放式架子，台面上一个深色盒子里有发光的金色物件。","obj_en":"background furnishings behind the woman (upper wooden wall cabinet, countertop items, dark box, gold-object shelf)","what_en":"The unprompted furnishings behind the woman are not carried over between her two reverse views: Shot2 shows an upper wooden wall cabinet above the counter at right with bottles/jars on the counter, while Shot4 (same interior, counter again behind her at right) has no cabinet but an open shelf of gold objects and a dark box with a glowing gold item on the counter.","shots":["Shot2","Shot4"],"cited":["Shot2 f0","Shot2 f5","Shot4 f1","Shot4 f5"],"markers":{"Shot2 f0":[[0.85,0.0,1.0,0.24,"solid"],[0.71,0.44,1.0,0.62,"solid"]],"Shot2 f5":[[0.85,0.0,1.0,0.24,"solid"],[0.71,0.44,1.0,0.62,"solid"]],"Shot4 f1":[[0.37,0.0,0.86,0.2,"solid"],[0.81,0.33,0.96,0.6,"solid"]],"Shot4 f5":[[0.37,0.0,0.86,0.2,"solid"],[0.81,0.33,0.96,0.6,"solid"]]},"prompt":{"Shot2":"The opposing view in the same dim room reveals the Blue-shirted woman: an adult with a short dark bob, a blue button-front shirt over a dark red top, and a deeply furrowed brow. She holds the Dark handgun in both hands with her arms extended toward the foreground, maintaining the aim established in the preceding shot. Her lips stay slightly parted as her expression shifts subtly. Keep her anxious face prominent above her hands, with warm brown walls, a glowing hanging lamp, and a softly blurred cluttered counter behind her.","Shot4":"Back with the Blue-shirted woman in the same dim interior, her dark bob frames a tightly furrowed brow. She initially holds the Dark handgun forward in both hands. Over the shot her expression grows more strained: her lips draw back to expose her teeth and her mouth opens wider, her eyes fixed ahead. Her joined hands and weapon descend toward her lower torso while remaining together. Retain her blue shirt over the red top, the warm hanging lamp, and the blurred counter and wall decoration behind her."},"ledger_zh":"只在部分相关镜头里进了账本","ledger_ids":["ge0002"],"vv_zh":"V-V 确认了，但问题主体只记了 specified 实体，不算涉及 unspecified","trace_note":"Candidate V7 reports the same Shot2-vs-Shot4 background redress, but names wall colour, sconce vs pendant lamps and the counter, not the unprompted wall cabinet or the dark box. The upper wall cabinet is ledger ge0002 (unspecified, Shot2 only; it is missing in Shot4). The dark box on the Shot4 counter is not in the ledger. The gold-object shelf is most likely pb0011 Wall decoration and the countertop items belong to pb0010 Cluttered counter (both specified). V7 was split in review: V7.3 (counter differs) confirmed with only pb0010 as subject, which overlaps the countertop part of this finding; V7.1 (wall colour, confirmed) lists unspecified pendant lamps ge0003-ge0005 as subjects but does not describe furnishings; V7.2 (one wall sconce vs several pendant lamps; subjects include unspecified ge0003-ge0005) was rejected. The cabinet disappearance itself is never mentioned.","night_zh":"C、C2 两组确认了女子身后陈设不一致，主体含 unspecified 实体（C：吊柜 ge0002；C2：检测新增的“背景搁架”）。","video":null},{"fid":"078-A1","task":"priority_078__wan22","id":"A1","num":"078","model":"Wan2.2","mkey":"wan22","scope":"cross_shot","sure":"clear","obj_zh":"电视下方的电视柜","what_zh":"同一个客厅角落（挂钟下方的电视，右侧是走廊），Shot2 电视放在带抽屉的白色矮柜上，Shot5 变成深色木质或黑色的电视架，两边有黑色机顶盒。","obj_en":"TV stand / cabinet under the television","what_en":"The same living-room corner (TV beneath the wall clock, hallway at right) has the TV standing on a white cabinet with drawers in Shot2 but on a dark wood/black stand flanked by black set-top boxes in Shot5.","shots":["Shot2","Shot5"],"cited":["Shot2 f0","Shot2 f5","Shot5 f0","Shot5 f5"],"markers":{"Shot2 f0":[[0.0,0.85,0.22,1.0,"solid"]],"Shot2 f5":[[0.0,0.88,0.22,1.0,"solid"]],"Shot5 f0":[[0.0,0.9,0.62,1.0,"solid"]],"Shot5 f5":[[0.03,0.9,0.46,1.0,"solid"]]},"prompt":{"Shot2":"The Short-haired woman stands in the softly lit living room, her turquoise scoop-neck top visible beneath the open white cardigan. With a serious, closed-mouth expression, she makes a small forward shift while holding the lidded Laundry basket firmly in both hands at her waist. Behind her are the large white wall clock and the dim hallway; a television and tan chair sit to the left. Let the restrained posture and basket adjustment occupy five seconds.","Shot5":"The Short-haired woman remains upright in profile in the living room, facing screen left with a restrained, serious expression. Her short blond hair, white cardigan and turquoise top stand out against the muted beige wall. The dark television sits left beneath the large white clock, and the hallway opens behind her on the right. Hold her quiet profile briefly, then have her turn more frontally and step closer toward the right side of the frame within five seconds."},"ledger_zh":"所有相关镜头都记成同一个实体","ledger_ids":["ge0003"],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Ledger records the TV cabinet as one unspecified entity (ge0003) in Shot2 and Shot5, yet no V-V candidate mentions it; the only Shot2/Shot5 candidate (V5) concerns the specified wall clock.","night_zh":"E2 组（逐物体检查，推理 medium）提出了电视柜的变化，复核判为“不确定”。","video":null},{"fid":"096-A1","task":"priority_096__holocine","id":"A1","num":"096","model":"HoloCine","mkey":"holocine","scope":"within_shot","sure":"likely","obj_zh":"部分电视屏幕上 prompt 没写的画面（戴头盔或兜帽的人像、白色圆形物）","what_zh":"从 f4 起，十块屏幕中的四块（右上、中排左边两块、右下）从淡蓝色人像网格突然换成深色画面（戴头盔或兜帽的人像、圆形物体），右下那块在 f5 又变了一次；其余屏幕保持网格。","obj_en":"unprompted screen images (helmeted / hooded figures, round white object) on some TVs","what_en":"From f4, four of the ten screens (upper right, two middle-left, lower right) abruptly switch from the pale-blue portrait grid to dark images of helmeted or hooded figures and a round object, and the lower-right image changes again in f5, while the other screens keep the grid.","shots":["Shot3"],"cited":["Shot3 f3","Shot3 f4","Shot3 f5"],"markers":{"Shot3 f3":[[0.515,0.18,0.6,0.3,"dashed"],[0.295,0.315,0.38,0.44,"dashed"],[0.4,0.315,0.49,0.44,"dashed"],[0.615,0.455,0.71,0.585,"dashed"]],"Shot3 f4":[[0.515,0.18,0.6,0.3,"solid"],[0.295,0.315,0.38,0.44,"solid"],[0.4,0.315,0.49,0.44,"solid"],[0.615,0.455,0.71,0.585,"solid"]],"Shot3 f5":[[0.515,0.18,0.6,0.3,"solid"],[0.295,0.315,0.38,0.44,"solid"],[0.4,0.315,0.49,0.44,"solid"],[0.615,0.455,0.71,0.585,"solid"]]},"prompt":{"Shot3":"A five-second wide rear view of the blonde woman standing on reflective, rain-wet pavement outside “TV DEPOT.” Her fitted dark outfit ends in a knee-length skirt above slender bare lower legs and dark heels. She faces the glass, keeping the closed red umbrella close with its tip projecting beside her curled hair. Seven gray CRT televisions form a stack in the window, beneath a tilted red “SALE!” placard. Their screens initially show a yellow vehicle with a small red “LIVE” label, then switch together to a pale blue graphic headed “LATEST VICTIMS” above a grid of monochrome faces. She makes a slight posture adjustment while continuing to watch. Rain crosses the dark storefront and catches the screen light."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 确认了，但问题主体只记了 specified 实体，不算涉及 unspecified","trace_note":"The partial switch to dark figure images was found and confirmed, but attributed to pb0006 Shop televisions (specified); the unprompted screen images were never recorded as entities. Borderline case: screen content rather than a physical object.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":{"src":"video/096-holocine_episode.mp4","start":10.0625,"end":15.0625,"fps":16,"shot":"Shot3","label":"HoloCine 生成的完整 episode（20 秒，4 个镜头）。Shot3 = 10.06–15.06 秒，第 161–240 帧；打开时从 Shot3 开头播放。","keyframes":[10.3125,11.1875,12.0625,13.0,13.875,14.75]}},{"fid":"120-A1","task":"priority_120__storymem","id":"A1","num":"120","model":"StoryMem","mkey":"storymem","scope":"within_shot","sure":"likely","obj_zh":"西装男子手里的指挥棒或细棍","what_zh":"f0 西装男子的右手在画面右边缘拿着一根细木棍（黑头指挥棒或铅笔）；f1–f2（以及 f4）他已经转身、放下手臂，棍子还悬在原处，没有手或支撑物拿着它。","obj_en":"baton / thin stick held by the Suited man","what_en":"The thin wooden stick (black-tipped baton or pencil) held in the Suited man's right hand at the right edge in f0 stays hanging at the same spot in f1-f2 (and again in f4) after he has turned and lowered his arms, with no hand or visible support holding it.","shots":["Shot3"],"cited":["Shot3 f0","Shot3 f1","Shot3 f2","Shot3 f4"],"markers":{"Shot3 f0":[[0.83,0.67,1.0,0.77,"solid"]],"Shot3 f1":[[0.87,0.66,1.0,0.77,"solid"]],"Shot3 f2":[[0.86,0.66,1.0,0.77,"solid"]],"Shot3 f4":[[0.95,0.74,1.0,0.81,"solid"]]},"prompt":{"Shot3":"The Brown-jacketed man's curly-haired head and rust-brown shoulder fill the soft left foreground of the same dark orchestral space. Beyond him, the Suited man stands among black chairs and illuminated sheet music, with heavy dark curtains behind. Over five seconds, the Suited man lowers his slightly extended arms, turns from facing away to face the foreground man, and opens both hands near his hips, palms angled upward. His brow is furrowed and his lips part. Keep both men separated by the existing rows of stands."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The baton/stick is absent from the ledger (only the 10 specified entities are recorded; no vv_added_entities). The only V-V candidate (V1, cross-shot lighting of Shot4, rejected) is unrelated.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"126-A1","task":"priority_126__cinetrans","id":"A1","num":"126","model":"CineTrans-DiT","mkey":"cinetrans","scope":"within_shot","sure":"likely","obj_zh":"画面左侧的木质躺椅（Shot1）","what_zh":"左侧的躺椅在 f0 像蒙着青色和红色布面的椅子，f1–f5 变成光秃的浅色木架，上面搭着一块白布，木架的形状在帧间也不断变化。","obj_en":"wooden deck-chair frame at screen left (Shot1)","what_en":"The lounger at screen left looks like a chair with teal/red fabric in f0 but a bare pale wooden frame with a loose white cloth in f1-f5, and the frame's shape keeps shifting between frames.","shots":["Shot1"],"cited":["Shot1 f0","Shot1 f1","Shot1 f3","Shot1 f5"],"markers":{"Shot1 f0":[[0.0,0.6,0.21,0.93,"solid"]],"Shot1 f1":[[0.0,0.6,0.21,0.93,"solid"]],"Shot1 f3":[[0.0,0.6,0.21,0.93,"solid"]],"Shot1 f5":[[0.0,0.6,0.21,0.93,"solid"]]},"prompt":{"Shot1":"On a sunlit sandy beach, the Turquoise-top woman walks barefoot toward the foreground with the blue sea and foamy shoreline behind her. She has tousled shoulder-length brown hair, a loose wide-neck turquoise top marked with darker patches, and dark ankle-length trousers. Two gray athletic shoes with blue accents dangle by their laces from her right hand. Initially she glances at a small dark phone held in her left hand, then lowers that hand and looks ahead. While continuing across the footprint-marked sand, she briefly opens her arms outward and lets them settle. Her hair stirs in the breeze. Begin with her whole figure visible and let her approach fill more of the frame."},"ledger_zh":"所有相关镜头都记成同一个实体","ledger_ids":["pb0012"],"vv_zh":"V-V 提出了，但复核否掉了","trace_note":"Partial match only. The Shot1 lounger is recorded, but bound to the specified 'Striped chairs' pb0012 (V6/V8 describe its Shot1 pale frame), so the ledger has no unspecified entity for it. V2/V10 (subjects []) report the whole Shot1 f0 frame as a mottled rendering glitch, which covers the f0 look of the chair; the reviewer rejected it. Nothing was proposed about the chair's shape drift over f1-f5.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"126-A2","task":"priority_126__cinetrans","id":"A2","num":"126","model":"CineTrans-DiT","mkey":"cinetrans","scope":"cross_shot","sure":"likely","obj_zh":"条纹椅旁的小圆边桌","what_zh":"Shot2 条纹椅旁是一张实心的棕色木质圆桌；Shot4 从同一方向看同一把椅子和遮阳伞，桌面变成灰色、半透明，像幻影。","obj_en":"small round side table beside the striped chair","what_en":"Shot2 shows a solid brown wooden round table beside the striped chair; in Shot4, with the same chair and umbrella seen from the same direction, the table is a gray, semi-transparent ghost-like surface.","shots":["Shot2","Shot4"],"cited":["Shot2 f2","Shot4 f2","Shot4 f5"],"markers":{"Shot2 f2":[[0.0,0.71,0.1,0.9,"solid"]],"Shot4 f2":[[0.0,0.7,0.11,0.88,"solid"]],"Shot4 f5":[[0.0,0.7,0.11,0.88,"solid"]]},"prompt":{"Shot2":"The beach is now seen facing inland, with the Turquoise-top woman approaching from the left foreground, her back visible and the gray-and-blue shoes swinging from her right hand. Ahead stands the White-robed woman, an older barefoot woman with light blond-gray hair swept back and a knee-length white bathrobe tied at the waist. She smiles, tilts her head, and extends her right arm toward the approaching woman, holding her thumb and little finger outward while keeping her left hand at her robe pocket. Tall palms punctuate the blue sky; a colorful umbrella and striped chairs sit to the left, and a low pale chair with gray fabric at its base sits to the right. Keep both women spatially separated without physical contact.","Shot4":"The White-robed woman fills a close upper-body view on the sunny beach. Her right arm remains extended toward screen left, with her hand beyond the frame. She holds a small smile and a gentle head tilt, making only slight adjustments as loose strands of pale hair blow across her forehead. Her broad white bathrobe collar and loose sleeve catch the light. Behind her, the multicolored umbrella, striped chairs, and tall palms are softly blurred. Sustain the expression and extended arm through the shot."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"The ledger has no unspecified (ge) entity at all. Shot2-only specified records pb0013 'Low pale chair' / pb0014 'Gray fabric' could have absorbed the table in Shot2 (pipeline.json has no boxes to check), but nothing records it in Shot4.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"126-A3","task":"priority_126__cinetrans","id":"A3","num":"126","model":"CineTrans-DiT","mkey":"cinetrans","scope":"cross_shot","sure":"likely","obj_zh":"条纹椅座上的蓝白色毛巾或包","what_zh":"Shot2 每一帧条纹椅座上都有一件蓝白图案的东西；Shot4 同一把椅子在画面里，没人碰过，东西却不见了。","obj_en":"blue-and-white towel/bag on the striped chair seat","what_en":"A blue-and-white patterned item lies on the striped chair's seat in every Shot2 frame but is gone in Shot4, where the same chair is in view and nobody touched it.","shots":["Shot2","Shot4"],"cited":["Shot2 f0","Shot2 f5","Shot4 f2"],"markers":{"Shot2 f0":[[0.04,0.76,0.13,0.86,"solid"]],"Shot2 f5":[[0.05,0.76,0.13,0.86,"solid"]],"Shot4 f2":[[0.02,0.75,0.13,0.86,"dashed"]]},"prompt":{"Shot2":"The beach is now seen facing inland, with the Turquoise-top woman approaching from the left foreground, her back visible and the gray-and-blue shoes swinging from her right hand. Ahead stands the White-robed woman, an older barefoot woman with light blond-gray hair swept back and a knee-length white bathrobe tied at the waist. She smiles, tilts her head, and extends her right arm toward the approaching woman, holding her thumb and little finger outward while keeping her left hand at her robe pocket. Tall palms punctuate the blue sky; a colorful umbrella and striped chairs sit to the left, and a low pale chair with gray fabric at its base sits to the right. Keep both women spatially separated without physical contact.","Shot4":"The White-robed woman fills a close upper-body view on the sunny beach. Her right arm remains extended toward screen left, with her hand beyond the frame. She holds a small smile and a gentle head tilt, making only slight adjustments as loose strands of pale hair blow across her forehead. Her broad white bathrobe collar and loose sleeve catch the light. Behind her, the multicolored umbrella, striped chairs, and tall palms are softly blurred. Sustain the expression and extended arm through the shot."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"Possibly bound in Shot2 to pb0014 'Gray fabric' (unverifiable without boxes); no Shot4 record and no candidate about the item vanishing.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":null},{"fid":"127-A1","task":"priority_127__wan21","id":"A1","num":"127","model":"Wan2.1","mkey":"wan21","scope":"within_shot","sure":"likely","obj_zh":"怪物爪中的深蓝小布","what_zh":"f0 怪物的右爪（画面右侧）攥着一块深蓝色小布或丝带；从 f1 起爪子空了，地上也看不到掉落的同色布。","obj_en":"small navy-blue cloth held in the creature's paw","what_en":"In f0 the creature's right paw (screen right) clutches a small navy-blue cloth or ribbon; from f1 on the paw is empty and no dropped cloth of that color is visible on the ground.","shots":["Shot5"],"cited":["Shot5 f0","Shot5 f1"],"markers":{"Shot5 f0":[[0.62,0.74,0.72,0.92,"solid"]],"Shot5 f1":[[0.64,0.7,0.77,0.93,"dashed"]]},"prompt":{"Shot5":"Hold a broad view of the same rooftop, with hanging sheets across the middle distance and luminous city towers under a purple sky. The White shaggy creature backs farther into the laundry over five seconds, staying low on its long forelimbs. A hanging sheet shifts across its face, briefly concealing part of it, then leaves its worried eyes and uneven teeth visible close to the rooftop. Keep the clothesline poles, scattered scraps and two small foreground blocks in place."},"ledger_zh":"账本里没有这个物体","ledger_ids":[],"vv_zh":"V-V 检测没有提出这个问题","trace_note":"No ledger record names a cloth held by the creature. Shot5 unspecified records are ge0001 orange garment, ge0002 teal towel and ge0003 pile of laundry; pipeline.json has no boxes, so a scraps (pb0016) or pile (ge0003) box covering it cannot be ruled out. No V-V candidate concerns any within-shot change in Shot5. In the same shot, the maroon sheet that morphs and disappears at f3 (ledger pb0026, specified, not in this audit's lists) also drew no candidate.","night_zh":"昨晚 9 组试验都没有把这一条确认为涉及 unspecified 实体的问题。","video":{"src":"video/127-wan21_Shot5.mp4","start":0.0,"end":5.06,"fps":16,"shot":"Shot5","label":"Wan2.1 的 Shot5 完整片段（5.06 秒，81 帧）。这个模型每个镜头单独生成一段视频。","keyframes":[0.0,0.9614,1.9228,2.8842,3.8456,4.807]}}]}</script>
+<script>
+(function () {
+  'use strict';
+  window.addEventListener('error', function (e) { var s = document.getElementById('status'); if (s) s.textContent = '页面脚本出错：' + (e.message || 'unknown') + '。请把这句话发给 Claude。'; });
+  window.addEventListener('unhandledrejection', function (e) { var r = e.reason, s = document.getElementById('status'); if (s) s.textContent = '页面脚本出错：' + ((r && (r.code || r.message)) || r || 'unknown') + '。请把这句话发给 Claude。'; });
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var F = DATA.findings;
+  var byId = {};
+  F.forEach(function (f) { byId[f.fid] = f; });
+  var L1 = { yes: '是真问题', no: '不是问题', unsure: '看不清' };
+  var L2 = { unspec: '没写（unspecified）', spec: '写了（specified）', unsure: '说不准' };
+  var state = {};
+  F.forEach(function (f) { state[f.fid] = { real: null, prompt: null, note: '' }; });
+  var LS_KEY = 'uec-unspecified-audit-review-v1';
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function imgPath(f, shot, k) { return 'img/' + f.num + '-' + f.mkey + '_' + shot + '_f' + k + '.jpg'; }
+  function parseCite(c) { var m = /^(Shot\d+) f(\d+)$/.exec(c); return { shot: m[1], k: +m[2] }; }
+  function marksHTML(boxes) {
+    return (boxes || []).map(function (b) {
+      return '<span class="mk ' + (b[4] === 'dashed' ? 'dashed' : 'solid') + '" style="left:' + (b[0] * 100) + '%;top:' + (b[1] * 100) +
+        '%;width:' + ((b[2] - b[0]) * 100) + '%;height:' + ((b[3] - b[1]) * 100) + '%"></span>';
+    }).join('');
+  }
+
+  /* ---------- render ---------- */
+  function vidHTML(f) {
+    var v = f.video; if (!v) return '';
+    var attrs = ' data-vid="v-' + f.fid + '" data-start="' + v.start + '" data-end="' + v.end + '" data-fps="' + v.fps + '"';
+    var kf = v.keyframes.map(function (t, i) { return '<button type="button" data-act="kf" data-t="' + t + '">f' + i + '</button>'; }).join('');
+    return '<div class="vid"><p class="vid-note">' + esc(v.label) + '</p>' +
+      '<video id="v-' + f.fid + '" controls preload="metadata" playsinline src="' + v.src + '#t=' + v.start + '"></video>' +
+      '<div class="vid-ctl"' + attrs + '><button type="button" data-act="back">← 1 帧</button><button type="button" data-act="fwd">1 帧 →</button>' +
+      '<button type="button" data-act="slow">0.25× 慢放</button><button type="button" data-act="normal">1× 速度</button>' +
+      '<span class="vid-time" id="vt-' + f.fid + '">暂停后可用 ← → 逐帧查看</span></div>' +
+      '<div class="vid-ctl"' + attrs + '><span class="vid-time">跳到 ' + esc(v.shot) + ' 的关键帧：</span>' + kf + '</div></div>';
+  }
+  function cardHTML(f) {
+    var cross = f.scope === 'cross_shot';
+    var frames = f.cited.map(function (c, i) {
+      var p = parseCite(c);
+      return '<figure class="frame" tabindex="0" role="button" data-fid="' + f.fid + '" data-seq="cited" data-i="' + i + '" aria-label="放大 ' + p.shot + ' f' + p.k + '">' +
+        '<img src="' + imgPath(f, p.shot, p.k) + '" alt="' + esc(f.model + ' ' + p.shot + ' 第 ' + p.k + ' 张关键帧') + '" width="832" height="480"' + (i > 1 ? ' loading="lazy"' : '') + '>' +
+        '<figcaption>' + p.shot + ' · f' + p.k + '</figcaption>' + marksHTML(f.markers[c]) + '</figure>';
+    }).join('');
+    var strips = f.shots.map(function (shot) {
+      var cells = '';
+      for (var k = 0; k < 6; k++) {
+        var cited = f.cited.indexOf(shot + ' f' + k) >= 0;
+        cells += '<figure class="thumb' + (cited ? ' cited' : '') + '" tabindex="0" role="button" data-fid="' + f.fid + '" data-seq="' + shot + '" data-i="' + k + '" aria-label="放大 ' + shot + ' f' + k + '">' +
+          '<img src="' + imgPath(f, shot, k) + '" alt="' + esc(shot + ' f' + k) + '" loading="lazy" width="832" height="480"><span>f' + k + '</span></figure>';
+      }
+      return '<p class="shotlabel">' + shot + '</p><div class="strip">' + cells + '</div>';
+    }).join('');
+    var prompt = f.shots.map(function (s) { return '<p><span class="k">' + s + '</span>' + esc(f.prompt[s]) + '</p>'; }).join('');
+    var lids = [].concat(f.ledger_ids || []);
+    var ids = lids.length ? '（' + lids.map(esc).join('、') + '）' : '';
+    return '<article class="card" id="f-' + f.fid + '" data-fid="' + f.fid + '" data-judged="0">' +
+      '<div class="card-head"><div class="idrow"><span class="fid">#' + f.fid + '</span>' +
+      '<span class="chip">' + (cross ? '跨镜头' : '镜头内') + '</span>' +
+      '<span class="chip mono">' + f.shots.join(cross ? ' ↔ ' : ' · ') + '</span>' +
+      '<span class="chip">审查员：' + (f.sure === 'clear' ? '明显' : '较可能') + '</span>' +
+      '<span class="stamp" data-v="" id="stamp-' + f.fid + '">未判断</span></div>' +
+      '<h3 class="obj">' + esc(f.obj_zh) + '</h3><p class="what">' + esc(f.what_zh) + '</p></div>' +
+      '<div class="sheet">' + frames + '</div>' + vidHTML(f) +
+      '<details class="more"><summary>这些镜头的全部关键帧（黄框为上面引用的帧）</summary><div class="more-body">' + strips + '</div></details>' +
+      '<details class="more"><summary>相关镜头的 prompt（英文原文）</summary><div class="more-body">' + prompt + '</div></details>' +
+      '<details class="more"><summary>审查员原文（英文）</summary><div class="more-body en"><p><b>' + esc(f.obj_en) + '</b></p><p>' + esc(f.what_en) + '</p></div></details>' +
+      '<details class="more"><summary>流水线结果（建议判断后再看）</summary><div class="more-body pipe">' +
+      '<p><b>第三次重跑：</b>' + esc(f.ledger_zh) + ids + '；' + esc(f.vv_zh) + '。</p>' +
+      '<p><b>昨晚的试验：</b>' + esc(f.night_zh) + '</p>' +
+      '<p class="note">审查员追踪记录：' + esc(f.trace_note) + '</p></div></details>' +
+      '<div class="verdict" data-fid="' + f.fid + '">' +
+      '<div class="q"><p class="q-label" id="q1-' + f.fid + '">1. 这个问题真实存在吗？</p><div class="seg" role="group" aria-labelledby="q1-' + f.fid + '" data-q="real">' +
+      '<button type="button" id="b-' + f.fid + '-real-yes" data-v="yes" aria-pressed="false">是真问题</button>' +
+      '<button type="button" id="b-' + f.fid + '-real-no" data-v="no" aria-pressed="false">不是问题</button>' +
+      '<button type="button" id="b-' + f.fid + '-real-unsure" data-v="unsure" aria-pressed="false">看不清</button></div></div>' +
+      '<div class="q"><p class="q-label" id="q2-' + f.fid + '">2. 所指物体 prompt 写了吗？<small>可选</small></p><div class="seg" role="group" aria-labelledby="q2-' + f.fid + '" data-q="prompt">' +
+      '<button type="button" id="b-' + f.fid + '-prompt-unspec" data-v="unspec" aria-pressed="false">没写（unspecified）</button>' +
+      '<button type="button" id="b-' + f.fid + '-prompt-spec" data-v="spec" aria-pressed="false">写了（specified）</button>' +
+      '<button type="button" id="b-' + f.fid + '-prompt-unsure" data-v="unsure" aria-pressed="false">说不准</button></div></div>' +
+      '<div class="q"><label class="q-label" for="note-' + f.fid + '">备注<small>可选</small></label>' +
+      '<textarea class="note-in" id="note-' + f.fid + '" data-fid="' + f.fid + '" rows="1" placeholder="例如：只在 f5 能看到；或者是视角变化"></textarea></div>' +
+      '</div></article>';
+  }
+
+  function render() {
+    var html = DATA.videos.map(function (v) {
+      var ents = v.entities.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('');
+      return '<section class="group" id="v-' + v.num + '"><div class="group-head"><h2><span>#' + v.num + '</span>' + esc(v.model) + '</h2>' +
+        '<span class="meta">' + v.shots + ' 个镜头 · ' + v.findings.length + ' 条发现</span></div>' +
+        '<details class="entities"><summary>合同实体（prompt 规定的实体）与全局 prompt</summary><ul>' + ents + '</ul>' +
+        '<div class="more-body"><p><span class="k">GLOBAL</span>' + esc(v.global_prompt) + '</p></div></details>' +
+        v.findings.map(function (fid) { return cardHTML(byId[fid]); }).join('') + '</section>';
+    }).join('');
+    document.getElementById('list').innerHTML = html;
+    document.getElementById('n-all').textContent = F.length;
+    document.getElementById('tally').innerHTML = F.map(function (f) {
+      return '<a href="#f-' + f.fid + '" data-fid="' + f.fid + '" data-v="" title="#' + f.fid + '" aria-label="#' + f.fid + ' 未判断"></a>';
+    }).join('');
+    document.getElementById('sum-body').innerHTML = F.map(function (f) {
+      return '<tr><td class="mono"><a href="#f-' + f.fid + '">#' + f.fid + '</a></td><td>' + esc(f.obj_zh.replace(/（.*$/, '')) + '</td>' +
+        '<td><span class="v" id="s1-' + f.fid + '" data-v="">—</span></td><td id="s2-' + f.fid + '">—</td><td id="s3-' + f.fid + '"></td></tr>';
+    }).join('');
+  }
+
+  function renderVerdict(fid) {
+    var s = state[fid];
+    ['real', 'prompt'].forEach(function (q) {
+      var seg = document.querySelector('.verdict[data-fid="' + fid + '"] .seg[data-q="' + q + '"]');
+      if (!seg) return;
+      Array.prototype.forEach.call(seg.querySelectorAll('button'), function (b) {
+        b.setAttribute('aria-pressed', s[q] === b.getAttribute('data-v') ? 'true' : 'false');
+        b.disabled = mode === 'readonly';
+      });
+    });
+    var ta = document.getElementById('note-' + fid);
+    if (ta && document.activeElement !== ta && ta.value !== (s.note || '')) ta.value = s.note || '';
+    if (ta) ta.readOnly = mode === 'readonly';
+    var stamp = document.getElementById('stamp-' + fid);
+    stamp.setAttribute('data-v', s.real || '');
+    stamp.textContent = s.real ? L1[s.real] : '未判断';
+    var card = document.getElementById('f-' + fid);
+    card.setAttribute('data-judged', s.real ? '1' : '0');
+    var s1 = document.getElementById('s1-' + fid);
+    s1.setAttribute('data-v', s.real || ''); s1.textContent = s.real ? L1[s.real] : '—';
+    document.getElementById('s2-' + fid).textContent = s.prompt ? L2[s.prompt] : '—';
+    document.getElementById('s3-' + fid).textContent = s.note || '';
+    var t = document.querySelector('#tally a[data-fid="' + fid + '"]');
+    t.setAttribute('data-v', s.real || '');
+    t.setAttribute('aria-label', '#' + fid + ' ' + (s.real ? L1[s.real] : '未判断'));
+  }
+
+  function renderTally() {
+    var c = { yes: 0, no: 0, unsure: 0 };
+    F.forEach(function (f) { if (state[f.fid].real) c[state[f.fid].real]++; });
+    document.getElementById('n-done').textContent = c.yes + c.no + c.unsure;
+    document.getElementById('counts').innerHTML = ' <i style="background:var(--real)"></i>真问题 ' + c.yes +
+      ' <i style="background:var(--clear)"></i>不是 ' + c.no + ' <i style="background:var(--unsure)"></i>看不清 ' + c.unsure;
+    applyFilter();
+  }
+  function renderAll() { F.forEach(function (f) { renderVerdict(f.fid); }); renderTally(); }
+
+  /* ---------- storage ----------
+     One shared document per finding: reviews/<fid> = {finding, real, prompt, note, updated}.
+     Every step has a timeout and its own status text, so the page never waits silently. */
+  var mode = 'connecting', db = null, perm = null, gotServer = false, loadTimer = null, subscribed = false;
+  var inflight = {}, pending = {}, retried = {}, touched = {};
+  var LOCAL_NOTE = '完成后请点“复制结果”发给 Claude。';
+  function setStatus(t) { document.getElementById('status').textContent = t; }
+  function showAction(label, fn) {
+    var b = document.getElementById('store-action');
+    if (!label) { b.hidden = true; b.onclick = null; return; }
+    b.textContent = label; b.onclick = fn; b.hidden = false;
+  }
+  function loadLocal() {
+    try {
+      var s = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+      Object.keys(s).forEach(function (k) { if (state[k] && s[k]) { state[k].real = s[k].real || null; state[k].prompt = s[k].prompt || null; state[k].note = s[k].note || ''; } });
+    } catch (e) { /* storage unavailable */ }
+  }
+  function saveLocal() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+  function toLocal(msg) { mode = 'local'; clearTimeout(loadTimer); setStatus(msg); renderAll(); }
+  function errText(e) { return (e && (e.code || e.message)) || String(e || 'unknown'); }
+  function withTimeout(p, ms, fallback) {
+    return new Promise(function (resolve) {
+      var done = false;
+      var t = setTimeout(function () { if (!done) { done = true; resolve({ timedOut: true, value: fallback }); } }, ms);
+      Promise.resolve(p).then(function (v) {
+        if (!done) { done = true; clearTimeout(t); resolve({ timedOut: false, value: v }); }
+      }, function (e) {
+        if (!done) { done = true; clearTimeout(t); resolve({ timedOut: false, value: fallback, error: e }); }
+      });
+    });
+  }
+
+  function persist(fid) {
+    saveLocal();
+    if (mode !== 'db') {
+      touched[fid] = true;
+      if (mode === 'local') setStatus('已存在本浏览器（共享存储不可用）。' + LOCAL_NOTE);
+      else if (mode === 'needs-grant') setStatus('已先存在本浏览器；点“授权保存”后会同步到共享存储。');
+      return;
+    }
+    if (inflight[fid]) { pending[fid] = true; return; }
+    inflight[fid] = true;
+    setStatus('保存中…');
+    var s = state[fid];
+    var body = { finding: fid, real: s.real, prompt: s.prompt, note: s.note || '', updated: new Date().toISOString() };
+    db.collection('reviews').doc(fid).set(body).then(function () {
+      retried[fid] = false;
+      setStatus('已保存，Claude 可以直接读取。');
+    }).catch(function (e) {
+      var code = errText(e);
+      if (code === 'unavailable' && !retried[fid]) {
+        retried[fid] = true; pending[fid] = false;
+        setTimeout(function () { persist(fid); }, 700 + Math.random() * 900);
+        return;
+      }
+      if (code === 'invalid_argument') { mode = 'readonly'; renderAll(); setStatus('没有写入权限，判断不会保存到共享存储。' + LOCAL_NOTE); return; }
+      touched[fid] = true;
+      setStatus('保存失败（' + code + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    }).then(function () {
+      inflight[fid] = false;
+      if (pending[fid]) { pending[fid] = false; persist(fid); }
+    });
+  }
+
+  function connect() {
+    if (subscribed) return;
+    subscribed = true; mode = 'db'; showAction(null);
+    setStatus('已连接，正在读取已保存的判断…');
+    renderAll();
+    loadTimer = setTimeout(function () {
+      if (!gotServer) setStatus('共享存储 10 秒内没有返回数据。新的判断会继续尝试保存；如果一直这样，请刷新页面，或点“复制结果”发给 Claude。');
+    }, 10000);
+    db.collection('reviews').onSnapshot(function (snap) {
+      var seen = {};
+      snap.docs.forEach(function (doc) {
+        var v = doc.data(); if (!v || !state[v.finding]) return;
+        var fid = v.finding; seen[fid] = true;
+        if (inflight[fid] || pending[fid] || touched[fid]) return;
+        var s = state[fid]; s.real = v.real || null; s.prompt = v.prompt || null;
+        var ta = document.getElementById('note-' + fid);
+        if (!(ta && document.activeElement === ta)) s.note = v.note || '';
+        renderVerdict(fid);
+      });
+      if (!snap.metadata.fromCache && !gotServer) {
+        gotServer = true; clearTimeout(loadTimer);
+        setStatus(snap.empty ? '已连接。每次点击自动保存，Claude 可以直接读取。' : '已读取之前保存的判断。每次点击自动保存。');
+        /* one-time upload of answers given before the store answered, or kept only in this browser */
+        F.forEach(function (f) {
+          var s = state[f.fid], has = s.real || s.prompt || s.note;
+          if (touched[f.fid] || (!seen[f.fid] && has)) { touched[f.fid] = false; setTimeout(function () { persist(f.fid); }, 0); }
+        });
+      }
+      renderTally();
+      saveLocal();
+    }, function (err) {
+      subscribed = false;
+      toLocal('共享存储出错（' + errText(err) + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    });
+  }
+
+  function openManage() {
+    perm.manage().then(recheck, function () { setStatus('权限面板没有打开。请在页面右上角菜单的 Permissions 里打开这个页面的存储权限，然后刷新。'); });
+  }
+  function recheck() {
+    withTimeout(perm.state('db'), 5000, null).then(function (r) {
+      if (r.value === 'granted') connect();
+      else if (r.value === 'prompt') { mode = 'needs-grant'; renderAll(); setStatus('保存到共享存储需要你授权一次。授权前的判断先存在本浏览器。'); showAction('授权保存', askGrant); }
+    });
+  }
+  function askGrant() {
+    setStatus('请在弹出的对话框里确认。如果没有看到对话框，判断仍会先存在本浏览器。');
+    perm.request(['db']).then(function (r) {
+      var st = r && r.db;
+      if (st === 'granted') connect();
+      else if (st === 'denied') { mode = 'local'; renderAll(); setStatus('没有授权，判断只存在本浏览器。' + LOCAL_NOTE); showAction('打开权限设置', openManage); }
+      else setStatus('授权没有完成（' + (st || '未知') + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    }, function (e) { setStatus('授权请求失败（' + errText(e) + '），判断先存在本浏览器。' + LOCAL_NOTE); });
+  }
+
+  function initStore() {
+    var c = window.claude;
+    if (!c || typeof c.use !== 'function') { toLocal('这个页面不在 Claude 查看器里打开，判断只存在本浏览器。' + LOCAL_NOTE); return; }
+    setStatus('正在连接共享存储（载入存储模块）…');
+    withTimeout(Promise.all([c.use('db'), c.use('permissions')]), 12000, null).then(function (r) {
+      var d = r.value && r.value[0], p = r.value && r.value[1];
+      if (!d) {
+        toLocal((r.timedOut ? '共享存储 12 秒内没有响应' : r.error ? '共享存储载入出错（' + errText(r.error) + '）' : '共享存储不可用') + '，判断只存在本浏览器。' + LOCAL_NOTE);
+        return;
+      }
+      db = d; perm = p;
+      if (!perm) { connect(); return; }
+      setStatus('正在连接共享存储（检查授权）…');
+      return withTimeout(perm.state('db'), 5000, null).then(function (s) {
+        if (s.value === 'denied') {
+          mode = 'local'; renderAll();
+          setStatus('这个页面的存储权限之前被拒绝了，判断只存在本浏览器。');
+          showAction('打开权限设置', openManage);
+        } else if (s.value === 'prompt') {
+          mode = 'needs-grant'; renderAll();
+          setStatus('保存到共享存储需要你授权一次。授权前的判断先存在本浏览器，授权后自动同步。');
+          showAction('授权保存', askGrant);
+        } else connect();
+      });
+    }).catch(function (e) { toLocal('连接共享存储时出错（' + errText(e) + '），判断只存在本浏览器。' + LOCAL_NOTE); });
+  }
+
+  /* ---------- interactions ---------- */
+  var noteTimers = {};
+  function videoAct(btn) {
+    var ctl = btn.closest('.vid-ctl'), v = document.getElementById(ctl.getAttribute('data-vid'));
+    if (!v) return;
+    var fps = +ctl.getAttribute('data-fps') || 16, act = btn.getAttribute('data-act');
+    try {
+      if (act === 'kf') { v.pause(); v.currentTime = (Math.floor(+btn.getAttribute('data-t') * fps + 1e-6) + 0.5) / fps; }
+      else if (act === 'back') { v.pause(); v.currentTime = Math.max(0, (Math.floor(v.currentTime * fps + 1e-6) - 0.5) / fps); }
+      else if (act === 'fwd') { v.pause(); v.currentTime = (Math.floor(v.currentTime * fps + 1e-6) + 1.5) / fps; }
+      else if (act === 'slow') { v.playbackRate = 0.25; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      else if (act === 'normal') { v.playbackRate = 1; }
+    } catch (e) { /* media not ready yet */ }
+  }
+  function showTime(ev) {
+    var v = ev.target; if (!v || v.tagName !== 'VIDEO') return;
+    var ctl = document.querySelector('.vid-ctl[data-vid="' + v.id + '"]'); if (!ctl) return;
+    var fps = +ctl.getAttribute('data-fps') || 16, s0 = +ctl.getAttribute('data-start'), s1 = +ctl.getAttribute('data-end');
+    var t = v.currentTime, fr = Math.floor(t * fps + 1e-6), rel = fr - Math.round(s0 * fps);
+    var out = document.getElementById('vt-' + v.id.slice(2)); if (!out) return;
+    out.textContent = t.toFixed(2) + ' 秒 · 视频第 ' + fr + ' 帧' + (t >= s0 - 1e-6 && t < s1 ? ' · 该镜头第 ' + rel + ' 帧' : ' · 不在该镜头内') + (v.playbackRate !== 1 ? ' · ' + v.playbackRate + '×' : '');
+  }
+  ['timeupdate', 'seeked', 'ratechange'].forEach(function (n) { document.addEventListener(n, showTime, true); });
+  document.addEventListener('click', function (ev) {
+    var vb = ev.target.closest('.vid-ctl button');
+    if (vb) { videoAct(vb); return; }
+    var b = ev.target.closest('.seg button');
+    if (b && !b.disabled) {
+      var fid = b.closest('.verdict').getAttribute('data-fid');
+      var q = b.closest('.seg').getAttribute('data-q');
+      var v = b.getAttribute('data-v');
+      state[fid][q] = state[fid][q] === v ? null : v;
+      renderVerdict(fid); renderTally(); persist(fid);
+      return;
+    }
+    var fig = ev.target.closest('.frame, .thumb');
+    if (fig) { openLB(fig); }
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (!lb.hidden) return;
+    var fig = ev.target.closest && ev.target.closest('.frame, .thumb');
+    if (fig && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); openLB(fig); }
+  });
+  document.addEventListener('input', function (ev) {
+    var ta = ev.target.closest('.note-in'); if (!ta) return;
+    var fid = ta.getAttribute('data-fid');
+    state[fid].note = ta.value;
+    document.getElementById('s3-' + fid).textContent = ta.value;
+    clearTimeout(noteTimers[fid]);
+    noteTimers[fid] = setTimeout(function () { persist(fid); }, 900);
+  });
+  document.addEventListener('focusout', function (ev) {
+    var ta = ev.target.closest && ev.target.closest('.note-in'); if (!ta) return;
+    var fid = ta.getAttribute('data-fid');
+    if (noteTimers[fid]) { clearTimeout(noteTimers[fid]); noteTimers[fid] = null; persist(fid); }
+  });
+
+  function applyFilter() {
+    var on = document.body.classList.contains('only-open');
+    Array.prototype.forEach.call(document.querySelectorAll('.group'), function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('.card'), function (c) { return c.getAttribute('data-judged') !== '1'; });
+      g.hidden = on && !any;
+    });
+  }
+  document.getElementById('only-open').addEventListener('click', function () {
+    var on = document.body.classList.toggle('only-open');
+    this.setAttribute('aria-pressed', on ? 'true' : 'false');
+    applyFilter();
+  });
+  function setMarks(show) {
+    document.body.classList.toggle('nomarks', !show);
+    var t = document.getElementById('marks-toggle');
+    t.setAttribute('aria-pressed', show ? 'true' : 'false'); t.textContent = show ? '标记：显示' : '标记：隐藏';
+    document.getElementById('lb-marks').textContent = show ? '隐藏标记 (M)' : '显示标记 (M)';
+  }
+  document.getElementById('marks-toggle').addEventListener('click', function () { setMarks(document.body.classList.contains('nomarks')); });
+
+  function resultText() {
+    var now = new Date();
+    var stamp;
+    try { stamp = now.toLocaleString('zh-CN', { timeZone: 'Asia/Dubai', hour12: false }) + '（迪拜时间）'; } catch (e) { stamp = now.toISOString(); }
+    var lines = ['UEC-Bench unspecified 抽查复核结果，' + stamp, '编号\t是否真问题\tprompt 是否写了\t备注'];
+    F.forEach(function (f) {
+      var s = state[f.fid];
+      lines.push('#' + f.fid + '\t' + (s.real ? L1[s.real] : '未判断') + '\t' + (s.prompt ? L2[s.prompt] : '—') + '\t' + (s.note || '').replace(/\s+/g, ' '));
+    });
+    return lines.join('\n');
+  }
+  function flash(el, text) { var m = document.getElementById('copy-msg'); m.textContent = text; var old = el.textContent; el.textContent = text; setTimeout(function () { el.textContent = old; }, 1600); }
+  function copyResults(ev) {
+    var btn = ev.currentTarget, t = resultText();
+    var fallback = function () {
+      var box = document.getElementById('copybox'); box.hidden = false; box.value = t;
+      box.scrollIntoView({ block: 'center' }); box.focus(); box.select();
+      flash(btn, '已选中文本，请按 Ctrl/⌘+C');
+    };
+    try {
+      navigator.clipboard.writeText(t).then(function () { flash(btn, '已复制'); }, fallback);
+    } catch (e) { fallback(); }
+  }
+  document.getElementById('copy-top').addEventListener('click', copyResults);
+  document.getElementById('copy-bottom').addEventListener('click', copyResults);
+
+  /* ---------- lightbox ---------- */
+  var lb = document.getElementById('lb'), lbFig = document.getElementById('lb-fig'), lbStage = document.getElementById('lb-stage');
+  var seq = [], cur = 0, lastFocus = null;
+  function buildSeq(f, kind) {
+    if (kind === 'cited') return f.cited.map(function (c) { var p = parseCite(c); return { f: f, shot: p.shot, k: p.k, cite: c }; });
+    var out = [];
+    for (var k = 0; k < 6; k++) out.push({ f: f, shot: kind, k: k, cite: kind + ' f' + k });
+    return out;
+  }
+  function fitLB() {
+    var r = lbStage.getBoundingClientRect();
+    var navW = 2 * (document.getElementById('lb-prev').offsetWidth + 6);
+    var maxW = Math.max(120, r.width - navW), maxH = Math.max(80, r.height);
+    var w = Math.min(maxW, maxH * 832 / 480, 1664);
+    lbFig.style.width = w + 'px'; lbFig.style.height = (w * 480 / 832) + 'px';
+  }
+  function showLB() {
+    var it = seq[cur];
+    lbFig.innerHTML = '<img src="' + imgPath(it.f, it.shot, it.k) + '" alt="' + esc(it.f.model + ' ' + it.cite) + '">' + marksHTML(it.f.markers[it.cite]);
+    document.getElementById('lb-cap').textContent = '#' + it.f.fid + ' · ' + it.f.model + ' · ' + it.shot + ' · f' + it.k + '   （' + (cur + 1) + ' / ' + seq.length + '）';
+    document.getElementById('lb-prev').disabled = cur === 0;
+    document.getElementById('lb-next').disabled = cur === seq.length - 1;
+    document.getElementById('lb-thumbs').innerHTML = seq.map(function (s, i) {
+      return '<button type="button" data-i="' + i + '" aria-label="' + esc(s.cite) + '"' + (i === cur ? ' aria-current="true"' : '') + '><img src="' + imgPath(s.f, s.shot, s.k) + '" alt=""></button>';
+    }).join('');
+    fitLB();
+  }
+  function openLB(fig) {
+    var f = byId[fig.getAttribute('data-fid')];
+    seq = buildSeq(f, fig.getAttribute('data-seq')); cur = +fig.getAttribute('data-i');
+    lastFocus = fig; lb.hidden = false; document.body.style.overflow = 'hidden';
+    showLB(); document.getElementById('lb-close').focus();
+  }
+  function closeLB() { lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  function step(d) { var n = cur + d; if (n < 0 || n >= seq.length) return; cur = n; showLB(); }
+  document.getElementById('lb-close').addEventListener('click', closeLB);
+  document.getElementById('lb-prev').addEventListener('click', function () { step(-1); });
+  document.getElementById('lb-next').addEventListener('click', function () { step(1); });
+  document.getElementById('lb-marks').addEventListener('click', function () { setMarks(document.body.classList.contains('nomarks')); });
+  document.getElementById('lb-thumbs').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) { cur = +b.getAttribute('data-i'); showLB(); } });
+  lbStage.addEventListener('click', function (ev) { if (ev.target === lbStage) closeLB(); });
+  window.addEventListener('resize', function () { if (!lb.hidden) fitLB(); });
+  document.addEventListener('keydown', function (ev) {
+    if (lb.hidden) {
+      if ((ev.key === 'm' || ev.key === 'M') && !/^(TEXTAREA|INPUT)$/.test(ev.target.tagName)) setMarks(document.body.classList.contains('nomarks'));
+      return;
+    }
+    if (ev.key === 'Escape') { ev.preventDefault(); closeLB(); }
+    else if (ev.key === 'ArrowLeft') { ev.preventDefault(); step(-1); }
+    else if (ev.key === 'ArrowRight') { ev.preventDefault(); step(1); }
+    else if (ev.key === 'm' || ev.key === 'M') { setMarks(document.body.classList.contains('nomarks')); }
+    else if (ev.key === 'Tab') {
+      var foc = Array.prototype.filter.call(lb.querySelectorAll('button'), function (b) { return !b.disabled; });
+      if (!foc.length) return;
+      var i = foc.indexOf(document.activeElement);
+      if (ev.shiftKey && (i <= 0)) { ev.preventDefault(); foc[foc.length - 1].focus(); }
+      else if (!ev.shiftKey && i === foc.length - 1) { ev.preventDefault(); foc[0].focus(); }
+    }
+  });
+
+  render();
+  loadLocal();
+  renderAll();
+  initStore();
+})();
+</script>

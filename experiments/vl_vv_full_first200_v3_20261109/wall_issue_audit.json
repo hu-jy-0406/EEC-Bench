@@ -1,0 +1,2455 @@
+[
+ {
+  "task": "priority_003__wan21",
+  "old_unit": "V3",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Kitchen wall covering — 厨房墙面及墙面饰面，镜头间可见鸟纹壁纸、灰白花纹、浅色纹理与绿色墙面等差异。"
+   }
+  ],
+  "old_description": "同一厨房的墙面饰面和墙面布置跨镜头不一致：Shot1可见浅色鸟花图案壁纸及装饰盘，Shot3为灰白大花纹墙面并有彩色瓷砖装饰带，Shot5为浅色纹理墙面，Shot6则为绿色墙面。",
+  "old_frames": [
+   [
+    "Shot1",
+    0
+   ],
+   [
+    "Shot3",
+    0
+   ],
+   [
+    "Shot5",
+    0
+   ],
+   [
+    "Shot6",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V2+V9",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Domestic kitchen",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot3",
+      2
+     ]
+    ],
+    "description": "同一厨房在Shot1与Shot3的相近过肩视角中背景不一致：Shot1金发女性身后是浅色小鸟花卉图案壁纸及圆形装饰盘；Shot3相应背景变为大型浅色花纹墙面，并出现橱柜和装饰性瓷砖饰带。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Kitchen sink",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "厨房水槽在不同镜头中的外观不一致：Shot2可见黑色单盆水槽，Shot4可见金属色水槽，Shot6可见金属色双盆水槽。"
+   },
+   {
+    "unit": "V9",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Domestic kitchen",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "同一厨房在Shot2与Shot6中可见的墙面装修不一致：Shot2水槽后方是白色砖面墙，Shot6窗户与橱柜之间则是绿色墙面。"
+   }
+  ]
+ },
+ {
+  "task": "priority_007__wan22",
+  "old_unit": "V4",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "餐馆卡座及窗框 — 跨镜头反复出现但外观不一致的座椅、窗框与墙面布置。"
+   }
+  ],
+  "old_description": "反复出现的餐馆卡座背景在不同镜头中不一致：Shot1、Shot5 可见青绿色卡座及青绿色窗框；Shot3 可见红色座椅和浅色窗框；Shot7 可见红色卡座及青绿色窗框；Shot8 则可见蓝色座椅和木饰面背景。",
+  "old_frames": [
+   [
+    "Shot1",
+    2
+   ],
+   [
+    "Shot3",
+    2
+   ],
+   [
+    "Shot5",
+    2
+   ],
+   [
+    "Shot7",
+    2
+   ],
+   [
+    "Shot8",
+    2
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V5",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Diner table",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot2",
+      2
+     ]
+    ],
+    "description": "pb0005（餐桌）在Shot1呈现厚实、平滑的浅色桌沿；Shot2同一桌沿可见多层金属条纹结构，桌体边缘外观不一致。"
+   },
+   {
+    "unit": "V6+V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0009",
+      "name": "Booth seat back",
+      "label": "specified",
+      "contract_role": "object"
+     },
+     {
+      "key": "n1",
+      "name": "卡座椅背",
+      "label": "unspecified",
+      "contract_role": null
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ],
+     [
+      "Shot7",
+      2
+     ],
+     [
+      "Shot8",
+      0
+     ]
+    ],
+    "description": "同一餐馆卡座靠背在Shot1/2/4/6呈深色，Shot3/7呈红色，Shot5呈青绿色；软垫颜色和表面外观在不同镜头间不一致。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Teal window framing",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot7",
+      2
+     ]
+    ],
+    "description": "同一餐馆的窗框和窗边构件在Shot1、Shot5、Shot7呈青绿色，而Shot3可见的窗边构件为浅色，窗框配色与外观不一致。"
+   },
+   {
+    "unit": "V11",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Diner booth",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      4
+     ],
+     [
+      "Shot3",
+      4
+     ],
+     [
+      "Shot8",
+      4
+     ]
+    ],
+    "description": "Shot1可见青绿色卡座及窗框，Shot3可见红色卡座和浅色窗框，Shot8则出现蓝色卡座及木质墙面饰板；重复出现的餐馆背景元素在颜色和饰面上不一致。"
+   }
+  ]
+ },
+ {
+  "task": "priority_011__wan22",
+  "old_unit": "V1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "青绿色隔间 — 青绿色洗手间隔间结构。"
+   },
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "灰色磨砂门 — 带灰色磨砂面板的门。"
+   },
+   {
+    "key": "n3",
+    "label": "unspecified",
+    "name": "高窗及白框窗 — 洗手间墙上的多格高窗及白框窗。"
+   },
+   {
+    "key": "n4",
+    "label": "unspecified",
+    "name": "墙面马赛克装饰带 — 墙面横向马赛克装饰带。"
+   },
+   {
+    "key": "n5",
+    "label": "unspecified",
+    "name": "白色百叶状墙面 — Shot5中可见的白色百叶状墙面结构。"
+   }
+  ],
+  "old_description": "同一洗手间在各镜头中呈现明显不同的固定背景装潢：Shot1为浅灰方砖、白框镜及彩色告示；Shot2/6可见青绿色隔间、白砖和外露管线；Shot3/5可见白框高窗及不同墙面结构；Shot4则为灰色磨砂门和马赛克装饰带。",
+  "old_frames": [
+   [
+    "Shot1",
+    1
+   ],
+   [
+    "Shot2",
+    1
+   ],
+   [
+    "Shot3",
+    1
+   ],
+   [
+    "Shot4",
+    1
+   ],
+   [
+    "Shot5",
+    1
+   ],
+   [
+    "Shot6",
+    1
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V6",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0008",
+      "name": "Frosted-panel door",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "同一洗手间门在各镜头中的外观不一致：Shot2可见青绿色不透明门板，Shot4可见灰色磨砂面板门，Shot6则可见白框玻璃门或隔断。"
+   },
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Shared washroom",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "洗手间跨镜头的整体色调和亮度明显不同：Shot1、Shot2整体偏冷、偏暗；Shot3至Shot6整体更明亮，色调较中性或偏暖。"
+   }
+  ]
+ },
+ {
+  "task": "priority_012__storymem",
+  "old_unit": "V1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "房间网格屏及墙面结构 — 反复出现的背景构件；Shot2为暖黄格窗及砖墙，Shot4/6为白色明亮网格屏及中央黑墙。"
+   }
+  ],
+  "old_description": "同一微型房间的背景构造不一致：Shot2可见暖黄色格窗及左侧砖墙；Shot4和Shot6则可见两侧白色网格屏与中央黑色墙面，和Shot2的背景布局明显不同。",
+  "old_frames": [
+   [
+    "Shot2",
+    3
+   ],
+   [
+    "Shot4",
+    3
+   ],
+   [
+    "Shot6",
+    3
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V3+V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Low worktable",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      1
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ]
+    ],
+    "description": "同一低工作台在Shot2 frame 1呈现为浅色、较窄的桌面并可见细腿；Shot1 frame 0、Shot3 frame 0及Shot5 frame 0则呈现为深色、较宽的桌面。"
+   },
+   {
+    "unit": "V4+V9",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Pale sculpture",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot4",
+      1
+     ]
+    ],
+    "description": "同一浅色雕塑在Shot1 frame 0呈紧凑的圆润重叠团块、没有明显高底部支撑；Shot4 frame 1则呈更高的直立团块形态，底部有显著的柱状支撑部分。"
+   },
+   {
+    "unit": "V5+V10",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Miniature room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      1
+     ],
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot6",
+      3
+     ]
+    ],
+    "description": "同一房间的后景结构在Shot2 frame 1与Shot4 frame 2、Shot6 frame 3之间不一致：Shot2可见砖墙和暖黄色四格窗；Shot4与Shot6则可见深色中央墙面及两侧白色网格屏。"
+   },
+   {
+    "unit": "V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "同一房间的环境色调在镜头间不同：Shot2 frame 2的网格窗呈暖黄色发光、周围环境偏暖暗；Shot4 frame 2和Shot6 frame 2的网格屏呈冷白色，整体色调较冷。"
+   }
+  ]
+ },
+ {
+  "task": "priority_023__wan22",
+  "old_unit": "V3",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "洗手间墙面与砖饰 — 各镜头中反复出现但外观不兼容的墙面、瓷砖及固定饰面。"
+   }
+  ],
+  "old_description": "作为同一洗手间背景的墙面和固定饰面在各镜头间不一致：Shot1为灰绿色小方砖，Shot2为米色小方砖，Shot4可见浅色瓷砖隔间，Shot5为浅灰墙面及深绿色下墙，Shot6为米色大方砖及黑色横向装饰砖；Shot3也呈现浅米色大方砖墙面。",
+  "old_frames": [
+   [
+    "Shot1",
+    3
+   ],
+   [
+    "Shot2",
+    2
+   ],
+   [
+    "Shot3",
+    2
+   ],
+   [
+    "Shot4",
+    2
+   ],
+   [
+    "Shot5",
+    2
+   ],
+   [
+    "Shot6",
+    2
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V3",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Red signs",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot3",
+      4
+     ]
+    ],
+    "description": "Shot1背景红色标牌上的白字细小，呈横向排列；Shot3左侧可见的红色标牌白字更大，排版也不同。"
+   },
+   {
+    "unit": "V4",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Washroom",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "作为同一洗手间背景，墙面在各镜头间呈现出不一致的砖墙外观：Shot1为深灰绿色小方砖；Shot2和Shot3为浅色方砖；Shot4为白色砖墙并出现隔间结构；Shot5为灰墙下接深绿色砖带；Shot6为浅米色砖墙并有深色横向砖带。"
+   },
+   {
+    "unit": "V5",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot1",
+      3
+     ],
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "洗手间各镜头呈现的整体照明色调不一致：Shot1偏冷绿，Shot2、Shot3和Shot6偏暖黄，Shot4偏绿白，Shot5偏中性浅灰。"
+   }
+  ]
+ },
+ {
+  "task": "priority_031__wan22",
+  "old_unit": "V3",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Kitchen wall and window background — 厨房中可见的窗户、窗帘及墙面布置，跨镜头与黄墙青架背景不一致。"
+   }
+  ],
+  "old_description": "各镜头中的厨房背景布置不一致：Shot1、Shot3和Shot6可见黄墙及青绿色架子；Shot2和Shot5可见浅色瓷砖、窗户及圆纹窗帘；Shot4则可见浅色橱柜、水槽和弯龙头。",
+  "old_frames": [
+   [
+    "Shot1",
+    0
+   ],
+   [
+    "Shot2",
+    0
+   ],
+   [
+    "Shot3",
+    0
+   ],
+   [
+    "Shot4",
+    0
+   ],
+   [
+    "Shot5",
+    5
+   ],
+   [
+    "Shot6",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V2",
+    "verdict": "rejected",
+    "scope": "within_shot",
+    "subcategory": "background_drift",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Kitchen",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot5",
+      4
+     ],
+     [
+      "Shot5",
+      5
+     ]
+    ],
+    "description": "Shot5帧0至帧3中，画面左侧仅见局部圆环图案窗帘；帧4至帧5左侧则出现更大幅的圆环图案窗帘，并在左下方显露台面及物件，背景布局与此前帧不同。"
+   },
+   {
+    "unit": "V3+V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Dish shelves",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "重复出现的厨房背景在Shot1、Shot3和Shot6之间不一致：Shot1可见直线分格的深绿色开放搁架、黄色墙面和绿色下柜；Shot3背景变为蓝绿色搁架及柜体，架体只占画面顶部窄条，布局与Shot1不同；Shot6则出现拱形边框的蓝绿色搁架、不同餐具排列和蓝绿色柜体，整体布置也不同于前两镜。"
+   },
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Button box",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      4
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "同一按钮盒在不同镜头中的外形、尺寸及颜色不一致：Shot1中为高而窄的深色锥形盒；Shot3中为宽大的深蓝色锥形盒；Shot4中为矮宽的圆柱形底座；Shot6中则为较小的深棕色锥形底座。"
+   },
+   {
+    "unit": "V9",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0010",
+      "name": "Patterned curtains",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ]
+    ],
+    "description": "Shot2与Shot5中重复出现的窗帘外观不同：Shot2的帘布呈深棕底色、浅色圆环图案；Shot5的帘布呈浅色底、深棕圆环图案，悬挂位置也不同。"
+   }
+  ]
+ },
+ {
+  "task": "priority_045__wan21",
+  "old_unit": "V3",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "咖啡馆建筑外墙 — 反复作为燃料站背景出现的建筑外墙；不同镜头中材料、颜色与构造明显不一致。"
+   }
+  ],
+  "old_description": "同一乡村咖啡馆燃料站的建筑外观在Shot2第3帧与Shot4第4帧明显不一致：Shot2可见浅褐色低矮建筑及草坪，Shot4则呈现蓝绿色竖板外墙和水泥地面。",
+  "old_frames": [
+   [
+    "Shot2",
+    3
+   ],
+   [
+    "Shot4",
+    4
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V1",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0018",
+      "name": "Driver's dark sedan",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      3
+     ],
+     [
+      "Shot3",
+      0
+     ]
+    ],
+    "description": "同一辆轿车在Shot1中呈酒红色（frame 3），在Shot3中呈深蓝色（frame 0）；两处车身颜色不一致。"
+   }
+  ]
+ },
+ {
+  "task": "priority_047__wan21",
+  "old_unit": "V4",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "训练室墙面构造 — 训练室中跨镜头出现不一致的墙面材质、颜色及墙带结构。"
+   }
+  ],
+  "old_description": "训练室跨镜头可见的墙面构造及背景布置不一致：Shot2为木质墙面与深色横带，Shot4为浅色墙面和门洞，Shot5镜墙前有绿色垫墙，Shot6有蓝灰色下墙带，Shot7有棕色下墙板，Shot8为浅墙及红黑海报；这些画面呈现的墙面材质、色彩和布置互不对应。",
+  "old_frames": [
+   [
+    "Shot1",
+    5
+   ],
+   [
+    "Shot2",
+    2
+   ],
+   [
+    "Shot4",
+    0
+   ],
+   [
+    "Shot5",
+    2
+   ],
+   [
+    "Shot6",
+    2
+   ],
+   [
+    "Shot7",
+    2
+   ],
+   [
+    "Shot8",
+    2
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V3+V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Martial arts training room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot5",
+      3
+     ],
+     [
+      "Shot6",
+      2
+     ],
+     [
+      "Shot8",
+      2
+     ]
+    ],
+    "description": "同一训练室在不同镜头中的背景结构与陈设不一致：Shot4可见浅色墙、中央门洞、酒红地面及右侧百叶窗；Shot5的镜墙下方则有橙色横带，镜中后方可见连续绿色软垫墙。Shot6、Shot8还呈现浅色墙面背景，与Shot5所见背景不同。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot5",
+      3
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "训练室画面的色调在Shot5与Shot4、Shot6之间不一致：Shot5整体呈明显暖橙色调，Shot4和Shot6则偏冷或中性；这些镜头呈现的光色差异没有在画面中显示出相应变化。"
+   }
+  ]
+ },
+ {
+  "task": "priority_059__wan21",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Shot4红墙 — Shot4内鲜红色房间墙面，与前镜头所见墙面不符。"
+   },
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "Shot4中央门 — 位于Shot4房间后方中央的门。"
+   },
+   {
+    "key": "n3",
+    "label": "unspecified",
+    "name": "Shot4灰色地面 — Shot4房间内可见的灰色地面。"
+   }
+  ],
+  "old_description": "重复出现的机械室背景在Shot1、Shot3与Shot4之间明显不一致：Shot1和Shot3可见暗色工业空间、红色背光及大型圆形风扇；Shot4则呈现鲜红墙面、灰色地面、后方中央的门、顶部灯具和不同的设备布局。",
+  "old_frames": [
+   [
+    "Shot1",
+    0
+   ],
+   [
+    "Shot3",
+    3
+   ],
+   [
+    "Shot4",
+    3
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0008",
+      "name": "Shotgun",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      1
+     ],
+     [
+      "Shot3",
+      3
+     ],
+     [
+      "Shot4",
+      4
+     ]
+    ],
+    "description": "同一把枪在不同镜头中的外观不一致：Shot1帧1呈深色枪身和棕色枪托，Shot3帧3呈黑色枪身及浅色金属部件，Shot4帧4则呈棕色枪托和明显的浅色双管。"
+   },
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Machinery room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "机械室的背景布局在Shot1帧0与Shot4帧0之间不一致：Shot1可见灰色工业墙面、左侧风扇及开阔的后方工业空间；Shot4则呈红色墙面、居中后门和不同的房间布局。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "机械室在不同镜头中的光照和色调不一致：Shot1帧0与Shot3帧2呈强烈红色背光和红雾效果，Shot4帧0则明显更明亮、偏中性，红雾效果较弱。"
+   }
+  ]
+ },
+ {
+  "task": "priority_059__wan22",
+  "old_unit": "V1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "红色墙面及壁龛 — Shot4可见的红色实墙及矩形壁龛，是与其他镜头背景布局不匹配的墙体结构。"
+   },
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "Shot4浅色管道布局 — Shot4右侧可见的浅色管道组合，其布局与前镜头房间背景不相符。"
+   }
+  ],
+  "old_description": "同一机械室在Shot1和Shot3可见的背景以大型圆形风扇、红色雾光及浅色管线等为特征；Shot4则呈现红色实墙、矩形壁龛、墙上小圆形装置及另一套浅色管道布局，与前两镜头的房间背景不一致。",
+  "old_frames": [
+   [
+    "Shot1",
+    0
+   ],
+   [
+    "Shot3",
+    1
+   ],
+   [
+    "Shot4",
+    1
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V2",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Machinery room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "同一机械室的可见墙面背景在Shot1与Shot4明显不同：Shot1风扇后方可见暗色工业背景及管线，Shot4则以鲜红色平整墙面、嵌入式凹槽和小型壁轮为主，背景构成不一致。"
+   },
+   {
+    "unit": "V3",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Machinery room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      3
+     ],
+     [
+      "Shot3",
+      3
+     ],
+     [
+      "Shot4",
+      2
+     ]
+    ],
+    "description": "机械室在Shot1至Shot3呈现较暗的环境、局部红色背光和阴影（Shot3另可见红色雾气）；Shot4则整体更明亮、均匀地呈红橙色，色调也更饱和，场景照明与色彩呈现不一致。"
+   }
+  ]
+ },
+ {
+  "task": "priority_067__wan22",
+  "old_unit": "V1.1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Restaurant wall and window structures — 餐厅墙面及窗框结构；跨镜头呈现不相容的木窗、黄墙与砖墙背景。"
+   }
+  ],
+  "old_description": "餐厅墙面与窗框结构跨镜头不一致：Shot3可见木窗和明亮窗面，Shot4为黄色墙面与深色墙裙，Shot6则为浅色砖墙；这些背景结构无法由镜位变化对应。",
+  "old_frames": [
+   [
+    "Shot3",
+    3
+   ],
+   [
+    "Shot4",
+    2
+   ],
+   [
+    "Shot6",
+    2
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0020",
+      "name": "Stemmed glass",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      5
+     ],
+     [
+      "Shot8",
+      0
+     ]
+    ],
+    "description": "同一酒杯在Shot6与Shot8呈现不同杯型：Shot6帧5中Bob发女子手持无杯脚的直壁小杯；Shot8帧0中她手持带细长杯脚的高脚杯。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0010",
+      "name": "Restaurant dining room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot3",
+      3
+     ],
+     [
+      "Shot4",
+      3
+     ],
+     [
+      "Shot5",
+      3
+     ],
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot7",
+      3
+     ],
+     [
+      "Shot8",
+      3
+     ]
+    ],
+    "description": "作为同一餐厅呈现的背景陈设在各镜头间差异显著：Shot3可见木框窗格、木质结构和绿植；Shot4是黄色墙面、深色护墙板与橙色卡座；Shot5是米色纹理墙、木质隔板、红色卡座和橙色壁灯；Shot6是裸露砖墙及深色横向墙板；Shot7出现黄褐色墙面、发光展示区和吊灯；Shot8则以红色及深红色软包卡座墙为背景。"
+   }
+  ]
+ },
+ {
+  "task": "priority_084__wan22",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "pb0018",
+    "label": "specified",
+    "name": "Green door — Green door."
+   },
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "阳台墙面与门构造 — Shot6中的绿色镶板墙及与Shot5不匹配的绿门背景结构。"
+   }
+  ],
+  "old_description": "同一观察者阳台的背景构造在Shot5与Shot6不一致：Shot5第1帧可见浅色墙面和深绿色拱形门，Shot6第1帧则是绿色镶板墙面及构造不同的绿色门。",
+  "old_frames": [
+   [
+    "Shot5",
+    1
+   ],
+   [
+    "Shot6",
+    1
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": []
+ },
+ {
+  "task": "priority_088__wan22",
+  "old_unit": "V5.1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "客厅墙面 — Shot6紫色墙面，Shot8亮蓝色墙面。"
+   },
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "窗帘与窗户背景 — Shot6窗户及窗帘背景，Shot8浅蓝窗帘背景。"
+   }
+  ],
+  "old_description": "同一客厅在Shot6呈紫色墙面及窗户、窗帘背景；Shot8则呈亮蓝色墙面及浅蓝窗帘背景。",
+  "old_frames": [
+   [
+    "Shot6",
+    5
+   ],
+   [
+    "Shot8",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V3+V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0013",
+      "name": "Mustard sofa",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot5",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ],
+     [
+      "Shot8",
+      0
+     ]
+    ],
+    "description": "同一客厅沙发在Shot5、Shot6和Shot8中的外形不一致：Shot5和Shot6可见连续的靠背及宽大的浅色靠垫，Shot8中的沙发则呈现不同的扶手、靠背和坐垫布局。"
+   },
+   {
+    "unit": "V4+V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0011",
+      "name": "Burgundy armchair",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot4",
+      5
+     ],
+     [
+      "Shot6",
+      0
+     ],
+     [
+      "Shot8",
+      0
+     ]
+    ],
+    "description": "同一酒红色扶手椅在Shot4、Shot6和Shot8中的造型不一致：Shot4和Shot6可见较低的椅背及圆厚、前端卷曲的扶手；Shot8中椅背更高更宽，扶手和坐垫轮廓也不同。"
+   },
+   {
+    "unit": "V5",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0016",
+      "name": "Living-room window",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      0
+     ],
+     [
+      "Shot8",
+      0
+     ]
+    ],
+    "description": "客厅背景在Shot6与Shot8中不一致：Shot6可见暗紫色墙面及带百叶窗、紫色窗帘的窗；Shot8对应背景变为亮蓝色墙面和浅蓝色窗帘。"
+   }
+  ]
+ },
+ {
+  "task": "priority_090__wan21",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "池壁瓷砖表面 — 泳池壁上的瓷砖铺面，Shot2-4可见砖块尺度与样式不一致。"
+   }
+  ],
+  "old_description": "同一泳池墙面的瓷砖铺面在不同镜头中尺度与色调不一致：Shot2可见密集、较小且深浅交错的青绿色马赛克砖；Shot3为更大、较亮且较均匀的青色方砖；Shot4也呈较大的青绿色砖块。",
+  "old_frames": [
+   [
+    "Shot2",
+    0
+   ],
+   [
+    "Shot3",
+    0
+   ],
+   [
+    "Shot4",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V3+V4",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0002",
+      "name": "Turquoise tiled pool",
+      "label": "specified",
+      "contract_role": "location"
+     },
+     {
+      "key": "pb0003",
+      "name": "Tiled pool edge",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ]
+    ],
+    "description": "同一泳池墙面在不同镜头中的瓷砖外观不一致：Shot2为细密的蓝绿色小方砖，Shot3为较大的浅青色方砖，Shot4也呈较大块的青色网格砖。"
+   }
+  ]
+ },
+ {
+  "task": "priority_115__wan21",
+  "old_unit": "V4",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Shot4蓝绿平滑墙面 — Shot4人物后方大片蓝绿色平滑背景墙面，与砖墙房间背景不匹配。"
+   }
+  ],
+  "old_description": "Shot1至Shot3可见砖墙布景；Shot4主体后方则出现大片蓝绿色平滑墙面，仅画面左缘仍见砖墙，背景布景明显不同。",
+  "old_frames": [
+   [
+    "Shot3",
+    0
+   ],
+   [
+    "Shot4",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V5",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0008",
+      "name": "Patterned cushion",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "Shot2人物所坐的浅色底、带密集浅褐色花纹的靠垫，与Shot4人物所坐的棕色条纹靠垫在颜色和表面图案上不同。"
+   },
+   {
+    "unit": "V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Brick room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ]
+    ],
+    "description": "房间背景的墙面在不同镜头中呈现出不同结构：Shot1和Shot3可见砖墙，Shot4主体后方主要是青蓝色及灰色平滑墙面，仅左侧边缘保留一小段砖墙。"
+   },
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot3",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ]
+    ],
+    "description": "Shot4的背景和整体画面呈明亮青蓝色调；Shot1至Shot3的房间则以较暗的蓝色光线为主，并可见暖色烛光，色调表现不同。"
+   }
+  ]
+ },
+ {
+  "task": "priority_124__wan21",
+  "old_unit": "V3",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "灯角墙面与壁纸 — 灯角背景墙及其壁纸；Shot1/3呈绿褐破损旧墙，Shot5呈浅米色完整花枝壁纸。"
+   }
+  ],
+  "old_description": "灯角背景墙在Shot5与Shot1、Shot3呈现出明显不同的外观：Shot1为绿褐色、带剥落破损花壁纸并有绿色护墙板；Shot3灯后可见暗橄榄色墙面；Shot5则为浅米色、较完整且清晰可见浅棕花枝的壁纸。",
+  "old_frames": [
+   [
+    "Shot1",
+    5
+   ],
+   [
+    "Shot3",
+    0
+   ],
+   [
+    "Shot5",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V7",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0010",
+      "name": "Spindle-back chair",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot3",
+      5
+     ],
+     [
+      "Shot5",
+      0
+     ]
+    ],
+    "description": "同一把椅子在两个镜头中外观不一致：Shot3帧5画面右侧露出浅色花纹软垫椅面，Shot5帧0画面右侧则是黑色高背、竖向细杆椅。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "uncertain",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0003",
+      "name": "Deteriorated room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      5
+     ],
+     [
+      "Shot5",
+      0
+     ]
+    ],
+    "description": "同一房间的墙面外观在镜头间不一致：Shot1帧5可见暗绿底、花卉墙纸大面积剥落且墙体破损；Shot5帧0则为浅奶油色花卉墙纸，墙面整体较完整，未见相同程度的破损。"
+   }
+  ]
+ },
+ {
+  "task": "priority_088__wan21",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "客厅墙面 — 客厅镜头中出现的紫色或蓝色墙面。"
+   },
+   {
+    "key": "n3",
+    "label": "unspecified",
+    "name": "客厅窗 — 客厅背景中的窗及窗框。"
+   }
+  ],
+  "old_description": "同一客厅在Shot6与Shot8的背景呈现不一致：Shot6可见紫色墙面及窗景，Shot8则为蓝色墙面并呈现不同的灯具、桌椅陈设布局。",
+  "old_frames": [
+   [
+    "Shot6",
+    3
+   ],
+   [
+    "Shot8",
+    1
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V2+V11",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Shared living room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot8",
+      2
+     ]
+    ],
+    "description": "同一客厅的墙面在Shot6为暗紫色，在Shot8为鲜亮蓝绿色；两处可见墙面颜色明显不同。"
+   },
+   {
+    "unit": "V2",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Shared living room",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot8",
+      3
+     ]
+    ],
+    "description": "Shot6沙发后方可见明亮窗户；Shot8相近的房间正面视角中该处没有窗户，改为蓝绿色墙面及画框布置。"
+   },
+   {
+    "unit": "V8+V12",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0013",
+      "name": "Mustard sofa",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot5",
+      2
+     ],
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot8",
+      1
+     ]
+    ],
+    "description": "同一沙发跨镜头颜色不一致：Shot5为浅米色，Shot6及Shot8为芥末黄色；Shot6与Shot8之间还呈现不同的沙发靠背和坐垫分块造型。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0013",
+      "name": "Mustard sofa",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot8",
+      1
+     ]
+    ],
+    "description": "Shot6与Shot8中的沙发靠背及坐垫分块造型不同：Shot6呈现较明显的分块结构，Shot8的靠背和坐垫轮廓与之不符。"
+   },
+   {
+    "unit": "V9+V13",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0017",
+      "name": "Shaded lamp",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      3
+     ],
+     [
+      "Shot8",
+      1
+     ]
+    ],
+    "description": "Shot6沙发与扶手椅之间可见带底座的矮桌灯；Shot8相应区域出现高立杆落地灯，灯具类型、结构和尺寸明显不同。"
+   },
+   {
+    "unit": "V10",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0020",
+      "name": "Coffee table",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      4
+     ],
+     [
+      "Shot8",
+      2
+     ]
+    ],
+    "description": "Shot6与Shot8中的咖啡桌本体外观及结构不同：Shot6可见宽桌面及与其对应的桌体结构，Shot8则呈现浅色木质桌面和不同的桌体轮廓。"
+   },
+   {
+    "unit": "V10+V14",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0021",
+      "name": "Coffee-table clutter",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot6",
+      4
+     ],
+     [
+      "Shot8",
+      2
+     ]
+    ],
+    "description": "Shot6咖啡桌桌面有多件彩色印刷物及杂物，Shot8相应桌面则基本空置，没有这些物品。"
+   },
+   {
+    "unit": "V16",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot6",
+      2
+     ],
+     [
+      "Shot7",
+      2
+     ]
+    ],
+    "description": "同一客厅在Shot6呈明亮偏暖、受强日光照射的色调，在Shot7则呈明显冷蓝色光照与整体色调；两镜头的环境光表现不同。"
+   }
+  ]
+ },
+ {
+  "task": "priority_090__wan22",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "棕榈图案池壁砖 — Shot3池角墙面绿色棕榈叶图案瓷砖。"
+   },
+   {
+    "key": "n3",
+    "label": "unspecified",
+    "name": "大方砖池壁 — Shot4可见平直蓝绿色大方砖池壁。"
+   }
+  ],
+  "old_description": "同一泳池的池壁铺砖与池角构造跨镜头不一致：Shot2和Shot4可见普通蓝绿色小方砖或大方砖池壁及浅色池沿，而Shot3出现棕榈叶图案墙砖和明显的池角台阶；这些背景构造差异无法由镜头角度变化解释。",
+  "old_frames": [
+   [
+    "Shot2",
+    3
+   ],
+   [
+    "Shot3",
+    3
+   ],
+   [
+    "Shot4",
+    3
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V2",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0002",
+      "name": "Turquoise tiled pool",
+      "label": "specified",
+      "contract_role": "location"
+     },
+     {
+      "key": "pb0003",
+      "name": "Tiled pool edge",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot3",
+      3
+     ],
+     [
+      "Shot4",
+      3
+     ]
+    ],
+    "description": "同一泳池池壁的瓷砖饰面在不同镜头中不一致：Shot2可见细密蓝绿色小方格马赛克；Shot3可见带有显眼绿色棕榈叶图案的瓷砖；Shot4则为较大的素色蓝绿色方砖。"
+   }
+  ]
+ },
+ {
+  "task": "priority_118__wan21",
+  "old_unit": "V1",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Shot4砖墙 — Shot4中可见的明亮浅色砖墙及网格状墙面结构。"
+   }
+  ],
+  "old_description": "同一巷道在Shot4呈现明亮的暖色砖墙和网格状墙面，与Shot2、Shot6所见的夜间鹅卵石巷道、灯列及深色加固墙面明显不同；这不仅是机位变化所呈现的背景差异。",
+  "old_frames": [
+   [
+    "Shot2",
+    0
+   ],
+   [
+    "Shot4",
+    0
+   ],
+   [
+    "Shot6",
+    0
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V1+V5",
+    "verdict": "rejected",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Narrow alley",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "同一巷道的背景墙体在Shot1、Shot2、Shot3、Shot6与Shot5呈现不同结构：前几镜可见栏杆、砖墙或门洞等巷道墙面，而Shot5近景中人物身后及侧方主要是粗大的水平波纹状金属杆面，未呈现前述墙面布局。"
+   },
+   {
+    "unit": "V4",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0005",
+      "name": "Horizontal wall bars",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ]
+    ],
+    "description": "Shot1和Shot3墙面可见密集竖向栅杆；Shot5近景墙面则呈现多根粗大的水平杆件。同一墙面杆件的方向与排列在这些镜头中不同。"
+   },
+   {
+    "unit": "V5",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0004",
+      "name": "Narrow alley",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot5",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "同一巷道在Shot1、Shot2、Shot3、Shot5、Shot6所见的暗色夜间墙面与巷道背景，与Shot4明亮背景中的网格纹理砖墙及日光感环境不同。"
+   },
+   {
+    "unit": "V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "environment_lighting",
+    "subjects": [],
+    "frames": [
+     [
+      "Shot2",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ],
+     [
+      "Shot6",
+      0
+     ]
+    ],
+    "description": "Shot2和Shot6的巷道呈深暗的夜间灯光，Shot4却呈现强烈明亮的日光感照明，环境亮度和光照观感不同。"
+   }
+  ]
+ },
+ {
+  "task": "priority_128__wan21",
+  "old_unit": "V6",
+  "old_subjects": [
+   {
+    "key": "pb0009",
+    "label": "specified",
+    "name": "Purple gravestones — Purple gravestones in the graveyard."
+   },
+   {
+    "key": "pb0010",
+    "label": "specified",
+    "name": "Graveyard fencing — Purple fencing in the graveyard."
+   },
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "粉色墓园地面 — Shot4显示的浅粉色平坦游戏地面，与其他镜头草地场景不同。"
+   },
+   {
+    "key": "n2",
+    "label": "unspecified",
+    "name": "墓园土块 — Shot8墓园绿地上散布的浅棕色土块。"
+   }
+  ],
+  "old_description": "反复出现的屏幕内墓园背景在各镜头中不一致：Shot1第3帧是明亮绿地、紫色墓碑群和红梯子；Shot4第3帧是浅粉色地面、深色天空及多座墓碑；Shot6第3帧是荧绿草地、紫色栅栏和裸树；Shot8第3帧则是黑色天空、绿地、紫色栅栏及散布土块，背景元素与布局明显不同。",
+  "old_frames": [
+   [
+    "Shot1",
+    3
+   ],
+   [
+    "Shot4",
+    3
+   ],
+   [
+    "Shot6",
+    3
+   ],
+   [
+    "Shot8",
+    3
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "within_shot",
+    "subcategory": "background_drift",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Displayed graveyard",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot8",
+      1
+     ],
+     [
+      "Shot8",
+      2
+     ]
+    ],
+    "description": "Shot8第1帧的游戏画面为黑色背景与平坦绿色地面；第2帧起出现紫色围栏及新的墓园布景，游戏场景布局明显改变。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0009",
+      "name": "Purple gravestones",
+      "label": "specified",
+      "contract_role": "object"
+     },
+     {
+      "key": "pb0010",
+      "name": "Graveyard fencing",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "游戏墓园的场景布局在Shot4与Shot6之间不同：Shot4第2帧为浅色地面、左侧及中部排列多座墓碑且画面中未见紫色围栏；Shot6第2帧则为绿色草地、中央单座墓碑及横贯背景的紫色围栏。"
+   },
+   {
+    "unit": "V11",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0015",
+      "name": "Orange-red joystick",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot2",
+      2
+     ],
+     [
+      "Shot7",
+      1
+     ]
+    ],
+    "description": "橙红色摇杆在Shot2第2帧呈带细长杆的锥形握把；Shot7第1帧则呈宽大的圆盘状握把，形状不同。"
+   },
+   {
+    "unit": "V12",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Displayed graveyard",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ],
+     [
+      "Shot6",
+      2
+     ]
+    ],
+    "description": "屏幕内的墓园背景在Shot1、Shot4与Shot6之间呈现不同面貌：Shot1第2帧为蓝色天空、绿色草地及成组紫色墓碑；Shot4第2帧为深色天空、浅色地面及另一种墓碑排列；Shot6第2帧为深色天空、绿色草地及横向紫色围栏。"
+   }
+  ]
+ },
+ {
+  "task": "priority_065__wan21",
+  "old_unit": "V2",
+  "old_subjects": [
+   {
+    "key": "n1",
+    "label": "unspecified",
+    "name": "Stone wall — 背景中的石墙结构；Shot1/3为灰色石块墙，Shot4为深蓝灰色规则石块墙。"
+   }
+  ],
+  "old_description": "重复出现的石墙在Shot1、Shot3与Shot4之间外观不一致：Shot1和Shot3可见灰色砌石墙，Shot4则呈深蓝灰色，且墙块的形状和排列方式不同。",
+  "old_frames": [
+   [
+    "Shot1",
+    2
+   ],
+   [
+    "Shot3",
+    2
+   ],
+   [
+    "Shot4",
+    2
+   ]
+  ],
+  "detector_wall_candidates": [],
+  "new_units": [
+   {
+    "unit": "V1",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Grassy grounds",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      2
+     ],
+     [
+      "Shot4",
+      2
+     ]
+    ],
+    "description": "草地场景返回镜头的背景布局不一致：Shot1中鸟狗身后是浅灰石墙，草地呈坡面；Shot4中墙面为深蓝灰色，草地看起来平坦，且画面左侧露出建筑边缘。"
+   },
+   {
+    "unit": "V6",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0007",
+      "name": "Violin",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "黄鸟演奏的弦乐器在Shot3与Shot1、Shot4不一致：Shot1和Shot4中是小型红棕色小提琴，Shot3中则是占据画面较大面积的大提琴状大型弦乐器。"
+   },
+   {
+    "unit": "V7",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "object_identity",
+    "subjects": [
+     {
+      "key": "pb0009",
+      "name": "Hose assembly",
+      "label": "specified",
+      "contract_role": "object"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot2",
+      1
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "水管组件在Shot4与Shot1、Shot2外观不一致：Shot1和Shot2中的喷嘴较细长并带弯折，连接的粗软管为灰色；Shot4中的喷嘴短粗且呈直筒状，地面连接软管呈棕色。"
+   },
+   {
+    "unit": "V8",
+    "verdict": "confirmed",
+    "scope": "cross_shot",
+    "subcategory": "setting_background",
+    "subjects": [
+     {
+      "key": "pb0006",
+      "name": "Grassy grounds",
+      "label": "specified",
+      "contract_role": "location"
+     }
+    ],
+    "frames": [
+     [
+      "Shot1",
+      0
+     ],
+     [
+      "Shot3",
+      0
+     ],
+     [
+      "Shot4",
+      0
+     ]
+    ],
+    "description": "草地场景的石墙外观在镜头间不一致：Shot1为浅灰色、大小不一的石块；Shot3为灰色横向长方砌块；Shot4为深蓝灰色、较小且规整的砌块。"
+   }
+  ]
+ }
+]

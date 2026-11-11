@@ -1,0 +1,192 @@
+{
+ "task": "priority_025__storymem",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Younger man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Bespectacled man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Domestic hallway",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Paneled doors",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Circular framed picture",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Arched display",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Small ornaments",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Alternate-view framed picture",
+   "shots": [
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "ceiling light",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0002",
+   "label": "unspecified",
+   "name": "Wall mirror",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0003",
+   "label": "unspecified",
+   "name": "Framed picture at left edge",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "background_drift",
+   "subjects": [
+    "pb0004"
+   ],
+   "description": "Shot3左侧奶油色嵌板门在帧1关闭、帧3明显敞开，至帧5又呈关闭状态；背景门状态无可见动作或镜头移动可解释。"
+  },
+  {
+   "id": "V2",
+   "scope": "cross_shot",
+   "subcategory": "state_action_continuity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "年轻男子在Shot2末帧双臂交叉，Shot3首帧双臂放下；返回正面镜头时状态突变，未见解开手臂的动作。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects_with_labels": [
+    [
+     "pb0004",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot3",
+     1
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot3",
+     4
+    ],
+    [
+     "Shot3",
+     5
+    ]
+   ],
+   "description": "Shot3中，左侧奶油色嵌板门在帧1处于关闭状态，帧2至帧4变为敞开，帧5又处于关闭状态。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "state_action_continuity",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     5
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "年轻男子在Shot2帧5双臂交叉于胸前，而在Shot3帧0双臂已垂下；两个相邻镜头边界处手臂姿势不一致。"
+  }
+ ]
+}

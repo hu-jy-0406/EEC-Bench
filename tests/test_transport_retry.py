@@ -45,3 +45,33 @@ def test_client_error_is_not_retried(tmp_path, monkeypatch):
     with pytest.raises(RuntimeError, match='Process failed'):
         run(tmp_path, 99, 'RuntimeError: OpenAI API 400: invalid schema')
     assert int((tmp_path / 'count').read_text()) == 1
+
+
+def test_shim_response_timeout_is_retried(tmp_path, monkeypatch):
+    monkeypatch.setattr(io, 'TRANSPORT_RETRY_DELAYS', (0, 0, 0))
+    calls, output = run(tmp_path, 1, 'RuntimeError: OpenAI API timeout: no response within 300 s')
+    assert calls == 2 and output.strip() == 'ok'
+
+
+def test_shim_turns_a_read_timeout_into_a_retryable_error(tmp_path, monkeypatch):
+    import socket
+    import threading
+    import eec_api_codex_shim as shim
+    server = socket.socket(); server.bind(('127.0.0.1', 0)); server.listen(1)
+    accepted = []
+    threading.Thread(target=lambda: accepted.append(server.accept()), daemon=True).start()
+    port = server.getsockname()[1]
+    schema, out = tmp_path / 'schema.json', tmp_path / 'last.txt'
+    schema.write_text('{"type": "object"}')
+    real = shim.urllib.request.Request
+    monkeypatch.setattr(shim.urllib.request, 'Request',
+                        lambda url, **kw: real(f'http://127.0.0.1:{port}/v1/responses', **kw))
+    monkeypatch.setenv('EECBENCH_OPENAI_API_KEY', 'test-key')
+    monkeypatch.setenv('EECBENCH_API_TIMEOUT_SECONDS', '0.5')
+    monkeypatch.setattr(sys, 'argv', ['shim', 'exec', '--model', 'gpt-6-luna', '--output-schema', str(schema),
+                                      '--output-last-message', str(out)])
+    monkeypatch.setattr(sys, 'stdin', __import__('io').StringIO('prompt'))
+    with pytest.raises(RuntimeError, match='OpenAI API timeout') as info:
+        shim.main()
+    assert io.TRANSIENT_API_ERROR.search(f'RuntimeError: {info.value}')
+    server.close()

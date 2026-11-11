@@ -5,12 +5,19 @@ This orchestrates existing stage entrypoints. It never prepares model-specific
 videos or requests Slurm resources. Use --dry-run to inspect a case without
 starting GPU work or API calls.
 
-Default chain (discovery v5 -> review v6 -> scoring v5, 2026-10-09): V-L and V-V
+Default chain (discovery v6 -> review v7 -> scoring v6, 2026-11-02): V-L and V-V
 are separate branches with separate model calls.  After the detection registry,
 the V-L branch (vl_detection -> vl_review) and the V-V branch (vv_detection ->
 vv_review) run concurrently as two independent chains; episode_scoring waits
-for both and scores V-L, V-V within/cross and the unintentional-entity subset
-separately.  Older single-list chains (discovery v1-v4) stay selectable.
+for both.  V-L detection answers every contract requirement (format
+"answers", default since 2026-11-05; "checks" stays selectable).  Review v7
+makes two calls per branch (keep / split / merge and rewrite, then verdicts on
+the rewritten issues only), except that answers-format V-L candidates go
+straight to the verdict call; scoring v6 deducts each
+confirmed issue on its own and counts consistency issues with an unspecified
+subject entity, labelled from the entity ledger.  The previous branch chain
+(discovery v5 -> review v6 -> scoring v5, 2026-10-09) and the older
+single-list chains (discovery v1-v4) stay selectable.
 
 Contracts: the default chain reads contract v2 (case contract.json plus
 prompt.json); --allow-v1-contract lets it read a frozen v1 case, and discovery
@@ -47,6 +54,17 @@ SCORING_SKILL = ROOT / 'skills/vl-vv-episode-scorer/SKILL.md'
 BRANCH_DETECTION = SCRIPTS / 'run_vl_vv_branch_detection.py'
 BRANCH_REVIEW = SCRIPTS / 'run_vl_vv_branch_review.py'
 BRANCH_SCORING = SCRIPTS / 'run_vl_vv_branch_scoring.py'
+# V-L detection formats "answers" / "answers_no_contract" (chain v6): one answer per requirement.  answers is the
+# default for discovery v6 since 2026-11-05 (owner); its V-L review skips the rewrite call.  checks stays selectable
+# and is the only format of discovery v5.
+VL_ANSWERS_PROMPTS = {'answers': ROOT / 'prompts/vl_vv_issue_discovery_v6_vl_answers.txt',
+                      'answers_no_contract': ROOT / 'prompts/vl_vv_issue_discovery_v6_vl_answers_no_contract.txt'}
+VL_FORMATS = ('checks', *VL_ANSWERS_PROMPTS)
+DEFAULT_VL_FORMATS = {'v6': 'answers'}  # every other discovery protocol: checks
+
+
+def default_vl_format(discovery_protocol):
+    return DEFAULT_VL_FORMATS.get(discovery_protocol, 'checks')
 # Discovery protocol v5 (branch-separated V-L / V-V, review v6, scoring v5) is
 # the default since 2026-10-09.  The single-issue-list chains stay available:
 # v4 = checklist, one label per issue (a discrepancy that is both V-V and V-L
@@ -67,24 +85,41 @@ STAGE_FILES = {
 }
 STAGE_FILES['v3'] = dict(STAGE_FILES['v2'], discovery_prompt=ROOT / 'prompts/vl_vv_issue_discovery_v3.txt')
 STAGE_FILES['v4'] = dict(STAGE_FILES['v2'], discovery_prompt=ROOT / 'prompts/vl_vv_issue_discovery_v4.txt')
-# Discovery v5 = the branch-separated chain: separate V-L and V-V detection
-# calls, separate review v6 calls, scoring v5 (separate V-L / V-V severity
-# calls).  Its prompt, schema and config files are listed in BRANCH_FILES.
-BRANCH_PROTOCOL = 'v5'
-BRANCH_FILES = dict(
-    discovery_prompt=[ROOT / 'prompts/vl_vv_issue_discovery_v5_vl.txt', ROOT / 'prompts/vl_vv_issue_discovery_v5_vv.txt'],
-    review_prompt=[ROOT / 'prompts/vl_vv_issue_review_v6_vl.txt', ROOT / 'prompts/vl_vv_issue_review_v6_vv.txt'],
-    scoring_prompt=[ROOT / 'prompts/vl_vv_episode_scoring_v5_vl.txt', ROOT / 'prompts/vl_vv_episode_scoring_v5_vv.txt'],
-    shared=[ROOT / 'prompts/vl_vv_branch_definitions_v1.txt', ROOT / 'prompts/vl_vv_validation_repair_v2.txt',
-            ROOT / 'configs/vl-vv-branch-v1.json', ROOT / 'schemas/vl-vv-branch-records-v1.schema.json',
-            SCRIPTS / 'vl_vv_branch_common.py'],
-    scoring_protocol='vl_vv_episode_scoring_v5')
-DEFAULT_DISCOVERY_PROTOCOL = BRANCH_PROTOCOL
-DISCOVERY_PROTOCOLS = ('v1', 'v2', 'v3', 'v4', BRANCH_PROTOCOL)
+# Branch-separated chains, keyed by discovery protocol.  Discovery v5 (2026-10-09):
+# separate V-L and V-V detection calls, one review v6 call per branch, scoring v5
+# (duplicate links, unintentional-entity subset).  Discovery v6 (2026-11-02,
+# default): V-V detection without entity provenance, review v7 with two calls per
+# branch (rewrite, then verdicts), scoring v6 (no duplicates, ledger labels).
+# Their prompt, schema and config files are listed in BRANCH_FILES.
+BRANCH_PROTOCOLS = ('v5', 'v6')
+BRANCH_FILES = {
+    'v5': dict(
+        discovery_prompt=[ROOT / 'prompts/vl_vv_issue_discovery_v5_vl.txt', ROOT / 'prompts/vl_vv_issue_discovery_v5_vv.txt'],
+        review_prompt=[ROOT / 'prompts/vl_vv_issue_review_v6_vl.txt', ROOT / 'prompts/vl_vv_issue_review_v6_vv.txt'],
+        scoring_prompt=[ROOT / 'prompts/vl_vv_episode_scoring_v5_vl.txt', ROOT / 'prompts/vl_vv_episode_scoring_v5_vv.txt'],
+        shared=[ROOT / 'prompts/vl_vv_branch_definitions_v1.txt', ROOT / 'prompts/vl_vv_validation_repair_v2.txt',
+                ROOT / 'configs/vl-vv-branch-v1.json', ROOT / 'schemas/vl-vv-branch-records-v1.schema.json',
+                SCRIPTS / 'vl_vv_branch_common.py'],
+        scoring_protocol='vl_vv_episode_scoring_v5'),
+    'v6': dict(
+        # V-V detection: one call per checklist item (default since 2026-11-09) or the whole checklist in one call.
+        discovery_prompt=[ROOT / 'prompts/vl_vv_issue_discovery_v6_vl.txt', ROOT / 'prompts/vl_vv_issue_discovery_v6_vv.txt',
+                          ROOT / 'prompts/vl_vv_issue_discovery_v6_vv_item.txt'],
+        review_prompt=[ROOT / f'prompts/vl_vv_issue_review_v7_{branch}_{call}.txt'
+                       for branch in ('vl', 'vv') for call in ('rewrite', 'verdict')]
+        + [ROOT / 'prompts/vl_vv_issue_review_v7_vl_verdict_direct.txt'],
+        scoring_prompt=[ROOT / 'prompts/vl_vv_episode_scoring_v6_vl.txt', ROOT / 'prompts/vl_vv_episode_scoring_v6_vv.txt'],
+        shared=[ROOT / 'prompts/vl_vv_branch_definitions_v1.txt', ROOT / 'prompts/vl_vv_validation_repair_v2.txt',
+                ROOT / 'configs/vl-vv-branch-v2.json', ROOT / 'schemas/vl-vv-branch-records-v2.schema.json',
+                SCRIPTS / 'vl_vv_branch_common.py'],
+        scoring_protocol='vl_vv_episode_scoring_v6'),
+}
+DEFAULT_DISCOVERY_PROTOCOL = 'v6'
+DISCOVERY_PROTOCOLS = ('v1', 'v2', 'v3', 'v4') + BRANCH_PROTOCOLS
 # Review protocols for each discovery protocol (first = default) and the files
 # each review protocol uses downstream.
 REVIEW_PROTOCOLS = {'v1': ('v1',), 'v2': ('v5', 'v4', 'v2'), 'v3': ('v5', 'v4', 'v2'), 'v4': ('v5', 'v4', 'v2'),
-                    BRANCH_PROTOCOL: ('v6',)}
+                    'v5': ('v6',), 'v6': ('v7',)}
 REVIEW_FILES = {
     'v1': dict(review_prompt=REVIEW_PROMPT, scoring_prompt=SCORING_SKILL, scoring_protocol='vl_vv_episode_scoring_v2'),
     'v2': {key: STAGE_FILES['v2'][key] for key in ('review_prompt', 'scoring_prompt', 'scoring_protocol')},
@@ -94,7 +129,8 @@ REVIEW_FILES = {
     'v5': dict(review_prompt=ROOT / 'prompts/vl_vv_issue_review_v5.txt',
                scoring_prompt=STAGE_FILES['v2']['scoring_prompt'],
                scoring_protocol='vl_vv_episode_scoring_v3'),
-    'v6': {key: BRANCH_FILES[key] for key in ('review_prompt', 'scoring_prompt', 'scoring_protocol')},
+    'v6': {key: BRANCH_FILES['v5'][key] for key in ('review_prompt', 'scoring_prompt', 'scoring_protocol')},
+    'v7': {key: BRANCH_FILES['v6'][key] for key in ('review_prompt', 'scoring_prompt', 'scoring_protocol')},
 }
 
 
@@ -110,19 +146,20 @@ def resolve_review_protocol(discovery_protocol, review_protocol=None):
 
 def chain_files(discovery_protocol, review_protocol):
     """Prompt files and expected scoring protocol of one evaluator chain."""
-    if discovery_protocol == BRANCH_PROTOCOL:
-        return dict(BRANCH_FILES)
+    if discovery_protocol in BRANCH_PROTOCOLS:
+        return dict(BRANCH_FILES[discovery_protocol])
     return dict(discovery_prompt=STAGE_FILES[discovery_protocol]['discovery_prompt'], **REVIEW_FILES[review_protocol])
 
 
-def chain_source_files(discovery_protocol, review_protocol):
+def chain_source_files(discovery_protocol, review_protocol, vl_format='checks'):
     """Every prompt/config file of a chain whose hash must stay fixed during a run."""
     files = chain_files(discovery_protocol, review_protocol)
-    paths = []
+    paths = [VL_ANSWERS_PROMPTS[vl_format], SCRIPTS / 'vl_vv_requirement_answers.py'] \
+        if vl_format in VL_ANSWERS_PROMPTS else []
     for key in ('discovery_prompt', 'review_prompt', 'scoring_prompt', 'shared'):
         value = files.get(key, [])
         paths.extend(value if isinstance(value, list) else [value])
-    if discovery_protocol == BRANCH_PROTOCOL:
+    if discovery_protocol in BRANCH_PROTOCOLS:
         paths += [BRANCH_DETECTION, BRANCH_REVIEW, BRANCH_SCORING, SCRIPTS / 'vl_vv_repair_loop.py']
     else:
         paths += [DISCOVERY, REVIEW, SCORING]
@@ -130,6 +167,10 @@ def chain_source_files(discovery_protocol, review_protocol):
 
 
 FRONTEND_STAGES = ('detect', 'match', 'dino_prepare', 'dino', 'attach_dino')
+# CPU frontend (--frontend-device cpu): WeDetect and Grounding DINO run on CPU;
+# the DINO features need a GPU and are deferred (run `dino` and `attach_dino`
+# on the case later).  The current scoring does not read them (Q1 ablation only).
+CPU_FRONTEND_STAGES = ('detect', 'match', 'dino_prepare')
 REGISTRY_STAGES = ('issue_discovery', 'issue_review', 'episode_scoring')
 BRANCH_STAGES = ('vl_detection', 'vv_detection', 'vl_review', 'vv_review', 'episode_scoring')
 FULL_STAGES = FRONTEND_STAGES + REGISTRY_STAGES
@@ -139,11 +180,12 @@ STAGE_BRANCH = {'vl_detection': 'vl', 'vl_review': 'vl', 'vv_detection': 'vv', '
 
 
 def registry_stages(discovery_protocol):
-    return BRANCH_STAGES if discovery_protocol == BRANCH_PROTOCOL else REGISTRY_STAGES
+    return BRANCH_STAGES if discovery_protocol in BRANCH_PROTOCOLS else REGISTRY_STAGES
 
 
-def full_stages(discovery_protocol):
-    return FRONTEND_STAGES + registry_stages(discovery_protocol)
+def full_stages(discovery_protocol, frontend_device='cuda'):
+    frontend = CPU_FRONTEND_STAGES if frontend_device == 'cpu' else FRONTEND_STAGES
+    return frontend + registry_stages(discovery_protocol)
 
 
 def read(path):
@@ -163,7 +205,8 @@ def sha(path):
 
 
 def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=False,
-                  discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_v1_contract=False):
+                  discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_v1_contract=False,
+                  frontend_device='cuda', dino_deferred=False):
     case, output = Path(case).resolve(), Path(output).resolve()
     if not case.is_dir():
         raise ValueError(f'Prepared case is missing: {case}')
@@ -178,7 +221,7 @@ def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=Fals
     if state.get('protocol') != 'vl_vv_detection_v1':
         raise ValueError('Case is not a VL/VV detection case')
     contract = contract_io.load_case_contract(case)
-    if discovery_protocol == BRANCH_PROTOCOL:
+    if discovery_protocol in BRANCH_PROTOCOLS:
         contract_io.require_v2(contract, allow_v1_contract, str(case))
     else:
         contract_io.require_v1(contract, str(case))
@@ -200,17 +243,27 @@ def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=Fals
             raise ValueError(f'{sid}: frame IDs must be six unique nonnegative integers')
         if any(not Path(frame.get('path', '')).is_file() for frame in frames):
             raise ValueError(f'{sid}: at least one original keyframe is unavailable')
+    if dino_deferred and mode != 'from-registry':
+        raise ValueError('--dino-deferred is for from-registry mode (full mode with --frontend-device cpu defers DINO itself)')
     if mode == 'from-registry':
         ledger_path = case / 'episode_entities.json'
-        if state.get('status') != 'complete' or not ledger_path.is_file():
-            raise ValueError('from-registry needs a completed detection case and episode_entities.json')
+        # A CPU-frontend case stops at 'matched' (DINO deferred; the current scoring does not read it).
+        allowed = ('complete', 'matched') if dino_deferred else ('complete',)
+        if state.get('status') not in allowed or not ledger_path.is_file():
+            raise ValueError('from-registry needs a completed detection case and episode_entities.json'
+                             + ('' if dino_deferred else ' (a matched case without DINO needs --dino-deferred)'))
         ledger = read(ledger_path)
         if ledger.get('protocol') != 'vl_vv_detection_v1' or ledger.get('status') != 'matched':
             raise ValueError('Frozen entity registry is not a successful VL/VV match')
     else:
         if state.get('status') != 'prepared' or (case / 'entities').exists():
             raise ValueError('full mode needs a fresh prepared case with no detection output')
-        if gpu is None or not isinstance(gpu_uuid, str) or not re.fullmatch(r'GPU-[0-9a-fA-F]+', gpu_uuid):
+        if frontend_device == 'cpu':
+            if gpu is not None or gpu_uuid is not None:
+                raise ValueError('--gpu and --gpu-uuid are only for --frontend-device cuda')
+        elif frontend_device != 'cuda':
+            raise ValueError(f'Unknown frontend device {frontend_device!r}')
+        elif gpu is None or not isinstance(gpu_uuid, str) or not re.fullmatch(r'GPU-[0-9a-fA-F]+', gpu_uuid):
             raise ValueError('full mode requires physical --gpu and --gpu-uuid')
     return case, output, len(shots), sum(len(shot['frames']) for shot in shots)
 
@@ -218,14 +271,23 @@ def validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes=Fals
 def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                python=sys.executable, gpu_python=sys.executable,
                discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_legacy_keyframes=False,
-               review_protocol=None, allow_v1_contract=False):
+               review_protocol=None, allow_v1_contract=False, frontend_device='cuda', dino_deferred=False,
+               vl_format=None, vv_detection_mode=None):
     case, output, shots, frames = validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes,
-                                                discovery_protocol, allow_v1_contract)
+                                                discovery_protocol, allow_v1_contract, frontend_device, dino_deferred)
     legacy = ['--allow-legacy-nominal-keyframes'] if allow_legacy_keyframes else []
     branch_flags = legacy + (['--allow-v1-contract'] if allow_v1_contract else [])
     if discovery_protocol not in DISCOVERY_PROTOCOLS:
         raise ValueError(f'Unknown discovery protocol {discovery_protocol!r}')
     review_protocol = resolve_review_protocol(discovery_protocol, review_protocol)
+    if vl_format is None:
+        vl_format = default_vl_format(discovery_protocol)
+    if vl_format not in VL_FORMATS:
+        raise ValueError(f'--vl-format must be one of {VL_FORMATS}')
+    if vl_format != 'checks' and discovery_protocol != 'v6':
+        raise ValueError(f'--vl-format {vl_format} needs discovery protocol v6')
+    if vv_detection_mode is not None and discovery_protocol != 'v6':
+        raise ValueError('--vv-detection-mode needs discovery protocol v6')
     if shot_workers < 1:
         raise ValueError('--shot-workers must be positive')
     py = str(Path(python).resolve())
@@ -234,7 +296,14 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
     detection = [py, str(DETECTION)]
     gpu_detection = [gpu_py, str(DETECTION)]
     stages = []
-    if mode == 'full':
+    if mode == 'full' and frontend_device == 'cpu':
+        stages.extend([
+            ('detect', api + [str(DETECTION), 'detect', '--case', str(case),
+                              '--shot-workers', str(shot_workers), '--device', 'cpu']),
+            ('match', api + [str(DETECTION), 'match', '--case', str(case)]),
+            ('dino_prepare', detection + ['dino_prepare', '--case', str(case)]),
+        ])
+    elif mode == 'full':
         stages.extend([
             ('detect', api + [str(DETECTION), 'detect', '--case', str(case),
                               '--gpu', str(gpu), '--gpu-uuid', gpu_uuid,
@@ -246,19 +315,22 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
             ('attach_dino', detection + ['attach_dino', '--case', str(case)]),
         ])
     scoring_out = output / 'episode_scoring'
-    if discovery_protocol == BRANCH_PROTOCOL:
+    if discovery_protocol in BRANCH_PROTOCOLS:
+        chain = ['--chain', discovery_protocol]
         for branch in ('vl', 'vv'):
             stages.append((f'{branch}_detection', api + [
                 str(BRANCH_DETECTION), '--branch', branch, '--case', str(case),
-                '--output', str(output / f'{branch}_detection')] + branch_flags))
+                '--output', str(output / f'{branch}_detection')] + chain + branch_flags
+                + (['--vl-format', vl_format] if branch == 'vl' and discovery_protocol == 'v6' else [])
+                + (['--vv-mode', vv_detection_mode] if branch == 'vv' and vv_detection_mode else [])))
         for branch in ('vl', 'vv'):
             stages.append((f'{branch}_review', api + [
                 str(BRANCH_REVIEW), '--branch', branch, '--case', str(case),
                 '--detection', str(output / f'{branch}_detection/result.json'),
-                '--output', str(output / f'{branch}_review')] + branch_flags))
+                '--output', str(output / f'{branch}_review')] + chain + branch_flags))
         stages.append(('episode_scoring', api + [
             str(BRANCH_SCORING), '--vl-review', str(output / 'vl_review/result.json'),
-            '--vv-review', str(output / 'vv_review/result.json'), '--output', str(scoring_out)]))
+            '--vv-review', str(output / 'vv_review/result.json'), '--output', str(scoring_out)] + chain))
     else:
         discovery_out = output / 'issue_discovery'
         review_out = output / 'issue_review'
@@ -271,7 +343,7 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
             ('episode_scoring', api + [str(SCORING), '--review',
                                        str(review_out / 'result.json'), '--output', str(scoring_out)]),
         ])
-    expected = full_stages(discovery_protocol) if mode == 'full' else registry_stages(discovery_protocol)
+    expected = full_stages(discovery_protocol, frontend_device) if mode == 'full' else registry_stages(discovery_protocol)
     if tuple(name for name, _ in stages) != expected:
         raise AssertionError('Pipeline stage order changed unexpectedly')
     files = chain_files(discovery_protocol, review_protocol)
@@ -281,13 +353,17 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
 
     return dict(protocol='vl_vv_pipeline_v1', mode=mode, case=str(case), output=str(output),
                 python=py, gpu_python=gpu_py,
+                frontend_device=frontend_device if mode == 'full' else None,
+                dino='deferred' if (mode == 'full' and frontend_device == 'cpu') or dino_deferred else None,
                 shot_count=shots, keyframe_count=frames, model='gpt-6-luna', reasoning='low',
                 discovery_protocol=discovery_protocol, review_protocol=review_protocol,
+                vl_format=vl_format if discovery_protocol in BRANCH_PROTOCOLS else None,
+                **({'vv_detection_mode': vv_detection_mode} if vv_detection_mode else {}),
                 allow_legacy_nominal_keyframes=allow_legacy_keyframes, allow_v1_contract=allow_v1_contract,
                 discovery_prompt=shown(files['discovery_prompt']), review_prompt=shown(files['review_prompt']),
                 scoring_skill=shown(files['scoring_prompt']), scoring_protocol=files['scoring_protocol'],
                 stages=[dict(name=name, command=command, branch=STAGE_BRANCH.get(name))
-                        if discovery_protocol == BRANCH_PROTOCOL else dict(name=name, command=command)
+                        if discovery_protocol in BRANCH_PROTOCOLS else dict(name=name, command=command)
                         for name, command in stages])
 
 
@@ -346,12 +422,14 @@ def execute(plan):
     review_protocol = plan.get('review_protocol', discovery_protocol)
     files = chain_files(discovery_protocol, review_protocol)
     source_paths = [case / 'contract.json', case / 'raw_manifest.json',
-                    *chain_source_files(discovery_protocol, review_protocol),
+                    *chain_source_files(discovery_protocol, review_protocol, plan.get('vl_format') or 'checks'),
                     DETECTION, *TRANSPORT, Path(__file__).resolve()]
     if plan['mode'] == 'from-registry':
         source_paths.append(case / 'episode_entities.json')
     if (case / contract_io.PROMPT_FILE).is_file():
         source_paths.append(case / contract_io.PROMPT_FILE)
+    if (case / 'requirements.json').is_file():  # compiled requirement list (episode_requirements.py)
+        source_paths.append(case / 'requirements.json')
     source_hashes = {str(path): sha(path) for path in source_paths}
     # Owner rule (2026-10-21): every evaluation sends shot/frame image labels.
     labels = os.environ.get('EECBENCH_IMAGE_LABELS', 'on').strip().lower()
@@ -450,17 +528,34 @@ def main():
     parser.add_argument('--gpu-python', default=sys.executable,
                         help='Python runtime for the DINO GPU stage; other stages use this process Python')
     parser.add_argument('--shot-workers', type=int, default=3)
+    parser.add_argument('--frontend-device', choices=('cuda', 'cpu'), default='cuda',
+                        help='Full mode: cuda (default) runs WeDetect, Grounding DINO and DINO on the checked GPU; '
+                             'cpu runs WeDetect and Grounding DINO on CPU without a GPU and defers DINO '
+                             '(not read by the current scoring; run dino and attach_dino on the case later)')
+    parser.add_argument('--dino-deferred', action='store_true',
+                        help='from-registry: accept a matched case whose DINO stages were deferred (CPU frontend)')
     parser.add_argument('--discovery-protocol', choices=DISCOVERY_PROTOCOLS, default=DEFAULT_DISCOVERY_PROTOCOL,
-                        help='v5 (default): separate V-L and V-V branches (contract-checking template / V-V checklist '
-                             'detection, separate reviews, separate scores incl. the unintentional-entity subset); '
-                             'v4: one issue list, v3 + episode-wide entity descriptions; v3: checklist, one label per '
-                             'issue (linked V-V / V-L pairs); v2: checklist with non-exclusive labels on one issue; '
-                             'v1: historical')
-    parser.add_argument('--review-protocol', choices=('v1', 'v2', 'v4', 'v5', 'v6'), default=None,
-                        help='Default: v6 for discovery v5 (separate V-L / V-V reviews); v5 for discovery v2-v4 '
-                             '(core-problem verdicts, episode-wide entity descriptions), v1 for discovery v1; v4 = '
-                             'core-problem verdicts without the entity rule; v2 = previous per-label review. v2, v4 and '
-                             'v5 are scored with scoring v3, v6 with scoring v5')
+                        help='v6 (default): separate V-L and V-V branches, V-V detection without entity provenance, '
+                             'review v7 with two calls per branch, scoring v6 (no duplicates; unspecified-entity '
+                             'statistics from the ledger); v5: the previous branch chain (review v6 in one call, scoring '
+                             'v5 with duplicate links and the unintentional-entity subset); v4: one issue list, v3 + '
+                             'episode-wide entity descriptions; v3: checklist, one label per issue (linked V-V / V-L '
+                             'pairs); v2: checklist with non-exclusive labels on one issue; v1: historical')
+    parser.add_argument('--vl-format', choices=VL_FORMATS, default=None,
+                        help='Discovery v6 V-L detection: answers (default) gives one answer per requirement, the '
+                             'runner derives the issues and the V-L review judges them in one call; answers_no_contract '
+                             'is answers without the contract_json input; checks fills the template rows and lists '
+                             'issues, and its V-L review keeps the rewrite call. Other discovery protocols: checks')
+    parser.add_argument('--vv-detection-mode', choices=('per_item', 'one_call'), default=None,
+                        help='Discovery v6 V-V detection: per_item (default of the detection runner) makes one call '
+                             'per checklist item with a shared prompt-cache prefix; one_call walks the whole '
+                             'checklist in one call')
+    parser.add_argument('--review-protocol', choices=('v1', 'v2', 'v4', 'v5', 'v6', 'v7'), default=None,
+                        help='Default: v7 for discovery v6 (two calls per branch); v6 for discovery v5 (one call per '
+                             'branch); v5 for discovery v2-v4 (core-problem verdicts, episode-wide entity descriptions), '
+                             'v1 for discovery v1; v4 = core-problem verdicts without the entity rule; v2 = previous '
+                             'per-label review. v2, v4 and v5 are scored with scoring v3, v6 with scoring v5, v7 with '
+                             'scoring v6')
     parser.add_argument('--allow-legacy-nominal-keyframes', action='store_true',
                         help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
     parser.add_argument('--allow-unlabeled-images', action='store_true',
@@ -474,7 +569,9 @@ def main():
                       args.shot_workers, gpu_python=args.gpu_python,
                       discovery_protocol=args.discovery_protocol,
                       allow_legacy_keyframes=args.allow_legacy_nominal_keyframes,
-                      review_protocol=args.review_protocol, allow_v1_contract=args.allow_v1_contract)
+                      review_protocol=args.review_protocol, allow_v1_contract=args.allow_v1_contract,
+                      frontend_device=args.frontend_device, dino_deferred=args.dino_deferred,
+                      vl_format=args.vl_format, vv_detection_mode=args.vv_detection_mode)
     plan['allow_unlabeled_images'] = args.allow_unlabeled_images
     if args.dry_run:
         print(json.dumps(plan, ensure_ascii=False, indent=2))

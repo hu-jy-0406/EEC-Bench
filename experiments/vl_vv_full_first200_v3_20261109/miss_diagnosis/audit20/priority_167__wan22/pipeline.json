@@ -1,0 +1,701 @@
+{
+ "task": "priority_167__wan22",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Curly-haired elderly woman",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Left-end man",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Second man in the row",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Third man in the row",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Central man in the tighter view",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Tall-hatted man",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Right-end man",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Foreground head in Shot1",
+   "shots": [
+    "Shot1",
+    "Shot5"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Window-lit interior",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Woman-side window",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Hanging cord",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Counter",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Counter-side windows",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Counter-side blinds",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Woman-side dark sill",
+   "shots": [
+    "Shot5"
+   ]
+  },
+  {
+   "id": "pb0016",
+   "label": "specified",
+   "name": "Shot3 foreground hats",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0017",
+   "label": "specified",
+   "name": "Shot5 foreground hats",
+   "shots": [
+    "Shot5"
+   ]
+  },
+  {
+   "id": "pb0018",
+   "label": "specified",
+   "name": "Shot7 foreground hat",
+   "shots": [
+    "Shot7"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "Hanging light",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "ge0002",
+   "label": "unspecified",
+   "name": "Plaque on the counter",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "ge0003",
+   "label": "unspecified",
+   "name": "Partially visible person at right wearing a dark hat",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一老妇的面部身份不一致：Shot3面部更圆、五官与Shot1、Shot5、Shot7明显不同，非机位变化所致。"
+  },
+  {
+   "id": "V2",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0002",
+    "pb0003",
+    "pb0004",
+    "pb0005",
+    "pb0006",
+    "pb0007"
+   ],
+   "description": "柜台男性重复角色面孔身份跨镜头不一致；尤其中央男性在Shot2、Shot4、Shot6、Shot8的脸型与五官明显变化，且其他重复男性也有类似差异。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0005"
+   ],
+   "description": "中央男子的深色帽子在Shot2、Shot6可见，Shot4、Shot8未戴；跨镜头无可见摘帽动作解释。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0012"
+   ],
+   "description": "同一柜台在Shot2呈金棕色、强反光且有深色边沿，Shot4为浅色带接缝台面，Shot6为蓝灰色哑面，Shot8又呈明亮镜面；差异无法由视角变化解释。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0010"
+   ],
+   "description": "女人所在背景窗格布局不一致：Shot1、Shot3为水平分隔窗，Shot5为深色方格窗，Shot7为百叶窗；无法由机位变化解释这些结构差异。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0013"
+   ],
+   "description": "柜台场景的窗户布局不一致：Shot2为明亮横向百叶窗，Shot4为粗框竖向窗格，Shot6为蓝色大格窗；同一地点背景结构互不匹配。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects": [
+    "pb0009"
+   ],
+   "description": "柜台场景中，Shot2、Shot4为暖黄明亮色调，Shot6、Shot8则为冷蓝色调，窗光和整体色彩分级明显不一致。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0005"
+   ],
+   "description": "中央男士在Shot2与Shot4/6/8中面貌身份不一致：Shot2为戴浅灰帽、脸较宽的男子，后续镜头中面部轮廓及人物外观明显改变，非视角差异所致。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot5",
+     3
+    ],
+    [
+     "Shot7",
+     3
+    ]
+   ],
+   "description": "同一老妇在Shot3与Shot1、Shot5、Shot7的面部身份不一致：Shot3中她的脸更圆，面部轮廓及五官比例与其他镜头所见不同。"
+  },
+  {
+   "id": "V2.1",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot6",
+     3
+    ],
+    [
+     "Shot8",
+     3
+    ]
+   ],
+   "description": "左端男子在Shot2与Shot4、Shot6、Shot8中的面部身份不一致：Shot2左端男子是短深发、未戴帽的年轻男子，后续相应位置所见男子的面部特征与之不同。"
+  },
+  {
+   "id": "V2.2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0003",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot6",
+     3
+    ],
+    [
+     "Shot8",
+     3
+    ]
+   ],
+   "description": "第二名男子在Shot2与Shot4、Shot6、Shot8中的面部身份不一致：Shot2中该男子为宽脸、戴深色帽，其他镜头中对应男子的面部轮廓与五官明显不同。"
+  },
+  {
+   "id": "V2.3",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0004",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot6",
+     3
+    ],
+    [
+     "Shot8",
+     3
+    ]
+   ],
+   "description": "第三名男子在Shot2与Shot4、Shot6、Shot8中的面部身份不一致：各镜头中处于该角色位置的男子面部特征互不匹配。"
+  },
+  {
+   "id": "V2+V8",
+   "from_candidates": [
+    "V2",
+    "V8"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0005",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot4",
+     1
+    ],
+    [
+     "Shot6",
+     0
+    ],
+    [
+     "Shot8",
+     0
+    ]
+   ],
+   "description": "中央男子在Shot2、Shot4、Shot6、Shot8中的面部身份不一致：Shot2中他是宽脸、戴浅色帽的男子；Shot4、Shot6和Shot8中所见中央男子的脸型及五官特征与之不同。"
+  },
+  {
+   "id": "V2.4",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0006",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot6",
+     3
+    ],
+    [
+     "Shot8",
+     3
+    ]
+   ],
+   "description": "高帽男子在Shot2与Shot4、Shot6、Shot8中的面部身份不一致：各镜头中对应位置男子的面部特征不匹配。"
+  },
+  {
+   "id": "V2.5",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0007",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot6",
+     3
+    ],
+    [
+     "Shot8",
+     3
+    ]
+   ],
+   "description": "右端男子在Shot2与Shot4、Shot6、Shot8中的面部身份不一致：Shot2右端男子与其他镜头中对应位置男子的面部轮廓和五官不同。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0005",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot4",
+     1
+    ],
+    [
+     "Shot6",
+     0
+    ],
+    [
+     "Shot8",
+     0
+    ]
+   ],
+   "description": "中央男子的帽子在Shot2和Shot6中可见，在Shot4和Shot8中则未戴帽，头发露出；这些镜头之间没有呈现摘戴帽子的过程。"
+  },
+  {
+   "id": "V4",
+   "from_candidates": [
+    "V4"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0012",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot6",
+     0
+    ],
+    [
+     "Shot8",
+     0
+    ]
+   ],
+   "description": "同一柜台在不同镜头中的外观不一致：Shot2台面呈金棕色反光且有深色前沿，Shot4为浅色并有明显接缝，Shot6呈蓝灰色哑光，Shot8则为浅色明亮的镜面反光。"
+  },
+  {
+   "id": "V5",
+   "from_candidates": [
+    "V5"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0010",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot5",
+     2
+    ],
+    [
+     "Shot7",
+     2
+    ]
+   ],
+   "description": "女人身后的窗户结构在各镜头中不一致：Shot1可见宽水平分隔，Shot3和Shot7可见水平百叶窗，而Shot5为深色粗框方格窗。"
+  },
+  {
+   "id": "V6",
+   "from_candidates": [
+    "V6"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0013",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot4",
+     2
+    ],
+    [
+     "Shot6",
+     2
+    ],
+    [
+     "Shot8",
+     2
+    ]
+   ],
+   "description": "柜台场景窗户的结构与外观在不同镜头中不一致：Shot2可见明亮横向百叶窗，Shot4可见粗框窗格，Shot6为蓝色粗框大格窗，Shot8为明亮窗面且框格布局与Shot6不同。"
+  },
+  {
+   "id": "V7",
+   "from_candidates": [
+    "V7"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects_with_labels": [
+    [
+     "pb0009",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot6",
+     0
+    ],
+    [
+     "Shot8",
+     0
+    ]
+   ],
+   "description": "柜台场景的整体色调在镜头间不一致：Shot2和Shot4呈暖黄、米色调，Shot6和Shot8则呈明显冷蓝色调，窗光及室内色彩观感均发生变化。"
+  }
+ ]
+}

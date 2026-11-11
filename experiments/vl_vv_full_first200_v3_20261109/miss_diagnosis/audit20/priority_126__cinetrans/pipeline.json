@@ -1,0 +1,432 @@
+{
+ "task": "priority_126__cinetrans",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Turquoise-top woman",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "White-robed woman",
+   "shots": [
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Sandy beach",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Distant headland",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Sea",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Shoreline surf",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Pair of athletic shoes",
+   "shots": [
+    "Shot1",
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Phone",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Tall palms",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Blue sky",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Multicolored umbrella",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Striped chairs",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Low pale chair",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Gray fabric",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Headland trees",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "第4镜白袍的青绿色染色斑块在帧间明显变化，未见换衣或光照变化解释。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot1首帧人物和画面呈明显斑驳、变形的渲染质感，后续帧恢复平滑清晰，无可见原因解释。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "白袍女士在 Shot2 与 Shot4 的面部形状及五官明显不同，像是不同个体；没有可见原因解释这一身份变化。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "白袍女性的浴袍在Shot2呈白色，在Shot4明显呈青绿色；没有可见光照变化解释这一色差。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0011"
+   ],
+   "description": "同一把伞在Shot1呈浅色素面，在Shot2和Shot4呈鲜艳多色条纹，外观不一致。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0012"
+   ],
+   "description": "重复出现的椅子外观不一致：Shot1可见浅色椅架及浅色座面，Shot2和Shot4可见鲜艳条纹座椅。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0011"
+   ],
+   "description": "左侧遮阳伞在Shot1呈浅色素面，Shot2和Shot4则为鲜艳多色条纹；同一海滩布景中无可见原因导致差异。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0012"
+   ],
+   "description": "左侧椅子在Shot1为浅色金属框椅，Shot2和Shot4则是明显的彩色条纹椅；布景差异无可见解释。"
+  },
+  {
+   "id": "V9",
+   "scope": "cross_shot",
+   "subcategory": "spatial_continuity",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "Shot2中白袍女子朝画面左侧的青衣女子伸手，Shot3手从画面右侧伸入；Shot4白袍女子的手臂却朝画面右侧伸出，互动方向翻转。"
+  },
+  {
+   "id": "V10",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot1 frame 0 人脸与衣物边缘明显糊化、扭曲，渲染质感突变；后续帧恢复正常。"
+  },
+  {
+   "id": "V11",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一白袍女性的袍子在 Shot2 呈白色，在 Shot4 明显呈青绿色偏色，未见换衣或光线变化解释。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot4",
+     4
+    ]
+   ],
+   "description": "白袍女性pb0002的浴袍在Shot4帧0至帧4间青绿色区域的范围和分布明显变化：帧0躯干及袖部有较明显青绿色染色，后续帧染色区域分布不同。"
+  },
+  {
+   "id": "V2+V10",
+   "from_candidates": [
+    "V2",
+    "V10"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1帧0的人物面部及上衣边缘呈斑驳、模糊和扭曲的渲染质感；到帧1人物轮廓明显更清晰平滑，背景构图基本相同。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "uncertain",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "同一白袍女性pb0002在Shot2帧1与Shot4帧2的面部轮廓及五官形态明显不同。"
+  },
+  {
+   "id": "V4+V11",
+   "from_candidates": [
+    "V4",
+    "V11"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "白袍女性pb0002在Shot2帧1穿着整体呈白色的浴袍，而在Shot4帧1浴袍整体明显偏青绿色。"
+  },
+  {
+   "id": "V5+V7",
+   "from_candidates": [
+    "V5",
+    "V7"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0011",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     1
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "同一把伞pb0011在Shot1帧1呈浅色素面，而在Shot2帧1及Shot4帧1呈鲜艳多色条纹。"
+  },
+  {
+   "id": "V6+V8",
+   "from_candidates": [
+    "V6",
+    "V8"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0012",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     1
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "重复出现的椅子pb0012在Shot1帧1呈浅色椅架及浅色座面，而在Shot2帧1和Shot4帧1呈醒目的彩色条纹座面。"
+  },
+  {
+   "id": "V9",
+   "from_candidates": [
+    "V9"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "spatial_continuity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     0
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "Shot2帧2中白袍女性pb0002位于画面右侧并向左朝青衣女子伸手；Shot3帧0中其手臂从画面右侧伸入，方向仍朝左；但Shot4帧2中白袍女性的手臂从身体向画面右侧伸出，互动方向与前两镜相反。"
+  }
+ ]
+}

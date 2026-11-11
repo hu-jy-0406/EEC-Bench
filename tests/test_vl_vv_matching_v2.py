@@ -68,11 +68,43 @@ class MatchingV2(unittest.TestCase):
         self.assertIn('needs specified_tag null', errors)
         self.assertNotIn('missing unbound', errors)
 
-    def test_no_second_occurrence_in_a_shot(self):
-        raw = dict(assignments=[assignment(['U2', 'U3']), assignment(['U1'], 'specified', 'P1')])
+    def test_unspecified_entity_has_one_occurrence_per_shot(self):
+        raw = dict(assignments=[assignment(['U2', 'U3']), assignment(['U1'])])
         errors = '\n'.join(detection.match_v2_errors(raw, self.local, self.ptag, self.utag))
-        self.assertIn('at most one occurrence per shot', errors)
-        self.assertIn('P1 already has an occurrence in', errors)
+        self.assertIn('an unspecified entity has at most one occurrence per shot', errors)
+
+    def test_missed_group_members_join_a_specified_entity_already_in_the_shot(self):
+        # Q13 (owner, 2026-11-02): "Three glasses" has g1 bound in Shot1; the missed g2 and g3 of Shot1 join it.
+        reg = dict(entities=[dict(prompt_entity_id='Object 1', name='Three glasses', description='Collection of three clear glasses.',
+                                  contract_category='objects', schedule=[dict(shot_id='Shot1', expectation='required', reason='listed')])])
+        local = [occurrence('Shot1', 'g1', 'bound', 'Object 1', 'glass'), occurrence('Shot1', 'g2', 'unbound', name='glass'),
+                 occurrence('Shot1', 'g3', 'unbound', name='glass')]
+        ptag, utag = detection.match_v2_tags(reg, local)
+        raw = dict(assignments=[assignment(['U1', 'U2'], 'specified', 'P1')])
+        self.assertEqual(detection.match_v2_errors(raw, local, ptag, utag), [])
+        split = dict(assignments=[assignment(['U1'], 'specified', 'P1'), assignment(['U2'], 'specified', 'P1')])
+        self.assertEqual(detection.match_v2_errors(split, local, ptag, utag), [])
+        with tempfile.TemporaryDirectory() as tmp:
+            case = Path(tmp)
+            for name in ('raw_manifest.json', 'prompt_registry.json', 'contract.json'):
+                (case / name).write_text('{}')
+            (case / 'shot_prompt_recovery').mkdir()
+            (case / 'shot_prompt_recovery/results.json').write_text('{}')
+            d = case / 'shot_prompt_recovery/entities/shots/Shot1'
+            d.mkdir(parents=True)
+            for name in ('entities.json', 'input.json'):
+                (d / name).write_text('{}')
+            ledger = detection.build_episode_entities_v2(case, raw, [dict(shot_id='Shot1')], reg, local, ptag, utag)
+        self.assertEqual([(o['shot_id'], o['local_entity_id']) for o in ledger['prompt_bound'][0]['occurrences']],
+                         [('Shot1', 'g1'), ('Shot1', 'g2'), ('Shot1', 'g3')])
+        self.assertEqual(ledger['prompt_unbound'], [])
+
+    def test_prompt_states_the_group_rule(self):
+        text = ' '.join((ROOT / 'prompts/vl_vv_unspecified_matching_v2.txt').read_text().split())
+        self.assertIn('An unspecified entity never has two occurrences in one shot', text)
+        self.assertIn('may have several occurrences in one shot: merge every missed member into it, also in a shot '
+                      'where other members are already bound', text)
+        self.assertIn('Every other specified entity has at most one occurrence per shot', text)
 
     def test_missing_occurrence_is_an_error(self):
         raw = dict(assignments=[assignment(['U1'])])

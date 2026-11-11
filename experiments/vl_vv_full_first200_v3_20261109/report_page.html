@@ -1,0 +1,214 @@
+<title>UEC-Bench 前200条评测</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Layout: one reading column for a lab report; summary first, then the unspecified-entity tables, then scores and definitions. */
+:root {
+  --bg: #f6f7f9; --surface: #ffffff; --ink: #1b2330; --muted: #5a6575; --rule: #dde2e9;
+  --accent: #2c5a86; --spec: #2c5a86; --spec-bg: #eaf1f8; --unspec: #9a5a00; --unspec-bg: #fbf0de;
+  --good: #2e7d4f; --note-bg: #eef1f5;
+  --display: "Noto Serif SC", "Songti SC", "STSong", serif;
+  --body: "IBM Plex Sans", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #10141a; --surface: #161b23; --ink: #e5e9ef; --muted: #9aa4b2; --rule: #2a313c;
+  --accent: #8db3da; --spec: #8db3da; --spec-bg: #1a2635; --unspec: #e6a64a; --unspec-bg: #2b2215;
+  --good: #6cc191; --note-bg: #1c222b; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --bg: #10141a; --surface: #161b23; --ink: #e5e9ef; --muted: #9aa4b2; --rule: #2a313c;
+  --accent: #8db3da; --spec: #8db3da; --spec-bg: #1a2635; --unspec: #e6a64a; --unspec-bg: #2b2215;
+  --good: #6cc191; --note-bg: #1c222b; color-scheme: dark }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.65;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 32px 56px; }
+.page { max-width: 980px; margin: 0 auto; display: grid; gap: 36px; }
+header { display: grid; gap: 10px; }
+.eyebrow { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+h1 { font-family: var(--display); font-size: clamp(26px, 4vw, 34px); line-height: 1.25; margin: 0; text-wrap: balance; }
+h2 { font-family: var(--display); font-size: 22px; margin: 0; text-wrap: balance; }
+h3 { font-size: 16px; font-weight: 600; margin: 0; }
+p { margin: 0; max-width: 70ch; }
+.lede { color: var(--muted); max-width: 72ch; }
+section { display: grid; gap: 14px; }
+.sub { display: grid; gap: 10px; }
+.findings { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; }
+.finding { background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; padding: 14px 16px; display: grid; gap: 6px; align-content: start; min-width: 0; }
+.finding .big { font-size: 26px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.2; }
+.finding .big.u { color: var(--unspec); }
+.finding .big.s { color: var(--spec); }
+.finding .lbl { font-size: 13.5px; color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 8px 18px; font-size: 13px; color: var(--muted); }
+.chip { display: inline-block; padding: 1px 8px; border-radius: 4px; font-size: 12.5px; font-weight: 500; }
+.chip.s { background: var(--spec-bg); color: var(--spec); }
+.chip.u { background: var(--unspec-bg); color: var(--unspec); }
+.tablewrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--rule); border-radius: 8px; min-width: 0; }
+table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; font-size: 14px; }
+th, td { padding: 8px 12px; border-bottom: 1px solid var(--rule); text-align: right; white-space: nowrap; }
+th { font-weight: 600; font-size: 12.5px; color: var(--muted); vertical-align: bottom; }
+th.grp { text-align: center; border-bottom: 1px solid var(--rule); color: var(--ink); }
+td:first-child, th:first-child { text-align: left; }
+tbody tr:last-child td { border-bottom: none; }
+tr.total td { font-weight: 600; border-top: 2px solid var(--rule); }
+td.s, th.s { background: var(--spec-bg); }
+td.u, th.u { background: var(--unspec-bg); }
+td.u strong { color: var(--unspec); }
+td.s strong { color: var(--spec); }
+.frac { color: var(--muted); font-size: 12.5px; }
+.src { font-size: 12.5px; color: var(--muted); }
+.src code, code { font-family: ui-monospace, "SFMono-Regular", Menlo, monospace; font-size: 12px; background: var(--note-bg); padding: 1px 5px; border-radius: 4px; word-break: break-all; }
+.note { background: var(--note-bg); border-radius: 8px; padding: 14px 16px; display: grid; gap: 8px; }
+ul { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; max-width: 75ch; }
+dl { margin: 0; display: grid; grid-template-columns: max-content 1fr; gap: 8px 16px; }
+dt { font-weight: 600; }
+dd { margin: 0; min-width: 0; }
+@media (max-width: 560px) { dl { grid-template-columns: 1fr; gap: 2px; } dd { margin-bottom: 8px; } }
+.arrow { color: var(--muted); padding: 0 4px; }
+</style>
+
+<div class="page">
+  <header>
+    <div class="eyebrow">UEC-Bench · 2026-11-09 · 前 200 条 × 5 个模型</div>
+    <h1>前 200 条评测：分数与 unspecified 实体指标</h1>
+    <p class="lede">200 个 episode × 5 个视频生成模型，共 1,000 个视频，全部评测成功。评估器为 chain v6（GPT-6 Luna，reasoning low）。V-V 检测按 checklist 逐条调用（每个视频 17 次）；墙面、地面、天花板算作所在场景（地点）的一部分。每个视频评测一次，结果未与人工评分校准。</p>
+  </header>
+
+  <section>
+    <h2>要点</h2>
+    <div class="findings">
+      <div class="finding"><div class="big u">13.8%</div><div class="lbl">检测到的实体中 unspecified 实体的占比（2,335 / 16,869）；在 ≥2 个镜头出现的实体中只占 3.3%（278 个）</div></div>
+      <div class="finding"><div class="big u">1.8%</div><div class="lbl">确认的 V-V 问题中，涉及 unspecified 实体的占比（52 / 2,935）；在全部确认问题中占 0.35%</div></div>
+      <div class="finding"><div class="big s">12.6% <span class="arrow">vs</span> <span style="color:var(--unspec)">1.1%</span></div><div class="lbl">有 V-V 问题的实体比例：specified 对 unspecified；只看 ≥2 个镜头出现的实体为 20.8% 对 1.1%</div></div>
+      <div class="finding"><div class="big">4.1% <span class="arrow">→</span> 1.6%</div><div class="lbl">同一批 668 个视频，旧版 → 新版的 unspecified 问题占比（只有这 668 个视频能与旧版对比；全部 1,000 个视频为 1.8%）；旧版主要是评估 agent 把墙面等背景新建成实体</div></div>
+    </div>
+    <p>结论：unspecified 实体本身并不少，但绝大多数只在一个镜头里出现，而一致性（V-V）问题大多要求同一实体出现在多个镜头里，所以涉及它们的问题很少。按实体计，specified 实体出问题的比例约为 unspecified 的 11 倍。</p>
+  </section>
+
+  <section>
+    <h2>定义</h2>
+    <div class="legend"><span><span class="chip s">specified</span> 合同（prompt）里描述的实体</span><span><span class="chip u">unspecified</span> prompt 没有描述、但视频里检测到的实体</span></div>
+    <dl class="note">
+      <dt>specified 实体</dt><dd>episode 合同里的实体（账本编号 pb…），至少在一帧检测到框。</dd>
+      <dt>unspecified 实体</dt><dd>检测到、但合同没有描述的实体（账本编号 ge…）。另有评估 agent 报问题时自己新建的实体（编号 n…），它们算 unspecified 标签，但不在账本里，不计入实体数（共 29 个）。</dd>
+      <dt>涉及 unspecified 的问题</dt><dd>确认的问题中，至少有一个主语实体是 unspecified。</dd>
+      <dt>实体出问题</dt><dd>该实体是至少一个确认问题的主语。V-L 问题只可能针对 specified 实体。</dd>
+      <dt>多镜头实体</dt><dd>在 ≥2 个镜头中检测到的实体。</dd>
+    </dl>
+  </section>
+
+  <section>
+    <h2>Unspecified 实体指标（按模型）</h2>
+
+    <div class="sub">
+      <h3>1. unspecified 实体占实体总数的比例</h3>
+      <div class="tablewrap"><table>
+        <thead>
+          <tr><th rowspan="2">模型</th><th class="grp" colspan="3">全部实体</th><th class="grp" colspan="3">多镜头实体（≥2 个镜头）</th></tr>
+          <tr><th class="s">specified</th><th class="u">unspecified</th><th class="u">unspecified 占比</th><th class="s">specified</th><th class="u">unspecified</th><th class="u">unspecified 占比</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>StoryMem</td><td class="s">2,921</td><td class="u">637</td><td class="u"><strong>17.9%</strong></td><td class="s">1,697</td><td class="u">118</td><td class="u"><strong>6.5%</strong></td></tr>
+          <tr><td>HoloCine</td><td class="s">2,913</td><td class="u">368</td><td class="u"><strong>11.2%</strong></td><td class="s">1,676</td><td class="u">41</td><td class="u"><strong>2.4%</strong></td></tr>
+          <tr><td>Wan2.2</td><td class="s">2,921</td><td class="u">708</td><td class="u"><strong>19.5%</strong></td><td class="s">1,662</td><td class="u">30</td><td class="u"><strong>1.8%</strong></td></tr>
+          <tr><td>Wan2.1</td><td class="s">2,920</td><td class="u">481</td><td class="u"><strong>14.1%</strong></td><td class="s">1,630</td><td class="u">25</td><td class="u"><strong>1.5%</strong></td></tr>
+          <tr><td>CineTrans-DiT</td><td class="s">2,859</td><td class="u">141</td><td class="u"><strong>4.7%</strong></td><td class="s">1,600</td><td class="u">64</td><td class="u"><strong>3.8%</strong></td></tr>
+          <tr class="total"><td>全部</td><td class="s">14,534</td><td class="u">2,335</td><td class="u"><strong>13.8%</strong></td><td class="s">8,265</td><td class="u">278</td><td class="u"><strong>3.3%</strong></td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">2,335 个 unspecified 实体中只有 278 个（12%）出现在两个以上镜头。</p>
+    </div>
+
+    <div class="sub">
+      <h3>2. 涉及 unspecified 实体的问题占总问题的比例</h3>
+      <div class="tablewrap"><table>
+        <thead>
+          <tr><th rowspan="2">模型</th><th class="grp" colspan="5">确认的 V-V（一致性）问题</th><th class="grp" colspan="2">全部确认问题（V-L + V-V）</th></tr>
+          <tr><th>总数</th><th class="u">涉及 unspecified</th><th class="u">其中主语是账本实体 ge</th><th class="u">只涉及 agent 新建实体 n</th><th class="u">占比</th><th>总数</th><th class="u">占比</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>StoryMem</td><td>307</td><td class="u">6</td><td class="u">2</td><td class="u">4</td><td class="u"><strong>2.0%</strong></td><td>1,027</td><td class="u">0.58%</td></tr>
+          <tr><td>HoloCine</td><td>191</td><td class="u">6</td><td class="u">3</td><td class="u">3</td><td class="u"><strong>3.1%</strong></td><td>1,821</td><td class="u">0.33%</td></tr>
+          <tr><td>Wan2.2</td><td>840</td><td class="u">11</td><td class="u">5</td><td class="u">6</td><td class="u"><strong>1.3%</strong></td><td>1,537</td><td class="u">0.72%</td></tr>
+          <tr><td>Wan2.1</td><td>996</td><td class="u">18</td><td class="u">8</td><td class="u">10</td><td class="u"><strong>1.8%</strong></td><td>2,861</td><td class="u">0.63%</td></tr>
+          <tr><td>CineTrans-DiT</td><td>601</td><td class="u">11</td><td class="u">9</td><td class="u">2</td><td class="u"><strong>1.8%</strong></td><td>7,820</td><td class="u">0.14%</td></tr>
+          <tr class="total"><td>全部</td><td>2,935</td><td class="u">52</td><td class="u">27</td><td class="u">25</td><td class="u"><strong>1.8%</strong></td><td>15,066</td><td class="u">0.35%</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+
+    <div class="sub">
+      <h3>3. specified / unspecified 实体各自出问题的比例（V-V 问题）</h3>
+      <div class="tablewrap"><table>
+        <thead>
+          <tr><th rowspan="2">模型</th><th class="grp" colspan="2">全部实体</th><th class="grp" colspan="2">多镜头实体（≥2 个镜头）</th></tr>
+          <tr><th class="s">specified</th><th class="u">unspecified</th><th class="s">specified</th><th class="u">unspecified</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>StoryMem</td><td class="s"><strong>7.3%</strong> <span class="frac">214/2,921</span></td><td class="u"><strong>0.2%</strong> <span class="frac">1/637</span></td><td class="s"><strong>11.4%</strong> <span class="frac">194/1,697</span></td><td class="u"><strong>0%</strong> <span class="frac">0/118</span></td></tr>
+          <tr><td>HoloCine</td><td class="s"><strong>4.4%</strong> <span class="frac">129/2,913</span></td><td class="u"><strong>0.8%</strong> <span class="frac">3/368</span></td><td class="s"><strong>6.9%</strong> <span class="frac">115/1,676</span></td><td class="u"><strong>0%</strong> <span class="frac">0/41</span></td></tr>
+          <tr><td>Wan2.2</td><td class="s"><strong>19.4%</strong> <span class="frac">566/2,921</span></td><td class="u"><strong>0.8%</strong> <span class="frac">6/708</span></td><td class="s"><strong>32.1%</strong> <span class="frac">534/1,662</span></td><td class="u"><strong>0%</strong> <span class="frac">0/30</span></td></tr>
+          <tr><td>Wan2.1</td><td class="s"><strong>21.6%</strong> <span class="frac">630/2,920</span></td><td class="u"><strong>2.3%</strong> <span class="frac">11/481</span></td><td class="s"><strong>36.4%</strong> <span class="frac">593/1,630</span></td><td class="u"><strong>0%</strong> <span class="frac">0/25</span></td></tr>
+          <tr><td>CineTrans-DiT</td><td class="s"><strong>10.2%</strong> <span class="frac">293/2,859</span></td><td class="u"><strong>3.5%</strong> <span class="frac">5/141</span></td><td class="s"><strong>17.6%</strong> <span class="frac">282/1,600</span></td><td class="u"><strong>4.7%</strong> <span class="frac">3/64</span></td></tr>
+          <tr class="total"><td>全部</td><td class="s"><strong>12.6%</strong> <span class="frac">1,832/14,534</span></td><td class="u"><strong>1.1%</strong> <span class="frac">26/2,335</span></td><td class="s"><strong>20.8%</strong> <span class="frac">1,718/8,265</span></td><td class="u"><strong>1.1%</strong> <span class="frac">3/278</span></td></tr>
+        </tbody>
+      </table></div>
+      <p class="src">再加上 V-L 问题：合同实体中 30.6%（4,484 / 14,675）至少有一个 V-L 问题，35.4% 至少有一个 V-L 或 V-V 问题。V-L 只检查合同写明的要求，所以 unspecified 实体不会有 V-L 问题。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>与旧版对比（同一批 668 个视频）</h2>
+    <p>这 668 个视频沿用 11 月 7 日首次运行的检测前端和 V-L 结果，只重跑了 V-V 检测、V-V 复核和评分，所以两版的实体完全相同，差别只来自 V-V 部分的改动（逐条 checklist、墙面算作场景）。首次运行停下时只完成了这 668 个视频，另外 332 个视频没有旧版结果，所以对比只在 668 个视频上做。新版在这 668 个视频上的占比是 1.6%（31 / 1,993），另外 332 个视频是 2.2%（21 / 942），合起来就是上文全部 1,000 个视频的 1.8%（52 / 2,935）。</p>
+    <div class="tablewrap"><table>
+      <thead><tr><th>指标</th><th>旧版</th><th>新版</th></tr></thead>
+      <tbody>
+        <tr><td>确认的 V-V 问题（镜头内 / 跨镜头）</td><td>1,037（110 / 927）</td><td>1,993（422 / 1,571）</td></tr>
+        <tr><td class="u">涉及 unspecified 的 V-V 问题</td><td class="u">42（<strong>4.1%</strong>）</td><td class="u">31（<strong>1.6%</strong>）</td></tr>
+        <tr><td class="u">　其中主语是账本实体 ge</td><td class="u">0</td><td class="u">13</td></tr>
+        <tr><td class="u">　其中只涉及 agent 新建实体 n</td><td class="u">42</td><td class="u">18</td></tr>
+        <tr><td class="s">specified 实体有 V-V 问题</td><td class="s">7.7%（735 / 9,511）</td><td class="s">13.1%（1,242 / 9,511）</td></tr>
+        <tr><td class="u">unspecified 实体有 V-V 问题</td><td class="u">0%（0 / 1,572）</td><td class="u">1.0%（16 / 1,572）</td></tr>
+        <tr><td>V-V 分 / UEC 分（平均，新评分公式）</td><td>94.98 / 84.87</td><td>91.24 / 82.29</td></tr>
+      </tbody>
+    </table></div>
+    <div class="note">
+      <h3>旧版的 4.1% 是怎么来的</h3>
+      <ul>
+        <li>旧版 42 个问题全部是评估 agent 新建的实体（n…），其中 21 个是墙面、地面、墙砖之类，其余多是窗框、卡座、橱柜等背景部件。</li>
+        <li>这 21 个墙面/地面问题在新版中：12 个被确认、主语改为合同里的地点（specified）；4 个归到其他合同实体（池壁、窗户、搁架、窗帘）；5 个没有被确认。</li>
+        <li>检测器（WeDetect）在这些视频的全部关键帧中没有输出过任何墙、地面、天花板候选框；12 个地点里有 9 个的合同描述本身就写了墙面或地面（例如 “walls covered with pale patterned wallpaper”）。</li>
+        <li>上限估计：新版中主语只有地点的场景背景问题共 85 个；即使全部算作 unspecified，占比最多约 4.7%（137 / 2,935）。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>各模型分数（1,000 个视频）</h2>
+    <div class="tablewrap"><table>
+      <thead>
+        <tr><th rowspan="2">模型</th><th class="grp" colspan="5">平均分（0–100，越高越好）</th><th class="grp" colspan="2">确认的问题数</th></tr>
+        <tr><th>V-L</th><th>V-V 镜头内</th><th>V-V 跨镜头</th><th>V-V</th><th>UEC</th><th>V-L</th><th>V-V（镜头内 / 跨镜头）</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>StoryMem</td><td>82.48</td><td>96.99</td><td>94.19</td><td>95.59</td><td><strong>91.22</strong></td><td>720</td><td>307（106 / 201）</td></tr>
+        <tr><td>HoloCine</td><td>68.04</td><td>97.45</td><td>97.21</td><td>97.33</td><td><strong>87.57</strong></td><td>1,630</td><td>191（97 / 94）</td></tr>
+        <tr><td>Wan2.2</td><td>83.09</td><td>97.64</td><td>77.78</td><td>87.71</td><td><strong>86.17</strong></td><td>697</td><td>840（91 / 749）</td></tr>
+        <tr><td>Wan2.1</td><td>61.44</td><td>96.72</td><td>73.49</td><td>85.10</td><td><strong>77.22</strong></td><td>1,865</td><td>996（114 / 882）</td></tr>
+        <tr><td>CineTrans-DiT</td><td>21.95</td><td>93.82</td><td>87.05</td><td>90.43</td><td><strong>67.61</strong></td><td>7,219</td><td>601（231 / 370）</td></tr>
+        <tr class="total"><td>全部</td><td>63.40</td><td>96.52</td><td>85.94</td><td>91.23</td><td>81.96</td><td>12,131</td><td>2,935（639 / 2,296）</td></tr>
+      </tbody>
+    </table></div>
+    <p class="src">每个模型 200 个视频。V-L：视频与 prompt 合同是否一致；V-V：视频内部（镜头内、跨镜头）是否一致；V-V 为镜头内与跨镜头的平均，UEC 为 V-L、V-V 镜头内、V-V 跨镜头三项的平均。评分公式（2026-11-09 起为默认）：每个问题扣分 D = 严重度权重（10 / 25 / 50 / 80）× 置信度系数（确认且置信度高 / 中 / 低为 1 / 0.75 / 0.5，不确定为 0.25，否决为 0）；每个维度 s = 100·exp(−ΣD / (100·S))，S 为该 episode 的镜头数，按镜头数归一以免长 episode 吃亏。</p>
+  </section>
+
+  <section>
+    <h2>运行信息与说明</h2>
+    <ul>
+      <li>运行时间：2026-11-09 16:23–20:02（迪拜时间），1,000 / 1,000 成功。668 个视频复用 11 月 7 日的检测前端和 V-L 结果；332 个视频完整重跑（134 个前端在 CPU 上，198 个在 GPU 上）。</li>
+      <li>本次新调用：25,124 次模型调用，输入 672.5M token（其中缓存 305.4M），输出 13.1M token，约 46.32 美元（GPT-6 Luna 标准 API 价格估算，不是账单）。</li>
+      <li>局限：每个视频只评测一次，未测运行间波动；结果未经人工校准；specified / unspecified 标签来自实体账本（是否对应合同实体），不是逐条人工判断。</li>
+      <li>进行中：把穿戴物（衣服、眼镜、帽子等）作为独立实体的 40 个视频小试验，结果待出。</li>
+    </ul>
+    <p class="src">数据来源：<code>EECBench/experiments/vl_vv_full_first200_v3_20261109/</code> 下的 <code>results_summary.json</code>（<code>analyze_results.py</code>）、<code>wall_issue_audit.json</code>、<code>place_issue_count.py</code>、<code>rerun_usage.json</code>。</p>
+  </section>
+</div>

@@ -1,0 +1,423 @@
+{
+ "task": "priority_096__wan21",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Blonde woman",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Television shop display",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Amber-window facade exterior",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Shop window glass",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Red umbrella",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Shop televisions",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Breaking news globe graphics",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Taxi killer silhouette graphic",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Amber-lit windows",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Rain",
+   "shots": [
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Sale placard",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Live vehicle graphic",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Latest victims graphic",
+   "shots": [
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Upper television",
+   "shots": [
+    "Shot1",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Neighboring televisions",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects": [
+    "pb0005"
+   ],
+   "description": "Shot2中雨伞伞面由frame 0张开到frame 1明显收拢、变形，frame 2又张开；未见解释该变化的操作。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects": [
+    "pb0013"
+   ],
+   "description": "Shot4 主电视图像由仅有标题变为出现头像，画面内容在镜头内变化且无可见触发动作。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "Shot1是卡通化大眼、粉色皮肤的女性面孔；Shot2则是写实女性，面部特征与身份明显不同，无法视为同一张脸。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "女性造型不一致：Shot1为动画风格的扫起金发与侧卷发、深色上衣配浅色领口和棕色腰带；Shot2、Shot3为真人风格的卷曲红金色披发、深蓝低领服装配浅色翻边，未见换装原因。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "state_action_continuity",
+   "subjects": [
+    "pb0005"
+   ],
+   "description": "Shot1末帧红伞仍折叠，Shot2首帧已完全撑开；边界处没有展示开伞动作或其他可解释变化。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一电视店铺背景不一致：Shot1是青绿色横向墙板与玻璃窗，Shot3则是深色竖向波纹外墙及白色电视展示背板，缺乏可见原因解释。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects": [],
+   "description": "Shot1呈卡通动画风格，Shot2、Shot3呈写实真人风格，跨镜头风格不一致。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "instance_count",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "女性角色在Shot1为卡通造型，Shot2、Shot3则为明显不同的写实女性个体，属于角色替换。"
+  },
+  {
+   "id": "V9",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects": [],
+   "description": "Shot2为写实摄影风格，Shot1、Shot3为卡通3D动画风格，风格跨镜头不一致。"
+  },
+  {
+   "id": "V10",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一女性在Shot1、Shot3为浅粉肤色、夸张大眼的卡通面孔；Shot2则为写实面孔，面部特征与整体人物呈现明显不相容。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects_with_labels": [
+    [
+     "pb0005",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot2",
+     2
+    ]
+   ],
+   "description": "Shot2中红伞伞面在frame 0张开，frame 1明显收拢且形状改变，至frame 2又呈完全张开状态。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects_with_labels": [
+    [
+     "pb0013",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot4",
+     1
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "Shot4主电视屏幕在frame 1仅显示标题文字，frame 2起出现标题上下的头像；屏幕图像内容在镜头内发生变化。"
+  },
+  {
+   "id": "V3+V8+V10",
+   "from_candidates": [
+    "V3",
+    "V8",
+    "V10"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "同一女性在Shot1和Shot3呈现为浅粉肤色、夸张大眼的卡通人物，而Shot2呈现为写实女性面孔；这些面孔与人物呈现彼此不一致。"
+  },
+  {
+   "id": "V4",
+   "from_candidates": [
+    "V4"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "女性在Shot1为扫起的金色前发与卷曲侧发，穿深色上衣、浅色领口和棕色腰带；Shot2和Shot3则为卷曲披发、深蓝服装配浅色领边及腰带，发型与服装外观不一致。"
+  },
+  {
+   "id": "V5",
+   "from_candidates": [
+    "V5"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "state_action_continuity",
+   "subjects_with_labels": [
+    [
+     "pb0005",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     5
+    ],
+    [
+     "Shot2",
+     0
+    ]
+   ],
+   "description": "Shot1末帧红伞仍为折叠状态，Shot2首帧红伞已张开；两帧显示的伞状态不一致。"
+  },
+  {
+   "id": "V6",
+   "from_candidates": [
+    "V6"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "Shot1与Shot3呈现的电视店铺背景构造不同：Shot1可见青绿色横向墙板与玻璃窗，Shot3可见深色竖向波纹外墙及电视陈列区的白色背板。"
+  },
+  {
+   "id": "V7+V9",
+   "from_candidates": [
+    "V7",
+    "V9"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "rendering_style",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "Shot1呈现为描边鲜明的卡通3D动画风格，Shot2和Shot3则呈现为写实摄影风格；镜头间渲染风格不一致。"
+  }
+ ]
+}

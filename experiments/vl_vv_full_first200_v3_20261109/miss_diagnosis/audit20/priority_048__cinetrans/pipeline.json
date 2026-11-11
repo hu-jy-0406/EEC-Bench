@@ -1,0 +1,225 @@
+{
+ "task": "priority_048__cinetrans",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Phone typist",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Dark-haired woman",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Illuminated room",
+   "shots": [
+    "Shot2",
+    "Shot3",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Messaging phone",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Woman's handheld phone",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Blurred room lights",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Doorway and doorframe",
+   "shots": [
+    "Shot3",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Hanging pale strips",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Near doorframe LED",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Warm string lights",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Far opening",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "White cabinet",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Leafy plant",
+   "shots": [
+    "Shot3",
+    "Shot5",
+    "Shot7"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Wall hanging",
+   "shots": [
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Wall-hanging LED border",
+   "shots": [
+    "Shot4",
+    "Shot6",
+    "Shot8"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "Shot1中首帧头发呈明显上拢的轮廓、颈部饰带较宽；至帧1头发变为两侧垂落且饰带显著变窄，后续维持该外观，无动作解释。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1.1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1中，女子在帧0的头发呈上拢、贴拢的轮廓，到帧1变为中分并沿两侧垂落；此变化未见相应动作。"
+  },
+  {
+   "id": "V1.2",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1中，女子颈部的黑色饰带在帧0显得较宽，到帧1明显变窄；此变化未见相应动作。"
+  }
+ ]
+}

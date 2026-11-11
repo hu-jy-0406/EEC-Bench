@@ -58,6 +58,41 @@ class PipelinePlanTests(unittest.TestCase):
             self.assertEqual([stage['name'] for stage in plan['stages']],
                              list(pipeline.FULL_STAGES))
 
+    def test_cpu_frontend_plan_needs_no_gpu_and_defers_dino(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case = self.make_case(root, status='prepared', with_registry=False)
+            with self.assertRaisesRegex(ValueError, 'only for --frontend-device cuda'):
+                pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef', discovery_protocol='v4',
+                                    frontend_device='cpu')
+            plan = pipeline.build_plan(case, root / 'run', 'full', discovery_protocol='v4', frontend_device='cpu')
+            names = [stage['name'] for stage in plan['stages']]
+            self.assertEqual(names, ['detect', 'match', 'dino_prepare', 'issue_discovery', 'issue_review',
+                                     'episode_scoring'])
+            detect = plan['stages'][0]['command']
+            self.assertEqual(detect[detect.index('--device') + 1], 'cpu')
+            self.assertNotIn('--gpu', detect)
+            self.assertFalse(any('--gpu' in part for stage in plan['stages'] for part in stage['command']))
+            self.assertEqual((plan['frontend_device'], plan['dino']), ('cpu', 'deferred'))
+            gpu_plan = pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef', discovery_protocol='v4')
+            self.assertEqual((gpu_plan['frontend_device'], gpu_plan['dino']), ('cuda', None))
+
+    def test_matched_case_without_dino_needs_dino_deferred(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            case = self.make_case(root, status='matched')
+            with self.assertRaisesRegex(ValueError, 'needs --dino-deferred'):
+                pipeline.build_plan(case, root / 'run', 'from-registry', allow_v1_contract=True)
+            plan = pipeline.build_plan(case, root / 'run', 'from-registry', allow_v1_contract=True, dino_deferred=True)
+            self.assertEqual(plan['dino'], 'deferred')
+            self.assertEqual([stage['name'] for stage in plan['stages']][0], 'vl_detection')
+            fresh = root / 'fresh'
+            fresh.mkdir()
+            prepared = self.make_case(fresh, status='prepared', with_registry=False)
+            with self.assertRaisesRegex(ValueError, 'for from-registry mode'):
+                pipeline.build_plan(prepared, root / 'run2', 'full', frontend_device='cpu', allow_v1_contract=True,
+                                    dino_deferred=True)
+
     def test_refuses_existing_output_and_incomplete_registry(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)

@@ -54,12 +54,16 @@ def prepare(case, out):
     for entity in reg['entities']:
         eid=entity['global_entity_id']; folder=out/'entities'/eid; folder.mkdir(parents=True)
         apps=[]; missing=[]; attachments=[]
+        # A VL/VV specified entity may hold several local entities in one shot (binding v2, 2026-11-02); their
+        # appearance IDs then name the local entity so that crops do not collide. One local per shot keeps the old ID.
+        locals_per_shot=Counter(local['shot_id'] for local in entity['appearances'])
         for local in entity['appearances']:
             sid=local['shot_id']
             for obs in local['observations']:
                 if obs['exist'] is not True or obs['box_xyxy'] is None:
                     missing.append(dict(shot_id=sid,frame_id=obs['frame_id'],reason='No retained original detection; unknown, not absence.')); continue
-                frame=frames[sid,obs['frame_id']]; aid=f'{sid}_f{obs["frame_id"]}'
+                frame=frames[sid,obs['frame_id']]
+                aid=f'{sid}_{local["local_entity_id"]}_f{obs["frame_id"]}' if locals_per_shot[sid]>1 else f'{sid}_f{obs["frame_id"]}'
                 ds=[]
                 for cid in obs['candidate_ids']:
                     cf,d=candidates[sid][cid]

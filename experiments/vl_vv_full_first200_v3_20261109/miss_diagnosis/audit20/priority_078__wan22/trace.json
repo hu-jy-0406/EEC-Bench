@@ -1,0 +1,43 @@
+{
+  "task": "priority_078__wan22",
+  "primary": [
+    {
+      "id": "A1",
+      "ledger_entity": ["ge0003"],
+      "ledger_status": "same_entity_in_all_relevant_shots",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Ledger records the TV cabinet as one unspecified entity (ge0003) in Shot2 and Shot5, yet no V-V candidate mentions it; the only Shot2/Shot5 candidate (V5) concerns the specified wall clock."
+    }
+  ],
+  "secondary": [
+    {
+      "id": "B1",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    },
+    {
+      "id": "B2",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["candidate:V4", "unit:V4"],
+      "note": "Unit V4 (subject pb0002) covers only the Shot6 short-sleeved darker top; the garment-type changes among Shot1/Shot3/Shot4 are not mentioned."
+    },
+    {
+      "id": "B3",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["candidate:V3", "candidate:V6", "unit:V3+V4+V6"],
+      "note": "Beard color red-brown (Shot3/Shot4) vs white (Shot6), subject pb0002."
+    },
+    {
+      "id": "B4",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    },
+    {
+      "id": "B5",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    }
+  ],
+  "pipeline_unspecified_confirmed": []
+}

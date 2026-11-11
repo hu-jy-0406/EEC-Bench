@@ -1,0 +1,197 @@
+{
+ "task": "priority_075__cinetrans",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Armored man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Slumped young person",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Dim room",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Shallow stone steps",
+   "shots": [
+    "Shot1"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "presence_instability",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "Shot2 第2帧年轻人的头部突然大幅伸入画面，相较第1、3帧突变并恢复；无可见进出或遮挡。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot1帧0整体明显偏暗、偏绿，至帧1亮度突变；无可见光源变化解释。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "instance_count",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "年轻人在Shot2呈现为浅肤色、短而竖起的头发；Shot3与Shot4则是深肤色、极短发的另一外观，疑似跨镜头被不同个体替换。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一年轻人的头发外观不一致：Shot2 可见较长、蓬起的黑发，Shot3 与 Shot4 则为极短贴头发型，未见可解释的变化。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "action_discontinuity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot2",
+     3
+    ]
+   ],
+   "description": "Shot2中，年轻人的头部在第1帧仅部分露于画面右下方，第2帧突然显著变大并向画面内伸入，第3帧又缩回到右侧部分露出的状态；这段头部位置与尺度的突变没有连续动作衔接。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot1",
+     1
+    ]
+   ],
+   "description": "Shot1第0帧整体明显更暗且带强烈绿色调；到第1帧画面亮度明显升高、绿色调减弱，呈现帧间曝光与色调突变。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "Shot2第1帧右侧年轻人的可见面部与Shot3第1帧靠在男子身旁的年轻人面部明显不同：前者肤色较浅、面部特征呈现不同个体外观，后者肤色较深；Shot4第1帧的年轻人面部外观与Shot3相符。"
+  },
+  {
+   "id": "V3+V4",
+   "from_candidates": [
+    "V3",
+    "V4"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "同一年轻人的发型在Shot2第1帧与Shot3、Shot4第1帧不一致：Shot2中可见较蓬起、较长的黑发，Shot3和Shot4中则为极短、贴头的发型。"
+  }
+ ]
+}

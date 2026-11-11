@@ -1,0 +1,208 @@
+{
+ "task": "priority_047__storymem",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "White-clad man",
+   "shots": [
+    "Shot1",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Older man",
+   "shots": [
+    "Shot2",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Ponytailed man",
+   "shots": [
+    "Shot3",
+    "Shot4",
+    "Shot5"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Sleeveless man",
+   "shots": [
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Martial arts training room",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4",
+    "Shot5",
+    "Shot6",
+    "Shot7",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Switch plate",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Red-and-black poster",
+   "shots": [
+    "Shot1",
+    "Shot8"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Entrance doorway",
+   "shots": [
+    "Shot1",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Mirrors",
+   "shots": [
+    "Shot3",
+    "Shot4",
+    "Shot5"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Pale mats",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Open ladder",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "American flag",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Window blinds",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "unintended_cut",
+   "subjects": [],
+   "description": "Shot6帧0画面被橙褐色模糊近景几乎完全遮挡，至帧1突变为清晰的老人近景及墙面背景；非连续机位移动。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot6帧0几乎全屏被模糊橙褐色画面覆盖，帧1恢复为清晰的老人及背景，属突发渲染异常。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0007"
+   ],
+   "description": "Shot1海报可见红底黑色弧形图案；Shot8海报可见黑底红白V形图案，图案明显不同，无法由裁切解释。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1+V2",
+   "from_candidates": [
+    "V1",
+    "V2"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot6",
+     0
+    ],
+    [
+     "Shot6",
+     1
+    ]
+   ],
+   "description": "Shot6帧0几乎被橙褐色、严重模糊的近景画面覆盖，仅顶部残留少量可辨背景；到帧1画面突然恢复清晰，可见老人和浅色墙面。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0007",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot8",
+     1
+    ]
+   ],
+   "description": "同一张红黑海报在Shot1与Shot8中图案和底色不同：Shot1帧0上缘露出的海报为红底、带黑色弧形图案；Shot8帧1上缘露出的海报为黑底、带红白V形图案。"
+  }
+ ]
+}

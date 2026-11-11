@@ -19,7 +19,9 @@ whether any inconsistency is an error.
 1. WeDetect-Anything detects every supplied keyframe. A fresh GPT-6 Luna/low
    call independently clusters each shot detector inventory. It cannot add a
    box that WeDetect-Anything did not supply.
-2. The contract entity IDs are the stable instance IDs. GPT-6 Luna/low assigns each shot-local cluster
+2. The contract entity IDs are the stable instance IDs. Every contract entity is in
+   the prompt registry, also one listed in no presence list (`not_required` in every
+   shot; open-questions Q16), so every contract entity has a ledger record. GPT-6 Luna/low assigns each shot-local cluster
    to bound or unbound. Ambiguous clusters are unbound.
 3. Required schedule rows with no retained detection, or missing sampled
    frames, receive one targeted Grounding DINO run. Each prompt instance has

@@ -1,0 +1,150 @@
+{
+ "basis": "GPT-6 Luna standard API estimate: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; not a bill",
+ "groups": {
+  "full_cpu": {
+   "calls": 4546,
+   "repair_calls": 86,
+   "input": 102104270,
+   "cached": 40514565,
+   "output": 2999264,
+   "reasoning": 692749,
+   "usd": 8.063748
+  },
+  "all": {
+   "calls": 25124,
+   "repair_calls": 367,
+   "input": 672548146,
+   "cached": 305389189,
+   "output": 13108186,
+   "reasoning": 3576668,
+   "usd": 46.323881
+  },
+  "full_gpu": {
+   "calls": 6671,
+   "repair_calls": 112,
+   "input": 152149760,
+   "cached": 60828752,
+   "output": 4392232,
+   "reasoning": 1035254,
+   "usd": 11.936504
+  },
+  "reuse": {
+   "calls": 13907,
+   "repair_calls": 169,
+   "input": 418294116,
+   "cached": 204045872,
+   "output": 5716690,
+   "reasoning": 1848665,
+   "usd": 26.323628
+  }
+ },
+ "stages": {
+  "binding": {
+   "calls": 1654,
+   "repair_calls": 6,
+   "input": 10563720,
+   "cached": 39694,
+   "output": 958025,
+   "reasoning": 231047,
+   "usd": 1.531812
+  },
+  "clustering": {
+   "calls": 1648,
+   "repair_calls": 0,
+   "input": 9083417,
+   "cached": 0,
+   "output": 611020,
+   "reasoning": 408036,
+   "usd": 1.213852
+  },
+  "episode_scoring_vl": {
+   "calls": 936,
+   "repair_calls": 1,
+   "input": 3004514,
+   "cached": 3582,
+   "output": 548835,
+   "reasoning": 44631,
+   "usd": 0.574547
+  },
+  "episode_scoring_vv": {
+   "calls": 840,
+   "repair_calls": 0,
+   "input": 1583444,
+   "cached": 0,
+   "output": 197260,
+   "reasoning": 30305,
+   "usd": 0.256974
+  },
+  "matching": {
+   "calls": 249,
+   "repair_calls": 12,
+   "input": 4453941,
+   "cached": 221830,
+   "output": 97079,
+   "reasoning": 25938,
+   "usd": 0.473969
+  },
+  "vl_detection": {
+   "calls": 422,
+   "repair_calls": 90,
+   "input": 18188890,
+   "cached": 4570485,
+   "output": 2170740,
+   "reasoning": 76336,
+   "usd": 2.492915
+  },
+  "vl_review_verdict": {
+   "calls": 320,
+   "repair_calls": 1,
+   "input": 10563478,
+   "cached": 43384,
+   "output": 752481,
+   "reasoning": 85870,
+   "usd": 1.428684
+  },
+  "vv_detection": {
+   "calls": 17030,
+   "repair_calls": 30,
+   "input": 557692524,
+   "cached": 293625790,
+   "output": 4888139,
+   "reasoning": 2254651,
+   "usd": 31.787001
+  },
+  "vv_review_rewrite": {
+   "calls": 1044,
+   "repair_calls": 145,
+   "input": 30066265,
+   "cached": 4498733,
+   "output": 1343787,
+   "reasoning": 190680,
+   "usd": 3.273634
+  },
+  "vv_review_verdict": {
+   "calls": 981,
+   "repair_calls": 82,
+   "input": 27347953,
+   "cached": 2385691,
+   "output": 1540820,
+   "reasoning": 229174,
+   "usd": 3.290493
+  }
+ },
+ "seconds": {
+  "full_cpu": {
+   "tasks": 134,
+   "mean": 1557.1,
+   "median": 1467.7
+  },
+  "full_gpu": {
+   "tasks": 198,
+   "mean": 277.2,
+   "median": 262.7
+  },
+  "reuse": {
+   "tasks": 668,
+   "mean": 61.5,
+   "median": 58.8
+  }
+ }
+}

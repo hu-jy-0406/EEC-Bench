@@ -1,0 +1,732 @@
+<title>Unspecified 实体抽查复核</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Layout: one review column. Each finding is a contact-sheet card: keyframes on a dark mat with grease-pencil marks,
+   then a verdict strip. A sticky tally strip (one cell per finding) tracks progress. */
+:root {
+  --bg: #ECEFF2; --surface: #FFFFFF; --soft: #F4F6F8; --ink: #16202A; --muted: #586675; --line: #D2D9E0;
+  --accent: #2B4E9B; --bar: rgba(236, 239, 242, 0.93); --tick: #DDE3E9;
+  --mat: #1A1F25; --cap-bg: rgba(0, 0, 0, 0.72); --cap-ink: #F2F5F7; --lb-bg: rgba(8, 11, 14, 0.96); --lb-ink: #E8EDF1;
+  --mark-solid: #FFD400; --mark-dash: #00E0FF; --mark-edge: rgba(0, 0, 0, 0.85); --mat-line: rgba(255, 255, 255, 0.3);
+  --real: #BC3328; --real-bg: #FBE8E5; --clear: #2B7564; --clear-bg: #E1F1EC; --unsure: #95620F; --unsure-bg: #FAEFD9;
+  --spec: #46525E; --spec-bg: #E7EBEF;
+  --f-display: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1318; --surface: #151C23; --soft: #1A222A; --ink: #E2E8EE; --muted: #909DAA; --line: #29333D;
+    --accent: #93B2FF; --bar: rgba(14, 19, 24, 0.93); --tick: #26303A;
+    --mat: #090C0F; --lb-bg: rgba(4, 6, 8, 0.97);
+    --real: #FF8678; --real-bg: #3A1C19; --clear: #63CDB1; --clear-bg: #142E28; --unsure: #E6B055; --unsure-bg: #33270E;
+    --spec: #C3CDD6; --spec-bg: #25303A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1318; --surface: #151C23; --soft: #1A222A; --ink: #E2E8EE; --muted: #909DAA; --line: #29333D;
+  --accent: #93B2FF; --bar: rgba(14, 19, 24, 0.93); --tick: #26303A;
+  --mat: #090C0F; --lb-bg: rgba(4, 6, 8, 0.97);
+  --real: #FF8678; --real-bg: #3A1C19; --clear: #63CDB1; --clear-bg: #142E28; --unsure: #E6B055; --unsure-bg: #33270E;
+  --spec: #C3CDD6; --spec-bg: #25303A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1080px; margin: 0 auto; }
+button { font: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Header */
+header.top { padding-block: 36px 8px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); margin: 0; }
+h1 { font-family: var(--f-display); font-weight: 700; font-size: clamp(26px, 4.4vw, 38px); line-height: 1.25; margin: 6px 0 14px; text-wrap: balance; }
+.lead { max-width: 70ch; margin: 0; }
+.lead + .lead { margin-top: 8px; color: var(--muted); font-size: 14px; }
+.guide { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: 14px; margin-top: 22px; }
+.guide section { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; min-width: 0; }
+.guide h2 { font-size: 14px; margin: 0 0 6px; }
+.guide ul { margin: 0; padding-left: 1.2em; font-size: 14px; }
+.guide li + li { margin-top: 4px; }
+.swatch { display: inline-block; width: 30px; height: 15px; vertical-align: -2px; margin-right: 6px; border-radius: 2px; box-shadow: 0 0 0 1px var(--mark-edge); background: var(--mat); }
+.swatch.solid { border: 2px solid var(--mark-solid); }
+.swatch.dashed { border: 2px dashed var(--mark-dash); }
+
+/* Sticky tally bar */
+.bar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--bar); border-bottom: 1px solid var(--line); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); margin-top: 22px; }
+.bar .inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 9px; }
+.count { font-family: var(--f-mono); font-size: 13px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.count b { font-size: 16px; }
+.tally { display: flex; gap: 3px; flex: 1 1 240px; min-width: 0; }
+.tally a { flex: 1 1 0; min-width: 5px; height: 18px; border-radius: 3px; background: var(--tick); border: 1px solid var(--line); }
+.tally a[data-v="yes"] { background: var(--real); border-color: var(--real); }
+.tally a[data-v="no"] { background: var(--clear); border-color: var(--clear); }
+.tally a[data-v="unsure"] { background: var(--unsure); border-color: var(--unsure); }
+.bar-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.tbtn { font-size: 13px; padding: 5px 11px; border-radius: 7px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 32px; }
+.tbtn[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.tbtn.primary { background: var(--accent); border-color: var(--accent); color: var(--surface); font-weight: 600; }
+.status { font-size: 12.5px; color: var(--muted); flex-basis: 100%; margin: 0; }
+.status .tbtn { margin: 0 8px; padding: 1px 10px; min-height: 28px; font-size: 12.5px; }
+.counts { font-size: 12.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.counts i { font-style: normal; display: inline-block; width: 9px; height: 9px; border-radius: 2px; margin: 0 4px 0 8px; vertical-align: 0; }
+
+/* Video groups and cards */
+main { padding-block: 8px 72px; }
+.group { margin-top: 34px; }
+.group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+.group-head h2 { font-family: var(--f-display); font-size: 22px; margin: 0; }
+.group-head h2 span { font-family: var(--f-mono); font-size: 18px; margin-right: 6px; }
+.meta { color: var(--muted); font-size: 13px; }
+.entities { margin-top: 6px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+.entities > summary { padding: 9px 14px; }
+.entities ul { margin: 0; padding: 0 16px 12px 32px; font-size: 13px; color: var(--ink); }
+.entities li + li { margin-top: 3px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 14px; scroll-margin-top: 96px; }
+.card-head { padding: 16px 18px 14px; display: grid; gap: 6px; }
+.idrow { display: flex; flex-wrap: wrap; gap: 6px 8px; align-items: center; }
+.fid { font-family: var(--f-mono); font-weight: 600; font-size: 13px; background: var(--ink); color: var(--surface); padding: 1px 8px; border-radius: 5px; }
+.chip { font-size: 12px; border: 1px solid var(--line); border-radius: 999px; padding: 0 9px; color: var(--muted); background: var(--soft); white-space: nowrap; }
+.chip.mono { font-family: var(--f-mono); }
+.stamp { margin-left: auto; font-size: 12.5px; font-weight: 700; padding: 1px 10px; border-radius: 6px; border: 1.5px dashed var(--line); color: var(--muted); white-space: nowrap; }
+.stamp[data-v="yes"] { border: 1.5px solid var(--real); color: var(--real); background: var(--real-bg); }
+.stamp[data-v="no"] { border: 1.5px solid var(--clear); color: var(--clear); background: var(--clear-bg); }
+.stamp[data-v="unsure"] { border: 1.5px solid var(--unsure); color: var(--unsure); background: var(--unsure-bg); }
+.obj { font-size: 18px; line-height: 1.45; margin: 2px 0 0; font-weight: 700; text-wrap: balance; }
+.what { margin: 0; max-width: 78ch; }
+
+/* Contact sheet */
+.sheet { background: var(--mat); padding: 12px; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 400px), 1fr)); gap: 10px; }
+.frame { position: relative; margin: 0; cursor: zoom-in; border-radius: 4px; overflow: hidden; line-height: 0; background: var(--mat); }
+.frame img { display: block; width: 100%; height: auto; aspect-ratio: 832 / 480; }
+.frame figcaption, .thumb span { position: absolute; left: 6px; top: 6px; line-height: 1.25; font-family: var(--f-mono); font-size: 12px; color: var(--cap-ink); background: var(--cap-bg); padding: 2px 7px; border-radius: 4px; }
+.mk { position: absolute; pointer-events: none; border-radius: 3px; }
+.mk.solid { border: 2px solid var(--mark-solid); box-shadow: 0 0 0 1px var(--mark-edge), inset 0 0 0 1px var(--mark-edge); }
+.mk.dashed { border: 2px dashed var(--mark-dash); box-shadow: 0 0 0 1px var(--mark-edge); }
+body.nomarks .mk { display: none; }
+
+/* Video: only on findings whose review asked for the full video */
+.vid { background: var(--mat); padding: 0 12px 12px; display: grid; gap: 8px; justify-items: start; }
+.vid-note { margin: 0; color: var(--cap-ink); font-size: 13px; line-height: 1.5; }
+.vid video { display: block; width: 100%; max-width: 832px; height: auto; aspect-ratio: 832 / 480; background: var(--mat); border-radius: 4px; }
+.vid-ctl { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.vid-ctl button { font-family: var(--f-mono); font-size: 12.5px; padding: 3px 9px; min-height: 30px; border-radius: 6px; border: 1px solid var(--mat-line); background: transparent; color: var(--cap-ink); cursor: pointer; }
+.vid-ctl button:hover { border-color: var(--cap-ink); }
+.vid-time { font-family: var(--f-mono); font-size: 12.5px; color: var(--cap-ink); font-variant-numeric: tabular-nums; }
+
+/* Collapsible extras */
+details.more { border-top: 1px solid var(--line); }
+details > summary { cursor: pointer; font-size: 13.5px; color: var(--accent); list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::before { content: "▸"; display: inline-block; width: 1em; transition: transform 0.15s; }
+details[open] > summary::before { transform: rotate(90deg); }
+details.more > summary { padding: 10px 18px; }
+.more-body { padding: 0 18px 14px; font-size: 13.5px; min-width: 0; }
+.more-body p { margin: 0 0 8px; overflow-wrap: anywhere; }
+.more-body .k { font-family: var(--f-mono); font-weight: 600; margin-right: 6px; }
+.en { color: var(--muted); }
+.shotlabel { font-family: var(--f-mono); font-size: 12.5px; margin: 10px 0 4px; }
+.strip { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; background: var(--mat); padding: 5px; border-radius: 6px; }
+.thumb { position: relative; margin: 0; line-height: 0; cursor: zoom-in; border-radius: 3px; overflow: hidden; }
+.thumb img { display: block; width: 100%; height: auto; aspect-ratio: 832 / 480; }
+.thumb span { left: 3px; top: 3px; font-size: 10.5px; padding: 0 4px; }
+.thumb.cited { box-shadow: 0 0 0 2px var(--mark-solid); }
+.pipe p { margin: 0 0 6px; }
+.pipe .note { color: var(--muted); font-size: 12.5px; }
+
+/* Verdict strip */
+.verdict { padding: 14px 18px 16px; border-top: 1px solid var(--line); background: var(--soft); display: grid; gap: 12px; }
+.q { display: grid; gap: 6px; min-width: 0; }
+.q-label { font-size: 13.5px; font-weight: 700; margin: 0; }
+.q-label small { font-weight: 400; color: var(--muted); margin-left: 4px; }
+.seg { display: flex; flex-wrap: wrap; gap: 8px; }
+.seg button { font-size: 14px; padding: 6px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); cursor: pointer; min-height: 38px; }
+.seg button:hover { border-color: var(--muted); }
+.seg button:disabled { cursor: not-allowed; opacity: 0.55; }
+.seg button[aria-pressed="true"] { font-weight: 700; }
+.seg button[aria-pressed="true"][data-v="yes"] { background: var(--real-bg); border-color: var(--real); color: var(--real); }
+.seg button[aria-pressed="true"][data-v="no"] { background: var(--clear-bg); border-color: var(--clear); color: var(--clear); }
+.seg button[aria-pressed="true"][data-v="unsure"] { background: var(--unsure-bg); border-color: var(--unsure); color: var(--unsure); }
+.seg button[aria-pressed="true"][data-v="unspec"] { background: var(--surface); border-color: var(--accent); color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent); }
+.seg button[aria-pressed="true"][data-v="spec"] { background: var(--spec-bg); border-color: var(--spec); color: var(--spec); }
+.note-in { font: inherit; font-size: 14px; width: 100%; min-height: 40px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); resize: vertical; }
+body.only-open .card[data-judged="1"] { display: none; }
+
+/* Summary */
+.summary { margin-top: 44px; }
+.summary h2 { font-family: var(--f-display); font-size: 22px; margin: 0 0 6px; }
+.table-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; margin-top: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 640px; }
+th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12.5px; color: var(--muted); font-weight: 500; background: var(--soft); }
+td.mono { font-family: var(--f-mono); white-space: nowrap; }
+td a { color: var(--accent); text-decoration: none; }
+td .v { font-weight: 700; }
+td .v[data-v="yes"] { color: var(--real); } td .v[data-v="no"] { color: var(--clear); } td .v[data-v="unsure"] { color: var(--unsure); }
+tr:last-child td { border-bottom: 0; }
+.copy-row { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 12px; }
+#copybox { width: 100%; min-height: 160px; font-family: var(--f-mono); font-size: 12.5px; margin-top: 10px; padding: 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+footer { color: var(--muted); font-size: 12.5px; padding-block: 28px 8px; }
+
+/* Lightbox */
+.lb { position: fixed; inset: 0; z-index: 50; background: var(--lb-bg); display: flex; flex-direction: column; gap: 8px;
+  padding: calc(10px + env(safe-area-inset-top, 0px)) max(12px, env(safe-area-inset-right, 0px)) calc(10px + env(safe-area-inset-bottom, 0px)) max(12px, env(safe-area-inset-left, 0px)); }
+.lb-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; color: var(--lb-ink); }
+.lb-cap { font-family: var(--f-mono); font-size: 13px; min-width: 0; }
+.lb-top .tbtn { background: transparent; color: var(--lb-ink); border-color: rgba(255, 255, 255, 0.28); }
+.lb-stage { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.lb-fig { position: relative; line-height: 0; flex: 0 0 auto; }
+.lb-fig img { display: block; width: 100%; height: 100%; }
+.lb-nav { flex: 0 0 auto; width: 40px; height: 64px; border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.25); background: transparent; color: var(--lb-ink); font-size: 26px; cursor: pointer; }
+.lb-nav:disabled { opacity: 0.25; cursor: default; }
+.lb-thumbs { display: flex; gap: 6px; justify-content: center; overflow-x: auto; flex: 0 0 auto; padding-bottom: 2px; }
+.lb-thumbs button { flex: 0 0 auto; width: 92px; padding: 0; border: 2px solid transparent; border-radius: 4px; background: none; cursor: pointer; line-height: 0; }
+.lb-thumbs button[aria-current="true"] { border-color: var(--mark-solid); }
+.lb-thumbs img { width: 100%; height: auto; display: block; border-radius: 2px; }
+@media (max-width: 560px) {
+  .strip { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .lb-nav { width: 32px; }
+  .lb-thumbs button { width: 64px; }
+  .card-head, .verdict { padding-inline: 14px; }
+  details.more > summary, .more-body { padding-inline: 14px; }
+  .sheet { padding: 8px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+</style>
+
+<div class="gutter"><div class="inner">
+<header class="top">
+  <p class="eyebrow">UEC-BENCH · FIRST-200 第三次重跑 · 随机 20 个视频 · 19 条发现</p>
+  <h1>Unspecified 实体抽查复核</h1>
+  <p class="lead">Claude 子代理盲看了 20 个随机视频（每个模型 4 个）的关键帧，列出 prompt 没写的物体出现的一致性问题，共 19 条。流水线没有把其中任何一条记成涉及 unspecified 实体。请逐条看图回答两个问题：这个问题是否真实存在；所指物体 prompt 有没有写。</p>
+  <p class="lead">每次点击都会自动保存到页面的共享存储（第一次可能需要点一下“授权保存”），Claude 能直接读到结果。19 条大约需要 10–15 分钟。</p>
+  <div class="guide">
+    <section>
+      <h2>怎么判断</h2>
+      <ul>
+        <li><b>是真问题</b>：图上能看到描述的变化、出现或消失，而且 prompt 没有要求或允许它。</li>
+        <li><b>不是问题</b>：图上看不到这种情况，或者变化可以由视角、遮挡或 prompt 解释。</li>
+        <li><b>看不清</b>：画面太小、太糊或被挡住，没法判断。</li>
+        <li>第二问只看物体本身：prompt 或合同实体里写到了它（名字或角色），就是 specified。</li>
+      </ul>
+    </section>
+    <section>
+      <h2>图上的标记</h2>
+      <ul>
+        <li><span class="swatch solid"></span>黄色实线框：发现所指的物体。</li>
+        <li><span class="swatch dashed"></span>青色虚线框：另一帧里的对应位置，物体在这里缺失或样子不同。</li>
+        <li>框是 Claude 按审查描述手工标的大致位置，不是检测器输出。点图片放大，← → 切换，M 键显示或隐藏标记。</li>
+      </ul>
+    </section>
+  </div>
+</header>
+</div></div>
+
+<div class="bar gutter" id="bar"><div class="inner">
+  <span class="count">已判断 <b id="n-done">0</b> / <span id="n-all">19</span></span>
+  <nav class="tally" id="tally" aria-label="进度，点击跳到对应发现"></nav>
+  <div class="bar-actions">
+    <button class="tbtn" id="only-open" aria-pressed="false">只看未判断</button>
+    <button class="tbtn" id="marks-toggle" aria-pressed="true">标记：显示</button>
+    <button class="tbtn primary" id="copy-top">复制结果</button>
+  </div>
+  <p class="status"><span id="status">正在启动…</span><button class="tbtn primary" id="store-action" type="button" hidden></button><span class="counts" id="counts"></span></p>
+</div></div>
+
+<div class="gutter"><div class="inner">
+<main id="list"></main>
+<section class="summary" id="summary">
+  <h2>汇总</h2>
+  <p class="lead" style="font-size:14px;color:var(--muted)">判断完后告诉 Claude 一声即可；如果页面提示只存在本浏览器，就点“复制结果”，把文本发给 Claude。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>编号</th><th>物体</th><th>是否真问题</th><th>prompt 是否写了</th><th>备注</th></tr></thead>
+    <tbody id="sum-body"></tbody>
+  </table></div>
+  <div class="copy-row"><button class="tbtn primary" id="copy-bottom">复制结果</button><span class="counts" id="copy-msg"></span></div>
+  <textarea id="copybox" readonly hidden aria-label="结果文本"></textarea>
+</section>
+<footer>来源：EECBench/experiments/vl_vv_full_first200_v3_20261109/miss_diagnosis（audit20、human_review）。关键帧为原始文件，未做处理；中文描述是 Claude 对审查员英文原文的翻译，原文在每条的“审查员原文”里。</footer>
+</div></div>
+
+<div class="lb" id="lb" hidden role="dialog" aria-modal="true" aria-label="放大查看关键帧">
+  <div class="lb-top">
+    <span class="lb-cap" id="lb-cap"></span>
+    <span class="bar-actions">
+      <button class="tbtn" id="lb-marks">隐藏标记 (M)</button>
+      <button class="tbtn" id="lb-close">关闭 (Esc)</button>
+    </span>
+  </div>
+  <div class="lb-stage" id="lb-stage">
+    <button class="lb-nav" id="lb-prev" aria-label="上一张">‹</button>
+    <div class="lb-fig" id="lb-fig"></div>
+    <button class="lb-nav" id="lb-next" aria-label="下一张">›</button>
+  </div>
+  <div class="lb-thumbs" id="lb-thumbs"></div>
+</div>
+
+<script type="application/json" id="data">__DATA_JSON__</script>
+<script>
+(function () {
+  'use strict';
+  window.addEventListener('error', function (e) { var s = document.getElementById('status'); if (s) s.textContent = '页面脚本出错：' + (e.message || 'unknown') + '。请把这句话发给 Claude。'; });
+  window.addEventListener('unhandledrejection', function (e) { var r = e.reason, s = document.getElementById('status'); if (s) s.textContent = '页面脚本出错：' + ((r && (r.code || r.message)) || r || 'unknown') + '。请把这句话发给 Claude。'; });
+  var DATA = JSON.parse(document.getElementById('data').textContent);
+  var F = DATA.findings;
+  var byId = {};
+  F.forEach(function (f) { byId[f.fid] = f; });
+  var L1 = { yes: '是真问题', no: '不是问题', unsure: '看不清' };
+  var L2 = { unspec: '没写（unspecified）', spec: '写了（specified）', unsure: '说不准' };
+  var state = {};
+  F.forEach(function (f) { state[f.fid] = { real: null, prompt: null, note: '' }; });
+  var LS_KEY = 'uec-unspecified-audit-review-v1';
+
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+  function imgPath(f, shot, k) { return 'img/' + f.num + '-' + f.mkey + '_' + shot + '_f' + k + '.jpg'; }
+  function parseCite(c) { var m = /^(Shot\d+) f(\d+)$/.exec(c); return { shot: m[1], k: +m[2] }; }
+  function marksHTML(boxes) {
+    return (boxes || []).map(function (b) {
+      return '<span class="mk ' + (b[4] === 'dashed' ? 'dashed' : 'solid') + '" style="left:' + (b[0] * 100) + '%;top:' + (b[1] * 100) +
+        '%;width:' + ((b[2] - b[0]) * 100) + '%;height:' + ((b[3] - b[1]) * 100) + '%"></span>';
+    }).join('');
+  }
+
+  /* ---------- render ---------- */
+  function vidHTML(f) {
+    var v = f.video; if (!v) return '';
+    var attrs = ' data-vid="v-' + f.fid + '" data-start="' + v.start + '" data-end="' + v.end + '" data-fps="' + v.fps + '"';
+    var kf = v.keyframes.map(function (t, i) { return '<button type="button" data-act="kf" data-t="' + t + '">f' + i + '</button>'; }).join('');
+    return '<div class="vid"><p class="vid-note">' + esc(v.label) + '</p>' +
+      '<video id="v-' + f.fid + '" controls preload="metadata" playsinline src="' + v.src + '#t=' + v.start + '"></video>' +
+      '<div class="vid-ctl"' + attrs + '><button type="button" data-act="back">← 1 帧</button><button type="button" data-act="fwd">1 帧 →</button>' +
+      '<button type="button" data-act="slow">0.25× 慢放</button><button type="button" data-act="normal">1× 速度</button>' +
+      '<span class="vid-time" id="vt-' + f.fid + '">暂停后可用 ← → 逐帧查看</span></div>' +
+      '<div class="vid-ctl"' + attrs + '><span class="vid-time">跳到 ' + esc(v.shot) + ' 的关键帧：</span>' + kf + '</div></div>';
+  }
+  function cardHTML(f) {
+    var cross = f.scope === 'cross_shot';
+    var frames = f.cited.map(function (c, i) {
+      var p = parseCite(c);
+      return '<figure class="frame" tabindex="0" role="button" data-fid="' + f.fid + '" data-seq="cited" data-i="' + i + '" aria-label="放大 ' + p.shot + ' f' + p.k + '">' +
+        '<img src="' + imgPath(f, p.shot, p.k) + '" alt="' + esc(f.model + ' ' + p.shot + ' 第 ' + p.k + ' 张关键帧') + '" width="832" height="480"' + (i > 1 ? ' loading="lazy"' : '') + '>' +
+        '<figcaption>' + p.shot + ' · f' + p.k + '</figcaption>' + marksHTML(f.markers[c]) + '</figure>';
+    }).join('');
+    var strips = f.shots.map(function (shot) {
+      var cells = '';
+      for (var k = 0; k < 6; k++) {
+        var cited = f.cited.indexOf(shot + ' f' + k) >= 0;
+        cells += '<figure class="thumb' + (cited ? ' cited' : '') + '" tabindex="0" role="button" data-fid="' + f.fid + '" data-seq="' + shot + '" data-i="' + k + '" aria-label="放大 ' + shot + ' f' + k + '">' +
+          '<img src="' + imgPath(f, shot, k) + '" alt="' + esc(shot + ' f' + k) + '" loading="lazy" width="832" height="480"><span>f' + k + '</span></figure>';
+      }
+      return '<p class="shotlabel">' + shot + '</p><div class="strip">' + cells + '</div>';
+    }).join('');
+    var prompt = f.shots.map(function (s) { return '<p><span class="k">' + s + '</span>' + esc(f.prompt[s]) + '</p>'; }).join('');
+    var lids = [].concat(f.ledger_ids || []);
+    var ids = lids.length ? '（' + lids.map(esc).join('、') + '）' : '';
+    return '<article class="card" id="f-' + f.fid + '" data-fid="' + f.fid + '" data-judged="0">' +
+      '<div class="card-head"><div class="idrow"><span class="fid">#' + f.fid + '</span>' +
+      '<span class="chip">' + (cross ? '跨镜头' : '镜头内') + '</span>' +
+      '<span class="chip mono">' + f.shots.join(cross ? ' ↔ ' : ' · ') + '</span>' +
+      '<span class="chip">审查员：' + (f.sure === 'clear' ? '明显' : '较可能') + '</span>' +
+      '<span class="stamp" data-v="" id="stamp-' + f.fid + '">未判断</span></div>' +
+      '<h3 class="obj">' + esc(f.obj_zh) + '</h3><p class="what">' + esc(f.what_zh) + '</p></div>' +
+      '<div class="sheet">' + frames + '</div>' + vidHTML(f) +
+      '<details class="more"><summary>这些镜头的全部关键帧（黄框为上面引用的帧）</summary><div class="more-body">' + strips + '</div></details>' +
+      '<details class="more"><summary>相关镜头的 prompt（英文原文）</summary><div class="more-body">' + prompt + '</div></details>' +
+      '<details class="more"><summary>审查员原文（英文）</summary><div class="more-body en"><p><b>' + esc(f.obj_en) + '</b></p><p>' + esc(f.what_en) + '</p></div></details>' +
+      '<details class="more"><summary>流水线结果（建议判断后再看）</summary><div class="more-body pipe">' +
+      '<p><b>第三次重跑：</b>' + esc(f.ledger_zh) + ids + '；' + esc(f.vv_zh) + '。</p>' +
+      '<p><b>昨晚的试验：</b>' + esc(f.night_zh) + '</p>' +
+      '<p class="note">审查员追踪记录：' + esc(f.trace_note) + '</p></div></details>' +
+      '<div class="verdict" data-fid="' + f.fid + '">' +
+      '<div class="q"><p class="q-label" id="q1-' + f.fid + '">1. 这个问题真实存在吗？</p><div class="seg" role="group" aria-labelledby="q1-' + f.fid + '" data-q="real">' +
+      '<button type="button" id="b-' + f.fid + '-real-yes" data-v="yes" aria-pressed="false">是真问题</button>' +
+      '<button type="button" id="b-' + f.fid + '-real-no" data-v="no" aria-pressed="false">不是问题</button>' +
+      '<button type="button" id="b-' + f.fid + '-real-unsure" data-v="unsure" aria-pressed="false">看不清</button></div></div>' +
+      '<div class="q"><p class="q-label" id="q2-' + f.fid + '">2. 所指物体 prompt 写了吗？<small>可选</small></p><div class="seg" role="group" aria-labelledby="q2-' + f.fid + '" data-q="prompt">' +
+      '<button type="button" id="b-' + f.fid + '-prompt-unspec" data-v="unspec" aria-pressed="false">没写（unspecified）</button>' +
+      '<button type="button" id="b-' + f.fid + '-prompt-spec" data-v="spec" aria-pressed="false">写了（specified）</button>' +
+      '<button type="button" id="b-' + f.fid + '-prompt-unsure" data-v="unsure" aria-pressed="false">说不准</button></div></div>' +
+      '<div class="q"><label class="q-label" for="note-' + f.fid + '">备注<small>可选</small></label>' +
+      '<textarea class="note-in" id="note-' + f.fid + '" data-fid="' + f.fid + '" rows="1" placeholder="例如：只在 f5 能看到；或者是视角变化"></textarea></div>' +
+      '</div></article>';
+  }
+
+  function render() {
+    var html = DATA.videos.map(function (v) {
+      var ents = v.entities.map(function (e) { return '<li>' + esc(e) + '</li>'; }).join('');
+      return '<section class="group" id="v-' + v.num + '"><div class="group-head"><h2><span>#' + v.num + '</span>' + esc(v.model) + '</h2>' +
+        '<span class="meta">' + v.shots + ' 个镜头 · ' + v.findings.length + ' 条发现</span></div>' +
+        '<details class="entities"><summary>合同实体（prompt 规定的实体）与全局 prompt</summary><ul>' + ents + '</ul>' +
+        '<div class="more-body"><p><span class="k">GLOBAL</span>' + esc(v.global_prompt) + '</p></div></details>' +
+        v.findings.map(function (fid) { return cardHTML(byId[fid]); }).join('') + '</section>';
+    }).join('');
+    document.getElementById('list').innerHTML = html;
+    document.getElementById('n-all').textContent = F.length;
+    document.getElementById('tally').innerHTML = F.map(function (f) {
+      return '<a href="#f-' + f.fid + '" data-fid="' + f.fid + '" data-v="" title="#' + f.fid + '" aria-label="#' + f.fid + ' 未判断"></a>';
+    }).join('');
+    document.getElementById('sum-body').innerHTML = F.map(function (f) {
+      return '<tr><td class="mono"><a href="#f-' + f.fid + '">#' + f.fid + '</a></td><td>' + esc(f.obj_zh.replace(/（.*$/, '')) + '</td>' +
+        '<td><span class="v" id="s1-' + f.fid + '" data-v="">—</span></td><td id="s2-' + f.fid + '">—</td><td id="s3-' + f.fid + '"></td></tr>';
+    }).join('');
+  }
+
+  function renderVerdict(fid) {
+    var s = state[fid];
+    ['real', 'prompt'].forEach(function (q) {
+      var seg = document.querySelector('.verdict[data-fid="' + fid + '"] .seg[data-q="' + q + '"]');
+      if (!seg) return;
+      Array.prototype.forEach.call(seg.querySelectorAll('button'), function (b) {
+        b.setAttribute('aria-pressed', s[q] === b.getAttribute('data-v') ? 'true' : 'false');
+        b.disabled = mode === 'readonly';
+      });
+    });
+    var ta = document.getElementById('note-' + fid);
+    if (ta && document.activeElement !== ta && ta.value !== (s.note || '')) ta.value = s.note || '';
+    if (ta) ta.readOnly = mode === 'readonly';
+    var stamp = document.getElementById('stamp-' + fid);
+    stamp.setAttribute('data-v', s.real || '');
+    stamp.textContent = s.real ? L1[s.real] : '未判断';
+    var card = document.getElementById('f-' + fid);
+    card.setAttribute('data-judged', s.real ? '1' : '0');
+    var s1 = document.getElementById('s1-' + fid);
+    s1.setAttribute('data-v', s.real || ''); s1.textContent = s.real ? L1[s.real] : '—';
+    document.getElementById('s2-' + fid).textContent = s.prompt ? L2[s.prompt] : '—';
+    document.getElementById('s3-' + fid).textContent = s.note || '';
+    var t = document.querySelector('#tally a[data-fid="' + fid + '"]');
+    t.setAttribute('data-v', s.real || '');
+    t.setAttribute('aria-label', '#' + fid + ' ' + (s.real ? L1[s.real] : '未判断'));
+  }
+
+  function renderTally() {
+    var c = { yes: 0, no: 0, unsure: 0 };
+    F.forEach(function (f) { if (state[f.fid].real) c[state[f.fid].real]++; });
+    document.getElementById('n-done').textContent = c.yes + c.no + c.unsure;
+    document.getElementById('counts').innerHTML = ' <i style="background:var(--real)"></i>真问题 ' + c.yes +
+      ' <i style="background:var(--clear)"></i>不是 ' + c.no + ' <i style="background:var(--unsure)"></i>看不清 ' + c.unsure;
+    applyFilter();
+  }
+  function renderAll() { F.forEach(function (f) { renderVerdict(f.fid); }); renderTally(); }
+
+  /* ---------- storage ----------
+     One shared document per finding: reviews/<fid> = {finding, real, prompt, note, updated}.
+     Every step has a timeout and its own status text, so the page never waits silently. */
+  var mode = 'connecting', db = null, perm = null, gotServer = false, loadTimer = null, subscribed = false;
+  var inflight = {}, pending = {}, retried = {}, touched = {};
+  var LOCAL_NOTE = '完成后请点“复制结果”发给 Claude。';
+  function setStatus(t) { document.getElementById('status').textContent = t; }
+  function showAction(label, fn) {
+    var b = document.getElementById('store-action');
+    if (!label) { b.hidden = true; b.onclick = null; return; }
+    b.textContent = label; b.onclick = fn; b.hidden = false;
+  }
+  function loadLocal() {
+    try {
+      var s = JSON.parse(localStorage.getItem(LS_KEY) || '{}');
+      Object.keys(s).forEach(function (k) { if (state[k] && s[k]) { state[k].real = s[k].real || null; state[k].prompt = s[k].prompt || null; state[k].note = s[k].note || ''; } });
+    } catch (e) { /* storage unavailable */ }
+  }
+  function saveLocal() { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch (e) { /* ignore */ } }
+  function toLocal(msg) { mode = 'local'; clearTimeout(loadTimer); setStatus(msg); renderAll(); }
+  function errText(e) { return (e && (e.code || e.message)) || String(e || 'unknown'); }
+  function withTimeout(p, ms, fallback) {
+    return new Promise(function (resolve) {
+      var done = false;
+      var t = setTimeout(function () { if (!done) { done = true; resolve({ timedOut: true, value: fallback }); } }, ms);
+      Promise.resolve(p).then(function (v) {
+        if (!done) { done = true; clearTimeout(t); resolve({ timedOut: false, value: v }); }
+      }, function (e) {
+        if (!done) { done = true; clearTimeout(t); resolve({ timedOut: false, value: fallback, error: e }); }
+      });
+    });
+  }
+
+  function persist(fid) {
+    saveLocal();
+    if (mode !== 'db') {
+      touched[fid] = true;
+      if (mode === 'local') setStatus('已存在本浏览器（共享存储不可用）。' + LOCAL_NOTE);
+      else if (mode === 'needs-grant') setStatus('已先存在本浏览器；点“授权保存”后会同步到共享存储。');
+      return;
+    }
+    if (inflight[fid]) { pending[fid] = true; return; }
+    inflight[fid] = true;
+    setStatus('保存中…');
+    var s = state[fid];
+    var body = { finding: fid, real: s.real, prompt: s.prompt, note: s.note || '', updated: new Date().toISOString() };
+    db.collection('reviews').doc(fid).set(body).then(function () {
+      retried[fid] = false;
+      setStatus('已保存，Claude 可以直接读取。');
+    }).catch(function (e) {
+      var code = errText(e);
+      if (code === 'unavailable' && !retried[fid]) {
+        retried[fid] = true; pending[fid] = false;
+        setTimeout(function () { persist(fid); }, 700 + Math.random() * 900);
+        return;
+      }
+      if (code === 'invalid_argument') { mode = 'readonly'; renderAll(); setStatus('没有写入权限，判断不会保存到共享存储。' + LOCAL_NOTE); return; }
+      touched[fid] = true;
+      setStatus('保存失败（' + code + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    }).then(function () {
+      inflight[fid] = false;
+      if (pending[fid]) { pending[fid] = false; persist(fid); }
+    });
+  }
+
+  function connect() {
+    if (subscribed) return;
+    subscribed = true; mode = 'db'; showAction(null);
+    setStatus('已连接，正在读取已保存的判断…');
+    renderAll();
+    loadTimer = setTimeout(function () {
+      if (!gotServer) setStatus('共享存储 10 秒内没有返回数据。新的判断会继续尝试保存；如果一直这样，请刷新页面，或点“复制结果”发给 Claude。');
+    }, 10000);
+    db.collection('reviews').onSnapshot(function (snap) {
+      var seen = {};
+      snap.docs.forEach(function (doc) {
+        var v = doc.data(); if (!v || !state[v.finding]) return;
+        var fid = v.finding; seen[fid] = true;
+        if (inflight[fid] || pending[fid] || touched[fid]) return;
+        var s = state[fid]; s.real = v.real || null; s.prompt = v.prompt || null;
+        var ta = document.getElementById('note-' + fid);
+        if (!(ta && document.activeElement === ta)) s.note = v.note || '';
+        renderVerdict(fid);
+      });
+      if (!snap.metadata.fromCache && !gotServer) {
+        gotServer = true; clearTimeout(loadTimer);
+        setStatus(snap.empty ? '已连接。每次点击自动保存，Claude 可以直接读取。' : '已读取之前保存的判断。每次点击自动保存。');
+        /* one-time upload of answers given before the store answered, or kept only in this browser */
+        F.forEach(function (f) {
+          var s = state[f.fid], has = s.real || s.prompt || s.note;
+          if (touched[f.fid] || (!seen[f.fid] && has)) { touched[f.fid] = false; setTimeout(function () { persist(f.fid); }, 0); }
+        });
+      }
+      renderTally();
+      saveLocal();
+    }, function (err) {
+      subscribed = false;
+      toLocal('共享存储出错（' + errText(err) + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    });
+  }
+
+  function openManage() {
+    perm.manage().then(recheck, function () { setStatus('权限面板没有打开。请在页面右上角菜单的 Permissions 里打开这个页面的存储权限，然后刷新。'); });
+  }
+  function recheck() {
+    withTimeout(perm.state('db'), 5000, null).then(function (r) {
+      if (r.value === 'granted') connect();
+      else if (r.value === 'prompt') { mode = 'needs-grant'; renderAll(); setStatus('保存到共享存储需要你授权一次。授权前的判断先存在本浏览器。'); showAction('授权保存', askGrant); }
+    });
+  }
+  function askGrant() {
+    setStatus('请在弹出的对话框里确认。如果没有看到对话框，判断仍会先存在本浏览器。');
+    perm.request(['db']).then(function (r) {
+      var st = r && r.db;
+      if (st === 'granted') connect();
+      else if (st === 'denied') { mode = 'local'; renderAll(); setStatus('没有授权，判断只存在本浏览器。' + LOCAL_NOTE); showAction('打开权限设置', openManage); }
+      else setStatus('授权没有完成（' + (st || '未知') + '），判断先存在本浏览器。' + LOCAL_NOTE);
+    }, function (e) { setStatus('授权请求失败（' + errText(e) + '），判断先存在本浏览器。' + LOCAL_NOTE); });
+  }
+
+  function initStore() {
+    var c = window.claude;
+    if (!c || typeof c.use !== 'function') { toLocal('这个页面不在 Claude 查看器里打开，判断只存在本浏览器。' + LOCAL_NOTE); return; }
+    setStatus('正在连接共享存储（载入存储模块）…');
+    withTimeout(Promise.all([c.use('db'), c.use('permissions')]), 12000, null).then(function (r) {
+      var d = r.value && r.value[0], p = r.value && r.value[1];
+      if (!d) {
+        toLocal((r.timedOut ? '共享存储 12 秒内没有响应' : r.error ? '共享存储载入出错（' + errText(r.error) + '）' : '共享存储不可用') + '，判断只存在本浏览器。' + LOCAL_NOTE);
+        return;
+      }
+      db = d; perm = p;
+      if (!perm) { connect(); return; }
+      setStatus('正在连接共享存储（检查授权）…');
+      return withTimeout(perm.state('db'), 5000, null).then(function (s) {
+        if (s.value === 'denied') {
+          mode = 'local'; renderAll();
+          setStatus('这个页面的存储权限之前被拒绝了，判断只存在本浏览器。');
+          showAction('打开权限设置', openManage);
+        } else if (s.value === 'prompt') {
+          mode = 'needs-grant'; renderAll();
+          setStatus('保存到共享存储需要你授权一次。授权前的判断先存在本浏览器，授权后自动同步。');
+          showAction('授权保存', askGrant);
+        } else connect();
+      });
+    }).catch(function (e) { toLocal('连接共享存储时出错（' + errText(e) + '），判断只存在本浏览器。' + LOCAL_NOTE); });
+  }
+
+  /* ---------- interactions ---------- */
+  var noteTimers = {};
+  function videoAct(btn) {
+    var ctl = btn.closest('.vid-ctl'), v = document.getElementById(ctl.getAttribute('data-vid'));
+    if (!v) return;
+    var fps = +ctl.getAttribute('data-fps') || 16, act = btn.getAttribute('data-act');
+    try {
+      if (act === 'kf') { v.pause(); v.currentTime = (Math.floor(+btn.getAttribute('data-t') * fps + 1e-6) + 0.5) / fps; }
+      else if (act === 'back') { v.pause(); v.currentTime = Math.max(0, (Math.floor(v.currentTime * fps + 1e-6) - 0.5) / fps); }
+      else if (act === 'fwd') { v.pause(); v.currentTime = (Math.floor(v.currentTime * fps + 1e-6) + 1.5) / fps; }
+      else if (act === 'slow') { v.playbackRate = 0.25; var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      else if (act === 'normal') { v.playbackRate = 1; }
+    } catch (e) { /* media not ready yet */ }
+  }
+  function showTime(ev) {
+    var v = ev.target; if (!v || v.tagName !== 'VIDEO') return;
+    var ctl = document.querySelector('.vid-ctl[data-vid="' + v.id + '"]'); if (!ctl) return;
+    var fps = +ctl.getAttribute('data-fps') || 16, s0 = +ctl.getAttribute('data-start'), s1 = +ctl.getAttribute('data-end');
+    var t = v.currentTime, fr = Math.floor(t * fps + 1e-6), rel = fr - Math.round(s0 * fps);
+    var out = document.getElementById('vt-' + v.id.slice(2)); if (!out) return;
+    out.textContent = t.toFixed(2) + ' 秒 · 视频第 ' + fr + ' 帧' + (t >= s0 - 1e-6 && t < s1 ? ' · 该镜头第 ' + rel + ' 帧' : ' · 不在该镜头内') + (v.playbackRate !== 1 ? ' · ' + v.playbackRate + '×' : '');
+  }
+  ['timeupdate', 'seeked', 'ratechange'].forEach(function (n) { document.addEventListener(n, showTime, true); });
+  document.addEventListener('click', function (ev) {
+    var vb = ev.target.closest('.vid-ctl button');
+    if (vb) { videoAct(vb); return; }
+    var b = ev.target.closest('.seg button');
+    if (b && !b.disabled) {
+      var fid = b.closest('.verdict').getAttribute('data-fid');
+      var q = b.closest('.seg').getAttribute('data-q');
+      var v = b.getAttribute('data-v');
+      state[fid][q] = state[fid][q] === v ? null : v;
+      renderVerdict(fid); renderTally(); persist(fid);
+      return;
+    }
+    var fig = ev.target.closest('.frame, .thumb');
+    if (fig) { openLB(fig); }
+  });
+  document.addEventListener('keydown', function (ev) {
+    if (!lb.hidden) return;
+    var fig = ev.target.closest && ev.target.closest('.frame, .thumb');
+    if (fig && (ev.key === 'Enter' || ev.key === ' ')) { ev.preventDefault(); openLB(fig); }
+  });
+  document.addEventListener('input', function (ev) {
+    var ta = ev.target.closest('.note-in'); if (!ta) return;
+    var fid = ta.getAttribute('data-fid');
+    state[fid].note = ta.value;
+    document.getElementById('s3-' + fid).textContent = ta.value;
+    clearTimeout(noteTimers[fid]);
+    noteTimers[fid] = setTimeout(function () { persist(fid); }, 900);
+  });
+  document.addEventListener('focusout', function (ev) {
+    var ta = ev.target.closest && ev.target.closest('.note-in'); if (!ta) return;
+    var fid = ta.getAttribute('data-fid');
+    if (noteTimers[fid]) { clearTimeout(noteTimers[fid]); noteTimers[fid] = null; persist(fid); }
+  });
+
+  function applyFilter() {
+    var on = document.body.classList.contains('only-open');
+    Array.prototype.forEach.call(document.querySelectorAll('.group'), function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll('.card'), function (c) { return c.getAttribute('data-judged') !== '1'; });
+      g.hidden = on && !any;
+    });
+  }
+  document.getElementById('only-open').addEventListener('click', function () {
+    var on = document.body.classList.toggle('only-open');
+    this.setAttribute('aria-pressed', on ? 'true' : 'false');
+    applyFilter();
+  });
+  function setMarks(show) {
+    document.body.classList.toggle('nomarks', !show);
+    var t = document.getElementById('marks-toggle');
+    t.setAttribute('aria-pressed', show ? 'true' : 'false'); t.textContent = show ? '标记：显示' : '标记：隐藏';
+    document.getElementById('lb-marks').textContent = show ? '隐藏标记 (M)' : '显示标记 (M)';
+  }
+  document.getElementById('marks-toggle').addEventListener('click', function () { setMarks(document.body.classList.contains('nomarks')); });
+
+  function resultText() {
+    var now = new Date();
+    var stamp;
+    try { stamp = now.toLocaleString('zh-CN', { timeZone: 'Asia/Dubai', hour12: false }) + '（迪拜时间）'; } catch (e) { stamp = now.toISOString(); }
+    var lines = ['UEC-Bench unspecified 抽查复核结果，' + stamp, '编号\t是否真问题\tprompt 是否写了\t备注'];
+    F.forEach(function (f) {
+      var s = state[f.fid];
+      lines.push('#' + f.fid + '\t' + (s.real ? L1[s.real] : '未判断') + '\t' + (s.prompt ? L2[s.prompt] : '—') + '\t' + (s.note || '').replace(/\s+/g, ' '));
+    });
+    return lines.join('\n');
+  }
+  function flash(el, text) { var m = document.getElementById('copy-msg'); m.textContent = text; var old = el.textContent; el.textContent = text; setTimeout(function () { el.textContent = old; }, 1600); }
+  function copyResults(ev) {
+    var btn = ev.currentTarget, t = resultText();
+    var fallback = function () {
+      var box = document.getElementById('copybox'); box.hidden = false; box.value = t;
+      box.scrollIntoView({ block: 'center' }); box.focus(); box.select();
+      flash(btn, '已选中文本，请按 Ctrl/⌘+C');
+    };
+    try {
+      navigator.clipboard.writeText(t).then(function () { flash(btn, '已复制'); }, fallback);
+    } catch (e) { fallback(); }
+  }
+  document.getElementById('copy-top').addEventListener('click', copyResults);
+  document.getElementById('copy-bottom').addEventListener('click', copyResults);
+
+  /* ---------- lightbox ---------- */
+  var lb = document.getElementById('lb'), lbFig = document.getElementById('lb-fig'), lbStage = document.getElementById('lb-stage');
+  var seq = [], cur = 0, lastFocus = null;
+  function buildSeq(f, kind) {
+    if (kind === 'cited') return f.cited.map(function (c) { var p = parseCite(c); return { f: f, shot: p.shot, k: p.k, cite: c }; });
+    var out = [];
+    for (var k = 0; k < 6; k++) out.push({ f: f, shot: kind, k: k, cite: kind + ' f' + k });
+    return out;
+  }
+  function fitLB() {
+    var r = lbStage.getBoundingClientRect();
+    var navW = 2 * (document.getElementById('lb-prev').offsetWidth + 6);
+    var maxW = Math.max(120, r.width - navW), maxH = Math.max(80, r.height);
+    var w = Math.min(maxW, maxH * 832 / 480, 1664);
+    lbFig.style.width = w + 'px'; lbFig.style.height = (w * 480 / 832) + 'px';
+  }
+  function showLB() {
+    var it = seq[cur];
+    lbFig.innerHTML = '<img src="' + imgPath(it.f, it.shot, it.k) + '" alt="' + esc(it.f.model + ' ' + it.cite) + '">' + marksHTML(it.f.markers[it.cite]);
+    document.getElementById('lb-cap').textContent = '#' + it.f.fid + ' · ' + it.f.model + ' · ' + it.shot + ' · f' + it.k + '   （' + (cur + 1) + ' / ' + seq.length + '）';
+    document.getElementById('lb-prev').disabled = cur === 0;
+    document.getElementById('lb-next').disabled = cur === seq.length - 1;
+    document.getElementById('lb-thumbs').innerHTML = seq.map(function (s, i) {
+      return '<button type="button" data-i="' + i + '" aria-label="' + esc(s.cite) + '"' + (i === cur ? ' aria-current="true"' : '') + '><img src="' + imgPath(s.f, s.shot, s.k) + '" alt=""></button>';
+    }).join('');
+    fitLB();
+  }
+  function openLB(fig) {
+    var f = byId[fig.getAttribute('data-fid')];
+    seq = buildSeq(f, fig.getAttribute('data-seq')); cur = +fig.getAttribute('data-i');
+    lastFocus = fig; lb.hidden = false; document.body.style.overflow = 'hidden';
+    showLB(); document.getElementById('lb-close').focus();
+  }
+  function closeLB() { lb.hidden = true; document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  function step(d) { var n = cur + d; if (n < 0 || n >= seq.length) return; cur = n; showLB(); }
+  document.getElementById('lb-close').addEventListener('click', closeLB);
+  document.getElementById('lb-prev').addEventListener('click', function () { step(-1); });
+  document.getElementById('lb-next').addEventListener('click', function () { step(1); });
+  document.getElementById('lb-marks').addEventListener('click', function () { setMarks(document.body.classList.contains('nomarks')); });
+  document.getElementById('lb-thumbs').addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) { cur = +b.getAttribute('data-i'); showLB(); } });
+  lbStage.addEventListener('click', function (ev) { if (ev.target === lbStage) closeLB(); });
+  window.addEventListener('resize', function () { if (!lb.hidden) fitLB(); });
+  document.addEventListener('keydown', function (ev) {
+    if (lb.hidden) {
+      if ((ev.key === 'm' || ev.key === 'M') && !/^(TEXTAREA|INPUT)$/.test(ev.target.tagName)) setMarks(document.body.classList.contains('nomarks'));
+      return;
+    }
+    if (ev.key === 'Escape') { ev.preventDefault(); closeLB(); }
+    else if (ev.key === 'ArrowLeft') { ev.preventDefault(); step(-1); }
+    else if (ev.key === 'ArrowRight') { ev.preventDefault(); step(1); }
+    else if (ev.key === 'm' || ev.key === 'M') { setMarks(document.body.classList.contains('nomarks')); }
+    else if (ev.key === 'Tab') {
+      var foc = Array.prototype.filter.call(lb.querySelectorAll('button'), function (b) { return !b.disabled; });
+      if (!foc.length) return;
+      var i = foc.indexOf(document.activeElement);
+      if (ev.shiftKey && (i <= 0)) { ev.preventDefault(); foc[foc.length - 1].focus(); }
+      else if (!ev.shiftKey && i === foc.length - 1) { ev.preventDefault(); foc[0].focus(); }
+    }
+  });
+
+  render();
+  loadLocal();
+  renderAll();
+  initStore();
+})();
+</script>

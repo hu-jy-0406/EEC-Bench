@@ -1,0 +1,135 @@
+{
+ "task": "priority_120__storymem",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Brown-jacketed man",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Suited man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Orchestral performance space",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Chairs",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Music stands",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Sheet music",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Cables",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Curved reddish edge",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Brown-jacketed man's shadow",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Curtains",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects": [],
+   "description": "Shot4面部光线比Shot1–3明显更亮、更中性，场景暗暖色调不一致，镜头变化本身不足以解释光照差异。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot4",
+     0
+    ]
+   ],
+   "description": "同一管弦乐演出空间中，Shot4（如帧0）人物面部和衣物受到明亮、偏中性的正面光照，背景近乎全黑；相较之下，Shot2（帧0）及Shot3（帧2）整体保持较暗的暖色光线，人物面部没有同等强度的正面照明，光照与色调明显不同。"
+  }
+ ]
+}

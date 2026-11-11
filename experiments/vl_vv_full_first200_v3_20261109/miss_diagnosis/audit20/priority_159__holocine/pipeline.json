@@ -1,0 +1,304 @@
+{
+ "task": "priority_159__holocine",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Uniformed man",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Woman in yellow",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Woman in blue",
+   "shots": [
+    "Shot1",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Platinum-haired woman",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Woman in striped dress",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Woman in zebra-patterned dress",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Shot2 edge women",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Seated fishnet-leg woman",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Stocking-adjusting hand owners",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Booted-leg person",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Boot-tugging hand owner",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Shot3 skirt-and-knee figures",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Shot4 surrounding women",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0014",
+   "label": "specified",
+   "name": "Vehicle compartment",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0015",
+   "label": "specified",
+   "name": "Gridded rear-door assembly",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0016",
+   "label": "specified",
+   "name": "Makeup tool",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0017",
+   "label": "specified",
+   "name": "Oval hand mirror",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0018",
+   "label": "specified",
+   "name": "Wire-gridded side windows",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0019",
+   "label": "specified",
+   "name": "Strapped tan rolls",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0020",
+   "label": "specified",
+   "name": "Overhead rails",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0021",
+   "label": "specified",
+   "name": "Platinum-haired woman's garment",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0022",
+   "label": "specified",
+   "name": "Striped-dress woman's belt",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0023",
+   "label": "specified",
+   "name": "Seated woman's stocking",
+   "shots": [
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0024",
+   "label": "specified",
+   "name": "Booted-leg person's ankle boot",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "制服男子的领带在Shot1为深色，在Shot4明显为亮紫红色；未见换装或其他原因。"
+  },
+  {
+   "id": "V2",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0014"
+   ],
+   "description": "Shot2各帧人物后方为大片黑色空背景，缺少Shot1与Shot4可见的金属舱壁和网格窗；同一隔间背景不一致。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "instance_count",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "制服男在Shot1穿深色领带，Shot4却变为亮紫红领带；同一角色无更衣或更换的可见原因，外观属性发生替换。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1+V3",
+   "from_candidates": [
+    "V1",
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     5
+    ],
+    [
+     "Shot4",
+     4
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "制服男子在Shot1画面中系深色领带（如frame 5），而Shot4画面中的领带为亮紫红色（如frame 4、5），两处领带颜色不一致。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0014",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     3
+    ],
+    [
+     "Shot4",
+     0
+    ]
+   ],
+   "description": "Shot2画面中人物后方呈大片纯黑色，未见Shot1和Shot4中可见的灰色金属舱壁及网格窗；同一车辆隔间的背景外观不一致。"
+  }
+ ]
+}

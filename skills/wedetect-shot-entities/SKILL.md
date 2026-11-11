@@ -59,7 +59,11 @@ reviewers.
 The refined 2026-09-20 rule keeps clearly distinguishable individual objects
 separate, including adjacent cups. Merge only genuine multi-item aggregates
 such as a basket/pile of oranges or a bunch of pens in one holder; proximity or
-same category alone is insufficient. Containers remain separate. See the
+same category alone is insufficient. Containers remain separate. Since
+2026-11-02 (owner, open-questions Q11) the collection condition is the number
+and kind of the items, not how visible each one is: a large number of same-kind
+items gathered together is one node even when every item is clearly visible; a
+few items stay separate. See the
 individual/collection criteria in review_prompt.txt. Preserve original candidate
 ownership, box scopes and independent per-shot contexts.
 

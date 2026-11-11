@@ -74,7 +74,9 @@ def fr(shot, frame):
     return dict(shot_id=shot, frame_id=frame)
 
 
-def vl_response(rows):
+def vl_response(rows, protocol='vl_vv_issue_discovery_v5_vl'):
+    # Discovery v6 links issues by requirement ID (owner, 2026-11-04): its rows list no issue_ids.
+    links = {} if protocol == 'vl_vv_issue_discovery_v6_vl' else dict(issue_ids=[])
     checks = []
     for row in rows:
         shot = row['shot_id']
@@ -82,11 +84,19 @@ def vl_response(rows):
             frames = [fr(sid, 1) for sid in row['shot_ids']]
         else:
             frames = [fr(row['from_shot'], 5), fr(shot, 0)] if row['kind'] == 'transition' else [fr(shot, 1), fr(shot, 4)]
-        checks.append(dict(row_id=row['row_id'], observed='画面内容', status='satisfied', violated_items=[], frame_refs=frames, issue_ids=[]))
-    return dict(protocol='vl_vv_issue_discovery_v5_vl', checks=checks, added_entities=[], issues=[])
+        checks.append(dict(row_id=row['row_id'], observed='画面内容', status='satisfied', violated_items=[], frame_refs=frames, **links))
+    return dict(protocol=protocol, checks=checks, added_entities=[], issues=[])
 
 
-def vv_response(payload, shots):
+def vv_response(payload, shots, trailing_text=None):
+    if payload['protocol'] == 'vl_vv_issue_discovery_v6_vv_item':  # chain v6 default: one call per item (2026-11-09)
+        item = re.search(r'^- (\S+) \[', trailing_text, re.M).group(1)
+        return dict(protocol=payload['protocol'], added_entities=[],
+                    checklist=[dict(item=item, status='checked', note='已查', issues=[])])
+    if payload['protocol'] != 'vl_vv_issue_discovery_v5_vv':  # chain v6 walks the checklist (2026-11-09)
+        return dict(protocol=payload['protocol'], added_entities=[],
+                    checklist=[dict(item=item, status='checked', note='已查', issues=[], earlier_issue_ids=[])
+                               for item in common.checklist_items(common.chain_config('v6'))])
     changes = [dict(change_id=f'c{index}', scope='cross_shot', shot_ids=[a, b], aspect='camera_position', entity_keys=[],
                     description='切换机位', frame_refs=[fr(a, 5), fr(b, 0)], judgment='normal', cause='required_transition',
                     cause_basis='切换', cause_quote='', issue_id=None) for index, (a, b) in enumerate(zip(shots, shots[1:]), 1)]
@@ -94,12 +104,13 @@ def vv_response(payload, shots):
                  characters=[dict(entity_key=key, face='面部', hair_clothing='服装', action='动作', stable=True)
                              for key in payload['required_shot_characters'][sid]]) for sid in shots]
     subjects = [dict(subject_kind=row['subject_kind'], entity_keys=[row['global_entity_id']], name=row['name'],
-                     observations=[dict(shot_id=sid, frame_id=1, signature='特征') for sid in row['scheduled_shot_ids']],
+                     observations=[dict(shot_id=sid, frame_id=1, signature='特征')
+                                   for sid in row.get('shot_ids', row['scheduled_shot_ids'])],
                      assessment='consistent', change_ids=[]) for row in payload['required_continuity_subjects']]
     boundaries = [dict(from_shot=a, to_shot=b, last_frame='末帧', first_frame='首帧', continuity='连续', change_ids=[f'c{index}'])
                   for index, (a, b) in enumerate(zip(shots, shots[1:]), 1)]
-    return dict(protocol='vl_vv_issue_discovery_v5_vv', entity_register=[], observed_changes=changes, shot_scan=scan,
-                continuity_ledger=subjects, boundary_checks=boundaries, issues=[],
+    return dict(protocol=payload['protocol'], observed_changes=changes, shot_scan=scan,
+                continuity_ledger=subjects, boundary_checks=boundaries, issues=[], entity_register=[],
                 checklist_audit=[dict(item=item, status='checked', note='已查') for item in common.checklist_items()])
 
 
@@ -202,6 +213,47 @@ class Frontend(unittest.TestCase):
                     block = next(b for b in contract['shots'] if b['shot_id'] == entry['shot_id'])
                     listed = int(row['prompt_entity_id']) in block['presence']
                     self.assertEqual(entry['expectation'], 'required' if listed else 'not_required')
+
+    def test_every_contract_entity_has_a_registry_entry_and_ledger_record(self):
+        # Q16 (owner, 2026-11-02): CAMERA_EPISODE's "Unspecified figure" (ID 1) is only in Shot4 absent.
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            contract = load(CAMERA_EPISODE)
+            (root / 'manifest.json').write_text(json.dumps(manifest(contract, root)))
+            frontend.prepare(root / 'manifest.json', FIXTURES / CAMERA_EPISODE / 'contract_with_evidence.json', root / 'case')
+            case = root / 'case'
+            registry = json.loads((case / 'prompt_registry.json').read_text())
+            narrative = json.loads((case / 'narrative.json').read_text())
+            shots = json.loads((case / 'raw_manifest.json').read_text())['shots']
+            self.assertEqual([row['prompt_entity_id'] for row in registry['entities']], list(contract['entity_descriptions']))
+            figure = next(row for row in registry['entities'] if row['prompt_entity_id'] == '1')
+            self.assertEqual({entry['expectation'] for entry in figure['schedule']}, {'not_required'})
+            self.assertEqual(figure['evidence'], [dict(fact_id=contract_io.NO_PRESENCE_FACT, quote=figure['name'])])
+            extra = [fact for fact in narrative['facts'] if fact['fact_id'] == contract_io.NO_PRESENCE_FACT]
+            self.assertEqual(len(extra), 1)
+            self.assertIsNone(extra[0]['shot_id'])
+            self.assertIn(figure['name'], extra[0]['text'])
+            binding.validate_registry(registry, shots, narrative)
+            shot = shots[3]
+            (case / 'entities/shots' / shot['shot_id']).mkdir(parents=True)
+            (case / 'entities/shots' / shot['shot_id'] / 'entities.json').write_text(json.dumps(dict(entities=[])))
+            payload = recovery.own_payload(case, shot, registry, narrative)
+            self.assertIn('1', [row['prompt_entity_id'] for row in payload['prompt_entities']])
+            self.assertIn(contract_io.NO_PRESENCE_FACT, [fact['fact_id'] for fact in payload['narrative']])
+            bindings = dict(bindings=[], queries=[dict(prompt_entity_id=row['prompt_entity_id'], detection_query=row['name'])
+                                                  for row in payload['prompt_entities']])
+            coverage = recovery.coverage(payload, bindings, shot['frames'])
+            self.assertEqual(next(row for row in coverage if row['prompt_entity_id'] == '1')['missing_detection_frame_ids'], [])
+            ptag, utag = frontend.match_v2_tags(registry, [])
+            for name in ('entities.json', 'input.json'):
+                for block in shots:
+                    folder = case / 'shot_prompt_recovery/entities/shots' / block['shot_id']
+                    folder.mkdir(parents=True, exist_ok=True)
+                    (folder / name).write_text('{}')
+            (case / 'shot_prompt_recovery/results.json').write_text('{}')
+            ledger = frontend.build_episode_entities_v2(case, dict(assignments=[]), shots, registry, [], ptag, utag)
+        record = next(row for row in ledger['prompt_bound'] if row['prompt_entity_id'] == '1')
+        self.assertEqual((record['name'], record['occurrences']), (figure['name'], []))
 
     def test_binding_and_recovery_expect_the_presence_of_their_own_shot(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -364,6 +416,24 @@ class VLGates(unittest.TestCase):
         self.result['issues'].append(issue('L2', row['shot_ids'][-1:]))
         self.assertTrue(any('belongs to exactly one issue' in error for error in self.errors()))
 
+    def test_chain_v6_lists_each_requirement_an_absence_leaves_unmet_but_not_the_description(self):
+        cfg = common.config(common.CONFIG_V2_PATH)
+        rows = common.contract_template(self.contract, self.book, self.manifest, common.cut_boundaries(self.manifest),
+                                        requirement_ids=True)
+        result = vl_response(rows)
+        row = next(row for row in rows if row['kind'] == 'entity'
+                   and {item['item_id'].split('-')[1] for item in row['items']} >= {'des', 'pre', 'spa'})
+        ids = {item['item_id'].split('-')[1]: item['item_id'] for item in row['items']}
+        entry = next(entry for entry in result['checks'] if entry['row_id'] == row['row_id'])
+
+        def gate(items):
+            entry.update(status='violated', violated_items=items)
+            return ' '.join(detection.vl_errors(result, rows, self.book, self.manifest, self.sources, cfg=cfg))
+        text = gate([ids['pre'], ids['spa']])
+        self.assertNotIn('one absence is reported once', text)
+        self.assertNotIn('the description applies only where the entity appears', text)
+        self.assertIn('the description applies only where the entity appears', gate([ids['pre'], ids['des']]))
+
     def test_style_row_is_one_requirement(self):
         row, entry = self.check('style')
         entry.update(status='violated', violated_items=['style'], issue_ids=['L1', 'L2'])
@@ -401,7 +471,13 @@ class Consistency(unittest.TestCase):
 def fake_loop(shots):
     def call(folder, payload, images, timeout, *, prompt_path, schema, model, reasoning, collect_errors, stage, repair_prompt=None, **kwargs):
         import jsonschema
-        response = (vl_response(payload['contract_check_template']) if 'contract_check_template' in payload else vv_response(payload, shots))
+        if 'requirements' in payload:  # V-L answers format (default since 2026-11-05): every requirement satisfied
+            response = dict(protocol=payload['protocol'], answers={
+                entry['requirement_id']: dict(observed='画面内容', verdict='satisfied') for entry in payload['requirements']})
+        elif 'contract_check_template' in payload:
+            response = vl_response(payload['contract_check_template'], payload['protocol'])
+        else:
+            response = vv_response(payload, shots, kwargs.get('trailing_text'))
         jsonschema.validate(response, schema)
         errors, value = collect_errors(response)
         assert not errors, errors

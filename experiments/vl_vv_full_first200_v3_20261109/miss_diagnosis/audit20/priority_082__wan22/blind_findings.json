@@ -1,0 +1,16 @@
+{
+  "task": "priority_082__wan22: blind audit of visual consistency problems involving entities the prompt does not describe (4 shots: gray stag, cloaked figure with antlered skull, barren rocky plain).",
+  "primary": [],
+  "secondary": [
+    {
+      "id": "B1",
+      "entity": "rocky ground (part of the plain)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2", "Shot3", "Shot4"],
+      "frames": ["Shot1 f0", "Shot2 f0", "Shot3 f0", "Shot4 f0"],
+      "what": "The ground the prompt calls the same rocky plain changes type between shots: large rounded boulders on a ledge (Shot1), tilted layered slate slabs (Shot2), a field of loose flat stones with moss patches (Shot3), and a smooth dark grassy hill (Shot4); viewpoint changes could partly explain this.",
+      "sure": "likely"
+    }
+  ],
+  "unspecified_seen": "No distinct unprompted object, plant, animal or person is visible; only parts of the place (boulders, slate slabs, loose scree with moss, a pale distant band, possibly water or mist, at the bottom of Shot4) and parts of the figure (dark boots under the cloak in Shot1, a small ring on a finger in Shot4); none is a separate entity recurring across shots. Visible problems concern prompted entities (skull/head and stag color/antlers change across shots), outside this audit's primary list."
+}

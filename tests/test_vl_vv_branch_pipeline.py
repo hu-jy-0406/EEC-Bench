@@ -1,4 +1,8 @@
-"""Branch-separated V-L / V-V pipeline (discovery v5, review v6, scoring v5); no API, GPU or Slurm calls."""
+"""Branch-separated V-L / V-V pipeline, chain v5 (discovery v5, review v6, scoring v5); no API, GPU or Slurm calls.
+
+Chain v5 stays selectable after chain v6 became the default (2026-11-02); its stage runs here pass chain='v5'.
+Chain v6 is tested in test_vl_vv_pipeline_sync.py.
+"""
 import copy
 import hashlib
 import importlib.util
@@ -711,11 +715,28 @@ def make_case(root):
     return case
 
 
+def per_item_response(full, trailing_text):
+    """The answer of one per-item V-V detection call, cut from a whole-checklist response: the item's entry with its
+    issues numbered within the call and the added entities they use."""
+    item = trailing_text.split('\n')[1].split()[1]
+    entry = copy.deepcopy(next(row for row in full['checklist'] if row['item'] == item))
+    entry.pop('earlier_issue_ids', None)
+    for number, issue in enumerate(entry['issues'], 1):
+        issue['issue_id'] = f'V{number}'
+    used = {ref['entity_key'] for issue in entry['issues'] for ref in issue['entities']} | \
+        {key for issue in entry['issues'] for evidence in issue['key_evidence'] for key in evidence['entity_keys']}
+    return dict(protocol='vl_vv_issue_discovery_v6_vv_item', checklist=[entry],
+                added_entities=[copy.deepcopy(row) for row in full['added_entities'] if row['entity_key'] in used])
+
+
 def fake_repair_loop(responses):
     def call(folder, payload, images, timeout, *, prompt_path, schema, model, reasoning, collect_errors, stage,
              repair_prompt=None, **kwargs):
         import jsonschema
-        response = copy.deepcopy(responses[payload['protocol']])
+        if payload['protocol'] == 'vl_vv_issue_discovery_v6_vv_item':  # one call per checklist item (2026-11-09)
+            response = per_item_response(responses['vl_vv_issue_discovery_v6_vv'], kwargs['trailing_text'])
+        else:
+            response = copy.deepcopy(responses[payload['protocol']])
         jsonschema.validate(response, schema)
         errors, value = collect_errors(response)
         assert not errors, errors
@@ -740,11 +761,11 @@ class OfflineEndToEnd(unittest.TestCase):
             with mock.patch.dict('os.environ', env), \
                     mock.patch.object(detection.repair_loop, 'call_with_repair', fake_repair_loop(responses)):
                 for branch in common.BRANCHES:
-                    detection.run(case, root / 'out' / f'{branch}_detection', branch, allow_v1_contract=True)
+                    detection.run(case, root / 'out' / f'{branch}_detection', branch, allow_v1_contract=True, chain='v5')
                     review.run(case, root / 'out' / f'{branch}_detection/result.json', root / 'out' / f'{branch}_review',
-                               branch, allow_v1_contract=True)
+                               branch, allow_v1_contract=True, chain='v5')
                 result = scoring.run(root / 'out/vl_review/result.json', root / 'out/vv_review/result.json',
-                                     root / 'out/episode_scoring')
+                                     root / 'out/episode_scoring', chain='v5')
             self.assertEqual(result['scores']['v_l'], 25.0 * 3)               # 100 * (1 - .25)
             self.assertEqual(result['scores']['v_v']['cross_shot'], 62.5)     # 100 * (1 - .5 * .75)
             self.assertEqual(result['scores']['uec'], 79.17)                  # (75 + 100 + 62.5) / 3
@@ -776,8 +797,9 @@ class OfflineEndToEnd(unittest.TestCase):
 
             with mock.patch.dict('os.environ', env), \
                     mock.patch.object(detection.repair_loop, 'call_with_repair', counting):
-                detection.run(case, root / 'vv_detection', 'vv', allow_v1_contract=True)
-                result = review.run(case, root / 'vv_detection/result.json', root / 'vv_review', 'vv', allow_v1_contract=True)
+                detection.run(case, root / 'vv_detection', 'vv', allow_v1_contract=True, chain='v5')
+                result = review.run(case, root / 'vv_detection/result.json', root / 'vv_review', 'vv', allow_v1_contract=True,
+                                    chain='v5')
             self.assertEqual(calls, ['VV detection'])
             self.assertEqual((result['units'], result['calls']), ([], 0))
 
@@ -808,7 +830,11 @@ class PipelineWiring(unittest.TestCase):
             root = Path(temporary)
             plan = pipeline.build_plan(registry_case(root), root / 'run', 'from-registry')
             self.assertEqual((plan['discovery_protocol'], plan['review_protocol'], plan['scoring_protocol']),
+                             ('v6', 'v7', 'vl_vv_episode_scoring_v6'))
+            old = pipeline.build_plan(root / 'case', root / 'old', 'from-registry', discovery_protocol='v5')
+            self.assertEqual((old['discovery_protocol'], old['review_protocol'], old['scoring_protocol']),
                              ('v5', 'v6', 'vl_vv_episode_scoring_v5'))
+            self.assertTrue(all(stage['command'][stage['command'].index('--chain') + 1] == 'v5' for stage in old['stages']))
             names = [stage['name'] for stage in plan['stages']]
             self.assertEqual(names, list(pipeline.BRANCH_STAGES))
             self.assertEqual([stage['branch'] for stage in plan['stages']], ['vl', 'vv', 'vl', 'vv', None])
@@ -848,7 +874,7 @@ class PipelineWiring(unittest.TestCase):
                 target.parent.mkdir(parents=True, exist_ok=True)
                 value = {'status': 'success'}
                 if name == 'episode_scoring':
-                    value['protocol'] = 'vl_vv_episode_scoring_v5'
+                    value['protocol'] = plan['scoring_protocol']
                 target.write_text(json.dumps(value))
                 with lock:
                     events.append(('end', name, threading.current_thread().name))

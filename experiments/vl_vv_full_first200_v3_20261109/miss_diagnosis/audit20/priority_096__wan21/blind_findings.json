@@ -1,0 +1,34 @@
+{
+  "task": "priority_096__wan21: blind audit of visual consistency problems involving entities the prompt does not describe (4 shots: blonde woman with red umbrella at a TV shop, amber-window facade, TV DEPOT window, LATEST VICTIMS screen).",
+  "primary": [],
+  "secondary": [
+    {
+      "id": "B1",
+      "entity": "storefront wall (part of the TV shop place)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot3"],
+      "frames": ["Shot1 f0", "Shot3 f0"],
+      "what": "The same TV shop exterior is a smooth teal wall with a metal pillar and a single wall-mounted flat-screen TV under a starry night sky in Shot1, but a dark vertically ribbed wall with a white backlit display case of CRT sets in Shot3.",
+      "sure": "likely"
+    },
+    {
+      "id": "B2",
+      "entity": "woman's hair (body part)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot3"],
+      "frames": ["Shot2 f3", "Shot3 f0"],
+      "what": "Her curly hair falls well past the shoulders in Shot2 but ends at the nape, just above the collar, in the Shot3 rear view (on top of the cartoon-to-live-action change of the whole character from Shot1 to Shot2).",
+      "sure": "clear"
+    },
+    {
+      "id": "B3",
+      "entity": "woman's outfit and brown belt (worn items)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2", "Shot3"],
+      "frames": ["Shot1 f0", "Shot2 f3", "Shot3 f0"],
+      "what": "Outfit details change: black dress with a rounded gray neckline trim (Shot1), navy zip-front V-neck dress with pink lapel trim and pale cuffs (Shot2), navy fitted top and pencil skirt with no brown belt visible at the back of the waist (Shot3).",
+      "sure": "likely"
+    }
+  ],
+  "unspecified_seen": "Few unprompted things: a metal pillar or window frame at the left edge and gray clouds with stars in the night sky (Shot1 only), a round drain cover and a puddle on the brick pavement and the white backlit display case (Shot3 only), the woman's earrings and ring (Shot2 only); all are stable within their shot and none recurs across shots. Visible problems concern prompted entities (cartoon vs live-action woman, umbrella opened and color-changing, flat TV vs CRT stack, misspelled screen text, portraits appearing mid-shot in Shot4), outside this audit's primary list."
+}

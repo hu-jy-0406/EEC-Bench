@@ -1,0 +1,52 @@
+{
+  "task": "priority_126__cinetrans",
+  "primary": [
+    {
+      "id": "A1",
+      "ledger_entity": "pb0012",
+      "ledger_status": "same_entity_in_all_relevant_shots",
+      "vv_outcome": "rejected",
+      "matched_ids": ["V2+V10", "V2", "V10"],
+      "note": "Partial match only. The Shot1 lounger is recorded, but bound to the specified 'Striped chairs' pb0012 (V6/V8 describe its Shot1 pale frame), so the ledger has no unspecified entity for it. V2/V10 (subjects []) report the whole Shot1 f0 frame as a mottled rendering glitch, which covers the f0 look of the chair; the reviewer rejected it. Nothing was proposed about the chair's shape drift over f1-f5."
+    },
+    {
+      "id": "A2",
+      "ledger_entity": null,
+      "ledger_status": "not_recorded",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "The ledger has no unspecified (ge) entity at all. Shot2-only specified records pb0013 'Low pale chair' / pb0014 'Gray fabric' could have absorbed the table in Shot2 (pipeline.json has no boxes to check), but nothing records it in Shot4."
+    },
+    {
+      "id": "A3",
+      "ledger_entity": null,
+      "ledger_status": "not_recorded",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Possibly bound in Shot2 to pb0014 'Gray fabric' (unverifiable without boxes); no Shot4 record and no candidate about the item vanishing."
+    }
+  ],
+  "secondary": [
+    {
+      "id": "B1",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    },
+    {
+      "id": "B2",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    },
+    {
+      "id": "B3",
+      "vv_outcome": "no_candidate",
+      "matched_ids": []
+    },
+    {
+      "id": "B4",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["V4+V11", "V4", "V11", "V1"]
+    }
+  ],
+  "pipeline_unspecified_confirmed": []
+}

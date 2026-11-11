@@ -155,10 +155,11 @@ def check_gpu(gpu, out, gpu_uuid=None):
 
 
 # Transient failures of the API transport shim (eec_api_codex_shim.py): server
-# errors, rate limits and dropped connections. Client errors (4xx other than
-# 429), timeouts of the whole call and non-API processes are never retried.
+# errors, rate limits, dropped connections and the shim's own response timeout
+# ("OpenAI API timeout", 2026-11-07). Client errors (4xx other than 429), the
+# caller's timeout of the whole process and non-API processes are never retried.
 TRANSIENT_API_ERROR = re.compile(
-    r'OpenAI API (429|5\d\d)\b|urllib\.error\.URLError|http\.client\.RemoteDisconnected|'
+    r'OpenAI API (429|5\d\d|timeout)\b|urllib\.error\.URLError|http\.client\.RemoteDisconnected|'
     r'http\.client\.IncompleteRead|ConnectionResetError|ConnectionRefusedError|BrokenPipeError|ssl\.SSLError')
 TRANSPORT_RETRY_DELAYS = (10, 30, 60)
 

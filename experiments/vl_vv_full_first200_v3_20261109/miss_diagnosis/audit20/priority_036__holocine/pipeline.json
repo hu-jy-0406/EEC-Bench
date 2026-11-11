@@ -1,0 +1,216 @@
+{
+ "task": "priority_036__holocine",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Elderly man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Brick house",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Garage",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Forecourt",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Bay window",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "High-rise skyline",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Roofs",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Iron railings",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Walking cane",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Narrow door",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Drone",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0012",
+   "label": "specified",
+   "name": "Projecting sheet",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "pb0013",
+   "label": "specified",
+   "name": "Drainpipe",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "Exterior wall lamp",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "ge0002",
+   "label": "unspecified",
+   "name": "Garden cart",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "ge0003",
+   "label": "unspecified",
+   "name": "Small window",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "ge0004",
+   "label": "unspecified",
+   "name": "Green balloon",
+   "shots": [
+    "Shot3"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "presence_instability",
+   "subjects": [
+    "pb0011"
+   ],
+   "description": "Shot1第5帧窗边有一个无人机，画面右下方又出现一个较小的无人机，形成同一无人机的重复实例。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects": [],
+   "description": "Shot2帧0几乎全屏呈模糊暗色，下一帧恢复为清晰无人机画面；出现短暂空白样渲染异常。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "presence_instability",
+   "subjects_with_labels": [
+    [
+     "pb0011",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     5
+    ]
+   ],
+   "description": "Shot1第5帧中，窗边可见一架无人机，画面右下角还出现另一架较小的无人机；同一镜头内无人机出现重复实例。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "rendering_instability",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot2",
+     1
+    ]
+   ],
+   "description": "Shot2第0帧几乎全屏为模糊的蓝灰暗色画面，无法辨认主体；第1帧则出现清晰可见的无人机和背景，形成短暂的模糊暗画面异常。"
+  }
+ ]
+}

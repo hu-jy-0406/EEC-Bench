@@ -90,7 +90,8 @@ def _free_folder(base):
 
 def call_with_repair(folder, payload, images, timeout, *, prompt_path, schema, model, reasoning,
                      collect_errors, max_rounds=MAX_REPAIR_ROUNDS, first_response=None,
-                     first_folder=None, stage='model stage', repair_prompt=None):
+                     first_folder=None, stage='model stage', repair_prompt=None, trailing_text=None,
+                     prompt_cache_key=None, prompt_role=None):
     """Run one model task with a bounded all-errors repair loop.
 
     collect_errors(result) -> (errors, value).  It is called only on
@@ -105,12 +106,19 @@ def call_with_repair(folder, payload, images, timeout, *, prompt_path, schema, m
     prompts/vl_vv_validation_repair_v1.txt); the branch-separated stages pass
     v2, which also allows the identifiers their task lets the model create.
 
+    trailing_text / prompt_cache_key / prompt_role (2026-11-09) are passed to
+    the transport: a user message after the prompt and images, the API's prompt
+    cache key, and the role of the prompt text.  A repair in the same
+    conversation has them in context; a full resend sends them again.
+
     Returns (value, last_raw_output, usage_rows, audit).
     """
     folder = Path(folder)
     prompt_path = Path(prompt_path)
     repair_prompt_path = Path(repair_prompt) if repair_prompt is not None else REPAIR_PROMPT
     usage = []
+    extra = {key: value for key, value in (('trailing_text', trailing_text), ('prompt_cache_key', prompt_cache_key),
+                                           ('prompt_role', prompt_role)) if value}
     audit = dict(protocol=PROTOCOL, stage=stage, max_repair_rounds=max_rounds, rounds=[],
                  repair_prompt=str(repair_prompt_path))
     audit_path = folder.parent / f'{folder.name}_repair_audit.json'
@@ -120,7 +128,7 @@ def call_with_repair(folder, payload, images, timeout, *, prompt_path, schema, m
     else:
         current_folder = folder
         result = _tolerant_call(folder, payload, images, timeout, prompt_path=prompt_path,
-                                schema=schema, model=model, reasoning=reasoning)
+                                schema=schema, model=model, reasoning=reasoning, **extra)
         usage.extend(_usage(folder))
     round_index = 0
     while True:
@@ -166,6 +174,6 @@ def call_with_repair(folder, payload, images, timeout, *, prompt_path, schema, m
             full_payload = dict(repair_payload, original_input=payload)
             result = _tolerant_call(repair_folder, full_payload, images, timeout,
                                     prompt_path=full_prompt, schema=schema, model=model,
-                                    reasoning=reasoning)
+                                    reasoning=reasoning, **extra)
         usage.extend(_usage(repair_folder))
         current_folder = repair_folder

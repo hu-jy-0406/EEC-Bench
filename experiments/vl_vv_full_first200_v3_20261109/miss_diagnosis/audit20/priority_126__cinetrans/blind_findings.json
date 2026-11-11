@@ -1,0 +1,71 @@
+{
+  "task": "priority_126__cinetrans",
+  "primary": [
+    {
+      "id": "A1",
+      "entity": "wooden deck-chair frame at screen left (Shot1)",
+      "scope": "within_shot",
+      "shots": ["Shot1"],
+      "frames": ["Shot1 f0", "Shot1 f1", "Shot1 f3", "Shot1 f5"],
+      "what": "The lounger at screen left looks like a chair with teal/red fabric in f0 but a bare pale wooden frame with a loose white cloth in f1-f5, and the frame's shape keeps shifting between frames.",
+      "sure": "likely"
+    },
+    {
+      "id": "A2",
+      "entity": "small round side table beside the striped chair",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4"],
+      "frames": ["Shot2 f2", "Shot4 f2", "Shot4 f5"],
+      "what": "Shot2 shows a solid brown wooden round table beside the striped chair; in Shot4, with the same chair and umbrella seen from the same direction, the table is a gray, semi-transparent ghost-like surface.",
+      "sure": "likely"
+    },
+    {
+      "id": "A3",
+      "entity": "blue-and-white towel/bag on the striped chair seat",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4"],
+      "frames": ["Shot2 f0", "Shot2 f5", "Shot4 f2"],
+      "what": "A blue-and-white patterned item lies on the striped chair's seat in every Shot2 frame but is gone in Shot4, where the same chair is in view and nobody touched it.",
+      "sure": "likely"
+    }
+  ],
+  "secondary": [
+    {
+      "id": "B1",
+      "entity": "Turquoise-top woman's face and hair (body parts, specified character)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2", "Shot3"],
+      "frames": ["Shot1 f1", "Shot2 f0", "Shot3 f3"],
+      "what": "Shot1 shows an older face with bangs and shoulder-length brown hair; Shot2 long auburn hair; Shot3 a clearly different younger face with long reddish-brown hair and no bangs.",
+      "sure": "clear"
+    },
+    {
+      "id": "B2",
+      "entity": "Turquoise-top woman's earrings (unprompted jewelry)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot3"],
+      "frames": ["Shot1 f1", "Shot3 f3"],
+      "what": "Long drop earrings in Shot1 become small studs in Shot3.",
+      "sure": "likely"
+    },
+    {
+      "id": "B3",
+      "entity": "turquoise top (prompted clothing of specified character)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2", "Shot3"],
+      "frames": ["Shot1 f1", "Shot2 f0", "Shot3 f3"],
+      "what": "A pale mint blouse with gathered neckline and wrist-length sleeves in Shot1 becomes a saturated cyan boxy top with wide elbow-length sleeves in Shot2/Shot3.",
+      "sure": "clear"
+    },
+    {
+      "id": "B4",
+      "entity": "white bathrobe (prompted clothing of White-robed woman)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot3", "Shot4"],
+      "frames": ["Shot2 f3", "Shot3 f3", "Shot4 f4"],
+      "what": "The robe is pure white in Shot2 and Shot3 but strongly mint/turquoise-tinted throughout Shot4.",
+      "sure": "clear"
+    }
+  ],
+  "unspecified_seen": "Shot1 only: a thatched straw parasol and a pale wooden deck-chair frame at left plus a tiny dark buoy/swimmer in the sea; Shot2 and Shot4: a small round side table beside the (specified) striped chair; Shot2 only: a blue-and-white towel/bag on that chair's seat. No unprompted person or animal. The Shot1 parasol/lounger differ from the Shot2/Shot4 umbrella/chair, but the prompt turns the view inland for Shot2, so that difference is not counted."
+}

@@ -23,12 +23,16 @@ V2_SCHEMA = 'episode_contract_v2'
 PROMPT_FILE = 'prompt.json'
 CLEANED_CONTRACTS = ROOT / 'experiments/contract_cleanup_20261031'
 V2_CONTRACTS = ROOT / 'experiments/episode_contracts_v2_20261029/deliverables/episodes'
+COMPILED_ROOT = ROOT / 'experiments/compiled_requirements_20261105/compiled'
 EVIDENCE_KEYS = ('evidence', 'source_claim_ids', 'source_labels', 'origin', 'prompt', 'cleanup')
 SHOT_REQUIREMENTS = ('appearance', 'spatial', 'motion')
 # Registry categories and subject kinds of the v1 entity_schedule fields, by v2 entity label.
 CATEGORY = {'character': 'characters', 'location': 'places', 'object': 'objects'}
 KIND = {'character': 'character', 'location': 'place', 'object': 'object'}
 SUBJECT_KIND = {'character': 'character', 'location': 'setting'}
+# Narrative fact that names the contract entities listed in no shot's presence (only in absent or in a
+# requirement); it is the prompt evidence of their registry entries.
+NO_PRESENCE_FACT = 'contract_entities_in_no_presence'
 
 
 def read(path):
@@ -165,29 +169,38 @@ def generated_texts(contract):
 
 
 def prompt_registry(contract, shots):
-    """Prompt registry from v2 presence lists: expected entities per shot, keyed by contract entity ID.
+    """Prompt registry from v2 presence lists: every contract entity, keyed by its contract ID.
 
-    An entity listed in no presence list (only in absent, or only in a requirement) is not expected
-    anywhere and stays out of the registry, as an unscheduled v1 entity did.
+    An entity is required in the shots whose presence lists it. Every contract entity has an entry, so
+    every contract entity has a ledger record (owner decision 2026-11-02, open-questions Q16): one listed
+    in no presence list (only in absent, or only in a requirement) is not_required in every shot, and its
+    prompt evidence is the narrative fact NO_PRESENCE_FACT (see no_presence_fact).
     """
     shot_ids = [shot['shot_id'] for shot in shots]
     present = presence_by_shot(contract)
     entities = []
     for label, row in contract['entity_descriptions'].items():
         listed = [sid for sid in shot_ids if label in present[sid]]
-        if not listed:
-            continue
         name = row['name'].strip()
         entities.append(dict(
             prompt_entity_id=label, contract_entity_id=label, name=name,
             description=str(row.get('description', name)).strip() or name,
             contract_category=CATEGORY[row['label']],
-            evidence=[dict(fact_id=sid, quote=name) for sid in listed],
+            evidence=[dict(fact_id=sid, quote=name) for sid in listed] or [dict(fact_id=NO_PRESENCE_FACT, quote=name)],
             schedule=[dict(shot_id=sid, expectation='required' if sid in listed else 'not_required',
                            reason='Listed in contract shots[].presence.' if sid in listed
                            else 'Not listed in contract shots[].presence.') for sid in shot_ids]))
     return dict(schema_version='prompt_registry_v1', source='contract.shots.presence', shot_ids=shot_ids,
                 mapping=dict(method='shot_id_exact'), entities=entities)
+
+
+def no_presence_fact(registry):
+    """The episode-level narrative fact naming the registry entities required in no shot, or None."""
+    names = [e['name'] for e in registry['entities'] if all(r['expectation'] != 'required' for r in e['schedule'])]
+    if not names:
+        return None
+    return dict(fact_id=NO_PRESENCE_FACT, shot_id=None,
+                text="Contract entities listed in no shot's presence: " + '; '.join(names))
 
 
 def resolve_v2_contract(episode_id):
@@ -199,3 +212,25 @@ def resolve_v2_contract(episode_id):
     if not path.is_file():
         raise FileNotFoundError(f'No v2 contract for episode {episode_id}')
     return path
+
+
+COMPILED_FILES = ('requirements.json', 'prompt_registry.json', 'narrative.json')
+
+
+def resolve_compiled(episode_id, contract_path, root=None):
+    """Folder of the compiled requirement package of an episode (experiments/compiled_requirements_20261105/compiled).
+
+    Raises when the package is missing or was compiled from a different version of the contract file
+    (stale package: run compile_episode_requirements.py --update)."""
+    import hashlib
+    folder = Path(root or COMPILED_ROOT) / episode_id
+    missing = [name for name in COMPILED_FILES if not (folder / name).is_file()]
+    if missing:
+        raise FileNotFoundError(f'No compiled requirement package for {episode_id} in {folder} (missing {missing}); '
+                                'run scripts/compile_episode_requirements.py')
+    recorded = read(folder / 'requirements.json')['source_contract_sha256']
+    current = hashlib.sha256(Path(contract_path).read_bytes()).hexdigest()
+    if recorded != current:
+        raise ValueError(f'Stale compiled package for {episode_id}: {contract_path} changed after compilation; '
+                         'recompile with scripts/compile_episode_requirements.py --update')
+    return folder

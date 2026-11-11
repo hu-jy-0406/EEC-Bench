@@ -6,14 +6,23 @@ The executable stages are deliberately restartable and append-only:
 
 `detect` runs WeDetect-Anything once per keyframe, isolated per-shot Luna-low
 clustering, then shot-level binding plus one targeted Grounding-DINO recovery.
-It never retries WeDetect-Anything during recovery.
+It never retries WeDetect-Anything during recovery.  Binding protocol v2
+(default since 2026-11-02, open-questions Q12) lets several local entities of
+one shot bind to the same contract entity when the contract text describes
+several items or members; the ledger then keeps all of them as occurrences of
+that one specified entity in that shot.  `--binding-protocol v1` keeps at most
+one local entity per contract entity and shot.
 
 `match` builds the episode ledger. Matching v2 (default, owner decision
 2026-11-01): specified entities stay linked by contract ID; every unbound
 occurrence is merged with others into one unspecified entity, kept alone, or
 merged into a specified entity, by the most likely reading of the episode
 (prompt text, shot settings, relations to anchor entities, keyframes with
-drawn boxes). `--matching-protocol v1` keeps the historical visual matcher.
+drawn boxes). A specified entity that states several items or members may
+receive missed members from a shot where other members are already bound
+(owner decision 2026-11-02, open-questions Q13); an unspecified entity keeps
+at most one occurrence per shot. `--matching-protocol v1` keeps the
+historical visual matcher.
 """
 import argparse
 import copy
@@ -197,7 +206,17 @@ def extract_six(video_index, frames_out, manifest_out):
     dump(manifest_out,dict(shots=shots, keyframe_policy='six uniform timestamps from clip start through a decoder-safe point before the container end'))
 
 
-def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False, prompt_path=None, allow_v1_contract=False):
+def narrative_for(registry, shot_ids, v2):
+    """The narrative.json content of a prompt registry: per shot, the names of the entities it must show.
+
+    A pure function of the contract (shared by prepare and the episode requirement compiler)."""
+    facts=[dict(fact_id=sid,shot_id=sid,text='; '.join(e['name'] for e in registry['entities'] if next(x for x in e['schedule'] if x['shot_id']==sid)['expectation']=='required') or '(no scheduled entities)') for sid in shot_ids]
+    # Contract v2: entities listed in no presence list are in the registry too (Q16); this fact is their evidence.
+    extra=contract_io.no_presence_fact(registry) if v2 else None
+    return dict(facts=facts+([extra] if extra else []))
+
+
+def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False, prompt_path=None, allow_v1_contract=False, compiled=None):
     """Freeze a case. A v2 contract (with evidence, or without it plus prompt_path) is stored model-facing with prompt.json."""
     manifest_path, contract_path, case = map(lambda p: Path(p).resolve(), (manifest_path, contract_path, case))
     if case.exists(): raise FileExistsError('Use a fresh case directory')
@@ -220,18 +239,35 @@ def prepare(manifest_path, contract_path, case, allow_legacy_keyframes=False, pr
         if raw.get('episode_id') not in (None,contract['episode_id']): raise ValueError(f"Contract episode {contract['episode_id']} differs from manifest {raw['episode_id']}")
         if prompt_path: hashed.append(Path(prompt_path).resolve())
     registry=normalize_contract(contract, shots)
+    narrative=narrative_for(registry,[s['shot_id'] for s in shots],contract_io.is_v2(contract))
+    package=None
+    if compiled is not None:
+        # Compiled package (docs/contract-and-requirements-design.md): must belong to this contract file and agree with
+        # what prepare derives; its requirements.json is copied into the case, its registry/narrative are written.
+        import episode_requirements
+        package=episode_requirements.verify_package(compiled,contract_path,contract,registry,narrative)
     case.mkdir(parents=True)
     shutil.copy2(manifest_path,case/'raw_manifest.json')
     if prompt is None: shutil.copy2(contract_path,case/'contract.json')
     else: dump(case/'contract.json',contract);dump(case/contract_io.PROMPT_FILE,prompt)
-    dump(case/'prompt_registry.json',registry)
-    dump(case/'narrative.json',dict(facts=[dict(fact_id=s['shot_id'],shot_id=s['shot_id'],text='; '.join(e['name'] for e in registry['entities'] if next(x for x in e['schedule'] if x['shot_id']==s['shot_id'])['expectation']=='required') or '(no scheduled entities)') for s in shots]))
+    if package is None:
+        dump(case/'prompt_registry.json',registry)
+        dump(case/'narrative.json',narrative)
+    else:
+        shutil.copy2(package['folder']/'prompt_registry.json',case/'prompt_registry.json')
+        shutil.copy2(package['folder']/'narrative.json',case/'narrative.json')
+        shutil.copy2(package['folder']/'requirements.json',case/'requirements.json')
     dump(case/'run.json',dict(protocol=PROTOCOL,status='prepared',model=MODEL,reasoning=REASONING,started=time.time(),
         contract_format='v2' if prompt is not None else 'v1',
+        **({} if package is None else dict(compiled_requirements=package['record'])),
         source_hashes={**{str(path):sha(path) for path in hashed},str(Path(__file__).resolve()):sha(__file__)}))
 
 
-def detect(case, gpu, gpu_uuid, shot_workers, device='cuda'):
+BINDING_PROTOCOLS = ('v1', 'v2')
+DEFAULT_BINDING_PROTOCOL = 'v2'
+
+
+def detect(case, gpu, gpu_uuid, shot_workers, device='cuda', binding_protocol=DEFAULT_BINDING_PROTOCOL):
     require_api(); case=Path(case).resolve(); manifest=case/'raw_manifest.json'; entities=case/'entities'
     if entities.exists():
         # Detection/shot-clustering is immutable once complete.  A later
@@ -264,8 +300,10 @@ def detect(case, gpu, gpu_uuid, shot_workers, device='cuda'):
     if not (recovery_out / 'results.json').is_file() or read(recovery_out / 'results.json').get('status') != 'success':
         recovery.run(case,case/'prompt_registry.json',out=recovery_out,workers=shot_workers,device=device,
                      gpu=gpu if device=='cuda' else None,gpu_uuid=gpu_uuid if device=='cuda' else None,
-                     model=MODEL,reasoning=REASONING,resume=resume_rec)
-    state=read(case/'run.json');state.update(status='detected',detected_at=time.time(),detector_device=device);dump(case/'run.json',state)
+                     model=MODEL,reasoning=REASONING,resume=resume_rec,binding_protocol=binding_protocol)
+    recorded=read(recovery_out/'results.json').get('binding_protocol','v1')
+    if recorded!=binding_protocol: raise ValueError(f'Existing shot prompt recovery used binding protocol {recorded}, not {binding_protocol}')
+    state=read(case/'run.json');state.update(status='detected',detected_at=time.time(),detector_device=device,binding_protocol=binding_protocol);dump(case/'run.json',state)
 
 
 def local_rows(case):
@@ -346,11 +384,12 @@ def validate_groups(raw, local):
 
 
 def schedule_fields(registry, pid, occurrences):
-    byshot={x['shot_id']:x for x in occurrences}
+    byshot={}
+    for x in occurrences: byshot.setdefault(x['shot_id'],[]).append(x)  # binding v2: several local entities per shot
     prompt=next(x for x in registry['entities'] if x['prompt_entity_id']==pid)
     result=[]
     for row in prompt['schedule']:
-        occ=byshot.get(row['shot_id']); positive=[] if occ is None else [o for o in occ['observations'] if o['box_xyxy'] is not None]
+        positive=[o for occ in byshot.get(row['shot_id'],[]) for o in occ['observations'] if o['box_xyxy'] is not None]
         result.append(dict(shot_id=row['shot_id'], expectation=row['expectation'], schedule_reason=row['reason'],
             detector_observation='observed' if positive else 'not_detected',
             observed_frame_ids=[o['frame_id'] for o in positive], boxes=[dict(frame_id=o['frame_id'],box_xyxy=o['box_xyxy']) for o in positive]))
@@ -396,7 +435,7 @@ def build_episode_entities(case, raw):
             visual_reason='Local occurrences share this fixed contract instance; the separate visual matcher did not confirm one global identity group.'
         bound_records.append(dict(global_entity_id=f'pb{index:04d}',partition='prompt_bound',prompt_entity_id=pid,
             name=prompt['name'],short_description=prompt['description'],identity_status=visual_status,identity_reason=visual_reason,
-            occurrences=members,observed_shot_ids=[m['shot_id'] for m in members],
+            occurrences=members,observed_shot_ids=list(dict.fromkeys(m['shot_id'] for m in members)),
             wedetect_categories=sorted({x for m in members for x in m['wedetect_categories']}),
             grounding_dino_categories=sorted({x for m in members for x in m['grounding_dino_categories']}),
             dino_appearance=None,schedule=schedule_fields(registry,pid,members),
@@ -673,7 +712,13 @@ def match_v2_payload(shots, registry, local, contract, ptag, utag):
 
 
 def match_v2_errors(raw, local, ptag, utag):
-    """Every problem of a matching-v2 answer; the repair loop returns all of them to the model together."""
+    """Every problem of a matching-v2 answer; the repair loop returns all of them to the model together.
+
+    An unspecified entity has at most one occurrence per shot. A specified entity may receive occurrences from a
+    shot where it already has some (owner decision 2026-11-02, open-questions Q13): a contract entity that states
+    several items or members has one occurrence per member. Nothing marks such entities in the contract, so, as in
+    binding v2, the agent judges this from the contract text and the gate does not count specified occurrences.
+    """
     import jsonschema
     try:
         jsonschema.validate(raw, match_v2_schema())
@@ -682,11 +727,7 @@ def match_v2_errors(raw, local, ptag, utag):
     errors = []
     by_tag = {utag[m['local_key']]: m for m in local if m['local_key'] in utag}
     known_p = set(ptag.values())
-    bound_shots = {}
-    for m in local:
-        if m['binding_status'] == 'bound':
-            bound_shots.setdefault(ptag[m['prompt_entity_id']], set()).add(m['shot_id'])
-    seen, added = {}, {}
+    seen = {}
     for i, a in enumerate(raw['assignments']):
         where = f'assignments[{i}]'
         if not a['basis'].strip() or not a['short_description'].strip():
@@ -701,24 +742,16 @@ def match_v2_errors(raw, local, ptag, utag):
             else:
                 seen[tag] = i
             shots.append(by_tag[tag]['shot_id'])
-        repeated = sorted({s for s in shots if shots.count(s) > 1})
-        if repeated:
-            errors.append(f'{where}: more than one occurrence from {repeated}; an entity has at most one occurrence per shot')
         if a['destination'] == 'unspecified':
+            repeated = sorted({s for s in shots if shots.count(s) > 1})
+            if repeated:
+                errors.append(f'{where}: more than one occurrence from {repeated}; an unspecified entity has at most one '
+                              f'occurrence per shot')
             if a['specified_tag'] is not None:
                 errors.append(f'{where}: destination "unspecified" needs specified_tag null')
             continue
-        target = a['specified_tag']
-        if target not in known_p:
-            errors.append(f'{where}: destination "specified" needs one of the supplied P tags (got {target!r})')
-            continue
-        clash = sorted(set(shots) & bound_shots.get(target, set()))
-        if clash:
-            errors.append(f'{where}: {target} already has an occurrence in {clash}; merge into it only from shots where it has none')
-        again = sorted(set(shots) & added.get(target, set()))
-        if again:
-            errors.append(f'{where}: {target} would receive two occurrences in {again} from different assignments')
-        added.setdefault(target, set()).update(shots)
+        if a['specified_tag'] not in known_p:
+            errors.append(f'{where}: destination "specified" needs one of the supplied P tags (got {a["specified_tag"]!r})')
     missing = [t for t in by_tag if t not in seen]
     if missing:
         errors.append(f'missing unbound occurrences {missing}; every one needs exactly one destination')
@@ -812,7 +845,7 @@ def build_episode_entities_v2(case, raw, shots, registry, local, ptag, utag):
                                                exist=True if o['box_xyxy'] is not None else None) for o in m['observations']])
                        for m in members]
         compatible.append(dict(global_entity_id=r['global_entity_id'], name=r['name'], scene_id='episode',
-                               observed_shot_ids=[m['shot_id'] for m in members], appearances=appearances))
+                               observed_shot_ids=list(dict.fromkeys(m['shot_id'] for m in members)), appearances=appearances))
     sources = {str(case / 'raw_manifest.json'): sha(case / 'raw_manifest.json'), str(case / 'prompt_registry.json'): sha(case / 'prompt_registry.json'),
                str(case / 'contract.json'): sha(case / 'contract.json'),
                str(case / 'shot_prompt_recovery/results.json'): sha(case / 'shot_prompt_recovery/results.json')}
@@ -902,7 +935,10 @@ def main():
     p.add_argument('--issue-output',type=Path,help='Fresh output directory for the independent VL/VV issue-discovery agent')
     p.add_argument('--allow-legacy-nominal-keyframes',action='store_true',help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
     p.add_argument('--prompt',type=Path,help='Prompt JSON for a v2 contract without evidence; a contract with evidence holds its prompt')
+    p.add_argument('--compiled',type=Path,help='Compiled requirement package of the contract (compile_episode_requirements.py): copied into the case; a package that does not match the contract file is an error')
     p.add_argument('--allow-v1-contract',action='store_true',help='Accept a v1 contract; only to reproduce historical results')
+    p.add_argument('--binding-protocol',choices=BINDING_PROTOCOLS,default=DEFAULT_BINDING_PROTOCOL,
+                   help='v2 (default): several local entities of one shot may bind to one contract entity when its text describes several items; v1: at most one')
     p.add_argument('--matching-protocol',choices=MATCHING_PROTOCOLS,default=DEFAULT_MATCHING_PROTOCOL,
                    help='v2 (default): match only unbound occurrences by the most likely reading, three destinations; v1: historical visual matcher')
     a=p.parse_args()
@@ -911,12 +947,12 @@ def main():
         extract_six(a.video_index,a.frames_out,a.manifest_out);return
     if a.stage=='prepare':
         if not all((a.manifest,a.contract,a.case)):p.error('prepare requires --manifest --contract --case')
-        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract);return
+        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract,a.compiled);return
     if not a.case:p.error('this stage requires --case')
     if a.stage in ('dino',) and (a.gpu is None or not a.gpu_uuid):p.error('GPU stage requires --gpu and --gpu-uuid')
     if a.stage in ('detect','all') and a.device=='cuda' and (a.gpu is None or not a.gpu_uuid):p.error('CUDA detection requires --gpu and --gpu-uuid')
     if a.run_dino and (a.gpu is None or not a.gpu_uuid):p.error('--run-dino requires --gpu and --gpu-uuid')
-    if a.stage=='detect':detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device)
+    if a.stage=='detect':detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device,a.binding_protocol)
     elif a.stage=='match':match(a.case,a.matching_protocol)
     elif a.stage=='dino_prepare':dino_prepare(a.case)
     elif a.stage=='dino':dino(a.case,a.gpu,a.gpu_uuid)
@@ -926,7 +962,7 @@ def main():
         issue_discovery.run(a.case,a.issue_output)
     else:
         if not a.manifest or not a.contract:p.error('all requires --manifest and --contract')
-        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract);detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device);match(a.case,a.matching_protocol);dino_prepare(a.case)
+        prepare(a.manifest,a.contract,a.case,a.allow_legacy_nominal_keyframes,a.prompt,a.allow_v1_contract);detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device,a.binding_protocol);match(a.case,a.matching_protocol);dino_prepare(a.case)
         if a.run_dino:dino(a.case,a.gpu,a.gpu_uuid);attach_dino(a.case)
 
 if __name__=='__main__':main()

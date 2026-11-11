@@ -61,3 +61,16 @@ reported in Shot4 in every unlabeled run).
   only if it was made with the same labels.
 - Tests: `tests/test_image_labels.py`. Live check:
   `experiments/vl_vv_image_labels_20261020/REPORT.md`.
+
+## Response timeout and retry (2026-11-07, owner-approved before the full first-200 run)
+
+- The shim waits at most `EECBENCH_API_TIMEOUT_SECONDS` (default 300) for a response; it was
+  1800. A timeout raises `OpenAI API timeout: no response within N s`.
+- `run_wedetect_shot_entities.run_process` retries it like the other transient transport failures
+  (429, 5xx, dropped connections): up to three more attempts after 10, 30 and 60 s, keeping the
+  failed attempt's logs. The caller's timeout of the whole process is still never retried.
+- Basis: the longest normal call among 989 calls of the 2026-11-03/05 tests took 82 s; four stalled
+  calls took 913-918 s and then succeeded. The stalled request may still be billed by the API; its
+  usage is not recorded, so token and cost totals can be slightly low when a timeout occurs.
+- Prompts, payloads, schemas, gates and scoring are unchanged. Tests: `tests/test_transport_retry.py`.
+  Pre-change copies with SHA-256: `EECBench/experiments/vl_vv_full_first200_20261107/source_before/`.

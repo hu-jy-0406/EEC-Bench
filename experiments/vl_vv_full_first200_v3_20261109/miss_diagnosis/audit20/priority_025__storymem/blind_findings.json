@@ -1,0 +1,44 @@
+{
+  "task": "priority_025__storymem",
+  "primary": [
+    {
+      "id": "A1",
+      "entity": "wall light switch",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4"],
+      "frames": ["Shot2 f1", "Shot2 f5", "Shot4 f0", "Shot4 f5"],
+      "what": "A white light switch on the flat wall left of the Younger man is visible throughout Shot2, but in Shot4, which the prompt says returns to the same alternate view, that side is an arched niche and no switch appears.",
+      "sure": "likely"
+    },
+    {
+      "id": "A2",
+      "entity": "cut-glass teapot, blue ornament and red-framed botanical print (with a row of arched niches holding bottles)",
+      "scope": "cross_shot",
+      "shots": ["Shot4", "Shot2"],
+      "frames": ["Shot4 f3", "Shot4 f5", "Shot2 f0"],
+      "what": "Shot4's returning alternate view shows a niche at left with a cut-glass teapot and a blue ornament below a red-framed botanical print, plus a corridor of niches with bottles at right, none of which exists in Shot2's view of the same spot (flat wall with one dark-framed picture and a single alcove with three small figurines).",
+      "sure": "likely"
+    }
+  ],
+  "secondary": [
+    {
+      "id": "B1",
+      "entity": "hallway architecture of the alternate view (place)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4"],
+      "frames": ["Shot2 f0", "Shot4 f0"],
+      "what": "Shot2 shows one arched alcove with a shelf behind the men and flat walls; Shot4 (the same alternate view) shows a long corridor lined with several arched niches and a picture hung inside an arch.",
+      "sure": "likely"
+    },
+    {
+      "id": "B2",
+      "entity": "Bespectacled man's glasses (worn, described)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2", "Shot3", "Shot4"],
+      "frames": ["Shot1 f0", "Shot2 f0", "Shot3 f0", "Shot4 f5"],
+      "what": "Frames vary between large gold aviator-style frames with a top bar (Shot1 f0, Shot3) and thin small rectangular frames (Shot2, Shot1 f5).",
+      "sure": "likely"
+    }
+  ],
+  "unspecified_seen": "Ceiling light fixture (Shots 1-4), door knobs and a dark tall frame at the right edge (Shots 1 and 3, consistent), a white light switch and a dark ornate frame / wall fitting at right (Shot2 only), cut-glass teapot, blue ornament, red-framed botanical print and niche bottles (Shot4 only). Front-view items recur consistently in Shots 1 and 3; the alternate-view items do not carry over between Shots 2 and 4."
+}

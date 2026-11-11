@@ -36,13 +36,14 @@ create per-frame observations or infer box coordinates from pixels.
   Likewise, a few distinct framed pictures or loose throw pillows are not a
   collection merely because they are arranged together. Proximity, shared
   category, contact, and shared support are not sufficient reasons to merge.
-- Use ONE collection node only when many same-kind items visibly form a natural
-  aggregate whose members need not be tracked separately: a basket or pile of
-  oranges, or a bunch of pens packed inside one pen holder. Judge the visible
-  organization and meaningful individual separability, not a fixed item-count
-  threshold or detector labels. A dense pile/bundle is different from a few
-  clear individual objects. If collection membership is not supported, retain
-  the supported individual instances rather than invent a group.
+- Keep clearly visible objects as separate nodes by default. Two cups on a
+  table are two entities.
+- Exception: use ONE collection node for a large number of items of the same
+  kind gathered together, such as a basket of oranges or a bunch of pens in a
+  holder. Merge them even when every item is clearly visible, because the
+  condition is the number and kind of the items, not how visible each one is.
+  There is no fixed count, but a few items are not a large number. Separate
+  groups stay separate: two baskets of oranges are two nodes.
 - For a genuine collection, assign all valid member and whole-group candidates
   to that one node across the shot. A separately detected pen inside the same
   bunch remains a member, not an extra entity. A whole-group candidate is not

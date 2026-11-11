@@ -1,0 +1,488 @@
+{
+ "task": "priority_055__wan21",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Reclining man",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Blue-shirted woman",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Bedroom",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Pillowed bed",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "White pillows",
+   "shots": [
+    "Shot1",
+    "Shot3"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Dark handgun",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Wooden headboard",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Grid-pattern light",
+   "shots": [
+    "Shot1"
+   ]
+  },
+  {
+   "id": "pb0009",
+   "label": "specified",
+   "name": "Hanging lamp",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0010",
+   "label": "specified",
+   "name": "Cluttered counter",
+   "shots": [
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0011",
+   "label": "specified",
+   "name": "Wall decoration",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0001",
+   "label": "unspecified",
+   "name": "Wall sconce",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "ge0002",
+   "label": "unspecified",
+   "name": "Wall cabinet",
+   "shots": [
+    "Shot2"
+   ]
+  },
+  {
+   "id": "ge0003",
+   "label": "unspecified",
+   "name": "Left pendant lamp",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0004",
+   "label": "unspecified",
+   "name": "Middle pendant lamp",
+   "shots": [
+    "Shot4"
+   ]
+  },
+  {
+   "id": "ge0005",
+   "label": "unspecified",
+   "name": "Upper pendant lamp",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects": [
+    "pb0006"
+   ],
+   "description": "Shot4中武器从第0帧的近乎竖直、短小手枪外观，至第4–5帧变成横向明显更长的枪械外观；遮挡期间无可见动作解释其形状变化。"
+  },
+  {
+   "id": "V2",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一女子在Shot2呈现东亚面部特征，Shot4则面部轮廓与五官明显不同；无可见原因解释身份差异。"
+  },
+  {
+   "id": "V3",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "男子的外搭衬衫在Shot1呈深色蓝紫调、明显花纹，Shot3则呈灰黑色、花纹不同；无可见换装原因。"
+  },
+  {
+   "id": "V4",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "女子的上衣层次与款式不同：Shot2为蓝色纽扣衬衫外搭暗红上衣，Shot4为蓝色短袖上衣配红色长袖；无可见换装原因。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "state_action_continuity",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "Shot3至Shot4边界，女性服装从蓝色开襟衬衫搭深红上衣变为蓝色短袖搭红色长袖，衣着状态不连续。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0006"
+   ],
+   "description": "同一深色手枪在Shot4变为明显加长的枪身，与Shot1–3所见常规手枪不一致。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects": [
+    "pb0003",
+    "pb0009",
+    "pb0010",
+    "ge0003",
+    "ge0004",
+    "ge0005"
+   ],
+   "description": "同一卧室在 Shot2 与 Shot4 的背景明显不同：Shot2 为暖棕色墙面及墙壁壁灯、右侧杂物柜台；Shot4 为灰色墙面、成排吊灯及长木质柜台，无法由视角变化解释。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0006"
+   ],
+   "description": "同一把手枪跨镜头外形不一致：Shot1、Shot2中为常规手枪，Shot3中外形与握持方向不同，Shot4中又呈明显加长的枪身；无动作或视角变化能解释武器类型/形状变化。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1",
+   "from_candidates": [
+    "V1"
+   ],
+   "verdict": "rejected",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects_with_labels": [
+    [
+     "pb0006",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot4",
+     4
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "Shot4中女性手持的深色手枪外观发生变化：第0帧呈近乎竖直的短枪外形，第4–5帧则呈横向、枪身明显更长的外形；两者之间未见可解释这一形状变化的动作。"
+  },
+  {
+   "id": "V2",
+   "from_candidates": [
+    "V2"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot4",
+     3
+    ]
+   ],
+   "description": "同一女性在Shot2与Shot4的面部外观不同：Shot2中她的脸较圆，呈现与Shot4不同的面部轮廓和五官；Shot4中的面部轮廓与五官明显不同。"
+  },
+  {
+   "id": "V3",
+   "from_candidates": [
+    "V3"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot3",
+     0
+    ]
+   ],
+   "description": "同一男子的外搭衬衫在Shot1与Shot3外观不同：Shot1中为深色蓝紫调、带明显花纹的衬衫；Shot3中为灰黑色、纹样明显不同的衬衫。"
+  },
+  {
+   "id": "V4+V5",
+   "from_candidates": [
+    "V4",
+    "V5"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot3",
+     5
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "同一女性在Shot2、Shot3与Shot4的上衣层次和款式不一致：Shot2中她穿蓝色开襟纽扣衬衫、内搭暗红上衣；Shot4中则是蓝色短袖上衣配红色长袖内层。Shot3也显示她穿蓝色上衣，但不足以确认其内层款式。"
+  },
+  {
+   "id": "V6+V8",
+   "from_candidates": [
+    "V6",
+    "V8"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0006",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     4
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "同一把深色手枪在镜头间外形不一致：Shot1与Shot2中呈常规手枪外形，Shot3中枪的可见轮廓和握持方向不同，Shot4第4–5帧则呈枪身明显加长的横向外形。"
+  },
+  {
+   "id": "V7.1",
+   "from_candidates": [
+    "V7"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0003",
+     "specified"
+    ],
+    [
+     "ge0003",
+     "unspecified"
+    ],
+    [
+     "ge0004",
+     "unspecified"
+    ],
+    [
+     "ge0005",
+     "unspecified"
+    ],
+    [
+     "pb0009",
+     "specified"
+    ],
+    [
+     "pb0010",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "同一卧室的墙面在Shot2与Shot4外观不同：Shot2中为暖棕色墙面，Shot4中为灰色墙面。"
+  },
+  {
+   "id": "V7.2",
+   "from_candidates": [
+    "V7"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0009",
+     "specified"
+    ],
+    [
+     "ge0003",
+     "unspecified"
+    ],
+    [
+     "ge0004",
+     "unspecified"
+    ],
+    [
+     "ge0005",
+     "unspecified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "两镜头所见卧室背景灯具布置不同：Shot2可见一盏壁灯；Shot4可见多盏吊灯。"
+  },
+  {
+   "id": "V7.3",
+   "from_candidates": [
+    "V7"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "setting_background",
+   "subjects_with_labels": [
+    [
+     "pb0010",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     1
+    ],
+    [
+     "Shot4",
+     1
+    ]
+   ],
+   "description": "两镜头所见卧室柜台不同：Shot2右侧可见小型杂物柜台；Shot4背景中则有横贯画面的长木质柜台。"
+  }
+ ]
+}

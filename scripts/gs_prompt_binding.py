@@ -5,6 +5,7 @@ import csv
 import copy
 import json
 import math
+import os
 from pathlib import Path
 import shutil
 import tempfile
@@ -140,7 +141,12 @@ def materialize(raw, registry, visual):
         limitations='Prompt correspondence does not establish cross-scene visual identity. No schedule compliance/prompt fidelity score.')
 
 
-def call(folder, payload, images, timeout, *, prompt_path=None, schema=None, input_transport="canonical", model="gpt-6-astra", reasoning="medium", previous_response_id=None):
+def call(folder, payload, images, timeout, *, prompt_path=None, schema=None, input_transport="canonical", model="gpt-6-astra", reasoning="medium", previous_response_id=None, trailing_text=None, prompt_cache_key=None, prompt_role=None):
+    # trailing_text / prompt_cache_key (2026-11-09): sent by the API shim as a second user message after the
+    # prompt and images, and as the Responses API prompt_cache_key; prompt_role='developer' sends the prompt text as
+    # a developer message before the images (prompt caching); the Codex CLI backend has none of them.
+    if (trailing_text or prompt_cache_key or prompt_role) and os.environ.get('EECBENCH_CODEX_BACKEND', 'cli') != 'api':
+        raise ValueError('trailing_text, prompt_cache_key and prompt_role need the API backend (EECBENCH_CODEX_BACKEND=api)')
     prompt_path = Path(prompt_path) if prompt_path else PROMPT
     schema = OUTPUT_SCHEMA if schema is None else schema
     if input_transport not in ('canonical','compact'):raise ValueError('Unknown input transport')
@@ -152,6 +158,7 @@ def call(folder, payload, images, timeout, *, prompt_path=None, schema=None, inp
         save(folder/'wire_input.json',wire)
     prompt = prompt_path.read_text() + guide + '\nINPUT:\n' + json.dumps(wire, ensure_ascii=False, separators=(',', ':'))
     (folder / 'prompt.txt').write_text(prompt); save(folder / 'input.json', payload); save(folder / 'output.schema.json', schema)
+    if trailing_text: (folder / 'trailing.txt').write_text(trailing_text)
     state = dict(status='running', started=time.time(), model=model, reasoning=reasoning,input_transport=input_transport)
     save(folder / 'status.json', state)
     try:
@@ -161,6 +168,9 @@ def call(folder, payload, images, timeout, *, prompt_path=None, schema=None, inp
                 '--model', model, '-c', 'model_reasoning_effort="' + reasoning + '"', '-c', 'project_doc_max_bytes=0',
                 '-c', 'web_search="disabled"', '--output-schema', str(folder / 'output.schema.json'),
                 '--output-last-message', str(folder / 'response.json'), '--cd', tmp] + (['--previous-response-id', previous_response_id] if previous_response_id else [])
+            if trailing_text: command += ['--trailing-text-file', str(folder / 'trailing.txt')]
+            if prompt_cache_key: command += ['--prompt-cache-key', prompt_cache_key]
+            if prompt_role: command += ['--prompt-role', prompt_role]
             for feature in ('shell_tool','unified_exec','view_image','apps','plugins','hooks','multi_agent','memories','skill_search','browser_use','computer_use','code_mode','code_mode_only','workspace_dependencies'):
                 command += ['--disable', feature]
             for i, img in enumerate(images):

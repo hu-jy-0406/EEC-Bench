@@ -17,8 +17,8 @@ Give every unbound occurrence exactly one destination:
 1. merged with other unbound occurrences into one unspecified entity, when
    they show the same physical entity in different shots;
 2. alone, as one unspecified entity of its own;
-3. merged into a specified entity, when it shows that contract entity (its
-   binding was missed or ambiguous within its own shot).
+3. merged into a specified entity, when it shows that contract entity or one
+   of its members (its binding was missed or ambiguous within its own shot).
 
 Decide identity by the most likely reading of the whole episode, as a careful
 viewer would, weighing appearance together with all the relations of the
@@ -37,9 +37,14 @@ both are visible in the same shot, the prompt introduces another one, they
 are in different places with no movement between them, or their roles in the
 story differ.
 
-An entity never has two occurrences in one shot. A group lists at most one
-occurrence per shot, and an occurrence merged into a specified entity must
-come from a shot in which that entity has no occurrence yet.
+An unspecified entity never has two occurrences in one shot: a group lists at
+most one occurrence per shot. A specified entity whose name or description
+states several items or members (for example "Three glasses" or "Helpers: a
+group of several men") has one occurrence per member, so it may have several
+occurrences in one shot: merge every missed member into it, also in a shot
+where other members are already bound. Every other specified entity has at
+most one occurrence per shot; an occurrence merged into it must come from a
+shot in which it has no occurrence yet.
 
 Use only the supplied tags; do not invent occurrences, boxes or entities.
 For each assignment give: members (U tags), destination ("unspecified" or

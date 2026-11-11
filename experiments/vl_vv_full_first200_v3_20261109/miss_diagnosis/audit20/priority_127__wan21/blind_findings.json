@@ -1,0 +1,89 @@
+{
+  "task": "priority_127__wan21",
+  "primary": [
+    {
+      "id": "A1",
+      "entity": "small navy-blue cloth held in the creature's paw",
+      "scope": "within_shot",
+      "shots": ["Shot5"],
+      "frames": ["Shot5 f0", "Shot5 f1"],
+      "what": "In f0 the creature's right paw (screen right) clutches a small navy-blue cloth or ribbon; from f1 on the paw is empty and no dropped cloth of that color is visible on the ground.",
+      "sure": "likely"
+    }
+  ],
+  "secondary": [
+    {
+      "id": "S1",
+      "entity": "rooftop floor / roof surface (part of the place)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot3", "Shot4", "Shot5", "Shot8"],
+      "frames": ["Shot2 f0", "Shot3 f0", "Shot4 f0", "Shot5 f0", "Shot8 f1"],
+      "what": "The 'same rooftop' surface changes from shot to shot: gray weathered decking (Shot2), blue curved roof tiles (Shot3), light wooden decking (Shot4), flat dark roof (Shot5), orange clay tiles overhead (Shot8).",
+      "sure": "likely"
+    },
+    {
+      "id": "S2",
+      "entity": "rooftop lighting / time of day (part of the place)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot1", "Shot4"],
+      "frames": ["Shot2 f0", "Shot1 f0", "Shot4 f0"],
+      "what": "Shot2 is lit like overcast daytime (flat gray daylight, unlit building windows) while every other shot is set at night.",
+      "sure": "clear"
+    },
+    {
+      "id": "S3",
+      "entity": "girl's red top (worn)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4", "Shot7"],
+      "frames": ["Shot2 f0", "Shot4 f3", "Shot7 f2"],
+      "what": "Short-sleeved red T-shirt in Shot2 and Shot7, but a long-sleeved red top in Shot4.",
+      "sure": "clear"
+    },
+    {
+      "id": "S4",
+      "entity": "girl's legwear (worn)",
+      "scope": "cross_shot",
+      "shots": ["Shot2", "Shot4", "Shot7"],
+      "frames": ["Shot2 f0", "Shot4 f3", "Shot7 f2"],
+      "what": "Royal-blue leggings in Shot2, pale lavender tights under denim shorts in Shot4, bare legs with blue-white striped knee socks in Shot7.",
+      "sure": "clear"
+    },
+    {
+      "id": "S5",
+      "entity": "girl's necklace (worn, not in prompt)",
+      "scope": "cross_shot",
+      "shots": ["Shot4", "Shot6"],
+      "frames": ["Shot4 f3", "Shot6 f2"],
+      "what": "A thin red cord necklace is visible at her neckline in Shot4 but her neck is bare in the Shot6 close view.",
+      "sure": "likely"
+    },
+    {
+      "id": "S6",
+      "entity": "creature head features (body parts)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot3", "Shot5", "Shot8"],
+      "frames": ["Shot1 f5", "Shot3 f0", "Shot5 f3", "Shot8 f3"],
+      "what": "The creature's head changes design between shots: shaggy brow without horns (Shot1), two small horns (Shot3), gray mohawk tuft (Shot5), pointed side ears on a monkey-like face (Shot8).",
+      "sure": "clear"
+    },
+    {
+      "id": "S7",
+      "entity": "creature face (body part)",
+      "scope": "within_shot",
+      "shots": ["Shot3"],
+      "frames": ["Shot3 f4", "Shot3 f5"],
+      "what": "Between f4 and f5 the gray face mask shrinks to two gray eye patches and a muzzle; the blue eyes and teeth are no longer visible.",
+      "sure": "likely"
+    },
+    {
+      "id": "S8",
+      "entity": "creature extra limb/tail (body part)",
+      "scope": "within_shot",
+      "shots": ["Shot5"],
+      "frames": ["Shot5 f1", "Shot5 f2", "Shot5 f3"],
+      "what": "A white fluffy tail-like limb appears beside the creature's right side only in f2.",
+      "sure": "likely"
+    }
+  ],
+  "unspecified_seen": "Few unprompted things, each in one shot only: wooden crate under the platform (Shot2), small box on the tiled roof (Shot3, may be one of the prompt's two blocks), cables, a white pipe and a stick along the parapet/deck (Shot4), piles of clothes on the ground and a small blue cloth in the creature's paw (Shot5), green bin and a dark sloped roof structure (Shot7), wire hanger on the rail (Shot8); none recurs across shots. The large maroon cloth in Shot5 that morphs (draped cloth f0, hanging curtain f1, swinging garment f2) and vanishes at f3 is counted as the prompt's Shot5 hanging sheet, not as unspecified."
+}

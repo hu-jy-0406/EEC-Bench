@@ -1,0 +1,361 @@
+{
+ "task": "priority_082__wan22",
+ "ledger": [
+  {
+   "id": "pb0001",
+   "label": "specified",
+   "name": "Gray stag",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0002",
+   "label": "specified",
+   "name": "Cloaked figure",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0003",
+   "label": "specified",
+   "name": "Barren rocky plain",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0004",
+   "label": "specified",
+   "name": "Antlered skull",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0005",
+   "label": "specified",
+   "name": "Cloak",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0006",
+   "label": "specified",
+   "name": "Sky",
+   "shots": [
+    "Shot1",
+    "Shot2",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0007",
+   "label": "specified",
+   "name": "Clouds",
+   "shots": [
+    "Shot1",
+    "Shot4"
+   ]
+  },
+  {
+   "id": "pb0008",
+   "label": "specified",
+   "name": "Low dark ridge",
+   "shots": [
+    "Shot4"
+   ]
+  }
+ ],
+ "vv_added_entities": [],
+ "vv_candidates": [
+  {
+   "id": "V1",
+   "scope": "within_shot",
+   "subcategory": "identity_drift",
+   "subjects": [
+    "pb0002",
+    "pb0004"
+   ],
+   "description": "Shot4中兜帽人物的头脸由骨质长吻面具逐渐变为有毛鹿脸，面部身份明显改变，未见导致变化的动作。"
+  },
+  {
+   "id": "V2",
+   "scope": "within_shot",
+   "subcategory": "physical_integrity",
+   "subjects": [
+    "pb0002",
+    "pb0004"
+   ],
+   "description": "Shot4：披袍人物的头部从帧0-3的长嘴鹿角骷髅，逐渐变成帧4-5的有毛鹿头；无可见动作解释这种头部突变。"
+  },
+  {
+   "id": "V3",
+   "scope": "within_shot",
+   "subcategory": "object_instability",
+   "subjects": [
+    "pb0004",
+    "pb0001"
+   ],
+   "description": "Shot4中头部的角枝、面部由前段的骨质头骨样物件变为frame 5清晰的鹿头，形态类型突变且没有可见动作解释。"
+  },
+  {
+   "id": "V4",
+   "scope": "within_shot",
+   "subcategory": "presence_instability",
+   "subjects": [
+    "pb0002",
+    "pb0004"
+   ],
+   "description": "Shot4中人物头上的白色头骨转为有皮毛的鹿头，像是头部实体被替换；无进出或遮挡解释。"
+  },
+  {
+   "id": "V5",
+   "scope": "cross_shot",
+   "subcategory": "character_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "Shot3 的雄鹿呈白色、面部外观也不同于 Shot1、Shot2、Shot4 中的深色雄鹿；无可见原因解释其身份差异。"
+  },
+  {
+   "id": "V6",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects": [
+    "pb0002"
+   ],
+   "description": "同一披斗篷人物的斗篷颜色不一致：Shot3为浅灰色，Shot1、Shot2和Shot4为深色，缺乏可见原因。"
+  },
+  {
+   "id": "V7",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "同一隻鹿在 Shot3 呈白色，Shot2、Shot4 則為深灰棕色，無可見原因解釋此色差。"
+  },
+  {
+   "id": "V8",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects": [
+    "pb0004"
+   ],
+   "description": "Shot4 露出的頭部是有耳朵與肉質鹿臉的動物頭，與其他鏡頭的骨質長吻骷髏不符。"
+  },
+  {
+   "id": "V9",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects": [],
+   "description": "Shot3整体亮度与对比度明显高于Shot1、Shot2和Shot4；同一场景未见光源或天气变化解释。"
+  },
+  {
+   "id": "V10",
+   "scope": "cross_shot",
+   "subcategory": "instance_count",
+   "subjects": [
+    "pb0001"
+   ],
+   "description": "Shot3中的鹿呈白色，与Shot1、Shot2及Shot4的深灰鹿明显不同，像是换成了另一只个体。"
+  },
+  {
+   "id": "V11",
+   "scope": "within_shot",
+   "subcategory": "physical_integrity",
+   "subjects": [
+    "pb0002",
+    "pb0004"
+   ],
+   "description": "Shot4帧0仍是鹿角骷髅头，至帧5变成有耳朵和鹿脸的活鹿头；头部形态无可见原因地转变。"
+  }
+ ],
+ "vv_review_units": [
+  {
+   "id": "V1+V2+V3+V4+V11",
+   "from_candidates": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V11"
+   ],
+   "verdict": "confirmed",
+   "scope": "within_shot",
+   "subcategory": "appearance_drift",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ],
+    [
+     "pb0004",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot4",
+     0
+    ],
+    [
+     "Shot4",
+     3
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "Shot4中斗篷人物头部的外观在镜头内发生突变：帧0及帧3仍可见带角、长吻的骨质骷髅外观，至帧5则变为有耳朵和皮毛的鹿头，骷髅外观不再可见。"
+  },
+  {
+   "id": "V5+V7+V10",
+   "from_candidates": [
+    "V5",
+    "V7",
+    "V10"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0001",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     0
+    ],
+    [
+     "Shot2",
+     0
+    ],
+    [
+     "Shot3",
+     0
+    ],
+    [
+     "Shot4",
+     0
+    ]
+   ],
+   "description": "同一只鹿在Shot3呈明显白色，与Shot1、Shot2及Shot4中呈深灰或棕灰色的鹿外观不同。"
+  },
+  {
+   "id": "V6",
+   "from_candidates": [
+    "V6"
+   ],
+   "verdict": "confirmed",
+   "scope": "cross_shot",
+   "subcategory": "character_appearance",
+   "subjects_with_labels": [
+    [
+     "pb0002",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "同一斗篷人物的斗篷在Shot3呈浅灰色，而在Shot1、Shot2和Shot4呈深色。"
+  },
+  {
+   "id": "V8",
+   "from_candidates": [
+    "V8"
+   ],
+   "verdict": "rejected",
+   "scope": "cross_shot",
+   "subcategory": "object_identity",
+   "subjects_with_labels": [
+    [
+     "pb0004",
+     "specified"
+    ]
+   ],
+   "frames": [
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot4",
+     5
+    ]
+   ],
+   "description": "Shot2和Shot3中斗篷人物头部可见浅色骨质、带空眼窝和长吻的骷髅；Shot4帧5露出的则是有耳朵、皮毛和肉质鹿脸的头部，外观类型不同。"
+  },
+  {
+   "id": "V9",
+   "from_candidates": [
+    "V9"
+   ],
+   "verdict": "uncertain",
+   "scope": "cross_shot",
+   "subcategory": "environment_lighting",
+   "subjects_with_labels": [],
+   "frames": [
+    [
+     "Shot1",
+     2
+    ],
+    [
+     "Shot2",
+     2
+    ],
+    [
+     "Shot3",
+     2
+    ],
+    [
+     "Shot4",
+     2
+    ]
+   ],
+   "description": "Shot3的整体画面明显更亮、明暗对比更强；Shot1、Shot2和Shot4的整体画面则较暗、对比度较低。"
+  }
+ ]
+}

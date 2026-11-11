@@ -31,12 +31,19 @@ STOP_REQUESTED = False
 # review v2 (the previous per-label review).  Discovery v5 (2026-10-09) is the
 # branch-separated chain: separate V-L and V-V detection, review v6 (separate
 # V-L / V-V reviews) and scoring v5 (separate V-L, V-V and unintentional-entity
-# scores).  An experiment directory keeps one chain for its whole life.
+# scores).  Discovery v6 (2026-11-02) is the current branch chain: V-V
+# detection without entity provenance, review v7 (two calls per branch: rewrite,
+# then verdicts) and scoring v6 (no duplicate links; unspecified-entity
+# statistics from the ledger).  Its V-L detection format is recorded per
+# directory: answers for a new directory (2026-11-05, V-L review without the
+# rewrite call), checks for one created before.  An experiment directory keeps
+# one chain for its whole life.
 SCORING_PROTOCOLS = {'v1': 'vl_vv_episode_scoring_v2', 'v2': 'vl_vv_episode_scoring_v3',
                      'v4': 'vl_vv_episode_scoring_v3', 'v5': 'vl_vv_episode_scoring_v3',
-                     'v6': 'vl_vv_episode_scoring_v5'}  # keyed by review protocol
+                     'v6': 'vl_vv_episode_scoring_v5', 'v7': 'vl_vv_episode_scoring_v6'}  # keyed by review protocol
 REVIEW_PROTOCOLS = {'v1': ('v1',), 'v2': ('v5', 'v4', 'v2'), 'v3': ('v5', 'v4', 'v2'),
-                    'v4': ('v5', 'v4', 'v2'), 'v5': ('v6',)}  # first = default for a new directory
+                    'v4': ('v5', 'v4', 'v2'), 'v5': ('v6',), 'v6': ('v7',)}  # first = default for a new directory
+BRANCH_DISCOVERY_PROTOCOLS = ('v5', 'v6')
 # Model stages whose run.json token_cost belongs to the evaluation, per chain.
 EVALUATION_STAGES = {'single_list': ('issue_discovery', 'issue_review', 'episode_scoring'),
                      'branch': ('vl_detection', 'vv_detection', 'vl_review', 'vv_review', 'episode_scoring')}
@@ -120,7 +127,7 @@ def resolve_discovery_protocol(progress, requested):
                              f'use a fresh --exp-dir for {requested}')
         return recorded
     if requested is None:
-        raise ValueError('Choose --discovery-protocol v1 (historical chain), v2 (checklist, multi-label), v3 (checklist, one label per issue), v4 (v3 + episode-wide entity descriptions) or v5 (separate V-L / V-V branches) for a new experiment directory')
+        raise ValueError('Choose --discovery-protocol v1 (historical chain), v2 (checklist, multi-label), v3 (checklist, one label per issue), v4 (v3 + episode-wide entity descriptions), v5 (separate V-L / V-V branches, one review call) or v6 (current branch chain: two review calls, scoring v6) for a new experiment directory')
     return requested
 
 
@@ -152,11 +159,25 @@ def resolve_contract_format(progress, discovery_protocol):
 
     An existing directory keeps what it recorded; one that recorded nothing
     predates contract v2 (2026-11-01) and keeps v1.  A new directory reads v2
-    with discovery v5 and v1 with the older chains, which read only v1.
+    with the branch chains (discovery v5 and v6) and v1 with the older chains,
+    which read only v1.
     """
     if progress is not None:
         return progress.get('contract_format', 'v1')
-    return 'v2' if discovery_protocol == 'v5' else 'v1'
+    return 'v2' if discovery_protocol in BRANCH_DISCOVERY_PROTOCOLS else 'v1'
+
+
+def resolve_vl_format(progress, discovery_protocol):
+    """The V-L detection format of this experiment directory (discovery v6 only; None otherwise).
+
+    An existing directory keeps what it recorded; a discovery v6 directory that recorded nothing predates the
+    answers default (2026-11-05) and keeps checks.  A new discovery v6 directory uses answers (owner, 2026-11-05).
+    """
+    if discovery_protocol != 'v6':
+        return None
+    if progress is not None:
+        return progress.get('vl_format', 'checks')
+    return 'answers'
 
 
 def token_cost(run_path):
@@ -208,6 +229,7 @@ def score_record(task, output):
     scores = scoring['scores']
     vv = scores.get('v_v', {})
     chain = 'branch' if (output / 'vl_detection').is_dir() else 'single_list'
+    branch_v5 = chain == 'branch' and scoring.get('protocol') == 'vl_vv_episode_scoring_v5'
     stage_names = EVALUATION_STAGES[chain]
     stage_costs = {
         name: token_cost(output / name / 'run.json')
@@ -247,11 +269,14 @@ def score_record(task, output):
         model_id=task['model_id'], model_name=task['model_name'], variant=task['variant'],
         scores=dict(v_l=scores.get('v_l'), v_v_within=vv.get('within_shot'),
                     v_v_cross=vv.get('cross_shot'), v_v_mean=vv.get('overall'),
+                    **({'uec': scores.get('uec')} if scoring.get('protocol') == 'vl_vv_episode_scoring_v6' else {}),
                     **({'v_v_unintentional': scores.get('v_v_unintentional'),
                         'v_v_unintentional_or_uncertain': scores.get('v_v_unintentional_or_uncertain'),
-                        'v_v_remainder': scores.get('v_v_remainder')} if chain == 'branch' else {})),
+                        'v_v_remainder': scores.get('v_v_remainder')} if branch_v5 else {})),
         issue_counts=scoring.get('counts'),
-        **({'v_v_issue_statistics': scoring.get('v_v_issue_statistics')} if chain == 'branch' else {}),
+        **({'v_v_issue_statistics': scoring.get('v_v_issue_statistics')} if branch_v5 else {}),
+        **({'consistency_issue_statistics': scoring.get('consistency_issue_statistics')}
+           if scoring.get('protocol') == 'vl_vv_episode_scoring_v6' else {}),
         stage_token_costs=stage_costs,
         frontend_token_usage=frontend_usage, evaluation_token_usage=evaluation_usage,
         total_token_usage_and_cost=aggregate,
@@ -333,10 +358,12 @@ def main():
                         help='Evaluator chain: v1 = historical (discovery v1 -> review v1 -> scoring v2); '
                              'v2 = checklist, multi-label issues; v3 = checklist, one label per issue; v4 = v3 + episode-wide '
                              'entity descriptions (v2-v4 -> review v5 -> scoring v3 by default); v5 = separate V-L / V-V '
-                             'branches (-> review v6 -> scoring v5). Required for a new '
+                             'branches (-> review v6 -> scoring v5); v6 = current branch chain (-> review v7, two calls per '
+                             'branch -> scoring v6). Required for a new '
                              '--exp-dir; an existing one keeps its recorded chain (legacy directories are v1).')
     parser.add_argument('--review-protocol', choices=sorted(SCORING_PROTOCOLS),
-                        help='For discovery v5: v6 (separate V-L / V-V reviews, scoring v5). For discovery v2-v4: v5 '
+                        help='For discovery v6: v7 (two calls per branch, scoring v6). '
+                             'For discovery v5: v6 (separate V-L / V-V reviews, scoring v5). For discovery v2-v4: v5 '
                              '(default for a new --exp-dir; core-problem verdicts with episode-wide '
                              'entity descriptions), v4 (core-problem verdicts) or v2 (previous per-label review); all are '
                              'scored with scoring v3. An existing '
@@ -367,6 +394,7 @@ def main():
         protocol = resolve_discovery_protocol(progress, args.discovery_protocol)
         review_protocol = resolve_review_protocol(progress, protocol, args.review_protocol)
         contract_format = resolve_contract_format(progress, protocol)
+        vl_format = resolve_vl_format(progress, protocol)
         for state in progress.get('tasks', {}).values():
             if state.get('status') == 'running':
                 state['status'] = 'interrupted'
@@ -376,6 +404,7 @@ def main():
         protocol = resolve_discovery_protocol(None, args.discovery_protocol)
         review_protocol = resolve_review_protocol(None, protocol, args.review_protocol)
         contract_format = resolve_contract_format(None, protocol)
+        vl_format = resolve_vl_format(None, protocol)
         progress = dict(cohort_protocol='vl_vv_first200_multimodel_v1', status='running',
                         slurm_job_id=os.environ['SLURM_JOB_ID'], started_at_utc=now(),
                         episode_order='generation_priority ascending; all five models complete before next episode',
@@ -385,6 +414,8 @@ def main():
     progress['discovery_protocol'] = protocol
     progress['review_protocol'] = review_protocol
     progress['contract_format'] = contract_format
+    if vl_format is not None:
+        progress['vl_format'] = vl_format
     progress['expected_scoring_protocol'] = scoring_protocol
     progress['status'] = 'running'
     progress['slurm_job_id'] = os.environ['SLURM_JOB_ID']
@@ -461,8 +492,10 @@ def main():
                        '--mode', 'full', '--gpu', str(gpu_index), '--gpu-uuid', gpu_uuid,
                        '--shot-workers', str(args.shot_workers), '--gpu-python', GPU_PYTHON,
                        '--discovery-protocol', protocol, '--review-protocol', review_protocol]
-            if protocol == 'v5' and contract_format == 'v1':
+            if protocol in BRANCH_DISCOVERY_PROTOCOLS and contract_format == 'v1':
                 command.append('--allow-v1-contract')
+            if vl_format is not None:
+                command += ['--vl-format', vl_format]
             stream = log.open('w')
             proc = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT, env=env,
                                     start_new_session=True)

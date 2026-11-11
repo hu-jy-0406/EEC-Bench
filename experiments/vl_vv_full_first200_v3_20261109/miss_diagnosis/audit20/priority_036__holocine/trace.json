@@ -1,0 +1,41 @@
+{
+  "task": "priority_036__holocine",
+  "primary": [
+    {
+      "id": "A1",
+      "ledger_entity": null,
+      "ledger_status": "not_recorded",
+      "vv_outcome": "confirmed_specified_subjects_only",
+      "matched_ids": ["V1"],
+      "note": "Caught: candidate V1 / unit V1 (confirmed) describes the extra smaller drone at bottom right of Shot1 f5, but as a duplicate instance of the specified Drone pb0011; the extra drone has no ledger record of its own, so the issue counts as specified-only."
+    },
+    {
+      "id": "A2",
+      "ledger_entity": null,
+      "ledger_status": "not_recorded",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Sill plants have no ledger record; only the Bay window pb0005 (Shot1/2/4) is recorded. No candidate mentions the window or plants."
+    },
+    {
+      "id": "A3",
+      "ledger_entity": null,
+      "ledger_status": "not_recorded",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Canopy has no ledger record (Garage pb0003 is recorded only in Shot1/Shot3, Brick house pb0002 in Shot1/2/4). No facade-change candidate."
+    },
+    {
+      "id": "A4",
+      "ledger_entity": ["ge0002", "ge0004"],
+      "ledger_status": "separate_entities_per_shot",
+      "vv_outcome": "no_candidate",
+      "matched_ids": [],
+      "note": "Shot1 object is ge0002 'Garden cart', Shot3 object is ge0004 'Green balloon'; matching kept them apart, so no cross-shot comparison was made. Under the balloon reading, a green balloon appears in Shot3 that the Shot1 garage view never shows; either way no candidate."
+    }
+  ],
+  "secondary": [
+    {"id": "S1", "vv_outcome": "no_candidate", "matched_ids": []}
+  ],
+  "pipeline_unspecified_confirmed": []
+}

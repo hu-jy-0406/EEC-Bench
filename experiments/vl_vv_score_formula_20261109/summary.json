@@ -1,0 +1,440 @@
+{
+ "rule": "s = 100 * exp(-sum(D) / (100 * S)) per dimension; D = w(severity) x c; w = 10/25/50/80; c = 1/0.75/0.5 (confirmed high/medium/low), 0.25 (uncertain), 0 (rejected); S = shots; UEC = mean of V-L, within, cross; V-V = mean of within and cross",
+ "source": "experiments/vl_vv_full_first200_v3_20261109 (1,000 videos, chain v6); per-issue deductions of scoring v6",
+ "model_calls": 0,
+ "per_shot_exp": {
+  "per_model": {
+   "storymem": {
+    "v_l": 82.48,
+    "within": 96.99,
+    "cross": 94.19,
+    "v_v": 95.59,
+    "uec": 91.22,
+    "videos": 200
+   },
+   "holocine": {
+    "v_l": 68.04,
+    "within": 97.45,
+    "cross": 97.21,
+    "v_v": 97.33,
+    "uec": 87.57,
+    "videos": 200
+   },
+   "wan22": {
+    "v_l": 83.09,
+    "within": 97.64,
+    "cross": 77.78,
+    "v_v": 87.71,
+    "uec": 86.17,
+    "videos": 200
+   },
+   "cinetrans": {
+    "v_l": 21.95,
+    "within": 93.82,
+    "cross": 87.05,
+    "v_v": 90.43,
+    "uec": 67.61,
+    "videos": 200
+   },
+   "wan21": {
+    "v_l": 61.44,
+    "within": 96.72,
+    "cross": 73.49,
+    "v_v": 85.1,
+    "uec": 77.22,
+    "videos": 200
+   },
+   "all": {
+    "v_l": 63.4,
+    "within": 96.52,
+    "cross": 85.94,
+    "v_v": 91.23,
+    "uec": 81.96,
+    "videos": 1000
+   }
+  },
+  "ranking": {
+   "v_l": [
+    "wan22",
+    "storymem",
+    "holocine",
+    "wan21",
+    "cinetrans"
+   ],
+   "within": [
+    "wan22",
+    "holocine",
+    "storymem",
+    "wan21",
+    "cinetrans"
+   ],
+   "cross": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "v_v": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "uec": [
+    "storymem",
+    "holocine",
+    "wan22",
+    "wan21",
+    "cinetrans"
+   ]
+  },
+  "adjacent_uec_pairs": {
+   "storymem - holocine": {
+    "mean": 3.65,
+    "bootstrap_95": [
+     2.39,
+     4.91
+    ]
+   },
+   "holocine - wan22": {
+    "mean": 1.4,
+    "bootstrap_95": [
+     -0.0,
+     2.82
+    ]
+   },
+   "wan22 - wan21": {
+    "mean": 8.96,
+    "bootstrap_95": [
+     7.77,
+     10.1
+    ]
+   },
+   "wan21 - cinetrans": {
+    "mean": 9.61,
+    "bootstrap_95": [
+     8.31,
+     10.94
+    ]
+   }
+  },
+  "uec_percentiles": {
+   "p5": 61.18,
+   "p25": 73.18,
+   "p50": 84.24,
+   "p75": 91.05,
+   "p95": 97.98
+  },
+  "v_l_percentiles": {
+   "p5": 7.2,
+   "p25": 43.91,
+   "p50": 70.03,
+   "p75": 87.56,
+   "p95": 100.0
+  },
+  "cross_percentiles": {
+   "p5": 61.29,
+   "p25": 77.15,
+   "p50": 88.25,
+   "p75": 100.0,
+   "p95": 100.0
+  },
+  "uec_by_shots": {
+   "4": 81.96,
+   "6": 82.1,
+   "8": 81.51
+  }
+ },
+ "scoring_v6": {
+  "per_model": {
+   "storymem": {
+    "v_l": 44.82,
+    "within": 85.76,
+    "cross": 74.22,
+    "v_v": 79.99,
+    "uec": 68.27,
+    "videos": 200
+   },
+   "holocine": {
+    "v_l": 27.33,
+    "within": 86.38,
+    "cross": 86.7,
+    "v_v": 86.54,
+    "uec": 66.8,
+    "videos": 200
+   },
+   "wan22": {
+    "v_l": 44.63,
+    "within": 88.51,
+    "cross": 28.93,
+    "v_v": 58.72,
+    "uec": 54.02,
+    "videos": 200
+   },
+   "cinetrans": {
+    "v_l": 1.58,
+    "within": 73.7,
+    "cross": 54.25,
+    "v_v": 63.98,
+    "uec": 43.18,
+    "videos": 200
+   },
+   "wan21": {
+    "v_l": 14.27,
+    "within": 84.9,
+    "cross": 21.27,
+    "v_v": 53.09,
+    "uec": 40.15,
+    "videos": 200
+   },
+   "all": {
+    "v_l": 26.53,
+    "within": 83.85,
+    "cross": 53.08,
+    "v_v": 68.46,
+    "uec": 54.49,
+    "videos": 1000
+   }
+  },
+  "ranking": {
+   "v_l": [
+    "storymem",
+    "wan22",
+    "holocine",
+    "wan21",
+    "cinetrans"
+   ],
+   "within": [
+    "wan22",
+    "holocine",
+    "storymem",
+    "wan21",
+    "cinetrans"
+   ],
+   "cross": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "v_v": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "uec": [
+    "storymem",
+    "holocine",
+    "wan22",
+    "cinetrans",
+    "wan21"
+   ]
+  },
+  "adjacent_uec_pairs": {
+   "storymem - holocine": {
+    "mean": 1.47,
+    "bootstrap_95": [
+     -1.25,
+     4.15
+    ]
+   },
+   "holocine - wan22": {
+    "mean": 12.78,
+    "bootstrap_95": [
+     10.12,
+     15.37
+    ]
+   },
+   "wan22 - cinetrans": {
+    "mean": 10.85,
+    "bootstrap_95": [
+     7.63,
+     14.12
+    ]
+   },
+   "cinetrans - wan21": {
+    "mean": 3.03,
+    "bootstrap_95": [
+     0.26,
+     5.82
+    ]
+   }
+  },
+  "uec_percentiles": {
+   "p5": 25.37,
+   "p25": 39.07,
+   "p50": 53.28,
+   "p75": 68.75,
+   "p95": 91.67
+  },
+  "v_l_percentiles": {
+   "p5": 0.0,
+   "p25": 0.7,
+   "p50": 12.66,
+   "p75": 42.19,
+   "p95": 100.0
+  },
+  "cross_percentiles": {
+   "p5": 4.18,
+   "p25": 18.75,
+   "p50": 50.0,
+   "p75": 100.0,
+   "p95": 100.0
+  },
+  "uec_by_shots": {
+   "4": 57.65,
+   "6": 51.43,
+   "8": 44.67
+  }
+ },
+ "earliest_chain_v1": {
+  "per_model": {
+   "storymem": {
+    "v_l": 72.51,
+    "within": 98.87,
+    "cross": 96.85,
+    "v_v": 97.86,
+    "uec": 89.41,
+    "videos": 200
+   },
+   "holocine": {
+    "v_l": 59.21,
+    "within": 99.38,
+    "cross": 98.99,
+    "v_v": 99.18,
+    "uec": 85.86,
+    "videos": 200
+   },
+   "wan22": {
+    "v_l": 72.55,
+    "within": 100.0,
+    "cross": 77.72,
+    "v_v": 88.86,
+    "uec": 83.42,
+    "videos": 200
+   },
+   "cinetrans": {
+    "v_l": 37.26,
+    "within": 97.26,
+    "cross": 93.09,
+    "v_v": 95.18,
+    "uec": 75.87,
+    "videos": 200
+   },
+   "wan21": {
+    "v_l": 55.93,
+    "within": 99.25,
+    "cross": 74.27,
+    "v_v": 86.76,
+    "uec": 76.48,
+    "videos": 200
+   },
+   "all": {
+    "v_l": 59.49,
+    "within": 98.95,
+    "cross": 88.18,
+    "v_v": 93.57,
+    "uec": 82.21,
+    "videos": 1000
+   }
+  },
+  "ranking": {
+   "v_l": [
+    "wan22",
+    "storymem",
+    "holocine",
+    "wan21",
+    "cinetrans"
+   ],
+   "within": [
+    "wan22",
+    "holocine",
+    "wan21",
+    "storymem",
+    "cinetrans"
+   ],
+   "cross": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "v_v": [
+    "holocine",
+    "storymem",
+    "cinetrans",
+    "wan22",
+    "wan21"
+   ],
+   "uec": [
+    "storymem",
+    "holocine",
+    "wan22",
+    "wan21",
+    "cinetrans"
+   ]
+  },
+  "adjacent_uec_pairs": {
+   "storymem - holocine": {
+    "mean": 3.55,
+    "bootstrap_95": [
+     2.19,
+     4.93
+    ]
+   },
+   "holocine - wan22": {
+    "mean": 2.44,
+    "bootstrap_95": [
+     0.82,
+     4.09
+    ]
+   },
+   "wan22 - wan21": {
+    "mean": 6.94,
+    "bootstrap_95": [
+     5.22,
+     8.68
+    ]
+   },
+   "wan21 - cinetrans": {
+    "mean": 0.61,
+    "bootstrap_95": [
+     -1.28,
+     2.47
+    ]
+   }
+  },
+  "uec_percentiles": {
+   "p5": 62.63,
+   "p25": 75.0,
+   "p50": 83.33,
+   "p75": 91.67,
+   "p95": 100.0
+  },
+  "v_l_percentiles": {
+   "p5": 12.5,
+   "p25": 37.5,
+   "p50": 56.25,
+   "p75": 75.0,
+   "p95": 100.0
+  },
+  "cross_percentiles": {
+   "p5": 45.7,
+   "p25": 75.0,
+   "p50": 100.0,
+   "p75": 100.0,
+   "p95": 100.0
+  },
+  "uec_by_shots": {
+   "4": 83.38,
+   "6": 80.72,
+   "8": 79.66
+  }
+ }
+}

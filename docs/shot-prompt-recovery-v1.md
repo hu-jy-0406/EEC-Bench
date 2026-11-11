@@ -1,5 +1,7 @@
 # Shot-level prompt binding and targeted recovery v1
 
+Status (owner, 2026-11-03, open-questions Q15): the current code (`gs_shot_prompt_recovery.py`, protocol `shot_prompt_recovery_v2_direct_grounding`) has no candidate review; it attaches the highest-score valid Grounding DINO box for each missing prompt entity and frame, and the owner keeps this score selection. The candidate review described below is historical (old prompt `prompts/gs_shot_prompt_recovery_review_v1.txt`, code in `experiments/parking_prompt_recovery_20260922/source_snapshot/`).
+
 User-authorized implementation, 2026-09-22. Default integrated `--prompt-recovery auto` activates only when a prompt registry/alignment contract is supplied; `--prompt-recovery off` restores the previous path. No registry means no automatic invented schedule.
 
 Sequence: original WeDetect and isolated clustering → isolated own-shot prompt binding → reverse required-entity/frame coverage check → Grounding DINO targeted candidates → isolated own-shot candidate review → frozen augmented inventory → existing geometry/motion/identity/scoring. No cross-shot evidence enters either shot reviewer. Unknown or missing observations are not absence verdicts. Prompt IDs never force cross-shot identity matches.

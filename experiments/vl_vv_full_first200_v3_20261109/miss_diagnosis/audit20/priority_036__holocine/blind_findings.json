@@ -1,0 +1,53 @@
+{
+  "task": "priority_036__holocine",
+  "primary": [
+    {
+      "id": "A1",
+      "entity": "second small drone at bottom right",
+      "scope": "within_shot",
+      "shots": ["Shot1"],
+      "frames": ["Shot1 f4", "Shot1 f5"],
+      "what": "A second drone-like object (white top, thin black upright rods, red underside) pops up at the bottom-right edge in f5, absent in f0-f4, while the prompted drone is at the bay window at the same time.",
+      "sure": "likely"
+    },
+    {
+      "id": "A2",
+      "entity": "plants on the bay-window sill",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot4"],
+      "frames": ["Shot1 f0", "Shot4 f0", "Shot4 f3"],
+      "what": "A row of small green plants sits along the bottom of the bay window in every Shot4 frame, but the same window's sill is bare in Shot1.",
+      "sure": "likely"
+    },
+    {
+      "id": "A3",
+      "entity": "dark canopy over the garage opening",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot4"],
+      "frames": ["Shot1 f0", "Shot4 f3", "Shot4 f5"],
+      "what": "In Shot4 a dark grey porch canopy projects over the garage opening and brick pillar and covers the bay window's top-left corner; in Shot1 there is no canopy there, only the white garage-door housing with a lantern.",
+      "sure": "likely"
+    },
+    {
+      "id": "A4",
+      "entity": "green machine (lawnmower) in the garage",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot3"],
+      "frames": ["Shot1 f0", "Shot1 f5", "Shot3 f0", "Shot3 f4"],
+      "what": "The green machine to the man's left in the garage is a dark-green boxy mower on a grey wheeled frame in Shot1 but appears as a bright lime-green smooth dome in Shot3.",
+      "sure": "likely"
+    }
+  ],
+  "secondary": [
+    {
+      "id": "S1",
+      "entity": "house facade behind the drone (place/background)",
+      "scope": "cross_shot",
+      "shots": ["Shot1", "Shot2"],
+      "frames": ["Shot1 f5", "Shot2 f1", "Shot2 f5"],
+      "what": "Shot1 ends with the drone right in front of the bay window, but Shot2 shows only a bare tree and a foggy field behind the drone, with no house wall or window.",
+      "sure": "likely"
+    }
+  ],
+  "unspecified_seen": "Green mower/machine in the garage (Shot1; probably the green object in Shot3), wall lantern on the garage frontage (Shot1), bare trees (Shot1, Shot2, Shot4), second small drone (Shot1 f5 only), sill plants and dark canopy (Shot4 only), leaning tools and small white items in the garage (Shot3 only), leaves by the step (Shot1, Shot4). Recurring ones: mower (Shot1/3, changed look), trees and leaves (consistent)."
+}

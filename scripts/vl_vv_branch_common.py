@@ -1,13 +1,26 @@
 #!/usr/bin/env python3
 """Shared pieces of the branch-separated V-L / V-V pipeline.
 
-Chain (pipeline --discovery-protocol v5, review v6, scoring v5):
+Two chains share this module (CHAINS, keyed by the pipeline's discovery protocol):
+
+- v6 (default since 2026-11-02): discovery v6 -> review v7 -> scoring v6, config v2.
+  Review makes two calls per branch: the first keeps, splits or merges the
+  candidates and rewrites them, the second gives the verdicts on the rewritten
+  issues only.  V-L candidates of the answers formats (the default V-L format
+  since 2026-11-05) skip the first call: each states one failed requirement, so
+  the verdict call judges them directly.  Scoring has no duplicate links; issue
+  entities take their specified / unspecified label from the entity ledger.
+- v5 (2026-10-09, kept unchanged for ablations): discovery v5 -> review v6 ->
+  scoring v5, config v1; one review call per branch, duplicate links in
+  scoring, entity provenance registered by V-V detection.
+
   detection registry -> V-L detection  -> V-L review  -+-> episode scoring (V-L call + V-V call, then Python)
                      -> V-V detection  -> V-V review  -+
-Each box is its own model call with its own prompt, schema and validator.
-This module holds what every stage shares: the config, prompt rendering
+Each box is its own stage with its own prompt(s), schema(s) and validator.
+This module holds what every stage shares: the configs, prompt rendering
 (static placeholders), literal-quote verification, the contract-checking
-template, the entity index and the cost estimate.
+template, the entity index and the cost estimate.  Helpers that read a config
+default to config v1 (chain v5); chain v6 code passes config v2.
 """
 import copy
 import json
@@ -19,10 +32,12 @@ from pathlib import Path
 import episode_contract as contract_io
 
 ROOT = Path(__file__).resolve().parents[1]
-CONFIG_PATH = ROOT / 'configs/vl-vv-branch-v1.json'
+CONFIG_PATH = ROOT / 'configs/vl-vv-branch-v1.json'          # chain v5
+CONFIG_V2_PATH = ROOT / 'configs/vl-vv-branch-v2.json'       # chain v6
 DEFINITIONS_PATH = ROOT / 'prompts/vl_vv_branch_definitions_v1.txt'
 REPAIR_PROMPT = ROOT / 'prompts/vl_vv_validation_repair_v2.txt'
 RECORDS_SCHEMA = ROOT / 'schemas/vl-vv-branch-records-v1.schema.json'
+RECORDS_SCHEMA_V2 = ROOT / 'schemas/vl-vv-branch-records-v2.schema.json'
 SCHEMA_BUILDER = ROOT / 'scripts/build_vl_vv_branch_schemas.py'
 MODEL = 'gpt-6-luna'
 REASONING = 'low'
@@ -48,31 +63,111 @@ SCORING = {
                schema=ROOT / 'schemas/vl-vv-episode-scoring-v5-vv.schema.json'),
 }
 SCORING_PROTOCOL = 'vl_vv_episode_scoring_v5'
+
+# Chain v6 (owner decisions Q7 and Q8, 2026-11-01/02; implemented 2026-11-02).
+DISCOVERY_V6 = {
+    'vl': dict(protocol='vl_vv_issue_discovery_v6_vl', prompt=ROOT / 'prompts/vl_vv_issue_discovery_v6_vl.txt',
+               schema=ROOT / 'schemas/vl-vv-issue-discovery-v6-vl.schema.json'),
+    'vv': dict(protocol='vl_vv_issue_discovery_v6_vv', prompt=ROOT / 'prompts/vl_vv_issue_discovery_v6_vv.txt',
+               schema=ROOT / 'schemas/vl-vv-issue-discovery-v6-vv.schema.json'),
+}
+# Chain v6 V-V detection makes one call per checklist item (owner, 2026-11-09; default mode per_item; one_call is
+# the single call for the whole checklist).  Every item call of a video sends the same prompt, input, schema and
+# keyframes and names its item in a trailing message (checklist_item_message); the prompt text goes in a developer
+# message, which GPT-6 Luna serves from the prompt cache (the keyframes are not cached).
+DISCOVERY_V6_VV_ITEM = dict(protocol='vl_vv_issue_discovery_v6_vv_item',
+                            prompt=ROOT / 'prompts/vl_vv_issue_discovery_v6_vv_item.txt',
+                            schema=ROOT / 'schemas/vl-vv-issue-discovery-v6-vv-item.schema.json')
+VV_DETECTION_MODES = ('per_item', 'one_call')
+DEFAULT_VV_DETECTION_MODE = 'per_item'
+OPEN_SWEEP_SCOPE = 'episode'
+
+
+def _review_v7(branch):
+    """Review v7: one stage per branch with two calls, rewrite (keep / split / merge) then verdict.
+
+    V-L also has verdict_direct (owner, 2026-11-05): the verdict call alone, on the candidates of an answers-format
+    detection (same protocol and schema, its own prompt).
+    """
+    verdict = dict(protocol=f'vl_vv_issue_review_v7_{branch}_verdict',
+                   prompt=ROOT / f'prompts/vl_vv_issue_review_v7_{branch}_verdict.txt',
+                   schema=ROOT / f'schemas/vl-vv-issue-review-v7-{branch}-verdict.schema.json')
+    spec = dict(protocol=f'vl_vv_issue_review_v7_{branch}',
+                rewrite=dict(protocol=f'vl_vv_issue_review_v7_{branch}_rewrite',
+                             prompt=ROOT / f'prompts/vl_vv_issue_review_v7_{branch}_rewrite.txt',
+                             schema=ROOT / f'schemas/vl-vv-issue-review-v7-{branch}-rewrite.schema.json'),
+                verdict=verdict)
+    if branch == 'vl':
+        spec['verdict_direct'] = dict(verdict, prompt=ROOT / 'prompts/vl_vv_issue_review_v7_vl_verdict_direct.txt')
+    return spec
+
+
+REVIEW_V7 = {branch: _review_v7(branch) for branch in BRANCHES}
+SCORING_V6 = {
+    'vl': dict(protocol='vl_vv_episode_scoring_v6_vl', prompt=ROOT / 'prompts/vl_vv_episode_scoring_v6_vl.txt',
+               schema=ROOT / 'schemas/vl-vv-episode-scoring-v6-vl.schema.json'),
+    'vv': dict(protocol='vl_vv_episode_scoring_v6_vv', prompt=ROOT / 'prompts/vl_vv_episode_scoring_v6_vv.txt',
+               schema=ROOT / 'schemas/vl-vv-episode-scoring-v6-vv.schema.json'),
+}
+SCORING_PROTOCOL_V6 = 'vl_vv_episode_scoring_v6'
+
+# Keyed by the pipeline's discovery protocol.
+CHAINS = {
+    'v5': dict(config=CONFIG_PATH, records=RECORDS_SCHEMA, discovery=DISCOVERY, review=REVIEW, scoring=SCORING,
+               review_protocol='v6', scoring_protocol=SCORING_PROTOCOL),
+    'v6': dict(config=CONFIG_V2_PATH, records=RECORDS_SCHEMA_V2, discovery=DISCOVERY_V6, review=REVIEW_V7,
+               scoring=SCORING_V6, review_protocol='v7', scoring_protocol=SCORING_PROTOCOL_V6,
+               # V-L detection formats "answers" (default since 2026-11-05) and "answers_no_contract"
+               # (vl_vv_requirement_answers.py): same candidate records; their V-L review skips the rewrite call.
+               discovery_variants=dict(vl=('vl_vv_issue_discovery_v6_vl_answers',
+                                           'vl_vv_issue_discovery_v6_vl_answers_no_contract'))),
+}
+DEFAULT_CHAIN = 'v6'
 PLACEHOLDER = re.compile(r'\{\{([A-Z_]+)\}\}')
+
+
+def direct_vl_review(detection_protocol, chain='v6'):
+    """Whether a V-L detection result goes straight to the verdict call (answers formats of chain v6)."""
+    return detection_protocol in chain_spec(chain).get('discovery_variants', {}).get('vl', ())
+
+
+def chain_spec(chain):
+    if chain not in CHAINS:
+        raise ValueError(f'Unknown branch chain {chain!r} (known: {sorted(CHAINS)})')
+    return CHAINS[chain]
 
 
 def read(path):
     return json.loads(Path(path).read_text())
 
 
-@lru_cache(maxsize=1)
-def config():
-    return read(CONFIG_PATH)
+@lru_cache(maxsize=None)
+def _config(path):
+    return read(path)
 
 
-def vv_subcategories(scope=None):
-    groups = config()['v_v_subcategories']
+def config(path=CONFIG_PATH):
+    """A chain's config; the default is config v1 (chain v5)."""
+    return _config(str(Path(path)))
+
+
+def chain_config(chain):
+    return config(chain_spec(chain)['config'])
+
+
+def vv_subcategories(scope=None, cfg=None):
+    groups = (cfg or config())['v_v_subcategories']
     if scope is not None:
         return tuple(groups[scope])
     return tuple(dict.fromkeys(tuple(groups['within_shot']) + tuple(groups['cross_shot'])))
 
 
-def checklist_items():
-    return tuple(row['item'] for row in config()['vv_checklist'])
+def checklist_items(cfg=None):
+    return tuple(row['item'] for row in (cfg or config())['vv_checklist'])
 
 
-def allowed_bases(label, verdict):
-    return tuple(config()['review']['decision_basis'][label][verdict])
+def allowed_bases(label, verdict, cfg=None):
+    return tuple((cfg or config())['review']['decision_basis'][label][verdict])
 
 
 # --------------------------------------------------------------------------
@@ -85,20 +180,32 @@ def _definition_lines(mapping, indent='    '):
     return '\n'.join(f'{indent}{code}: {text}' for code, text in mapping.items())
 
 
-def _checklist_text():
-    lines = []
-    for row in config()['vv_checklist']:
-        lines.append(f'- {row["item"]} [{row["scope"]}] {row["title"]}: {row["check"]}')
-    return '\n'.join(lines)
+def _checklist_line(row):
+    return f'- {row["item"]} [{row["scope"]}] {row["title"]}: {row["check"]}'
 
 
-def placeholder_values():
-    cfg = config()
+def _checklist_text(cfg):
+    return '\n'.join(_checklist_line(row) for row in cfg['vv_checklist'])
+
+
+def checklist_item_message(cfg, item):
+    """Trailing message of a per-item V-V detection call: the call's item; the open sweep (O1) also lists the other
+    items as context, since it looks for what they miss."""
+    rows = {row['item']: row for row in cfg['vv_checklist']}
+    text = 'Checklist item of this call:\n' + _checklist_line(rows[item])
+    if rows[item]['scope'] == OPEN_SWEEP_SCOPE:
+        text += ('\nChecked in separate calls (context only, do not report under them):\n'
+                 + '\n'.join(_checklist_line(row) for key, row in rows.items() if key != item))
+    return text + '\n'
+
+
+def placeholder_values(config_path=CONFIG_PATH):
+    cfg = config(config_path)
     values = {
         'VL_SUBCATEGORIES': _definition_lines(cfg['v_l_subcategories']),
         'VV_WITHIN_SUBCATEGORIES': _definition_lines(cfg['v_v_subcategories']['within_shot']),
         'VV_CROSS_SUBCATEGORIES': _definition_lines(cfg['v_v_subcategories']['cross_shot']),
-        'VV_CHECKLIST': _checklist_text(),
+        'VV_CHECKLIST': _checklist_text(cfg),
         'VV_NORMAL_CAUSES': _definition_lines(cfg['normal_change_causes'], indent='- '),
     }
     values['VL_VV_DEFINITIONS'] = _fill(DEFINITIONS_PATH.read_text(), values).rstrip('\n')
@@ -114,23 +221,24 @@ def _fill(text, values):
     return PLACEHOLDER.sub(replace, text)
 
 
-def render_prompt(template_path):
-    text = _fill(Path(template_path).read_text(), placeholder_values())
+def render_prompt(template_path, config_path=CONFIG_PATH):
+    text = _fill(Path(template_path).read_text(), placeholder_values(config_path))
     if '{{' in text or '}}' in text:
         raise ValueError(f'Unrendered placeholder left in {template_path}')
     return text
 
 
-def write_rendered_prompt(template_path, target):
+def write_rendered_prompt(template_path, target, config_path=CONFIG_PATH):
     """Render a prompt template into the stage output folder; the transport sends that file."""
     target = Path(target)
-    target.write_text(render_prompt(template_path))
+    target.write_text(render_prompt(template_path, config_path))
     return target
 
 
-def static_source_paths(*templates):
+def static_source_paths(*templates, chain='v5'):
     """Repository files whose content defines the rendered prompts and schemas."""
-    return [CONFIG_PATH, DEFINITIONS_PATH, REPAIR_PROMPT, RECORDS_SCHEMA, SCHEMA_BUILDER,
+    spec = chain_spec(chain)
+    return [spec['config'], DEFINITIONS_PATH, REPAIR_PROMPT, spec['records'], SCHEMA_BUILDER,
             Path(__file__).resolve(), *map(Path, templates)]
 
 
@@ -306,7 +414,17 @@ def ledger_ids_by_label(ledger):
     return result
 
 
-def contract_template(contract, ledger, manifest, transitions):
+def requirement_links(cfg):
+    """True when issues name requirement IDs and the runner derives the links (config v2, owner 2026-11-04)."""
+    return cfg['contract_template'].get('issue_links') == 'requirement_ids'
+
+
+def requirement_index(template):
+    """{item_id: (row, item)} over a template whose item IDs are unique requirement IDs."""
+    return {item['item_id']: (row, item) for row in template for item in row['items']}
+
+
+def contract_template(contract, ledger, manifest, transitions, requirement_ids=False):
     """Clause groups to check, per manifest shot (contract-checking template v2).
 
     One row per entity of the shot (its episode-wide description when the
@@ -316,9 +434,11 @@ def contract_template(contract, ledger, manifest, transitions):
     shot).  Each row lists its requirement items; the model reports which items
     are violated.  Grouping by entity keeps the template short enough that the
     agent inspects the frames instead of ticking a long form.
+    requirement_ids (chain v6): every item gets an ID that is unique in the
+    template, so issues can name the requirements they report.
     """
     if contract_io.is_v2(contract):
-        return contract_template_v2(contract, ledger, manifest, transitions)
+        return contract_template_v2(contract, ledger, manifest, transitions, requirement_ids)
     shots = shot_ids(manifest)
     descriptions = contract.get('entity_descriptions') or {}
     prompt_shots = {row.get('shot_id'): row for row in (contract.get('prompt') or {}).get('shots', [])
@@ -338,7 +458,7 @@ def contract_template(contract, ledger, manifest, transitions):
                     quotes=[ev.get('quote') for ev in claim.get('evidence') or []
                             if isinstance(ev, dict) and ev.get('quote')])
 
-    for sid in shots:
+    for index, sid in enumerate(shots, 1):
         shot_claims = [claim for claim in claims if sid in (claim.get('shot_ids') or [])]
         shot_claim_ids = {claim['claim_id'] for claim in shot_claims}
         single = [claim for claim in shot_claims if len(claim.get('entity_ids') or []) == 1]
@@ -353,7 +473,8 @@ def contract_template(contract, ledger, manifest, transitions):
             items = []
             description = (descriptions.get(label) or {}).get('description')
             if label in scheduled.get(sid, []) and description:
-                items.append(dict(item_id='description', kind='entity_description', text=description))
+                items.append(dict(item_id=f'S{index}-des-{label}' if requirement_ids else 'description',
+                                  kind='entity_description', text=description))
             items += [claim_item(claim, shot_claim_ids) for claim in single if claim['entity_ids'][0] == label]
             if not items:
                 continue
@@ -364,7 +485,7 @@ def contract_template(contract, ledger, manifest, transitions):
             rows.append(dict(row_id=f'RL:{sid}', kind='relations', shot_id=sid,
                              items=[claim_item(claim, shot_claim_ids) for claim in multi]))
         rows.append(dict(row_id=f'SP:{sid}', kind='shot_text', shot_id=sid,
-                         items=[dict(item_id='text', kind='shot_text',
+                         items=[dict(item_id=f'S{index}-text' if requirement_ids else 'text', kind='shot_text',
                                      text=(prompt_shots.get(sid) or {}).get('text', ''))]
                          + [claim_item(claim, shot_claim_ids) for claim in loose],
                          note='Every other explicit requirement of this shot prompt, and of the global prompt where it '
@@ -373,16 +494,26 @@ def contract_template(contract, ledger, manifest, transitions):
             boundary = transitions_into[sid]
             rows.append(dict(row_id=f'TR:{boundary["from_shot"]}->{sid}', kind='transition', shot_id=sid,
                              from_shot=boundary['from_shot'], required=boundary['required'],
-                             items=[dict(item_id='transition', kind='transition', text=transition_text(boundary))]))
+                             items=[dict(item_id=f'S{index}-cut' if requirement_ids else 'transition', kind='transition',
+                                         text=transition_text(boundary))]))
+    return _unique_rows(rows, requirement_ids)
+
+
+def _unique_rows(rows, requirement_ids):
     seen = set()
     for row in rows:
         if row['row_id'] in seen:
             raise ValueError(f'Duplicate contract template row {row["row_id"]}')
         seen.add(row['row_id'])
+    if requirement_ids:
+        items = [item['item_id'] for row in rows for item in row['items']]
+        repeated = sorted({item for item in items if items.count(item) > 1})
+        if repeated:
+            raise ValueError(f'Requirement IDs repeat in the contract template: {repeated}')
     return rows
 
 
-def contract_template_v2(contract, ledger, manifest, transitions):
+def contract_template_v2(contract, ledger, manifest, transitions, requirement_ids=False):
     """The rows of a v2 contract, the only checking basis of the V-L branch (owner, 2026-11-01).
 
     Entity row: the entity's description and presence item when the shot lists
@@ -391,6 +522,10 @@ def contract_template_v2(contract, ledger, manifest, transitions):
     Camera row and style row: only when the contract sets them.  Transition row:
     a clear cut at the boundary.  Cross-shot row: one cross_shot requirement,
     attached to the last shot it names and judged on all the shots it names.
+
+    requirement_ids: the items that otherwise share one name in every row get
+    shot-numbered IDs in the pattern of the contract's own requirement IDs
+    (S<n>-des-<entity>, S<n>-cam-view, S<n>-cam-move, S<n>-sty, S<n>-cut).
     """
     descriptions = contract['entity_descriptions']
     blocks = {block['shot_id']: block for block in contract['shots']}
@@ -422,7 +557,8 @@ def contract_template_v2(contract, ledger, manifest, transitions):
             row_items = []
             if label in present[sid]:
                 if entity.get('description'):
-                    row_items.append(dict(item_id='description', kind='entity_description', text=entity['description']))
+                    row_items.append(dict(item_id=f'S{index}-des-{label}' if requirement_ids else 'description',
+                                          kind='entity_description', text=entity['description']))
                 row_items.append(list_item(index, 'pre', label, 'present', contract_io.presence_text(name), 'exists'))
             if label in absent[sid]:
                 row_items.append(list_item(index, 'abs', label, 'absent', contract_io.absent_text(name), 'throughout'))
@@ -432,30 +568,28 @@ def contract_template_v2(contract, ledger, manifest, transitions):
         if multi:
             rows.append(dict(row_id=f'RL:{sid}', kind='relations', shot_id=sid, items=multi))
         description = block['shot_description']
-        camera = [dict(item_id=field, kind='camera', text=description[field])
+        camera_ids = dict(camera_view=f'S{index}-cam-view', camera_movement=f'S{index}-cam-move')
+        camera = [dict(item_id=camera_ids[field] if requirement_ids else field, kind='camera', text=description[field])
                   for field in ('camera_view', 'camera_movement') if description.get(field)]
         if camera:
             rows.append(dict(row_id=f'CM:{sid}', kind='camera', shot_id=sid, items=camera))
         if description.get('style'):
             rows.append(dict(row_id=f'ST:{sid}', kind='style', shot_id=sid,
-                             items=[dict(item_id='style', kind='style', text=description['style'])]))
+                             items=[dict(item_id=f'S{index}-sty' if requirement_ids else 'style', kind='style',
+                                         text=description['style'])]))
         if sid in transitions_into:
             boundary = transitions_into[sid]
             rows.append(dict(row_id=f'TR:{boundary["from_shot"]}->{sid}', kind='transition', shot_id=sid,
                              from_shot=boundary['from_shot'], required=boundary['required'],
-                             items=[dict(item_id='transition', kind='transition', text=transition_text(boundary))]))
+                             items=[dict(item_id=f'S{index}-cut' if requirement_ids else 'transition', kind='transition',
+                                         text=transition_text(boundary))]))
         for row in contract.get('cross_shot') or []:
             named = sorted(row['shot_ids'], key=order_of_shot.__getitem__)
             if named[-1] == sid:
                 rows.append(dict(row_id=f'XS:{row["id"]}', kind='cross_shot', shot_id=sid, shot_ids=named,
                                  ledger_entity_ids=[gid for key in row['entities'] for gid in ledger_ids.get(str(key), [])],
                                  items=[requirement_item(row, row['dimension'])]))
-    seen = set()
-    for row in rows:
-        if row['row_id'] in seen:
-            raise ValueError(f'Duplicate contract template row {row["row_id"]}')
-        seen.add(row['row_id'])
-    return rows
+    return _unique_rows(rows, requirement_ids)
 
 
 def row_shots(row):
@@ -494,6 +628,32 @@ def ledger_entity(row):
                 contract_label=None, quote=None, part_of=None, note='')
 
 
+# Chain v6: an entity's specified / unspecified label comes from the entity ledger (owner, 2026-11-01, Q8).
+# A ledger entity of the prompt_bound list (pb...) is specified; one of the prompt_unbound list (ge...) and an
+# entity added by detection (n...) are unspecified (owner, 2026-11-02).
+ENTITY_LABELS = {'prompt_bound': 'specified', 'prompt_unbound': 'unspecified'}
+
+
+def ledger_label(row):
+    """Label of a ledger row (from ledger_rows); the list it is in decides."""
+    return ENTITY_LABELS[row['partition']]
+
+
+def ledger_entity_v2(row):
+    """A ledger entity in the chain-v6 record format (records v2): no provenance, the ledger label."""
+    return dict(entity_key=row['global_entity_id'], global_entity_id=row['global_entity_id'],
+                source='detection_ledger', name=row.get('name') or row['global_entity_id'],
+                description=row.get('description') or row.get('short_description') or '', partition=row.get('partition'),
+                prompt_entity_id=row.get('prompt_entity_id'), frame_refs=[], label=ledger_label(row))
+
+
+def added_entity_v2(entity, source):
+    """An entity added by a detection call (n...); it is unspecified."""
+    return dict(entity_key=entity['entity_key'], global_entity_id=None, source=source, name=entity['name'],
+                description=entity['description'], partition=None, prompt_entity_id=None,
+                frame_refs=copy.deepcopy(entity['frame_refs']), label='unspecified')
+
+
 def place_entity_ids(contract, ledger):
     """Ledger IDs of the contract's scheduled places (setting containers, not their elements)."""
     kinds = label_kinds(contract)
@@ -521,16 +681,16 @@ def required_shot_characters(contract, ledger, manifest):
 # Records schema and usage.
 # --------------------------------------------------------------------------
 
-def records_errors(value):
+def records_errors(value, schema_path=RECORDS_SCHEMA):
     import jsonschema
-    schema = read(RECORDS_SCHEMA)
+    schema = read(schema_path)
     validator = jsonschema.validators.validator_for(schema)(schema)
     return [f'{"/".join(map(str, error.absolute_path)) or "<root>"}: {error.message}'
             for error in validator.iter_errors(value)]
 
 
-def require_records(value, where):
-    errors = records_errors(value)
+def require_records(value, where, schema_path=RECORDS_SCHEMA):
+    errors = records_errors(value, schema_path)
     if errors:
         raise ValueError(f'{where} is not a valid branch record set: ' + '; '.join(errors[:10]))
 
