@@ -1,0 +1,166 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_granularity_family_plan_v0.2.schema.json",
+  "title": "Source-blind graph-granularity conflict-family plan v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "shot_id", "families", "warnings"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_granularity_family_plan_v0.2"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "families": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/family"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "visualEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "description"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "contentUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit_id", "description", "anchor_cluster_id", "evidence"],
+      "properties": {
+        "unit_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "description": {"type": "string", "minLength": 1},
+        "anchor_cluster_id": {"type": "string", "minLength": 1},
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        }
+      }
+    },
+    "proposalRole": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "proposal_id",
+        "role",
+        "covers_unit_ids",
+        "same_content_evidence",
+        "reason"
+      ],
+      "properties": {
+        "proposal_id": {"type": "string", "pattern": "^p[0-9]{4,}$"},
+        "role": {"type": "string", "enum": ["group", "member"]},
+        "covers_unit_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "pattern": "^u[0-9]+$"}
+        },
+        "same_content_evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "witness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "witness_id",
+        "kind",
+        "separated_unit_id",
+        "contrast_unit_id",
+        "frame_ids",
+        "description"
+      ],
+      "properties": {
+        "witness_id": {"type": "string", "pattern": "^w[0-9]+$"},
+        "kind": {
+          "type": "string",
+          "enum": [
+            "separate_handling_or_use",
+            "detachment_or_standalone_state",
+            "relative_motion",
+            "independent_trajectory"
+          ]
+        },
+        "separated_unit_id": {
+          "type": "string",
+          "pattern": "^u[0-9]+$"
+        },
+        "contrast_unit_id": {
+          "type": "string",
+          "pattern": "^u[0-9]+$"
+        },
+        "frame_ids": {"$ref": "#/$defs/frameIds"},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_id",
+        "visual_scope",
+        "baseline_cluster_ids",
+        "scope_proposal_ids",
+        "content_units",
+        "proposal_roles",
+        "same_content_evidence",
+        "compact_scope_confirmed",
+        "large_host_or_support_involved",
+        "independence_witnesses",
+        "reason"
+      ],
+      "properties": {
+        "family_id": {"type": "string", "pattern": "^gf[0-9]+$"},
+        "visual_scope": {"type": "string", "minLength": 1},
+        "baseline_cluster_ids": {
+          "type": "array",
+          "minItems": 3,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "scope_proposal_ids": {
+          "type": "array",
+          "minItems": 3,
+          "items": {"type": "string", "pattern": "^p[0-9]{4,}$"}
+        },
+        "content_units": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/contentUnit"}
+        },
+        "proposal_roles": {
+          "type": "array",
+          "minItems": 3,
+          "items": {"$ref": "#/$defs/proposalRole"}
+        },
+        "same_content_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "compact_scope_confirmed": {"type": "boolean", "const": true},
+        "large_host_or_support_involved": {"type": "boolean", "const": false},
+        "independence_witnesses": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/witness"}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

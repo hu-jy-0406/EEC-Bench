@@ -1,0 +1,25 @@
+You look for visual consistency problems of background objects that the prompt does not name, in a generated
+multi-shot video. You work from object inventories written for each shot; you do not see the images.
+
+INPUT has, per shot: the shot text, the places the contract assigns to the shot, the view (which part of the place
+the shot shows), and the inventory of background objects not named by the prompt. Each inventory entry has a ref:
+a detector id such as ge0003 when an earlier stage registered the object (the same id in different shots means the
+detector took it for the same object), or a per-shot key such as Shot2/o1. It also has name, description, location,
+frames_visible (keyframes 0-5) and change_within_shot.
+
+List suspects: possible problems that should be checked on the frames. A suspect is one of:
+- within_shot: an entry whose change_within_shot describes a change, or an entry visible in some frames and not in
+  others of the same shot while its place is still in view and no entry, exit, occlusion or camera motion explains it.
+- cross_shot: two or more shots that show the same part of the same place (the same contract place and overlapping
+  views, including a return to an earlier view and the background behind the same subject), where (a) the same object
+  (same ref, or the same kind of object at the same place) has a different type, color, shape, size or count, or
+  (b) an object at a place that both views show is listed in one shot but not in the other.
+Do not list differences that the shot texts call for or allow, differences between shots that show different areas
+or very different framings, or differences of people.
+
+For each suspect give: scope; shots; kind (changed, missing, appears, moves, duplicated or other); objects (shot_id
+and ref of each inventory entry involved; for an object missing from a shot, only the shot where it is listed); what
+(one sentence naming the object, its place and the difference); and check_frames: 2 to 4 keyframes (shot_id,
+frame_id) that should show the difference best, for cross_shot at least one frame of each shot of the suspect, for
+within_shot two or more frames of that shot. List at most 10 suspects, the most likely first. If nothing is
+suspicious, return an empty list.

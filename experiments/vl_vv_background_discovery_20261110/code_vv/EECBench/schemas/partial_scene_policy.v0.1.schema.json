@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "policy_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source": {
+      "type": "string",
+      "minLength": 1
+    },
+    "default_rule": {
+      "type": "string",
+      "enum": [
+        "must_persist",
+        "may_change",
+        "unknown"
+      ]
+    },
+    "entity_overrides": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "shot_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "entity_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rule": {
+            "type": "string",
+            "enum": [
+              "must_persist",
+              "may_change",
+              "unknown"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "shot_id",
+          "entity_id",
+          "rule",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "policy_id",
+    "source",
+    "default_rule",
+    "entity_overrides"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,492 @@
+"""Twelve-call single-frame survey isolation, immutable inputs and complete failure accounting."""
+from contextlib import ExitStack, redirect_stdout
+import copy
+import importlib.util
+import io
+import json
+from pathlib import Path
+import sys
+import tempfile
+import threading
+import time
+from types import SimpleNamespace
+import unittest
+from unittest import mock
+
+
+DIRECTORY = Path(__file__).resolve().parents[1] / "experiments/study_inconsistent_2/entity_discovery_iterations"
+
+
+def load(name, path):
+    spec = importlib.util.spec_from_file_location(name, path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
+
+
+D = load("single_frame_driver_tested", DIRECTORY / "run_single_frame_survey_probe.py")
+HELPER = load("spatial_test_configuration", DIRECTORY / "run_frozen_batch.py")
+with mock.patch.dict(sys.modules, {"run_frozen_batch": HELPER}):
+    BASE = load("spatial_test_accounting", DIRECTORY / "run_blind_pixel_survey_probe.py")
+USAGE = dict(zip(BASE.TOKEN_KEYS, (20, 3, 5, 25)))
+EMPTY = {"schema_version": "single_frame_pixel_survey_v0.1", "regions": [], "coverage_notes": "No completeness claim."}
+
+
+class SingleFrameSurveyProbeDriverTests(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.base = Path(temporary.name)
+        self.workspace, self.root, self.source = (self.base / s for s in ("workspace", "output", "source"))
+        schemas = self.workspace / "EECBench/schemas"
+        scripts = self.workspace / "EECBench/scripts"
+        schemas.mkdir(parents=True)
+        scripts.mkdir()
+        actual_schema = Path(__file__).resolve().parents[1] / "schemas" / D.SCHEMA_NAME
+        (schemas / D.SCHEMA_NAME).write_bytes(actual_schema.read_bytes())
+        for name in ("ensemble_shot_entity_detection", "blind_pixel_survey", "single_frame_pixel_survey"):
+            (scripts / (name + ".py")).write_text("# frozen fixture; never calls a model\n")
+        self.source.mkdir()
+        source_schema = self.source / "frozen_workspace/EECBench/schemas" / D.SCHEMA_NAME
+        source_schema.parent.mkdir(parents=True)
+        source_schema.write_bytes(actual_schema.read_bytes())
+        hashes = {str(source_schema): D.digest(source_schema)}
+        calls = []
+        for index, (seed, shot) in enumerate(D.CONTEXTS, 1):
+            directory = self.source / f"context_{index:02d}"
+            directory.mkdir()
+            originals, views = {}, []
+            for i in range(14):
+                frame = i if i < 6 else (0 if i < 10 else 5)
+                path = directory / (f"frame_{i:02d}.jpg" if i < 6 else f"crop_{i:02d}.png")
+                path.write_bytes(f"immutable-image-context-{index}-view-{i}".encode())
+                hashes[str(path)] = D.digest(path)
+                if i < 6:
+                    originals[frame] = str(path)
+                views.append({"path": str(path), "source_path": originals[frame], "frame_id": frame,
+                              "view_id": f"view_{i}", "sha256": D.digest(path), "output_size": [10, 6]})
+            bundle = {"instructions": "unchanged base", "attachments": [v["path"] for v in views], "views": views}
+            bundle_path = directory / "view_bundle.json"
+            HELPER.write(bundle_path, bundle)
+            hashes[str(bundle_path)] = D.digest(bundle_path)
+            calls.append({"chain_id": f"context_{index:02d}", "role": "survey", "seed": seed, "shot": shot,
+                          "view_bundle": str(bundle_path), "attachments": bundle["attachments"]})
+            for forbidden in ("survey.json", "control.json", "binding.json", "candidates.json", "expected.json"):
+                (directory / forbidden).write_text("FORBIDDEN_PRIVATE_CONTENT")
+        self.original = {"protocol_version": "spatial_cell_survey_diagnostic_v0.1", "status": "incomplete",
+                         "end_utc": "completed", "calls": calls, "hashes": hashes,
+                         "contexts": [{"chain_id": f"context_{i:02d}", "seed": seed, "shot": shot}
+                                      for i, (seed, shot) in enumerate(D.CONTEXTS, 1)],
+                         "actual_output_schemas": {"survey": {"path": str(source_schema),
+                             "sha256": D.digest(source_schema), "version": "blind_pixel_survey_v0.1"}}}
+        HELPER.write(self.source / "manifest.json", self.original)
+        self.binary = self.base / "fake-codex"
+        self.binary.write_text("#!/bin/sh\nexit 97\n")
+        self.binary.chmod(0o755)
+        evidence = self.base / "offline_evidence.json"
+        HELPER.write(evidence, {"synthetic_offline_fixture": True})
+        controls = self.base / "observer_controls.json"
+        HELPER.write(controls, {"version": "observer_process_context_controls_v0.1",
+                    "pinned_cli_sha256": D.digest(self.binary), "disabled_skill_paths": [],
+                    "project_doc_max_bytes": 0, "offline_evidence": {"path": str(evidence), "sha256": D.digest(evidence)}})
+        admission_dir = self.base / "admission"
+        admission_dir.mkdir()
+        self.admission_path = admission_dir / "manifest.json"
+        self.args = SimpleNamespace(source_probe=self.source, output_root=self.root, codex_bin=str(self.binary),
+                                    schema_admission=self.admission_path, observer_context_controls=controls)
+        self.observed, self.active, self.peak = [], 0, 0
+        self.lock = threading.Lock()
+        self.failure = None
+        self.runtime = SimpleNamespace(run_codex_json=self.fake_call, _codex_attempt_accounting=self.accounting,
+                                       validate_codex_schema_transport=lambda p: None, TOKEN_KEYS=BASE.TOKEN_KEYS,
+                                       _attempt_usage_from_events=lambda path: json.loads(path.read_text().splitlines()[0])["usage"])
+        self.survey = SimpleNamespace(SCHEMA_PATH=self.root / "frozen_workspace/EECBench/schemas" / D.SCHEMA_NAME,
+                    INSTRUCTIONS="single-frame policy", build_survey_prompt=self.base_prompt,
+                    PROTOCOL_VERSION="single_frame_pixel_survey_views_v0.1", SCHEMA_VERSION="single_frame_pixel_survey_v0.1",
+                    build_frame_view_bundle=self.project_frame,
+                    validate_survey=lambda payload, bundle: {**copy.deepcopy(payload), "validated_mapping": True})
+        self.full_survey = SimpleNamespace(build_survey_prompt=self.base_prompt)
+        admitted_schema = admission_dir / D.SCHEMA_NAME
+        admitted_schema.write_bytes(actual_schema.read_bytes())
+        attempt = {"role": "survey", "attempt": 1, "status": "success", "subprocess_started": True,
+                   "subprocess_start_unknown": False, "returncode": 0, "token_usage": USAGE.copy()}
+        HELPER.write(admission_dir / "result.json", attempt)
+        HELPER.write(admission_dir / "attempt1.json", EMPTY)
+        (admission_dir / "attempt1.events.jsonl").write_text(json.dumps({"type": "turn.completed", "usage": USAGE}) + "\n")
+        (admission_dir / "attempt1.stderr.log").write_text("")
+        self.admission = {"status": "success", "hashes_unchanged": True, "maximum_invocations": 1,
+                          "model_invocations": 1, "maximum_retries": 0, "max_workers": 1, "images": [],
+                          "unknown_subprocess_starts": [], "unknown_usage_attempts": [], "persistence_errors": [],
+                          "end_utc": "complete", "model_config": {"model": D.MODEL, "reasoning_effort": "high",
+                            "context_config_overrides": ["project_doc_max_bytes=0", "skills.config=[]"]},
+                          "cases": [{"role": "survey", "schema": str(admitted_schema), "directory": str(admission_dir), "expected": EMPTY}],
+                          "attempts": [attempt], "token_usage": USAGE.copy(), "known_token_usage_subtotal": USAGE.copy(),
+                          "hashes": {str(admitted_schema): D.digest(admitted_schema)},
+                          "output_hashes": {str(admission_dir / name): D.digest(admission_dir / name)
+                                            for name in ("attempt1.json", "attempt1.events.jsonl", "result.json", "attempt1.stderr.log")}}
+        HELPER.write(self.admission_path, self.admission)
+        self.patches = ExitStack()
+        self.addCleanup(self.patches.close)
+        self.patches.enter_context(mock.patch.object(D, "WORKSPACE", self.workspace))
+        self.patches.enter_context(mock.patch.object(D, "load_runtime", return_value=(self.runtime, self.full_survey, self.survey)))
+        self.patches.enter_context(mock.patch.object(D, "load_shared", return_value=(HELPER, BASE)))
+
+    @staticmethod
+    def base_prompt(bundle):
+        return "unchanged base\n" + json.dumps([{k: v[k] for k in ("view_id", "frame_id", "output_size")} for v in bundle["views"]])
+
+    @staticmethod
+    def project_frame(bundle, frame_id):
+        views = [copy.deepcopy(v) for v in bundle["views"] if v["frame_id"] == frame_id]
+        return {"protocol_version": "single_frame_pixel_survey_views_v0.1", "frame_id": frame_id,
+                "views": views, "attachments": [v["path"] for v in views]}
+
+    @staticmethod
+    def accounting(*, invocation, error, events_path):
+        source = invocation if invocation is not None else error
+        return {"subprocess_started": invocation is not None or hasattr(error, "token_usage"),
+                "token_usage": getattr(source, "token_usage", None), "returncode": 0 if invocation else None}
+
+    def prepare(self):
+        with redirect_stdout(io.StringIO()):
+            D.prepare(self.args)
+        return D.read(self.root / "execution_plan.json")
+
+    def fake_call(self, **kwargs):
+        cell = kwargs["output_path"].parent.name
+        context = kwargs["output_path"].parent.parent.name
+        with self.lock:
+            self.observed.append((context, cell, kwargs))
+            self.active += 1
+            self.peak = max(self.peak, self.active)
+        try:
+            time.sleep(0.003)
+            if self.failure == "unknown_start" and (context, cell) == ("context_01", "frame_00"):
+                raise OSError("events persistence could have failed after child start")
+            events = []
+            if self.failure == "tool" and (context, cell) == ("context_01", "frame_00"):
+                events = [{"type": "item.completed", "item": {"type": "command_execution"}}]
+            kwargs["events_path"].write_text("\n".join(json.dumps(x) for x in events))
+            payload = copy.deepcopy(getattr(self, "payload_override", EMPTY))
+            if hasattr(self, "payload_factory"):
+                payload = self.payload_factory(kwargs)
+            if self.failure == "schema" and (context, cell) == ("context_01", "frame_00"):
+                payload.pop("regions")
+            HELPER.write(kwargs["output_path"], payload)
+            if self.failure == "transport" and (context, cell) == ("context_01", "frame_00"):
+                error = RuntimeError("HTTP 400 transport failure")
+                error.token_usage = USAGE.copy()
+                raise error
+            usage = None if self.failure == "unknown_usage" and (context, cell) == ("context_01", "frame_00") else USAGE.copy()
+            return SimpleNamespace(payload=payload, token_usage=usage, runtime_seconds=0.1, thread_id="fresh")
+        finally:
+            with self.lock:
+                self.active -= 1
+
+    def execute(self):
+        output = io.StringIO()
+        with redirect_stdout(output):
+            code = D.execute(self.args)
+        return code, json.loads(output.getvalue().splitlines()[-1])
+
+    def test_prepare_exact_matrix_images_and_original_bundle_copy_without_private_inputs(self):
+        plan = self.prepare()
+        self.assertEqual([(s["seed"], s["frame_ordinal"]) for s in plan["calls"]],
+                         [(seed, ordinal) for ordinal in D.ORDINALS for seed, _ in D.CONTEXTS])
+        self.assertEqual(plan["maximum_model_calls"], 12)
+        self.assertEqual(plan["maximum_retries"], 0)
+        for index in (1, 2):
+            name = f"context_{index:02d}"
+            self.assertEqual((self.source / name / "view_bundle.json").read_bytes(),
+                             (self.root / name / "source_view_bundle.json").read_bytes())
+            old = D.read(self.source / name / "view_bundle.json")
+            new = D.read(self.root / name / "view_bundle.json")
+            for before, after in zip(old["attachments"], new["attachments"]):
+                self.assertEqual(Path(before).read_bytes(), Path(after).read_bytes())
+            for ordinal in D.ORDINALS:
+                prompt = (self.root / name / f"frame_{ordinal:02d}" / "prompt.txt").read_text()
+                self.assertNotIn("FORBIDDEN_PRIVATE_CONTENT", prompt)
+                self.assertNotIn(str(self.source), prompt)
+                self.assertNotIn("tracks", prompt)
+
+    def test_original_schema_policy_or_image_drift_fails_prepare(self):
+        for kind in ("schema", "policy", "image"):
+            with self.subTest(kind=kind):
+                # Each branch uses a separate output root; the original is restored afterward.
+                self.args.output_root = self.base / ("output_" + kind)
+                self.survey.SCHEMA_PATH = self.args.output_root / "frozen_workspace/EECBench/schemas" / D.SCHEMA_NAME
+                path = (self.workspace / "EECBench/schemas" / D.SCHEMA_NAME if kind == "schema"
+                        else self.source / "context_01/view_bundle.json" if kind == "policy"
+                        else Path(self.original["calls"][0]["attachments"][0]))
+                before = path.read_bytes()
+                try:
+                    path.write_bytes(before + b" ")
+                    with self.assertRaises(RuntimeError), redirect_stdout(io.StringIO()):
+                        D.prepare(self.args)
+                finally:
+                    path.write_bytes(before)
+
+    def test_twelve_fresh_calls_max_two_high_wrapper_same_schema_and_known_usage(self):
+        plan = self.prepare()
+        code, report = self.execute()
+        self.assertEqual(code, 0)
+        self.assertEqual((len(self.observed), len(report["results"]), report["model_invocations"]), (12, 12, 12))
+        self.assertLessEqual(self.peak, 2)
+        self.assertEqual(report["token_usage"]["total_tokens"], 300)
+        self.assertEqual(report["status"], "success")
+        wrapper = Path(plan["model_config"]["codex_wrapper"]).read_text()
+        self.assertIn("--disable shell_tool", wrapper)
+        self.assertIn('model_reasoning_effort="high"', wrapper)
+        for _, _, call in self.observed:
+            self.assertFalse(call["persistent"])
+            self.assertEqual(call["model"], "gpt-5.6-sol")
+            self.assertEqual(call["timeout_sec"], 1800)
+            self.assertEqual(len(call["attachments"]), 5 if call["output_path"].parent.name in {"frame_00", "frame_05"} else 1)
+            self.assertEqual(str(call["schema_path"]), plan["actual_output_schema"]["path"])
+
+    def test_schema_guard_failure_retains_raw_usage_and_all_other_cells(self):
+        self.prepare()
+        self.failure = "schema"
+        code, report = self.execute()
+        self.assertEqual(code, 1)
+        self.assertEqual(len(self.observed), 12)
+        self.assertEqual(report["known_token_usage_subtotal"]["total_tokens"], 300)
+        self.assertEqual(sum(r["status"] == "success" for r in report["results"]), 11)
+        self.assertTrue((self.root / "context_01/frame_00/returned_payload.json").is_file())
+
+    def test_tool_guard_failure_retains_raw_and_known_usage(self):
+        self.prepare()
+        self.failure = "tool"
+        _, report = self.execute()
+        self.assertEqual(report["status"], "incomplete")
+        self.assertIn("prohibited tool", report["results"][0]["error"])
+        self.assertEqual(report["token_usage"]["total_tokens"], 300)
+        self.assertEqual(len(self.observed), 12)
+
+    def test_transport_failure_is_not_retried_and_keeps_known_failed_usage(self):
+        self.prepare()
+        self.failure = "transport"
+        _, report = self.execute()
+        self.assertEqual(report["status"], "incomplete")
+        self.assertEqual(len(self.observed), 12)
+        self.assertEqual(report["token_usage"]["total_tokens"], 300)
+        self.assertTrue((self.root / "context_01/frame_00/attempt1.json").is_file())
+
+    def test_unknown_start_marker_never_becomes_zero_or_complete(self):
+        self.prepare()
+        self.failure = "unknown_start"
+        _, report = self.execute()
+        self.assertFalse(report["model_invocation_count_complete"])
+        self.assertEqual(report["unknown_subprocess_starts"], ["context_01/frame_00"])
+        self.assertIsNone(report["token_usage"]["total_tokens"])
+        self.assertEqual(report["known_token_usage_subtotal"]["total_tokens"], 275)
+        self.assertEqual(report["status"], "incomplete")
+
+    def test_started_unknown_usage_is_incomplete(self):
+        self.prepare()
+        self.failure = "unknown_usage"
+        _, report = self.execute()
+        self.assertEqual(report["model_invocations"], 12)
+        self.assertEqual(report["unknown_usage_attempts"], ["context_01/frame_00"])
+        self.assertIsNone(report["token_usage"]["total_tokens"])
+        self.assertEqual(report["status"], "incomplete")
+
+    def test_worker_exception_with_unavailable_result_preserves_unknown_and_peers(self):
+        self.prepare()
+        real = D.run_one
+        def crash(base, runtime, survey, spec, plan):
+            if spec["call_id"] == "context_01/frame_00":
+                raise RuntimeError("worker disappeared at unknown boundary")
+            return real(base, runtime, survey, spec, plan)
+        with mock.patch.object(D, "run_one", side_effect=crash):
+            _, report = self.execute()
+        self.assertEqual(len(report["results"]), 12)
+        self.assertEqual(report["unknown_subprocess_starts"], ["context_01/frame_00"])
+        self.assertEqual(report["known_token_usage_subtotal"]["total_tokens"], 275)
+
+    def test_result_write_failure_cannot_discard_paid_peer_usage(self):
+        self.prepare()
+        write = HELPER.write
+        def fail(path, value):
+            if path == self.root / "context_01/frame_00/result.json":
+                raise OSError("disk full on result")
+            return write(path, value)
+        with mock.patch.object(HELPER, "write", side_effect=fail):
+            _, report = self.execute()
+        self.assertEqual(report["status"], "incomplete")
+        self.assertEqual((len(self.observed), len(report["results"])), (12, 12))
+        self.assertEqual(report["known_token_usage_subtotal"]["total_tokens"], 300)
+        self.assertTrue(report["persistence_errors"])
+
+    def test_final_manifest_write_failure_stdout_retains_all_results_and_usage(self):
+        self.prepare()
+        write = HELPER.write
+        def fail(path, value):
+            if path == self.root / "manifest.json" and value.get("status") in {"success", "incomplete"}:
+                raise OSError("final manifest unavailable")
+            return write(path, value)
+        with mock.patch.object(HELPER, "write", side_effect=fail):
+            _, report = self.execute()
+        self.assertEqual(report["status"], "incomplete")
+        self.assertEqual(len(report["results"]), 12)
+        self.assertEqual(report["token_usage"]["total_tokens"], 300)
+
+    def test_relaunch_rejected_even_if_manifest_reset_to_prepared(self):
+        self.prepare()
+        self.execute()
+        manifest = D.read(self.root / "manifest.json")
+        manifest["status"] = "prepared"
+        HELPER.write(self.root / "manifest.json", manifest)
+        with self.assertRaises(FileExistsError):
+            self.execute()
+        self.assertEqual(len(self.observed), 12)
+
+    def test_image_or_source_snapshot_drift_blocks_before_calls(self):
+        plan = self.prepare()
+        Path(plan["calls"][0]["attachments"][0]).write_bytes(b"tampered")
+        with self.assertRaises(RuntimeError):
+            self.execute()
+        self.assertFalse(self.observed)
+
+    def test_plan_reordering_numeric_alias_and_cross_frame_rejected(self):
+        plan = self.prepare()
+        for key, value in (("maximum_retries", False), ("max_workers", 1), ("timeout_sec", 900)):
+            changed = copy.deepcopy(plan)
+            changed[key] = value
+            with self.subTest(key=key), self.assertRaises(RuntimeError):
+                D.validate_plan(changed, self.root)
+        plan["calls"][0], plan["calls"][1] = plan["calls"][1], plan["calls"][0]
+        with self.assertRaises(RuntimeError):
+            D.validate_plan(plan, self.root)
+
+    def test_cross_time_image_and_frame_id_projection_tampering_rejected(self):
+        plan = self.prepare()
+        changed = copy.deepcopy(plan)
+        changed["calls"][2]["attachments"] = changed["calls"][0]["attachments"][:1]
+        with self.assertRaises(RuntimeError):
+            D.validate_plan(changed, self.root)
+        changed = copy.deepcopy(plan)
+        changed["calls"][0]["frame_id"] = False
+        with self.assertRaises(RuntimeError):
+            D.validate_plan(changed, self.root)
+        bundle = Path(plan["calls"][2]["view_bundle"])
+        payload = D.read(bundle)
+        payload["views"][0]["frame_id"] = 0
+        HELPER.write(bundle, payload)
+        with self.assertRaises(RuntimeError):
+            D.validate_plan(plan, self.root)
+
+    def test_admission_failed_unknown_boolean_exit_or_wrong_model_rejected(self):
+        schema = self.workspace / "EECBench/schemas" / D.SCHEMA_NAME
+        for mode in ("failed", "unknown", "bool_exit", "wrong_model", "partial_schema"):
+            record = copy.deepcopy(self.admission)
+            if mode == "failed":
+                record["attempts"][0]["status"] = "failed"
+            elif mode == "unknown":
+                record["attempts"][0]["token_usage"] = None
+            elif mode == "bool_exit":
+                record["attempts"][0]["returncode"] = False
+            elif mode == "wrong_model":
+                record["model_config"]["model"] = "different-model"
+            else:
+                record["hashes"][record["cases"][0]["schema"]] = "0" * 64
+            path = self.base / ("invalid_admission_" + mode + ".json")
+            HELPER.write(path, record)
+            with self.subTest(mode=mode), self.assertRaises(RuntimeError):
+                D.validate_admission(path, schema, self.runtime)
+        self.assertFalse(self.observed)
+
+    def test_admission_raw_or_events_drift_rejected_even_if_status_success(self):
+        schema = self.workspace / "EECBench/schemas" / D.SCHEMA_NAME
+        path = self.admission_path.parent / "attempt1.events.jsonl"
+        usage = {**USAGE, "input_tokens": 999}
+        path.write_text(json.dumps({"type": "turn.completed", "usage": usage}))
+        record = copy.deepcopy(self.admission)
+        record["output_hashes"][str(path)] = D.digest(path)
+        HELPER.write(self.admission_path, record)
+        with self.assertRaisesRegex(RuntimeError, "native event usage"):
+            D.validate_admission(self.admission_path, schema, self.runtime)
+
+    def test_admission_and_visual_context_controls_must_match(self):
+        record = copy.deepcopy(self.admission)
+        record["model_config"]["context_config_overrides"] = []
+        HELPER.write(self.admission_path, record)
+        with self.assertRaisesRegex(RuntimeError, "different context controls"):
+            self.prepare()
+        self.assertFalse(self.observed)
+
+    def test_frozen_context_record_drift_stops_before_visual_calls(self):
+        self.prepare()
+        path = self.root / "execution_config/observer_context_controls.json"
+        path.write_text("{}")
+        with self.assertRaises(RuntimeError):
+            self.execute()
+        self.assertFalse(self.observed)
+
+    def test_real_frozen_single_frame_helper_and_schema_with_no_temporal_fields(self):
+        from PIL import Image
+        project = Path(__file__).resolve().parents[1]
+        for name in ("blind_pixel_survey.py", "single_frame_pixel_survey.py"):
+            (self.workspace / "EECBench/scripts" / name).write_bytes((project / "scripts" / name).read_bytes())
+        source_survey = load("single_frame_fixture_full_view_builder", project / "scripts/blind_pixel_survey.py")
+        for index in (1, 2):
+            directory = self.source / f"context_{index:02d}"
+            frames = []
+            for frame in range(6):
+                path = directory / f"original_{frame}.png"
+                Image.new("RGB", (10, 6), (frame, 20, 30)).save(path)
+                frames.append({"frame_id": frame, "path": str(path), "sha256": D.digest(path)})
+            bundle = source_survey.build_views(frames, directory / "native_crops")
+            bundle["candidate_payload"] = "FORBIDDEN_PRIVATE_CONTENT"
+            bundle_path = directory / "view_bundle.json"
+            HELPER.write(bundle_path, bundle)
+            self.original["hashes"][str(bundle_path)] = D.digest(bundle_path)
+            for path in bundle["attachments"]:
+                self.original["hashes"][path] = D.digest(path)
+        HELPER.write(self.source / "manifest.json", self.original)
+        def frozen_modules(root):
+            directory = root / "frozen_workspace/EECBench/scripts"
+            full = load("actual_frozen_full_survey_for_single_frame_test", directory / "blind_pixel_survey.py")
+            with mock.patch.dict(sys.modules, {"blind_pixel_survey": full}):
+                single = load("actual_frozen_single_frame_test", directory / "single_frame_pixel_survey.py")
+            return self.runtime, full, single
+        D.load_runtime.side_effect = frozen_modules
+        def payload(kwargs):
+            frame = int(kwargs["output_path"].parent.name.rsplit("_", 1)[-1])
+            return {**EMPTY, "regions": [{"region_id": "r0001", "frame_id": frame,
+                "view_id": f"frame_{frame}_original", "visual_description": "Partially visible boundary.",
+                "scope_kind": "part", "boundary_status": "partial", "bbox_xyxy": [0, 0, 2, 2]}]}
+        self.payload_factory = payload
+        plan = self.prepare()
+        code, report = self.execute()
+        self.assertEqual(code, 0)
+        self.assertEqual(report["status"], "success")
+        for spec in plan["calls"]:
+            frame_bundle = D.read(spec["view_bundle"])
+            self.assertEqual({v["frame_id"] for v in frame_bundle["views"]}, {spec["frame_id"]})
+            prompt = Path(spec["prompt"]).read_text()
+            self.assertNotIn("FORBIDDEN_PRIVATE_CONTENT", prompt)
+            derived = D.read(Path(spec["directory"]) / "survey_derived.json")
+            self.assertEqual(derived["regions"][0]["original_bbox_xyxy"], [0, 0, 2, 2])
+            self.assertNotIn("tracks", derived)
+            self.assertNotIn("frame_states", derived)
+
+    def test_frozen_shared_loader_rejects_cached_live_helper(self):
+        # Exercise the actual loader, not this fixture's execute-time mock.
+        fresh = load("spatial_loader_contract_test", DIRECTORY / "run_single_frame_survey_probe.py")
+        with mock.patch.dict(sys.modules, {"run_frozen_batch": HELPER}), self.assertRaises(RuntimeError):
+            fresh.load_shared(self.root)
+
+    def test_frozen_runtime_loader_rejects_live_module_resolution(self):
+        fresh = load("spatial_runtime_loader_contract_test", DIRECTORY / "run_single_frame_survey_probe.py")
+        outside = SimpleNamespace(__file__=str(self.workspace / "EECBench/scripts/blind_pixel_survey.py"))
+        before = list(sys.path)
+        try:
+            with mock.patch.object(fresh.importlib, "import_module", return_value=outside), self.assertRaises(RuntimeError):
+                fresh.load_runtime(self.root)
+        finally:
+            sys.path[:] = before
+
+
+if __name__ == "__main__":
+    unittest.main()

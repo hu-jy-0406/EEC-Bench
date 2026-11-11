@@ -1,0 +1,411 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue discovery v4 (v3 + episode-wide entity descriptions)",
+  "type": "object",
+  "required": [
+    "protocol",
+    "checklist_audit",
+    "shot_scan",
+    "continuity_ledger",
+    "issues"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "vl_vv_issue_discovery_v4",
+      "type": "string"
+    },
+    "checklist_audit": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/audit_item"
+      }
+    },
+    "shot_scan": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/shot_scan_entry"
+      }
+    },
+    "continuity_ledger": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ledger_subject"
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "audit_item": {
+      "type": "object",
+      "required": [
+        "item",
+        "status",
+        "note"
+      ],
+      "properties": {
+        "item": {
+          "enum": [
+            "S1",
+            "S2",
+            "S3",
+            "S4",
+            "S5",
+            "S6",
+            "S7",
+            "C1",
+            "C2",
+            "C3",
+            "C4",
+            "C5",
+            "C6",
+            "C7",
+            "C8",
+            "O1"
+          ],
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "checked",
+            "not_applicable"
+          ],
+          "type": "string"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "ledger_subject": {
+      "type": "object",
+      "required": [
+        "subject_kind",
+        "entity_ids",
+        "name",
+        "observations",
+        "assessment",
+        "issue_ids"
+      ],
+      "properties": {
+        "subject_kind": {
+          "enum": [
+            "character",
+            "object",
+            "setting",
+            "style"
+          ],
+          "type": "string"
+        },
+        "entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "shot_id",
+              "frame_id",
+              "signature"
+            ],
+            "properties": {
+              "shot_id": {
+                "type": "string"
+              },
+              "frame_id": {
+                "type": "integer"
+              },
+              "signature": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "assessment": {
+          "enum": [
+            "consistent",
+            "inconsistent",
+            "uncertain"
+          ],
+          "type": "string"
+        },
+        "issue_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "issue": {
+      "type": "object",
+      "required": [
+        "issue_id",
+        "description",
+        "entity_ids",
+        "scope_shot_ids",
+        "key_evidence",
+        "v_l",
+        "v_v",
+        "related_issue_ids",
+        "checklist_items",
+        "confidence"
+      ],
+      "properties": {
+        "issue_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        },
+        "entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope_shot_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "key_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/frame_evidence"
+          }
+        },
+        "v_l": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/v_l_label"
+            }
+          ]
+        },
+        "v_v": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/v_v_label"
+            }
+          ]
+        },
+        "related_issue_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "checklist_items": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "enum": [
+              "S1",
+              "S2",
+              "S3",
+              "S4",
+              "S5",
+              "S6",
+              "S7",
+              "C1",
+              "C2",
+              "C3",
+              "C4",
+              "C5",
+              "C6",
+              "C7",
+              "C8",
+              "O1"
+            ],
+            "type": "string"
+          }
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "v_l_label": {
+      "type": "object",
+      "required": [
+        "subcategory",
+        "prompt_evidence"
+      ],
+      "properties": {
+        "subcategory": {
+          "enum": [
+            "presence_count",
+            "attribute",
+            "action_state",
+            "interaction",
+            "spatial_orientation",
+            "setting_environment",
+            "camera_composition",
+            "style_rendering",
+            "stated_continuity",
+            "shot_structure"
+          ],
+          "type": "string"
+        },
+        "prompt_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/prompt_evidence"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "v_v_label": {
+      "type": "object",
+      "required": [
+        "scope",
+        "subcategory"
+      ],
+      "properties": {
+        "scope": {
+          "enum": [
+            "within_shot",
+            "cross_shot"
+          ],
+          "type": "string"
+        },
+        "subcategory": {
+          "enum": [
+            "identity_drift",
+            "appearance_drift",
+            "object_instability",
+            "presence_instability",
+            "background_drift",
+            "physical_integrity",
+            "relation_break",
+            "unintended_cut",
+            "rendering_instability",
+            "character_identity",
+            "character_appearance",
+            "object_identity",
+            "setting_background",
+            "environment_lighting",
+            "rendering_style",
+            "instance_count",
+            "state_action_continuity",
+            "spatial_continuity",
+            "transition_realization"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "frame_evidence": {
+      "type": "object",
+      "required": [
+        "shot_id",
+        "frame_id",
+        "entity_ids",
+        "observation"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "frame_id": {
+          "type": "integer"
+        },
+        "entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observation": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "prompt_evidence": {
+      "type": "object",
+      "required": [
+        "source",
+        "quote"
+      ],
+      "properties": {
+        "source": {
+          "enum": [
+            "global_prompt",
+            "shot_prompt",
+            "contract",
+            "shot_transitions"
+          ],
+          "type": "string"
+        },
+        "quote": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "shot_scan_entry": {
+      "type": "object",
+      "required": [
+        "shot_id",
+        "note",
+        "issue_ids"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issue_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

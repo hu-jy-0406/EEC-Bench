@@ -1,0 +1,14 @@
+Estimate the one scene-to-scene coordinate transform specified verbatim by the input
+field transform_convention. The supplied
+shared_prompt_bound_entities are confirmed cross-shot identity correspondences and
+are the only entities you may use as cross-shot references. Each has native original
+frames, per-frame 2D boxes, own-shot 3D boxes, and camera data. A shared entity is a
+necessary condition for this call, not proof that a transform is recoverable.
+
+Return exactly the transform specified by transform_convention, with positive scale in
+[0.1,10], right-handed Z-up yaw in degrees, and xyz translation in the destination
+shot's model units. Moving shared entities may
+support identity/viewpoint interpretation but are not fixed geometry. Register only
+when the supplied shared entities provide sufficient visible and geometrically usable
+evidence; otherwise abstain. Do not invoke tools, request keypoints, optimize, infer
+unsupplied correspondences, or score consistency. Output schema JSON only.

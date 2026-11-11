@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue review v7, V-L branch, call 2: confirmed / rejected / uncertain",
+  "type": "object",
+  "required": [
+    "protocol",
+    "verdicts"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_review_v7_vl_verdict"
+    },
+    "verdicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "requirement_applies",
+          "verdict",
+          "basis",
+          "confidence",
+          "evidence",
+          "assessment"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_applies": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "rejected",
+              "uncertain"
+            ]
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "requirement_violated",
+              "requirement_absent",
+              "requirement_not_applicable",
+              "requirement_satisfied",
+              "visual_difference_only",
+              "not_verifiable"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id",
+                "role",
+                "observation"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "supports",
+                    "refutes",
+                    "context"
+                  ]
+                },
+                "observation": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "assessment": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

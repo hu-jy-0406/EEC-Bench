@@ -1,0 +1,134 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_entity_detector_ledger_v0.4.schema.json",
+  "title": "Single-shot boxed all-entity inventory detector ledger v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "shot_id",
+    "detector_id",
+    "source_kind",
+    "scan_variant",
+    "accessed_input_paths",
+    "entities",
+    "warnings"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_inventory_first_boxed_v0.4"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "detector_id": {"type": "string", "minLength": 1},
+    "source_kind": {"type": "string", "enum": ["detector"]},
+    "scan_variant": {"type": "string", "minLength": 1},
+    "accessed_input_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "entities": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/proposal"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "evidence_frame_ids"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1},
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"}
+      }
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "description"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "framePresence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "status", "description", "bbox_xyxy_normalized"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "status": {
+          "type": "string",
+          "enum": ["visible", "absent", "occluded", "uncertain"]
+        },
+        "description": {"type": "string", "minLength": 1},
+        "bbox_xyxy_normalized": {
+          "anyOf": [
+            {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+            },
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_id",
+        "proposed_name",
+        "canonical_head",
+        "entity_type",
+        "granularity",
+        "attributes",
+        "evidence_frame_ids",
+        "coarse_locators",
+        "frame_presence",
+        "self_confidence",
+        "uncertainty_flags"
+      ],
+      "properties": {
+        "local_id": {"type": "string", "minLength": 1},
+        "proposed_name": {"type": "string", "minLength": 1},
+        "canonical_head": {"type": "string", "minLength": 1},
+        "entity_type": {"type": "string", "minLength": 1},
+        "granularity": {"type": "string", "minLength": 1},
+        "attributes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attribute"}
+        },
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"},
+        "coarse_locators": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/locator"}
+        },
+        "frame_presence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/framePresence"}
+        },
+        "self_confidence": {"$ref": "#/$defs/confidence"},
+        "uncertainty_flags": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

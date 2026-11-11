@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV episode scoring v6, V-V branch severities",
+  "type": "object",
+  "required": [
+    "protocol",
+    "assessments"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_episode_scoring_v6_vv"
+    },
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "unit_id",
+          "severity",
+          "reason"
+        ],
+        "properties": {
+          "unit_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "minor",
+              "moderate",
+              "major",
+              "critical"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,383 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_physical_completion_patch_v0.1.schema.json",
+  "title": "Bounded explicit physical completion patch v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "shot_id",
+    "slot_table_sha256",
+    "cluster_updates",
+    "new_evidence",
+    "comparison_updates",
+    "resolution_updates"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "physical_completion_patch_v0.1"
+      ]
+    },
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "slot_table_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "cluster_updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cluster_update"
+      }
+    },
+    "new_evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/new_evidence"
+      },
+      "maxItems": 256
+    },
+    "comparison_updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/comparison_update"
+      }
+    },
+    "resolution_updates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/resolution_update"
+      }
+    }
+  },
+  "$defs": {
+    "cluster_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_cluster_id",
+        "decision",
+        "decision_reason",
+        "identity_status",
+        "existence_judgment",
+        "salience_judgment",
+        "proposal_scope_judgment",
+        "entity_confidence",
+        "evidence_frame_ids"
+      ],
+      "properties": {
+        "owner_cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "decision": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "accept",
+                "abstain",
+                "reject"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "decision_reason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "identity_status": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "resolved",
+                "ambiguous"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "existence_judgment": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "confirmed",
+                "rejected",
+                "uncertain"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "salience_judgment": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "graph_worthy",
+                "background_integrated",
+                "ambiguous"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "proposal_scope_judgment": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "resolved_single_scope",
+                "mixed_scope",
+                "unresolved"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entity_confidence": {
+          "anyOf": [
+            {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_frame_ids": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "minItems": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "coarse_locator",
+        "support_quality",
+        "anonymous_proposal_ids",
+        "cue_type",
+        "observation"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coarse_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "support_quality": {
+          "type": "string",
+          "enum": [
+            "strong",
+            "moderate",
+            "weak"
+          ]
+        },
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        },
+        "cue_type": {
+          "type": "string",
+          "enum": [
+            "physical_boundary",
+            "direct_interaction",
+            "temporal_continuity",
+            "same_instance_continuity",
+            "simultaneous_separation",
+            "independent_interaction_or_trajectory",
+            "integrated_component",
+            "non_entity",
+            "unresolved",
+            "category_only"
+          ]
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "new_evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "owner_cluster_id",
+        "new_evidence_id",
+        "observation"
+      ],
+      "properties": {
+        "owner_cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "new_evidence_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observation": {
+          "$ref": "#/$defs/evidence"
+        }
+      }
+    },
+    "evidence_ref": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "index",
+            "new_evidence_id"
+          ],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "existing"
+              ]
+            },
+            "index": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "new_evidence_id": {
+              "type": "null"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "index",
+            "new_evidence_id"
+          ],
+          "properties": {
+            "kind": {
+              "type": "string",
+              "enum": [
+                "new"
+              ]
+            },
+            "index": {
+              "type": "null"
+            },
+            "new_evidence_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      ]
+    },
+    "comparison_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slot_id",
+        "judgment",
+        "scope_relation",
+        "evidence_refs"
+      ],
+      "properties": {
+        "slot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed_same_scope",
+            "confirmed_distinct",
+            "unresolved"
+          ]
+        },
+        "scope_relation": {
+          "type": "string",
+          "enum": [
+            "comparable",
+            "whole_part",
+            "group_member",
+            "unresolved"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_ref"
+          }
+        }
+      }
+    },
+    "resolution_update": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "slot_id",
+        "evidence_refs"
+      ],
+      "properties": {
+        "slot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence_ref"
+          },
+          "minItems": 1
+        }
+      }
+    }
+  }
+}

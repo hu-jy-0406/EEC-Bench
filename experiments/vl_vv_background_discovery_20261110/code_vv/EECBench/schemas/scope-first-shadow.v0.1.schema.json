@@ -1,0 +1,433 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "scope_first_shadow_v0.1"
+      ]
+    },
+    "shot_id": {
+      "type": "string"
+    },
+    "proposal_reviews": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/proposal_review"
+      }
+    },
+    "plans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/plan"
+      }
+    },
+    "pair_dispositions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/pair_disposition"
+      }
+    },
+    "split_dispositions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/split_disposition"
+      }
+    },
+    "frame_coverage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/frame_coverage"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "schema_version",
+    "shot_id",
+    "proposal_reviews",
+    "plans",
+    "pair_dispositions",
+    "split_dispositions",
+    "frame_coverage",
+    "warnings"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "plan_link": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "string"
+        },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "same_scope",
+            "part_of",
+            "context_only",
+            "unresolved"
+          ]
+        },
+        "correspondence_support": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "uncertain"
+          ]
+        },
+        "evidence_frame_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "relation",
+        "correspondence_support",
+        "evidence_frame_ids",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "proposal_review": {
+      "type": "object",
+      "properties": {
+        "proposal_id": {
+          "type": "string"
+        },
+        "cluster_id": {
+          "type": "string"
+        },
+        "declared_scope": {
+          "type": "string",
+          "enum": [
+            "unit",
+            "assembly",
+            "collection",
+            "unknown"
+          ]
+        },
+        "claim_support": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "uncertain"
+          ]
+        },
+        "evidence_frame_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "representation": {
+          "type": "string",
+          "enum": [
+            "linked",
+            "unrepresented"
+          ]
+        },
+        "plan_links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/plan_link"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "proposal_id",
+        "cluster_id",
+        "declared_scope",
+        "claim_support",
+        "evidence_frame_ids",
+        "representation",
+        "plan_links",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "frame_observation": {
+      "type": "object",
+      "properties": {
+        "frame_id": {
+          "type": "integer"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "visible",
+            "occluded",
+            "out_of_view",
+            "uncertain"
+          ]
+        },
+        "bbox_xyxy_original": {
+          "anyOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "number"
+              }
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "boundary_observation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "frame_id",
+        "status",
+        "bbox_xyxy_original",
+        "boundary_observation"
+      ],
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "uncertain"
+          ]
+        },
+        "frame_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "status",
+        "frame_ids",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "plan": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "string"
+        },
+        "source_cluster_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "context_cluster_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "excluded_cluster_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "whole",
+            "assembly",
+            "collection"
+          ]
+        },
+        "physical_support": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "contradicted",
+            "uncertain"
+          ]
+        },
+        "extent_status": {
+          "type": "string",
+          "enum": [
+            "clear",
+            "partial",
+            "uncertain"
+          ]
+        },
+        "internal_cardinality": {
+          "type": "string",
+          "enum": [
+            "not_asserted",
+            "not_applicable"
+          ]
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "scope_candidate",
+            "retain_separate_candidates",
+            "unsupported_scope",
+            "unresolved"
+          ]
+        },
+        "frame_observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/frame_observation"
+          }
+        },
+        "cohesion_evidence": {
+          "$ref": "#/$defs/evidence"
+        },
+        "protected_boundary_review": {
+          "$ref": "#/$defs/evidence"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "plan_id",
+        "source_cluster_ids",
+        "context_cluster_ids",
+        "excluded_cluster_ids",
+        "description",
+        "kind",
+        "physical_support",
+        "extent_status",
+        "internal_cardinality",
+        "disposition",
+        "frame_observations",
+        "cohesion_evidence",
+        "protected_boundary_review",
+        "limitations"
+      ],
+      "additionalProperties": false
+    },
+    "plan_role": {
+      "type": "object",
+      "properties": {
+        "plan_id": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": [
+            "external_identity",
+            "membership",
+            "internal_unresolved"
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "plan_id",
+        "role",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "pair_disposition": {
+      "type": "object",
+      "properties": {
+        "pair_id": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending"
+          ]
+        },
+        "plan_roles": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/plan_role"
+          }
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "pair_id",
+        "status",
+        "plan_roles",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "split_disposition": {
+      "type": "object",
+      "properties": {
+        "challenge_id": {
+          "type": "string"
+        },
+        "review_still_required": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "challenge_id",
+        "review_still_required",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "frame_coverage": {
+      "type": "object",
+      "properties": {
+        "frame_id": {
+          "type": "integer"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "frame_id",
+        "notes"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

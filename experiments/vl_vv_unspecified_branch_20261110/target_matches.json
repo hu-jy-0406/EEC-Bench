@@ -1,0 +1,70 @@
+{
+ "_note": "Assistant judgment (2026-11-10) from sheet.md, the U1 inventories and a look at the cited frames (scratchpad contact sheet). found = a confirmed branch unit describes the target discrepancy with an unspecified subject; partial = it describes one part of a bundled target; stage = where the target was lost (U1 not listed / U2 listed but not raised / U3 / review).",
+ "dev_targets_13": {
+  "013-A2": "lost at U1 (nothing listed in Shots 2-4; the green object may have been taken for the contract's green lamp)",
+  "025-A1": "lost at U2 (U1 lists the wall switch in Shot2 and not in Shot4; U2 compared ceiling lights instead)",
+  "025-A2": "lost at U1 (Shot4 inventory: mirror and framed picture, no teapot or ornament)",
+  "036-A2": "lost at U2 (U1 lists 'Sill shrubs' in Shot4, none in Shot1; not raised)",
+  "036-A3": "lost at U1 (canopy not listed)",
+  "047-A1": "lost at U2 (U1 lists the wall notice in Shot2, not in Shot1; U2 raised no suspect)",
+  "047-A2": "lost at U2 (U1 lists wall shelving and posters in Shot5, not in Shot4)",
+  "055-A1": "partial: confirmed V1 (n1, counter containers in Shot2 missing from the counter in Shot4) covers the countertop part of the bundled furnishings target, not the wall cabinet",
+  "078-A1": "found: confirmed V1 (ge0003, TV cabinet white in Shot2, dark wood in Shot5)",
+  "120-A1": "not counted: confirmed V1 (n1) is about the same stick at the right edge, but says it disappears from frame 3 on, while the target is that it floats without support (frames ambiguous at keyframe size)",
+  "126-A1": "lost at U1 (no object listed in any shot of #126)",
+  "126-A2": "lost at U1",
+  "126-A3": "lost at U1"
+ },
+ "val_targets_14": {
+  "036w-A1": "not found: the shrubs are listed in Shot2; U2 raised a within-shot disappearance (frame 2 to 3) and a Shot2/Shot4 gap, not Shot1; U3 real for the within-shot one, review rejected it (the auditor notes the camera tilts up after frame 2)",
+  "036w-A2": "lost at U1 (curtains not listed)",
+  "061-A1": "out of scope by design (a copy of a prompt character is not an unprompted object for U1)",
+  "086-A1": "out of scope by design (same)",
+  "086-A2": "out of scope by design (same)",
+  "107-A1": "lost at U1 (bedspread not listed; probably treated as part of the prompt's bed)",
+  "141-A1": "lost at U1 (wedge not listed)",
+  "143-A1": "lost at U2 (U1 lists auditorium seats in Shot5, none in Shot1; not raised)",
+  "143-A2": "lost at U2 (U1 lists the venue banner in Shot6 frames 0-3 only; not raised)",
+  "148-A1": "lost at U1 (background building not listed)",
+  "149-A1": "lost at U1/U2 (chair listed in Shot1 and Shot3 only, appearance difference not raised)",
+  "149-A2": "lost at U1",
+  "188-A1": "lost at U1 (bag not listed)",
+  "191-A1": "lost at U1 (nothing listed in Shot1)"
+ },
+ "summary": {
+  "dev_found": 1,
+  "dev_found_or_partial": 2,
+  "val_found": 0,
+  "lost_at_U2": "dev 4 (025-A1, 036-A2, 047-A1, 047-A2), val 2-3 (143-A1, 143-A2, 149-A1)",
+  "other_confirmed_unspecified": {
+   "dev": [
+    "036 holocine Shot1: small white object appears in frame 5 (unverified; possibly an entering object)",
+    "120 storymem Shot3: stick disappears (see 120-A1)"
+   ],
+   "val": [
+    "124 holocine: potted plant on the lamp-side table in Shot1, not in Shot5 (unverified; Shot1 is very dark)",
+    "141 wan21 Shot1: pink flower-like shape appears in frame 5 beside the mouse (unverified; may be the mouse's tail)"
+   ]
+  }
+ },
+ "round3": {
+  "dev_found": [
+   "036-A2 (V2, n2 sill greenery)",
+   "047-A1 (V1, n1 notice sheet)",
+   "078-A1 (V1+V2, ge0003)"
+  ],
+  "val_found": [
+   "036w-A2 (V2, n2 blinds in Shot2 vs none in Shot1)"
+  ],
+  "val_partial": [
+   "107-A1 (V3, n2 bed cover patterned in Shot7 vs plaid in Shot5; target Shot5 vs Shot6)"
+  ],
+  "other_confirmed_unchecked": [
+   "036 holocine V1 narrow window ge0003",
+   "055 V2 quilt n3",
+   "055 V3 lamps ge0004",
+   "046 V1 wall plate n1",
+   "149 V1 seat colour ge0005"
+  ]
+ }
+}

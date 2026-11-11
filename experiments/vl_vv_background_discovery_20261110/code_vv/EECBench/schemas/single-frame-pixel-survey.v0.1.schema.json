@@ -1,0 +1,27 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "regions", "coverage_notes"],
+  "properties": {
+    "schema_version": {"type": "string", "enum": ["single_frame_pixel_survey_v0.1"]},
+    "regions": {"type": "array", "items": {"$ref": "#/$defs/region"}},
+    "coverage_notes": {"type": "string"}
+  },
+  "$defs": {
+    "scope": {"type": "string", "enum": ["whole", "part", "collection", "unknown"]},
+    "region": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["region_id", "frame_id", "view_id", "visual_description", "scope_kind", "boundary_status", "bbox_xyxy"],
+      "properties": {
+        "region_id": {"type": "string"},
+        "frame_id": {"type": "integer"},
+        "view_id": {"type": "string"},
+        "visual_description": {"type": "string"},
+        "scope_kind": {"$ref": "#/$defs/scope"},
+        "boundary_status": {"type": "string", "enum": ["clear", "partial", "uncertain"]},
+        "bbox_xyxy": {"anyOf": [{"type": "array", "items": {"type": "number"}}, {"type": "null"}]}
+      }
+    }
+  }
+}

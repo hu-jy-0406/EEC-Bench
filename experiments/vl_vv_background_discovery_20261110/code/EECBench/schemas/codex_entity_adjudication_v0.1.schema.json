@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_entity_adjudication_v0.1.schema.json",
+  "title": "Single-shot entity adjudication v0.1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "shot_id", "clusters", "warnings"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_ensemble_v0.1"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "clusters": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/cluster"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "confidence", "evidence_frame_ids"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1},
+        "confidence": {"$ref": "#/$defs/confidence"},
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"}
+      }
+    },
+    "finalEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "attributes",
+        "entity_confidence",
+        "evidence_frame_ids"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "attributes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attribute"}
+        },
+        "entity_confidence": {"$ref": "#/$defs/confidence"},
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"}
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "coarse_locator", "support_quality"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "coarse_locator": {"type": "string", "minLength": 1},
+        "support_quality": {
+          "type": "string",
+          "enum": ["strong", "moderate", "weak"]
+        }
+      }
+    },
+    "promptBoundCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "matched_registry_ids", "reason"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["unbound", "bound", "ambiguous"]
+        },
+        "matched_registry_ids": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "cluster": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cluster_id",
+        "anonymous_proposal_ids",
+        "canonical_name",
+        "aliases",
+        "granularity",
+        "adjudicator_evidence",
+        "prompt_bound_check",
+        "identity_status",
+        "decision",
+        "decision_reason",
+        "reviewer_addition",
+        "uncertainty_flags",
+        "final_entity"
+      ],
+      "properties": {
+        "cluster_id": {"type": "string", "minLength": 1},
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^p[0-9]{4,}$"}
+        },
+        "canonical_name": {"type": "string", "minLength": 1},
+        "aliases": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "granularity": {"type": "string", "minLength": 1},
+        "adjudicator_evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence"}
+        },
+        "prompt_bound_check": {"$ref": "#/$defs/promptBoundCheck"},
+        "identity_status": {
+          "type": "string",
+          "enum": ["resolved", "ambiguous"]
+        },
+        "decision": {
+          "type": "string",
+          "enum": ["accept", "reject", "abstain"]
+        },
+        "decision_reason": {"type": "string", "minLength": 1},
+        "reviewer_addition": {"type": "boolean"},
+        "uncertainty_flags": {
+          "type": "array",
+          "items": {"type": "string"}
+        },
+        "final_entity": {
+          "anyOf": [
+            {"$ref": "#/$defs/finalEntity"},
+            {"type": "null"}
+          ]
+        }
+      }
+    }
+  }
+}

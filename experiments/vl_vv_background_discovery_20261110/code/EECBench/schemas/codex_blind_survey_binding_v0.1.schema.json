@@ -1,0 +1,504 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "chain_id",
+    "survey_sha256",
+    "verifier_report",
+    "bindings"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "blind_survey_binding_v0.1"
+      ]
+    },
+    "chain_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "survey_sha256": {
+      "type": "string",
+      "minLength": 1
+    },
+    "verifier_report": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "protocol_version",
+        "shot_id",
+        "verifier_id",
+        "reviews",
+        "warnings",
+        "schema_version"
+      ],
+      "properties": {
+        "protocol_version": {
+          "type": "string",
+          "enum": [
+            "single_shot_inventory_first_boxed_granularity_v0.5"
+          ]
+        },
+        "shot_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "verifier_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/review"
+          }
+        },
+        "warnings": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": [
+            "physical_identity_review_v0.6"
+          ]
+        }
+      }
+    },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/binding"
+      }
+    }
+  },
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_blind_survey_binding_v0.1.schema.json",
+  "title": "Blind survey to original target correspondence and physical verifier wrapper v0.1",
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "coarse_locator",
+        "support_quality",
+        "anonymous_proposal_ids",
+        "cue_type",
+        "observation"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coarse_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "support_quality": {
+          "type": "string",
+          "enum": [
+            "strong",
+            "moderate",
+            "weak"
+          ]
+        },
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "cue_type": {
+          "type": "string",
+          "enum": [
+            "physical_boundary",
+            "direct_interaction",
+            "temporal_continuity",
+            "same_instance_continuity",
+            "simultaneous_separation",
+            "independent_interaction_or_trajectory",
+            "integrated_component",
+            "non_entity",
+            "unresolved",
+            "category_only"
+          ]
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "physical_unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id",
+        "anonymous_proposal_ids",
+        "existence_judgment",
+        "salience_judgment",
+        "evidence",
+        "proposal_scope_judgment",
+        "category_resolution"
+      ],
+      "properties": {
+        "unit_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "existence_judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "rejected",
+            "uncertain"
+          ]
+        },
+        "salience_judgment": {
+          "type": "string",
+          "enum": [
+            "graph_worthy",
+            "background_integrated",
+            "ambiguous"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "proposal_scope_judgment": {
+          "type": "string",
+          "enum": [
+            "resolved_single_scope",
+            "mixed_scope",
+            "unresolved"
+          ]
+        },
+        "category_resolution": {
+          "type": "string",
+          "enum": [
+            "resolved",
+            "subtype_unresolved",
+            "category_unresolved"
+          ]
+        }
+      }
+    },
+    "pairwise_physical_separation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id_a",
+        "unit_id_b",
+        "frame_id",
+        "unit_a_coarse_locator",
+        "unit_b_coarse_locator",
+        "support_quality"
+      ],
+      "properties": {
+        "unit_id_a": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit_id_b": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "unit_a_coarse_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "unit_b_coarse_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "support_quality": {
+          "type": "string",
+          "enum": [
+            "strong",
+            "moderate",
+            "weak"
+          ]
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cluster_id",
+        "existence_judgment",
+        "salience_judgment",
+        "same_instance_with_cluster_ids",
+        "graph_partition_judgment",
+        "same_graph_node_with_cluster_ids",
+        "observed_independence_evidence",
+        "intra_cluster_split_judgment",
+        "proposed_physical_units",
+        "pairwise_physical_separation_evidence",
+        "evidence",
+        "reason",
+        "proposal_scope_judgment",
+        "category_resolution",
+        "identity_comparisons"
+      ],
+      "properties": {
+        "cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "existence_judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "rejected",
+            "uncertain"
+          ]
+        },
+        "salience_judgment": {
+          "type": "string",
+          "enum": [
+            "graph_worthy",
+            "background_integrated",
+            "ambiguous"
+          ]
+        },
+        "same_instance_with_cluster_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "graph_partition_judgment": {
+          "type": "string",
+          "enum": [
+            "keep_as_separate_node",
+            "merge_into_compact_composite",
+            "uncertain"
+          ]
+        },
+        "same_graph_node_with_cluster_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "observed_independence_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "intra_cluster_split_judgment": {
+          "type": "string",
+          "enum": [
+            "not_reviewed",
+            "keep_single_physical_instance",
+            "split_into_multiple_physical_instances",
+            "uncertain"
+          ]
+        },
+        "proposed_physical_units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/physical_unit"
+          }
+        },
+        "pairwise_physical_separation_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pairwise_physical_separation"
+          }
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "proposal_scope_judgment": {
+          "type": "string",
+          "enum": [
+            "resolved_single_scope",
+            "mixed_scope",
+            "unresolved"
+          ]
+        },
+        "category_resolution": {
+          "type": "string",
+          "enum": [
+            "resolved",
+            "subtype_unresolved",
+            "category_unresolved"
+          ]
+        },
+        "identity_comparisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identity_comparison"
+          }
+        }
+      }
+    },
+    "identity_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "other_cluster_id",
+        "judgment",
+        "scope_relation",
+        "evidence_indices"
+      ],
+      "properties": {
+        "other_cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed_same_scope",
+            "confirmed_distinct",
+            "unresolved"
+          ]
+        },
+        "scope_relation": {
+          "type": "string",
+          "enum": [
+            "comparable",
+            "whole_part",
+            "group_member",
+            "unresolved"
+          ],
+          "description": "Relation of the complete asserted physical contents, not image-plane enclosure, support, proximity, or category names alone. whole_part requires a claimed whole and its actual constituent; group_member requires a claimed group containing that member. Independently bounded objects may be comparable while one supports or encloses the other. Comparable does not establish distinctness. Use unresolved if the relation itself is uncertain; a known non-comparable relation still uses judgment=unresolved."
+        },
+        "evidence_indices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_cluster_id",
+        "anonymous_proposal_id",
+        "binding_relation",
+        "region_ids",
+        "frame_references",
+        "localization_or_trajectory_conflict",
+        "limitation"
+      ],
+      "properties": {
+        "target_cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anonymous_proposal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "binding_relation": {
+          "type": "string",
+          "enum": [
+            "complete_region_scope",
+            "part_of_region_scope",
+            "multiple_region_scopes",
+            "unresolved"
+          ]
+        },
+        "region_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "frame_references": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/frame_reference"
+          }
+        },
+        "localization_or_trajectory_conflict": {
+          "$ref": "#/$defs/localization_conflict"
+        },
+        "limitation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "frame_reference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "region_id",
+        "frame_id"
+      ],
+      "properties": {
+        "region_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "localization_conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "explanation"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "none_observed",
+            "conflict",
+            "unresolved"
+          ]
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

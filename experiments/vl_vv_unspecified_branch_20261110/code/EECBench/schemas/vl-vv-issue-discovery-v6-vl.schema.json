@@ -1,0 +1,285 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue discovery v6, V-L branch (contract-checking template)",
+  "type": "object",
+  "required": [
+    "protocol",
+    "checks",
+    "added_entities",
+    "issues"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_discovery_v6_vl"
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "row_id",
+          "observed",
+          "status",
+          "violated_items",
+          "frame_refs"
+        ],
+        "properties": {
+          "row_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "observed": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "satisfied",
+              "violated",
+              "not_verifiable",
+              "not_applicable"
+            ]
+          },
+          "violated_items": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "frame_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "added_entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "entity_key",
+          "name",
+          "description",
+          "frame_refs"
+        ],
+        "properties": {
+          "entity_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "frame_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "subcategory",
+          "summary",
+          "requirement_quotes",
+          "expected",
+          "occurrences",
+          "entity_keys",
+          "confidence"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subcategory": {
+            "type": "string",
+            "enum": [
+              "presence_count",
+              "attribute",
+              "action_state",
+              "interaction",
+              "spatial_orientation",
+              "setting_environment",
+              "camera_composition",
+              "style_rendering",
+              "stated_continuity",
+              "shot_structure"
+            ]
+          },
+          "summary": {
+            "type": "string",
+            "minLength": 1
+          },
+          "requirement_quotes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "source",
+                "shot_id",
+                "quote"
+              ],
+              "properties": {
+                "source": {
+                  "type": "string",
+                  "enum": [
+                    "contract",
+                    "shot_transitions"
+                  ]
+                },
+                "shot_id": {
+                  "anyOf": [
+                    {
+                      "type": "null"
+                    },
+                    {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  ]
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "expected": {
+            "type": "string",
+            "minLength": 1
+          },
+          "occurrences": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "requirement_ids",
+                "frame_refs",
+                "observed",
+                "mismatch"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "requirement_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "minItems": 1
+                },
+                "frame_refs": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "shot_id",
+                      "frame_id"
+                    ],
+                    "properties": {
+                      "shot_id": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "frame_id": {
+                        "type": "integer",
+                        "minimum": 0
+                      }
+                    },
+                    "additionalProperties": false
+                  },
+                  "minItems": 1
+                },
+                "observed": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "mismatch": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "entity_keys": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

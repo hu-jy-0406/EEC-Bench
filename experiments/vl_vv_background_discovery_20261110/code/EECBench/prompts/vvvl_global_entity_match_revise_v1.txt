@@ -1,0 +1,35 @@
+You previously produced a cross-shot entity partition. The validator now gives
+you ONLY the local entity keys whose ownership is invalid.
+
+Return one repair decision for every listed problem key in `problem_local_entities`,
+exactly once, and no decision for any other key. Do not rewrite the full partition.
+Do not rename a group, change any description or reason, move an unaffected member,
+or reconsider any unlisted key.
+
+CRITICAL ACTION TEMPLATES BY PROBLEM TYPE:
+For each problem key, inspect its `problem` type and fill in the corresponding template:
+
+1. For problem="duplicate":
+   The entity currently appears in multiple groups (listed in `existing_group_indices`).
+   You MUST select which ONE group to keep it in.
+   - action: MUST be "keep_existing" (do NOT use "assign_existing" for duplicates!)
+   - target_group_index: MUST be one of the numbers from `existing_group_indices`.
+   Template to fill:
+   {"shot_id": "<shot_id>", "local_entity_id": "<local_entity_id>", "action": "keep_existing", "target_group_index": <chosen_index>}
+
+2. For problem="missing":
+   The entity was omitted from all groups.
+   - If assigning to an existing group:
+     {"shot_id": "<shot_id>", "local_entity_id": "<local_entity_id>", "action": "assign_existing", "target_group_index": <chosen_index_from_allowed_group_indices>}
+   - If creating a new singleton group:
+     {"shot_id": "<shot_id>", "local_entity_id": "<local_entity_id>", "action": "new_singleton", "target_group_index": null}
+
+3. For problem="unknown":
+   The entity key is not in the input inventory.
+   - action: MUST be "remove_unknown"
+   - target_group_index: MUST be null.
+   Template to fill:
+   {"shot_id": "<shot_id>", "local_entity_id": "<local_entity_id>", "action": "remove_unknown", "target_group_index": null}
+
+Follow the supplied repair schema. Every listed key must have exactly one repair decision.
+

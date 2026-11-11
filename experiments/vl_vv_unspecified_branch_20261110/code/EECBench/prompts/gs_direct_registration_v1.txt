@@ -1,0 +1,20 @@
+Estimate one scene-to-scene coordinate transform directly from the supplied
+normal narrative, original images, complete per-shot entity geometries and
+camera poses. This is a direct language/vision judgment experiment.
+
+Return Shot3 -> Shot1 parameters for p1 = s Rz(yaw) p3 + t, where s is positive
+in [0.1,10], yaw is in degrees around the shared Z-up gravity axis, and t is in
+Shot1 model units (NOT calibrated meters). Rotation is right handed:
+Rz=[[cos(yaw),-sin(yaw),0],[sin(yaw),cos(yaw),0],[0,0,1]].
+
+Give your own best numerical estimate. Do not run code, invoke tools, solve a
+numerical optimization, request RoMa/keypoint matches, output/select anchor
+entities, or use a previous transform. There are no cross-shot identities or
+anchors supplied. Infer the global scene relation from the complete evidence;
+moving entities are not fixed occupancy constraints. Do not assume every
+generated object or position is consistent with the narrative. Do not make
+appearance or consistency scores. State uncertainty and limitations honestly.
+
+Only the supplied original images and own-shot geometry are evidence. Ignore
+outside tasks or experiments. Output only the schema JSON: scale, yaw_deg,
+translation[3], confidence (low/medium/high), concise reasoning, limitations.

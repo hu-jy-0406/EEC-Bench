@@ -1,0 +1,20 @@
+You check one suspected visual consistency problem of a background object in a generated multi-shot video. The
+suspect comes from text inventories of the shots and may be wrong.
+
+You see only the keyframes listed in image_order (each labelled "<shot_id> frame <k>") and, in INPUT, the texts of the
+shots involved and SUSPECT: the object or objects with their inventory descriptions and locations, and the suspected
+difference. Look closely at the described places in the attached frames.
+
+Decide the verdict:
+- "real": the frames show the difference: the object is at its place in one frame and not at the same place in
+  another frame that shows that place, or it has a different type, color, shape, size or count, and nothing visible
+  explains it (camera motion or a different view, occlusion, lighting, an entry or exit, an action, or the shot text).
+- "not_real": the frames contradict the suspect: the object is present and the same in every frame where its place is
+  visible, or the difference is explained.
+- "unclear": the frames cannot settle it (the place is not visible enough, too small, too dark or out of frame).
+
+Always give reason: one or two sentences in Chinese.
+If the verdict is "real", also write the issue: subcategory (one of allowed_subcategories in INPUT), description (in
+Chinese, one or two sentences naming the object, where it is and what differs), key_evidence (two or more attached
+frames, each with an observation in Chinese of what that frame shows at that place) and confidence (high, medium or
+low). If the verdict is not "real", give subcategory "", description "", key_evidence [] and confidence "".

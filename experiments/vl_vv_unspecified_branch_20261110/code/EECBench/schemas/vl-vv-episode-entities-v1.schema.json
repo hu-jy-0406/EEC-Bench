@@ -1,0 +1,250 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV episode entity ledger v1",
+  "type": "object",
+  "required": [
+    "protocol",
+    "status",
+    "shot_order",
+    "prompt_bound",
+    "prompt_unbound",
+    "unresolved_identity_links",
+    "counts"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "vl_vv_detection_v1"
+    },
+    "status": {
+      "enum": [
+        "matched"
+      ]
+    },
+    "shot_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "prompt_bound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    },
+    "prompt_unbound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entity"
+      }
+    },
+    "unresolved_identity_links": {
+      "type": "array"
+    },
+    "counts": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "entity": {
+      "type": "object",
+      "required": [
+        "global_entity_id",
+        "partition",
+        "name",
+        "short_description",
+        "identity_status",
+        "identity_reason",
+        "occurrences",
+        "wedetect_categories",
+        "grounding_dino_categories",
+        "dino_appearance"
+      ],
+      "properties": {
+        "global_entity_id": {
+          "type": "string"
+        },
+        "partition": {
+          "enum": [
+            "prompt_bound",
+            "prompt_unbound"
+          ]
+        },
+        "prompt_entity_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "short_description": {
+          "type": "string"
+        },
+        "identity_status": {
+          "enum": [
+            "confirmed",
+            "singleton",
+            "unresolved",
+            "schedule_bound",
+            "scheduled_only"
+          ]
+        },
+        "identity_reason": {
+          "type": "string"
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/occurrence"
+          },
+          "minItems": 0
+        },
+        "schedule": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/schedule"
+          }
+        },
+        "wedetect_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "grounding_dino_categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "dino_appearance": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "occurrence": {
+      "type": "object",
+      "required": [
+        "shot_id",
+        "local_entity_id",
+        "name",
+        "binding_status",
+        "observations",
+        "observed_frame_ids"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "local_entity_id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "binding_status": {
+          "enum": [
+            "bound",
+            "unbound",
+            "unknown"
+          ]
+        },
+        "prompt_entity_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_frame_ids": {
+          "type": "array",
+          "items": {
+            "type": "integer"
+          }
+        },
+        "observations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/observation"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "observation": {
+      "type": "object",
+      "required": [
+        "frame_id",
+        "box_xyxy",
+        "candidate_id",
+        "detector"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "integer"
+        },
+        "box_xyxy": {
+          "type": [
+            "array",
+            "null"
+          ]
+        },
+        "candidate_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detector": {
+          "enum": [
+            "wedetect_anything",
+            "grounding_dino",
+            null
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "schedule": {
+      "type": "object",
+      "required": [
+        "shot_id",
+        "expectation",
+        "detector_observation",
+        "observed_frame_ids",
+        "boxes"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "expectation": {
+          "enum": [
+            "required",
+            "not_required"
+          ]
+        },
+        "detector_observation": {
+          "enum": [
+            "observed",
+            "not_detected"
+          ]
+        },
+        "observed_frame_ids": {
+          "type": "array"
+        },
+        "boxes": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV episode scoring agent response v3 (per-label severities)",
+  "type": "object",
+  "required": ["protocol", "assessments"],
+  "properties": {
+    "protocol": {"type": "string", "const": "vl_vv_episode_scoring_v3"},
+    "assessments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["issue_id", "label", "severity", "duplicate_of", "reason"],
+        "properties": {
+          "issue_id": {"type": "string", "minLength": 1},
+          "label": {"type": "string", "enum": ["v_l", "v_v"]},
+          "severity": {"type": "string", "enum": ["none", "minor", "moderate", "major", "critical"]},
+          "duplicate_of": {"type": ["string", "null"]},
+          "reason": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

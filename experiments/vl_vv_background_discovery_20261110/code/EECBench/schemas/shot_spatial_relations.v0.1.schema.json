@@ -1,0 +1,103 @@
+{
+  "type": "object",
+  "properties": {
+    "shot_id": {
+      "type": "string"
+    },
+    "pair_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pair_id": {
+            "type": "string"
+          },
+          "assessment": {
+            "type": "string",
+            "enum": [
+              "relations_found",
+              "none_supported",
+              "insufficient_evidence"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "pair_id",
+          "assessment",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subject_id": {
+            "type": "string"
+          },
+          "predicate": {
+            "type": "string",
+            "enum": [
+              "supported_by",
+              "inside",
+              "attached_to",
+              "touching",
+              "above",
+              "in_front_of"
+            ]
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "observations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer"
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "present",
+                    "absent",
+                    "uncertain",
+                    "not_observable"
+                  ]
+                },
+                "reason": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "frame_id",
+                "status",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": [
+          "subject_id",
+          "predicate",
+          "object_id",
+          "observations"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "shot_id",
+    "pair_reviews",
+    "relations"
+  ],
+  "additionalProperties": false
+}

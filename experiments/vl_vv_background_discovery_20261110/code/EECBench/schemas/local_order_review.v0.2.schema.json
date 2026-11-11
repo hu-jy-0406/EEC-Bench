@@ -1,0 +1,274 @@
+{
+  "type": "object",
+  "properties": {
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "query_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "correspondence_verified": {
+            "type": "boolean"
+          },
+          "side_a": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "axis_verified": {
+                  "type": "boolean"
+                },
+                "common_support": {
+                  "type": "boolean"
+                },
+                "witness": {
+                  "type": "string",
+                  "enum": [
+                    "visible_contacts",
+                    "bounded_center_from_parts",
+                    "surface_boundary_constraint",
+                    "unknown"
+                  ]
+                },
+                "subject_part_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "object_part_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "subject_center_bounds_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "object_center_bounds_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "alternatives_can_reverse": {
+                  "type": "boolean"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "less",
+                      "aligned",
+                      "greater"
+                    ]
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "frame_id",
+                "axis_verified",
+                "common_support",
+                "witness",
+                "subject_part_xyxy",
+                "object_part_xyxy",
+                "subject_center_bounds_xyxy",
+                "object_center_bounds_xyxy",
+                "alternatives_can_reverse",
+                "values",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "side_b": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "axis_verified": {
+                  "type": "boolean"
+                },
+                "common_support": {
+                  "type": "boolean"
+                },
+                "witness": {
+                  "type": "string",
+                  "enum": [
+                    "visible_contacts",
+                    "bounded_center_from_parts",
+                    "surface_boundary_constraint",
+                    "unknown"
+                  ]
+                },
+                "subject_part_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "object_part_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "subject_center_bounds_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "object_center_bounds_xyxy": {
+                  "anyOf": [
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "number"
+                      },
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "alternatives_can_reverse": {
+                  "type": "boolean"
+                },
+                "values": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "enum": [
+                      "less",
+                      "aligned",
+                      "greater"
+                    ]
+                  }
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "frame_id",
+                "axis_verified",
+                "common_support",
+                "witness",
+                "subject_part_xyxy",
+                "object_part_xyxy",
+                "subject_center_bounds_xyxy",
+                "object_center_bounds_xyxy",
+                "alternatives_can_reverse",
+                "values",
+                "reason"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "query_id",
+          "correspondence_verified",
+          "side_a",
+          "side_b",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "relations"
+  ],
+  "additionalProperties": false
+}

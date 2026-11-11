@@ -1,0 +1,280 @@
+{
+  "selected": "scoring_efficiency_v1",
+  "profiles": {
+    "baseline": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "configured",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": false,
+      "status": "validated_study2"
+    },
+    "efficient_astra_low": {
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_not_selected_presence_classification_drift"
+    },
+    "efficient_astra_medium": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_not_selected_presence_classification_drift",
+      "efficient_call_stages": [
+        "identity_review",
+        "presence_1",
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ]
+    },
+    "baseline_parallel": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "configured",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "scheduler_unit_validated_numerical_algorithm_unchanged"
+    },
+    "safe_spatial_medium": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "validated_study2_fixed_upstream_spatial_replay",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md"
+    },
+    "temporal_compact_medium": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_broad_routing_not_selected_use_validated_stage_scoped_temporal_cost_v1",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+      "temporal_transport": "compact",
+      "rejection": "Expectation, within and boundary presence classifications drift on frozen Study2/3/4 inputs."
+    },
+    "temporal_compact_low": {
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_broad_routing_not_selected_use_validated_stage_scoped_temporal_cost_v1",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+      "temporal_transport": "compact"
+    },
+    "temporal_efficient_low": {
+      "model": "gpt-6-astra",
+      "reasoning": "low",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_broad_routing_not_selected_use_validated_stage_scoped_temporal_cost_v1",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/gs_latency_cost_20260919/REPORT.md",
+      "temporal_transport": "efficient"
+    },
+    "temporal_cost_v1": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "selected_study234_spatial_component_and_composition_validated",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/temporal_cost_quality_20260920/REPORT.md",
+      "temporal_call_profiles": {
+        "boundary_spatial": {
+          "transport": "efficient",
+          "reasoning": "low"
+        }
+      },
+      "temporal_parallel_local_spatial": true
+    },
+    "temporal_binary_v1": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "validated_study234_binary_labels_confirmed_identities_anomalies_frozen_frontend_cpu_api_replay",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/shot_binary_motion_20260920/REPORT.md",
+      "temporal_call_profiles": {
+        "boundary_spatial": {
+          "transport": "efficient",
+          "reasoning": "low"
+        },
+        "expectation": {
+          "transport": "compact",
+          "reasoning": "medium"
+        }
+      },
+      "temporal_parallel_local_spatial": true,
+      "expected_motion_protocol": "shot_binary_v1",
+      "within_presence_review": false
+    },
+    "temporal_spatial_v1": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "validated_study234_frozen_within_and_fresh_full_known_anomalies_with_documented_population_changes",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations"
+      ],
+      "validation": "EECBench/experiments/within_negative_review_20260920/REPORT.md",
+      "temporal_call_profiles": {
+        "boundary_spatial": {
+          "transport": "efficient",
+          "reasoning": "low"
+        },
+        "expectation": {
+          "transport": "compact",
+          "reasoning": "medium"
+        },
+        "within": {
+          "transport": "compact",
+          "reasoning": "medium"
+        }
+      },
+      "temporal_parallel_local_spatial": true,
+      "expected_motion_protocol": "shot_binary_v1",
+      "within_presence_review": false,
+      "within_review_protocol": "negative_cosine_only_v1"
+    },
+    "scoring_efficiency_v1": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "selected_fixed_study3_identity_alignment_and_study234_presence_validated_with_documented_uncertainty_changes",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations",
+        "identity_review"
+      ],
+      "validation": "EECBench/experiments/pipeline_scoring_efficiency_20260921/REPORT.md",
+      "temporal_call_profiles": {
+        "boundary_spatial": {
+          "transport": "efficient",
+          "reasoning": "low"
+        },
+        "expectation": {
+          "transport": "compact",
+          "reasoning": "medium"
+        },
+        "within": {
+          "transport": "compact",
+          "reasoning": "medium"
+        },
+        "boundary_presence": {
+          "transport": "compact",
+          "reasoning": "medium"
+        }
+      },
+      "temporal_parallel_local_spatial": true,
+      "expected_motion_protocol": "shot_binary_v1",
+      "within_presence_review": false,
+      "within_review_protocol": "negative_cosine_only_v1",
+      "identity_review_protocol": "identity_scoring_v1",
+      "boundary_presence_protocol": "presence_scoring_v1",
+      "prompt_alignment_transport": "compact",
+      "identity_review_input": "minimal"
+    },
+    "gravity_free_v1": {
+      "model": "gpt-6-astra",
+      "reasoning": "medium",
+      "transport": "efficient",
+      "clustering_model": "gpt-6-astra",
+      "clustering_reasoning": "medium",
+      "overlap_roma_with_identity": true,
+      "status": "experimental_user_requested_gravity_free_20260921",
+      "efficient_call_stages": [
+        "observe_shot1",
+        "observe_shot3",
+        "verify_relations",
+        "identity_review"
+      ],
+      "validation": "EECBench/experiments/pipeline_scoring_efficiency_20260921/REPORT.md",
+      "temporal_call_profiles": {
+        "boundary_spatial": {
+          "transport": "efficient",
+          "reasoning": "low"
+        },
+        "expectation": {
+          "transport": "compact",
+          "reasoning": "medium"
+        },
+        "within": {
+          "transport": "compact",
+          "reasoning": "medium"
+        },
+        "boundary_presence": {
+          "transport": "compact",
+          "reasoning": "medium"
+        }
+      },
+      "temporal_parallel_local_spatial": true,
+      "expected_motion_protocol": "shot_binary_v1",
+      "within_presence_review": false,
+      "within_review_protocol": "negative_cosine_only_v1",
+      "identity_review_protocol": "identity_scoring_v1",
+      "boundary_presence_protocol": "presence_scoring_v1",
+      "prompt_alignment_transport": "compact",
+      "coordinate_mode": "pi3x_native",
+      "boundary_spatial_protocol": "relative_geometry_v1"
+    }
+  }
+}

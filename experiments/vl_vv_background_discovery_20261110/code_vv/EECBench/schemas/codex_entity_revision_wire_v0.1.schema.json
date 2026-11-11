@@ -1,0 +1,421 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_entity_revision_wire_v0.1.schema.json",
+  "title": "Revision-only physical identity wire v0.1 with implicit resolution owner scope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "shot_id",
+    "clusters",
+    "warnings",
+    "schema_version"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": [
+        "single_shot_inventory_first_boxed_granularity_v0.5"
+      ]
+    },
+    "shot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "clusters": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/cluster"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "schema_version": {
+      "type": "string",
+      "enum": [
+        "physical_identity_revision_wire_v0.1"
+      ]
+    }
+  },
+  "$defs": {
+    "confidence": {
+      "type": "number",
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "integer",
+        "minimum": 0
+      }
+    },
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value",
+        "confidence",
+        "evidence_frame_ids"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "evidence_frame_ids": {
+          "$ref": "#/$defs/frameIds"
+        }
+      }
+    },
+    "finalEntity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "attributes",
+        "entity_confidence",
+        "evidence_frame_ids"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attributes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/attribute"
+          }
+        },
+        "entity_confidence": {
+          "$ref": "#/$defs/confidence"
+        },
+        "evidence_frame_ids": {
+          "$ref": "#/$defs/frameIds"
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "coarse_locator",
+        "support_quality",
+        "anonymous_proposal_ids",
+        "cue_type",
+        "observation"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coarse_locator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "support_quality": {
+          "type": "string",
+          "enum": [
+            "strong",
+            "moderate",
+            "weak"
+          ]
+        },
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "cue_type": {
+          "type": "string",
+          "enum": [
+            "physical_boundary",
+            "direct_interaction",
+            "temporal_continuity",
+            "same_instance_continuity",
+            "simultaneous_separation",
+            "independent_interaction_or_trajectory",
+            "integrated_component",
+            "non_entity",
+            "unresolved",
+            "category_only"
+          ]
+        },
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "framePresence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "frame_id",
+        "status",
+        "description"
+      ],
+      "properties": {
+        "frame_id": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "visible",
+            "absent",
+            "occluded",
+            "uncertain"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "cluster": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cluster_id",
+        "anonymous_proposal_ids",
+        "canonical_name",
+        "aliases",
+        "granularity",
+        "adjudicator_evidence",
+        "frame_presence",
+        "identity_status",
+        "decision",
+        "decision_reason",
+        "uncertainty_flags",
+        "final_entity",
+        "proposal_scope_judgment",
+        "category_resolution",
+        "identity_comparisons",
+        "existence_judgment",
+        "salience_judgment",
+        "revision_resolutions"
+      ],
+      "properties": {
+        "cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "anonymous_proposal_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^p[0-9]{4,}$"
+          }
+        },
+        "canonical_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "aliases": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "granularity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "adjudicator_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "frame_presence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/framePresence"
+          }
+        },
+        "identity_status": {
+          "type": "string",
+          "enum": [
+            "resolved",
+            "ambiguous"
+          ]
+        },
+        "decision": {
+          "type": "string",
+          "enum": [
+            "accept",
+            "reject",
+            "abstain"
+          ]
+        },
+        "decision_reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uncertainty_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "final_entity": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/finalEntity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "proposal_scope_judgment": {
+          "type": "string",
+          "enum": [
+            "resolved_single_scope",
+            "mixed_scope",
+            "unresolved"
+          ]
+        },
+        "category_resolution": {
+          "type": "string",
+          "enum": [
+            "resolved",
+            "subtype_unresolved",
+            "category_unresolved"
+          ]
+        },
+        "identity_comparisons": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/identity_comparison"
+          }
+        },
+        "existence_judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "rejected",
+            "uncertain"
+          ]
+        },
+        "salience_judgment": {
+          "type": "string",
+          "enum": [
+            "graph_worthy",
+            "background_integrated",
+            "ambiguous"
+          ]
+        },
+        "revision_resolutions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/revision_resolution"
+          }
+        }
+      }
+    },
+    "identity_comparison": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "other_cluster_id",
+        "judgment",
+        "scope_relation",
+        "evidence_indices"
+      ],
+      "properties": {
+        "other_cluster_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "judgment": {
+          "type": "string",
+          "enum": [
+            "confirmed_same_scope",
+            "confirmed_distinct",
+            "unresolved"
+          ]
+        },
+        "scope_relation": {
+          "type": "string",
+          "enum": [
+            "comparable",
+            "whole_part",
+            "group_member",
+            "unresolved"
+          ],
+          "description": "Relation of the complete asserted physical contents, not image-plane enclosure, support, proximity, or category names alone. whole_part requires a claimed whole and its actual constituent; group_member requires a claimed group containing that member. Independently bounded objects may be comparable while one supports or encloses the other. Comparable does not establish distinctness. Use unresolved if the relation itself is uncertain; a known non-comparable relation still uses judgment=unresolved."
+        },
+        "evidence_indices": {
+          "type": "array",
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "revision_resolution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "axis",
+        "target_cluster_ids",
+        "evidence_indices"
+      ],
+      "properties": {
+        "axis": {
+          "type": "string",
+          "enum": [
+            "physical_entity",
+            "proposal_scope",
+            "instance_correspondence"
+          ]
+        },
+        "target_cluster_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "All contributing initial targets involved in this assertion; retained-distinct correspondence includes targets from both complete final endpoints."
+        },
+        "evidence_indices": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "description": "Zero-based indices into the containing final cluster's adjudicator_evidence. Retained-distinct correspondence references an observation covering the exact pair union; this does not change resolution ownership."
+        }
+      }
+    }
+  }
+}

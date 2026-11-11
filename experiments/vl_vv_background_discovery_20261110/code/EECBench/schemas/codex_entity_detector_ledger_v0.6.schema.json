@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_entity_detector_ledger_v0.6.schema.json",
+  "title": "Single-shot boxed three-pass inventory detector ledger v0.6",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "shot_id",
+    "detector_id",
+    "source_kind",
+    "accessed_input_paths",
+    "entities",
+    "coverage_audit",
+    "warnings"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_inventory_first_boxed_granularity_v0.5"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "detector_id": {"type": "string", "minLength": 1},
+    "source_kind": {"type": "string", "enum": ["detector"]},
+    "accessed_input_paths": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "entities": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/proposal"}
+    },
+    "coverage_audit": {"$ref": "#/$defs/coverageAudit"},
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "localIds": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "spatialCellName": {
+      "type": "string",
+      "enum": [
+        "upper_left",
+        "upper_center",
+        "upper_right",
+        "middle_left",
+        "middle_center",
+        "middle_right",
+        "lower_left",
+        "lower_center",
+        "lower_right"
+      ]
+    },
+    "contentStratumName": {
+      "type": "string",
+      "enum": [
+        "actors_and_independently_handled_objects",
+        "freestanding_and_supported_objects",
+        "containers_open_storage_and_bounded_collections",
+        "fixed_architectural_and_mounted_objects",
+        "peripheral_cropped_and_exterior_bounded_objects"
+      ]
+    },
+    "attribute": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "value", "evidence_frame_ids"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "value": {"type": "string", "minLength": 1},
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"}
+      }
+    },
+    "locator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "description"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "framePresence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "status", "description", "bbox_xyxy_normalized"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "status": {
+          "type": "string",
+          "enum": ["visible", "absent", "occluded", "uncertain"]
+        },
+        "description": {"type": "string", "minLength": 1},
+        "bbox_xyxy_normalized": {
+          "anyOf": [
+            {
+              "type": "array",
+              "minItems": 4,
+              "maxItems": 4,
+              "items": {"type": "number", "minimum": 0.0, "maximum": 1.0}
+            },
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "spatialCellReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cell", "best_frame_id", "represented_local_ids"],
+      "properties": {
+        "cell": {"$ref": "#/$defs/spatialCellName"},
+        "best_frame_id": {"type": "integer", "minimum": 0},
+        "represented_local_ids": {"$ref": "#/$defs/localIds"}
+      }
+    },
+    "contentStratumReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["stratum", "represented_local_ids"],
+      "properties": {
+        "stratum": {"$ref": "#/$defs/contentStratumName"},
+        "represented_local_ids": {"$ref": "#/$defs/localIds"}
+      }
+    },
+    "temporalRevealCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "earlier_frame_id",
+        "later_frame_id",
+        "newly_revealed_cells",
+        "added_local_ids"
+      ],
+      "properties": {
+        "earlier_frame_id": {"type": "integer", "minimum": 0},
+        "later_frame_id": {"type": "integer", "minimum": 0},
+        "newly_revealed_cells": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/spatialCellName"}
+        },
+        "added_local_ids": {"$ref": "#/$defs/localIds"}
+      }
+    },
+    "coverageAudit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reviewed_frame_ids",
+        "spatial_cells",
+        "content_strata",
+        "temporal_reveal_checks",
+        "residual_added_local_ids"
+      ],
+      "properties": {
+        "reviewed_frame_ids": {"$ref": "#/$defs/frameIds"},
+        "spatial_cells": {
+          "type": "array",
+          "minItems": 9,
+          "maxItems": 9,
+          "items": {"$ref": "#/$defs/spatialCellReview"}
+        },
+        "content_strata": {
+          "type": "array",
+          "minItems": 5,
+          "maxItems": 5,
+          "items": {"$ref": "#/$defs/contentStratumReview"}
+        },
+        "temporal_reveal_checks": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/temporalRevealCheck"}
+        },
+        "residual_added_local_ids": {"$ref": "#/$defs/localIds"}
+      }
+    },
+    "proposal": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "local_id",
+        "proposed_name",
+        "canonical_head",
+        "entity_type",
+        "granularity",
+        "attributes",
+        "evidence_frame_ids",
+        "coarse_locators",
+        "frame_presence",
+        "self_confidence",
+        "uncertainty_flags"
+      ],
+      "properties": {
+        "local_id": {"type": "string", "minLength": 1},
+        "proposed_name": {"type": "string", "minLength": 1},
+        "canonical_head": {"type": "string", "minLength": 1},
+        "entity_type": {"type": "string", "minLength": 1},
+        "granularity": {"type": "string", "minLength": 1},
+        "attributes": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/attribute"}
+        },
+        "evidence_frame_ids": {"$ref": "#/$defs/frameIds"},
+        "coarse_locators": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/locator"}
+        },
+        "frame_presence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/framePresence"}
+        },
+        "self_confidence": {"$ref": "#/$defs/confidence"},
+        "uncertainty_flags": {
+          "type": "array",
+          "items": {"type": "string"}
+        }
+      }
+    }
+  }
+}

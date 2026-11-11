@@ -1,0 +1,360 @@
+<title>C 全量运行结果</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<style>
+/* Layout: one report column. The answer and the owner's table first (share of unspecified issues plus tokens and cost),
+   then per-model shares as bars, scores, the plug-in's own numbers, review variation, cost breakdown, run notes. */
+:root {
+  --bg: #F2F5F5; --surface: #FFFFFF; --ink: #132124; --muted: #586A6F; --line: #D3DCDE; --grid: #E3EAEB;
+  --s1: #9CCBC4; --s2: #3A9E90; --s3: #00594F;
+  --p-reuse: #C9D3D6; --p-v3: #8A9BA0; --p-front: #9CCBC4; --p-eval: #3A9E90; --p-plug: #00594F;
+  --f-display: "Noto Serif SC", "Songti SC", serif;
+  --f-body: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", system-ui, sans-serif;
+  --f-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1719; --surface: #162124; --ink: #E3ECED; --muted: #93A8AD; --line: #2A393D; --grid: #223034;
+    --s1: #2F5F59; --s2: #2A9D8F; --s3: #86D9CC;
+    --p-reuse: #34454A; --p-v3: #6F858B; --p-front: #2F5F59; --p-eval: #2A9D8F; --p-plug: #86D9CC; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1719; --surface: #162124; --ink: #E3ECED; --muted: #93A8AD; --line: #2A393D; --grid: #223034;
+  --s1: #2F5F59; --s2: #2A9D8F; --s3: #86D9CC;
+  --p-reuse: #34454A; --p-v3: #6F858B; --p-front: #2F5F59; --p-eval: #2A9D8F; --p-plug: #86D9CC; color-scheme: dark;
+}
+body { background: var(--bg); color: var(--ink); font-family: var(--f-body); font-size: 15px; line-height: 1.65; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-block: 36px 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.col { max-width: 760px; }
+.eyebrow { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; color: var(--muted); margin: 0 0 10px; }
+h1 { font-family: var(--f-display); font-size: clamp(28px, 4.2vw, 38px); line-height: 1.2; margin: 0 0 14px; text-wrap: balance; }
+h2 { font-family: var(--f-display); font-size: 22px; line-height: 1.3; margin: 0 0 12px; text-wrap: balance; }
+p { margin: 0 0 10px; }
+.lead { font-size: 16.5px; }
+section { margin-top: 44px; }
+.mono { font-family: var(--f-mono); font-variant-numeric: tabular-nums; }
+.muted { color: var(--muted); }
+.answer { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin-top: 16px; }
+.answer ul { margin: 0; padding-left: 1.2em; }
+.answer li { margin-bottom: 6px; }
+.answer li:last-child { margin-bottom: 0; }
+ul.plain { margin: 0; padding-left: 1.2em; }
+ul.plain li { margin-bottom: 6px; }
+.scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 14px; font-variant-numeric: tabular-nums; }
+th, td { padding: 8px 10px; border-bottom: 1px solid var(--grid); text-align: left; vertical-align: middle; }
+thead th { font-weight: 500; color: var(--muted); font-size: 12.5px; white-space: nowrap; }
+thead tr.top th { color: var(--ink); font-weight: 600; font-size: 13px; }
+tbody th { font-weight: 600; white-space: nowrap; }
+td.num { font-family: var(--f-mono); font-size: 13.5px; white-space: nowrap; }
+td.num b { font-weight: 600; }
+td.strong { font-weight: 600; }
+.sep { border-left: 1px solid var(--line); }
+tr.total th, tr.total td { background: var(--bg); }
+tbody tr:last-child th, tbody tr:last-child td { border-bottom: 0; }
+table.main { min-width: 900px; font-size: 14.5px; }
+table.main td.num { font-size: 14px; }
+.frac { color: var(--muted); }
+.sw { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 8px; vertical-align: 0; }
+.sw-v3 { background: var(--s1); } .sw-c { background: var(--s2); } .sw-cw { background: var(--s3); }
+.note { font-size: 13.5px; color: var(--muted); margin-top: 10px; }
+.note p { margin: 0 0 4px; }
+/* bars */
+.chart { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px 12px; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: 13px; color: var(--muted); margin: 0 0 10px; }
+.legend span { display: inline-flex; align-items: center; }
+.bar-group { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 4px 12px; padding: 8px 0; border-bottom: 1px solid var(--grid); }
+.bar-group.total { border-bottom: 0; }
+.bar-group.total .bar-model { font-weight: 700; }
+.bar-model { font-weight: 600; font-size: 14px; padding-top: 1px; }
+.bar-set { display: grid; gap: 3px; }
+.bar-line, .comp-row { display: grid; grid-template-columns: 70px minmax(0, 1fr) 132px; gap: 10px; align-items: center; }
+.bar-lab { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+.track, .comp-track { position: relative; height: 10px; display: flex; gap: 2px; }
+.fill { display: block; height: 10px; border-radius: 0 4px 4px 0; }
+.fill-v3 { background: var(--s1); } .fill-c { background: var(--s2); } .fill-cw { background: var(--s3); }
+.bar-val { font-size: 12.5px; white-space: nowrap; }
+.axis { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; margin-top: 2px; }
+.axis-inner { display: grid; grid-template-columns: 70px minmax(0, 1fr) 132px; gap: 10px; }
+.ticks { position: relative; height: 16px; font-family: var(--f-mono); font-size: 11px; color: var(--muted); }
+.ticks span { position: absolute; transform: translateX(-50%); }
+.ticks span:first-child { transform: none; }
+.comp { display: grid; gap: 8px; }
+.comp-row { grid-template-columns: 70px minmax(0, 1fr) 96px; }
+.comp-track { height: 14px; }
+.seg { display: block; height: 14px; }
+.seg:last-child { border-radius: 0 4px 4px 0; }
+.p-reuse { background: var(--p-reuse); } .p-v3 { background: var(--p-v3); } .p-front { background: var(--p-front); }
+.p-eval { background: var(--p-eval); } .p-plug { background: var(--p-plug); }
+.comp-axis { display: grid; grid-template-columns: 70px minmax(0, 1fr) 96px; gap: 10px; }
+.flips { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 12px; margin-top: 14px; }
+.stat { border-top: 2px solid var(--ink); padding-top: 8px; }
+.stat .v { font-family: var(--f-mono); font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; line-height: 1.25; }
+.stat .k { font-size: 13.5px; color: var(--muted); }
+@media (max-width: 560px) {
+  .bar-group { grid-template-columns: minmax(0, 1fr); }
+  .axis { grid-template-columns: minmax(0, 1fr); }
+  .bar-line, .axis-inner { grid-template-columns: 58px minmax(0, 1fr) 112px; gap: 8px; }
+  .comp-row, .comp-axis { grid-template-columns: 58px minmax(0, 1fr) 82px; gap: 8px; }
+}
+</style>
+
+<div class="wrap">
+  <header class="col">
+    <p class="eyebrow">vl_vv_full_first200_c_20261110 · 2026-11-10 22:27 – 11-11 06:22（迪拜时间）</p>
+    <h1>原版、C、C + 插件在 1,000 个视频上的结果</h1>
+    <p class="lead">前 200 个 episode × 5 个模型，共 1,000 个视频，每个视频都跑完了三个版本。原版 v3 是现有流水线（11-09 的重跑）；C 在前端补全背景物体，并加了 W8/X10 两个检查项；C + 插件在 C 之上加了 unspecified 专属分支（U1–U3），它的发现和 C 的 V-V 候选合并在一起复核。三版都用逐镜头公式打分。</p>
+    <div class="answer">
+      <ul>
+        <li>V-V 问题里涉及 unspecified 实体的比例：<b>1.77% → 3.75% → 8.19%</b>。V-L 问题三版都是 0 条，因为 V-L 只检查 contract 写到的实体。</li>
+        <li>完整流程费用：<b>USD 53.23 → 70.32 → 88.08</b>（标准价估算，不是账单），每个视频 0.053 → 0.070 → 0.088。</li>
+        <li>UEC 平均分几乎不变（81.96 / 81.54 / 81.47），五个模型的排序在三版里完全一样。</li>
+        <li>新增的 unspecified 问题是"被确认"的数量，是否属实还没有核查，准确率未知。</li>
+      </ul>
+    </div>
+  </header>
+
+  <section>
+    <h2>三版对比：unspecified 占比与 token、费用</h2>
+    <div class="scroll">
+      <table class="main">
+        <thead>
+          <tr class="top"><th></th><th colspan="2">涉及 unspecified 的确认问题</th><th class="sep" colspan="4">全部 1,000 个视频的 token 和费用</th></tr>
+          <tr><th>版本</th><th>占 V-V 问题</th><th>占全部问题（V-L + V-V）</th><th class="sep">调用次数</th><th>输入 token</th><th>输出 token</th><th>费用 USD</th></tr>
+        </thead>
+        <tbody>
+    <tr class="arm-v3">
+      <th scope="row"><span class="sw sw-v3"></span>原版 v3</th>
+      <td class="num"><span class="frac">52 / 2,935</span> = <b>1.77%</b></td>
+      <td class="num"><span class="frac">52 / 15,066</span> = 0.35%</td>
+      <td class="num sep">32,371</td>
+      <td class="num">723.8 M <span class="muted">（缓存 305.7 M）</span></td>
+      <td class="num">16.7 M</td>
+      <td class="num"><b>53.23</b> <span class="muted">（每视频 0.053）</span></td>
+    </tr>
+    <tr class="arm-c">
+      <th scope="row"><span class="sw sw-c"></span>C</th>
+      <td class="num"><span class="frac">117 / 3,121</span> = <b>3.75%</b></td>
+      <td class="num"><span class="frac">117 / 15,218</span> = 0.77%</td>
+      <td class="num sep">43,863</td>
+      <td class="num">899.7 M <span class="muted">（缓存 367.6 M）</span></td>
+      <td class="num">26.9 M</td>
+      <td class="num"><b>70.32</b> <span class="muted">（每视频 0.070）</span></td>
+    </tr>
+    <tr class="arm-cw">
+      <th scope="row"><span class="sw sw-cw"></span>C + 插件</th>
+      <td class="num"><span class="frac">263 / 3,213</span> = <b>8.19%</b></td>
+      <td class="num"><span class="frac">263 / 15,310</span> = 1.72%</td>
+      <td class="num sep">59,225</td>
+      <td class="num">1,022.5 M <span class="muted">（缓存 392.0 M）</span></td>
+      <td class="num">42.2 M</td>
+      <td class="num"><b>88.08</b> <span class="muted">（每视频 0.088）</span></td>
+    </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>费用按 GPT-6 Luna 标准价估算：未缓存输入 0.10、缓存输入 0.01、输出 0.50 美元 / 百万 token；缓存 token 是输入的一部分，不重复计算。不是账单。</p>
+      <p>三版都按完整流程计：原版 v3 有 668 个视频复用了 11-07 首轮的前端（聚类、绑定、匹配）和 V-L 结果，这部分 USD 6.91 也算在内。WeDetect 和 Grounding DINO 在 GPU 上跑，没有 API 费用。</p>
+      <p>算上"不确定"的问题，V-V 占比为 1.82% / 4.03% / 10.08%。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>分模型：V-V 问题中 unspecified 的占比</h2>
+    <p class="col">每个模型都是三版依次升高。插件带来的提升在 HoloCine 上最大，在 CineTrans 上最小。</p>
+    <div class="chart">
+      <div class="legend"><span><span class="sw sw-v3"></span>原版 v3</span><span><span class="sw sw-c"></span>C</span><span><span class="sw sw-cw"></span>C + 插件</span><span>括号内为 unspecified 问题数 / V-V 确认问题数</span></div>
+      <div class="bar-group"><div class="bar-model">StoryMem</div>
+      <div class="bar-set"><div class="bar-line" title="StoryMem · 原版 v3：6 / 307 = 1.95%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:13.96%"></span></span>
+          <span class="bar-val mono">2.0% <span class="muted">(6/307)</span></span>
+        </div><div class="bar-line" title="StoryMem · C：19 / 343 = 5.54%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:39.57%"></span></span>
+          <span class="bar-val mono">5.5% <span class="muted">(19/343)</span></span>
+        </div><div class="bar-line" title="StoryMem · C + 插件：42 / 378 = 11.11%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:79.37%"></span></span>
+          <span class="bar-val mono">11.1% <span class="muted">(42/378)</span></span>
+        </div></div></div><div class="bar-group"><div class="bar-model">HoloCine</div>
+      <div class="bar-set"><div class="bar-line" title="HoloCine · 原版 v3：6 / 191 = 3.14%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:22.44%"></span></span>
+          <span class="bar-val mono">3.1% <span class="muted">(6/191)</span></span>
+        </div><div class="bar-line" title="HoloCine · C：10 / 211 = 4.74%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:33.85%"></span></span>
+          <span class="bar-val mono">4.7% <span class="muted">(10/211)</span></span>
+        </div><div class="bar-line" title="HoloCine · C + 插件：27 / 222 = 12.16%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:86.87%"></span></span>
+          <span class="bar-val mono">12.2% <span class="muted">(27/222)</span></span>
+        </div></div></div><div class="bar-group"><div class="bar-model">Wan2.2</div>
+      <div class="bar-set"><div class="bar-line" title="Wan2.2 · 原版 v3：11 / 840 = 1.31%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:9.35%"></span></span>
+          <span class="bar-val mono">1.3% <span class="muted">(11/840)</span></span>
+        </div><div class="bar-line" title="Wan2.2 · C：40 / 880 = 4.55%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:32.47%"></span></span>
+          <span class="bar-val mono">4.5% <span class="muted">(40/880)</span></span>
+        </div><div class="bar-line" title="Wan2.2 · C + 插件：91 / 924 = 9.85%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:70.35%"></span></span>
+          <span class="bar-val mono">9.8% <span class="muted">(91/924)</span></span>
+        </div></div></div><div class="bar-group"><div class="bar-model">Wan2.1</div>
+      <div class="bar-set"><div class="bar-line" title="Wan2.1 · 原版 v3：18 / 996 = 1.81%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:12.91%"></span></span>
+          <span class="bar-val mono">1.8% <span class="muted">(18/996)</span></span>
+        </div><div class="bar-line" title="Wan2.1 · C：32 / 1080 = 2.96%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:21.16%"></span></span>
+          <span class="bar-val mono">3.0% <span class="muted">(32/1,080)</span></span>
+        </div><div class="bar-line" title="Wan2.1 · C + 插件：74 / 1075 = 6.88%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:49.17%"></span></span>
+          <span class="bar-val mono">6.9% <span class="muted">(74/1,075)</span></span>
+        </div></div></div><div class="bar-group"><div class="bar-model">CineTrans</div>
+      <div class="bar-set"><div class="bar-line" title="CineTrans · 原版 v3：11 / 601 = 1.83%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:13.07%"></span></span>
+          <span class="bar-val mono">1.8% <span class="muted">(11/601)</span></span>
+        </div><div class="bar-line" title="CineTrans · C：16 / 607 = 2.64%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:18.83%"></span></span>
+          <span class="bar-val mono">2.6% <span class="muted">(16/607)</span></span>
+        </div><div class="bar-line" title="CineTrans · C + 插件：29 / 614 = 4.72%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:33.74%"></span></span>
+          <span class="bar-val mono">4.7% <span class="muted">(29/614)</span></span>
+        </div></div></div><div class="bar-group total"><div class="bar-model">全部</div>
+      <div class="bar-set"><div class="bar-line" title="全部 · 原版 v3：52 / 2935 = 1.77%">
+          <span class="bar-lab">原版 v3</span>
+          <span class="track"><span class="fill fill-v3" style="width:12.66%"></span></span>
+          <span class="bar-val mono">1.8% <span class="muted">(52/2,935)</span></span>
+        </div><div class="bar-line" title="全部 · C：117 / 3121 = 3.75%">
+          <span class="bar-lab">C</span>
+          <span class="track"><span class="fill fill-c" style="width:26.78%"></span></span>
+          <span class="bar-val mono">3.7% <span class="muted">(117/3,121)</span></span>
+        </div><div class="bar-line" title="全部 · C + 插件：263 / 3213 = 8.19%">
+          <span class="bar-lab">C + 插件</span>
+          <span class="track"><span class="fill fill-cw" style="width:58.47%"></span></span>
+          <span class="bar-val mono">8.2% <span class="muted">(263/3,213)</span></span>
+        </div></div></div>
+      <div class="axis"><span></span><div class="axis-inner"><span></span><div class="ticks"><span style="left:0.00%">0%</span><span style="left:35.71%">5%</span><span style="left:71.43%">10%</span></div><span></span></div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>分数：三版几乎一样</h2>
+    <p class="col">UEC 是 V-L、V-V 镜头内、V-V 跨镜头三项的平均。三版的 UEC 差别都在 1 分以内，模型排序不变：StoryMem &gt; HoloCine &gt; Wan2.2 &gt; Wan2.1 &gt; CineTrans。</p>
+    <div class="scroll">
+      <table style="min-width: 900px">
+        <thead>
+          <tr class="top"><th></th><th class="sep" colspan="3">UEC</th><th class="sep" colspan="3">V-L</th><th class="sep" colspan="3">V-V 镜头内</th><th class="sep" colspan="3">V-V 跨镜头</th></tr>
+          <tr><th>模型</th><th class="sep">原版 v3</th><th class="">C</th><th class="">C + 插件</th><th class="sep">原版 v3</th><th class="">C</th><th class="">C + 插件</th><th class="sep">原版 v3</th><th class="">C</th><th class="">C + 插件</th><th class="sep">原版 v3</th><th class="">C</th><th class="">C + 插件</th></tr>
+        </thead>
+        <tbody><tr><th scope="row">StoryMem</th><td class="num sep strong">91.22</td><td class="num strong">90.95</td><td class="num strong">90.83</td><td class="num sep">82.48</td><td class="num">82.63</td><td class="num">82.79</td><td class="num sep">96.99</td><td class="num">96.32</td><td class="num">96.38</td><td class="num sep">94.19</td><td class="num">93.90</td><td class="num">93.34</td></tr><tr><th scope="row">HoloCine</th><td class="num sep strong">87.57</td><td class="num strong">87.10</td><td class="num strong">86.88</td><td class="num sep">68.04</td><td class="num">67.24</td><td class="num">66.66</td><td class="num sep">97.45</td><td class="num">96.84</td><td class="num">96.90</td><td class="num sep">97.21</td><td class="num">97.21</td><td class="num">97.07</td></tr><tr><th scope="row">Wan2.2</th><td class="num sep strong">86.17</td><td class="num strong">85.47</td><td class="num strong">85.25</td><td class="num sep">83.09</td><td class="num">82.04</td><td class="num">82.03</td><td class="num sep">97.64</td><td class="num">97.58</td><td class="num">97.38</td><td class="num sep">77.78</td><td class="num">76.80</td><td class="num">76.34</td></tr><tr><th scope="row">Wan2.1</th><td class="num sep strong">77.22</td><td class="num strong">76.66</td><td class="num strong">76.89</td><td class="num sep">61.44</td><td class="num">61.74</td><td class="num">61.72</td><td class="num sep">96.72</td><td class="num">95.69</td><td class="num">95.60</td><td class="num sep">73.49</td><td class="num">72.55</td><td class="num">73.36</td></tr><tr><th scope="row">CineTrans</th><td class="num sep strong">67.61</td><td class="num strong">67.50</td><td class="num strong">67.51</td><td class="num sep">21.95</td><td class="num">22.00</td><td class="num">21.83</td><td class="num sep">93.82</td><td class="num">94.33</td><td class="num">94.57</td><td class="num sep">87.05</td><td class="num">86.18</td><td class="num">86.13</td></tr><tr class="total"><th scope="row">全部</th><td class="num sep strong">81.96</td><td class="num strong">81.54</td><td class="num strong">81.47</td><td class="num sep">63.40</td><td class="num">63.13</td><td class="num">63.01</td><td class="num sep">96.52</td><td class="num">96.15</td><td class="num">96.17</td><td class="num sep">85.94</td><td class="num">85.33</td><td class="num">85.25</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note"><p>原版 v3 用的是 11-09 按逐镜头公式重算的分数（rescored.jsonl）；它存档的 result.json 里还是旧的乘积公式分数，不能直接比。</p></div>
+  </section>
+
+  <section>
+    <h2>问题数量与插件的贡献</h2>
+    <div class="scroll">
+      <table style="min-width: 820px">
+        <thead>
+          <tr class="top"><th></th><th class="sep" colspan="3">V-V 确认问题</th><th class="sep" colspan="3">插件</th><th class="sep" colspan="2">V-L 确认问题</th></tr>
+          <tr><th>模型</th><th class="sep">原版 v3</th><th>C</th><th>C + 插件</th><th class="sep">候选</th><th>确认</th><th>确认率</th><th class="sep">原版 v3</th><th>C 与 C + 插件</th></tr>
+        </thead>
+        <tbody><tr><th scope="row">StoryMem</th>
+      <td class="num sep">307</td><td class="num">343</td><td class="num">378</td>
+      <td class="num sep">214</td><td class="num">25</td>
+      <td class="num">11.7%</td>
+      <td class="num sep">720</td><td class="num">734</td></tr><tr><th scope="row">HoloCine</th>
+      <td class="num sep">191</td><td class="num">211</td><td class="num">222</td>
+      <td class="num sep">96</td><td class="num">19</td>
+      <td class="num">19.8%</td>
+      <td class="num sep">1,630</td><td class="num">1,707</td></tr><tr><th scope="row">Wan2.2</th>
+      <td class="num sep">840</td><td class="num">880</td><td class="num">924</td>
+      <td class="num sep">332</td><td class="num">57</td>
+      <td class="num">17.2%</td>
+      <td class="num sep">697</td><td class="num">741</td></tr><tr><th scope="row">Wan2.1</th>
+      <td class="num sep">996</td><td class="num">1,080</td><td class="num">1,075</td>
+      <td class="num sep">236</td><td class="num">47</td>
+      <td class="num">19.9%</td>
+      <td class="num sep">1,865</td><td class="num">1,804</td></tr><tr><th scope="row">CineTrans</th>
+      <td class="num sep">601</td><td class="num">607</td><td class="num">614</td>
+      <td class="num sep">100</td><td class="num">19</td>
+      <td class="num">19.0%</td>
+      <td class="num sep">7,219</td><td class="num">7,111</td></tr><tr class="total"><th scope="row">全部</th>
+      <td class="num sep">2,935</td><td class="num">3,121</td><td class="num">3,213</td>
+      <td class="num sep">978</td><td class="num">167</td>
+      <td class="num">17.1%</td>
+      <td class="num sep">12,131</td><td class="num">12,097</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>"确认"按合并复核后的问题单元计：一个单元只要包含插件的候选就算插件的。插件的候选有时会和 C 的候选合并成一条，所以 C + 插件的 V-V 总数（3,213）比 C（3,121）只多 92 条，少于插件确认的 167 条。</p>
+      <p>C + 插件沿用 C 的 V-L 复核，所以两者的 V-L 问题数相同。</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>合并复核的波动</h2>
+    <p class="col">C + 插件把 C 的候选和插件的候选放在一起重新复核。在分组和 C 自己那次完全相同的 4,204 个问题单元里，有 931 个（22.1%）判定变了，而且两个方向几乎一样多。这说明差异主要来自复核本身的随机性，看不出是插件造成的。</p>
+    <div class="flips">
+      <div class="stat"><div class="v">360 / 343</div><div class="k">确认 → 驳回 / 驳回 → 确认</div></div>
+      <div class="stat"><div class="v">228</div><div class="k">涉及"不确定"的翻转</div></div>
+      <div class="stat"><div class="v">517</div><div class="k">严重程度变了的单元</div></div>
+      <div class="stat"><div class="v">215</div><div class="k">被重新分组的单元</div></div>
+    </div>
+    <p class="col" style="margin-top:14px">打分也有波动：C 和 C + 插件的 V-L 复核完全相同，只重跑了严重程度评分，V-L 分数仍相差最多 0.58 分（HoloCine）。所以三版之间 0.5 分左右的升降都在这个波动范围内。</p>
+  </section>
+
+  <section>
+    <h2>费用构成</h2>
+    <div class="chart">
+      <div class="legend">
+        <span><span class="sw p-reuse"></span>复用 11-07 首轮的前端和 V-L</span><span><span class="sw p-v3"></span>v3 本次新调用</span>
+        <span><span class="sw p-front"></span>C 前端</span><span><span class="sw p-eval"></span>C 评测</span><span><span class="sw p-plug"></span>插件</span>
+      </div>
+      <div class="comp"><div class="comp-row"><span class="bar-lab">原版 v3</span>
+      <span class="comp-track"><span class="seg p-v3" style="width:51.47%" title="v3 本次新调用：USD 46.32"></span><span class="seg p-reuse" style="width:7.68%" title="复用 11-07 首轮的前端和 V-L：USD 6.91"></span></span><span class="bar-val mono">USD 53.23</span></div><div class="comp-row"><span class="bar-lab">C</span>
+      <span class="comp-track"><span class="seg p-front" style="width:16.56%" title="C 前端（发现、选框、聚类、绑定、匹配）：USD 14.91"></span><span class="seg p-eval" style="width:61.57%" title="C 评测（V-L、V-V、打分）：USD 55.42"></span></span><span class="bar-val mono">USD 70.32</span></div><div class="comp-row"><span class="bar-lab">C + 插件</span>
+      <span class="comp-track"><span class="seg p-front" style="width:16.56%" title="C 前端：USD 14.91"></span><span class="seg p-eval" style="width:61.57%" title="C 评测：USD 55.42"></span><span class="seg p-plug" style="width:19.73%" title="插件（U1–U3、合并复核、再打分）：USD 17.76"></span></span><span class="bar-val mono">USD 88.08</span></div></div>
+      <div class="comp-axis" style="margin-top:2px"><span></span><div class="ticks"><span style="left:0.00%">0</span><span style="left:33.33%">30</span><span style="left:66.67%">60</span><span style="left:100.00%">90</span></div><span></span></div>
+    </div>
+    <div class="scroll" style="margin-top:14px">
+      <table style="min-width: 760px">
+        <thead>
+          <tr class="top"><th></th><th class="sep" colspan="3">完整流程 USD</th><th class="sep" colspan="3">C 与插件的拆分 USD</th></tr>
+          <tr><th>模型</th><th class="sep">原版 v3</th><th>C</th><th>C + 插件</th><th class="sep">C 前端</th><th>C 评测</th><th>插件</th></tr>
+        </thead>
+        <tbody><tr><th scope="row">StoryMem</th><td class="num sep">10.20</td><td class="num">13.41</td><td class="num">17.27</td><td class="num sep">3.24</td><td class="num">10.16</td><td class="num">3.86</td></tr><tr><th scope="row">HoloCine</th><td class="num sep">9.99</td><td class="num">13.31</td><td class="num">16.02</td><td class="num sep">2.91</td><td class="num">10.40</td><td class="num">2.70</td></tr><tr><th scope="row">Wan2.2</th><td class="num sep">10.87</td><td class="num">14.00</td><td class="num">18.51</td><td class="num sep">3.15</td><td class="num">10.85</td><td class="num">4.51</td></tr><tr><th scope="row">Wan2.1</th><td class="num sep">11.17</td><td class="num">14.48</td><td class="num">18.68</td><td class="num sep">3.01</td><td class="num">11.47</td><td class="num">4.20</td></tr><tr><th scope="row">CineTrans</th><td class="num sep">11.01</td><td class="num">15.12</td><td class="num">17.61</td><td class="num sep">2.58</td><td class="num">12.53</td><td class="num">2.50</td></tr><tr class="total"><th scope="row">全部</th><td class="num sep">53.23</td><td class="num">70.32</td><td class="num">88.08</td><td class="num sep">14.91</td><td class="num">55.42</td><td class="num">17.76</td></tr></tbody>
+      </table>
+    </div>
+    <div class="note">
+      <p>C 前端包括背景物体发现、选框，以及在补全后的检测上重新聚类、绑定和匹配（18,749 次调用）。C 评测是 V-L 和 V-V 的检测、复核与打分（25,114 次）。插件是 U1–U3、合并复核和再打分（15,362 次）。</p>
+      <p>C 比原版多花约 32%（多了前端补全和 W8/X10 两项检查）；插件在 C 的基础上再加约 25%。</p>
+    </div>
+  </section>
+
+  <section class="col">
+    <h2>运行情况与注意事项</h2>
+    <ul class="plain">
+      <li>两台节点、7 块 GPU，22:27 开始，主运行 05:58 结束。重启节点 319 时有 10 个视频（#003–#005）失败，06:22 补跑全部成功。实际用时比预估的 4.5–5 小时长。</li>
+      <li>用的是实验目录里冻结的代码（夜间 B/C 两组与插件第三轮），live 流水线没有改动，也没有提交。</li>
+      <li>unspecified 问题数和占比都是模型确认的结果，没有人工核查，也不是人工标注的召回率。之前在 27 个目标上的开发评估里，插件第三轮找到开发集 3/13、验证集 1/14（另有 1 个部分命中）。</li>
+      <li>原版 v3 是 11-09 的重跑，V-V 检测版本和 C 不同（C 多了 W8/X10 和前端补全），所以三版的差别是整套流程的差别，不只是插件。</li>
+    </ul>
+  </section>
+</div>

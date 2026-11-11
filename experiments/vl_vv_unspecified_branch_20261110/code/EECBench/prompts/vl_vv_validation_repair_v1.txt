@@ -1,0 +1,17 @@
+VALIDATION REPAIR
+
+Your previous response for this task failed the task's deterministic validator.
+INPUT contains:
+- validation_errors: EVERY problem the validator found in your previous response.
+- previous_output: your complete previous response.
+
+Return one complete corrected response that:
+1. Fixes every listed problem in a single pass.
+2. Uses exactly the same output schema as the previous response.
+3. Keeps every part of previous_output that is not involved in a listed problem unchanged. Do not re-judge, add or drop unrelated items.
+4. Uses only identifiers that exist in the original task input: entity IDs, local entity IDs, shot IDs, frame IDs, issue IDs and candidate IDs. Never invent an identifier.
+5. Continues to follow all original task instructions and evidence rules; they remain fully in force.
+
+For each listed problem, prefer correcting the faulty field (for example a wrong identifier, a scope that does not cover its witnesses, or an identity label that does not match its member count). Remove an item or a reference only when no correction is allowed by the original instructions and evidence. Do not fabricate evidence to satisfy the validator.
+
+Return only the corrected JSON response.

@@ -1,0 +1,222 @@
+{
+ "videos": 1000,
+ "unfinished": 0,
+ "cost_usd": 88.0829,
+ "tokens": {
+  "input": 1022483082,
+  "cached": 391997881,
+  "output": 42228898,
+  "calls": 59225
+ },
+ "cost_usd_by_part": {
+  "c_frontend": 14.906,
+  "c_evaluation": 55.4174,
+  "plugin": 17.7595
+ },
+ "main_candidate_changes_in_merged_review": {
+  "same_grouping": 4204,
+  "verdict_changed": 931,
+  "uncertain->confirmed": 68,
+  "confirmed->rejected": 360,
+  "regrouped": 215,
+  "severity_changed": 517,
+  "confirmed->uncertain": 66,
+  "rejected->confirmed": 343,
+  "uncertain->rejected": 45,
+  "rejected->uncertain": 49
+ },
+ "per_model": {
+  "cinetrans": {
+   "v3": {
+    "uec": 67.61,
+    "v_l": 21.95,
+    "within": 93.82,
+    "cross": 87.05,
+    "v_v": 90.43,
+    "vv_confirmed": 601,
+    "vv_confirmed_unspecified": 11
+   },
+   "c": {
+    "uec": 67.5,
+    "v_l": 22.0,
+    "within": 94.33,
+    "cross": 86.18,
+    "v_v": 90.25,
+    "vv_confirmed": 607,
+    "vv_confirmed_unspecified": 16
+   },
+   "cw": {
+    "uec": 67.51,
+    "v_l": 21.83,
+    "within": 94.57,
+    "cross": 86.13,
+    "v_v": 90.35,
+    "vv_confirmed": 614,
+    "vv_confirmed_unspecified": 29
+   },
+   "videos": 200,
+   "branch_candidates": 100,
+   "branch_units_confirmed": 19
+  },
+  "holocine": {
+   "v3": {
+    "uec": 87.57,
+    "v_l": 68.04,
+    "within": 97.45,
+    "cross": 97.21,
+    "v_v": 97.33,
+    "vv_confirmed": 191,
+    "vv_confirmed_unspecified": 6
+   },
+   "c": {
+    "uec": 87.1,
+    "v_l": 67.24,
+    "within": 96.84,
+    "cross": 97.21,
+    "v_v": 97.03,
+    "vv_confirmed": 211,
+    "vv_confirmed_unspecified": 10
+   },
+   "cw": {
+    "uec": 86.88,
+    "v_l": 66.66,
+    "within": 96.9,
+    "cross": 97.07,
+    "v_v": 96.99,
+    "vv_confirmed": 222,
+    "vv_confirmed_unspecified": 27
+   },
+   "videos": 200,
+   "branch_candidates": 96,
+   "branch_units_confirmed": 19
+  },
+  "storymem": {
+   "v3": {
+    "uec": 91.22,
+    "v_l": 82.48,
+    "within": 96.99,
+    "cross": 94.19,
+    "v_v": 95.59,
+    "vv_confirmed": 307,
+    "vv_confirmed_unspecified": 6
+   },
+   "c": {
+    "uec": 90.95,
+    "v_l": 82.63,
+    "within": 96.32,
+    "cross": 93.9,
+    "v_v": 95.11,
+    "vv_confirmed": 343,
+    "vv_confirmed_unspecified": 19
+   },
+   "cw": {
+    "uec": 90.83,
+    "v_l": 82.79,
+    "within": 96.38,
+    "cross": 93.34,
+    "v_v": 94.86,
+    "vv_confirmed": 378,
+    "vv_confirmed_unspecified": 42
+   },
+   "videos": 200,
+   "branch_candidates": 214,
+   "branch_units_confirmed": 25
+  },
+  "wan21": {
+   "v3": {
+    "uec": 77.22,
+    "v_l": 61.44,
+    "within": 96.72,
+    "cross": 73.49,
+    "v_v": 85.1,
+    "vv_confirmed": 996,
+    "vv_confirmed_unspecified": 18
+   },
+   "c": {
+    "uec": 76.66,
+    "v_l": 61.74,
+    "within": 95.69,
+    "cross": 72.55,
+    "v_v": 84.12,
+    "vv_confirmed": 1080,
+    "vv_confirmed_unspecified": 32
+   },
+   "cw": {
+    "uec": 76.89,
+    "v_l": 61.72,
+    "within": 95.6,
+    "cross": 73.36,
+    "v_v": 84.48,
+    "vv_confirmed": 1075,
+    "vv_confirmed_unspecified": 74
+   },
+   "videos": 200,
+   "branch_candidates": 236,
+   "branch_units_confirmed": 47
+  },
+  "wan22": {
+   "v3": {
+    "uec": 86.17,
+    "v_l": 83.09,
+    "within": 97.64,
+    "cross": 77.78,
+    "v_v": 87.71,
+    "vv_confirmed": 840,
+    "vv_confirmed_unspecified": 11
+   },
+   "c": {
+    "uec": 85.47,
+    "v_l": 82.04,
+    "within": 97.58,
+    "cross": 76.8,
+    "v_v": 87.19,
+    "vv_confirmed": 880,
+    "vv_confirmed_unspecified": 40
+   },
+   "cw": {
+    "uec": 85.25,
+    "v_l": 82.03,
+    "within": 97.38,
+    "cross": 76.34,
+    "v_v": 86.86,
+    "vv_confirmed": 924,
+    "vv_confirmed_unspecified": 91
+   },
+   "videos": 200,
+   "branch_candidates": 332,
+   "branch_units_confirmed": 57
+  },
+  "all": {
+   "v3": {
+    "uec": 81.96,
+    "v_l": 63.4,
+    "within": 96.52,
+    "cross": 85.94,
+    "v_v": 91.23,
+    "vv_confirmed": 2935,
+    "vv_confirmed_unspecified": 52
+   },
+   "c": {
+    "uec": 81.54,
+    "v_l": 63.13,
+    "within": 96.15,
+    "cross": 85.33,
+    "v_v": 90.74,
+    "vv_confirmed": 3121,
+    "vv_confirmed_unspecified": 117
+   },
+   "cw": {
+    "uec": 81.47,
+    "v_l": 63.01,
+    "within": 96.17,
+    "cross": 85.25,
+    "v_v": 90.71,
+    "vv_confirmed": 3213,
+    "vv_confirmed_unspecified": 263
+   },
+   "videos": 1000,
+   "branch_candidates": 978,
+   "branch_units_confirmed": 167
+  }
+ }
+}

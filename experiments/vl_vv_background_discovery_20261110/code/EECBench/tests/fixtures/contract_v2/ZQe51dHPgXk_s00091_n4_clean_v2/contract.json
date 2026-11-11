@@ -1,0 +1,691 @@
+{
+ "schema_version": "episode_contract_v2",
+ "episode_id": "ZQe51dHPgXk_s00091_n4_clean_v2",
+ "entity_descriptions": {
+  "0": {
+   "label": "character",
+   "name": "Woman",
+   "description": "A woman with medium-brown skin and dark hair tied back, wearing a white printed T-shirt with black chest lettering, a bird emblem, and black shoulder strips patterned with white birds."
+  },
+  "1": {
+   "label": "character",
+   "name": "Unspecified figure",
+   "description": "A generic figure that the prompt says must not emerge or become visible."
+  },
+  "2": {
+   "label": "location",
+   "name": "Dining room",
+   "description": "A dim dining room washed in muted yellow-green light, with a dark wall."
+  },
+  "3": {
+   "label": "location",
+   "name": "Doorway interior",
+   "description": "A dim, olive-yellow interior in which the dark doorway sits, with pale walls lit in dim olive-yellow light, a narrow wall inside the opening and a floor; the interior beyond the opening is indistinct and black."
+  },
+  "4": {
+   "label": "object",
+   "name": "Wood cabinet",
+   "description": "A wood cabinet (wood cabinetry)."
+  },
+  "5": {
+   "label": "object",
+   "name": "Feather decoration",
+   "description": "A feather decoration."
+  },
+  "6": {
+   "label": "object",
+   "name": "Empty frames",
+   "description": "A group of empty frames."
+  },
+  "7": {
+   "label": "object",
+   "name": "Dark doorway",
+   "description": "A dark doorway whose opening is dark and leads into deep shadow."
+  },
+  "8": {
+   "label": "object",
+   "name": "Wood-toned threshold",
+   "description": "A wood-toned threshold leading into the deep shadow of the doorway."
+  },
+  "9": {
+   "label": "object",
+   "name": "Pale flowering branches",
+   "description": "Pale flowering branches bearing flowers."
+  },
+  "10": {
+   "label": "object",
+   "name": "Rounded floor vase",
+   "description": "A rounded floor vase holding the pale flowering branches."
+  },
+  "11": {
+   "label": "object",
+   "name": "Light switch",
+   "description": "A small light switch."
+  },
+  "12": {
+   "label": "object",
+   "name": "Dining table",
+   "description": "A dining table covered with a cloth."
+  },
+  "13": {
+   "label": "object",
+   "name": "Dark handbag",
+   "description": "A dark handbag."
+  },
+  "14": {
+   "label": "object",
+   "name": "Clear pedestal bowl",
+   "description": "A clear bowl with a pedestal form."
+  }
+ },
+ "shots": [
+  {
+   "shot_id": "Shot1",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Medium close view.",
+    "camera_movement": null,
+    "style": null
+   },
+   "presence": [
+    0,
+    2,
+    4,
+    5,
+    6
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S1-app-1",
+     "entities": [
+      0
+     ],
+     "expected": "The woman has a tense, questioning expression.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-app-2",
+     "entities": [
+      0
+     ],
+     "expected": "Her brows remain knitted.",
+     "quantifier": "when_visible"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S1-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The woman stands.",
+     "predicate": "standing",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-2",
+     "entities": [
+      0
+     ],
+     "expected": "The woman looks offscreen left.",
+     "predicate": "gaze_direction",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-3",
+     "entities": [
+      6
+     ],
+     "expected": "The frames have an irregular arrangement.",
+     "predicate": "arrangement",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-4",
+     "entities": [
+      6,
+      2
+     ],
+     "expected": "The empty frames are against the dark wall.",
+     "predicate": "against",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-5",
+     "entities": [
+      4,
+      0
+     ],
+     "expected": "The cabinetry is behind the woman.",
+     "predicate": "behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-6",
+     "entities": [
+      5,
+      0
+     ],
+     "expected": "The feather decoration is behind the woman.",
+     "predicate": "behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-7",
+     "entities": [
+      6,
+      0
+     ],
+     "expected": "The frames are behind the woman.",
+     "predicate": "behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-8",
+     "entities": [
+      2,
+      0
+     ],
+     "expected": "The dark wall is behind the woman.",
+     "predicate": "behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S1-mot-1",
+     "entities": [
+      0
+     ],
+     "expected": "She slightly tilts her head.",
+     "predicate": "head_tilt",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-2",
+     "entities": [
+      0
+     ],
+     "expected": "She opens her mouth.",
+     "predicate": "mouth_open",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-3",
+     "entities": [
+      0
+     ],
+     "expected": "She relaxes her mouth.",
+     "predicate": "mouth_relax",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-4",
+     "entities": [
+      0
+     ],
+     "expected": "The woman's movement is small and contained.",
+     "predicate": "movement_amplitude",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot2",
+   "locations": [
+    3
+   ],
+   "shot_description": {
+    "camera_view": null,
+    "camera_movement": "Gently reframe from the threshold toward the upper dark opening.",
+    "style": null
+   },
+   "presence": [
+    3,
+    7,
+    8,
+    9,
+    10,
+    11
+   ],
+   "absent": [],
+   "appearance": [],
+   "spatial": [
+    {
+     "id": "S2-spa-1",
+     "entities": [
+      7,
+      3
+     ],
+     "expected": "The dark doorway fills the view of the interior.",
+     "predicate": "dominates_view",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-2",
+     "entities": [
+      3,
+      7
+     ],
+     "expected": "The pale walls flank the doorway opening.",
+     "predicate": "flank",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-3",
+     "entities": [
+      8,
+      7
+     ],
+     "expected": "The threshold leads into the deeply shadowed opening.",
+     "predicate": "leads_into",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-4",
+     "entities": [
+      9,
+      10
+     ],
+     "expected": "The flowering branches stand in the vase.",
+     "predicate": "stand_in",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-5",
+     "entities": [
+      10
+     ],
+     "expected": "The vase is at the right of the view.",
+     "predicate": "screen_right",
+     "coordinate_frame": "screen",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-6",
+     "entities": [
+      10,
+      3
+     ],
+     "expected": "The floor vase stands on the floor.",
+     "predicate": "floor_placement",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-7",
+     "entities": [
+      11,
+      3
+     ],
+     "expected": "The light switch is on the narrow interior wall.",
+     "predicate": "on_wall",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-8",
+     "entities": [
+      3,
+      7
+     ],
+     "expected": "The narrow wall is inside the doorway opening.",
+     "predicate": "inside_opening",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-9",
+     "entities": [
+      3
+     ],
+     "expected": "The floor is in the foreground.",
+     "predicate": "foreground",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-10",
+     "entities": [
+      3
+     ],
+     "expected": "The foreground floor becomes more cropped by the frame.",
+     "predicate": "increased_cropping",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-11",
+     "entities": [
+      10
+     ],
+     "expected": "The vase becomes more cropped by the frame.",
+     "predicate": "increased_cropping",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S2-mot-1",
+     "entities": [
+      9
+     ],
+     "expected": "The flowering branches remain still.",
+     "predicate": "stationary",
+     "coordinate_frame": "world",
+     "quantifier": "throughout"
+    },
+    {
+     "id": "S2-mot-2",
+     "entities": [
+      1,
+      7
+     ],
+     "expected": "No figure emerges from the doorway.",
+     "predicate": "no_emergence",
+     "coordinate_frame": "world",
+     "quantifier": "throughout"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot3",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": null,
+    "camera_movement": null,
+    "style": null
+   },
+   "presence": [
+    0,
+    2,
+    4,
+    6,
+    12,
+    13,
+    14
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S3-app-1",
+     "entities": [
+      0
+     ],
+     "expected": "The woman has a tense, questioning expression.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-app-2",
+     "entities": [
+      0
+     ],
+     "expected": "Her lips are parted in the settled pose.",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-app-3",
+     "entities": [
+      0
+     ],
+     "expected": "Her brows are furrowed in the settled pose.",
+     "quantifier": "exists"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S3-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The woman stands.",
+     "predicate": "standing",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-2",
+     "entities": [
+      0,
+      12
+     ],
+     "expected": "The woman is in front of the dining table.",
+     "predicate": "in_front_of",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-3",
+     "entities": [
+      0
+     ],
+     "expected": "The woman watches offscreen left.",
+     "predicate": "gaze_direction",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-4",
+     "entities": [
+      13,
+      0
+     ],
+     "expected": "The handbag rests behind the woman.",
+     "predicate": "rests_behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-5",
+     "entities": [
+      14,
+      0
+     ],
+     "expected": "The pedestal bowl rests behind the woman.",
+     "predicate": "rests_behind",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-6",
+     "entities": [
+      6,
+      2
+     ],
+     "expected": "The empty frames are on the dark wall.",
+     "predicate": "on_wall",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-7",
+     "entities": [
+      0
+     ],
+     "expected": "The woman's arms are low.",
+     "predicate": "arms_low",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S3-mot-1",
+     "entities": [
+      0
+     ],
+     "expected": "She presses her lips together.",
+     "predicate": "lips_press",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-2",
+     "entities": [
+      0
+     ],
+     "expected": "She slightly tilts her head.",
+     "predicate": "head_tilt",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-3",
+     "entities": [
+      0
+     ],
+     "expected": "She opens her mouth.",
+     "predicate": "mouth_open",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-4",
+     "entities": [
+      0
+     ],
+     "expected": "The woman settles.",
+     "predicate": "settles",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-5",
+     "entities": [
+      0
+     ],
+     "expected": "The woman's physical reaction is restrained.",
+     "predicate": "restrained_reaction",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot4",
+   "locations": [
+    3
+   ],
+   "shot_description": {
+    "camera_view": null,
+    "camera_movement": "Gradually tighten the view.",
+    "style": null
+   },
+   "presence": [
+    3,
+    7,
+    9,
+    11
+   ],
+   "absent": [
+    1
+   ],
+   "appearance": [],
+   "spatial": [
+    {
+     "id": "S4-spa-1",
+     "entities": [
+      7,
+      3
+     ],
+     "expected": "The doorway is framed between its pale walls.",
+     "predicate": "between_walls",
+     "coordinate_frame": "screen",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-2",
+     "entities": [
+      11,
+      3
+     ],
+     "expected": "The switch is on the interior wall.",
+     "predicate": "on_wall",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-3",
+     "entities": [
+      3,
+      7
+     ],
+     "expected": "The switch-bearing wall is on the right inside the doorway.",
+     "predicate": "right_interior",
+     "coordinate_frame": "screen",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-4",
+     "entities": [
+      9
+     ],
+     "expected": "Tips of the flowering branches appear at the lower-right edge.",
+     "predicate": "tips_at_edge",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-5",
+     "entities": [
+      7
+     ],
+     "expected": "The dark opening occupies more of the image as the view tightens.",
+     "predicate": "increased_image_occupancy",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-6",
+     "entities": [
+      9
+     ],
+     "expected": "The flowers pass beyond the image crop as the view tightens, without requiring physical branch movement.",
+     "predicate": "beyond_crop",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ],
+   "motion": []
+  }
+ ],
+ "cross_shot": [
+  {
+   "id": "X-1",
+   "shot_ids": [
+    "Shot2",
+    "Shot4"
+   ],
+   "dimension": "spatial",
+   "entities": [
+    7
+   ],
+   "expected": "The return view of the doorway in Shot 4 is tighter than its preceding view in Shot 2.",
+   "predicate": "tighter_framing_than",
+   "coordinate_frame": "camera",
+   "quantifier": "cross_shot"
+  }
+ ]
+}

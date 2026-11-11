@@ -1,0 +1,174 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue review v7, V-V branch, call 1: keep / split / merge and rewrite (no verdicts)",
+  "type": "object",
+  "required": [
+    "protocol",
+    "candidate_actions",
+    "issues"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_review_v7_vv_rewrite"
+    },
+    "candidate_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "candidate_id",
+          "action",
+          "reason"
+        ],
+        "properties": {
+          "candidate_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "action": {
+            "type": "string",
+            "enum": [
+              "keep",
+              "split",
+              "merge"
+            ]
+          },
+          "reason": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "source_candidate_ids",
+          "scope",
+          "subcategory",
+          "description",
+          "shot_ids",
+          "frame_refs",
+          "entities",
+          "revision",
+          "revision_note"
+        ],
+        "properties": {
+          "source_candidate_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "scope": {
+            "type": "string",
+            "enum": [
+              "within_shot",
+              "cross_shot"
+            ]
+          },
+          "subcategory": {
+            "type": "string",
+            "enum": [
+              "identity_drift",
+              "appearance_drift",
+              "action_discontinuity",
+              "object_instability",
+              "presence_instability",
+              "background_drift",
+              "physical_integrity",
+              "relation_break",
+              "unintended_cut",
+              "rendering_instability",
+              "other",
+              "character_identity",
+              "character_appearance",
+              "object_identity",
+              "setting_background",
+              "environment_lighting",
+              "rendering_style",
+              "instance_count",
+              "state_action_continuity",
+              "spatial_continuity"
+            ]
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1
+          },
+          "shot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          },
+          "frame_refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "entities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "entity_key",
+                "role"
+              ],
+              "properties": {
+                "entity_key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "subject",
+                    "context"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "revision": {
+            "type": "string",
+            "enum": [
+              "unchanged",
+              "clarified"
+            ]
+          },
+          "revision_note": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_accepted_compact_assembly_plan_v0.2.schema.json",
+  "title": "Mandatory-candidate accepted-only compact-assembly plan v0.2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol_version",
+    "shot_id",
+    "reviewed_accepted_cluster_ids",
+    "reviewed_candidate_ids",
+    "families",
+    "excluded_candidates",
+    "warnings"
+  ],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_accepted_compact_assembly_plan_v0.2"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "reviewed_accepted_cluster_ids": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    },
+    "reviewed_candidate_ids": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/candidateId"}
+    },
+    "families": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/family"}
+    },
+    "excluded_candidates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/excludedCandidate"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1}
+    }
+  },
+  "$defs": {
+    "candidateId": {
+      "type": "string",
+      "pattern": "^aca_[a-f0-9]{12}$"
+    },
+    "frameIds": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "twoFrameIds": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"type": "integer", "minimum": 0}
+    },
+    "visualEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frame_id", "description"],
+      "properties": {
+        "frame_id": {"type": "integer", "minimum": 0},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "contentUnit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_id",
+        "anchor_cluster_id",
+        "description",
+        "pixel_evidence"
+      ],
+      "properties": {
+        "unit_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "anchor_cluster_id": {"type": "string", "minLength": 1},
+        "description": {"type": "string", "minLength": 1},
+        "pixel_evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        }
+      }
+    },
+    "cohesionWitness": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "witness_id",
+        "unit_a_id",
+        "unit_b_id",
+        "kind",
+        "frame_ids",
+        "description"
+      ],
+      "properties": {
+        "witness_id": {"type": "string", "pattern": "^cw[0-9]+$"},
+        "unit_a_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "unit_b_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "kind": {
+          "type": "string",
+          "enum": [
+            "shared_continuous_housing_or_joint",
+            "same_small_container_functional_unit",
+            "common_fixed_mounting_or_array",
+            "direct_mechanical_or_operational_coupling"
+          ]
+        },
+        "frame_ids": {"$ref": "#/$defs/twoFrameIds"},
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "independenceCheck": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "outcome", "evidence", "description"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "separate_handling_or_use",
+            "detachment_or_standalone_state",
+            "relative_motion",
+            "independent_trajectory"
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": ["not_observed", "observed", "uncertain"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "pairwiseIndependenceReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "unit_a_id",
+        "unit_b_id",
+        "reviewed_frame_ids",
+        "checks"
+      ],
+      "properties": {
+        "unit_a_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "unit_b_id": {"type": "string", "pattern": "^u[0-9]+$"},
+        "reviewed_frame_ids": {"$ref": "#/$defs/frameIds"},
+        "checks": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {"$ref": "#/$defs/independenceCheck"}
+        }
+      }
+    },
+    "protectedRelationReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "outcome", "evidence", "description"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "large_host_or_support_member",
+            "person_or_animal_member",
+            "holder_with_held_or_carried_item",
+            "loose_items_sharing_support_or_proximity",
+            "temporary_storage_or_transport_payload",
+            "worn_or_body_constituent_scope_case"
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": ["absent", "present", "uncertain"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "contextExclusionReview": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "context_anchor_cluster_id",
+        "reviewed_frame_ids",
+        "outcome",
+        "evidence",
+        "description"
+      ],
+      "properties": {
+        "context_anchor_cluster_id": {"type": "string", "minLength": 1},
+        "reviewed_frame_ids": {"$ref": "#/$defs/frameIds"},
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "excluded_from_minimal_closure",
+            "uncertain_membership"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "description": {"type": "string", "minLength": 1}
+      }
+    },
+    "excludedCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidate_id",
+        "anchor_cluster_ids",
+        "reason_code",
+        "evidence",
+        "reason"
+      ],
+      "properties": {
+        "candidate_id": {"$ref": "#/$defs/candidateId"},
+        "anchor_cluster_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "reason_code": {
+          "type": "string",
+          "enum": [
+            "insufficient_positive_same_role_cohesion",
+            "insufficient_common_visibility",
+            "observed_independence",
+            "uncertain_independence",
+            "protected_relation_present_or_uncertain",
+            "context_membership_uncertain",
+            "not_minimal_cohesive_closure"
+          ]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/visualEvidence"}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "family_id",
+        "candidate_id",
+        "visual_scope",
+        "anchor_cluster_ids",
+        "content_units",
+        "assembly_kind",
+        "common_visible_frame_ids",
+        "cohesion_witnesses",
+        "pairwise_independence_reviews",
+        "protected_relation_reviews",
+        "context_exclusion_reviews",
+        "scope_review_complete",
+        "minimal_cohesive_closure_confirmed",
+        "reason"
+      ],
+      "properties": {
+        "family_id": {"type": "string", "pattern": "^af[0-9]+$"},
+        "candidate_id": {"$ref": "#/$defs/candidateId"},
+        "visual_scope": {"type": "string", "minLength": 1},
+        "anchor_cluster_ids": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "content_units": {
+          "type": "array",
+          "minItems": 2,
+          "items": {"$ref": "#/$defs/contentUnit"}
+        },
+        "assembly_kind": {
+          "type": "string",
+          "enum": [
+            "integrated_part_whole",
+            "small_container_contents_unit",
+            "fixed_coordinated_array",
+            "directly_coupled_operational_unit"
+          ]
+        },
+        "common_visible_frame_ids": {"$ref": "#/$defs/twoFrameIds"},
+        "cohesion_witnesses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/cohesionWitness"}
+        },
+        "pairwise_independence_reviews": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/pairwiseIndependenceReview"}
+        },
+        "protected_relation_reviews": {
+          "type": "array",
+          "minItems": 6,
+          "maxItems": 6,
+          "items": {"$ref": "#/$defs/protectedRelationReview"}
+        },
+        "context_exclusion_reviews": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/contextExclusionReview"}
+        },
+        "scope_review_complete": {"type": "boolean", "enum": [true]},
+        "minimal_cohesive_closure_confirmed": {
+          "type": "boolean",
+          "enum": [true]
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

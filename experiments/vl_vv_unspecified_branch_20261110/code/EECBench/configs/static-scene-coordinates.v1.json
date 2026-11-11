@@ -1,0 +1,64 @@
+{
+  "version": "shot_scene_coordinates_v1",
+  "effective_date": "2026-09-16",
+  "status": "active_design_contract",
+  "runtime_integration": "implemented_in_study2_experimental_runner_legacy_scripts_unchanged",
+  "supersedes_working_coordinate_policy": "shot1_opencv_camera_with_fixed_camera_per_shot",
+  "within_shot": {
+    "frame": "one_fixed_scene_frame_per_shot",
+    "axes": "right_handed_z_up",
+    "origin_horizontal_axes_units": "initialize_once_then_hold_fixed",
+    "construction_scope": "one_shot_only",
+    "camera_pose": "per_frame_full_rigid_camera_to_scene",
+    "camera_motion_default": "allowed",
+    "intrinsics": "per_frame_K_shared_only_if_supported",
+    "scale": "one_consistent_scale_per_shot_before_fusion",
+    "pose_missing": "unknown_no_identity_pose_substitution",
+    "motion_classification": "after_camera_motion_compensation_with_same_shot_visual_evidence",
+    "fusion": "static_observations_after_transformation_to_shot_scene_frame",
+    "moving_entity_output": "best_visible_frame_representative_box_plus_per_frame_scene_trajectory",
+    "moving_entity_output_user_confirmed": true
+  },
+  "cross_shot": {
+    "direction": "shot3_scene_to_shot1_scene",
+    "output_frame": "shot1_scene",
+    "fit_entities": "confirmed_corresponding_static_intersection",
+    "gravity_constraint": true,
+    "transform": [
+      "positive_uniform_scale",
+      "yaw",
+      "xyz_translation"
+    ],
+    "center_loss": "entity_Huber",
+    "center_huber_delta": 0.05,
+    "axis_loss": "mean_squared_sine_undirected_horizontal_long_axis",
+    "axis_weight": 0.01,
+    "minimum_horizontal_aspect_ratio_both": 1.2,
+    "visualization_entities": "all_static_entities_from_both_shots",
+    "relation_entities": "confirmed_corresponding_static_intersection",
+    "relation_pairs": "all_unordered_pairs_once_same_direction_order",
+    "relation_measure": "cosine_of_center_displacements_in_common_scene_frame"
+  },
+  "historical_results": "preserved_not_relabelled_as_motion_compensated",
+  "new_model_selected": true,
+  "experiments_rerun": true,
+  "active_geometry_comparison": {
+    "plan": "EECBench/experiments/shot_scene_boxes_goal_20260916/PLAN.md",
+    "alignment_loss": "plain_eight_corner_MSE",
+    "scope": "all_entities_output_static_intersection_alignment",
+    "supersedes_center_axis_loss_for_this_comparison": true
+  },
+  "implementation": {
+    "runner": "EECBench/experiments/shot_scene_boxes_goal_20260916/run_pipeline.py",
+    "report": "EECBench/experiments/shot_scene_boxes_goal_20260916/RESULT.zh.md",
+    "selected_geometry": "Pi3X_plus_depth_conditioned_Boxer",
+    "all_entity_counts": [
+      19,
+      22
+    ],
+    "motion_representation": "representative_box_plus_estimated_frame_trajectory",
+    "motion_labels": "frozen_independent_shot_labels_for_controlled_comparison",
+    "moving_camera_validation": "synthetic_pass_real_case_small_estimated_motion",
+    "physical_3d_accuracy_validated": false
+  }
+}

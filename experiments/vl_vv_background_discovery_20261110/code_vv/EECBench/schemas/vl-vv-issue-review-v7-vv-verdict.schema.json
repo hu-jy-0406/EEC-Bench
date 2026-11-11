@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue review v7, V-V branch, call 2: confirmed / rejected / uncertain",
+  "type": "object",
+  "required": [
+    "protocol",
+    "verdicts"
+  ],
+  "properties": {
+    "protocol": {
+      "type": "string",
+      "const": "vl_vv_issue_review_v7_vv_verdict"
+    },
+    "verdicts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "issue_id",
+          "comparison",
+          "normal_cause",
+          "normal_cause_note",
+          "verdict",
+          "basis",
+          "confidence",
+          "evidence",
+          "assessment"
+        ],
+        "properties": {
+          "issue_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "comparison": {
+            "type": "string",
+            "minLength": 1
+          },
+          "normal_cause": {
+            "type": "string",
+            "enum": [
+              "none",
+              "camera_motion",
+              "viewpoint_change",
+              "described_action",
+              "visible_action",
+              "occlusion_or_framing",
+              "lighting_cause",
+              "time_skip",
+              "different_entity",
+              "required_transition",
+              "cut_timing_offset",
+              "image_quality"
+            ]
+          },
+          "normal_cause_note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "verdict": {
+            "type": "string",
+            "enum": [
+              "confirmed",
+              "rejected",
+              "uncertain"
+            ]
+          },
+          "basis": {
+            "type": "string",
+            "enum": [
+              "inconsistency_confirmed",
+              "consistent_in_frames",
+              "normal_change",
+              "not_expected_to_match",
+              "text_violation_only",
+              "not_verifiable"
+            ]
+          },
+          "confidence": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "evidence": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "shot_id",
+                "frame_id",
+                "role",
+                "observation"
+              ],
+              "properties": {
+                "shot_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "frame_id": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "role": {
+                  "type": "string",
+                  "enum": [
+                    "supports",
+                    "refutes",
+                    "context"
+                  ]
+                },
+                "observation": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "assessment": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

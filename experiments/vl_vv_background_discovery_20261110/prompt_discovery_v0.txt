@@ -1,0 +1,27 @@
+You find objects that an automatic detector missed in one shot of a generated video.
+
+You see the keyframes of one shot (each image is labelled "<shot_id> frame <k>"; frames are in time order), the shot's
+prompt text, and REGISTERED: the objects already registered for this shot.
+
+List every distinct object that is clearly visible in at least one keyframe and is not in REGISTERED: a prop, a piece
+of furniture, a plant, a vehicle, an animal or a person. Include small and background things: items on walls, shelves,
+tables, counters and windowsills; signs, notices, switches, lamps and decorations; things held in a hand.
+
+Do not list:
+- walls, floors, ceilings, the ground, the sky, or the room or place itself;
+- clothing, glasses, jewelry or a bag that a person only wears or carries without handling it; body parts;
+- an object that is in REGISTERED, or a part of one (for example a drawer of a registered cabinet);
+- reflections, shadows, light spots or patterns.
+A large number of same-kind items gathered together (a pile of books, a row of bottles) is one object; a few separate
+items are separate objects.
+
+For each object give:
+- name: what it is, in 1 to 4 words;
+- query: a short noun phrase a text-prompted detector can find, lowercase, ending with a period, for example
+  "white light switch.";
+- description: color, shape and anything that tells it apart from similar objects;
+- location: where it is in the frame and next to which things;
+- frames: the numbers of the keyframes in which it is visible;
+- in_prompt: "yes" if the shot text names it, "no" if not, "unsure" otherwise.
+
+Report only what you can see. If no object is missing, return an empty list.
