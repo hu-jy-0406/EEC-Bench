@@ -1,0 +1,883 @@
+{
+ "total_confirmed": {
+  "unspecified": 263,
+  "specified": 2950
+ },
+ "categories": {
+  "wall_floor_ceiling": {
+   "specified": 252,
+   "unspecified": 66,
+   "videos": 233
+  },
+  "clothing_top": {
+   "specified": 632,
+   "unspecified": 13,
+   "videos": 429
+  },
+  "hair_beard_makeup": {
+   "specified": 543,
+   "unspecified": 0,
+   "videos": 346
+  },
+  "eyewear": {
+   "specified": 115,
+   "unspecified": 7,
+   "videos": 75
+  },
+  "badge_belt_strap": {
+   "specified": 40,
+   "unspecified": 0,
+   "videos": 36
+  },
+  "pattern_print": {
+   "specified": 226,
+   "unspecified": 25,
+   "videos": 183
+  },
+  "tie_scarf": {
+   "specified": 88,
+   "unspecified": 1,
+   "videos": 66
+  },
+  "screen_signage_text": {
+   "specified": 52,
+   "unspecified": 5,
+   "videos": 48
+  },
+  "jewelry_watch": {
+   "specified": 53,
+   "unspecified": 5,
+   "videos": 54
+  },
+  "headwear": {
+   "specified": 152,
+   "unspecified": 1,
+   "videos": 102
+  },
+  "gloves_apron": {
+   "specified": 14,
+   "unspecified": 3,
+   "videos": 14
+  },
+  "reflection_depicted": {
+   "specified": 22,
+   "unspecified": 0,
+   "videos": 17
+  },
+  "trousers": {
+   "specified": 51,
+   "unspecified": 2,
+   "videos": 45
+  },
+  "bag_carried": {
+   "specified": 10,
+   "unspecified": 3,
+   "videos": 10
+  },
+  "vegetation_sky": {
+   "specified": 66,
+   "unspecified": 5,
+   "videos": 60
+  },
+  "footwear": {
+   "specified": 5,
+   "unspecified": 0,
+   "videos": 5
+  },
+  "floor_covering": {
+   "specified": 0,
+   "unspecified": 3,
+   "videos": 3
+  }
+ },
+ "examples": {
+  "clothing_top": [
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V2+V8+V10",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "同一深色夹克访客在Shot1与Shot4呈现出不相容的面部身份：Shot1第2、3帧为浅肤色、深色短发且有胡须的男子；Shot4第0、1帧为深肤色、短卷发男子，面部特征不同。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V3+V9+V11",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "同一米色夹克访客在Shot1与Shot3均呈现为深肤色、短发男子（Shot1第2、3帧；Shot3第2帧），而Shot4第0、1、2帧则呈现为浅肤色、红棕色卷发男子，面部身份明显不同。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V4",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "同一西装男在Shot2与Shot3的面部身份不一致：Shot2第4帧为浅肤色、褐色卷发且未戴眼镜的男子；Shot3第2帧则为戴眼镜、深色长卷发、面部特征不同的男子。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V5",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "深色夹克访客在Shot1第3帧与Shot4第2帧的外观不一致：Shot1为短卷深色发，胸前金色徽章垂在颈链上；Shot4发型呈短小扭绞状，胸前可见醒目的圆形金色徽章，徽章外观及位置不同。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V6",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "米色夹克访客在Shot1第3帧穿浅米色夹克、留短发并戴眼镜；Shot4第2帧则穿棕褐色双排扣西装外套、留蓬松卷发，仍戴眼镜，服装和发型均不一致。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V7+V12",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "同一西装男在Shot2第4、5帧穿深灰色西装且未戴眼镜；Shot3第2、3帧则穿棕褐色西装并戴黑框眼镜，服装颜色与眼镜外观不一致。"
+   }
+  ],
+  "hair_beard_makeup": [
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V2+V8+V10",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "同一深色夹克访客在Shot1与Shot4呈现出不相容的面部身份：Shot1第2、3帧为浅肤色、深色短发且有胡须的男子；Shot4第0、1帧为深肤色、短卷发男子，面部特征不同。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V5",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "深色夹克访客在Shot1第3帧与Shot4第2帧的外观不一致：Shot1为短卷深色发，胸前金色徽章垂在颈链上；Shot4发型呈短小扭绞状，胸前可见醒目的圆形金色徽章，徽章外观及位置不同。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V6",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "米色夹克访客在Shot1第3帧穿浅米色夹克、留短发并戴眼镜；Shot4第2帧则穿棕褐色双排扣西装外套、留蓬松卷发，仍戴眼镜，服装和发型均不一致。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V3+V7",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "Shot2中的 Suited man 与 Shot3左侧、站在桌后的男子面部身份不一致：Shot2为长波浪棕发、带胡须且未戴眼镜的男子，Shot3则为短卷发、戴眼镜且面部特征不同的男子。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V4+V7",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "Beige-jacket visitor 在 Shot1、Shot3 和 Shot4 的面部身份不一致：Shot1中为戴眼镜、无胡须、脸型较窄的男子；Shot3右侧男子有明显胡须，面部特征不同；Shot4左侧男子无胡须，脸型和五官也与前两镜不一致。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V5+V7",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "Beige-jacket visitor 的服装与面部毛发在镜头间不一致：Shot1和Shot4中穿米色外套及浅色衬衫、无领带且无胡须；Shot3右侧男子则穿米色西装、粉色条纹衬衫和领带，并留有胡须。"
+   }
+  ],
+  "eyewear": [
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V4",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "同一西装男在Shot2与Shot3的面部身份不一致：Shot2第4帧为浅肤色、褐色卷发且未戴眼镜的男子；Shot3第2帧则为戴眼镜、深色长卷发、面部特征不同的男子。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V6",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "米色夹克访客在Shot1第3帧穿浅米色夹克、留短发并戴眼镜；Shot4第2帧则穿棕褐色双排扣西装外套、留蓬松卷发，仍戴眼镜，服装和发型均不一致。"
+   },
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V7+V12",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "同一西装男在Shot2第4、5帧穿深灰色西装且未戴眼镜；Shot3第2、3帧则穿棕褐色西装并戴黑框眼镜，服装颜色与眼镜外观不一致。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V3+V7",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "Shot2中的 Suited man 与 Shot3左侧、站在桌后的男子面部身份不一致：Shot2为长波浪棕发、带胡须且未戴眼镜的男子，Shot3则为短卷发、戴眼镜且面部特征不同的男子。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V4+V7",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "Beige-jacket visitor 在 Shot1、Shot3 和 Shot4 的面部身份不一致：Shot1中为戴眼镜、无胡须、脸型较窄的男子；Shot3右侧男子有明显胡须，面部特征不同；Shot4左侧男子无胡须，脸型和五官也与前两镜不一致。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V6",
+    "subjects": [
+     "Suited man"
+    ],
+    "description": "Suited man 在 Shot2为波浪状中长棕发且未戴眼镜；Shot3左侧桌后男子则为短卷蓬松发型并戴眼镜。"
+   }
+  ],
+  "badge_belt_strap": [
+   {
+    "task": "priority_001__cinetrans",
+    "unit": "V5",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "深色夹克访客在Shot1第3帧与Shot4第2帧的外观不一致：Shot1为短卷深色发，胸前金色徽章垂在颈链上；Shot4发型呈短小扭绞状，胸前可见醒目的圆形金色徽章，徽章外观及位置不同。"
+   },
+   {
+    "task": "priority_014__wan21",
+    "unit": "V3+V4",
+    "subjects": [
+     "Woman in gray coat"
+    ],
+    "description": "同一女子的灰色外套在Shot1与Shot2外观不一致：Shot1末帧外套合拢并系有腰带，Shot2首帧则为敞开的长款外套且看不到腰带。"
+   },
+   {
+    "task": "priority_014__wan21",
+    "unit": "V3+V5",
+    "subjects": [
+     "Woman in gray coat"
+    ],
+    "description": "同一女子的外套及颈部衣物在Shot3与此前镜头外观不同：Shot3为显著双排扣的灰色外套，颈部另有浅棕色围巾；Shot2中外套敞开且未见围巾，Shot1中则为系腰带的灰色外套。"
+   },
+   {
+    "task": "priority_027__cinetrans",
+    "unit": "V2",
+    "subjects": [
+     "Curly-haired woman"
+    ],
+    "description": "画面左侧浅金卷发女性在Shot1、Shot3中穿深色上衣，Shot2、Shot4、Shot6中可见上衣领口内侧的绿色花纹衣领；候选所称发型差异及挂绳眼镜差异在这些画面中未形成可确认的变化。"
+   },
+   {
+    "task": "priority_027__wan21",
+    "unit": "V4+V6",
+    "subjects": [
+     "Curly-haired woman"
+    ],
+    "description": "卷发女性的挂绳眼镜在Shot2和Shot4挂在胸前，而Shot6中则置于腿上，佩戴/放置位置不一致。"
+   },
+   {
+    "task": "priority_035__wan21",
+    "unit": "V8",
+    "subjects": [
+     "Striped-tie man"
+    ],
+    "description": "条纹领带男在Shot1穿深色细条纹西装且未见眼镜；Shot3中对应人物穿浅灰细条纹西装并戴眼镜；Shot4中对应人物可见耳饰和蓝色挂绳，外观细节与前镜不一致。"
+   }
+  ],
+  "pattern_print": [
+   {
+    "task": "priority_001__holocine",
+    "unit": "V3",
+    "subjects": [
+     "Dark-jacket visitor"
+    ],
+    "description": "同一深色夹克访客的内搭在Shot1帧3呈深色、未见明显竖条纹的上衣；Shot4帧4则呈明显竖条纹衬衫。"
+   },
+   {
+    "task": "priority_001__wan21",
+    "unit": "V5+V7",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "Beige-jacket visitor 的服装与面部毛发在镜头间不一致：Shot1和Shot4中穿米色外套及浅色衬衫、无领带且无胡须；Shot3右侧男子则穿米色西装、粉色条纹衬衫和领带，并留有胡须。"
+   },
+   {
+    "task": "priority_003__cinetrans",
+    "unit": "V1",
+    "subjects": [
+     "Blonde woman"
+    ],
+    "description": "Shot1中，Blonde woman在第0帧的头发明显较深，且可见深色格纹长耳坠；从第1帧起头发呈浅棕金色，耳坠呈亮银色长坠，镜头内没有相应的更换或其他可见原因。"
+   },
+   {
+    "task": "priority_003__wan21",
+    "unit": "V6",
+    "subjects": [
+     "Ponytailed woman"
+    ],
+    "description": "马尾女性在Shot2和Shot4穿着浅底粉彩图案上衣，而Shot6所穿上衣呈粉、白、浅蓝的大块拼色几何图案；跨镜头上衣图案和色块呈现不一致。"
+   },
+   {
+    "task": "priority_003__wan21",
+    "unit": "V8",
+    "subjects": [
+     "Domestic kitchen"
+    ],
+    "description": "同一厨房在不同镜头中呈现出不一致的背景结构和墙面布置：Shot1、Shot3、Shot5可见浅色花鸟图案墙面及装饰盘；Shot2、Shot4、Shot6则呈现窗户、水槽、橱柜等另一组厨房背景，包含瓷砖或绿色墙面，整体布局与前一组镜头不同。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V7",
+    "subjects": [
+     "Ponytailed woman"
+    ],
+    "description": "同一马尾女性的上衣图案和配色跨镜头不一致：Shot1为浅色青绿、淡紫等几何图案，Shot2为黑灰与粉色块纹，Shot4为粉绿锯齿纹，Shot6为蓝橙等鲜艳几何图案。"
+   }
+  ],
+  "tie_scarf": [
+   {
+    "task": "priority_001__wan21",
+    "unit": "V5+V7",
+    "subjects": [
+     "Beige-jacket visitor"
+    ],
+    "description": "Beige-jacket visitor 的服装与面部毛发在镜头间不一致：Shot1和Shot4中穿米色外套及浅色衬衫、无领带且无胡须；Shot3右侧男子则穿米色西装、粉色条纹衬衫和领带，并留有胡须。"
+   },
+   {
+    "task": "priority_008__cinetrans",
+    "unit": "V1",
+    "subjects": [
+     "Glasses-wearing diner"
+    ],
+    "description": "Shot1中，戴眼镜的用餐者在第0帧的黄色领带呈明显深色格纹；第1帧起则呈黄色底色上的细小纹样，领带图案在镜头内改变。"
+   },
+   {
+    "task": "priority_008__wan21",
+    "unit": "V5",
+    "subjects": [
+     "Glasses-wearing diner"
+    ],
+    "description": "戴眼镜用餐者的黄色领带图案在Shot1（第2帧）和Shot5（第2帧）为较小、较分散的深色图案；Shot7（第2帧）则呈现较大且密集的不规则图案。"
+   },
+   {
+    "task": "priority_009__wan21",
+    "unit": "V1",
+    "subjects": [
+     "Uniformed man"
+    ],
+    "description": "Shot4中同一男子的头发和制服外观在帧1至帧2之间突变：帧1为深色短发、浅蓝衬衫且可见肩章；帧2起变为红棕色短发、带红领带和肩章的浅色制服衬衫。"
+   },
+   {
+    "task": "priority_013__cinetrans",
+    "unit": "V4",
+    "subjects": [
+     "Woman in the feathered hat"
+    ],
+    "description": "同一女子跨镜头的发型、帽子和服装明显不一致：Shot1第2帧为深色中长发、无帽并穿黑色外套；Shot2第2帧戴带浅粉色装饰的棕色帽并穿棕色服装；Shot3第2帧为较短深色头发、无帽并穿黑外套、白衬衫和深色领带；Shot4第2帧又戴棕色帽并穿棕色服装。"
+   },
+   {
+    "task": "priority_013__wan21",
+    "unit": "V9",
+    "subjects": [
+     "Dark-haired man"
+    ],
+    "description": "男子在Shot1与Shot4佩戴较宽的深色领饰（cravat），Shot3则佩戴较窄的深色领带；发型也不同，Shot1与Shot4为向后梳理并有明显长鬓角，Shot3为侧分且鬓角不明显。"
+   }
+  ],
+  "screen_signage_text": [
+   {
+    "task": "priority_002__wan22",
+    "unit": "V3",
+    "subjects": [
+     "Bearded man"
+    ],
+    "description": "Shot4中男子所穿的蓝灰色圆领T恤与Shot1、Shot2中的T恤细节不同：Shot4胸前有醒目的大号轮廓字样，袖口翻卷；Shot1、Shot2胸前是较小的字样，袖口没有明显翻卷。"
+   },
+   {
+    "task": "priority_006__wan22",
+    "unit": "V8+V12",
+    "subjects": [
+     "Yellow P3 pillar"
+    ],
+    "description": "黄色P3柱上的字样颜色在不同镜头中不一致：Shot1为白色，Shot2为黑色，Shot4为蓝色。"
+   },
+   {
+    "task": "priority_010__storymem",
+    "unit": "V2",
+    "subjects": [
+     "Brown bottles"
+    ],
+    "description": "Shot1 中同一棕色瓶子的浅色标签字样在帧1、帧3和帧5间反复变化；这些帧中没有显示瓶子被操作。"
+   },
+   {
+    "task": "priority_034__wan22",
+    "unit": "V9",
+    "subjects": [
+     "Girl with white bows"
+    ],
+    "description": "Shot1中白蝴蝶结、粉色开衫女性呈成年外观；Shot2与Shot4中相同标志性服饰的角色呈明显年幼的女孩外观，角色个体外观不一致。"
+   },
+   {
+    "task": "priority_038__wan22",
+    "unit": "V3",
+    "subjects": [
+     "Black notebook"
+    ],
+    "description": "Shot2中笔记本右页的手写字迹在frames 0至5间改变了笔画和行文形态；同一页上的文字外观前后不一致。"
+   },
+   {
+    "task": "priority_045__wan22",
+    "unit": "V2",
+    "subjects": [
+     "CAFE sign"
+    ],
+    "description": "Shot2 中咖啡馆的竖直红色招牌字样在帧0、帧2和帧5间发生变化：各帧可见的字母组合不同，字样并非仅因遮挡或取景变化而改变。"
+   }
+  ],
+  "jewelry_watch": [
+   {
+    "task": "priority_003__wan21",
+    "unit": "V7.2",
+    "subjects": [
+     "Blonde woman"
+    ],
+    "description": "金发女性的首饰在Shot1、Shot3和Shot5之间不一致：Shot1为珍珠垂坠耳环及珍珠项链，Shot3为大型深色耳饰及细链坠饰，Shot5为单颗珍珠垂坠耳环及较粗的链状项链。"
+   },
+   {
+    "task": "priority_005__cinetrans",
+    "unit": "V3",
+    "subjects": [
+     "Woman in floral turtleneck"
+    ],
+    "description": "同一女性在Shot1中佩戴较长的银色垂坠耳饰；Shot3中可见的是小型金色耳钉，耳饰的长度和颜色均不同。"
+   },
+   {
+    "task": "priority_011__wan22",
+    "unit": "V3",
+    "subjects": [
+     "Man in black"
+    ],
+    "description": "黑衣男子胸前项链在Shot1和Shot5为无吊坠的细黑绳，在Shot3则变为带蓝色吊坠的银色链条。"
+   },
+   {
+    "task": "priority_019__wan21",
+    "unit": "V5",
+    "subjects": [
+     "Plaid-shirt woman"
+    ],
+    "description": "女士在Shot1佩戴弧形月牙状吊坠，在Shot3佩戴尖角V形吊坠，吊坠形状不一致。"
+   },
+   {
+    "task": "priority_023__holocine",
+    "unit": "V6",
+    "subjects": [
+     "Shirtless man"
+    ],
+    "description": "Shot3中，裸上身男子胸前吊坠在第1帧呈绿色，而第0、2帧呈金色；相邻帧间没有可见的饰品更换动作。"
+   },
+   {
+    "task": "priority_023__wan21",
+    "unit": "V3",
+    "subjects": [
+     "Shirtless man"
+    ],
+    "description": "赤膊男子的项链外观在镜头间不一致：Shot1帧2可见胸前多层细金链，Shot3帧2为一条较粗的金链；Shot4帧0可见颈后的粗链而胸前链饰不见，Shot5帧1则是颈部一条细短链。"
+   }
+  ],
+  "wall_floor_ceiling": [
+   {
+    "task": "priority_003__wan21",
+    "unit": "V8",
+    "subjects": [
+     "Domestic kitchen"
+    ],
+    "description": "同一厨房在不同镜头中呈现出不一致的背景结构和墙面布置：Shot1、Shot3、Shot5可见浅色花鸟图案墙面及装饰盘；Shot2、Shot4、Shot6则呈现窗户、水槽、橱柜等另一组厨房背景，包含瓷砖或绿色墙面，整体布局与前一组镜头不同。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V2",
+    "subjects": [
+     "Decorative wall plate"
+    ],
+    "description": "Shot1从frame 4到frame 5，背景墙盘和墙面分界相对于画面突然向左移位，二者的布局发生突变。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V3",
+    "subjects": [
+     "Decorative wall plate"
+    ],
+    "description": "Shot3从frame 2到frame 3，背景墙盘和上方橱柜相对于画面突然错位，人物构图也在这两帧间发生突变。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V5",
+    "subjects": [
+     "Decorative wall plate",
+     "White kitchen cabinets"
+    ],
+    "description": "厨房背景在不同越肩镜头中呈现出明显不同的墙面和陈设布局：Shot1的Blonde woman身后是花鸟墙纸、装饰盘及右侧浅色柜体；Shot3的相近越肩视角中出现上方橱柜和位置、外观不同的装饰盘；Shot5则呈菱格墙纸、左侧橱柜和右侧炉灶。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V9+V16",
+    "subjects": [
+     "Decorative wall plate"
+    ],
+    "description": "Shot1与Shot3墙上的装饰盘外观不一致：Shot1为浅底、细花叶环绕的圆盘；Shot3为白色中心、绿色宽波浪边框的装饰盘。"
+   },
+   {
+    "task": "priority_003__wan22",
+    "unit": "V12+V15",
+    "subjects": [
+     "Domestic kitchen"
+    ],
+    "description": "同一厨房墙纸图案跨镜头不一致：Shot1墙面可见浅底小鸟、花枝图案；Shot3和Shot5则呈重复的菱格或菱形花纹。"
+   }
+  ],
+  "headwear": [
+   {
+    "task": "priority_006__cinetrans",
+    "unit": "V10",
+    "subjects": [
+     "Beige hockey mask"
+    ],
+    "description": "Shot1第3帧的面具为浅米色，带小块红色标记及常规眼部开孔；Shot4第1帧的面具则呈白色头盔状，具有醒目的大块红色图案和大型深色开口，形状与标记明显不同。"
+   },
+   {
+    "task": "priority_006__wan22",
+    "unit": "V6",
+    "subjects": [
+     "Beige hockey mask"
+    ],
+    "description": "Shot1和Shot2中的米色面具较窄，具有曲棍球面具式的眼孔、小通风孔和红色标记；Shot4中的面具则更宽大、呈头盔状，带黑色凸起和不同形状的红色块状标记。"
+   },
+   {
+    "task": "priority_008__wan21",
+    "unit": "V2+V7",
+    "subjects": [
+     "Long-haired diner"
+    ],
+    "description": "长发用餐者在Shot2（第1帧）与Shot8（第0帧）呈现为未戴眼镜、未戴发带的长直棕发女性；Shot4（第0帧及第3帧）同一角色却呈现为戴粗框眼镜和宽黑发带、面部不同的人物。"
+   },
+   {
+    "task": "priority_008__wan21",
+    "unit": "V4",
+    "subjects": [
+     "Long-haired diner"
+    ],
+    "description": "长发用餐者在Shot2（第1帧）穿黑色上衣且未戴眼镜或发带；Shot4（第3帧）则穿浅灰外搭，并戴粗框眼镜和宽黑发带。"
+   },
+   {
+    "task": "priority_008__wan22",
+    "unit": "V4",
+    "subjects": [
+     "Long-haired diner"
+    ],
+    "description": "长发者的发型在镜头间不一致：Shot1和Shot2为自然披散的长发；Shot4头顶头发明显向后梳起；Shot6头发上有发夹；Shot8头顶呈半束起状态。"
+   },
+   {
+    "task": "priority_009__wan21",
+    "unit": "V5",
+    "subjects": [
+     "White-hooded figure"
+    ],
+    "description": "白兜帽人物在不同镜头中的躯干服装图案和手套配色不一致：Shot1帧2为黑底蓝色网纹躯干服装、紫蓝网纹手套；Shot2帧5为蓝白几何纹躯干上衣、浅蓝纹样手套；Shot3帧2又为蓝色网纹躯干服装及深蓝纹样手套。"
+   }
+  ],
+  "gloves_apron": [
+   {
+    "task": "priority_006__wan21",
+    "unit": "V1",
+    "subjects": [
+     "Brunette woman"
+    ],
+    "description": "Shot1中，Brunette woman在frame 0–4未见戴手套；到frame 5，持面具的双手突然出现黑色并带红色装饰的手套，期间没有可见的穿戴动作。"
+   },
+   {
+    "task": "priority_006__wan21",
+    "unit": "V5",
+    "subjects": [
+     "Brunette woman"
+    ],
+    "description": "Brunette woman在Shot1 frame 5持面具时双手戴有黑色带红饰手套；Shot2 frame 2持面具下缘的手未见相同手套，手套在镜头切换间消失。"
+   },
+   {
+    "task": "priority_009__wan21",
+    "unit": "V5",
+    "subjects": [
+     "White-hooded figure"
+    ],
+    "description": "白兜帽人物在不同镜头中的躯干服装图案和手套配色不一致：Shot1帧2为黑底蓝色网纹躯干服装、紫蓝网纹手套；Shot2帧5为蓝白几何纹躯干上衣、浅蓝纹样手套；Shot3帧2又为蓝色网纹躯干服装及深蓝纹样手套。"
+   },
+   {
+    "task": "priority_009__wan22",
+    "unit": "V2",
+    "subjects": [
+     "White-hooded figure"
+    ],
+    "description": "白兜帽人物的服装与手套在Shot1、Shot2和Shot3之间不一致：Shot1及Shot2可见黑白紧身衣及蓝紫网纹侧片，Shot2还可见蓝紫网纹手套；Shot3则穿着宽松白色外衣，内露蓝色网格衣料，手套为紫色网格样式。"
+   },
+   {
+    "task": "priority_019__wan21",
+    "unit": "V4",
+    "subjects": [
+     "Plaid-shirt woman"
+    ],
+    "description": "Shot1与Shot3中的女士穿浅灰绿色格纹衬衫及青绿色围裙带；Shot4右侧前景女士穿红蓝格纹衬衫，服装外观不一致。"
+   },
+   {
+    "task": "priority_062__holocine",
+    "unit": "V4",
+    "subjects": [
+     "Plaid-shirted woman"
+    ],
+    "description": "同一女子在Shot3帧5可见粉色格纹衬衫，而在Shot4帧0穿素色浅色上衣及浅色围裙，格纹衬衫不见；两镜头边界处没有可见换装过程。"
+   }
+  ],
+  "reflection_depicted": [
+   {
+    "task": "priority_011__wan21",
+    "unit": "V1+V15",
+    "subjects": [
+     "Man in black"
+    ],
+    "description": "Shot3第0至5帧中，镜前黑衣男子未戴眼镜，但镜中对应人物持续戴着圆框眼镜，反射与镜前人物不一致。"
+   },
+   {
+    "task": "priority_011__wan21",
+    "unit": "V5",
+    "subjects": [
+     "Man in black"
+    ],
+    "description": "黑衣男子在Shot1和Shot5未戴眼镜，但Shot3镜中的对应黑衣男子戴着圆框眼镜；Shot3画面右侧同伴也戴眼镜，眼镜属性呈现不一致。"
+   },
+   {
+    "task": "priority_011__wan22",
+    "unit": "V2",
+    "subjects": [
+     "Bespectacled man"
+    ],
+    "description": "同一戴眼镜男子在Shot1、Shot2中的面部外观与Shot4、Shot6不同：前两镜中脸部较圆、肤色较深，后两镜中肤色明显更白，脸部及下颌轮廓也不同。"
+   },
+   {
+    "task": "priority_013__wan21",
+    "unit": "V11+V14+V17",
+    "subjects": [
+     "Gold-framed portrait"
+    ],
+    "description": "Shot1与Shot3的金框肖像画中人物面貌不同：Shot1画中人物没有明显胡须，Shot3画中人物留有明显胡须。"
+   },
+   {
+    "task": "priority_013__wan22",
+    "unit": "V9+V14",
+    "subjects": [
+     "Gold-framed portrait"
+    ],
+    "description": "Shot1与Shot3中金框肖像画内的人物内容不同：Shot1帧0画中人为深发、坐姿人物；Shot3帧0画中人物呈灰白发，姿态及外观不同。"
+   },
+   {
+    "task": "priority_035__wan21",
+    "unit": "V6+V14",
+    "subjects": [
+     "Blonde woman"
+    ],
+    "description": "被对应为金发女子的人物在Shot2呈长金发、戴粗框眼镜；Shot3背景中的对应女子呈长棕发且未见眼镜；Shot4中间女子则为短金发、戴粗框眼镜，几镜中的面貌外观不一致。"
+   }
+  ],
+  "trousers": [
+   {
+    "task": "priority_012__storymem",
+    "unit": "V3",
+    "subjects": [
+     "White-clad figure"
+    ],
+    "description": "白衣人物的下身服装在不同镜头中不一致：Shot2和Shot5可见深色裤装，Shot4和Shot6则呈浅色裤装。"
+   },
+   {
+    "task": "priority_012__wan21",
+    "unit": "V7",
+    "subjects": [
+     "Dark-clad figure"
+    ],
+    "description": "深衣角色在Shot3、Shot4和Shot5穿深色粗纹/炭灰上衣及深色裤装；Shot6左侧对应人物则穿白上衣并有紫色交叉肩带，原深色上衣外观不再出现。"
+   },
+   {
+    "task": "priority_012__wan21",
+    "unit": "V17+V19",
+    "subjects": [
+     "White-clad figure",
+     "Dark-clad figure"
+    ],
+    "description": "Shot4中左侧深衣角色穿炭灰粗纹上衣、右侧白衣角色穿紫色肩带白上衣；Shot6中左侧人物穿白衣和紫色交叉肩带，右侧人物也穿白衣并着深色纹理裤，服饰特征在两角色间发生混淆。"
+   },
+   {
+    "task": "priority_022__cinetrans",
+    "unit": "V4+V6",
+    "subjects": [
+     "Box carrier"
+    ],
+    "description": "搬运者的裤子在Shot2和Shot4为蓝紫色，在Shot3为绿色。"
+   },
+   {
+    "task": "priority_024__wan21",
+    "unit": "V8.2",
+    "subjects": [
+     "Curly-haired participant"
+    ],
+    "description": "Curly-haired participant在Shot5穿亮粉色花纹裤；Shot1和Shot6可见其下装为深色或花纹服饰，而非Shot5所见的亮粉花纹裤。"
+   },
+   {
+    "task": "priority_024__wan22",
+    "unit": "V4",
+    "subjects": [
+     "Black-clad participant"
+    ],
+    "description": "Black-clad participant 在 Shot2 穿无袖黑色网纱上衣并穿鱼网袜；Shot4 则为黑色长袖网纱上衣、亮粉色裤子，腿部未见鱼网袜。"
+   }
+  ],
+  "bag_carried": [
+   {
+    "task": "priority_013__wan21",
+    "unit": "V2+V3+V5+V19",
+    "subjects": [
+     "Black handled bag"
+    ],
+    "description": "Shot4中黑色手提包出现重复实例：帧0至帧1桌上只有一只包；帧2桌上原包仍在，同时女子手中出现另一只外观相似的包。帧3两只包分别由男子和女子拿着。"
+   },
+   {
+    "task": "priority_038__storymem",
+    "unit": "V1",
+    "subjects": [
+     "Dark backpack"
+    ],
+    "description": "同一深色背包在 Shot1 与 Shot4 的正面结构不一致：Shot1 可见弧形前袋拉链，未见 Shot4 中的两条竖向拉链及橙色拉片；Shot4 则清楚出现这两条竖向拉链和橙色拉片。"
+   },
+   {
+    "task": "priority_038__wan21",
+    "unit": "V12",
+    "subjects": [
+     "Plaid-shirt man",
+     "Dark backpack"
+    ],
+    "description": "Shot4与Shot6中男子和背包的相对位置被描述为不一致：Shot4背包被称位于人物身后，Shot6背包位于人物两腿之间。"
+   },
+   {
+    "task": "priority_038__wan22",
+    "unit": "V8+V10",
+    "subjects": [
+     "Dark backpack"
+    ],
+    "description": "同一深色背包在不同镜头中外观不一致：Shot1为黑灰色、圆润且有多个口袋；Shot3为蓝色并有明显拉链及不同口袋布局；Shot4为深绿色翻盖款，带棕色搭扣；Shot6为橄榄绿色款，正面口袋及轮廓与前述款式不一致。"
+   },
+   {
+    "task": "priority_124__wan21",
+    "unit": "V6",
+    "subjects": [
+     "Dark backpack"
+    ],
+    "description": "同一背包在Shot1、Shot2和Shot4呈黑色或深色，而Shot6第2至5帧背包主体明显呈蓝绿色。"
+   },
+   {
+    "task": "priority_124__wan22",
+    "unit": "V6",
+    "subjects": [
+     "Dark backpack"
+    ],
+    "description": "Shot1、Shot2和Shot4中的背包呈灰黑色，有明显拼接分隔及浅色侧片；Shot6中的背包近乎纯黑，外形和可见细节不同。"
+   }
+  ],
+  "vegetation_sky": [
+   {
+    "task": "priority_014__cinetrans",
+    "unit": "V1",
+    "subjects": [],
+    "description": "Shot1帧0至帧1间，树干及其周围背景从明显偏暗、细节近乎不可见变为纹理清晰可见；相机取景基本不变。"
+   },
+   {
+    "task": "priority_014__storymem",
+    "unit": "V1",
+    "subjects": [],
+    "description": "Shot4第0帧到第1帧之间出现明显的不连续构图跳变：老人从画面左侧较小、低头的近景状态骤然变为更大且位置不同的构图，树干及背景建筑相对画面的布局也随之突变。"
+   },
+   {
+    "task": "priority_014__wan21",
+    "unit": "V1",
+    "subjects": [
+     "Older man in earflap hat"
+    ],
+    "description": "Shot4中老人从frame 1到frame 3相对画面和树干的位置明显向左改变；所示转身过程中没有呈现足以衔接这一大幅位移的连续移动。"
+   },
+   {
+    "task": "priority_028__cinetrans",
+    "unit": "V1",
+    "subjects": [],
+    "description": "Shot1第0帧天空明显泛白、近乎过曝；到第1帧天空恢复为蓝色，首帧与后续帧之间出现曝光闪变。"
+   },
+   {
+    "task": "priority_028__storymem",
+    "unit": "V2",
+    "subjects": [
+     "Palms"
+    ],
+    "description": "Shot1与Shot5的海滩回景中，棕榈树的干与树冠排列不一致：Shot1 frame 2可见左侧树干以及画面中部和右侧的棕榈树冠；Shot5 frame 2中棕榈干和树冠的位置、分布有所不同。"
+   },
+   {
+    "task": "priority_028__wan22",
+    "unit": "V7",
+    "subjects": [
+     "Sea"
+    ],
+    "description": "海岸场景的天空和整体光照色调在镜头间不一致：Shot2、Shot4呈明亮蓝天和强日光，Shot8的天空则近乎泛白，整体光线更柔暗。"
+   }
+  ],
+  "footwear": [
+   {
+    "task": "priority_028__wan22",
+    "unit": "V1",
+    "subjects": [],
+    "description": "Shot8的构图在关键帧间出现不连续跳变：第0至1帧为较紧的人物构图，第2至3帧突然变宽并显出举鞋的手和两只鞋，第4帧又突然收紧，手和鞋不再入画。"
+   },
+   {
+    "task": "priority_122__cinetrans",
+    "unit": "V5+V8",
+    "subjects": [
+     "Red-jacketed boy"
+    ],
+    "description": "红衣男孩的服装在Shot2与Shot4不一致：Shot2为深色圆领内搭、蓝色牛仔裤和红鞋；Shot4为浅色扣襟衬衫、深色长裤和浅色鞋。"
+   },
+   {
+    "task": "priority_126__wan21",
+    "unit": "V1",
+    "subjects": [
+     "Turquoise-top woman",
+     "Pair of athletic shoes"
+    ],
+    "description": "Shot1末帧（frame 5）中女子脚上穿着蓝灰色运动鞋；Shot2中段（frame 2）起可见她赤脚行走，并将一双蓝灰色运动鞋提在右手，两个镜头所示鞋子的穿着与持有状态不一致。"
+   },
+   {
+    "task": "priority_187__holocine",
+    "unit": "V6+V7",
+    "subjects": [
+     "Muscular bearded man"
+    ],
+    "description": "肌肉男在Shot7穿短深色下装、宽棕色腰带、腕带和系带靴；Shot8森林视野中的同一人物则穿灰褐色长裙状下装，腰带、腕带和靴子均未见。"
+   },
+   {
+    "task": "priority_196__wan21",
+    "unit": "V9",
+    "subjects": [
+     "Stall woman"
+    ],
+    "description": "摊主女子的鞋子在两个花摊镜头中不同：Shot1她穿灰色系带运动鞋，Shot4她穿黑色鞋。"
+   }
+  ]
+ }
+}
