@@ -1,0 +1,39 @@
+You make an inventory of the background objects in one shot of a generated video. A later step compares the
+inventories of different shots and frames to find consistency problems.
+
+You see the six keyframes of one shot (each image is labelled "<shot_id> frame <k>"; frames are in time order) and, in
+INPUT, the shot's prompt text, the contract entities (what the prompt specifies), REGISTERED_SPECIFIED (prompt entities
+an earlier detection stage found in this shot) and REGISTERED_UNSPECIFIED (objects the earlier stage found in this
+shot that the prompt does not name, each with the keyframes where it was boxed).
+
+Do three things:
+1. view: one sentence on which part of which place the shot shows (for example "living-room corner: TV under a wall
+   clock, hallway door at right"). If the camera moves to another area during the shot, say so.
+2. Keep every object of REGISTERED_UNSPECIFIED: one entry each, with its id as ref. Look at all six frames, not only
+   the boxed ones. If it is not visible in any keyframe, give frames_visible [] and say so in description.
+3. Add every other object that is clearly visible in at least one keyframe, is not in REGISTERED_UNSPECIFIED or
+   REGISTERED_SPECIFIED, and is not named by the prompt or the contract: a prop, a piece of furniture, a plant, a
+   vehicle, an animal or a person. Include small and background things: items on walls, shelves, tables, counters and
+   windowsills; signs, notices, switches, lamps and decorations; things held in a hand. Also list things that lie on,
+   hang on or stand on a registered or prompt-named object (a bedspread or blanket on a bed, cushions on a sofa, items
+   on a table, chair or shelf), canopies, awnings and fixtures attached to buildings, and objects at the edges and in
+   the far background of the frame, walls, floors, ceilings, the ground, rugs, trees and plants, and the clothing,
+   shoes, headwear, glasses, jewelry, belts and bags that people wear or carry (one object per item). Go through the
+   frames one by one; small objects matter. Use ref "new".
+
+Do not list: the sky or the place as a whole; body parts, hair or makeup; a part of a listed or registered object;
+reflections, shadows or light spots. A large number of same-kind items gathered together (a pile of books, a row of
+bottles) is one object; a few separate items are separate objects.
+
+For each entry give:
+- ref: the REGISTERED_UNSPECIFIED id, or "new";
+- name: 1 to 4 words;
+- description: type, color, shape, material, size, and anything that tells it apart from similar objects;
+- location: where it is in the frame and next to which things (left/right/top/bottom; on, in front of or beside what);
+- frames_visible: every keyframe number in which it is visible;
+- change_within_shot: "none" if it looks the same and stays at its place in every frame where it is visible;
+  otherwise one sentence on what appears, disappears, moves without being carried or pushed, or changes type, shape,
+  color, size or count, with the frame numbers. Camera motion, people passing in front of it, and actions shown in the
+  frames are not changes.
+
+Report only what you can see. Write in English.

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://eecbench.local/schemas/codex_prompt_bound_matching_v0.4.schema.json",
+  "title": "Frozen boxed inventory to prompt-bound registry matching v0.4",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["protocol_version", "shot_id", "matcher_id", "matches", "warnings"],
+  "properties": {
+    "protocol_version": {
+      "type": "string",
+      "enum": ["single_shot_inventory_first_boxed_v0.4"]
+    },
+    "shot_id": {"type": "string", "minLength": 1},
+    "matcher_id": {"type": "string", "enum": ["prompt_bound_matcher"]},
+    "matches": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/match"}
+    },
+    "warnings": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "$defs": {
+    "match": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cluster_id",
+        "status",
+        "matched_registry_ids",
+        "evidence_frame_ids",
+        "reason"
+      ],
+      "properties": {
+        "cluster_id": {"type": "string", "minLength": 1},
+        "status": {
+          "type": "string",
+          "enum": ["bound", "unbound", "ambiguous"]
+        },
+        "matched_registry_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "evidence_frame_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "integer", "minimum": 0}
+        },
+        "reason": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

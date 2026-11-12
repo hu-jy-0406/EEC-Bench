@@ -29,3 +29,23 @@ Times are Dubai time. Analysis only: zero model calls, nothing live changed, no 
   background, 36 lighting), mixed 124.
 - Character appearance (cross 931, within 87) issues naming: clothing 534, hair/beard 384, headwear 101, tie/scarf
   76, eyewear 73, jewelry/watch 47, trousers 39, belt/badge/lanyard 36, gloves/apron 13, footwear 3, bag 2.
+
+## Which categories would add unspecified issues (owner question 2026-11-11)
+
+Owner: "我有点担心有的类别增加后，只会增加specified审核压力，不会增加unspecified数量". An item becomes an unspecified
+entity only when the prompt does not name it; a named item would become a specified contract entity.
+
+- `category_yield.py` -> `category_yield.json` (category level): episodes naming the category (of 200): clothing 195,
+  wall/floor/ceiling 121, trousers/skirt 92, jewelry/watch 85 (inflated by "watch"/"ring" as verbs), trees/plants
+  72, headwear 58, belt/badge 52, tie/scarf 50, eyewear 45, ground 43, footwear 31, gloves/apron 17, bag 15, floor
+  covering 11.
+- `item_named.py` -> `item_named.json` (issue level, approximate keyword mapping of the issue's Chinese item word to
+  English prompt words): of 882 confirmed specified-subject issues naming a candidate item, the item is not named in
+  the subject's own contract name/description in 341 and nowhere in the prompt in 157. Per category (issues / named
+  for the subject / not named for the subject): clothing 494 / 349 / 145, wall-floor-ceiling 145 / 73 / 72, headwear
+  108 / 77 / 31, eyewear 81 / 54 / 27, tie-scarf 84 / 60 / 24, belt-badge 37 / 13 / 24, ground 31 / 10 / 21,
+  trousers 46 / 32 / 14, trees 25 / 12 / 13, jewelry 50 / 44 / 6, gloves 12 / 10 / 2, footwear 3 / 3 / 0, bag 2 / 2 / 0.
+- Upper bounds if every issue whose item is not named for its subject moved to an unspecified item (current
+  263 / 3,213 = 8.19%): all categories +341 (18.8%), worn items +242 (15.7%), clothing only +145 (12.7%), set without
+  clothing/jewelry/footwear/bag/gloves +211 (14.8%), place parts +100 (11.3%). Relabeling only; new detections not
+  estimated (the 2026-11-09 pilot found almost none).

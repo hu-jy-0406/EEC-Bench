@@ -1,0 +1,19 @@
+You independently review how four owner rulings (open-questions Q5) were applied to the cleaned evaluation contract of one multi-shot video episode. Text work only: use ONLY the prompts printed by `python3 q5_pass.py review-show <id>`. First read rules_q5.txt: it states the four rulings (Q5-1 focus/blur -> camera_view; Q5-2 "hold" -> static camera in camera_movement; Q5-3 lighting stated in one shot -> location description if lasting, that shot if a state of the moment; Q5-4 ground is part of its location) and the rule that nothing ambiguous may be added.
+
+review-show prints the contract BEFORE the pass, the resulting change, every operation (O0, O1, ...) and every checked statement (C0, C1, ...).
+
+For every item give a verdict:
+- agree: the operation (or the outcome of the checked statement) follows the ruling and the prompt;
+- disagree: it misreads the ruling or the prompt, records something ambiguous, records it in the wrong place, or the outcome is wrong. Give the alternative you propose (concrete: which field, requirement or description, and what text).
+Then list in "missed" every prompt statement that one of the four rulings is about but that no checked row covers and the contract does not already handle correctly. Read every shot prompt yourself; do not rely on the hints.
+
+OUTPUT: write episodes/<id>/q5_review.json
+{"episode_id": "<id>", "items": [{"ref": "O0", "verdict": "agree", "basis": "one sentence"}, {"ref": "C1", "verdict": "disagree", "basis": "...", "alternative": "..."}],
+ "missed": [{"rule": "Q5-2", "shot_id": "Shot4", "quote": "exact prompt words", "proposal": "what should change"}]}
+items must cover every listed ref exactly once. "missed" is [] when nothing was missed.
+
+PROCEDURE for each episode
+1. nice -n 19 python3 q5_pass.py review-show <id>
+2. Write episodes/<id>/q5_review.json
+3. nice -n 19 python3 q5_pass.py review-record <id> episodes/<id>/q5_review.json until it prints RECORDED.
+Do not edit any other file.

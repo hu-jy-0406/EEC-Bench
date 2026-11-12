@@ -1,0 +1,164 @@
+{
+ "videos": 1000,
+ "missing": 0,
+ "missing_tasks": [],
+ "versions": {
+  "new": {
+   "mean": {
+    "uec": 82.01,
+    "v_l": 63.64,
+    "within": 96.56,
+    "cross": 85.85
+   },
+   "vv_confirmed": 3039,
+   "vv_unspecified": 319,
+   "vv_unspecified_share": 10.5,
+   "vl_confirmed": 12684,
+   "all_unspecified_share": 2.03
+  },
+  "plug": {
+   "mean": {
+    "uec": 81.61,
+    "v_l": 63.64,
+    "within": 96.71,
+    "cross": 84.5
+   },
+   "vv_confirmed": 3437,
+   "vv_unspecified": 833,
+   "vv_unspecified_share": 24.24,
+   "vl_confirmed": 12684,
+   "all_unspecified_share": 5.17
+  }
+ },
+ "per_model": {
+  "new": {
+   "cinetrans": {
+    "videos": 200,
+    "uec": 67.82,
+    "v_l": 21.71,
+    "within": 94.67,
+    "cross": 87.08
+   },
+   "holocine": {
+    "videos": 200,
+    "uec": 86.77,
+    "v_l": 65.74,
+    "within": 97.34,
+    "cross": 97.23
+   },
+   "storymem": {
+    "videos": 200,
+    "uec": 91.69,
+    "v_l": 83.98,
+    "within": 96.99,
+    "cross": 94.09
+   },
+   "wan21": {
+    "videos": 200,
+    "uec": 77.96,
+    "v_l": 64.2,
+    "within": 96.2,
+    "cross": 73.48
+   },
+   "wan22": {
+    "videos": 200,
+    "uec": 85.83,
+    "v_l": 82.56,
+    "within": 97.58,
+    "cross": 77.36
+   }
+  },
+  "plug": {
+   "cinetrans": {
+    "videos": 200,
+    "uec": 67.22,
+    "v_l": 21.71,
+    "within": 94.94,
+    "cross": 84.99
+   },
+   "holocine": {
+    "videos": 200,
+    "uec": 86.54,
+    "v_l": 65.74,
+    "within": 97.18,
+    "cross": 96.71
+   },
+   "storymem": {
+    "videos": 200,
+    "uec": 91.52,
+    "v_l": 83.98,
+    "within": 97.0,
+    "cross": 93.57
+   },
+   "wan21": {
+    "videos": 200,
+    "uec": 77.45,
+    "v_l": 64.2,
+    "within": 96.38,
+    "cross": 71.78
+   },
+   "wan22": {
+    "videos": 200,
+    "uec": 85.34,
+    "v_l": 82.56,
+    "within": 98.04,
+    "cross": 75.43
+   }
+  }
+ },
+ "ledger": {
+  "specified": 22190,
+  "unspecified": 8093
+ },
+ "v_l_identical_between_versions": 1000,
+ "usage": {
+  "new": {
+   "calls": 55844,
+   "input": 1116622314,
+   "cached": 455860805,
+   "output": 39830305,
+   "uncached": 660761509,
+   "standard_usd": 90.5499,
+   "billed_usd": 106.6358,
+   "calls_without_bill": 237
+  },
+  "plug_standalone": {
+   "calls": 70589,
+   "input": 1195982760,
+   "cached": 464508144,
+   "output": 56795392,
+   "uncached": 731474616,
+   "standard_usd": 106.1902,
+   "billed_usd": 123.9881,
+   "calls_without_bill": 292
+  },
+  "this_run": {
+   "calls": 71547,
+   "input": 1212332706,
+   "cached": 446843223,
+   "output": 58299286,
+   "uncached": 765489483,
+   "standard_usd": 110.167,
+   "billed_usd": 128.7697,
+   "calls_without_bill": 309
+  },
+  "failed_or_blocked": {
+   "calls": 200,
+   "input": 3242123,
+   "cached": 1124639,
+   "output": 125959,
+   "uncached": 2117484,
+   "standard_usd": 0.286,
+   "billed_usd": 0.3389,
+   "calls_without_bill": 0
+  }
+ },
+ "usage_basis": {
+  "standard": "GPT-6 Luna direct standard price: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; not a bill",
+  "billed": "OpenRouter usage.cost_usd per call",
+  "new": "every call of new (frontend, V-L, V-V detection and review, scoring)",
+  "plug_standalone": "new without its V-V review and scoring, plus plug-in detection, merged V-V review and plug-in scoring (V-L severities reused, no V-L scoring call)",
+  "this_run": "calls made by this run (the 40 validation videos only add their plug-in scoring here)",
+  "failed_or_blocked": "calls of unfinished (moderation-blocked) videos and of failed attempts in failed_attempts/; spent by this run in addition to this_run"
+ }
+}

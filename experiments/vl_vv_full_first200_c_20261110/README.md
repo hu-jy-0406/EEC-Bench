@@ -93,3 +93,7 @@ stored result.json files hold the old product scores and are not comparable. C a
   (367.6 M), 26.9 M, USD 70.32; C + plug-in 59,225 calls, 1,022.5 M (392.0 M), 42.2 M, USD 88.08.
 - Results page (owner request 2026-11-11): `build_results_page.py` (from `page_data.json`) -> `results_page.html`,
   https://claude.ai/artifact/A3JH7bxSu4wB3zh7TM8XUC (private until the owner shares it).
+- 2026-11-12: the results page (same URL) now shows C, C + plug-in, new and new + plug-in. It is built by
+  `../vl_vv_full_first200_new_20261111/build_results_page.py`; this folder's `results_page.html` is the previous
+  version. Standalone C costs are recomputed there with the first detection pass included (C 78.93,
+  C + plug-in 89.00 standard USD).

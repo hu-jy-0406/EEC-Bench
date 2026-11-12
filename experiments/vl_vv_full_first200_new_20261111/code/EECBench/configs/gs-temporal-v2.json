@@ -1,0 +1,62 @@
+{
+  "protocol": "temporal_v2",
+  "decision_date": "2026-09-20",
+  "expected_motion": "Default shot_binary_v1: one expected moving/static decision per entity per whole shot. Explicit legacy runtime profiles retain interval_v2.",
+  "within_shot": {
+    "shots": "all supplied shots including singleton scenes",
+    "spatial_frame_pairs": "all chronological keyframe combinations",
+    "spatial_population": "both entities classified static over the whole shot; explicit interval_v2 rollback retains interval eligibility",
+    "spatial_trigger": "3D relative-center-vector cosine < 0",
+    "presence_trigger": "missing retained observation at an expected-static keyframe",
+    "geometry": "original per-frame evidence, regardless of auxiliary fusion outlier flags",
+    "units": "one presence unit per entity; one spatial unit per entity pair per shot"
+  },
+  "cross_shot": {
+    "pairs": "consecutive occurrences of each scene in manifest order",
+    "identity_population": "all entities, no motion exclusion",
+    "frames": "exact previous final keyframe and next first keyframe",
+    "endpoint_substitution": false,
+    "other_frames": "contextual evidence only",
+    "conflict_witnesses": "each exact target endpoint required",
+    "spatial_conflicts": "existing independent local-reference/support and prompt-cause gates"
+  },
+  "registration": {
+    "default": "roma_fps32",
+    "alternatives": [
+      "roma_fps32",
+      "codex_direct"
+    ],
+    "evidence": "all original keyframes",
+    "roma_frame_pairs_for_six_frames_each": 36,
+    "fps_count": 32,
+    "objective": "sum_i ||s Rz(theta) Q_i + t - P_i||_2",
+    "weights": "uniform",
+    "residual_deletion": false,
+    "auxiliary_fused_boxes": "identity/registration only, never scoring geometry"
+  },
+  "score": {
+    "spatial": {
+      "protocol": "confirmed_anomaly_fraction_v1",
+      "formula": "100*(1-confirmed_conflict_pairs/total_pairs)",
+      "denominator": "all enumerated entity pairs, including exempt and unresolved pairs",
+      "counting": "each pair at most once per shot or same-scene boundary",
+      "nonnegative_cosine": "no_conflict (no anomaly proposal), not unknown solely for lack of review",
+      "coverage": false,
+      "empty_population_score": null
+    },
+    "presence": {
+      "formula": "100*(1-K/(C+K+U))",
+      "without_decided_evidence": null,
+      "coverage": "(C+K)/(C+K+U)"
+    },
+    "combined_total": false
+  },
+  "review_batch_size": 32,
+  "appearance": false,
+  "default_motion_definition": {
+    "moving": "applicable in-shot prompt action or original-frame-grounded natural dynamic",
+    "static": "no supported legitimate motion; unexplained drift must not self-exempt",
+    "observed_motion_classifier": false,
+    "anchor_stability": "assessed by original matching criteria, not inferred from binary static"
+  }
+}

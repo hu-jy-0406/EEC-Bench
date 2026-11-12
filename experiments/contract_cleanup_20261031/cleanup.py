@@ -141,7 +141,8 @@ def fmt_req(it, names, dim=None):
 
 
 def shots_of(c, key):
-    return [s['shot_id'] for s in c['shots'] if int(key) in s['presence'] or int(key) in s['absent']]
+    # String comparison also serves a working copy, whose keys are strings ("7", "7.0"; q5_pass.py renders it).
+    return [s['shot_id'] for s in c['shots'] if str(key) in map(str, s['presence'] + s['absent'])]
 
 
 def render_text(c, notes=True):
@@ -317,8 +318,47 @@ def apply_ops(c, ops):
                 k = w.key(op['entity'], tag)
                 if not op.get('description', '').strip():
                     raise ValueError('description must not be empty')
+                # Optional quotes (Q5 pass, 2026-11-05): an added attribute carries the prompt words it rests on.
+                quotes = op.get('quotes') or []
+                bad = [q for q in quotes if not quote_ok(w.texts, q.get('shot_id', ''), q.get('quote', ''))]
+                if bad:
+                    raise ValueError(f'quotes not found in their shot (or global): {bad}')
                 w.ents[k]['description'] = op['description']
+                w.ents[k]['evidence'] = w.ents[k].get('evidence', []) + [
+                    dict(shot_id=q['shot_id'], quote=q['quote']) for q in quotes
+                    if dict(shot_id=q['shot_id'], quote=q['quote']) not in w.ents[k].get('evidence', [])]
                 w.changed_entities.add(k)
+            elif kind == 'add_requirement':
+                # Q5 pass (2026-11-05): lighting that is a state of one shot becomes that shot's appearance requirement.
+                s = next((x for x in w.c['shots'] if x['shot_id'] == op.get('shot_id')), None)
+                dim = op.get('dimension')
+                if s is None or dim not in DIMS:
+                    raise ValueError(f'needs a valid shot_id and dimension in {DIMS}')
+                new = [w.key(x, tag) for x in op.get('entities') or []]
+                if not new or not op.get('expected', '').strip():
+                    raise ValueError('needs entities and expected')
+                if op.get('quantifier') not in QUANTS:
+                    raise ValueError(f'quantifier must be one of {QUANTS}')
+                if dim == 'appearance' and ('predicate' in op or 'coordinate_frame' in op):
+                    raise ValueError('appearance requirements have no predicate or coordinate_frame')
+                if dim != 'appearance' and (not op.get('predicate', '').strip() or op.get('coordinate_frame') not in FRAMES):
+                    raise ValueError(f'a {dim} requirement needs a predicate and a coordinate_frame in {FRAMES}')
+                quotes = op.get('quotes') or []
+                bad = [q for q in quotes if not (quote_ok(w.texts, s['shot_id'], q) or quote_ok(w.texts, 'global', q))]
+                if not quotes or bad:
+                    raise ValueError(f'needs quotes found in {s["shot_id"]} or global (not found: {bad})')
+                index = w.shot_ids.index(s['shot_id']) + 1
+                short = dict(appearance='app', spatial='spa', motion='mot')[dim]
+                used = [int(it['id'].rsplit('-', 1)[1]) for it in s[dim] if it['id'].startswith(f'S{index}-{short}-')]
+                rid = f'S{index}-{short}-{max(used, default=0) + 1}'
+                item = dict(id=rid, entities=new, expected=op['expected'], quantifier=op['quantifier'])
+                if dim != 'appearance':
+                    item.update(predicate=op['predicate'], coordinate_frame=op['coordinate_frame'])
+                item['evidence'] = [dict(shot_id=s['shot_id'] if quote_ok(w.texts, s['shot_id'], q) else 'global', quote=q)
+                                    for q in quotes]
+                item['source_claim_ids'] = []
+                s[dim].append(item)
+                w.changed_items.add(rid)
             elif kind == 'merge_entities':
                 into = w.key(op['into'], tag)
                 merge = [w.key(x, tag) for x in op['merge']]
@@ -397,8 +437,52 @@ def apply_ops(c, ops):
                 pos = order.index(k)
                 reordered = order[:pos] + new_keys + [x for x in order[pos + 1:] if x not in new_keys]
                 w.ents = collections.OrderedDict((x, w.ents[x]) for x in reordered)
+            elif kind == 'add_entity':
+                # Granularity pass (owner, 2026-11-11): a worn or carried item or a place part the prompt names becomes its
+                # own entity; it is listed only in the shots whose own prompt text mentions it (global: every shot listed).
+                nk = str(op.get('id', ''))
+                if not re.fullmatch(r'n[0-9]+', nk) or nk in w.ents:
+                    raise ValueError('id must be a new key n1, n2, ...')
+                if op.get('label') not in LABEL_ORDER:
+                    raise ValueError(f'label must be one of {LABEL_ORDER}')
+                if not op.get('name', '').strip() or not op.get('description', '').strip():
+                    raise ValueError('needs name and description')
+                ev = op.get('evidence') or []
+                bad = [q for q in ev if not quote_ok(w.texts, q.get('shot_id', ''), q.get('quote', ''))]
+                if not ev or bad:
+                    raise ValueError(f'needs evidence quotes found in their shot or global (not found: {bad})')
+                pres, absn = op.get('presence') or [], op.get('absent') or []
+                if not pres or any(sid not in w.shot_ids for sid in pres + absn) or set(pres) & set(absn) \
+                        or len(set(pres)) != len(pres) or len(set(absn)) != len(absn):
+                    raise ValueError('presence (non-empty) and absent must list distinct, valid shot ids')
+                cited = {q['shot_id'] for q in ev}
+                uncited = [sid for sid in pres + absn if sid not in cited and 'global' not in cited]
+                if uncited:
+                    raise ValueError(f'every listed shot needs an evidence quote from that shot (or a global quote): {uncited}')
+                w.ents[nk] = dict(label=op['label'], name=op['name'], description=op['description'],
+                                  evidence=[dict(shot_id=q['shot_id'], quote=q['quote']) for q in ev],
+                                  origin='granularity_pass_20261111', source_labels=[], cleanup=dict(added=op.get('rule')))
+                for s in w.c['shots']:
+                    if s['shot_id'] in pres:
+                        s['presence'].append(nk)
+                    if s['shot_id'] in absn:
+                        s['absent'].append(nk)
+                w.changed_entities.add(nk)
+            elif kind == 'retarget_requirement':
+                # Granularity pass: a requirement about a worn item or place part now refers to the item's own entity.
+                s, dim, it = w.find(op['id'])
+                new = [w.key(x, tag) for x in op.get('entities') or []]
+                if not new or len(set(new)) != len(new) or new == it['entities']:
+                    raise ValueError('entities must be a new, non-empty list of distinct entities')
+                it['entities'] = new
+                if 'expected' in op:
+                    if not op['expected'].strip():
+                        raise ValueError('expected must not be empty')
+                    it['expected'] = op['expected']
+                w.changed_items.add(it['id'])
             else:
-                raise ValueError('unknown op (remove_requirement, rewrite_requirement, set_camera, camera_to_cross_shot, edit_description, merge_entities, split_entity)')
+                raise ValueError('unknown op (remove_requirement, rewrite_requirement, set_camera, camera_to_cross_shot, edit_description, '
+                                 'add_requirement, merge_entities, split_entity, add_entity, retarget_requirement)')
         except (KeyError, TypeError) as e:
             err.append(f'{tag}: missing or malformed field {e}')
         except ValueError as e:

@@ -1,0 +1,19 @@
+You independently review how the owner's entity-granularity change (2026-11-11) was applied to the cleaned evaluation contract of one multi-shot video episode. Text work only: use ONLY the prompts printed by `python3 g_pass.py review-show <id>`. First read rules_g.txt: it states the change (G1 worn or carried items the prompt names become their own entities; G2 walls, floors, ceilings, ground, floor coverings, trees and plants the prompt names become their own entities), the presence rule (a new entity is listed only in the shots whose own prompt text mentions it; a global statement that applies to every shot: every shot of its wearer or place), what moves out of the wearer's or location's description, how requirements are retargeted, and the rule that nothing ambiguous may be added.
+
+review-show prints the contract BEFORE the pass, the resulting change, every operation (O0, O1, ...) and every checked mention (C0, C1, ...).
+
+For every item give a verdict:
+- agree: the operation (or the outcome of the checked mention) follows rules_g.txt and the prompt;
+- disagree: it misreads the rule or the prompt (for example an item that is a body feature, a missing pair or set grouping, a presence shot whose text does not mention the item, a shot that mentions it but is not listed, a description that adds words the prompt does not state or drops attributes that should stay with the wearer, a requirement retargeted wrongly or left on the wearer), records something ambiguous, or the outcome is wrong. Give the alternative you propose (concrete: which entity, shots, description or requirement, and what text).
+Then list in "missed" every prompt mention of a G1 item or G2 place part that no checked row covers and the contract does not already handle correctly. Read the global prompt and every shot prompt yourself; do not rely on the hints.
+
+OUTPUT: write episodes/<id>/g_review.json
+{"episode_id": "<id>", "items": [{"ref": "O0", "verdict": "agree", "basis": "one sentence"}, {"ref": "C1", "verdict": "disagree", "basis": "...", "alternative": "..."}],
+ "missed": [{"rule": "G1", "shot_id": "Shot4", "quote": "exact prompt words", "proposal": "what should change"}]}
+items must cover every listed ref exactly once. "missed" is [] when nothing was missed.
+
+PROCEDURE for each episode
+1. nice -n 19 python3 g_pass.py review-show <id>
+2. Write episodes/<id>/g_review.json
+3. nice -n 19 python3 g_pass.py review-record <id> episodes/<id>/g_review.json until it prints RECORDED.
+Do not edit any other file.

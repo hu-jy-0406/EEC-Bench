@@ -1,0 +1,35 @@
+{
+  "pipeline_revision": "anchor_then_joint_presence_v1",
+  "status": "experimental_branch",
+  "original_pipeline_preserved": "post_alignment_identity_review_v1",
+  "model": "gpt-6-astra",
+  "reasoning": "medium",
+  "stages": [
+    "all_frame_wedetect",
+    "isolated_shot_clustering",
+    "own_shot_geocalib_pi3x_boxer",
+    "isolated_shot_motion_and_static_fusion",
+    "structural_anchors_only",
+    "roma_matches_and_gravity_sim3",
+    "single_aligned_joint_identity_presence",
+    "all_unordered_pair_cosines",
+    "isolated_local_spatial_evidence",
+    "negative_candidate_original_frame_and_prompt_review",
+    "two_scores"
+  ],
+  "presence_judgments": 1,
+  "identity_inventory_conservation": true,
+  "registration_anchor_rejection": {
+    "with_zero_points": "record_removal_keep_transform",
+    "with_contributed_points": "remove_anchor_refit_and_fresh_joint_judgment",
+    "insufficient_remaining_anchors": "no_complete_spatial_score"
+  },
+  "scores": {
+    "formula": "100 * (1 - K / (C + K + U))",
+    "spatial_no_confirmed_conflict": 100,
+    "unknown_no_penalty": true,
+    "exempt_excluded_from_denominator": true
+  },
+  "implementation": "EECBench/experiments/study2_anchor_joint_fresh_20260918",
+  "full_fresh_test_case": "study2 Shot1/Shot3"
+}

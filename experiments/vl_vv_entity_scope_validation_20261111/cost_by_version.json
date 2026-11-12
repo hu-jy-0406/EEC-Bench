@@ -1,0 +1,347 @@
+{
+ "videos": 40,
+ "basis": {
+  "standard": "GPT-6 Luna direct standard price: USD 0.10/M uncached input, 0.01/M cached input, 0.50/M output; cached input is a subset of input; not a bill",
+  "billed": "OpenRouter usage.cost_usd per call (new versions only)"
+ },
+ "by_stage": {
+  "v3": {
+   "frontend": {
+    "calls": 415,
+    "input": 2896078,
+    "cached": 32283,
+    "output": 202691,
+    "uncached": 2863795,
+    "standard_usd": 0.388,
+    "billed_usd": null,
+    "calls_without_bill": 415
+   },
+   "vl_detection": {
+    "calls": 52,
+    "input": 2285445,
+    "cached": 656397,
+    "output": 265488,
+    "uncached": 1629048,
+    "standard_usd": 0.3022,
+    "billed_usd": null,
+    "calls_without_bill": 52
+   },
+   "vl_review": {
+    "calls": 37,
+    "input": 1181416,
+    "cached": 0,
+    "output": 78153,
+    "uncached": 1181416,
+    "standard_usd": 0.1572,
+    "billed_usd": null,
+    "calls_without_bill": 37
+   },
+   "vv_detection": {
+    "calls": 682,
+    "input": 21535604,
+    "cached": 11386416,
+    "output": 191666,
+    "uncached": 10149188,
+    "standard_usd": 1.2246,
+    "billed_usd": null,
+    "calls_without_bill": 682
+   },
+   "vv_review": {
+    "calls": 73,
+    "input": 2038979,
+    "cached": 211803,
+    "output": 112032,
+    "uncached": 1827176,
+    "standard_usd": 0.2409,
+    "billed_usd": null,
+    "calls_without_bill": 73
+   },
+   "episode_scoring": {
+    "calls": 68,
+    "input": 178777,
+    "cached": 0,
+    "output": 28140,
+    "uncached": 178777,
+    "standard_usd": 0.0319,
+    "billed_usd": null,
+    "calls_without_bill": 68
+   }
+  },
+  "c": {
+   "frontend_pass1_from_v3": {
+    "calls": 384,
+    "input": 2353481,
+    "cached": 0,
+    "output": 190915,
+    "uncached": 2353481,
+    "standard_usd": 0.3308,
+    "billed_usd": null,
+    "calls_without_bill": 384
+   },
+   "frontend": {
+    "calls": 720,
+    "input": 4150334,
+    "cached": 70370,
+    "output": 328659,
+    "uncached": 4079964,
+    "standard_usd": 0.573,
+    "billed_usd": null,
+    "calls_without_bill": 720
+   },
+   "vl_detection": {
+    "calls": 50,
+    "input": 2143945,
+    "cached": 508690,
+    "output": 260494,
+    "uncached": 1635255,
+    "standard_usd": 0.2989,
+    "billed_usd": null,
+    "calls_without_bill": 50
+   },
+   "vl_review": {
+    "calls": 36,
+    "input": 1217975,
+    "cached": 0,
+    "output": 88148,
+    "uncached": 1217975,
+    "standard_usd": 0.1659,
+    "billed_usd": null,
+    "calls_without_bill": 36
+   },
+   "vv_detection": {
+    "calls": 760,
+    "input": 24572521,
+    "cached": 13333158,
+    "output": 220540,
+    "uncached": 11239363,
+    "standard_usd": 1.3675,
+    "billed_usd": null,
+    "calls_without_bill": 760
+   },
+   "vv_review": {
+    "calls": 82,
+    "input": 2385896,
+    "cached": 362808,
+    "output": 129026,
+    "uncached": 2023088,
+    "standard_usd": 0.2704,
+    "billed_usd": null,
+    "calls_without_bill": 82
+   },
+   "episode_scoring": {
+    "calls": 71,
+    "input": 194815,
+    "cached": 0,
+    "output": 32957,
+    "uncached": 194815,
+    "standard_usd": 0.036,
+    "billed_usd": null,
+    "calls_without_bill": 71
+   },
+   "plugin_detection": {
+    "calls": 446,
+    "input": 2179084,
+    "cached": 0,
+    "output": 445935,
+    "uncached": 2179084,
+    "standard_usd": 0.4409,
+    "billed_usd": null,
+    "calls_without_bill": 446
+   },
+   "plug_vv_review": {
+    "calls": 83,
+    "input": 2395260,
+    "cached": 833549,
+    "output": 145599,
+    "uncached": 1561711,
+    "standard_usd": 0.2373,
+    "billed_usd": null,
+    "calls_without_bill": 83
+   },
+   "plug_episode_scoring": {
+    "calls": 71,
+    "input": 194269,
+    "cached": 125846,
+    "output": 31232,
+    "uncached": 68423,
+    "standard_usd": 0.0237,
+    "billed_usd": null,
+    "calls_without_bill": 71
+   }
+  },
+  "new": {
+   "frontend": {
+    "calls": 1179,
+    "input": 7705700,
+    "cached": 370663,
+    "output": 749698,
+    "uncached": 7335037,
+    "standard_usd": 1.1121,
+    "billed_usd": 1.2953,
+    "calls_without_bill": 0
+   },
+   "vl_detection": {
+    "calls": 59,
+    "input": 2912931,
+    "cached": 75805,
+    "output": 348825,
+    "uncached": 2837126,
+    "standard_usd": 0.4589,
+    "billed_usd": 0.5298,
+    "calls_without_bill": 0
+   },
+   "vl_review": {
+    "calls": 39,
+    "input": 1269241,
+    "cached": 0,
+    "output": 82715,
+    "uncached": 1269241,
+    "standard_usd": 0.1683,
+    "billed_usd": 0.2,
+    "calls_without_bill": 0
+   },
+   "vv_detection": {
+    "calls": 762,
+    "input": 28400928,
+    "cached": 16901892,
+    "output": 199654,
+    "uncached": 11499036,
+    "standard_usd": 1.4187,
+    "billed_usd": 1.7062,
+    "calls_without_bill": 0
+   },
+   "vv_review": {
+    "calls": 80,
+    "input": 2300344,
+    "cached": 0,
+    "output": 109639,
+    "uncached": 2300344,
+    "standard_usd": 0.2849,
+    "billed_usd": 0.3424,
+    "calls_without_bill": 0
+   },
+   "episode_scoring": {
+    "calls": 70,
+    "input": 175057,
+    "cached": 0,
+    "output": 28942,
+    "uncached": 175057,
+    "standard_usd": 0.032,
+    "billed_usd": 0.0363,
+    "calls_without_bill": 0
+   },
+   "plugin_detection": {
+    "calls": 587,
+    "input": 2955365,
+    "cached": 0,
+    "output": 646256,
+    "uncached": 2955365,
+    "standard_usd": 0.6187,
+    "billed_usd": 0.6925,
+    "calls_without_bill": 0
+   },
+   "plug_vv_review": {
+    "calls": 89,
+    "input": 2652487,
+    "cached": 350034,
+    "output": 147626,
+    "uncached": 2302453,
+    "standard_usd": 0.3076,
+    "billed_usd": 0.3651,
+    "calls_without_bill": 0
+   },
+   "plug_episode_scoring": {
+    "calls": 73,
+    "input": 185279,
+    "cached": 114109,
+    "output": 28964,
+    "uncached": 71170,
+    "standard_usd": 0.0227,
+    "billed_usd": 0.0245,
+    "calls_without_bill": 0
+   }
+  }
+ },
+ "versions": {
+  "v3": {
+   "calls": 1327,
+   "input": 30116299,
+   "cached": 12286899,
+   "output": 878170,
+   "uncached": 17829400,
+   "standard_usd": 2.3449,
+   "billed_usd": null,
+   "calls_without_bill": 1327
+  },
+  "c_as_run": {
+   "calls": 1719,
+   "input": 34665486,
+   "cached": 14275026,
+   "output": 1059824,
+   "uncached": 20390460,
+   "standard_usd": 2.7117,
+   "billed_usd": null,
+   "calls_without_bill": 1719
+  },
+  "c_standalone": {
+   "calls": 2103,
+   "input": 37018967,
+   "cached": 14275026,
+   "output": 1250739,
+   "uncached": 22743941,
+   "standard_usd": 3.0425,
+   "billed_usd": null,
+   "calls_without_bill": 2103
+  },
+  "c_plug_as_run": {
+   "calls": 2319,
+   "input": 39434099,
+   "cached": 15234421,
+   "output": 1682590,
+   "uncached": 24199678,
+   "standard_usd": 3.4136,
+   "billed_usd": null,
+   "calls_without_bill": 2319
+  },
+  "c_plug_standalone": {
+   "calls": 2550,
+   "input": 39206869,
+   "cached": 14871613,
+   "output": 1711522,
+   "uncached": 24335256,
+   "standard_usd": 3.438,
+   "billed_usd": null,
+   "calls_without_bill": 2550
+  },
+  "new": {
+   "calls": 2189,
+   "input": 42764201,
+   "cached": 17348360,
+   "output": 1519473,
+   "uncached": 25415841,
+   "standard_usd": 3.4748,
+   "billed_usd": 4.11,
+   "calls_without_bill": 0
+  },
+  "new_plug_as_run": {
+   "calls": 2938,
+   "input": 48557332,
+   "cached": 17812503,
+   "output": 2342319,
+   "uncached": 30744829,
+   "standard_usd": 4.4238,
+   "billed_usd": 5.192,
+   "calls_without_bill": 0
+  },
+  "new_plug_standalone": {
+   "calls": 2788,
+   "input": 46081931,
+   "cached": 17812503,
+   "output": 2203738,
+   "uncached": 28269428,
+   "standard_usd": 4.1069,
+   "billed_usd": 4.8134,
+   "calls_without_bill": 0
+  }
+ }
+}

@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV episode entity ledger v2 (simplified, written by matching v2)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "protocol",
+    "ledger_format",
+    "matching_protocol",
+    "status",
+    "shot_order",
+    "prompt_bound",
+    "prompt_unbound"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "vl_vv_detection_v1"
+    },
+    "ledger_format": {
+      "const": "vl_vv_entity_ledger_v2"
+    },
+    "matching_protocol": {
+      "const": "vl_vv_unspecified_matching_v2"
+    },
+    "status": {
+      "const": "matched"
+    },
+    "shot_order": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "prompt_bound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/specified"
+      }
+    },
+    "prompt_unbound": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/unspecified"
+      }
+    }
+  },
+  "$defs": {
+    "specified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "global_entity_id",
+        "prompt_entity_id",
+        "name",
+        "description",
+        "occurrences"
+      ],
+      "properties": {
+        "global_entity_id": {
+          "type": "string",
+          "pattern": "^pb[0-9]{4}$"
+        },
+        "prompt_entity_id": {
+          "type": [
+            "string",
+            "integer"
+          ]
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "occurrences": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/occurrence"
+          }
+        }
+      }
+    },
+    "unspecified": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "global_entity_id",
+        "name",
+        "description",
+        "occurrences"
+      ],
+      "properties": {
+        "global_entity_id": {
+          "type": "string",
+          "pattern": "^ge[0-9]{4}$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "occurrences": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/occurrence"
+          }
+        }
+      }
+    },
+    "occurrence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "shot_id",
+        "local_entity_id",
+        "boxes"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "local_entity_id": {
+          "type": "string"
+        },
+        "boxes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "frame_id",
+              "box_xyxy"
+            ],
+            "properties": {
+              "frame_id": {
+                "type": "integer"
+              },
+              "box_xyxy": {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 4,
+                "maxItems": 4
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

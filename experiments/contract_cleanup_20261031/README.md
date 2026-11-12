@@ -61,11 +61,18 @@ copies of the previous files are in
 `EECBench/experiments/vl_vv_contract_v2_adapt_20261101/`. `manifest.json` pins
 the v2 inputs after that change.
 
-## Pending owner rulings (2026-11-01, not yet applied)
+## Owner rulings on four boundaries (2026-11-01; applied to 1-200 on 2026-11-05)
 
-The owner has ruled on the four boundaries that `rules_cleanup.txt` still
-marks as owner-deferred: focus/blur is camera information (`camera_view`);
-"hold the shot" is a static camera in `camera_movement`; one-shot lighting
-goes to the location or that shot by context; street/snow ground is part of
-the location. Apply them to all 400 contracts later (update the rules files
-first), then recompute Table 3. Details: `EECBench/docs/open-questions.md` Q5.
+Focus/blur is camera information (`camera_view`); "hold the shot" is a static camera in `camera_movement`;
+one-shot lighting goes to the location or that shot by context; street/snow ground is part of the location.
+Applied to the first 200 with `q5_pass.py` (operations appended to each episode's cleanup operations,
+re-finalized, independently reviewed, rulings by the main session) and exported to `deliverables/`
+(previous files in `q5_20261105/deliverables_before/`). Rules `rules_q5.txt`, review `rules_q5_review.txt`,
+report `q5_20261105/REPORT.md`. `rules_cleanup.txt` now states the rulings for the remaining 200.
+
+## Worn items and place parts as entities (owner, 2026-11-11; applied to 1-200 the same day)
+
+Owner: "所有类别都加吧，同步改contract"; presence only in the shots whose own text mentions the item. Applied with
+`g_pass.py` (rules `rules_g.txt`, review `rules_g_review.txt`, resolution `rules_g_resolve.txt`) and exported to
+`deliverables/` (previous files in `g_20261111/deliverables_before/`); report `g_20261111/REPORT.md`. Priority
+201-400 get the same rules when they are cleaned.

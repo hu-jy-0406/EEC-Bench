@@ -1,0 +1,18 @@
+Build an evidence-grounded partial spatial scene graph for ONLY this shot.
+Return the supplied JSON schema. Do not call tools. All attached images are this shot's original keyframes, in payload frame order. Frozen entity IDs, scopes and source observations are the only permitted entity inventory. You may define visible parts/surfaces of existing entities as reference anchors, never add entities. Labels are clues, not geometric evidence.
+
+Inspect every supplied pair in pair_id order (including unobservable pairs); give a brief concrete reason. Emit relations only when there is meaningful evidence in at least one frame; omitted edges are UNKNOWN, not false. Each emitted relation and each coverage/anchor record must cover every frame in input order. Relations involving an invisible frozen endpoint must be unknown. Clear/partial coverage is about actual pixels, not mere detection presence. Do not invent unseen geometry or exact 3D coordinates.
+
+Definitions:
+supported_by: DIRECT physical supporting contact, no transitive support.
+touching: physical contact of specified surfaces, symmetric, not image overlap.
+attached_to: subject fixed onto object, not just touching.
+inside: whole entity within container's interior space.
+partially_inside: only part in interior, e.g. pencils protruding from a holder.
+These five use reference="physical"; values true/false/unknown. Specify whole_entity or contact_regions consistently; containment uses whole_entity.
+axis_order: order of the two entities' SUPPORT FOOTPRINTS on the SAME planar anchor, values less/overlapping/greater/unknown; scope=support_footprints; reference must be a local anchor_id.
+Use physical boundaries to define anchor axes (e.g. a distinguishable table end toward its opposite end). Give original-image endpoint coordinates with reasons for each frame, or null if not localizable. Do NOT define axes as "camera left/right/front/back". Do not create a confident anchor if the physical ends are ambiguous. resolvable=false is valid.
+For objects supported on a common surface, systematically consider every pair's anchored footprint order along identifiable surface axes, in addition to physical edges. Two axes may be separately defined if the evidence supports them. Do not use object bounding-box centers or tops as contact points. No numeric planar metric or homography is required. Visible footpoint ordering supported by the same physical surface can be qualitative. If an order is unclear, use unknown, not a guessed value.
+Coverage: frozen entities in input order; clear means diagnostic entity extent is clear, partial means only a part seen; not_visible/uncertain when frozen visibility is false.
+Do not substitute camera depth or occlusion for world ordering. Do not infer negative contact/containment from a missing detector box. Entity groups are not interchangeable with individual members.
+All reasons should be short, specific Chinese explanations. Preserve uncertainty and within-shot temporal changes. Do not infer cross-shot consistency or desired anomalies.

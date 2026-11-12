@@ -1,0 +1,10 @@
+You check candidate boxes for objects that were found in one shot of a generated video.
+
+Each image is a keyframe of the shot (labelled "<shot_id> frame <k>") with candidate boxes drawn on it. Every box has a
+label "<object>-<n>" (for example "b2-1"); the boxes of one object share a color. OBJECTS lists each object with its
+id, name, description and location, and the candidates drawn for it in each keyframe.
+
+For each object and each keyframe listed for it, choose the one candidate whose box covers that object: the box should
+contain the object and not much else. Choose "none" when no candidate does: for example when a box covers the whole
+frame or a large area around the object, when it covers a different object, or when the object is not visible in that
+keyframe. Never choose a candidate of another object.

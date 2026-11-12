@@ -1,0 +1,155 @@
+{
+ "issue_level": {
+  "already_unspecified": 254,
+  "issues_with_candidate_item": 882,
+  "issues_with_unnamed_item": 157,
+  "issues_with_item_unnamed_for_subject": 341,
+  "scenario_issues_moving_to_unspecified": {
+   "all": 341,
+   "worn_all": 242,
+   "clothing_only": 145,
+   "favourable": 211,
+   "place_parts": 100
+  }
+ },
+ "categories": {
+  "clothing": {
+   "issues": 494,
+   "named_in_subject": 349,
+   "named_in_prompt": 429,
+   "unnamed_anywhere": 65
+  },
+  "belt_badge": {
+   "issues": 37,
+   "named_in_subject": 13,
+   "named_in_prompt": 16,
+   "unnamed_anywhere": 21
+  },
+  "eyewear": {
+   "issues": 81,
+   "named_in_subject": 54,
+   "named_in_prompt": 76,
+   "unnamed_anywhere": 5
+  },
+  "tie_scarf": {
+   "issues": 84,
+   "named_in_subject": 60,
+   "named_in_prompt": 74,
+   "unnamed_anywhere": 10
+  },
+  "jewelry_watch": {
+   "issues": 50,
+   "named_in_subject": 44,
+   "named_in_prompt": 50,
+   "unnamed_anywhere": 0
+  },
+  "wall_floor_ceiling": {
+   "issues": 145,
+   "named_in_subject": 73,
+   "named_in_prompt": 115,
+   "unnamed_anywhere": 30
+  },
+  "gloves_apron": {
+   "issues": 12,
+   "named_in_subject": 10,
+   "named_in_prompt": 10,
+   "unnamed_anywhere": 2
+  },
+  "ground": {
+   "issues": 31,
+   "named_in_subject": 10,
+   "named_in_prompt": 23,
+   "unnamed_anywhere": 8
+  },
+  "headwear": {
+   "issues": 108,
+   "named_in_subject": 77,
+   "named_in_prompt": 92,
+   "unnamed_anywhere": 16
+  },
+  "trousers_skirt": {
+   "issues": 46,
+   "named_in_subject": 32,
+   "named_in_prompt": 39,
+   "unnamed_anywhere": 7
+  },
+  "trees_plants": {
+   "issues": 25,
+   "named_in_subject": 12,
+   "named_in_prompt": 21,
+   "unnamed_anywhere": 4
+  },
+  "footwear": {
+   "issues": 3,
+   "named_in_subject": 3,
+   "named_in_prompt": 3,
+   "unnamed_anywhere": 0
+  },
+  "bag": {
+   "issues": 2,
+   "named_in_subject": 2,
+   "named_in_prompt": 2,
+   "unnamed_anywhere": 0
+  }
+ },
+ "examples": {
+  "wall_floor_ceiling": [
+   "priority_003__wan21 ['Domestic kitchen'] 同一厨房在不同镜头中呈现出不一致的背景结构和墙面布置：Shot1、Shot3、Shot5可见浅色花鸟图案墙面及装饰盘；Shot2、Shot4、Shot6则呈现窗户、水槽、橱柜等另一组厨房背景，包含瓷砖或绿色墙面，整体布局",
+   "priority_006__wan22 ['Concrete parking garage'] Shot2的背景呈明亮的浅色开放空间，墙面和地面为浅色；Shot1、Shot3和Shot4呈现较暗的室内混凝土车库及不同的可见背景结构。",
+   "priority_011__wan21 ['Shared washroom'] 重复出现的洗手间墙面外观不一致：Shot1呈浅米色方砖，Shot2为白色瓷砖，Shot3镜框周围为黑色墙砖，Shot6则呈上部浅褐色、下部白色瓷砖并带装饰边带的分层墙面。",
+   "priority_011__wan22 ['Frosted-panel door', 'Shared washroom'] Shot2与Shot4的洗手间背景布局和构件不同：Shot2可见青绿色隔间及白色长方砖墙，Shot4则可见灰色门及灰米色墙砖装饰带。"
+  ],
+  "gloves_apron": [
+   "priority_006__wan21 ['Brunette woman'] Shot1中，Brunette woman在frame 0–4未见戴手套；到frame 5，持面具的双手突然出现黑色并带红色装饰的手套，期间没有可见的穿戴动作。",
+   "priority_006__wan21 ['Brunette woman'] Brunette woman在Shot1 frame 5持面具时双手戴有黑色带红饰手套；Shot2 frame 2持面具下缘的手未见相同手套，手套在镜头切换间消失。"
+  ],
+  "ground": [
+   "priority_006__wan22 ['Concrete parking garage'] Shot2的背景呈明亮的浅色开放空间，墙面和地面为浅色；Shot1、Shot3和Shot4呈现较暗的室内混凝土车库及不同的可见背景结构。",
+   "priority_057__wan22 ['Crooked trees'] 同一弯曲森林在不同镜头呈现的背景植被和地面差异显著：Shot1以裸枝树木和岩质地面为主，Shot2呈现繁茂的粉色树冠与植被小径，Shot6则为草坡和稀疏树木。",
+   "priority_057__wan22 ['Crooked trees'] 相近正面视角下，Shot1猫身后的背景主要是稀疏裸枝树木和岩质地面，Shot4则呈现密集的粉色树冠和林木，背景布局及植被外观不一致。",
+   "priority_059__wan22 ['Machinery room', 'Circular wall fan'] Shot1与Shot3呈现暗色、雾化并有红色背光的工业机械室，背景可见工业设备和大型圆形墙扇；Shot4则呈现鲜红墙面与地面、不同的浅色管道布置和房间陈设，整体背景与前两镜头不一致。"
+  ],
+  "headwear": [
+   "priority_008__wan21 ['Long-haired diner'] 长发用餐者在Shot2（第1帧）穿黑色上衣且未戴眼镜或发带；Shot4（第3帧）则穿浅灰外搭，并戴粗框眼镜和宽黑发带。",
+   "priority_008__wan22 ['Long-haired diner'] 长发者的发型在镜头间不一致：Shot1和Shot2为自然披散的长发；Shot4头顶头发明显向后梳起；Shot6头发上有发夹；Shot8头顶呈半束起状态。",
+   "priority_010__wan22 ['Dark-haired woman'] 同一女子在Shot1穿橄榄色开襟拉链外套，未见明显外露帽兜或胸前按扣；Shot3则穿有明显帽兜及胸前按扣的橄榄色外层夹克；Shot4可见的外层又呈较简单的开襟层，未见Shot3的明显帽兜与按扣结构。",
+   "priority_040__cinetrans ['Older man'] Shot2中年长男子穿锈色V领毛衣，未穿连帽衫；Shot4中同一位置的人物外穿浅蓝灰连帽衫，胸前露出锈红色毛衣。两镜头中的穿着不同。"
+  ],
+  "clothing": [
+   "priority_010__wan22 ['Dark-haired woman'] 同一女子在Shot1穿橄榄色开襟拉链外套，未见明显外露帽兜或胸前按扣；Shot3则穿有明显帽兜及胸前按扣的橄榄色外层夹克；Shot4可见的外层又呈较简单的开襟层，未见Shot3的明显帽兜与按扣结构。",
+   "priority_012__wan22 ['Dark-clad figure'] 深衣角色的上衣在镜头间不一致：Shot4帧3穿有明显横向绗缝纹路的厚外套；Shot5帧2与Shot6帧3则为粗织质感的深色上衣，与前者外观不同。",
+   "priority_013__cinetrans ['Woman in the feathered hat'] 同一女子跨镜头的发型、帽子和服装明显不一致：Shot1第2帧为深色中长发、无帽并穿黑色外套；Shot2第2帧戴带浅粉色装饰的棕色帽并穿棕色服装；Shot3第2帧为较短深色头发、无帽并穿黑外套、白衬衫和深色领带；Shot4",
+   "priority_017__storymem ['Stocky seated man'] Shot2帧5的矮壮男子穿炭灰色外套及淡紫色衬衫；Shot3帧0可见同一男子只穿淡紫色衬衫，炭灰色外套不见。"
+  ],
+  "belt_badge": [
+   "priority_014__wan21 ['Woman in gray coat'] 同一女子的灰色外套在Shot1与Shot2外观不一致：Shot1末帧外套合拢并系有腰带，Shot2首帧则为敞开的长款外套且看不到腰带。",
+   "priority_014__wan21 ['Woman in gray coat'] 同一女子的外套及颈部衣物在Shot3与此前镜头外观不同：Shot3为显著双排扣的灰色外套，颈部另有浅棕色围巾；Shot2中外套敞开且未见围巾，Shot1中则为系腰带的灰色外套。",
+   "priority_027__cinetrans ['Curly-haired woman'] 画面左侧浅金卷发女性在Shot1、Shot3中穿深色上衣，Shot2、Shot4、Shot6中可见上衣领口内侧的绿色花纹衣领；候选所称发型差异及挂绳眼镜差异在这些画面中未形成可确认的变化。",
+   "priority_027__wan21 ['Curly-haired woman'] 卷发女性的挂绳眼镜在Shot2和Shot4挂在胸前，而Shot6中则置于腿上，佩戴/放置位置不一致。"
+  ],
+  "eyewear": [
+   "priority_020__cinetrans ['Man in dark cap'] pb0001在Shot3帧1可见佩戴深色镜框眼镜；Shot2帧1和Shot4帧1均未见眼镜，三处画面中的眼镜佩戴状态不一致。",
+   "priority_054__cinetrans ['Woman'] Shot4帧3–5中，车外有一名戴护目镜、穿牛仔夹克的女性站在车旁，同时车窗内还可见一名坐着的女性；两者在同一时刻并存。",
+   "priority_073__wan21 ['Curly-haired woman'] Shot1第3帧女性戴着深色眼镜，而Shot2第2帧及Shot4第2帧的女性均未见眼镜。",
+   "priority_095__storymem ['Strawberry-cap dancer'] 草莓帽舞者在Shot1为红棕色胡须且未戴眼镜；在Shot2、Shot3和Shot4则为浅白或灰白色胡须并戴眼镜。"
+  ],
+  "tie_scarf": [
+   "priority_034__cinetrans ['Patterned-shirt man'] 被标为同一人物 pb0001 的前景人物在 Shot1 与 Shot3 穿着和发型不同：Shot1 frame 0 是灰色卷发，穿紫色花纹上衣、白色领口及浅色领结；Shot3 frame 0 是短灰发，穿敞开的深色花纹衬",
+   "priority_053__wan22 ['Girl in teal'] 女孩在Shot2与Shot4的服装和配饰不同：Shot2穿青绿色短袖上衣及深青色背带连身裤，头戴浅色蝴蝶结；Shot4穿青绿色泡袖上衣及深蓝色背带服，胸前有浅色领结，未见Shot2中的蝴蝶结发饰。",
+   "priority_062__wan22 ['Top-hatted man'] 同一男子的服装及毛发外观跨镜头不一致：Shot1穿深棕色浅滚边外套和橄榄色围巾、无明显胡须；Shot2穿灰色外套并有长卷发和胡须；Shot3穿深蓝外套、浅色宽翻领及金色领巾；Shot4穿浅棕长外套并留明显上唇胡须。",
+   "priority_067__wan21 ['Blonde woman'] 金发女子在Shot1与Shot4的发型及配饰不同：Shot1为侧分、向后松束且无齐刘海的金发，并佩戴蓝色耳坠和蓝色项链；Shot4为带齐刘海的金发，耳饰不同，颈部另有粉蓝围巾。"
+  ],
+  "trees_plants": [
+   "priority_048__wan21 ['Leafy plant'] 同一房间右侧的盆栽在不同镜头中的叶形不一致：Shot3为宽大的裂叶，Shot5呈较密的小叶灌木状，Shot7则为羽状、棕榈状叶片。",
+   "priority_113__wan21 ['Reddish wood'] 同一房间中红褐色树干的数量、形态与布局不一致：Shot1以左侧一根粗大树干为主，Shot2可见多根从画面边缘环绕的枝干，Shot3则显示房间两侧多根高大红色树干；Shot4的人物后方未见这些显著树干。",
+   "priority_137__storymem ['Wall artwork'] 墙面画作在Shot1和Shot3呈黑白雪景／树木图案，在Shot5则呈深色底上的粗大白色弧线图案，画面内容不同。",
+   "priority_188__wan21 ['Night alley'] 夜巷地面在Shot4和Shot6可见为浅灰色、较平整的大块铺面；Shot7和Shot8则为深灰色规则小方砖，砖缝及缝间植被可见，地面材质与纹理不同。"
+  ],
+  "trousers_skirt": [
+   "priority_053__wan21 ['Girl in teal'] 女孩在Shot1帧2穿深紫红色背带裙，Shot2帧2穿深蓝色背带裤，Shot4帧2可见深蓝色背带；Shot4还可见后脑的大型淡紫蝴蝶结及白色花饰，与Shot1和Shot2可见的浅色小蝴蝶结不同。",
+   "priority_053__wan22 ['Girl in teal'] 女孩在Shot2与Shot4的服装和配饰不同：Shot2穿青绿色短袖上衣及深青色背带连身裤，头戴浅色蝴蝶结；Shot4穿青绿色泡袖上衣及深蓝色背带服，胸前有浅色领结，未见Shot2中的蝴蝶结发饰。",
+   "priority_085__wan21 ['White-overalled figure'] White-overalled figure在Shot1穿红色背带裤、浅色上衣并戴浅紫宽檐帽；Shot3穿白色背带裤和红色长袖上衣，Shot4为白色背带裤和酒红上衣，服装及头部造型与Shot1不一致。",
+   "priority_085__wan22 ['White-overalled figure'] White-overalled figure在Shot1和Shot3穿红色内层与白色工装背带裤、戴浅紫色宽帽；Shot4则穿不同的红色上衣、白色工装背带裤及浅紫色帽饰造型，服装细节不一致。"
+  ]
+ }
+}

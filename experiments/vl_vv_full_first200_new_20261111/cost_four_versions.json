@@ -1,0 +1,316 @@
+{
+ "videos": 1000,
+ "definitions": "Standalone API tokens and cost of C, C + plug-in, new and new + plug-in on the 1,000 first-200 videos, per model\n(zero model calls). Same method as ../vl_vv_entity_scope_validation_20261111/cost_by_version.py (40 videos), extended\nto all videos:\n  C           ../vl_vv_full_first200_c_20261110/runs/<t>: discovery, boxchoice, case, results/, plus the first detection\n              pass (clustering + prompt binding: v3 case entities/ and shot_prompt_recovery/) that the C run took from\n              the v3 case instead of calling the model again; the C totals reported on 2026-11-11 left it out;\n  C + plug    C without its own V-V review and scoring, plus branch/ (U1-U3) and results_with/ (merged V-V review,\n              scoring with its own V-L severity call);\n  new         case/ (incl. background frontend) and results/, plus billed cut-off replies that were resent; the 40\n              reused validation videos from ../vl_vv_entity_scope_validation_20261111;\n  new + plug  new without its V-V review and V-V scoring call, plus results_with/ (plug-in, merged V-V review, V-V\n              scoring); new's V-L severity call (results/episode_scoring/call_vl), reused by the plug-in scoring, counts.\nStandard estimate: GPT-6 Luna direct standard price (USD 0.10/M uncached input, 0.01/M cached, 0.50/M output), not a\nbill. Billed: OpenRouter usage.cost_usd (new versions; C ran on direct OpenAI, whose bill is not available here; the four\nnew videos rerun through direct OpenAI have no bill either). Failed attempts are excluded (standalone cost of the\nfinished pipeline). Writes cost_four_versions.json.",
+ "totals": {
+  "c": {
+   "cinetrans": {
+    "calls": 10697,
+    "input": 197798259,
+    "cached": 75968066,
+    "output": 7522423,
+    "uncached": 121830193,
+    "standard_usd": 16.7039,
+    "billed_usd": 0,
+    "calls_without_bill": 10697
+   },
+   "holocine": {
+    "calls": 10612,
+    "input": 187194274,
+    "cached": 72309580,
+    "output": 5579519,
+    "uncached": 114884694,
+    "standard_usd": 15.0013,
+    "billed_usd": 0,
+    "calls_without_bill": 10612
+   },
+   "storymem": {
+    "calls": 10794,
+    "input": 189020010,
+    "cached": 72351915,
+    "output": 5639854,
+    "uncached": 116668095,
+    "standard_usd": 15.2103,
+    "billed_usd": 0,
+    "calls_without_bill": 10794
+   },
+   "wan21": {
+    "calls": 10885,
+    "input": 194654921,
+    "cached": 74262321,
+    "output": 6867415,
+    "uncached": 120392600,
+    "standard_usd": 16.2156,
+    "billed_usd": 0,
+    "calls_without_bill": 10885
+   },
+   "wan22": {
+    "calls": 10891,
+    "input": 192216353,
+    "cached": 72809454,
+    "output": 6258657,
+    "uncached": 119406899,
+    "standard_usd": 15.7981,
+    "billed_usd": 0,
+    "calls_without_bill": 10891
+   },
+   "all": {
+    "calls": 53879,
+    "input": 960883817,
+    "cached": 367701336,
+    "output": 31867868,
+    "uncached": 593182481,
+    "standard_usd": 78.9292,
+    "billed_usd": 0,
+    "calls_without_bill": 53879
+   }
+  },
+  "c_plug": {
+   "cinetrans": {
+    "calls": 12304,
+    "input": 205759345,
+    "cached": 81200490,
+    "output": 8536098,
+    "uncached": 124558855,
+    "standard_usd": 17.5359,
+    "billed_usd": 0,
+    "calls_without_bill": 12304
+   },
+   "holocine": {
+    "calls": 12715,
+    "input": 198065602,
+    "cached": 75906489,
+    "output": 7309556,
+    "uncached": 122159113,
+    "standard_usd": 16.6298,
+    "billed_usd": 0,
+    "calls_without_bill": 12715
+   },
+   "storymem": {
+    "calls": 13546,
+    "input": 203030910,
+    "cached": 74934804,
+    "output": 8554697,
+    "uncached": 128096106,
+    "standard_usd": 17.8363,
+    "billed_usd": 0,
+    "calls_without_bill": 13546
+   },
+   "wan21": {
+    "calls": 13285,
+    "input": 207219697,
+    "cached": 78050934,
+    "output": 9503697,
+    "uncached": 129168763,
+    "standard_usd": 18.4492,
+    "billed_usd": 0,
+    "calls_without_bill": 13285
+   },
+   "wan22": {
+    "calls": 13564,
+    "input": 205792213,
+    "cached": 75146270,
+    "output": 9470707,
+    "uncached": 130645943,
+    "standard_usd": 18.5514,
+    "billed_usd": 0,
+    "calls_without_bill": 13564
+   },
+   "all": {
+    "calls": 65414,
+    "input": 1019867767,
+    "cached": 385238987,
+    "output": 43374755,
+    "uncached": 634628780,
+    "standard_usd": 89.0026,
+    "billed_usd": 0,
+    "calls_without_bill": 65414
+   }
+  },
+  "new": {
+   "cinetrans": {
+    "calls": 11286,
+    "input": 231343972,
+    "cached": 91334204,
+    "output": 9438383,
+    "uncached": 140009768,
+    "standard_usd": 19.6335,
+    "billed_usd": 23.131,
+    "calls_without_bill": 0
+   },
+   "holocine": {
+    "calls": 10999,
+    "input": 216277453,
+    "cached": 90281007,
+    "output": 7049515,
+    "uncached": 125996446,
+    "standard_usd": 17.0272,
+    "billed_usd": 19.9845,
+    "calls_without_bill": 112
+   },
+   "storymem": {
+    "calls": 11094,
+    "input": 220568457,
+    "cached": 92275592,
+    "output": 7139028,
+    "uncached": 128292865,
+    "standard_usd": 17.3216,
+    "billed_usd": 20.5271,
+    "calls_without_bill": 1
+   },
+   "wan21": {
+    "calls": 11246,
+    "input": 225665343,
+    "cached": 91059763,
+    "output": 8379629,
+    "uncached": 134605580,
+    "standard_usd": 18.561,
+    "billed_usd": 21.8011,
+    "calls_without_bill": 61
+   },
+   "wan22": {
+    "calls": 11219,
+    "input": 222767089,
+    "cached": 90910239,
+    "output": 7823750,
+    "uncached": 131856850,
+    "standard_usd": 18.0067,
+    "billed_usd": 21.1921,
+    "calls_without_bill": 63
+   },
+   "all": {
+    "calls": 55844,
+    "input": 1116622314,
+    "cached": 455860805,
+    "output": 39830305,
+    "uncached": 660761509,
+    "standard_usd": 90.5499,
+    "billed_usd": 106.6358,
+    "calls_without_bill": 237
+   }
+  },
+  "new_plug": {
+   "cinetrans": {
+    "calls": 13856,
+    "input": 245306947,
+    "cached": 93367941,
+    "output": 11806611,
+    "uncached": 151939006,
+    "standard_usd": 22.0309,
+    "billed_usd": 25.8263,
+    "calls_without_bill": 0
+   },
+   "holocine": {
+    "calls": 13982,
+    "input": 231861170,
+    "cached": 92738630,
+    "output": 9886670,
+    "uncached": 139122540,
+    "standard_usd": 19.783,
+    "billed_usd": 23.0486,
+    "calls_without_bill": 136
+   },
+   "storymem": {
+    "calls": 14557,
+    "input": 238022547,
+    "cached": 94146905,
+    "output": 10906296,
+    "uncached": 143875642,
+    "standard_usd": 20.7822,
+    "billed_usd": 24.3771,
+    "calls_without_bill": 1
+   },
+   "wan21": {
+    "calls": 14488,
+    "input": 243413460,
+    "cached": 92211176,
+    "output": 12533039,
+    "uncached": 151202284,
+    "standard_usd": 22.3089,
+    "billed_usd": 25.9373,
+    "calls_without_bill": 83
+   },
+   "wan22": {
+    "calls": 14640,
+    "input": 240418560,
+    "cached": 92043492,
+    "output": 12220466,
+    "uncached": 148375068,
+    "standard_usd": 21.8682,
+    "billed_usd": 25.453,
+    "calls_without_bill": 76
+   },
+   "all": {
+    "calls": 71523,
+    "input": 1199022684,
+    "cached": 464508144,
+    "output": 57353082,
+    "uncached": 734514540,
+    "standard_usd": 106.7731,
+    "billed_usd": 124.6423,
+    "calls_without_bill": 296
+   }
+  },
+  "c_pass1_from_v3": {
+   "cinetrans": {
+    "calls": 2001,
+    "input": 11553300,
+    "cached": 6537,
+    "output": 866427,
+    "uncached": 11546763,
+    "standard_usd": 1.588,
+    "billed_usd": 0,
+    "calls_without_bill": 2001
+   },
+   "holocine": {
+    "calls": 2006,
+    "input": 11986593,
+    "cached": 35204,
+    "output": 982607,
+    "uncached": 11951389,
+    "standard_usd": 1.6868,
+    "billed_usd": 0,
+    "calls_without_bill": 2006
+   },
+   "storymem": {
+    "calls": 2003,
+    "input": 12666079,
+    "cached": 23042,
+    "output": 1074033,
+    "uncached": 12643037,
+    "standard_usd": 1.8016,
+    "billed_usd": 0,
+    "calls_without_bill": 2003
+   },
+   "wan21": {
+    "calls": 2004,
+    "input": 12334428,
+    "cached": 31652,
+    "output": 1003118,
+    "uncached": 12302776,
+    "standard_usd": 1.7322,
+    "billed_usd": 0,
+    "calls_without_bill": 2004
+   },
+   "wan22": {
+    "calls": 2002,
+    "input": 12678972,
+    "cached": 19045,
+    "output": 1062292,
+    "uncached": 12659927,
+    "standard_usd": 1.7973,
+    "billed_usd": 0,
+    "calls_without_bill": 2002
+   },
+   "all": {
+    "calls": 10016,
+    "input": 61219372,
+    "cached": 115480,
+    "output": 4988477,
+    "uncached": 61103892,
+    "standard_usd": 8.6058,
+    "billed_usd": 0,
+    "calls_without_bill": 10016
+   }
+  }
+ }
+}

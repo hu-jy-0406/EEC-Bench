@@ -1,0 +1,784 @@
+{
+ "schema_version": "episode_contract_v2",
+ "episode_id": "tSF778Mi9sA_s00021_n4_clean_v2",
+ "entity_descriptions": {
+  "0": {
+   "label": "character",
+   "name": "Gray stag",
+   "description": "Stag with a smooth gray body, a broad back, and tall branching antlers."
+  },
+  "1": {
+   "label": "character",
+   "name": "Cloaked figure",
+   "description": "Figure with slender fingers."
+  },
+  "2": {
+   "label": "location",
+   "name": "Barren rocky plain",
+   "description": "Barren landscape: a rocky plain with dark, ridged and uneven ground."
+  },
+  "3": {
+   "label": "object",
+   "name": "Antlered skull",
+   "description": "Elongated antlered skull with a dark eye socket and a long bony muzzle."
+  },
+  "4": {
+   "label": "object",
+   "name": "Cloak",
+   "description": "Long, heavy gray cloak."
+  },
+  "5": {
+   "label": "object",
+   "name": "Sky",
+   "description": "Gray sky."
+  },
+  "6": {
+   "label": "object",
+   "name": "Clouds",
+   "description": "Thick gray clouds."
+  },
+  "7": {
+   "label": "object",
+   "name": "Low dark ridge",
+   "description": "Low dark ridge."
+  }
+ },
+ "shots": [
+  {
+   "shot_id": "Shot1",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Low-angle two-shot; close rear view",
+    "camera_movement": null,
+    "style": "dim, nearly monochrome 3D-rendered"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S1-app-1",
+     "entities": [
+      4
+     ],
+     "expected": "The cloak has heavy folds.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-app-2",
+     "entities": [
+      4
+     ],
+     "expected": "The cloak's folds are angular.",
+     "quantifier": "when_visible"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S1-spa-1",
+     "entities": [
+      2,
+      6
+     ],
+     "expected": "The plain lies beneath the clouds.",
+     "predicate": "beneath",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-2",
+     "entities": [
+      0
+     ],
+     "expected": "The stag is on the left.",
+     "predicate": "screen_left",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-3",
+     "entities": [
+      1
+     ],
+     "expected": "The figure is on the right.",
+     "predicate": "screen_right",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-4",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The stag is beside the figure.",
+     "predicate": "beside",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-5",
+     "entities": [
+      0
+     ],
+     "expected": "The stag stands.",
+     "predicate": "standing",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-6",
+     "entities": [
+      0
+     ],
+     "expected": "The stag's ears are upright.",
+     "predicate": "upright_ears",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-7",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The cloak conceals the figure's body.",
+     "predicate": "body_concealed",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-8",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The skull covers the figure's head.",
+     "predicate": "head_covering",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-9",
+     "entities": [
+      1
+     ],
+     "expected": "The figure is seen largely from behind.",
+     "predicate": "rear_view",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-10",
+     "entities": [
+      0,
+      3,
+      5
+     ],
+     "expected": "The stag's and skull's antlers visually overlap against the sky.",
+     "predicate": "antler_overlap",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S1-mot-1",
+     "entities": [
+      1
+     ],
+     "expected": "The figure leans sideways.",
+     "predicate": "lean_sideways",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-2",
+     "entities": [
+      1
+     ],
+     "expected": "The figure bends forward.",
+     "predicate": "bend_forward",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-3",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The figure tilts the skull.",
+     "predicate": "tilt_skull",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-4",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The figure's cloak shifts.",
+     "predicate": "cloak_shifts",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-5",
+     "entities": [
+      0
+     ],
+     "expected": "The stag makes small head turns.",
+     "predicate": "small_head_turns",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot2",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Wider view of the encounter",
+    "camera_movement": null,
+    "style": "muted gray rendered style"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+   ],
+   "absent": [],
+   "appearance": [],
+   "spatial": [
+    {
+     "id": "S2-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The stag occupies the left foreground.",
+     "predicate": "left_foreground",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-2",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The stag's back and antlers frame the figure.",
+     "predicate": "frames_figure",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-3",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The figure appears smaller than the foreground stag.",
+     "predicate": "relative_apparent_size",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-4",
+     "entities": [
+      1
+     ],
+     "expected": "The figure is on the right.",
+     "predicate": "screen_right",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-5",
+     "entities": [
+      2,
+      0,
+      1
+     ],
+     "expected": "A stretch of ground separates the stag and figure.",
+     "predicate": "ground_between",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-6",
+     "entities": [
+      0,
+      1,
+      5
+     ],
+     "expected": "The stag and figure are under the sky.",
+     "predicate": "under_sky",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-7",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The figure keeps its fingers across the skull's muzzle.",
+     "predicate": "fingers_across_muzzle",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-8",
+     "entities": [
+      0
+     ],
+     "expected": "The stag's head initially appears in side profile.",
+     "predicate": "initial_side_profile",
+     "coordinate_frame": "camera",
+     "quantifier": "start"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S2-mot-1",
+     "entities": [
+      1
+     ],
+     "expected": "The figure subtly tilts its head.",
+     "predicate": "subtle_head_tilt",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-2",
+     "entities": [
+      1
+     ],
+     "expected": "The figure subtly tilts its shoulders.",
+     "predicate": "subtle_shoulder_tilt",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-3",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The figure's cloak shifts.",
+     "predicate": "cloak_shifts",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-4",
+     "entities": [
+      0
+     ],
+     "expected": "The stag slowly turns its head away from its initial side profile.",
+     "predicate": "turn_from_profile",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-5",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The stag turns its head partly back toward the figure.",
+     "predicate": "partial_turn_toward_figure",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-6",
+     "entities": [
+      0
+     ],
+     "expected": "The stag keeps its body planted while turning its head.",
+     "predicate": "body_planted",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot3",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Steep overhead view looking down",
+    "camera_movement": null,
+    "style": "subdued monochrome 3D rendering"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "absent": [
+    5
+   ],
+   "appearance": [
+    {
+     "id": "S3-app-1",
+     "entities": [
+      4
+     ],
+     "expected": "The shifting cloak forms broad folds.",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-app-2",
+     "entities": [
+      4
+     ],
+     "expected": "The shifting cloak forms curved folds.",
+     "quantifier": "exists"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S3-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The stag stands.",
+     "predicate": "standing",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-2",
+     "entities": [
+      0
+     ],
+     "expected": "The stag is toward the upper left.",
+     "predicate": "upper_left",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-3",
+     "entities": [
+      1
+     ],
+     "expected": "The figure is near the lower center.",
+     "predicate": "lower_center",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-4",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The stag is close beyond the figure in the view.",
+     "predicate": "close_beyond",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-5",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The figure's torso is covered by its cloak.",
+     "predicate": "covered_torso",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-6",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The figure's torso is beneath the skull.",
+     "predicate": "torso_beneath_skull",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-7",
+     "entities": [
+      0,
+      1,
+      2
+     ],
+     "expected": "Both figures stay within the same small patch of terrain.",
+     "predicate": "shared_small_patch",
+     "coordinate_frame": "world",
+     "quantifier": "throughout"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S3-mot-1",
+     "entities": [
+      1
+     ],
+     "expected": "The figure gently sways its covered torso.",
+     "predicate": "gentle_sway",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-2",
+     "entities": [
+      1
+     ],
+     "expected": "The figure pivots its covered torso.",
+     "predicate": "torso_pivot",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-3",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The figure shifts its cloak into folds.",
+     "predicate": "cloak_shifts",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-4",
+     "entities": [
+      0
+     ],
+     "expected": "The stag turns its muzzle from one side to the other.",
+     "predicate": "muzzle_turn",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot4",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Low side view",
+    "camera_movement": null,
+    "style": "dim, nearly monochrome rendered appearance"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+   ],
+   "absent": [],
+   "appearance": [],
+   "spatial": [
+    {
+     "id": "S4-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The stag stands.",
+     "predicate": "standing",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-2",
+     "entities": [
+      0
+     ],
+     "expected": "The stag appears large in the frame.",
+     "predicate": "large_in_frame",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-3",
+     "entities": [
+      0
+     ],
+     "expected": "The stag is on the left.",
+     "predicate": "screen_left",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-4",
+     "entities": [
+      0,
+      5,
+      7
+     ],
+     "expected": "The stag is positioned against the sky and ridge as its backdrop.",
+     "predicate": "backdrop",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-5",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The figure is beside the stag.",
+     "predicate": "beside",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-6",
+     "entities": [
+      1
+     ],
+     "expected": "The figure is at lower right.",
+     "predicate": "lower_right",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-7",
+     "entities": [
+      1
+     ],
+     "expected": "The figure begins deeply bent forward.",
+     "predicate": "deep_forward_bend",
+     "coordinate_frame": "entity",
+     "quantifier": "start"
+    },
+    {
+     "id": "S4-spa-8",
+     "entities": [
+      3
+     ],
+     "expected": "The skull begins lowered near the bottom of the frame.",
+     "predicate": "lowered_near_frame_bottom",
+     "coordinate_frame": "screen",
+     "quantifier": "start"
+    },
+    {
+     "id": "S4-spa-9",
+     "entities": [
+      3
+     ],
+     "expected": "The skull's eye socket remains exposed to view.",
+     "predicate": "eye_socket_visible",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-10",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The figure's fingers rest across the skull's muzzle.",
+     "predicate": "fingers_rest_across_muzzle",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-11",
+     "entities": [
+      1,
+      4
+     ],
+     "expected": "The cloak remains draped over the figure's body.",
+     "predicate": "cloak_draped",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S4-mot-1",
+     "entities": [
+      0
+     ],
+     "expected": "The stag lifts its muzzle.",
+     "predicate": "lift_muzzle",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-2",
+     "entities": [
+      0
+     ],
+     "expected": "The stag lowers its muzzle.",
+     "predicate": "lower_muzzle",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-3",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The figure slowly raises its skull partway from the bend.",
+     "predicate": "partly_raise_skull",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-4",
+     "entities": [
+      1
+     ],
+     "expected": "The figure slowly raises its shoulders partway from the bend, without requiring full straightening.",
+     "predicate": "partly_raise_shoulders",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    }
+   ]
+  }
+ ],
+ "cross_shot": [
+  {
+   "id": "X-1",
+   "shot_ids": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ],
+   "dimension": "appearance",
+   "entities": [
+    0,
+    1,
+    3
+   ],
+   "expected": "The stag, cloaked figure and antlered skull retain their respective identities across all four shots.",
+   "quantifier": "cross_shot"
+  }
+ ]
+}

@@ -1,0 +1,768 @@
+{
+ "schema_version": "episode_contract_v2",
+ "episode_id": "mu-YLZpB6is_s00061_n4_clean_v2",
+ "entity_descriptions": {
+  "0": {
+   "label": "character",
+   "name": "Saber-toothed cat",
+   "description": "Stocky golden-brown saber-toothed cat with a dark bristled ridge of fur along its neck and back, pale layered cheek tufts, a broad brown nose, long ivory upper fangs and a broad torso."
+  },
+  "1": {
+   "label": "character",
+   "name": "Woolly mammoth",
+   "description": "Woolly mammoth with a shaggy dark-brown coat including a shaggy shoulder, a lighter face, a high swept forehead tuft, a long dark trunk, a heavy head and enormous curved ivory tusks curling outward and upward."
+  },
+  "2": {
+   "label": "location",
+   "name": "Turquoise ice passage",
+   "description": "A glossy turquoise (blue) ice passage whose walls are smooth, softly curved, blue and turquoise, with cyan wall bands of sweeping form."
+  },
+  "3": {
+   "label": "object",
+   "name": "Ice ridges",
+   "description": "Glossy, reflective ice ridges."
+  },
+  "4": {
+   "label": "object",
+   "name": "Channel rim",
+   "description": "Rim of the ice channel."
+  }
+ },
+ "shots": [
+  {
+   "shot_id": "Shot1",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Tight close framing.",
+    "camera_movement": null,
+    "style": "stylized 3D animated"
+   },
+   "presence": [
+    0,
+    2,
+    3
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S1-app-1",
+     "entities": [
+      0
+     ],
+     "expected": "The visible eye is narrowed.",
+     "quantifier": "when_visible"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S1-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The cat is shown in right-facing side profile.",
+     "predicate": "profile_orientation",
+     "coordinate_frame": "screen",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-2",
+     "entities": [
+      3
+     ],
+     "expected": "The ice ridge occupies the foreground.",
+     "predicate": "depth",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-3",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The lowered mouth is hidden by the foreground ice ridge.",
+     "predicate": "occlusion",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-4",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The lowered fangs are hidden by the foreground ice ridge.",
+     "predicate": "occlusion",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-spa-5",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "The cat's torso is stretched low in the channel.",
+     "predicate": "body_pose",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S1-spa-6",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The cat's eye remains visible above the ridge.",
+     "predicate": "visibility_above_ridge",
+     "coordinate_frame": "screen",
+     "quantifier": "throughout"
+    },
+    {
+     "id": "S1-spa-7",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The cat's cheek tufts remain visible above the ridge.",
+     "predicate": "visibility_above_ridge",
+     "coordinate_frame": "screen",
+     "quantifier": "throughout"
+    },
+    {
+     "id": "S1-spa-8",
+     "entities": [
+      0
+     ],
+     "expected": "The cat's feet are concealed.",
+     "predicate": "concealment",
+     "coordinate_frame": "camera",
+     "quantifier": "throughout"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S1-mot-1",
+     "entities": [
+      0
+     ],
+     "expected": "The cat lowers its head.",
+     "predicate": "lower_head",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S1-mot-2",
+     "entities": [
+      0
+     ],
+     "expected": "The cat continues moving toward screen right.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot2",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Low camera angle",
+    "camera_movement": null,
+    "style": "animated"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S2-app-1",
+     "entities": [
+      3
+     ],
+     "expected": "The ice ridges are glossy.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-app-2",
+     "entities": [
+      2
+     ],
+     "expected": "The walls are softly curved.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-app-3",
+     "entities": [
+      2
+     ],
+     "expected": "The walls are turquoise.",
+     "quantifier": "when_visible"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S2-spa-1",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth is seen from a low three-quarter viewpoint.",
+     "predicate": "view_angle",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-2",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth is on the left of the image.",
+     "predicate": "horizontal_position",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-3",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth occupies the foreground.",
+     "predicate": "depth",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-4",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "The cat is low in the channel.",
+     "predicate": "body_pose",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-5",
+     "entities": [
+      0,
+      1,
+      2
+     ],
+     "expected": "The cat occupies the farther channel, beyond the mammoth.",
+     "predicate": "relative_depth",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-6",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The cat is to the mammoth's screen right.",
+     "predicate": "relative_horizontal_position",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-7",
+     "entities": [
+      1
+     ],
+     "expected": "The trunk is held across the mammoth's lower face.",
+     "predicate": "trunk_pose",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S2-spa-8",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth fills more of the image.",
+     "predicate": "increasing_frame_occupancy",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-spa-9",
+     "entities": [
+      3
+     ],
+     "expected": "The ice ridges are parallel to one another.",
+     "predicate": "alignment",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S2-mot-1",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth's visible eye shifts down.",
+     "predicate": "eye_shift",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-2",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth's visible eye shifts up.",
+     "predicate": "eye_shift",
+     "coordinate_frame": "entity",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-3",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth's eyelid narrows.",
+     "predicate": "narrow_eyelid",
+     "coordinate_frame": "none",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-4",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth dips its head slightly.",
+     "predicate": "dip_head",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-5",
+     "entities": [
+      0
+     ],
+     "expected": "The cat continues toward screen right.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-6",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth continues toward screen right.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S2-mot-7",
+     "entities": [
+      0
+     ],
+     "expected": "The cat approaches the right edge of the image.",
+     "predicate": "approach_frame_edge",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot3",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": "Close framing.",
+    "camera_movement": null,
+    "style": "animated"
+   },
+   "presence": [
+    0,
+    2,
+    3,
+    4
+   ],
+   "absent": [],
+   "appearance": [
+    {
+     "id": "S3-app-1",
+     "entities": [
+      0
+     ],
+     "expected": "The visible eye is narrowed.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-app-2",
+     "entities": [
+      2
+     ],
+     "expected": "The wall bands are smooth.",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-app-3",
+     "entities": [
+      2
+     ],
+     "expected": "The wall bands are cyan.",
+     "quantifier": "when_visible"
+    }
+   ],
+   "spatial": [
+    {
+     "id": "S3-spa-1",
+     "entities": [
+      0
+     ],
+     "expected": "The cat is shown in side profile.",
+     "predicate": "view_angle",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-2",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "The cheek tufts stand out against the blue wall.",
+     "predicate": "cheek_tuft_backdrop",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-3",
+     "entities": [
+      3
+     ],
+     "expected": "The ridge occupies the foreground.",
+     "predicate": "depth",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-4",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The fang disappears behind the ridge as the head sinks.",
+     "predicate": "occlusion",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-5",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The narrowed eye remains just above the ice while the head sinks.",
+     "predicate": "visibility_above_ridge",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-6",
+     "entities": [
+      0
+     ],
+     "expected": "The cat's body is low.",
+     "predicate": "body_pose",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S3-spa-7",
+     "entities": [
+      0
+     ],
+     "expected": "The cat's muzzle comes close to the right edge.",
+     "predicate": "frame_edge_proximity",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-spa-8",
+     "entities": [
+      0,
+      4
+     ],
+     "expected": "The cat's feet are concealed behind the channel rim.",
+     "predicate": "occlusion",
+     "coordinate_frame": "camera",
+     "quantifier": "throughout"
+    },
+    {
+     "id": "S3-spa-9",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "The fang stands out against the blue wall.",
+     "predicate": "fang_backdrop",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S3-mot-1",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "The cat continues screen-right through the ice channel.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-2",
+     "entities": [
+      0,
+      3
+     ],
+     "expected": "The cat's head gradually sinks behind the foreground ridge.",
+     "predicate": "lower_head",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S3-mot-3",
+     "entities": [
+      0
+     ],
+     "expected": "The cat brings its broad torso across the frame.",
+     "predicate": "torso_traversal",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ]
+  },
+  {
+   "shot_id": "Shot4",
+   "locations": [
+    2
+   ],
+   "shot_description": {
+    "camera_view": null,
+    "camera_movement": null,
+    "style": "animated"
+   },
+   "presence": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "absent": [],
+   "appearance": [],
+   "spatial": [
+    {
+     "id": "S4-spa-1",
+     "entities": [
+      1,
+      2
+     ],
+     "expected": "The mammoth occupies the nearer channel.",
+     "predicate": "channel_depth",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-2",
+     "entities": [
+      0,
+      1,
+      2
+     ],
+     "expected": "The cat occupies the farther channel relative to the mammoth.",
+     "predicate": "relative_channel_depth",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-3",
+     "entities": [
+      0
+     ],
+     "expected": "The cat is crouched low whenever visible.",
+     "predicate": "body_pose",
+     "coordinate_frame": "entity",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-4",
+     "entities": [
+      0,
+      2
+     ],
+     "expected": "At the start, the cat is visible against the wall bands.",
+     "predicate": "initial_visible_backdrop",
+     "coordinate_frame": "camera",
+     "quantifier": "start"
+    },
+    {
+     "id": "S4-spa-5",
+     "entities": [
+      1,
+      2
+     ],
+     "expected": "At the start, the mammoth is visible against the wall bands.",
+     "predicate": "initial_visible_backdrop",
+     "coordinate_frame": "camera",
+     "quantifier": "start"
+    },
+    {
+     "id": "S4-spa-6",
+     "entities": [
+      3
+     ],
+     "expected": "The ice ridge occupies the foreground.",
+     "predicate": "depth",
+     "coordinate_frame": "camera",
+     "quantifier": "when_visible"
+    },
+    {
+     "id": "S4-spa-7",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth's shoulder occupies progressively more of the image.",
+     "predicate": "shoulder_frame_occupancy",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-8",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth's face occupies progressively more of the image.",
+     "predicate": "face_frame_occupancy",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-9",
+     "entities": [
+      1
+     ],
+     "expected": "The tusks become cropped at the right image edge.",
+     "predicate": "frame_cropping",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-10",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The mammoth comes to obscure the cat behind it.",
+     "predicate": "occlusion",
+     "coordinate_frame": "camera",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-spa-11",
+     "entities": [
+      0,
+      1
+     ],
+     "expected": "The cat is beside the mammoth while visible.",
+     "predicate": "beside",
+     "coordinate_frame": "world",
+     "quantifier": "when_visible"
+    }
+   ],
+   "motion": [
+    {
+     "id": "S4-mot-1",
+     "entities": [
+      1
+     ],
+     "expected": "The mammoth widens its visible eye.",
+     "predicate": "widen_eye",
+     "coordinate_frame": "none",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-2",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The mammoth lowers its head toward the foreground ice ridge.",
+     "predicate": "lower_head",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-3",
+     "entities": [
+      1,
+      3
+     ],
+     "expected": "The mammoth lowers its tusks toward the foreground ice ridge.",
+     "predicate": "lower_tusks",
+     "coordinate_frame": "world",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-4",
+     "entities": [
+      1,
+      2
+     ],
+     "expected": "The mammoth continues through the channel toward screen right.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    },
+    {
+     "id": "S4-mot-5",
+     "entities": [
+      0
+     ],
+     "expected": "The low-moving cat progresses rightward alongside the mammoth.",
+     "predicate": "travel",
+     "coordinate_frame": "screen",
+     "quantifier": "exists"
+    }
+   ]
+  }
+ ],
+ "cross_shot": [
+  {
+   "id": "X-1",
+   "shot_ids": [
+    "Shot1",
+    "Shot2",
+    "Shot3",
+    "Shot4"
+   ],
+   "dimension": "spatial",
+   "entities": [
+    0
+   ],
+   "expected": "The mammoth views in Shot2 and Shot4 are wider than the close cat profiles in Shot1 and Shot3.",
+   "predicate": "wider_view_than",
+   "coordinate_frame": "camera",
+   "quantifier": "cross_shot"
+  }
+ ]
+}

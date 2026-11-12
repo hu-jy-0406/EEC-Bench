@@ -1,0 +1,63 @@
+You apply the owner's entity-granularity change (2026-11-11) to the cleaned evaluation contract of one multi-shot video episode at a time. This is text work only. Use ONLY the episode's prompts (global and per-shot) as printed by `python3 g_pass.py show <id>`. No outside knowledge, source videos or generated outputs.
+
+The contract is ground truth for evaluating generated videos. It holds only requirements the prompt fixes clearly: where wording has two reasonable readings with different visible results, state nothing new about it. Change ONLY what the two rules below require. Do not revisit other requirements, entity identity, left/right directions, camera fields, style or wording.
+
+WHAT CHANGES
+Before, an item a person only wears or carries was part of that person's description, and walls, floors, ceilings and ground (street, snow, ...) were part of the location's description. Now each of them is its own entity when the prompt names it.
+
+G1 Worn and carried items. Every item the prompt names that a character (or a group) wears or carries becomes its own entity with label "object": clothing (shirt, blouse, T-shirt, jacket, coat, suit, blazer, sweater, cardigan, hoodie, vest, dress, gown, uniform, robe, overalls), trousers, jeans, skirts, shorts, footwear (shoes, boots, sneakers, sandals, heels), headwear and hair accessories (hat, cap, helmet, beanie, beret, a hood worn up, headscarf, bandana, headband, hairpin, hair clip, ribbon, bow), eyewear (glasses, sunglasses, goggles), ties, bow ties, scarves, shawls, jewelry and watches (necklace, pendant, earrings, bracelet, bangle, ring, watch, brooch), belts, lanyards, badges, name tags, suspenders, straps, gloves, aprons, and bags (handbag, backpack, briefcase, shoulder bag).
+- One entity per item the prompt names. A matching pair (shoes, boots, earrings, gloves) is one entity. A set the prompt names as one item ("a gray suit", "a tuxedo", "a school uniform", "a layered outfit" without its pieces) is one entity; pieces the prompt describes separately ("a gray jacket and black trousers", "a cardigan over a dark sweater and white shirt") are separate entities, and a later word for the set ("his layered cardigan outfit") refers to those pieces as the context makes clear.
+- Items a group wears ("guests in dark suits", "two officers in uniforms") are one entity for the group.
+- Not items: body features stay in the character's description (hair, hairstyle, hair color, beard, stubble, makeup, lipstick, skin, tattoos, age, build, expression). A color, pattern, print, material, fit or state of an item is an attribute of that item, not an entity.
+- An item that is already its own entity (an item handled in some shot, an item lying somewhere) stays as it is: outcome already_recorded.
+- An item named only as missing ("a man without glasses", "no tie", "bare feet") gets no entity; leave the words where they are: outcome not_applicable.
+- Uniform or costume words that only say what a person is ("a nurse", "a soldier") are not items unless the prompt names the garment.
+
+G2 Place parts. Every wall, floor, ceiling, ground surface (street, road, pavement, sidewalk, path, snow, sand, grass, lawn, dirt, gravel, mud, ice, asphalt, cobbles), floor covering (rug, carpet, mat), tree, bush, hedge, plant or vegetation the prompt names becomes its own entity with label "object". This replaces the earlier rulings that walls, floors and ceilings are part of the location and that ground is part of the location (Q5-4): ground merged into a location earlier becomes its own entity again (the location keeps its other attributes).
+- One entity per part the prompt names. A group of the same kind described together ("trees line the street", "potted plants", "the walls") is one entity; members described separately ("the brick back wall" and "a white side wall") are separate.
+- A place the contract keeps as its own location (a gravel forecourt, a car park, a road the characters travel along, a beach, a lawn where the shot takes place) stays a location: do not turn a location into an object and do not add a second entity for it. Its surface gets its own entity only when the prompt names the surface separately ("the forecourt's wet cobbles").
+- Not place parts: distant landforms (hills, ridges, mountains, cliffs), the sky, clouds, weather, light, water bodies (sea, river, lake), and things that are already entities (doors, windows, fences, railings, furniture, potted plants already listed): leave them.
+- A wall-mounted or floor-standing object (a sconce, a shelf, a painting) is already its own entity or stays as it is; this rule is about the surface itself.
+
+FOR EACH NEW ENTITY
+- id: a new key "n1", "n2", ... used by your other ops in this episode.
+- name: what it is plus whose or where, unique in the contract ("Elderly man's glasses", "Elderly man's cardigan", "Kitchen floor", "Boundary wall", "Street trees").
+- description: the attributes the prompt states for it (color, material, pattern, fit, state), in the prompt's meaning, and for G1 who wears or carries it ("Gray-beige cardigan worn by the elderly man."). Only what the prompt states; never add a color or detail the prompt does not give.
+- evidence: exact quotes, at least one from every shot in which you list the entity (or a global quote).
+- presence (owner decision 2026-11-11): list the new entity ONLY in the shots whose own prompt text mentions it, by name or by an unambiguous reference ("his glasses", "the same coat", "the layered cardigan outfit" for the cardigan). A mention in the global prompt that applies to every shot (a general description of the character or place, "throughout", "in every shot") puts it in every shot where its wearer or place is in presence. Do NOT add it to other shots, even when the wearer or place appears there.
+  - A collective clothing word in a shot ("their clothing", "the same outfit", "his established attire", "preserve their clothes") mentions every clothing item of those persons that the prompt names: tops, outerwear, dresses, trousers, skirts, ties, scarves, belts, footwear and headwear. It does not mention eyewear, jewelry, watches, badges, lanyards or bags, and "appearance" alone mentions none of them.
+  - A body part is not a mention of a garment unless the words name the garment ("white-shirted shoulder" mentions the shirt; "patterned shoulder" or "tan shoulder" does not).
+  - Words that name an item inside a person's description or label in the shot's text mention that item in that shot: "the dark-shirted man", "the Mint-blouse woman", "bespectacled" (glasses), "suited" (a suit), "uniformed" (a uniform), "hooded", "in camouflage". This holds in the global prompt too, under the global rule above.
+  - A compound that only says where an object is mounted ("wall light", "wall clock", "wall notices", "ceiling lamp", "floor lamp") names the object, not the wall, ceiling or floor: it is not a mention of them. A phrase that names a particular wall or surface ("on the rear wall", "rear-wall urinals", "the tiled floor", "the pale green walls") is.
+  - "<color>-clad" attached to a person ("the Black-clad man", "a purple-clad worker") names that person's clothing: it mentions the garments the prompt names for that person, or, if the prompt names none, one clothing entity for that person ("Worker's purple clothing"). Attached to a body part ("black-clad shoulder", "gray-clad lap") it does not mention a garment.
+  - The same holds for places: a word that names a wall or a floor covering inside a place's description ("peach-walled living room", "wood-paneled room", "brick-walled alley", "carpeted hall") mentions that wall or carpet in that shot. A surface adjective of a place the contract keeps as a location ("cobbled alley", "grassy clearing", "snowy street") does not create a ground entity (see G2). "tiled" or "tiles" without saying whether they cover a wall or a floor is ambiguous: no entity.
+  - A wall covering (wallpaper, tiles on a wall, paneling) belongs to the wall: it is a G2 wall entity, or an attribute of the wall entity when the wall is also named.
+- absent: a shot whose prompt says the item is not there (and the item is not otherwise an entity) may list it in absent, with that shot's quote in evidence.
+- The wearer's or location's description: rewrite it (edit_description) to remove the attributes that moved to the new entities, keeping everything else word for word. After the change the description no longer describes these items.
+- Requirements: an existing requirement that is about the item is retargeted to the new entity (retarget_requirement with the new full entity list; give "expected" only when its wording must change to name the item). Example: "The cardigan is worn over the sweater and shirt." on the man becomes entities [cardigan, sweater, shirt]. A motion like "The man's cardigan enters the left foreground." is about the man's movement: keep the man and add the cardigan ([man, cardigan]). The new entity must be in that shot's presence (it will be, because the shot's text mentions it). A requirement that states something about both the wearer and the item stays with both.
+- Do not add other new requirements. Do not remove requirements, except one that only restates an attribute now in the new entity's description in a shot where that entity is present (remove_requirement), which should be rare.
+
+READ EVERY SHOT PROMPT AND THE GLOBAL PROMPT. The keyword hints at the end of `show` are neither complete nor all relevant.
+
+OUTPUT: write episodes/<id>/g_ops.json
+{
+ "episode_id": "<id>",
+ "checked": [{"rule": "G1", "shot_id": "Shot1", "quote": "glasses", "outcome": "recorded", "ops": [0], "basis": "one sentence"}],
+ "ops": [...]
+}
+checked: one row for every prompt mention of a G1 item or G2 place part, per shot (several mentions of the same item in one shot may share a row), including mentions that need nothing new: already_recorded (already its own entity before this pass) or not_applicable (body feature, negation, landform, sky, a place kept as a location, a costume word). quote: exact words of that shot's prompt (or of the global prompt with shot_id "global"). outcome: recorded (list the ops that record it) | already_recorded | not_applicable (no ops).
+Several rows may list the same op (an item mentioned in Shot1 and Shot3 has a recorded row in each shot, both listing its add_entity op).
+ops: every op needs "rule" (G1 or G2) and "reason", and belongs to at least one checked row. Existing entity and requirement ids are the ORIGINAL ids printed by show; new entities use your "n" ids. Quotes must be exact substrings of the named shot's prompt or the global prompt.
+  {"op": "add_entity", "id": "n1", "label": "object", "name": "Elderly man's glasses", "description": "Metal-framed glasses worn by the elderly man.", "evidence": [{"shot_id": "Shot1", "quote": "glasses"}, {"shot_id": "Shot3", "quote": "metal-framed glasses"}], "presence": ["Shot1", "Shot3"], "absent": [], "rule": "G1", "reason": "..."}
+  {"op": "edit_description", "entity": 0, "description": "complete new description", "rule": "G1", "reason": "..."}
+  {"op": "retarget_requirement", "id": "S1-spa-7", "entities": ["n2", "n3", "n4"], "expected": "optional new text", "rule": "G1", "reason": "..."}
+  {"op": "rewrite_requirement", "id": "...", "expected": "...", "rule": "...", "reason": "..."}
+  {"op": "remove_requirement", "id": "...", "rule": "...", "reason": "..."}
+
+PROCEDURE for each episode
+1. nice -n 19 python3 g_pass.py show <id>
+2. Read the global prompt and every shot prompt, then the entities and requirements.
+3. Write episodes/<id>/g_ops.json (an episode with nothing to change still lists its checked mentions and "ops": []).
+4. nice -n 19 python3 g_pass.py check <id> episodes/<id>/g_ops.json. Fix every FAIL message and rerun until PASS. Read the change list and confirm it is exactly what you intended (new entities, their presence, the edited descriptions, retargeted requirements).
+5. nice -n 19 python3 g_pass.py apply <id> episodes/<id>/g_ops.json
+Do not edit any other file.

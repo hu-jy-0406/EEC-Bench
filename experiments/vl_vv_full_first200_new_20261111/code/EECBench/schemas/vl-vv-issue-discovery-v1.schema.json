@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VL/VV issue discovery v1",
+  "type": "object",
+  "required": [
+    "protocol",
+    "v_l_inconsistencies",
+    "v_v_inconsistencies"
+  ],
+  "properties": {
+    "protocol": {
+      "const": "vl_vv_issue_discovery_v1",
+      "type": "string"
+    },
+    "v_l_inconsistencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/issue"
+      }
+    },
+    "v_v_inconsistencies": {
+      "type": "object",
+      "required": [
+        "within_shot",
+        "cross_shot"
+      ],
+      "properties": {
+        "within_shot": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/issue"
+          }
+        },
+        "cross_shot": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/issue"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "issue": {
+      "type": "object",
+      "required": [
+        "issue_id",
+        "kind",
+        "subcategory",
+        "description",
+        "entity_ids",
+        "scope_shot_ids",
+        "key_evidence",
+        "prompt_evidence",
+        "confidence"
+      ],
+      "properties": {
+        "issue_id": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "entity_self",
+            "entity_relation"
+          ],
+          "type": "string"
+        },
+        "subcategory": {
+          "enum": [
+            "appearance",
+            "presence",
+            "visual_style",
+            "spatial_relation",
+            "interaction_relation"
+          ],
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "scope_shot_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "key_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/frame_evidence"
+          }
+        },
+        "prompt_evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/prompt_evidence"
+          }
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "frame_evidence": {
+      "type": "object",
+      "required": [
+        "shot_id",
+        "frame_id",
+        "entity_ids",
+        "observation"
+      ],
+      "properties": {
+        "shot_id": {
+          "type": "string"
+        },
+        "frame_id": {
+          "type": "integer"
+        },
+        "entity_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "observation": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "prompt_evidence": {
+      "type": "object",
+      "required": [
+        "source",
+        "quote"
+      ],
+      "properties": {
+        "source": {
+          "enum": [
+            "global_prompt",
+            "shot_prompt",
+            "contract"
+          ],
+          "type": "string"
+        },
+        "quote": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

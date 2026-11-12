@@ -1,0 +1,137 @@
+{
+ "videos": 40,
+ "arms": {
+  "v3": {
+   "mean": {
+    "uec": 82.36,
+    "v_l": 65.58,
+    "within": 97.23,
+    "cross": 84.26
+   },
+   "vv_confirmed": 122,
+   "vv_unspecified": 0,
+   "vv_unspecified_share": 0.0,
+   "vl_confirmed": 470,
+   "all_unspecified_share": 0.0,
+   "ledger_specified": 539,
+   "ledger_unspecified": 93
+  },
+  "c": {
+   "mean": {
+    "uec": 81.4,
+    "v_l": 63.16,
+    "within": 96.46,
+    "cross": 84.57
+   },
+   "vv_confirmed": 123,
+   "vv_unspecified": 1,
+   "vv_unspecified_share": 0.81,
+   "vl_confirmed": 512,
+   "all_unspecified_share": 0.16,
+   "ledger_specified": 539,
+   "ledger_unspecified": 185
+  },
+  "c_plug": {
+   "mean": {
+    "uec": 81.71,
+    "v_l": 63.29,
+    "within": 97.1,
+    "cross": 84.74
+   },
+   "vv_confirmed": 120,
+   "vv_unspecified": 8,
+   "vv_unspecified_share": 6.67,
+   "vl_confirmed": 512,
+   "all_unspecified_share": 1.27,
+   "ledger_specified": 539,
+   "ledger_unspecified": 185
+  },
+  "new": {
+   "mean": {
+    "uec": 82.69,
+    "v_l": 64.63,
+    "within": 98.27,
+    "cross": 85.18
+   },
+   "vv_confirmed": 102,
+   "vv_unspecified": 13,
+   "vv_unspecified_share": 12.75,
+   "vl_confirmed": 485,
+   "all_unspecified_share": 2.21,
+   "ledger_specified": 815,
+   "ledger_unspecified": 304
+  },
+  "new_plug": {
+   "mean": {
+    "uec": 82.3,
+    "v_l": 65.16,
+    "within": 98.17,
+    "cross": 83.56
+   },
+   "vv_confirmed": 127,
+   "vv_unspecified": 40,
+   "vv_unspecified_share": 31.5,
+   "vl_confirmed": 485,
+   "all_unspecified_share": 6.54,
+   "ledger_specified": 815,
+   "ledger_unspecified": 304
+  }
+ },
+ "cost_usd": {
+  "new": 3.4748,
+  "plugin": 0.949,
+  "per_video_new": 0.0869,
+  "per_video_plugin": 0.0237,
+  "basis": "GPT-6 Luna direct standard price, not a bill"
+ },
+ "billed_usd": {
+  "new": 4.11,
+  "plugin": 1.0821,
+  "calls_with_bill": 2938,
+  "basis": "OpenRouter billed amount per call (usage.cost_usd)"
+ },
+ "tokens": {
+  "new": {
+   "input": 42764201,
+   "cached": 17348360,
+   "output": 1519473,
+   "calls": 2189,
+   "billed_usd_micro": 4110003,
+   "billed_calls": 2189
+  },
+  "plugin": {
+   "input": 5793131,
+   "cached": 464143,
+   "output": 822846,
+   "calls": 749,
+   "billed_usd_micro": 1082077,
+   "billed_calls": 749
+  }
+ },
+ "failed_attempts": {
+  "attempts": [
+   "priority_048__wan21_attempt1",
+   "priority_048__wan21_attempt2_source_changed"
+  ],
+  "standard_usd": 0.0552,
+  "billed_usd": 0.0633,
+  "tokens": {
+   "input": 420239,
+   "cached": 21678,
+   "output": 30248,
+   "calls": 63,
+   "billed_usd_micro": 63260,
+   "billed_calls": 63
+  }
+ },
+ "openai_direct_runs": {
+  "standard_usd": 0.3131,
+  "tokens": {
+   "input": 3765200,
+   "cached": 1556263,
+   "output": 153356,
+   "calls": 221
+  },
+  "basis": "GPT-6 Luna direct standard price; the OpenAI bill is not available here"
+ }
+}

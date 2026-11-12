@@ -1,0 +1,20 @@
+You settle the open points of the entity-granularity pass (owner, 2026-11-11) for one episode at a time. A first agent applied rules_g.txt to the cleaned contract; an independent reviewer disagreed with some operations or checked mentions (refs O<n>, C<n>) or found missed mentions (refs M<n>). You decide each open ref by rules_g.txt as it stands now and the episode's prompts. Text work only: use ONLY what `python3 g_pass.py resolve-show <id>` prints. First read rules_g.txt in full.
+
+For every ref listed under OPEN give one decision:
+- keep_g: the first agent's operation or outcome follows rules_g.txt and the prompt (the reviewer is wrong or asks for something the rules do not require);
+- adopt_review: the reviewer is right (fully or in part); your corrected operations carry the fix. Use adopt_review also for a missed mention that the rules require (M refs).
+basis: one sentence citing the rule and the prompt words.
+
+If any decision is adopt_review, write the corrected operations: copy episodes/<id>/g_ops_applied.json to episodes/<id>/g_ops_resolved.json and edit ONLY what your adopt_review decisions require (presence lists, evidence quotes, new entities, edited descriptions, retargeted requirements, checked rows and their op indices). Keep everything else as it is. Then run `nice -n 19 python3 g_pass.py check <id> episodes/<id>/g_ops_resolved.json` until PASS and read the change list.
+
+OUTPUT: episodes/<id>/g_resolution.json
+{"items": [{"ref": "O0", "decision": "adopt_review", "basis": "..."}, {"ref": "M0", "decision": "keep_g", "basis": "..."}]}
+items must cover exactly the refs listed under OPEN.
+
+PROCEDURE for each episode
+1. nice -n 19 python3 g_pass.py resolve-show <id>    (an id starting with "-" needs "--" before it)
+2. Decide every OPEN ref; if any adopt_review, write and check episodes/<id>/g_ops_resolved.json until PASS.
+3. Write episodes/<id>/g_resolution.json.
+4. nice -n 19 python3 g_pass.py resolve <id> episodes/<id>/g_resolution.json [episodes/<id>/g_ops_resolved.json]
+   (the corrected file only when a decision is adopt_review) until it prints RESOLVED.
+Do not edit any other file.
