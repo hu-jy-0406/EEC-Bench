@@ -282,3 +282,55 @@ scoring v6); an existing directory keeps its recorded chain.
 Verification goes from one to two image-bearing calls per branch: four
 verification calls per episode instead of two (six image-bearing calls in
 total with detection). Not measured yet.
+
+## 9. Pipeline C, the unspecified plug-in and the entity scope (2026-11-11)
+
+Owner (2026-11-10): "新流程把C设为默认，然后把这个unspecify专属分支作为plug in"; merged review kept ("保持合并复核").
+Validated on all 1,000 first-200 videos (`experiments/vl_vv_full_first200_c_20261110/README.md`, code commit 6f530ee);
+the live port reproduces that run's grounding requests, augmented detections, plug-in suspects and merged V-V
+candidates from its recorded model outputs (`tests/test_vl_vv_pipeline_c.py`).
+
+- **Background frontend** (`scripts/vl_vv_background_frontend.py`; default on for discovery v6 in full mode,
+  `--background-frontend off` restores the previous frontend). Stages: `detect` (first pass: WeDetect, shot
+  clustering, binding and recovery) -> `bg_discover` (one GPT-6 Luna low call per shot,
+  `prompts/vl_vv_background_discovery_v0.txt`: visible objects not in the first pass's entities) -> `bg_ground`
+  (Grounding DINO on the listed frames, box 0.30 / text 0.25, GPU pinned by UUID or CPU) -> `bg_choose` (one Luna
+  low call per shot, `prompts/vl_vv_background_boxchoice_v0.txt`, picks a drawn candidate or none per frame, one
+  retry) -> `bg_augment` (original WeDetect detections plus the chosen boxes; the first pass moves to
+  `background_frontend/pass1/`) -> `redetect` (`run_vl_vv_detection.py detect --detections`: clustering of the
+  augmented detections without WeDetect, then binding and recovery) -> `match` and the DINO stages as before.
+- **V-V checklist** adds W8 (background objects inside the shot) and X10 (background objects of a shared view): 19
+  per-item calls (`configs/vl-vv-branch-v2.json`; schemas regenerated).
+- **Unspecified plug-in** (`scripts/run_vl_vv_unspecified_plugin.py`; default on for discovery v6 since 2026-11-12,
+  `--unspecified-plugin off` = the ablation without it):
+  stage `vv_plugin` between `vv_detection` and `vv_review`. U1 one call per shot (Luna medium,
+  `prompts/vl_vv_unspecified_plugin_u1_v1.txt`), U2 by rule (objects against the other shots of the same contract
+  place, at most 3; within-shot changes or gaps; at most 15 suspects), U3 one call per suspect (Luna high,
+  `prompts/vl_vv_unspecified_plugin_u3_v2.txt`, needs an anchor). Real findings are appended to the V-V candidates
+  (checklist item O1, numbering continued) and the V-V review judges the merged list. In the full run the plug-in
+  added about USD 0.018 per video and 167 confirmed units over 1,000 videos (standard-price estimate).
+- **Both versions of one video** (owner, 2026-11-11, "复用V-L打分"): to report new and new + plug-in together, run the
+  pipeline with the plug-in off, then the plug-in, one V-V review of the merged candidates and
+  `run_vl_vv_branch_scoring.py --vl-scoring-from <the base episode_scoring>`: the plug-in version reuses the base
+  version's V-L severity response (no second V-L severity call; byte-identical V-L review, rendered V-L prompt and V-L
+  scorer input required; the reused response is re-validated), so both versions report the same V-L score.
+- **Batch controller**: a new discovery v6 `--exp-dir` records `background_frontend: true` and `unspecified_plugin`
+  (default true since 2026-11-12, `--unspecified-plugin off` for the ablation); an existing directory keeps what it
+  recorded (none recorded = off).
+- **Entity scope** (owner, 2026-11-11, "所有类别都加吧，同步改contract"): worn or carried items and walls, floors,
+  ceilings, the ground, floor coverings and plants are entities of their own in shot clustering, matching v2, V-V
+  detection and review call 1, the background discovery prompt and plug-in U1; the floor-covering exclusion before
+  clustering is off (`EECBENCH_EXCLUDE_FLOOR_COVERINGS=1` only to reproduce historical results). Chain v5 prompts
+  are unchanged. Contracts follow the same scope (`docs/episode-contract-v2-format.md`). Before-copies and hashes:
+  `experiments/vl_vv_entity_scope_20261111/`.
+
+## 10. Default pipeline: new entity rule + new + plug-in (2026-11-12)
+
+Owner (2026-11-12): "把新实体规则+新+插件作为默认流程吧 … new版本就作为去掉插件的ablation". The default chain v6
+pipeline is the entity scope of section 9 with pipeline C's background frontend and the unspecified plug-in on:
+detection, `vv_detection` -> `vv_plugin` -> one V-V review of the merged candidates -> scoring (its own V-L severity
+call). `--unspecified-plugin off` (pipeline and batch controller) runs the ablation "new" (no plug-in). Basis: the
+full first-200 run of both versions, `experiments/vl_vv_full_first200_new_20261111/` (README, `summary.json`,
+`unspecified_entity_metrics.json`, `cost_four_versions.json`). In that run the plug-in version reused the base
+version's V-L severities (section 9, "Both versions of one video"); the integrated default makes its own V-L severity
+call, so its V-L score can differ slightly from the base run's.

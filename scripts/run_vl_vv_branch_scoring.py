@@ -406,8 +406,41 @@ def materialize_v6(units, assessments, entities, cfg, shots):
     return scores, statistics, ledger, unit_counts
 
 
-def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL, reasoning=common.REASONING):
-    """Scoring v6 (chain v6): severities of confirmed and uncertain issues per branch; each deducts on its own."""
+def reused_vl_scoring(folder, vl_review, model, reasoning):
+    """The V-L severity call of an earlier successful scoring v6 run of the same V-L review (--vl-scoring-from).
+
+    Owner, 2026-11-11: when the plug-in version is scored on top of the base version, it reuses the base version's
+    V-L severities instead of rating the same V-L review again, so both versions report the same V-L score. The
+    earlier run must have scored a byte-identical V-L review with the same model and reasoning; run_v6 also checks
+    that the rendered V-L prompt and the V-L scorer input are byte-identical before using the response.
+    Returns None when the earlier run made no V-L call (no V-L unit to score)."""
+    folder = Path(folder).resolve()
+    result = common.read(folder / 'result.json')
+    if (result.get('status') != 'success' or result.get('chain') != 'v6'
+            or result.get('protocol') != common.SCORING_PROTOCOL_V6):
+        raise ValueError(f'{folder}: --vl-scoring-from needs a successful scoring v6 result')
+    if (result.get('model'), result.get('reasoning')) != (model, reasoning):
+        raise ValueError(f'{folder}: scored with {result.get("model")}/{result.get("reasoning")}, not {model}/{reasoning}')
+    if result['source_review_sha256']['vl'] != io.sha(vl_review):
+        raise ValueError(f'{folder}: its V-L review differs from {vl_review}')
+    audit_path = folder / 'call_vl_repair_audit.json'
+    if not audit_path.is_file():
+        return None
+    audit = common.read(audit_path)
+    accepted = [r for r in audit['rounds'] if r.get('accepted')]
+    if audit.get('status') != 'passed' or len(accepted) != 1:
+        raise ValueError(f'{audit_path}: no single accepted V-L scoring response')
+    call = folder / Path(accepted[0]['call_folder']).name  # call folders sit beside the audit, also after a move
+    return dict(folder=folder, result=folder / 'result.json', response=call / 'response.json',
+                prompt=folder / 'prompt_rendered_vl.txt', scorer_input=folder / 'scorer_input_vl.json',
+                repair_rounds=audit.get('repair_rounds', 0), usage_not_counted=audit.get('usage', []))
+
+
+def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL, reasoning=common.REASONING,
+           vl_scoring_from=None):
+    """Scoring v6 (chain v6): severities of confirmed and uncertain issues per branch; each deducts on its own.
+
+    vl_scoring_from: an earlier scoring v6 folder of the same V-L review whose V-L severities are reused (no V-L call)."""
     common.require_api(model, reasoning, 'branch scoring')
     chain_row = common.chain_spec('v6')
     cfg = common.config(chain_row['config'])
@@ -415,6 +448,10 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
     out = Path(out).resolve()
     if out.exists():
         raise FileExistsError('Use a fresh episode-scoring output directory')
+    reused = None
+    if vl_scoring_from is not None:
+        reused = reused_vl_scoring(vl_scoring_from, paths['vl'], model, reasoning)
+        reused_source = Path(vl_scoring_from).resolve()
     reviews = {branch: load_review(paths[branch], branch, 'v6') for branch in common.BRANCHES}
     if reviews['vl']['source_case'] != reviews['vv']['source_case']:
         raise ValueError('The V-L and V-V reviews come from different cases')
@@ -425,6 +462,8 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
     source_paths = [paths['vl'], paths['vv'], manifest_path, Path(__file__).resolve(), Path(repair_loop.__file__).resolve(),
                     specs['vl']['schema'], specs['vv']['schema'],
                     *common.static_source_paths(specs['vl']['prompt'], specs['vv']['prompt'], chain='v6')]
+    if reused is not None:
+        source_paths += [reused['result'], reused['response'], reused['prompt'], reused['scorer_input']]
     hashes = {str(Path(path).resolve()): io.sha(path) for path in source_paths}
     out.mkdir(parents=True)
     for branch in common.BRANCHES:
@@ -432,11 +471,14 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
     save(out / 'source_hashes.json', hashes)
     state = dict(protocol=common.SCORING_PROTOCOL_V6, chain='v6', status='running', model=model, reasoning=reasoning,
                  source_reviews={branch: str(paths[branch]) for branch in common.BRANCHES}, started=time.time(),
-                 unit_counts={branch: len(reviews[branch]['units']) for branch in common.BRANCHES})
+                 unit_counts={branch: len(reviews[branch]['units']) for branch in common.BRANCHES},
+                 vl_scoring_from=str(reused_source) if vl_scoring_from is not None else None)
     save(out / 'run.json', state)
 
     def score_branch(branch):
         units = scored_units_v6(reviews[branch]['units'])
+        if vl_scoring_from is not None and branch == 'vl' and (reused is None) != (not units):
+            raise ValueError(f'{reused_source}: its V-L call does not match the V-L units to score')
         if not units:
             return {}, [], None
         spec = specs[branch]
@@ -444,6 +486,17 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
         save(out / f'scorer_input_{branch}.json', payload)
         prompt_path = common.write_rendered_prompt(spec['prompt'], out / f'prompt_rendered_{branch}.txt',
                                                    chain_row['config'])
+        if branch == 'vl' and reused is not None:
+            if (Path(prompt_path).read_bytes() != reused['prompt'].read_bytes()
+                    or (out / 'scorer_input_vl.json').read_bytes() != reused['scorer_input'].read_bytes()):
+                raise ValueError(f'{reused_source}: its V-L prompt or scorer input differs from this run')
+            response = common.read(reused['response'])
+            errors = repair_loop.schema_errors(response, common.read(spec['schema']))
+            if not errors:
+                errors, assessments = assessment_errors_v6(response, units, base)
+            if errors:
+                raise ValueError(f'{reused["response"]}: reused V-L severities are invalid: {errors}')
+            return assessments, [], None
         assessments, _, usage, repair = repair_loop.call_with_repair(
             out / f'call_{branch}', payload, [], timeout, prompt_path=prompt_path, schema=common.read(spec['schema']),
             model=model, reasoning=reasoning, stage=f'{branch.upper()} scoring', repair_prompt=common.REPAIR_PROMPT,
@@ -488,6 +541,15 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
             repair_rounds={branch: (outcomes[branch][2]['repair_rounds'] if outcomes[branch][2] else 0)
                            for branch in common.BRANCHES},
             usage=usage, token_cost=common.estimated_cost(usage),
+            **(dict(reused_vl_scoring=dict(
+                source=str(reused_source),
+                source_result_sha256=hashes.get(str(reused['result'])) if reused else None,
+                response=str(reused['response']) if reused else None,
+                response_sha256=hashes.get(str(reused['response'])) if reused else None,
+                source_repair_rounds=reused['repair_rounds'] if reused else 0,
+                rule='V-L severities reused from the earlier scoring of the byte-identical V-L review, rendered '
+                     'prompt and scorer input (no V-L call here; its usage is counted in the earlier run, not in '
+                     'usage above)')) if vl_scoring_from is not None else {}),
             limitation='Scores summarize confirmed verified issues and, at a reduced factor, uncertain ones; '
                        'severities come from text-only calls; entity labels come from the entity ledger and are not '
                        'checked against the text; no human calibration.')
@@ -509,11 +571,13 @@ def run_v6(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL
 
 
 def run(vl_review_path, vv_review_path, out, timeout=1800, model=common.MODEL, reasoning=common.REASONING,
-        chain=common.DEFAULT_CHAIN):
+        chain=common.DEFAULT_CHAIN, vl_scoring_from=None):
     """Scoring v6 for chain v6 (default), scoring v5 for chain v5."""
     common.chain_spec(chain)
     if chain == 'v6':
-        return run_v6(vl_review_path, vv_review_path, out, timeout, model, reasoning)
+        return run_v6(vl_review_path, vv_review_path, out, timeout, model, reasoning, vl_scoring_from)
+    if vl_scoring_from is not None:
+        raise ValueError('--vl-scoring-from needs chain v6')
     return run_v5(vl_review_path, vv_review_path, out, timeout, model, reasoning)
 
 
@@ -621,8 +685,13 @@ def main():
     parser.add_argument('--timeout', type=int, default=1800)
     parser.add_argument('--model', default=common.MODEL, choices=[common.MODEL])
     parser.add_argument('--reasoning', default=common.REASONING, choices=[common.REASONING])
+    parser.add_argument('--vl-scoring-from', type=Path,
+                        help='Chain v6: an earlier successful scoring folder of the same V-L review; its V-L '
+                             'severities are reused and only the V-V call runs (plug-in version scored on top of the '
+                             'base version, owner 2026-11-11)')
     args = parser.parse_args()
-    run(args.vl_review, args.vv_review, args.output, args.timeout, args.model, args.reasoning, args.chain)
+    run(args.vl_review, args.vv_review, args.output, args.timeout, args.model, args.reasoning, args.chain,
+        args.vl_scoring_from)
 
 
 if __name__ == '__main__':

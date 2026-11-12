@@ -125,8 +125,9 @@ class Gate(unittest.TestCase):
 
 
 class WallsArePartOfTheirPlace(unittest.TestCase):
-    """Owner, 2026-11-09: walls, floors, ceilings and the ground are part of their place; a change to them is reported
-    with the place's ledger ID, which may be the only subject of a setting/background issue (chain v6 only)."""
+    """Owner, 2026-11-09: a setting/background issue may have its place as the only subject (chain v6 gate). Owner,
+    2026-11-11 ("所有类别都加吧"): walls, floors, ceilings, the ground, floor coverings, plants and worn items are entities
+    of their own; the place stays the only subject of a change of the place as a whole."""
 
     def test_the_place_may_be_the_only_subject(self):
         place = sorted(common.place_entity_ids(base.contract(), base.ledger()))[0]
@@ -141,10 +142,14 @@ class WallsArePartOfTheirPlace(unittest.TestCase):
     def test_both_v6_prompts_state_the_rule_and_v5_is_unchanged(self):
         for path in (PROMPT_V6, ITEM_PROMPT):
             text = ' '.join(path.read_text().split())
-            self.assertIn("Walls, floors, ceilings and the ground are part of their place: for a change to one of them, "
-                          "the place's ledger entity is the subject, even when it is the only subject.", text)
-            self.assertIn("refer to them with the place's ledger ID and never add them as entities. Only when the place "
-                          "has no ledger record, add the place itself (not the wall or floor) as an entity.", text)
+            self.assertIn("and the only subject of a change of the place as a whole. Walls, floors, ceilings, the "
+                          "ground, floor coverings and plants are entities of their own: for a change to one of them, "
+                          "that part is the subject.", text)
+            self.assertIn("Walls, floors, ceilings, the ground, floor coverings, trees and plants are entities of their "
+                          "own: refer to them with their ledger ID, or add them as entities when the ledger lacks them.", text)
+            self.assertIn("Items a person wears or carries (each garment, shoes, headwear, glasses, a watch, jewelry, a "
+                          "badge or lanyard, a belt, gloves, an apron, a bag) are entities of their own", text)
+            self.assertNotIn("part of their place", text)
             self.assertNotIn('wall covering', text)
             self.assertNotIn('never the only subject', text)
         self.assertIn('never the only subject', ' '.join(PROMPT_V5.read_text().split()))

@@ -474,9 +474,13 @@ class VVDetectionGates(unittest.TestCase):
             text = ' '.join(common.render_prompt(spec['prompt']).split())
             self.assertIn('part of that person', text)
             self.assertNotIn('are prompt_unbound even when', text)
+        # Owner, 2026-11-11 ("所有类别都加吧"): shot clustering keeps worn items and place parts as entities of their own;
+        # the chain v5 prompts above are historical and unchanged.
         clustering = ' '.join((common.ROOT / 'skills/wedetect-shot-entities/review_prompt.txt').read_text().split())
-        self.assertIn('Items a person wears or carries are part of that person', clustering)
-        self.assertIn('Walls, floors and ceilings are part of the setting', clustering)
+        self.assertIn('Items a person wears or carries are separate entities', clustering)
+        self.assertIn('Walls, floors, ceilings, ground surfaces', clustering)
+        self.assertNotIn('Merge them into their wearer', clustering)
+        self.assertNotIn('part of the setting, not entities', clustering)
 
 
 def vl_candidates():
@@ -828,10 +832,19 @@ class PipelineWiring(unittest.TestCase):
     def test_default_chain_is_branch_separated(self):
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
-            plan = pipeline.build_plan(registry_case(root), root / 'run', 'from-registry')
+            default = pipeline.build_plan(registry_case(root), root / 'run', 'from-registry')
+            # 2026-11-12 (owner): the unspecified plug-in is on by default for discovery v6; off is the ablation.
+            self.assertTrue(default['unspecified_plugin'])
+            self.assertEqual([stage['name'] for stage in default['stages']], list(pipeline.registry_stages('v6', True)))
+            by_name = {stage['name']: stage['command'] for stage in default['stages']}
+            self.assertEqual(by_name['vv_review'][by_name['vv_review'].index('--detection') + 1],
+                             str(root / 'run/vv_plugin/result.json'))
+            plan = pipeline.build_plan(root / 'case', root / 'run', 'from-registry', unspecified_plugin=False)
+            self.assertFalse(plan['unspecified_plugin'])
             self.assertEqual((plan['discovery_protocol'], plan['review_protocol'], plan['scoring_protocol']),
                              ('v6', 'v7', 'vl_vv_episode_scoring_v6'))
             old = pipeline.build_plan(root / 'case', root / 'old', 'from-registry', discovery_protocol='v5')
+            self.assertFalse(old['unspecified_plugin'])
             self.assertEqual((old['discovery_protocol'], old['review_protocol'], old['scoring_protocol']),
                              ('v5', 'v6', 'vl_vv_episode_scoring_v5'))
             self.assertTrue(all(stage['command'][stage['command'].index('--chain') + 1] == 'v5' for stage in old['stages']))
@@ -853,6 +866,12 @@ class PipelineWiring(unittest.TestCase):
             (case / 'run.json').write_text(json.dumps(dict(protocol='vl_vv_detection_v1', status='prepared')))
             (case / 'episode_entities.json').unlink()
             plan = pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef')
+            # Pipeline C (2026-11-11): the background frontend runs by default for discovery v6 in full mode.
+            self.assertEqual([stage['name'] for stage in plan['stages']], list(pipeline.full_stages('v6', 'cuda', True, True)))
+            plan = pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef', background_frontend=False)
+            self.assertEqual([stage['name'] for stage in plan['stages']], list(pipeline.full_stages('v6', 'cuda', False, True)))
+            plan = pipeline.build_plan(case, root / 'run', 'full', 2, 'GPU-abcdef', background_frontend=False,
+                                       unspecified_plugin=False)
             self.assertEqual([stage['name'] for stage in plan['stages']], list(pipeline.full_stages('v5')))
 
     def run_with_fake_stages(self, fail=None, delay=0.2):
@@ -875,6 +894,8 @@ class PipelineWiring(unittest.TestCase):
                 value = {'status': 'success'}
                 if name == 'episode_scoring':
                     value['protocol'] = plan['scoring_protocol']
+                if name == 'vv_plugin':
+                    value['u_branch'] = {}
                 target.write_text(json.dumps(value))
                 with lock:
                     events.append(('end', name, threading.current_thread().name))

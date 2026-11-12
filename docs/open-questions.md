@@ -141,6 +141,29 @@ and date when it is settled. Paper-writing TODOs stay in
 
 ## Resolved
 
+### Q24. Pipeline C as the default, the unspecified branch as a plug-in — implemented 2026-11-11
+
+- Owner (2026-11-10): "新流程把C设为默认，然后把这个unspecify专属分支作为plug in"; merged review for the plug-in
+  variant ("保持合并复核"). Full first-200 run of both: `experiments/vl_vv_full_first200_c_20261110/README.md`
+  (UEC 81.96 / 81.54 / 81.47 for v3 / C / C + plug-in; unspecified share of confirmed V-V issues 1.77% / 3.75% /
+  8.19%; USD 53.23 / 70.32 / 88.08 for 1,000 videos, standard-price estimate).
+- Live since 2026-11-11: background frontend default on for discovery v6 in full mode, W8/X10 in the V-V
+  checklist, `--unspecified-plugin on` optional. `docs/vl-vv-branch-pipeline-v2.md` section 9. Code of the runs:
+  commits 144e8f7 (v3) and 6f530ee (C, plug-in).
+
+### Q25. Worn items and place parts are entities — decided 2026-11-11 (contracts 1-200 being rewritten)
+
+- Owner: "所有类别都加吧，同步改contract"; presence only in the shots whose own text mentions the item
+  ("只列该镜头文字提到的"). Supersedes the 2026-10-27/29 granularity bullets, the Q5 ground ruling (Q5 item 4),
+  the 2026-11-01 worn-items-part-of-wearer detection rule, the 2026-11-09 walls-part-of-place V-V rule and the
+  2026-09-20 floor-covering exclusion.
+- Basis: `experiments/vl_vv_entity_scope_candidates_20261111/README.md` (which categories can add unspecified
+  issues). Detection prompts changed in place (`experiments/vl_vv_entity_scope_20261111/`); contracts by the
+  granularity pass (`experiments/contract_cleanup_20261031/g_pass.py`, `rules_g.txt`). Assistant rulings inside
+  the owner's presence rule: a collective clothing word mentions every garment of that person; an item word inside
+  a person's description or label ("the dark-shirted man") mentions that item; a mounting compound ("wall light")
+  does not mention the wall.
+
 ### Q22. V-V shot-boundary path — removed 2026-11-09
 
 - Resolved by the owner's redesign of V-V detection the same day: no inspection paths; the agent checks one checklist item per call (X4 and X9 stay checklist items). `experiments/vl_vv_checklist_traversal_20261109/REPORT.md`.

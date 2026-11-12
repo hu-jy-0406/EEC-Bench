@@ -43,17 +43,16 @@ the 26 examples in `experiments/contract_format_v2_20261027/granularity_examples
   action with or on the item itself: it is the centre of an event (a pistol
   held to a temple, a cap pulled off and put down, a phone raised to the ear)
   or it is handled at all (raised, lowered, moved, gripped, held up, used).
-  Items that are only worn or carried, with no action on them (a badge on a
-  lanyard, a coat over the forearm, a watch on a lifted hand, glasses), stay
-  in the owner character's description, including such items that v1 listed
-  separately.
+  *Superseded 2026-11-11 (see below):* items that are only worn or carried
+  are now separate entities too; before, they stayed in the owner
+  character's description.
 - **Collections** are one entity (loose papers, city buildings, a group of
   desks, a crowd of guests, people as a group). Members the prompt describes
   separately (a front mug and a rear mug, two different pairs of sunglasses)
   are separate entities. (The owner did not object to this reading.)
-- **Walls, floors and ceilings** are not entities; they are part of the
-  location description (floors and ceilings confirmed by the owner on
-  2026-10-29).
+- **Walls, floors and ceilings** were part of the location description
+  (floors and ceilings confirmed by the owner on 2026-10-29); *superseded
+  2026-11-11 (see below)*.
 - **Every other structural part the prompt names is a separate entity**:
   doors, doorways, windows, window frames, grilles, curtains, pipes, valves,
   wall or ceiling fixtures (sconces, towel rings), whether or not anything
@@ -61,6 +60,35 @@ the 26 examples in `experiments/contract_format_v2_20261027/granularity_examples
 - **Furniture and props the prompt names are separate entities**, including
   background furnishings (bottle shelves, fairy lights) and small items on a
   surface (a shaker, a cup, a lamp, desktop papers).
+## Worn items and place parts are entities (owner, 2026-11-11)
+
+Owner: "所有类别都加吧，同步改contract" (after "A全部纳入实体，B中除了14都纳入，
+如果和之前的规则有冲突就修改之前的规则"). Supersedes the worn-item and
+walls/floors/ceilings bullets above and the Q5 ruling that ground is part of
+the location. Applied to priority 1-200 by the granularity pass
+(`experiments/contract_cleanup_20261031/g_pass.py`, rules `rules_g.txt`).
+
+- **G1 worn or carried items** the prompt names are entities (label object):
+  each garment, trousers and skirts, footwear, headwear and hair accessories,
+  eyewear, ties and scarves, jewelry and watches, belts, lanyards, badges and
+  straps, gloves and aprons, bags. A matching pair is one entity; a set the
+  prompt names as one item ("a gray suit") is one entity; items a group wears
+  are one entity. Body features (hair, beard, makeup) stay in the character's
+  description; an item named only as missing gets no entity.
+- **G2 place parts** the prompt names are entities (label object): walls,
+  floors, ceilings, ground surfaces (street, snow, grass, sand, ...), floor
+  coverings, trees, bushes and plants. A place the contract keeps as its own
+  location stays a location; the sky, weather and distant landforms are not
+  entities.
+- **Presence** (owner choice 2026-11-11, "只列该镜头文字提到的"): such an
+  entity is listed only in the shots whose own prompt text mentions it (by
+  name, an unambiguous reference, a collective clothing word for garments, or
+  an item word inside a person's description such as "the dark-shirted man");
+  a global statement that applies to every shot lists it in every shot of its
+  wearer or place. The V-L presence semantics are unchanged.
+- The item's attributes move from the wearer's or location's description to
+  the item's own description, and requirements about the item refer to it.
+
 ## Layout
 
 ```

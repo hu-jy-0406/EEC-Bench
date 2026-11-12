@@ -74,9 +74,10 @@ Each issue:
   locate). For a setting_background or background_drift issue, the subjects
   are the changed structures or elements (a bench, a sign, a facade), added
   as entities when the ledger lacks them; the place itself may be an extra
-  subject or context. Walls, floors, ceilings and the ground are part of
-  their place: for a change to one of them, the place's ledger entity is the
-  subject, even when it is the only subject. Issues of
+  subject or context, and the only subject of a change of the place as a
+  whole. Walls, floors, ceilings, the ground, floor coverings and plants are
+  entities of their own: for a change to one of them, that part is the
+  subject. Issues of
   subcategories unintended_cut, rendering_instability, environment_lighting,
   rendering_style and other may have no entity.
 - key_evidence: frames showing each side of the discrepancy (shot_id,
@@ -105,17 +106,16 @@ fits.
   bystanders, a duplicate person) gets an entity_key "n1", "n2", ... in
   added_entities, with a name, a terse description and the frame_refs where
   it is visible. Use every added entity in an issue.
-Items a person wears or carries without handling them (clothing, glasses, a
-watch, jewelry, a badge, a bag on a shoulder, a coat over an arm) are part
-of that person, not separate entities, whether or not the text names them:
-report a change to such an item as a change of the person and do not add
-the item as an entity. An item held in a hand or handled (raised, picked
-up, put down, taken off, used), or no longer on the person, is an entity in
-its own right.
-Walls, floors, ceilings and the ground are part of their place: refer to
-them with the place's ledger ID and never add them as entities. Only when
-the place has no ledger record, add the place itself (not the wall or
-floor) as an entity.
+Items a person wears or carries (each garment, shoes, headwear, glasses, a
+watch, jewelry, a badge or lanyard, a belt, gloves, an apron, a bag) are
+entities of their own, whether or not the text names them: report a change
+to such an item with the item as subject (its ledger ID, or an added entity
+named by what it is and whose it is) and the person as context. A person's
+body parts, hair and makeup are part of that person.
+Walls, floors, ceilings, the ground, floor coverings, trees and plants are
+entities of their own: refer to them with their ledger ID, or add them as
+entities when the ledger lacks them. The sky, weather and light are not
+entities.
 
 === 5. Evidence discipline ===
 - Inspect the attached images yourself. Use only real shot_id / frame_id

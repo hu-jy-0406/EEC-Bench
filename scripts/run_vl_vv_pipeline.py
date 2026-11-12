@@ -54,6 +54,14 @@ SCORING_SKILL = ROOT / 'skills/vl-vv-episode-scorer/SKILL.md'
 BRANCH_DETECTION = SCRIPTS / 'run_vl_vv_branch_detection.py'
 BRANCH_REVIEW = SCRIPTS / 'run_vl_vv_branch_review.py'
 BRANCH_SCORING = SCRIPTS / 'run_vl_vv_branch_scoring.py'
+# Pipeline C (owner, 2026-11-10/11: "新流程把C设为默认"): the background-object frontend runs between a first and a
+# second detection pass (default on for discovery v6 in full mode); the unspecified plug-in adds its findings to the
+# V-V candidates before one merged V-V review (default off).
+FRONTEND = SCRIPTS / 'vl_vv_background_frontend.py'
+FRONTEND_FILES = [FRONTEND, ROOT / 'prompts/vl_vv_background_discovery_v0.txt', ROOT / 'prompts/vl_vv_background_boxchoice_v0.txt',
+                  SCRIPTS / 'gs_grounding_recovery.py']
+PLUGIN = SCRIPTS / 'run_vl_vv_unspecified_plugin.py'
+PLUGIN_FILES = [PLUGIN, ROOT / 'prompts/vl_vv_unspecified_plugin_u1_v1.txt', ROOT / 'prompts/vl_vv_unspecified_plugin_u3_v2.txt']
 # V-L detection formats "answers" / "answers_no_contract" (chain v6): one answer per requirement.  answers is the
 # default for discovery v6 since 2026-11-05 (owner); its V-L review skips the rewrite call.  checks stays selectable
 # and is the only format of discovery v5.
@@ -167,6 +175,9 @@ def chain_source_files(discovery_protocol, review_protocol, vl_format='checks'):
 
 
 FRONTEND_STAGES = ('detect', 'match', 'dino_prepare', 'dino', 'attach_dino')
+# Background frontend (pipeline C): first detection pass, discovery, Grounding DINO, box choice, augmented detections,
+# second detection pass on them.
+BACKGROUND_STAGES = ('detect', 'bg_discover', 'bg_ground', 'bg_choose', 'bg_augment', 'redetect')
 # CPU frontend (--frontend-device cpu): WeDetect and Grounding DINO run on CPU;
 # the DINO features need a GPU and are deferred (run `dino` and `attach_dino`
 # on the case later).  The current scoring does not read them (Q1 ablation only).
@@ -176,16 +187,41 @@ BRANCH_STAGES = ('vl_detection', 'vv_detection', 'vl_review', 'vv_review', 'epis
 FULL_STAGES = FRONTEND_STAGES + REGISTRY_STAGES
 # Branch of each branch-chain stage; stages of one branch run in order, the two
 # branches concurrently, and episode_scoring after both.
-STAGE_BRANCH = {'vl_detection': 'vl', 'vl_review': 'vl', 'vv_detection': 'vv', 'vv_review': 'vv'}
+STAGE_BRANCH = {'vl_detection': 'vl', 'vl_review': 'vl', 'vv_detection': 'vv', 'vv_plugin': 'vv', 'vv_review': 'vv'}
 
 
-def registry_stages(discovery_protocol):
-    return BRANCH_STAGES if discovery_protocol in BRANCH_PROTOCOLS else REGISTRY_STAGES
+def registry_stages(discovery_protocol, plugin=False):
+    if discovery_protocol not in BRANCH_PROTOCOLS:
+        return REGISTRY_STAGES
+    if plugin:
+        return ('vl_detection', 'vv_detection', 'vv_plugin', 'vl_review', 'vv_review', 'episode_scoring')
+    return BRANCH_STAGES
 
 
-def full_stages(discovery_protocol, frontend_device='cuda'):
+def full_stages(discovery_protocol, frontend_device='cuda', background=False, plugin=False):
     frontend = CPU_FRONTEND_STAGES if frontend_device == 'cpu' else FRONTEND_STAGES
-    return frontend + registry_stages(discovery_protocol)
+    if background:
+        frontend = BACKGROUND_STAGES + frontend[1:]
+    return frontend + registry_stages(discovery_protocol, plugin)
+
+
+def resolve_plugin(discovery_protocol, plugin):
+    """Unspecified plug-in: default on for discovery v6 (owner, 2026-11-12: new entity rule + new + plug-in is the
+    default pipeline; new without the plug-in is the ablation, --unspecified-plugin off)."""
+    if plugin is None:
+        return discovery_protocol == 'v6'
+    if plugin and discovery_protocol != 'v6':
+        raise ValueError('--unspecified-plugin on needs discovery protocol v6')
+    return bool(plugin)
+
+
+def resolve_background(mode, discovery_protocol, background):
+    """Pipeline C's background frontend: default on for discovery v6 in full mode (owner, 2026-11-11)."""
+    if background is None:
+        return mode == 'full' and discovery_protocol == 'v6'
+    if background and (mode != 'full' or discovery_protocol != 'v6'):
+        raise ValueError('--background-frontend on needs --mode full and discovery protocol v6')
+    return background
 
 
 def read(path):
@@ -272,7 +308,8 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                python=sys.executable, gpu_python=sys.executable,
                discovery_protocol=DEFAULT_DISCOVERY_PROTOCOL, allow_legacy_keyframes=False,
                review_protocol=None, allow_v1_contract=False, frontend_device='cuda', dino_deferred=False,
-               vl_format=None, vv_detection_mode=None):
+               vl_format=None, vv_detection_mode=None, background_frontend=None, unspecified_plugin=None,
+               reuse_detections=None):
     case, output, shots, frames = validate_case(case, output, mode, gpu, gpu_uuid, allow_legacy_keyframes,
                                                 discovery_protocol, allow_v1_contract, frontend_device, dino_deferred)
     legacy = ['--allow-legacy-nominal-keyframes'] if allow_legacy_keyframes else []
@@ -290,24 +327,50 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
         raise ValueError('--vv-detection-mode needs discovery protocol v6')
     if shot_workers < 1:
         raise ValueError('--shot-workers must be positive')
+    background = resolve_background(mode, discovery_protocol, background_frontend)
+    if reuse_detections is not None:
+        # The first detection pass clusters an existing WeDetect run of the same keyframes instead of running WeDetect
+        # again (clustering checks frame coverage and image hashes); everything after it runs fresh.
+        if mode != 'full':
+            raise ValueError('--reuse-detections needs --mode full')
+        reuse_detections = Path(reuse_detections).resolve()
+        if not (reuse_detections / 'run.json').is_file() or read(reuse_detections / 'run.json').get('model') != 'wedetect':
+            raise ValueError(f'{reuse_detections} is not a WeDetect run')
+    unspecified_plugin = resolve_plugin(discovery_protocol, unspecified_plugin)
     py = str(Path(python).resolve())
     gpu_py = str(Path(gpu_python).resolve())
     api = [str(API), py]
     detection = [py, str(DETECTION)]
     gpu_detection = [gpu_py, str(DETECTION)]
     stages = []
+    if mode == 'full' and background:
+        device_args = (['--device', 'cpu'] if frontend_device == 'cpu'
+                       else ['--gpu', str(gpu), '--gpu-uuid', gpu_uuid, '--device', 'cuda'])
+        detect_cmd = api + [str(DETECTION), 'detect', '--case', str(case), '--shot-workers', str(shot_workers)] + device_args
+        reuse = ['--detections', str(reuse_detections)] if reuse_detections else []
+        stages.extend([
+            ('detect', detect_cmd + reuse),
+            ('bg_discover', api + [str(FRONTEND), 'discover', '--case', str(case)]),
+            ('bg_ground', [gpu_py, str(FRONTEND), 'ground', '--case', str(case)]
+             + (['--device', 'cpu'] if frontend_device == 'cpu' else ['--device', 'cuda', '--gpu-uuid', gpu_uuid])),
+            ('bg_choose', api + [str(FRONTEND), 'choose', '--case', str(case)]),
+            ('bg_augment', [py, str(FRONTEND), 'augment', '--case', str(case)]),
+            ('redetect', detect_cmd + ['--detections', str(case / 'background_frontend/aug_detections')]),
+        ])
     if mode == 'full' and frontend_device == 'cpu':
         stages.extend([
-            ('detect', api + [str(DETECTION), 'detect', '--case', str(case),
-                              '--shot-workers', str(shot_workers), '--device', 'cpu']),
+            *([] if background else [('detect', api + [str(DETECTION), 'detect', '--case', str(case),
+                                                       '--shot-workers', str(shot_workers), '--device', 'cpu']
+                                      + (['--detections', str(reuse_detections)] if reuse_detections else []))]),
             ('match', api + [str(DETECTION), 'match', '--case', str(case)]),
             ('dino_prepare', detection + ['dino_prepare', '--case', str(case)]),
         ])
     elif mode == 'full':
         stages.extend([
-            ('detect', api + [str(DETECTION), 'detect', '--case', str(case),
-                              '--gpu', str(gpu), '--gpu-uuid', gpu_uuid,
-                              '--shot-workers', str(shot_workers), '--device', 'cuda']),
+            *([] if background else [('detect', api + [str(DETECTION), 'detect', '--case', str(case),
+                                                       '--gpu', str(gpu), '--gpu-uuid', gpu_uuid,
+                                                       '--shot-workers', str(shot_workers), '--device', 'cuda']
+                                      + (['--detections', str(reuse_detections)] if reuse_detections else []))]),
             ('match', api + [str(DETECTION), 'match', '--case', str(case)]),
             ('dino_prepare', detection + ['dino_prepare', '--case', str(case)]),
             ('dino', gpu_detection + ['dino', '--case', str(case), '--gpu', str(gpu),
@@ -323,10 +386,15 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                 '--output', str(output / f'{branch}_detection')] + chain + branch_flags
                 + (['--vl-format', vl_format] if branch == 'vl' and discovery_protocol == 'v6' else [])
                 + (['--vv-mode', vv_detection_mode] if branch == 'vv' and vv_detection_mode else [])))
+        if unspecified_plugin:
+            stages.append(('vv_plugin', api + [str(PLUGIN), '--case', str(case), '--detection',
+                                               str(output / 'vv_detection/result.json'), '--output', str(output / 'vv_plugin')]))
         for branch in ('vl', 'vv'):
+            detection_file = output / ('vv_plugin/result.json' if branch == 'vv' and unspecified_plugin
+                                       else f'{branch}_detection/result.json')
             stages.append((f'{branch}_review', api + [
                 str(BRANCH_REVIEW), '--branch', branch, '--case', str(case),
-                '--detection', str(output / f'{branch}_detection/result.json'),
+                '--detection', str(detection_file),
                 '--output', str(output / f'{branch}_review')] + chain + branch_flags))
         stages.append(('episode_scoring', api + [
             str(BRANCH_SCORING), '--vl-review', str(output / 'vl_review/result.json'),
@@ -343,7 +411,8 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
             ('episode_scoring', api + [str(SCORING), '--review',
                                        str(review_out / 'result.json'), '--output', str(scoring_out)]),
         ])
-    expected = full_stages(discovery_protocol, frontend_device) if mode == 'full' else registry_stages(discovery_protocol)
+    expected = (full_stages(discovery_protocol, frontend_device, background, unspecified_plugin) if mode == 'full'
+                else registry_stages(discovery_protocol, unspecified_plugin))
     if tuple(name for name, _ in stages) != expected:
         raise AssertionError('Pipeline stage order changed unexpectedly')
     files = chain_files(discovery_protocol, review_protocol)
@@ -359,6 +428,8 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
                 discovery_protocol=discovery_protocol, review_protocol=review_protocol,
                 vl_format=vl_format if discovery_protocol in BRANCH_PROTOCOLS else None,
                 **({'vv_detection_mode': vv_detection_mode} if vv_detection_mode else {}),
+                background_frontend=background, unspecified_plugin=bool(unspecified_plugin),
+                reuse_detections=str(reuse_detections) if reuse_detections else None,
                 allow_legacy_nominal_keyframes=allow_legacy_keyframes, allow_v1_contract=allow_v1_contract,
                 discovery_prompt=shown(files['discovery_prompt']), review_prompt=shown(files['review_prompt']),
                 scoring_skill=shown(files['scoring_prompt']), scoring_protocol=files['scoring_protocol'],
@@ -368,6 +439,18 @@ def build_plan(case, output, mode, gpu=None, gpu_uuid=None, shot_workers=3,
 
 
 def verify_stage(name, case, output, scoring_protocol='vl_vv_episode_scoring_v2'):
+    if name in ('bg_discover', 'bg_ground', 'bg_choose', 'bg_augment'):
+        path = case / 'background_frontend/run.json'
+        if not path.is_file() or name[3:] not in read(path).get('steps', {}):
+            raise ValueError(f'{name} did not record its step in {path}')
+        return
+    if name == 'vv_plugin':
+        path = output / 'vv_plugin/result.json'
+        if not path.is_file() or read(path).get('status') != 'success' or 'u_branch' not in read(path):
+            raise ValueError(f'vv_plugin did not produce a merged V-V detection: {path}')
+        return
+    if name == 'redetect':
+        name = 'detect'
     if name == 'detect':
         checks = ((case / 'run.json', 'status', 'detected'),
                   (case / 'entities/run.json', 'status', 'success'),
@@ -424,6 +507,12 @@ def execute(plan):
     source_paths = [case / 'contract.json', case / 'raw_manifest.json',
                     *chain_source_files(discovery_protocol, review_protocol, plan.get('vl_format') or 'checks'),
                     DETECTION, *TRANSPORT, Path(__file__).resolve()]
+    if plan.get('background_frontend'):
+        source_paths += FRONTEND_FILES
+    if plan.get('unspecified_plugin'):
+        source_paths += PLUGIN_FILES
+    if plan.get('reuse_detections'):
+        source_paths.append(Path(plan['reuse_detections']) / 'run.json')
     if plan['mode'] == 'from-registry':
         source_paths.append(case / 'episode_entities.json')
     if (case / contract_io.PROMPT_FILE).is_file():
@@ -563,6 +652,16 @@ def main():
                              'only to reproduce historical results')
     parser.add_argument('--allow-v1-contract', action='store_true',
                         help='Let the default chain read a case with a v1 contract; only to reproduce historical results')
+    parser.add_argument('--background-frontend', choices=('on', 'off'), default=None,
+                        help='Pipeline C background-object frontend (discovery, Grounding DINO, box choice, second '
+                             'detection pass on the augmented detections): default on for discovery v6 in full mode')
+    parser.add_argument('--unspecified-plugin', choices=('on', 'off'), default=None,
+                        help='Discovery v6: the unspecified-object plug-in adds its findings to the V-V candidates '
+                             'before one merged V-V review (default on for discovery v6 since 2026-11-12; off = '
+                             'the ablation without the plug-in)')
+    parser.add_argument('--reuse-detections', type=Path,
+                        help='Full mode: an existing WeDetect run of the same keyframes; the first detection pass '
+                             'clusters it instead of running WeDetect (frame coverage and image hashes are checked)')
     parser.add_argument('--dry-run', action='store_true', help='Validate inputs and print commands only')
     args = parser.parse_args()
     plan = build_plan(args.case, args.output, args.mode, args.gpu, args.gpu_uuid,
@@ -571,7 +670,10 @@ def main():
                       allow_legacy_keyframes=args.allow_legacy_nominal_keyframes,
                       review_protocol=args.review_protocol, allow_v1_contract=args.allow_v1_contract,
                       frontend_device=args.frontend_device, dino_deferred=args.dino_deferred,
-                      vl_format=args.vl_format, vv_detection_mode=args.vv_detection_mode)
+                      vl_format=args.vl_format, vv_detection_mode=args.vv_detection_mode,
+                      background_frontend=None if args.background_frontend is None else args.background_frontend == 'on',
+                      unspecified_plugin=None if args.unspecified_plugin is None else args.unspecified_plugin == 'on',
+                      reuse_detections=args.reuse_detections)
     plan['allow_unlabeled_images'] = args.allow_unlabeled_images
     if args.dry_run:
         print(json.dumps(plan, ensure_ascii=False, indent=2))

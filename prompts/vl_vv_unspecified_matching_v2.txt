@@ -46,6 +46,12 @@ where other members are already bound. Every other specified entity has at
 most one occurrence per shot; an occurrence merged into it must come from a
 shot in which it has no occurrence yet.
 
+Items a person wears or carries (clothing, shoes, headwear, glasses,
+jewelry, a watch, a badge, a belt, a bag) are entities of their own: never
+merge such an item into its wearer; merge it into a specified entity only
+when that contract entity is the item itself. Likewise, never merge a wall,
+floor, ceiling, ground surface, floor covering or plant into its place.
+
 Use only the supplied tags; do not invent occurrences, boxes or entities.
 For each assignment give: members (U tags), destination ("unspecified" or
 "specified"), specified_tag (the P tag for destination "specified", otherwise

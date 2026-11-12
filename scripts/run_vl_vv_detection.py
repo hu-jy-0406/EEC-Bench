@@ -40,6 +40,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 import run_wedetect_shot_entities as wedetect
 import gs_shot_prompt_recovery as recovery
+import gpu_lock
 import gs_prompt_binding as transport
 import vl_vv_repair_loop as repair_loop
 import run_vl_vv_issue_discovery as issue_discovery
@@ -267,7 +268,10 @@ BINDING_PROTOCOLS = ('v1', 'v2')
 DEFAULT_BINDING_PROTOCOL = 'v2'
 
 
-def detect(case, gpu, gpu_uuid, shot_workers, device='cuda', binding_protocol=DEFAULT_BINDING_PROTOCOL):
+def detect(case, gpu, gpu_uuid, shot_workers, device='cuda', binding_protocol=DEFAULT_BINDING_PROTOCOL, detections=None):
+    # detections (pipeline C, 2026-11-11): the second detection pass clusters the background frontend's augmented
+    # detections (original WeDetect detections plus chosen Grounding DINO boxes) without running WeDetect again;
+    # that clustering subprocess sees no GPU, binding and prompt recovery keep the given device.
     require_api(); case=Path(case).resolve(); manifest=case/'raw_manifest.json'; entities=case/'entities'
     if entities.exists():
         # Detection/shot-clustering is immutable once complete.  A later
@@ -282,8 +286,13 @@ def detect(case, gpu, gpu_uuid, shot_workers, device='cuda', binding_protocol=DE
         # to route only this subprocess through the configured base Python.
         review_python=os.environ.get('EECBENCH_REVIEW_PYTHON',sys.executable)
         cmd=[review_python,str(ROOT/'scripts/run_wedetect_shot_entities.py'),'--manifest',str(manifest),'--output',str(entities),
-             '--device',device,'--model',MODEL,'--reasoning',REASONING,'--shot-workers',str(shot_workers)]
-        if device=='cuda':
+             '--device','cpu' if detections else device,'--model',MODEL,'--reasoning',REASONING,'--shot-workers',str(shot_workers)]
+        if detections:
+            detections=Path(detections).resolve()
+            if not (detections/'run.json').is_file(): raise ValueError(f'No detection run in {detections}')
+            cmd.extend(['--detections',str(detections)])
+            subprocess.run(cmd,check=True,env=dict(os.environ,ROCR_VISIBLE_DEVICES='-1',CUDA_VISIBLE_DEVICES=''))
+        elif device=='cuda':
             if gpu is None or not gpu_uuid: raise ValueError('CUDA detection requires physical GPU index and UUID')
             cmd.extend(['--gpu',str(gpu),'--gpu-uuid',gpu_uuid])
         elif device=='cpu':
@@ -291,7 +300,8 @@ def detect(case, gpu, gpu_uuid, shot_workers, device='cuda', binding_protocol=DE
             os.environ.update(ROCR_VISIBLE_DEVICES='-1',CUDA_VISIBLE_DEVICES='')
         else:
             raise ValueError('Unsupported detector device')
-        subprocess.run(cmd,check=True)
+        if not detections:
+            subprocess.run(cmd,check=True)
     recovery_out = case / 'shot_prompt_recovery'
     resume_rec = recovery_out.exists() and (recovery_out / 'run.json').is_file() and read(recovery_out / 'run.json').get('status') == 'failed'
     if recovery_out.exists() and not resume_rec and not (recovery_out / 'results.json').is_file():
@@ -906,7 +916,7 @@ def dino(case,gpu,gpu_uuid):
     case=Path(case).resolve();runs=case/'dino/canonical'
     if not (runs/'manifest.json').is_file():raise ValueError('Run dino_prepare first')
     guard=ROOT/'experiments/study2_detection_only_fresh_20260918/guard_gpu.py'
-    cmd=[sys.executable,str(guard),str(gpu),gpu_uuid,'/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python',str(ROOT/'scripts/gs_entity_appearance.py'),'dino','--runs',str(runs)]
+    cmd=gpu_lock.prefix(gpu_uuid)+[sys.executable,str(guard),str(gpu),gpu_uuid,'/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python',str(ROOT/'scripts/gs_entity_appearance.py'),'dino','--runs',str(runs)]
     subprocess.run(cmd,check=True)
 
 
@@ -931,6 +941,7 @@ def main():
     p.add_argument('stage',choices=['extract','prepare','detect','match','dino_prepare','dino','attach_dino','discover_issues','all'])
     p.add_argument('--video-index',type=Path);p.add_argument('--frames-out',type=Path);p.add_argument('--manifest-out',type=Path)
     p.add_argument('--manifest',type=Path);p.add_argument('--contract',type=Path);p.add_argument('--case',type=Path)
+    p.add_argument('--detections',type=Path,help='detect: cluster these detections (background frontend aug_detections) instead of running WeDetect')
     p.add_argument('--gpu',type=int);p.add_argument('--gpu-uuid');p.add_argument('--device',choices=['cuda','cpu'],default='cuda');p.add_argument('--shot-workers',type=int,default=3);p.add_argument('--run-dino',action='store_true')
     p.add_argument('--issue-output',type=Path,help='Fresh output directory for the independent VL/VV issue-discovery agent')
     p.add_argument('--allow-legacy-nominal-keyframes',action='store_true',help='Accept episode keyframes on the nominal 5 s grid; only to reproduce historical results')
@@ -952,7 +963,7 @@ def main():
     if a.stage in ('dino',) and (a.gpu is None or not a.gpu_uuid):p.error('GPU stage requires --gpu and --gpu-uuid')
     if a.stage in ('detect','all') and a.device=='cuda' and (a.gpu is None or not a.gpu_uuid):p.error('CUDA detection requires --gpu and --gpu-uuid')
     if a.run_dino and (a.gpu is None or not a.gpu_uuid):p.error('--run-dino requires --gpu and --gpu-uuid')
-    if a.stage=='detect':detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device,a.binding_protocol)
+    if a.stage=='detect':detect(a.case,a.gpu,a.gpu_uuid,a.shot_workers,a.device,a.binding_protocol,a.detections)
     elif a.stage=='match':match(a.case,a.matching_protocol)
     elif a.stage=='dino_prepare':dino_prepare(a.case)
     elif a.stage=='dino':dino(a.case,a.gpu,a.gpu_uuid)

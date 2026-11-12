@@ -14,6 +14,7 @@ Deterministic normalizations that a stage already applied before this loop
 existed stay inside that stage's error collector.
 """
 import json
+import os
 from pathlib import Path
 
 import gs_prompt_binding as transport
@@ -155,7 +156,8 @@ def call_with_repair(folder, payload, images, timeout, *, prompt_path, schema, m
         repair_payload = dict(protocol=PROTOCOL, repair_round=round_index,
                               validation_errors=errors, previous_output=result)
         result = None
-        if previous_id:
+        if previous_id and os.environ.get('EECBENCH_API_PROVIDER', 'openai').strip().lower() != 'openrouter':
+            # OpenRouter's Responses API is stateless (2026-11-11): it goes straight to the full resend below.
             # Same conversation: the original instructions, input and images
             # are already in context; only the problems and prior output are sent.
             try:

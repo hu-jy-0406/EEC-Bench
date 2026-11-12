@@ -245,8 +245,10 @@ class ChainFiles(unittest.TestCase):
         self.assertEqual(set(new['rewrite']['actions']), {'keep', 'split', 'merge'})
         self.assertEqual(new['rewrite']['v_l_actions'], ['keep', 'split'])
         for key in old:
-            if key not in ('protocol', 'note', 'provenance', 'scoring', 'contract_template'):
+            if key not in ('protocol', 'note', 'provenance', 'scoring', 'contract_template', 'vv_checklist'):
                 self.assertEqual(old[key], new[key], key)
+        # Pipeline C (2026-11-11): chain v6 adds W8 and X10; the other items are those of config v1.
+        self.assertEqual(old['vv_checklist'], [i for i in new['vv_checklist'] if i['item'] not in ('W8', 'X10')])
         self.assertEqual(old['contract_template'],
                          {key: value for key, value in new['contract_template'].items() if key not in LINK_KEYS})
         self.assertEqual(new['contract_template']['issue_links'], 'requirement_ids')  # owner, 2026-11-04
@@ -792,7 +794,14 @@ class OfflineChainV6(unittest.TestCase):
 
         def fake(folder, payload, images, timeout, **kwargs):
             stages.append(kwargs['stage'])
-            return base.fake_repair_loop(responses)(folder, payload, images, timeout, **kwargs)
+            value, response, usage, audit = base.fake_repair_loop(responses)(folder, payload, images, timeout, **kwargs)
+            if kwargs['stage'].endswith('scoring'):  # what the real repair loop leaves on disk
+                Path(folder).mkdir(parents=True, exist_ok=True)
+                (Path(folder) / 'response.json').write_text(json.dumps(response))
+                Path(f'{folder}_repair_audit.json').write_text(json.dumps(dict(
+                    status='passed', repair_rounds=0, usage=usage, rounds=[dict(round=0, call_folder=str(folder),
+                                                                                accepted=True)])))
+            return value, response, usage, audit
 
         with tempfile.TemporaryDirectory() as temporary:
             root = Path(temporary)
@@ -807,6 +816,28 @@ class OfflineChainV6(unittest.TestCase):
                                branch, allow_v1_contract=True)
                 result = scoring.run(root / 'out/vl_review/result.json', root / 'out/vv_review/result.json',
                                      root / 'out/episode_scoring')
+                # Plug-in version scored on top of the base version (owner, 2026-11-11): the V-L severities of the
+                # base scoring are reused, only the V-V call runs, and the V-L score is the same.
+                first_stages, stages[:] = list(stages), []
+                reused = scoring.run(root / 'out/vl_review/result.json', root / 'out/vv_review/result.json',
+                                     root / 'out/episode_scoring_reuse', vl_scoring_from=root / 'out/episode_scoring')
+                reuse_stages = list(stages)
+                other = json.loads((root / 'out/vl_review/result.json').read_text())
+                other['units'][0]['description'] += ' (changed)'
+                (root / 'other_vl_review.json').write_text(json.dumps(other))
+                with self.assertRaisesRegex(ValueError, 'its V-L review differs'):
+                    scoring.run(root / 'other_vl_review.json', root / 'out/vv_review/result.json',
+                                root / 'out/episode_scoring_other', vl_scoring_from=root / 'out/episode_scoring')
+                with self.assertRaisesRegex(ValueError, 'needs chain v6'):
+                    scoring.run(root / 'out/vl_review/result.json', root / 'out/vv_review/result.json',
+                                root / 'out/episode_scoring_v5', chain='v5', vl_scoring_from=root / 'out/episode_scoring')
+            stages = first_stages
+            self.assertEqual(reuse_stages, ['VV scoring'])
+            self.assertEqual(reused['scores'], result['scores'])
+            self.assertEqual((reused['calls']['vl'], reused['calls']['vv']), (0, 1))
+            self.assertEqual(reused['reused_vl_scoring']['source'], str((root / 'out/episode_scoring').resolve()))
+            self.assertEqual(reused['unit_scores'], result['unit_scores'])
+            self.assertNotIn('reused_vl_scoring', result)
             out = root / 'out'
             verdict_input = (out / 'vv_review/verdict_input.json').read_text()
             ledger_ids = {row['global_entity_id'] for part in ('prompt_bound', 'prompt_unbound')
@@ -867,6 +898,8 @@ class Wiring(unittest.TestCase):
             root = Path(temporary)
             plan = pipeline.build_plan(base.registry_case(root), root / 'run', 'from-registry')
         for stage in plan['stages']:
+            if stage['name'] == 'vv_plugin':  # chain v6 only; the plug-in runner takes no --chain (default on, 2026-11-12)
+                continue
             self.assertEqual(stage['command'][stage['command'].index('--chain') + 1], 'v6')
         self.assertEqual(len(plan['review_prompt']), 5)  # four two-call prompts and the direct V-L verdict prompt
         self.assertIn(str(ROOT / 'prompts/vl_vv_issue_review_v7_vl_verdict_direct.txt'), plan['review_prompt'])
@@ -926,7 +959,7 @@ class ClusteringCollectionRule(unittest.TestCase):
         for removed in ('Use ONE collection node only when', 'meaningful individual separability',
                         'A dense pile/bundle is different from a few clear individual objects'):
             self.assertNotIn(removed, text)
-        self.assertIn('Items a person wears or carries are part of that person', text)
+        self.assertIn('Items a person wears or carries are separate entities', text)  # owner, 2026-11-11
 
 
 # --------------------------------------------------------------------------

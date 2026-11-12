@@ -15,6 +15,18 @@ spec.loader.exec_module(m)
 
 
 class ContractTests(unittest.TestCase):
+    def test_floor_coverings_are_candidates_by_default(self):
+        # Owner, 2026-11-11: floor coverings are entities again; the exclusion is only for historical reproduction.
+        self.assertFalse(m.EXCLUDE_FLOOR_COVERINGS)
+        shot = dict(shot_id='s1', frames=[dict(frame_id=0, timestamp_sec=0, sha256='image')])
+        labels = ['地毯', '地垫', '桌子']
+        payload = m.make_payload(shot, {('s1', 0): dict(image_size=[100, 100], detections=[
+            dict(id=i + 1, label=label, box_xyxy=[1, 2, 30, 40], score=.9) for i, label in enumerate(labels)])})
+        self.assertEqual([d['name'] for d in payload['frames'][0]['detections']], labels)
+        self.assertEqual(payload['candidate_filter']['excluded_detections'], [])
+        self.assertEqual(payload['candidate_filter']['policy'], 'none_2026_11_11')
+
+    @mock.patch.object(m, 'EXCLUDE_FLOOR_COVERINGS', True)
     def test_floor_covering_filter_preserves_raw_evidence_and_accounting(self):
         removed = ['地毯', '红地毯', '地垫', '脚垫', '浴垫', '瑜伽垫']
         retained = ['毯子/覆盖层', '软垫', '床垫', '挂毯', '餐具垫', '鼠标垫', '桌子']
@@ -38,6 +50,7 @@ class ContractTests(unittest.TestCase):
         self.assertEqual(len(result['entities']),len(retained))
         self.assertEqual(set(mapping.values()),{f'f0:d{i+1}' for i in range(6,13)})
 
+    @mock.patch.object(m, 'EXCLUDE_FLOOR_COVERINGS', True)
     def test_all_filtered_frame_is_retained_with_empty_candidates(self):
         shot = dict(shot_id='s1',frames=[dict(frame_id=0,timestamp_sec=0,sha256='image')])
         payload = m.make_payload(shot,{('s1',0):dict(image_size=[100,100],detections=[

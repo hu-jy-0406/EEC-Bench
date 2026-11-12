@@ -4,6 +4,26 @@ import argparse, base64, json, os, socket, sys, urllib.error, urllib.request
 from pathlib import Path
 
 DEFAULT_KEY_FILE = Path('/vast/users/guangyi.chen/causal_group/jinyuan.hu/.config/eecbench/openai.key')
+# EECBENCH_API_PROVIDER=openrouter (owner, 2026-11-11: "我要换成openrouter api"; set by scripts/openrouter_env.sh) sends
+# the same Responses API request to OpenRouter's Responses endpoint: model "openai/<model>", provider routing pinned
+# to OpenAI without fallbacks and only to endpoints that support every request parameter. OpenRouter's Responses API
+# is stateless (previous_response_id is rejected), so a continuation is refused here and the repair loop resends the
+# full task. The billed cost OpenRouter returns is recorded as usage.cost_usd. Default provider: openai (direct).
+PROVIDERS = {
+    'openai': dict(url='https://api.openai.com/v1/responses', key_env='EECBENCH_OPENAI_API_KEY',
+                   key_file_env='EECBENCH_OPENAI_KEY_FILE', key_file=DEFAULT_KEY_FILE, backend='openai_api'),
+    'openrouter': dict(url='https://openrouter.ai/api/v1/responses', key_env='EECBENCH_OPENROUTER_API_KEY',
+                       key_file_env='EECBENCH_OPENROUTER_KEY_FILE',
+                       key_file=Path('/vast/users/guangyi.chen/causal_group/jinyuan.hu/.config/eecbench/openrouter.key'),
+                       backend='openrouter_api'),
+}
+
+
+def provider():
+    name = os.environ.get('EECBENCH_API_PROVIDER', 'openai').strip().lower()
+    if name not in PROVIDERS:
+        raise ValueError(f'EECBENCH_API_PROVIDER must be one of {sorted(PROVIDERS)}')
+    return name
 # EECBENCH_INSTRUCTIONS_MESSAGE=developer sends a prompt's fixed instructions (the text before its last
 # INPUT block, or before the <shot> block of shot clustering) as a separate developer message and the rest
 # as the user message.  The API reuses an identical leading message from its prompt cache across calls,
@@ -33,16 +53,17 @@ def timeout_seconds():
         raise ValueError('EECBENCH_API_TIMEOUT_SECONDS must be positive')
     return value
 
-def key():
-    value = os.environ.get('EECBENCH_OPENAI_API_KEY')
+def key(name=None):
+    spec = PROVIDERS[name or provider()]
+    value = os.environ.get(spec['key_env'])
     if value:
         return value.strip()
-    path = Path(os.environ.get('EECBENCH_OPENAI_KEY_FILE', DEFAULT_KEY_FILE))
+    path = Path(os.environ.get(spec['key_file_env'], spec['key_file']))
     if not path.is_file():
-        raise RuntimeError('OpenAI key unavailable: set EECBENCH_OPENAI_API_KEY or create the configured key file')
+        raise RuntimeError(f"API key unavailable: set {spec['key_env']} or create the configured key file")
     value = path.read_text().strip()
     if not value:
-        raise RuntimeError('Configured OpenAI key file is empty')
+        raise RuntimeError('Configured API key file is empty')
     return value
 
 def parse(argv):
@@ -116,40 +137,76 @@ def main():
     if instructions:
         messages.insert(0, dict(role='developer', content=[dict(type='input_text', text=instructions)]))
     model = os.environ.get('EECBENCH_API_MODEL', 'gpt-6-luna')
-    body = dict(model=model, input=messages, reasoning=dict(effort=effort),
+    name = provider()
+    spec = PROVIDERS[name]
+    wire_model = model if name == 'openai' or '/' in model else 'openai/' + model
+    body = dict(model=wire_model, input=messages, reasoning=dict(effort=effort),
                 text=dict(format=dict(type='json_schema', name='eec_stage_output', schema=schema, strict=True)))
+    if name == 'openrouter':
+        if args.previous_response_id:
+            raise RuntimeError('OpenRouter Responses API is stateless: previous_response_id is not supported')
+        body['provider'] = dict(order=['openai'], allow_fallbacks=False, require_parameters=True)
     if args.previous_response_id:
         body['previous_response_id'] = args.previous_response_id
     if args.prompt_cache_key:
         body['prompt_cache_key'] = args.prompt_cache_key
     Path(args.output_last_message).with_name('api_request.json').write_text(json.dumps(dict(
-        backend='openai_api', model=model, reasoning=effort, image_count=len(args.image), image_labels=args.image_label or None,
+        backend=spec['backend'], model=model, wire_model=wire_model, provider_routing=body.get('provider'), reasoning=effort, image_count=len(args.image), image_labels=args.image_label or None,
         previous_response_id=args.previous_response_id,
         instructions_message='developer' if instructions else None,
         instructions_chars=len(instructions) if instructions else None,
         trailing_text_chars=len(trailing) if trailing else None, prompt_cache_key=args.prompt_cache_key,
         prompt_role=args.prompt_role,
         schema_path=str(Path(args.output_schema).resolve())), indent=2))
-    request = urllib.request.Request('https://api.openai.com/v1/responses', data=json.dumps(body).encode(),
-        headers={'Authorization':'Bearer '+key(), 'Content-Type':'application/json'}, method='POST')
+    request = urllib.request.Request(spec['url'], data=json.dumps(body).encode(),
+        headers={'Authorization':'Bearer '+key(name), 'Content-Type':'application/json'}, method='POST')
     timeout = timeout_seconds()
     try:
         with urllib.request.urlopen(request, timeout=timeout) as stream:
             response = json.loads(stream.read())
     except urllib.error.HTTPError as exc:
-        raise RuntimeError('OpenAI API '+str(exc.code)+': '+exc.read().decode(errors='replace')) from exc
+        # The "OpenAI API <code>" prefix is what the transient-error retry matches, for both providers.
+        raise RuntimeError('OpenAI API '+str(exc.code)+f' ({name}): '+exc.read().decode(errors='replace')) from exc
     except (TimeoutError, socket.timeout) as exc:
         raise RuntimeError(f'OpenAI API timeout: no response within {timeout:g} s') from exc
-    Path(args.output_last_message).write_text(output_text(response))
-    usage = response.get('usage', {})
-    event = dict(type='turn.completed', usage=dict(input_tokens=usage.get('input_tokens', 0),
-        cached_input_tokens=usage.get('input_tokens_details', {}).get('cached_tokens', 0),
-        output_tokens=usage.get('output_tokens', 0), reasoning_output_tokens=usage.get('output_tokens_details', {}).get('reasoning_tokens', 0)),
-        api_response_id=response.get('id'), backend='openai_api', model=model, reasoning=effort)
-    print(json.dumps(event), flush=True)
+    usage = response.get('usage') or {}
+    record = dict(input_tokens=usage.get('input_tokens', 0),
+                  cached_input_tokens=(usage.get('input_tokens_details') or {}).get('cached_tokens', 0),
+                  output_tokens=usage.get('output_tokens', 0),
+                  reasoning_output_tokens=(usage.get('output_tokens_details') or {}).get('reasoning_tokens', 0))
+    if usage.get('cost') is not None:  # OpenRouter: billed amount of this call in USD
+        record['cost_usd'] = usage['cost']
+    meta = dict(api_response_id=response.get('id'), backend=spec['backend'], model=model, wire_model=wire_model, reasoning=effort)
+    # A response cut off before the end (status "incomplete", or strict-schema output that is not complete JSON) is
+    # a transport failure (2026-11-11: one OpenRouter matching call stopped mid-string); the "OpenAI API incomplete"
+    # prefix makes run_wedetect_shot_entities.run_process retry it like other transient failures. The cut-off call is
+    # still billed: its usage goes out as a "response.incomplete" event, which the retry keeps in the renamed
+    # events.jsonl.transport_failed<N> log.
+    # A reply with status "failed" and no output text (2026-11-11, OpenRouter) is the same kind of transport failure:
+    # the status is checked before the text is read, and a missing text is retried too.
+    Path(args.output_last_message).with_name('api_response_meta.json').write_text(json.dumps(dict(
+        id=response.get('id'), status=response.get('status'), incomplete_details=response.get('incomplete_details'),
+        error=response.get('error')), indent=2))
+    problem, text = None, None
+    if response.get('status') not in (None, 'completed'):
+        problem = (f"status {response.get('status')}, "
+                   f"{response.get('incomplete_details') or str(response.get('error'))[:300]}")
+    else:
+        try:
+            text = output_text(response)
+            json.loads(text)
+        except RuntimeError as exc:
+            problem = str(exc)
+        except ValueError as exc:
+            problem = f'output is not complete JSON ({exc})'
+    if problem:
+        print(json.dumps(dict(type='response.incomplete', usage=record, **meta)), flush=True)
+        raise RuntimeError(f'OpenAI API incomplete ({name}): {problem}')
+    Path(args.output_last_message).write_text(text)
+    print(json.dumps(dict(type='turn.completed', usage=record, **meta)), flush=True)
 
 if __name__ == '__main__':
     try: main()
     except BaseException as exc:
-        print(json.dumps(dict(type='error', message=str(exc), backend='openai_api')), flush=True)
+        print(json.dumps(dict(type='error', message=str(exc), backend=PROVIDERS.get(os.environ.get('EECBENCH_API_PROVIDER', 'openai').strip().lower(), PROVIDERS['openai'])['backend'])), flush=True)
         raise

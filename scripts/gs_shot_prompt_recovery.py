@@ -17,6 +17,7 @@ import run_wedetect_shot_entities as io
 from gs_consistency_contract import obj,arr,enum,S,I
 from gs_prompt_binding import call,validate_registry
 import vl_vv_repair_loop as repair_loop
+import gpu_lock
 
 B=Path(__file__).resolve().parents[1]
 PYTHON=Path('/vast/users/guangyi.chen/anaconda3/envs/vace/bin/python')
@@ -285,7 +286,7 @@ def run(case,registry_path,out=None,workers=2,grounding_python=PYTHON,device='cp
             cmd=[str(grounding_python),str(B/'scripts/gs_grounding_recovery.py'),'--request',str(out/'grounding_request.json'),'--output',str(out/'grounding'),'--device',device]
             if device=='cuda':
                 if gpu is None or not gpu_uuid:raise ValueError('GPU mode requires physical index and UUID')
-                cmd=[str(PYTHON),str(B/'experiments/study2_detection_only_fresh_20260918/guard_gpu.py'),str(gpu),gpu_uuid]+cmd
+                cmd=gpu_lock.prefix(gpu_uuid)+[str(PYTHON),str(B/'experiments/study2_detection_only_fresh_20260918/guard_gpu.py'),str(gpu),gpu_uuid]+cmd
             save(out/'grounding_command.json',dict(command=cmd))
             with (out/'grounding.log').open('w') as f:subprocess.run(cmd,env=env,stdout=f,stderr=subprocess.STDOUT,check=True)
         with ThreadPoolExecutor(max_workers=workers) as pool:rows=list(pool.map(lambda pair:recover_one(case,out,*pair,binding_protocol),zip(shots,items)))

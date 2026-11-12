@@ -342,6 +342,28 @@ def signal_handler(signum, frame):
     STOP_REQUESTED = True
 
 
+def resolve_pipeline_c(progress, discovery_protocol, requested_plugin):
+    """Pipeline C settings of this experiment directory (discovery v6 only; (False, False) otherwise).
+
+    background_frontend: a new discovery v6 directory runs the background-object frontend (owner, 2026-11-11: C is the
+    default); an existing directory keeps what it recorded, and one that recorded nothing predates C and keeps it off.
+    unspecified_plugin: chosen for a new directory (default on since 2026-11-12, owner: new + plug-in is the default
+    pipeline; --unspecified-plugin off runs the ablation); an existing directory keeps what it recorded, and one that
+    recorded nothing predates the plug-in and keeps it off.
+    """
+    if discovery_protocol != 'v6':
+        if requested_plugin == 'on':
+            raise ValueError('--unspecified-plugin on needs discovery protocol v6')
+        return False, False
+    if progress is not None:
+        background = progress.get('background_frontend', False)
+        plugin = progress.get('unspecified_plugin', False)
+        if requested_plugin is not None and (requested_plugin == 'on') != plugin:
+            raise ValueError(f'This directory recorded unspecified_plugin={plugin}; use a new --exp-dir to change it')
+        return background, plugin
+    return True, requested_plugin != 'off'
+
+
 def main():
     global STOP_REQUESTED
     parser = argparse.ArgumentParser(description=__doc__)
@@ -369,6 +391,10 @@ def main():
                              'scored with scoring v3. An existing '
                              'directory keeps its recorded review protocol (directories recorded before 2026-10-06 use '
                              'v2 for discovery v2).')
+    parser.add_argument('--unspecified-plugin', choices=('on', 'off'),
+                        help='Discovery v6: run the unspecified-object plug-in before one merged V-V review (default on '
+                             'for a new --exp-dir; off = the ablation; an existing directory keeps what it recorded). New discovery v6 '
+                             'directories run pipeline C (background-object frontend) by default.')
     args = parser.parse_args()
     batch = args.batch.resolve()
     base_root = args.exp_dir.resolve() if args.exp_dir else batch.parent
@@ -395,6 +421,7 @@ def main():
         review_protocol = resolve_review_protocol(progress, protocol, args.review_protocol)
         contract_format = resolve_contract_format(progress, protocol)
         vl_format = resolve_vl_format(progress, protocol)
+        background, plugin = resolve_pipeline_c(progress, protocol, args.unspecified_plugin)
         for state in progress.get('tasks', {}).values():
             if state.get('status') == 'running':
                 state['status'] = 'interrupted'
@@ -405,6 +432,7 @@ def main():
         review_protocol = resolve_review_protocol(None, protocol, args.review_protocol)
         contract_format = resolve_contract_format(None, protocol)
         vl_format = resolve_vl_format(None, protocol)
+        background, plugin = resolve_pipeline_c(None, protocol, args.unspecified_plugin)
         progress = dict(cohort_protocol='vl_vv_first200_multimodel_v1', status='running',
                         slurm_job_id=os.environ['SLURM_JOB_ID'], started_at_utc=now(),
                         episode_order='generation_priority ascending; all five models complete before next episode',
@@ -416,6 +444,9 @@ def main():
     progress['contract_format'] = contract_format
     if vl_format is not None:
         progress['vl_format'] = vl_format
+    if protocol == 'v6':
+        progress['background_frontend'] = background
+        progress['unspecified_plugin'] = plugin
     progress['expected_scoring_protocol'] = scoring_protocol
     progress['status'] = 'running'
     progress['slurm_job_id'] = os.environ['SLURM_JOB_ID']
@@ -496,6 +527,9 @@ def main():
                 command.append('--allow-v1-contract')
             if vl_format is not None:
                 command += ['--vl-format', vl_format]
+            if protocol == 'v6':
+                command += ['--background-frontend', 'on' if background else 'off',
+                            '--unspecified-plugin', 'on' if plugin else 'off']
             stream = log.open('w')
             proc = subprocess.Popen(command, stdout=stream, stderr=subprocess.STDOUT, env=env,
                                     start_new_session=True)

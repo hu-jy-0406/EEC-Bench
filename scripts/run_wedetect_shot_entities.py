@@ -65,6 +65,9 @@ def image_label_record(labels):
 EXCLUDED_FLOOR_COVERING_LABELS = frozenset({
     '地毯', '红地毯', '地垫', '脚垫', '浴垫', '瑜伽垫',
 })
+# Owner, 2026-11-11 ("所有类别都加吧"): floor coverings are entities again; the 2026-09-20 exclusion is off by default
+# and stays selectable (EECBENCH_EXCLUDE_FLOOR_COVERINGS=1) only to reproduce historical results.
+EXCLUDE_FLOOR_COVERINGS = os.environ.get('EECBENCH_EXCLUDE_FLOOR_COVERINGS', '0') == '1'
 
 
 def dump(path, value):
@@ -159,7 +162,7 @@ def check_gpu(gpu, out, gpu_uuid=None):
 # ("OpenAI API timeout", 2026-11-07). Client errors (4xx other than 429), the
 # caller's timeout of the whole process and non-API processes are never retried.
 TRANSIENT_API_ERROR = re.compile(
-    r'OpenAI API (429|5\d\d|timeout)\b|urllib\.error\.URLError|http\.client\.RemoteDisconnected|'
+    r'OpenAI API (429|5\d\d|timeout|incomplete)\b|urllib\.error\.URLError|http\.client\.RemoteDisconnected|'
     r'http\.client\.IncompleteRead|ConnectionResetError|ConnectionRefusedError|BrokenPipeError|ssl\.SSLError')
 TRANSPORT_RETRY_DELAYS = (10, 30, 60)
 
@@ -267,7 +270,7 @@ def make_payload(shot, detections):
         candidates = []
         for d in data['detections']:
             cid = f"f{frame['frame_id']}:d{d['id']}"
-            if d['label'] in EXCLUDED_FLOOR_COVERING_LABELS:
+            if EXCLUDE_FLOOR_COVERINGS and d['label'] in EXCLUDED_FLOOR_COVERING_LABELS:
                 excluded.append(dict(frame_id=frame['frame_id'], candidate_id=cid,
                                      detection=copy.deepcopy(d),
                                      reason='floor_covering_excluded_from_entity_nodes'))
@@ -281,8 +284,8 @@ def make_payload(shot, detections):
     # reviewer input. Raw detector files/counts/IDs remain unchanged. Exact-once
     # reviewer accounting applies to retained candidates only.
     return dict(shot_id=shot['shot_id'], frames=frames,
-                candidate_filter=dict(policy='exclude_floor_coverings_v1',
-                                      excluded_labels=sorted(EXCLUDED_FLOOR_COVERING_LABELS),
+                candidate_filter=dict(policy='exclude_floor_coverings_v1' if EXCLUDE_FLOOR_COVERINGS else 'none_2026_11_11',
+                                      excluded_labels=sorted(EXCLUDED_FLOOR_COVERING_LABELS) if EXCLUDE_FLOOR_COVERINGS else [],
                                       excluded_detections=excluded))
 
 
